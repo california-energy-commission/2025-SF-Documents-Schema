@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+   targetNamespace="http://www.lmonte.com/besm/CF2RSRA02E"
+   xmlns="http://www.lmonte.com/besm/CF2RSRA02E"
+   xmlns:d="http://www.lmonte.com/besm/d"
+   xmlns:bld="http://www.lmonte.com/besm/bld"
+   xmlns:env="http://www.lmonte.com/besm/env"
+   xmlns:lit="http://www.lmonte.com/besm/lit"
+   xmlns:hvac="http://www.lmonte.com/besm/hvac"
+   xmlns:comp="http://www.lmonte.com/besm/comp"
+   xmlns:com="http://www.lmonte.com/besm/com"
+   xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:altova="http://www.altova.com/xml-schema-extensions"
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2022.0.000">
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RSRA02E"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Minimum Solar Zone Area Worksheet New Construction"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderHERS" />
+                     <xsd:element ref="cF2RSRA02E" />
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor" />
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_E" />
+                     <xsd:element name="Footer" type="comp:Footer" />
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20220101"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RSRA02E"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:complexType name="CF2RSRA02E">
+      <xsd:annotation>
+         <xsd:documentation>Minimum Solar Zone Area Worksheet New Construction</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="Section_A" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Minimum Required Solar Zone Area for Single Family Residence</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">2022.0.000 MOVED FROM: B_Section and now always required</xsd:documentation>
+               <xsd:appinfo source="PrevName">
+                  <dtyp:prevSchema version="2019.1.006" changed="section only">Section_B</dtyp:prevSchema>
+               </xsd:appinfo>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="A_BeforeNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Before A Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Solar Zone Area (requirements in [d:t24refnolink/]110.10 (b)1A Exception 1 or 6)  This worksheet applies to: [d:l t="*"][d:list] Single family residences without PV that wish to show compliance with the Solar Readiness requirements (Section 110.10(b) by providing a solar zone on the roof of the residence.   Note that Exceptions 1,and 6 to Section 110.10(b)1A exempt a residence from the solar readiness requirements and are documented on the Certificate of Installation document  CF2R-SRA-01-E.  Check the exception being used and fill in the relevant details. [/d:list][/d:l]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A01_IsResidence3StoriesOrMoreAnd2000ft2OrLess" type="comp:IsResidence3StoriesOrMoreAnd2000ft2OrLess" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Does the residence have three stories or more, and a total floor area less than or equal to 2,000 square feet?</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input,  Boolean value.  For true value display text: Yes.  For false value display text: No. 
+
+2022.0.000 MOVED FROM: B01_IsResidence3StoriesOrMoreAnd2000ft2OrLess</xsd:documentation>
+                        <xsd:appinfo source="PrevName">
+                           <dtyp:prevSchema version="2019.1.006" changed="section only">B01_IsResidence3StoriesOrMoreAnd2000ft2OrLess</dtyp:prevSchema>
+                        </xsd:appinfo>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A02_IsResidenceInCZ8_14WildlandUrbanAreaWithWHF" type="comp:IsResidenceInCZ8_14WildlandUrbanAreaWithWHF" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Is the residence located in Climate zones 8-14, in a Wildland-Urban Interface Fire Area as defined in Title 24, Part 2, and have a whole house fan?</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input, Boolean value.  For true value display text: Yes.  For false value display text: No. 
+
+2022.0.000 MOVED FROM: B02_IsResidenceInCZ8_14WildlandUrbanAreaWithWHF</xsd:documentation>
+                        <xsd:appinfo source="PrevName">
+                           <dtyp:prevSchema version="2019.1.006" changed="section only">B02_IsResidenceInCZ8_14WildlandUrbanAreaWithWHF</dtyp:prevSchema>
+                        </xsd:appinfo>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="A03_RoofAreaLowSlope70PercentSolarAccess" type="comp:RoofAreaLowSlope70PercentSolarAccess" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">What is the total area of low-sloped roofs where the annual solar access is 70% or greater (ft[d:sup]2[/d:sup])?</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input: either the numeric value stored in RoofAreaLowSlope70PercentSolarAccess, 
+or allow user to select N/A stored in the NotApplicableMessage element.
+
+2022.0.000 MOVED FROM: B03_RoofAreaLowSlope70PercentSolarAccess</xsd:documentation>
+                           <xsd:appinfo source="PrevName">
+                              <dtyp:prevSchema version="2019.1.006" changed="section only">B03_RoofAreaLowSlope70PercentSolarAccess</dtyp:prevSchema>
+                           </xsd:appinfo>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="A03_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">What is the total area of low-sloped roofs where the annual solar access is 70% or greater (ft[d:sup]2[/d:sup])?</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input: either the numeric value stored in RoofAreaLowSlope70PercentSolarAccess, 
+or allow user to select N/A stored in the NotApplicableMessage element.
+
+2022.0.000 MOVED FROM: B03_NotApplicableMessage</xsd:documentation>
+                           <xsd:appinfo source="PrevName">
+                              <dtyp:prevSchema version="2019.1.006" changed="section only">B03_NotApplicableMessage</dtyp:prevSchema>
+                           </xsd:appinfo>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="A04_RoofAreaSteepSlope70PercentSolarAccess" type="comp:RoofAreaSteepSlope70PercentSolarAccess" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">What is the total area of steep-sloped roofs oriented between 90 and 300 degrees relative to true north, where the annual solar access is 70% or greater (ft[d:sup]2[/d:sup])?</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input: either the numeric value stored in RoofAreaSteepSlope70PercentSolarAccess, or allow user to select N/A stored in the NotApplicableMessage .
+
+2022.0.000 MOVED FROM: B04_RoofAreaSteepSlope70PercentSolarAccess</xsd:documentation>
+                           <xsd:appinfo source="PrevName">
+                              <dtyp:prevSchema version="2019.1.006" changed="section only">B04_RoofAreaSteepSlope70PercentSolarAccess</dtyp:prevSchema>
+                           </xsd:appinfo>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="A04_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">What is the total area of steep-sloped roofs oriented between 90 and 300 degrees relative to true north, where the annual solar access is 70% or greater (ft[d:sup]2[/d:sup])?</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input: either the numeric value stored in RoofAreaSteepSlope70PercentSolarAccess, or allow user to select N/A stored in the NotApplicableMessage .
+
+2022.0.000 MOVED FROM: B04_NotApplicableMessage</xsd:documentation>
+                           <xsd:appinfo source="PrevName">
+                              <dtyp:prevSchema version="2019.1.006" changed="section only">B04_NotApplicableMessage</dtyp:prevSchema>
+                           </xsd:appinfo>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="A05_SolarZoneAreaPotential" type="comp:SolarZoneAreaPotential" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Solar Zone Area - solar access method (ft[d:sup]2[/d:sup])</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If A03_NotApplicableMessage  Or  A04_NotApplicableMessage == N/A Then result = N/A stored in the NotApplicableMessage ;  Else result = ( A03_RoofAreaLowSlope70PercentSolarAccess + A04_RoofAreaSteepSlope70PercentSolarAccess)  x  0.5
+
+2022.0.000 MOVED FROM: B05_SolarZoneAreaPotential</xsd:documentation>
+                           <xsd:appinfo source="PrevName">
+                              <dtyp:prevSchema version="2019.1.006" changed="section only">B05_SolarZoneAreaPotential</dtyp:prevSchema>
+                           </xsd:appinfo>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="A05_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Solar Zone Area - solar access method (ft[d:sup]2[/d:sup])</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If A03_NotApplicableMessage  Or  A04_NotApplicableMessage == N/A Then result = N/A stored in the NotApplicableMessage ;  Else result = ( A03_RoofAreaLowSlope70PercentSolarAccess + A04_RoofAreaSteepSlope70PercentSolarAccess)  x  0.5
+
+2022.0.000 MOVED FROM: B05_NotApplicableMessage</xsd:documentation>
+                           <xsd:appinfo source="PrevName">
+                              <dtyp:prevSchema version="2019.1.006" changed="section only">B05_NotApplicableMessage</dtyp:prevSchema>
+                           </xsd:appinfo>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:element name="A06_IsOCST_RequirementSatisfied" type="comp:IsOCST_RequirementSatisfied" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Are all the thermostats Occupant Controlled Smart Thermostats (OCST), certified to the Energy Commission and listed on the Commission's appliances database?</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Alternatively, a networked system of devices may be installed that provides functionality equivalent to an OCST.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input, Boolean value.  For true value display text: Yes.  For false value display text: No.  User input: 
+
+2022.0.000 MOVED FROM:  B06_IsOCST_RequirementSatisfied</xsd:documentation>
+                        <xsd:appinfo source="PrevName">
+                           <dtyp:prevSchema version="2019.1.006" changed="section only">B06_IsOCST_RequirementSatisfied</dtyp:prevSchema>
+                        </xsd:appinfo>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A07_SolarZoneAreaRequiredMinimum" type="comp:SolarZoneAreaRequiredMinimum" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Minimum required solar zone area (ft[d:sup]2[/d:sup])</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If A01_IsResidence3StoriesOrMoreAnd2000ft2OrLess And A02_IsResidenceInCZ8_14WildlandUrbanAreaWithWHF  And A06_IsOCST_RequirementSatisfied  ==  false Then 
+If A05_NotApplicableMessage == N/A Then result = 250, 
+Else If A05_SolarZoneAreaPotential NotNull result = Smallest( A05_SolarZoneAreaPotential, 250); 
+End If  
+
+Else if A01_IsResidence3StoriesOrMoreAnd2000ft2OrLess Or  A02_IsResidenceInCZ8_14WildlandUrbanAreaWithWHF   Or   A06_IsOCST_RequirementSatisfied  = true Then 
+If A05_NotApplicableMessage == N/A  result = 150, 
+Else If A05_SolarZoneAreaPotential NotNull  result = Smallest( A05_SolarZoneAreaPotential, 150).
+End If
+End If
+
+2022.0.000 MOVED FROM: B07_SolarZoneAreaRequiredMinimum</xsd:documentation>
+                        <xsd:appinfo source="PrevName">
+                           <dtyp:prevSchema version="2019.1.006" changed="section only">B07_SolarZoneAreaRequiredMinimum</dtyp:prevSchema>
+                        </xsd:appinfo>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_B" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Schedule of Solar Zone Sub-Areas</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">2022.0.000 MOVED FROM: D_Section</xsd:documentation>
+               <xsd:appinfo source="PrevName">
+                  <dtyp:prevSchema version="2019.1.006" changed="section only">D_Section</dtyp:prevSchema>
+               </xsd:appinfo>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableSubAreas" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="B01_SolarZoneSubAreaID" type="comp:SolarZoneSubAreaID" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Subarea ID</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input text maximum 50 characters
+
+2022.0.000 MOVED FROM: D01_SolarZoneSubAreaID</xsd:documentation>
+                                          <xsd:appinfo source="PrevName">
+                                             <dtyp:prevSchema version="2019.1.006" changed="section only">D01_SolarZoneSubAreaID</dtyp:prevSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B02_BuildingPlanName" type="comp:BuildingPlanName" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Building Plan Reference</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input text maximum 50 characters
+
+2022.0.000 MOVED FROM: D02_BuildingPlanName</xsd:documentation>
+                                          <xsd:appinfo source="PrevName">
+                                             <dtyp:prevSchema version="2019.1.006" changed="section only">D02_BuildingPlanName</dtyp:prevSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B03_RoofSlope" type="env:RoofSlope" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Slope of Roof or Overhang (Note A)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input: select from list: SteepSlope, LowSlope
+
+2022.0.000 MOVED FROM: D03_RoofSlope</xsd:documentation>
+                                          <xsd:appinfo source="PrevName">
+                                             <dtyp:prevSchema version="2019.1.006" changed="section only">D03_RoofSlope</dtyp:prevSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B04_IsSolarZoneSubAreaSteepSlopeAzimuthCompliant" type="comp:IsSolarZoneSubAreaSteepSlopeAzimuthCompliant" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Is Steep Slope roof or overhang oriented between 90 and 300 degrees relative to true north?</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If B03_RoofSlope != SteepSlope than result = N/A stored in the NotApplicableMessage; Else user input : select from list of Boolean values: For true display term Yes.  For false display term No.  User input.  
+
+2022.0.000 MOVED FROM: D04_IsSolarZoneSubAreaSteepSlopeAzimuthCompliant</xsd:documentation>
+                                             <xsd:appinfo source="PrevName">
+                                                <dtyp:prevSchema version="2019.1.006" changed="section only">D04_IsSolarZoneSubAreaSteepSlopeAzimuthCompliant</dtyp:prevSchema>
+                                             </xsd:appinfo>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B04_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">If Steep Slope roof or overhang is oriented between 90 and 300 degrees relative to true north?</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If B03_RoofSlope != SteepSlope than result = N/A stored in the NotApplicableMessage; Else user input : select from list of Boolean values: For true display text: Yes.  For false display text: No.  User input.  
+
+2022.0.000 MOVED FROM: D04_NotApplicabbleMessage</xsd:documentation>
+                                             <xsd:appinfo source="PrevName">
+                                                <dtyp:prevSchema version="2019.1.006" changed="section only">D04_NotApplicabbleMessage</dtyp:prevSchema>
+                                             </xsd:appinfo>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="B05_IsSolarZoneSubAreaT24Part9Compliant" type="comp:IsSolarZoneSubAreaT24Part9Compliant" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Subarea complies with Part 9 of Title 24  (Note B)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input : select from list of   Boolean values: For true display text: Yes.  For false display text: No.  
+
+2022.0.000 MOVED FROM: D05_IsSolarZoneSubAreaT24Part9Compliant</xsd:documentation>
+                                          <xsd:appinfo source="PrevName">
+                                             <dtyp:prevSchema version="2019.1.006" changed="section only">D05_IsSolarZoneSubAreaT24Part9Compliant</dtyp:prevSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B06_IsSolarZoneSubAreaObstructionsFree" type="comp:IsSolarZoneSubAreaObstructionsFree" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Plane containing the solar zone is free of obstructions  (Note C)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input : select from list of Boolean values: For true display text: Yes.  For false display text: No.   
+
+2022.0.000 MOVED FROM: D06_IsSolarZoneSubAreaObstructionsFree</xsd:documentation>
+                                          <xsd:appinfo source="PrevName">
+                                             <dtyp:prevSchema version="2019.1.006" changed="section only">D06_IsSolarZoneSubAreaObstructionsFree</dtyp:prevSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B07_IsSolarZoneSubAreaDistantFromObstructions" type="comp:IsSolarZoneSubAreaDistantFromObstructions" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Subarea is located  the appropriate distance from obstructions  (Note D)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If D06_IsSolarZoneSubAreaObstructionsFree == true then result = N/A  in the NotApplicableMessage; Else user input: select from list of Boolean values: For true display text: Yes.  For false display text: No. 
+
+2022.0.000 MOVED FROM: D07_IsSolarZoneSubAreaDistantFromObstructions</xsd:documentation>
+                                             <xsd:appinfo source="PrevName">
+                                                <dtyp:prevSchema version="2019.1.006" changed="section only">D07_IsSolarZoneSubAreaDistantFromObstructions</dtyp:prevSchema>
+                                             </xsd:appinfo>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B07_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Subarea is located  the appropriate distance from obstructions  (Note D)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If D06_IsSolarZoneSubAreaObstructionsFree == true then result = N/A  in the NotApplicableMessage; Else user input: select from list of Boolean values: For true display text: Yes.  For false display text: No. 
+
+2022.0.000 MOVED FROM: D07_NotApplicableMessage</xsd:documentation>
+                                             <xsd:appinfo source="PrevName">
+                                                <dtyp:prevSchema version="2019.1.006" changed="section only">D07_NotApplicabbleMessage</dtyp:prevSchema>
+                                             </xsd:appinfo>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="B08_IsSolarZoneSubAreaSmallDimension5ftPlus" type="comp:IsSolarZoneSubAreaSmallDimension5ftPlus" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Smallest dimension is 5 feet or greater</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input : select from list of Boolean values: For true display text: Yes.  For false display text: No.  User input.
+
+2022.0.000 MOVED FROM: D08_IsSolarZoneSubAreaSmallDimension5ftPlus</xsd:documentation>
+                                          <xsd:appinfo source="PrevName">
+                                             <dtyp:prevSchema version="2019.1.006" changed="section only">D08_IsSolarZoneSubAreaSmallDimension5ftPlus</dtyp:prevSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B09_IsSolarZoneSubAreaAdequateSize" type="comp:IsSolarZoneSubAreaAdequateSize" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Subarea is at least 80 ft [d:sup]2[/d:sup] (160 ft[d:sup]2[/d:sup] for a building with roof area greater than 10,000 ft[d:sup]2[/d:sup])</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input : select from list of Boolean values: For true display text: Yes.  For false display text: No.  User input.
+
+2022.0.000 MOVED FROM: D09_IsSolarZoneSubAreaAdequateSize</xsd:documentation>
+                                          <xsd:appinfo source="PrevName">
+                                             <dtyp:prevSchema version="2019.1.006" changed="section only">D09_IsSolarZoneSubAreaAdequateSize</dtyp:prevSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B10_DoesSolarZoneSubAreaQualify" type="comp:DoesSolarZoneSubAreaQualify" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Subarea Qualifies</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field:   
+If B05_IsSolarZoneSubAreaT24Part9Compliant Or B08_IsSolarZoneSubAreaSmallDimension5ftPlus Or B09_IsSolarZoneSubAreaAdequateSize == false then result = false;  
+
+Else If B03_RoofSlope == LowSlope  Then 
+If B06_IsSolarZoneSubAreaObstructionsFree == true Or B07_IsSolarZoneSubAreaDistantFromObstructions == true 
+result = true, 
+Else result = false;  
+End If
+Else If B03_RoofSlope == SteepSlope And B04_IsSolarZoneSubAreaSteepSlopeAzimuthCompliant == true,  Then 
+If B06_IsSolarZoneSubAreaObstructionsFree == true Or B07_IsSolarZoneSubAreaDistantFromObstructions == true 
+result = true, 
+Else result is false.  
+End If
+End If
+For Boolean true value display text: Yes;  For Boolean false value, display text:  No   
+
+2022.0.000 MOVED FROM: D10_DoesSolarZoneSubAreaQualify</xsd:documentation>
+                                          <xsd:appinfo source="PrevName">
+                                             <dtyp:prevSchema version="2019.1.006" changed="section only">D10_DoesSolarZoneSubAreaQualify</dtyp:prevSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B11_SolarZoneSubAreaSquareFootage" type="comp:SolarZoneSubAreaSquareFootage" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Area (ft[d:sup]2[/d:sup])</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input number
+
+2022.0.000 MOVED FROM: D11_SolarZoneSubAreaSquareFootage</xsd:documentation>
+                                          <xsd:appinfo source="PrevName">
+                                             <dtyp:prevSchema version="2019.1.006" changed="section only">D11_SolarZoneSubAreaSquareFootage</dtyp:prevSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="B11AfterNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Notes:</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Notes: [d:l t="A"][d:list] A roof is either low-sloped or steep-sloped. "Low-sloped" means a rise-to-run of 2:12 or less (9.5 degrees from horizontal). "Steep-sloped"  means a rise-to-run greater than 2:12 (9.5 degrees from horizontal) [/d:list][d:list] The solar zone shall comply with access, pathway, smoke ventilation, and spacing requirements as specified in Title 24, Part 9 or other Parts of Title 24 or in any requirements adopted by a local jurisdiction. [/d:list][d:list] No obstructions, including but not limited to, vents, chimneys, architectural features, and roof mounted equipment, shall be located in the solar zone. [/d:list][d:list] If there are any obstructions located south of the most northerly point of the solar zone, then the nearest point of the solar zone must be located no closer than twice the distance, measured in the horizontal plane, of the height difference between the highest point of the obstruction and the nearest point of the solar zone, measured in the vertical plane. [/d:list][/d:l]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">2022.0.000 MOVED FROM: D11AfterNote1</xsd:documentation>
+                        <xsd:appinfo source="PrevName">
+                           <dtyp:prevSchema version="2019.1.006" changed="section only">D11AfterNote1</dtyp:prevSchema>
+                        </xsd:appinfo>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B12_TotalProposedSolarZoneArea" type="comp:TotalProposedSolarZoneArea" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Total proposed solar zone area (ft[d:sup]2[/d:sup])</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field:  SUM ALL ( B11_SolarZoneSubAreaSquareFootage)  
+
+2022.0.000 MOVED FROM: D12_TotalProposedSolarZoneArea</xsd:documentation>
+                        <xsd:appinfo source="PrevName">
+                           <dtyp:prevSchema version="2019.1.006" changed="section only">D12_TotalProposedSolarZoneArea</dtyp:prevSchema>
+                        </xsd:appinfo>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B13_IsSolarZoneAreaCompliant" type="comp:IsSolarZoneAreaCompliant" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Compliance statement</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field:  If B12_TotalProposedSolarZoneArea GTE A07_SolarZoneAreaRequiredMinimum result = true.  
+
+Else result is false.  For Boolean true value display term: Building complies.   For Boolean false value, display term: Building does not comply
+
+2022.0.000 MOVED FROM: D13_IsSolarZoneAreaCompliant</xsd:documentation>
+                        <xsd:appinfo source="PrevName">
+                           <dtyp:prevSchema version="2019.1.006" changed="section only">D13_IsSolarZoneAreaCompliant</dtyp:prevSchema>
+                        </xsd:appinfo>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="cF2RSRA02E" type="CF2RSRA02E">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF2RSRA02E compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>

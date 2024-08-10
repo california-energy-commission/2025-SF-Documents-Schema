@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+   targetNamespace="http://www.lmonte.com/besm/CF3RMCH32H"
+   xmlns="http://www.lmonte.com/besm/CF3RMCH32H"
+   xmlns:d="http://www.lmonte.com/besm/d"
+   xmlns:bld="http://www.lmonte.com/besm/bld"
+   xmlns:env="http://www.lmonte.com/besm/env"
+   xmlns:lit="http://www.lmonte.com/besm/lit"
+   xmlns:hvac="http://www.lmonte.com/besm/hvac"
+   xmlns:comp="http://www.lmonte.com/besm/comp"
+   xmlns:com="http://www.lmonte.com/besm/com"
+   xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:altova="http://www.altova.com/xml-schema-extensions"
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2022.0.000">
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF3RMCH32H"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF VERIFICATION"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Local Mechanical Exhaust"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderHERS" />
+                     <xsd:element ref="cF3RMCH32H" />
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor" />
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF3R" />
+                     <xsd:element name="Footer" type="comp:Footer" />
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20220101"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF3RMCH32H"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:complexType name="CF3RMCH32H">
+      <xsd:annotation>
+         <xsd:documentation>Local Mechanical Exhaust</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Local Mechanical Exhaust - General Information</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">In this section parent CC refers to the parent CF1R Certificate of Compliance (CC) and Mch01 refers to the CF2R-Mch-01 or Prescriptive CF1R; else if information is not available then allow user input;</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="A_BeforeNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Before Section Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Title 24, Part 6, Section 150.0(o) [d:b]Ventilation for Indoor Air Quality.[/d:b] All dwelling units shall meet the requirements of ASHRAE Standard 62.2. Ventilation and Acceptable Indoor Air Quality in Residential Buildings, subject to the amendments specified in Section 150.0(o)1.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A01_DwellingUnitName" type="com:DwellingUnitName" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Dwelling unit name</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Referenced data from Mch01</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A02_ResidentialBuildingTypeMechExhaust" type="com:ResidentialBuildingTypeMechExhaust" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Building Type</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Referenced data from CF1R, else if information is not available then allow user input. Allowed Values SingleFamilyAttached display term Single family attached, SingleFamilyDetached display term Single family detached</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="A03_FloorArea" type="com:FloorArea" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Total Kitchen Floor Area</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A06_EnclosedSpace == false And (B03_KitchenExhaustSystemType  == VentedRangeHood And B08_KitchenExhaustOperation == DemandControl for ALL systems)
+allow NotApplicable stored in NotApplicableMessage
+Else User input numeric xx.xx 
+End If</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="A03_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Total Kitchen Floor Area</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A06_EnclosedSpace == false And (B03_KitchenExhaustSystemType  == VentedRangeHood And B08_KitchenExhaustOperation == DemandControl for ALL systems)
+allow NotApplicable stored in NotApplicableMessage
+Else User input numeric xx.xx 
+End If</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="A04_FloorToCeilingHeight" type="com:FloorToCeilingHeight" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Kitchen Average Ceiling Height</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A06_EnclosedSpace == false And (B03_KitchenExhaustSystemType  == VentedRangeHood And B08_KitchenExhaustOperation == DemandControl for ALL systems)
+allow NotApplicable stored in NotApplicableMessage
+Else User input numeric xx.xx 
+End If</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="A04_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Kitchen Average Ceiling Height</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A06_EnclosedSpace == false And (B03_KitchenExhaustSystemType  == VentedRangeHood And B08_KitchenExhaustOperation == DemandControl for ALL systems)
+allow NotApplicable stored in NotApplicableMessage
+Else User input numeric xx.xx 
+End If</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="A05_Volume" type="com:Volume" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Kitchen Total Conditioned Volume</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If A03_NotApplicableMessage   Or A04_NotApplicableMessage == NotApplicable
+result = NotApplicable stored in NotApplicableMessage
+Else 
+ result = A03_FloorArea *  A04_FloorToCeilingHeight
+End If</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="A05_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Kitchen Total Conditioned Volume</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If A03_NotApplicableMessage   Or A04_NotApplicableMessage == NotApplicable
+result = NotApplicable stored in NotApplicableMessage
+Else 
+ result = A03_FloorArea *  A04_FloorToCeilingHeight
+End If</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:element name="A06_EnclosedSpace" type="com:EnclosedSpace" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Kitchen  Type</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from Enclosed, Boolean value true or Non-Enclosed Boolean false</xsd:documentation>
+                        <xsd:appinfo source="displayterm">
+                           <dtyp:displayterm value="true">Enclosed</dtyp:displayterm>
+                           <dtyp:displayterm value="false">Non-Enclosed</dtyp:displayterm>
+                        </xsd:appinfo>
+                        
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A07_DwellingUnitConditionedFloorArea" type="com:DwellingUnitConditionedFloorArea" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Dwelling Unit Total Floor Area</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: data loaded from Mch01 A03_DwellingUnitConditionedFloorArea or Prescriptive CF1R; else if information is not available then allow user input;</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A08_FuelType" type="com:FuelType" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Kitchen Range (Cooking Stove) Fuel Type</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from list: electric, gas</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_B" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Kitchen Exhaust System</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableSystems" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="B01_KitchenExhaustSystemName" type="com:KitchenExhaustSystemName" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">System Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input text up to 50 characters</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B02_ManufacturerName" type="com:ManufacturerName" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Manufacturer Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input text up to 50 characters</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B03_KitchenExhaustSystemType" type="com:KitchenExhaustSystemType"  maxOccurs="1">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">System Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list: Downdraft display term Downdraft, Other display term Other, VentedRangeHood display term Vented Range Hood</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B04_SystemModelNumberHVI" type="comp:SystemModelNumberHVI" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">HVI or AHAM Directory Listed Model Number</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input text up to 50 characters</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B05_SystemRatedAirflowHVI" type="comp:SystemRatedAirflowHVI" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">HVI or AHAM Directory Listed Rated Airflow</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input numeric xxxx.xx</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B06_SystemSoundRatingHVI" type="comp:SystemSoundRatingHVI" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">HVI or AHAM Directory Listed Sound Rating</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input numeric xx.xx</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B07_KitchenExhaustMinimumAirFlow" type="com:KitchenExhaustMinimumAirFlow" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Minimum Airflow (defaults to rated airflow)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Defaults to B05_SystemRatedAirflowHVI otherwise user input numeric xxx.xx not to exceed B05_SystemRatedAirflowHVI</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B08_KitchenExhaustOperation" type="com:KitchenExhaustOperation" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Operation Schedule</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list: ContinuousOperation display term Continuous, DemandControl display term Demand Control</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B09a_HoodExhaustComplianceMethod" type="comp:HoodExhaustComplianceMethod" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Method of Compliance</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If B08_KitchenExhaustOperation == ContinuousOperation
+result = N/A stored in NotApplicableMessage
+Else user selects from list: Airflow, CaptureEfficiency
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B09a_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Method of Compliance</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If B08_KitchenExhaustOperation == ContinuousOperation
+result = N/A stored in NotApplicableMessage
+Else user selects from list: Airflow, CaptureEfficiency
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B09_MinimumAirflowRateRequired" type="comp:MinimumAirflowRateRequired" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Required Minimum Ventilation Rate (if demand controlled)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Calculated field (results are in CFM): 
+ 
+ if B09a = Capture Efficiency, then result = NA – See Table C2; 
+ Elseif B09a = Airflow, then calculate the following as default:
+ If the following three conditions are met: (1) B08=Demand Control, (2) B03=Vent Range Hood, and (3) A08=Electric, AND
+ If A07 GT 1500, then result = 110;
+ Elseif A07 = 1,000-1,500, then result = 110;
+ Elseif A07 = 750-1,000, then result = 130; Elseif A07 LT 750, then result = 160; End if;
+ 
+ Elseif the following three conditions are met: (1) B08=Demand Control, (2) B03=Vent Range Hood, and (3) A08 = Natural Gas, AND
+ If A07 GT 1,500, then result = 180;
+ Elseif A07 = 1,000-1,500, then result = 250;
+ Elseif A07 = 750-1,000, then result = 280; Elseif A07 LT 750, then result = 280; End if;
+ 
+ Elseif the following three conditions are met: (1) B08=Demand Control, (2) A06 = Enclosed, and B03 = Other or Downdraft, then result is the lesser of 300 cfm or (5*(A05/60));
+ 
+ Elseif the following three conditions are met: (1) B08=Demand Control, (2) A06 = Nonenclosed, and (3) B03 = Other or Downdraft, then result = 300;
+ 
+ Else result = N/A – See Table C
+                                             
+                                             
+                                             </xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B09_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Required Minimum Ventilation Rate (if demand controlled)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Calculated field (results are in CFM):  If B09a = Capture Efficiency, then result = NA – See Table C2; 
+ Elseif B09a = Airflow, then calculate the following as default:
+ If the following three conditions are met: (1) B08=Demand Control, (2) B03=Vent Range Hood, and (3) A08=Electric, AND
+ If A07 GT 1500, then result = 110;
+ Elseif A07 = 1,000-1,500, then result = 110;
+ Elseif A07 = 750-1,000, then result = 130; Elseif A07 LT 750, then result = 160; End if;
+ 
+ Elseif the following three conditions are met: (1) B08=Demand Control, (2) B03=Vent Range Hood, and (3) A08 = Natural Gas, AND
+ If A07 GT 1,500, then result = 180;
+ Elseif A07 = 1,000-1,500, then result = 250;
+ Elseif A07 = 750-1,000, then result = 280; Elseif A07 LT 750, then result = 280; End if;
+ 
+ Elseif the following three conditions are met: (1) B08=Demand Control, (2) A06 = Enclosed, and B03 = Other or Downdraft, then result is the lesser of 300 cfm or (5*(A05/60));
+ 
+ Elseif the following three conditions are met: (1) B08=Demand Control, (2) A06 = Nonenclosed, and (3) B03 = Other or Downdraft, then result = 300;
+ 
+ Else result = N/A – See Table C</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="B10a_SoundRatingException" type="comp:SoundRatingException" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Exception to Maximum Sound Rating</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Default value = NoSoundException but allow user to override and select  ExceptionSoundRating display term Remote mounted fan with min. 4ft of duct between fan and intake grille</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B10_KitchenExhaustSoundRating" type="com:KitchenExhaustSoundRating" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Maximum Sound Rating</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Calculated field: 
+If B10a_SoundRatingException == ExceptionSoundRating
+result = N/A stored in NotApplicableMessage
+Else  If B08_KitchenExhaustOperation == ContinuousOperation result = 1Sone; 
+Else If B08_KitchenExhaustOperation == DemandControl And B07_KitchenExhaustMinimumAirFlow  LTE 400 result = 3Sone; 
+Else result = N/A stored in NotapplicableMessage
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B10_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Maximum Sound Rating</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Calculated field: 
+If B10a_SoundRatingException == ExceptionSoundRating
+result = N/A stored in NotApplicableMessage
+Else  If B08_KitchenExhaustOperation == ContinuousOperation result = 1Sone; 
+Else If B08_KitchenExhaustOperation == DemandControl And B07_KitchenExhaustMinimumAirFlow  LTE 400 result = 3Sone; 
+Else result = N/A stored in NotapplicableMessage
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B11_DoesKitchenExhaustSystemComply" type="comp:DoesKitchenExhaustSystemComply" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Compliance Statement for Airflow</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Calculated field: 
+If B09a_HoodExhaustComplianceMethod == CaptureEfficiency
+result = N/A stored in NotApplicableMessage display term N/A
+Else If B09a_HoodExhaustComplianceMethod == Airflow
+If B08_KitchenExhaustOperation == DemandControl 
+If B05_SystemRatedAirflowHVI GTE B09_MinimumAirflowRateRequired   
+result = true display term Complies; 
+Else
+result = false display term Does Not Comply
+End If
+Else If  If B08_KitchenExhaustOperation == ContinuousOperation  
+result = N/A stored in NotApplicableMessage 
+End If 
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B11_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Compliance Statement for Airflow</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Calculated field: 
+If B09a_HoodExhaustComplianceMethod == CaptureEfficiency
+result = N/A stored in NotApplicableMessage display term N/A
+Else If B09a_HoodExhaustComplianceMethod == Airflow
+If B08_KitchenExhaustOperation == DemandControl 
+If B05_SystemRatedAirflowHVI GTE B09_MinimumAirflowRateRequired   
+result = true display term Complies; 
+Else
+result = false display term Does Not Comply
+End If
+Else If  If B08_KitchenExhaustOperation == ContinuousOperation  
+result = N/A stored in NotApplicableMessage 
+End If 
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="B12_DoesKitchenExhaustSoundComply" type="comp:DoesKitchenExhaustSoundComply" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Compliance Statement for Sound</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field: 
+If B06_SystemSoundRatingHVI  LTE B10_KitchenExhaustSoundRating Or If B10_NotApplicableMessage == N/A
+result = true display term Complies
+Else 
+result = false display term Does Not Comply
+End If</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_C" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Continuous Kitchen Exhaust</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="C01_TotalContinuousAirflow" type="comp:TotalContinuousAirflow" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Total Continuous Ventilation Airflow</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If no system has B08_KitchenExhaustOperation == ContinuousOperation result = N/A stored in NotApplicableMessage; Else for all systems where B08_KitchenExhaustOperation == ContinuousOperation result = SUM ALL (B05_SystemRatedAirflowHVI)</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="C01_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Total Continuous Ventilation Airflow</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If no system has B08_KitchenExhaustOperation == ContinuousOperation result = N/A stored in NotApplicableMessage; Else for all systems where B08_KitchenExhaustOperation == ContinuousOperation result = SUM ALL (B05_SystemRatedAirflowHVI)</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="C02_MinimumContinuousAirflow" type="comp:MinimumContinuousAirflow" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Required Minimum Continuous Ventilation Airflow</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If C01_NotApplicableMessage == N/A result = N/A stored in NotApplicableMessage; Else result = PRODUCT (5, A05_SpaceVolume) / 60</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="C02_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Required Minimum Continuous Ventilation Airflow</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If C01_NotApplicableMessage == N/A result = N/A stored in NotApplicableMessage; Else result = PRODUCT (5, A05_SpaceVolume) / 60</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="C03_DoesKitchenExhaustSystemComply" type="comp:DoesKitchenExhaustSystemComply" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If C01_NotApplicableMessage == N/A result = N/A stored in NotApplicableMessage; Else If C01_TotalContinuousAirflow GTE C02_MinimumContinuousAirflow result = true display term Complies; Else result = false display term Does Not Comply</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="C03_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If C01_NotApplicableMessage == N/A result = N/A stored in NotApplicableMessage; Else If C01_TotalContinuousAirflow GTE C02_MinimumContinuousAirflow result = true display term Kitchen Exhaust System Complies; Else result = false display term Kitchen Exhaust System Does Not Comply</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_C2" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Kitchen Range Hood Capture Efficiency Option</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required If B09a_HoodExhaustComplianceMethod == CaptureEfficiency</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="Cap01_ManufacturerName" type="com:ManufacturerName" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Manufacturer Name</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input text up to 50 characters</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Cap02_SystemModelNumberCEC" type="comp:SystemModelNumberCEC" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">CEC-Approved Directory Listed Model Number</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input text up to 50 characters</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Cap03_CaptureEfficiency" type="comp:CaptureEfficiency" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">CEC-Approved Directory Listed Rated Capture Efficiency (%)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input numeric efficiecy in percentage units</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Cap04_MinimumRequiredCaptureEfficiency" type="comp:MinimumRequiredCaptureEfficiency" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Required Minimum Capture Efficiency ([d:i]Table 150.0-G[/d:i])</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field
+If A07_DwellingUnitConditionedFloorArea GT 1500 Then
+If A08_FuelType == Electric
+result 50
+Else If A08_FuelType == Gas
+result = 70
+End If
+ 
+Else If A07_DwellingUnitConditionedFloorArea InRange (1,000, 1,500)
+If A08_FuelType == Electric
+result 50
+Else If A08_FuelType == Gas
+result = 80
+End If
+ 
+Else If A07_DwellingUnitConditionedFloorArea InRange (750, 1,000)
+If A08_FuelType == Electric
+result = 55
+Else If A08_FuelType == Gas
+result = 85
+End If
+ 
+Else If A07_DwellingUnitConditionedFloorArea InRange LT750
+If A08_FuelType == Electric
+result 65
+Else If A08_FuelType == Gas
+result = 85
+End If
+End If</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Cap05_DoesKitchenExhaustSystemComply" type="comp:DoesKitchenExhaustSystemComply" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field:  If Cap03_CaptureEfficiency GTE Cap04_MinimumRequiredCaptureEfficiency
+result = true display term Complies
+Else
+result = false display term Does Not Comply
+End If</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_D" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Determination of HERS Verification Compliance</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="D_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">All applicable sections of this document shall indicate compliance with the specified verification protocol requirements in order for this Certificate of Verification as a whole to be determined to be in compliance.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D01_DoesCF3R_Pass" type="comp:DoesCF3R_Pass" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If B11_DoesKitchenExhaustSystemComply == true for all rows And B12_DoesKitchenExhaustSoundComply == true for all rows And 
+C03_DoesKitchenExhaustSystemComply == true Or Cap05_DoesKitchenExhaustSystemComply == true 
+result = true display term Complies: All specified verification protocol requirements on this document are met.   
+Else result = false display term Does not comply: One or more specified verification protocol requirements on this document are not met.
+End If</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="cF3RMCH32H" type="CF3RMCH32H">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF3RMCH32H compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>
