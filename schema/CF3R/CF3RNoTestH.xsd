@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2020 (http://www.altova.com) by Diane Pepetone (L'Monte) -->
-<xsd:schema xmlns="http://www.lmonte.com/besm/CF3RNoTestH" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.lmonte.com/besm/CF3RNoTestH" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2022.0.000">
+<xsd:schema xmlns="http://www.lmonte.com/besm/CF3RNoTestH" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.lmonte.com/besm/CF3RNoTestH" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2025.0.000">
 	<xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
 	<xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
 	<xsd:element name="ComplianceDocumentPackage">
@@ -35,7 +35,7 @@
 				</xsd:element>
 				<xsd:element name="Report" type="xsd:base64Binary"/>
 			</xsd:sequence>
-			<xsd:attribute name="revision" type="xsd:string" use="required" fixed="rev 20220101"/>
+			<xsd:attribute name="revision" type="xsd:string" use="required" fixed="rev 20250101"/>
 			<xsd:attribute name="doc" type="comp:ComplianceDocumentTag"/>
 		</xsd:complexType>
 	</xsd:element>
