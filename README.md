@@ -1,6 +1,6 @@
-# 2025 HERS Documents Schema
+# 2025 Single Family Documents Schema
 
-[![Remote Dispatch Action Dispatcher](https://github.com/NORESCO/2025-HERS-Documents-Schema/actions/workflows/dispatch.yml/badge.svg)](https://github.com/NORESCO/2025-HERS-Documents-Schema/actions/workflows/dispatch.yml)
+[![Remote Dispatch Action Dispatcher](https://github.com/NORESCO/2025-SF-Documents-Schema/actions/workflows/dispatch.yml/badge.svg)](https://github.com/NORESCO/2025-SF-Documents-Schema/actions/workflows/dispatch.yml)
 
 - [Contributing](#contributing)
 - [Deploy Schema](#deploy-schema)
