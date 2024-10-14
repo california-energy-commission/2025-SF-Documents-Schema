@@ -11313,6 +11313,7 @@
          </xsd:appinfo>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="BoilerWaterHeater">Boiler</dtyp:displayterm>
+            <dtyp:displayterm value="ElectricPOUConsumer">Consumer Electric with Point of Use</dtyp:displayterm>
             <dtyp:displayterm value="HeatPumpWaterHeater">Heat Pump Water Heater</dtyp:displayterm>
             <dtyp:displayterm value="IndirectWaterHeating">Indirect</dtyp:displayterm>
             <dtyp:displayterm value="InstantaneousCommercial">Commercial Instantaneous</dtyp:displayterm>
@@ -11331,6 +11332,7 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="BoilerWaterHeater"/>
+         <xsd:enumeration value="ElectricPOUConsumer"/>
          <xsd:enumeration value="HeatPumpWaterHeater"/>
          <xsd:enumeration value="IndirectWaterHeating"/>
          <xsd:enumeration value="InstantaneousCommercial"/>

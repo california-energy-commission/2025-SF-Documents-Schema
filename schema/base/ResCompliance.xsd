@@ -168,6 +168,22 @@
       <xsd:restriction base="xsd:token">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="AdditionSpaceConditioningHERSException">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="ExceptionNoChange">space conditioning system not altered</dtyp:displayterm>
+            <dtyp:displayterm value="ExceptionDuctsLT25ft">less than 25ft of ducts added or replaced</dtyp:displayterm>
+            <dtyp:displayterm value="ExceptionDuctsAsbestos">existing duct system insulated with asbestos</dtyp:displayterm>
+            <dtyp:displayterm value="ExceptionDuctsVerifiedByHERS">existing duct system tested and passed by Rater</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="ExceptionNoChange"/>
+         <xsd:enumeration value="ExceptionDuctsLT25ft"/>
+         <xsd:enumeration value="ExceptionDuctsAsbestos"/>
+         <xsd:enumeration value="ExceptionDuctsVerifiedByHERS"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="AddressSignsInternalLuminationInstalled">
       <xsd:annotation>
          <xsd:appinfo source="displaytermType">
@@ -2373,8 +2389,10 @@
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="CF1R-ADD-01-E">CF1R-ADD-01-E</dtyp:displayterm>
+            <dtyp:displayterm value="CF1R-ADD-02-E">CF1R-ADD-02-E</dtyp:displayterm>
             <dtyp:displayterm value="CF1R-ALT-01-E">CF1R-ALT-01-E</dtyp:displayterm>
             <dtyp:displayterm value="CF1R-ALT-02-E">CF1R-ALT-02-E</dtyp:displayterm>
+            <dtyp:displayterm value="CF1R-ALT-05-E">CF1R-ALT-05-E</dtyp:displayterm>
             <dtyp:displayterm value="CF1R-ENV-01-E">CF1R-ENV-01-E</dtyp:displayterm>
             <dtyp:displayterm value="CF1R-ENV-02-E">CF1R-ENV-02-E</dtyp:displayterm>
             <dtyp:displayterm value="CF1R-ENV-03-E">CF1R-ENV-03-E</dtyp:displayterm>
@@ -2388,6 +2406,8 @@
             <dtyp:displayterm value="CF1R-SRA-02-E">CF1R-SRA-02-E</dtyp:displayterm>
             <dtyp:displayterm value="CF1R-STH-01-E">CF1R-STH-01-E</dtyp:displayterm>
             <dtyp:displayterm value="CF1R-STH-02-E">CF1R-STH-02-E</dtyp:displayterm>
+            <dtyp:displayterm value="CF2R-ADD-02-E">CF2R-ADD-02-E</dtyp:displayterm>
+            <dtyp:displayterm value="CF2R-ALT-05-E">CF2R-ALT-05-E</dtyp:displayterm>
             <dtyp:displayterm value="CF2R-ELC-01-E">CF2R-ELC-01-E</dtyp:displayterm>
             <dtyp:displayterm value="CF2R-ENV-01-E">CF2R-ENV-01-E</dtyp:displayterm>
             <dtyp:displayterm value="CF2R-ENV-02-E">CF2R-ENV-02-E</dtyp:displayterm>
@@ -2535,8 +2555,10 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstantPermissive">
          <xsd:enumeration value="CF1R-ADD-01-E"/>
+         <xsd:enumeration value="CF1R-ADD-02-E"/>
          <xsd:enumeration value="CF1R-ALT-01-E"/>
          <xsd:enumeration value="CF1R-ALT-02-E"/>
+         <xsd:enumeration value="CF1R-ALT-05-E"/>
          <xsd:enumeration value="CF1R-ENV-01-E"/>
          <xsd:enumeration value="CF1R-ENV-02-E"/>
          <xsd:enumeration value="CF1R-ENV-03-E"/>
@@ -2550,6 +2572,8 @@
          <xsd:enumeration value="CF1R-SRA-02-E"/>
          <xsd:enumeration value="CF1R-STH-01-E"/>
          <xsd:enumeration value="CF1R-STH-02-E"/>
+         <xsd:enumeration value="CF2R-ADD-02-E"/>
+         <xsd:enumeration value="CF2R-ALT-05-E"/>
          <xsd:enumeration value="CF2R-ELC-01-E"/>
          <xsd:enumeration value="CF2R-ENV-01-E"/>
          <xsd:enumeration value="CF2R-ENV-02-E"/>
@@ -2812,8 +2836,10 @@
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="CF1RADD01E">CF1RADD01E</dtyp:displayterm>
+            <dtyp:displayterm value="CF1RADD02E">CF1RADD02E</dtyp:displayterm>
             <dtyp:displayterm value="CF1RALT01E">CF1RALT01E</dtyp:displayterm>
             <dtyp:displayterm value="CF1RALT02E">CF1RALT02E</dtyp:displayterm>
+            <dtyp:displayterm value="CF1RALT05E">CF1RALT05E</dtyp:displayterm>
             <dtyp:displayterm value="CF1RENV01E">CF1RENV01E</dtyp:displayterm>
             <dtyp:displayterm value="CF1RENV02E">CF1RENV02E</dtyp:displayterm>
             <dtyp:displayterm value="CF1RENV03E">CF1RENV03E</dtyp:displayterm>
@@ -2827,6 +2853,8 @@
             <dtyp:displayterm value="CF1RSRA02E">CF1RSRA02E</dtyp:displayterm>
             <dtyp:displayterm value="CF1RSTH01E">CF1RSTH01E</dtyp:displayterm>
             <dtyp:displayterm value="CF1RSTH02E">CF1RSTH02E</dtyp:displayterm>
+            <dtyp:displayterm value="CF2RADD02E">CF2RADD02E</dtyp:displayterm>
+            <dtyp:displayterm value="CF2RALT05E">CF2RALT05E</dtyp:displayterm>
             <dtyp:displayterm value="CF2RELC01E">CF2RELC01E</dtyp:displayterm>
             <dtyp:displayterm value="CF2RENV01E">CF2RENV01E</dtyp:displayterm>
             <dtyp:displayterm value="CF2RENV02E">CF2RENV02E</dtyp:displayterm>
@@ -3083,8 +3111,10 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstantPermissive">
          <xsd:enumeration value="CF1RADD01E"/>
+         <xsd:enumeration value="CF1RADD02E"/>
          <xsd:enumeration value="CF1RALT01E"/>
          <xsd:enumeration value="CF1RALT02E"/>
+         <xsd:enumeration value="CF1RALT05E"/>
          <xsd:enumeration value="CF1RENV01E"/>
          <xsd:enumeration value="CF1RENV02E"/>
          <xsd:enumeration value="CF1RENV03E"/>
@@ -3098,6 +3128,8 @@
          <xsd:enumeration value="CF1RSRA02E"/>
          <xsd:enumeration value="CF1RSTH01E"/>
          <xsd:enumeration value="CF1RSTH02E"/>
+         <xsd:enumeration value="CF2RADD02E"/>
+         <xsd:enumeration value="CF2RALT05E"/>
          <xsd:enumeration value="CF2RELC01E"/>
          <xsd:enumeration value="CF2RENV01E"/>
          <xsd:enumeration value="CF2RENV02E"/>
@@ -3403,6 +3435,8 @@
             <dtyp:displayterm value="Pre-Cooling">Pre-Cooling</dtyp:displayterm>
             <dtyp:displayterm value="Prescriptive Newly Constructed Buildings">Prescriptive Newly Constructed Buildings</dtyp:displayterm>
             <dtyp:displayterm value="Prescriptive Additions 1000 Ft2 or Less">Prescriptive Additions 1000 Ft2 or Less</dtyp:displayterm>
+            <dtyp:displayterm value="Prescriptive Residential Additions That Do Not Require Field Verification">Prescriptive Residential Additions That Do Not Require Field Verification"</dtyp:displayterm>
+            <dtyp:displayterm value="Prescriptive Residential Alterations That Do Not Require Field Verification">Prescriptive Residential Alterations That Do Not Require Field Verification"</dtyp:displayterm>
             <dtyp:displayterm value="Prescriptive Residential Alterations">Prescriptive Residential Alterations</dtyp:displayterm>
             <dtyp:displayterm value="Process Systems">Process Systems</dtyp:displayterm>
             <dtyp:displayterm value="Project Summary Report">Project Summary Report</dtyp:displayterm>
@@ -3482,6 +3516,8 @@
          <xsd:enumeration value="Pre-Cooling"/>
          <xsd:enumeration value="Prescriptive Newly Constructed Buildings"/>
          <xsd:enumeration value="Prescriptive Additions 1000 Ft2 or Less"/>
+         <xsd:enumeration value="Prescriptive Residential Additions That Do Not Require Field Verification"/>
+         <xsd:enumeration value="Prescriptive Residential Alterations That Do Not Require Field Verification"/>
          <xsd:enumeration value="Prescriptive Residential Alterations"/>
          <xsd:enumeration value="Process Systems"/>
          <xsd:enumeration value="Project Summary Report"/>
@@ -15063,6 +15099,24 @@
       <xsd:restriction base="xsd:token">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="ProjectScopeAddAltNonHERS">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="Fenestration">Fenestration Addition/Alteration</dtyp:displayterm>
+            <dtyp:displayterm value="Insulation">Insulation Addition/Alteration</dtyp:displayterm>
+            <dtyp:displayterm value="RoofRadiantBarrier">Roof/Radiant Barrier Addition/Alteration</dtyp:displayterm>
+            <dtyp:displayterm value="SpaceConditioning">SpaceConditioning Addition/Alteration</dtyp:displayterm>
+            <dtyp:displayterm value="WaterHeating">WaterHeating Addition/Alteration</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="Fenestration"/>
+         <xsd:enumeration value="Insulation"/>
+         <xsd:enumeration value="RoofRadiantBarrier"/>
+         <xsd:enumeration value="SpaceConditioning"/>
+         <xsd:enumeration value="WaterHeating"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="ProjectScopeAdditions">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
@@ -20442,6 +20496,7 @@ Time Dependent Valuation (TDV) Gas Propane energy is calculated by multiplying t
             <dtyp:displayterm value="OptionC1HPwithSolarThermal">C1 Central heat pump water heater with solar thermal</dtyp:displayterm>
             <dtyp:displayterm value="OptionC2HPwithPV">C2 Central heat pump water heater with PV</dtyp:displayterm>
             <dtyp:displayterm value="OptionElectInstantaneous">Addition 500 ft2 or less, an instantaneous electric water heater</dtyp:displayterm>
+            <dtyp:displayterm value="OptionElectPointOfUse">Electric water heater with point of use distribution</dtyp:displayterm>
             <dtyp:displayterm value="OptionInstantaneousWH">Gas or propane instantaneous water heater</dtyp:displayterm>
             <dtyp:displayterm value="OptionSingleHWH">Single heat pump water heater.</dtyp:displayterm>
             <dtyp:displayterm value="OptionSolarWH">Solar water heating</dtyp:displayterm>
@@ -20462,6 +20517,7 @@ Time Dependent Valuation (TDV) Gas Propane energy is calculated by multiplying t
          <xsd:enumeration value="OptionC1HPwithSolarThermal"/>
          <xsd:enumeration value="OptionC2HPwithPV"/>
          <xsd:enumeration value="OptionElectInstantaneous"/>
+         <xsd:enumeration value="OptionElectPointOfUse"/>
          <xsd:enumeration value="OptionInstantaneousWH"/>
          <xsd:enumeration value="OptionSingleHWH"/>
          <xsd:enumeration value="OptionSolarWH"/>

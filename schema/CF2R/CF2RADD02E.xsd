@@ -1,0 +1,1372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+   targetNamespace="http://www.lmonte.com/besm/CF2RADD02E"
+   xmlns="http://www.lmonte.com/besm/CF2RADD02E"
+   xmlns:d="http://www.lmonte.com/besm/d"
+   xmlns:bld="http://www.lmonte.com/besm/bld"
+   xmlns:env="http://www.lmonte.com/besm/env"
+   xmlns:lit="http://www.lmonte.com/besm/lit"
+   xmlns:hvac="http://www.lmonte.com/besm/hvac"
+   xmlns:comp="http://www.lmonte.com/besm/comp"
+   xmlns:com="http://www.lmonte.com/besm/com"
+   xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:altova="http://www.altova.com/xml-schema-extensions"
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2025.0.000">
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RADD02E"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Prescriptive Residential Additions That Do Not Require Field Verification"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderHERSCC" />
+                     <xsd:element ref="cF2RADD02E" />
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor" />
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF1R" />
+                     <xsd:element name="Footer" type="comp:Footer" />
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RADD02E"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:complexType name="CF2RADD02E">
+      <xsd:annotation>
+         <xsd:documentation>Prescriptive Additions That Do Not Require Hers Field Verification</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="DocumentBeginNote1" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText"></xsd:documentation>
+               <xsd:documentation source="AdditionalRequirements">Alterations to Space Conditioning Systems that are exempt from field verification requirements may use the CF1R-ADD-02 and CF2R-ADD-02 compliance documents.  Possible exemptions from duct leakage testing include: less than 25 feet (ft) of ducts were added or replaced; or the existing duct system was insulated with asbestos; or the existing duct system was previously tested and passed by an ECC Rater.  If space conditioning systems are altered and are not exempt from field verification, then a CF1R-ADD-01 and CF1R-ALT-02 must be completed and registered with an ECC Provider Data Registry.[d:line2/] Additions or alterations that utilize closed cell Spray Polyurethane Foam (ccSPF) with a density of 1.5 to less than 2.5 pounds per cubic foot having an R-value greater than 5.8 per inch, or open cell Spray Polyurethane Foam (ocSPF) with a density of 0.4 to less than 1.5 pounds per cubic foot having an R-value of 3.6 per inch, shall complete and register a CF1R ADD-01 with an ECC Provider Data Registry.[d:line2/] If more than one person has responsibility for installation of the items on this certificate, each person shall prepare and sign a certificate applicable to the portion of construction for which they are responsible. Alternatively, the person with chief responsibility for construction shall prepare and sign this certificate for the entire construction. All applicable Mandatory Measures shall be met. Temporary labels shall not be removed before verification by the building inspector.</xsd:documentation>
+           </xsd:annotation>
+         </xsd:element>
+         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">General Information</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="A01_ProjectName" type="com:ProjectName" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Project Name</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto-filled: reference text from CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A02_ComplianceApplicationDate" type="comp:ComplianceApplicationDate" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Date Prepared</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: Date</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A03_StreetAddress" type="com:StreetAddress" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Project Location</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto-filled: reference text from CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A04_Azimuth" type="dtyp:Azimuth" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Building Front Orientation (deg)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: IntegerNonnegative</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A05_City" type="com:City" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">CA City</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto-filled: reference text from CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A06_Zipcode" type="dtyp:Zipcode" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Zip Code</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto-filled: reference text from CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A07_ClimateZone" type="com:ClimateZone" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Climate Zone</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto-filled: reference text from CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A08_AdditionTotalConditionedFloorArea" type="com:AdditionTotalConditionedFloorArea" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Total Conditioned Floor Area (ft[d:sup]2[/d:sup]) (Addition)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto-filled: reference text from CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A09_ResidentialLowriseBuildingType" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Building Type</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">result = SingleFamily display term Single family,</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="com:ResidentialLowriseBuildingType">
+                           <xsd:enumeration value="SingleFamily"/>
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="A10_FloorSlabArea" type="env:FloorSlabArea" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Slab Area (ft[d:sup]2[/d:sup])</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto-filled: reference text from CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A11_ProjectScopeAddAltNonHERS" type="comp:ProjectScopeAddAltNonHERS" minOccurs="1" maxOccurs="unbounded">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Project Scope</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User can select as many as are applicable from list: 
+Insulation display term Insulation (Show tables B, C, D, E, F), RoofRadiantBarrier display term Roofing/Radiant Barrier (Show tables G, H, I, J, K), Fenestration display term Fenestration (Show tables L, M), SpaceConditioning display term Space Conditioning System (Show table N), 
+WaterHeating display term Water Heating (Show tables O, P)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="InsulationTitle" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">[d:b]Insulation[/d:b]</xsd:documentation></xsd:annotation>
+         </xsd:element>
+         <xsd:element name="InsulationNote" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText"></xsd:documentation>
+               <xsd:documentation source="AdditionalRequirements">The altered components shall comply with all applicable requirements in The Energy Efficiency Standards Sections 110.0-110.9, 150.0(a)-(q), and 150.2(a)1;   All joints, penetrations and other openings in the building envelope that are potential sources of air leakage shall be caulked, gasketed, weather stripped, or otherwise sealed to limit infiltration and exhilaration.</xsd:documentation>
+           </xsd:annotation>
+         </xsd:element>
+         <xsd:element name="Section_B" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Roof/Ceiling Insulation</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if A11_ProjectScopeAddAltNonHERS contains Insulation.</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableRoof" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="B01_PartitionName" type="env:PartitionName" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">I.D.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B02_ManufacturerBrand" type="env:ManufacturerBrand" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Manufacturer and Brand</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B03_PartitionFramingMaterial">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Framing Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02; allowed values are: Metal or WoodFraming</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="env:PartitionFramingMaterial">
+                                             <xsd:enumeration value="Metal"/>
+                                             <xsd:enumeration value="WoodFraming"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B04_FramingSize" type="env:FramingSize" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Frame Depth (inches)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02; allowed values are: 2x4, 2x6, 2x8, 2x10, 2x12, 2x14 Else result = NA</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element> 
+                                       <xsd:element name="B04_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Frame Depth (inches)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02; allowed values are: 2x4, 2x6, 2x8, 2x10, 2x12, 2x14 Else result = NA</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                    <xsd:element name="B05_FramingSpacing" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Frame Spacing (inches)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02; allowed values are:  16 inches on center, 24 inches of center, 48 inches on center Else result = NA</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="env:FramingSpacing">
+                                             <xsd:enumeration value="16InchOC"/>
+                                             <xsd:enumeration value="24InchOC"/>
+                                             <xsd:enumeration value="48InchOC"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                       <xsd:element name="B05_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Frame Spacing (inches</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02; allowed values are:  16 inches on center, 24 inches of center, 48 inches on center Else result = NA</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="B06_InsulationType" type="env:InsulationType" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Insulation Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list of insulation types: Cellulose, Cement EPS compound, Expanded polystyrene, Extruded polystyrene, Fiberglass, Insulation other, Mineral wool, Plastic polyisocyanurate, Plastic polystyrene, Polyurethane, Spray Foam Insulation (SPF), Urea formaldehyde or None, (NoInsulation);   If the insulation they used is not listed they should select Insulation Other.</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B07_ICCESReportNumber" type="env:ICCESReportNumber" >
+                                           <xsd:annotation>
+                                             <xsd:documentation source="FieldText">ESR Number</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If user is using a non-standard R-value for SPF insulation, complete an ICC Evaluation Service Report and record the ESR number here; Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B07_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">ESR Number</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If user is using a non-standard R-value for SPF insulation, complete an ICC Evaluation Service Report and record the ESR number here; Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="B08_InsulationRValue" type="env:InsulationRValue" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Cavity Insulation R-value</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input DecimalNonnegative</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B09_InsulationThickness" type="env:InsulationThickness" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Insulation Depth (inches)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input IntegerNonnegative</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B10_InsulationRValue" type="env:InsulationRValue" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Below Deck Insulation R-value</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input DecimalNonnegative</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_C" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Framed Wall Insulation</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if A11_ProjectScopeAddAltNonHERS contains Insulation.</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableWall" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="C01_PartitionName" type="env:PartitionName" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">I.D.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C02_ManufacturerBrand" type="env:ManufacturerBrand" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Manufacturer and Brand</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C03_PartitionFramingMaterial" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Framing Material</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02; allowed values are:  Metal or WoodFraming</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="env:PartitionFramingMaterial">
+                                             <xsd:enumeration value="Metal"/>
+                                             <xsd:enumeration value="WoodFraming"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="C04_FramingSize" type="env:FramingSize" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Frame Depth (inches)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02; allowed values are: 2x4, 2x6, 2x8, 2x10, 2x12, 2x14 Else result = NA</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element> 
+                                       <xsd:element name="C04_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Frame Depth (inches)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02; allowed values are: 2x4, 2x6, 2x8, 2x10, 2x12, 2x14 Else result = NA</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+				       <xsd:element name="C05_FramingSpacing" type="env:FramingSpacing" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Frame Spacing (inches)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02; allowed values are:  16 inches on center, 24 inches of center, 48 inches on center; Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C05_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Frame Spacing (inches)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data from CF1R, Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="C06_InsulationType" type="env:InsulationType" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Insulation Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list of insulation types: Cellulose, Cement EPS compound, Expanded polystyrene, Extruded polystyrene, Fiberglass, Insulation other, Mineral wool, Plastic polyisocyanurate, Plastic polystyrene, Polyurethane, Spray Foam Insulation (SPF), Urea formaldehyde;   If the insulation they used is not listed they should select Insulation Other.</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="C07_ICCESReportNumber" type="env:ICCESReportNumber" >
+                                           <xsd:annotation>
+                                             <xsd:documentation source="FieldText">ESR Number</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If user is using a non-standard R-value for SPF insulation, complete an ICC Evaluation Service Report and record the ESR number here; Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C07_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">ESR Number</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If user is using a non-standard R-value for SPF insulation, complete an ICC Evaluation Service Report and record the ESR number here; Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="C08_InsulationRValue" type="env:InsulationRValue" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Cavity Insulation R-value</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Auto-filled from CF1R but user can override with value GTE the CF1R value.</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C09_InsulationThickness" type="env:InsulationThickness" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Insulation Depth (inches)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input IntegerNonnegative </xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C10_InsulationRValue" type="env:InsulationRValue" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Exterior Wall Insulation R-value</xsd:documentation>
+                                       <xsd:documentation source="CalculationsAndRules">User input DecimalNonnegative </xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C11_InsulationRValue" type="env:InsulationRValue" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Interior Wall Insulation R-value</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input DecimalNonnegative </xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_D" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Masonry/Mass Wall Insulation</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if A11_ProjectScopeAddAltNonHERS contains Insulation.</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableMass" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="D01_PartitionName" type="env:PartitionName" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">I.D.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D02_ManufacturerBrand" type="env:ManufacturerBrand" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Manufacturer and Brand</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D03_PartitionAboveGrade" type="env:PartitionAboveGrade" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Mass Wall Location</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02; allowed values are: yes (true value) if wall is located above grade and No (false value) if wall is below grade</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D04_MassWallThickness" type="env:MassWallThickness" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Mass Thickness (inches)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02; allowed value is a DecimalNonnegative</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D05_FurringStripThickness" type="env:FurringStripThickness" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Furring Strip Type/Depth (inches)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input IntegerNonnegative</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D06_InsulationType" type="env:InsulationType" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Insulation Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list of insulation types: Cellulose, Cement EPS compound, Expanded polystyrene, Extruded polystyrene, Fiberglass, Insulation other, Mineral wool, Plastic polyisocyanurate, Plastic polystyrene, Polyurethane, Spray Foam Insulation (SPF), Urea formaldehyde;   If the insulation they used is not listed they should select Insulation Other.</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D07_InsulationRValue" type="env:InsulationRValue" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Exterior Insulation R-value</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input DecimalNonnegative</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D08_InsulationRValue" type="env:InsulationRValue" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Interior Insulation R-value</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input DecimalNonnegative</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_E" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Raised Floor Insulation</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if A11_ProjectScopeAddAltNonHERS contains Insulation.</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableFloor" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="E01_PartitionName" type="env:PartitionName" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">I.D.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="E02_ManufacturerBrand" type="env:ManufacturerBrand" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Manufacturer and Brand</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="E03_PartitionFramingMaterial" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Framing Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02; allowed values: Metal or WoodFraming</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="env:PartitionFramingMaterial">
+                                             <xsd:enumeration value="Metal"/>
+                                             <xsd:enumeration value="WoodFraming"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="E04_FramingSize" type="env:FramingSize" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Frame Depth (inches)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02; allowed values are: 2x4, 2x6, 2x8, 2x10, 2x12, 2x14 Else result = NA</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element> 
+                                       <xsd:element name="E04_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Frame Depth (inches)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02; allowed values are: 2x4, 2x6, 2x8, 2x10, 2x12, 2x14 Else result = NA</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+				       <xsd:element name="E05_FramingSpacing" type="env:FramingSpacing" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Framing Spacing (inches)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02; allowed values are: 16InchOC, 24InchOC, 48InchOC Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="E05_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Framing Spacing (inches)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02; allowed values are: 16InchOC, 24InchOC, 48InchOC, Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="E06_InsulationType" type="env:InsulationType" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Insulation Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list of insulation types: Cellulose, Cement EPS compound, Expanded polystyrene, Extruded polystyrene, Fiberglass, Insulation other, Mineral wool, Plastic polyisocyanurate, Plastic polystyrene, Polyurethane, Spray Foam Insulation (SPF), Urea formaldehyde;   If the insulation they used is not listed they should select Insulation Other.</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="E07_ICCESReportNumber" type="env:ICCESReportNumber" >
+                                           <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Insulation Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If user is using a non-standard R-value for SPF insulation, complete an ICC Evaluation Service Report and record the ESR number here; Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="E07_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Core/Cavity Insulation R-value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If user is using a non-standard R-value for SPF insulation, complete an ICC Evaluation Service Report and record the ESR number here; Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="E08_InsulationRValue" type="env:InsulationRValue" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Cavity Insulation R-value</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input IntegerNonnegative</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="E09_InsulationThickness" type="env:InsulationThickness" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Insulation Depth (inches)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input IntegerNonnegative </xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="E10_InsulationRValue" type="env:InsulationRValue" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Exterior Floor Insulation R-value</xsd:documentation>
+                                       <xsd:documentation source="CalculationsAndRules">User input DecimalNonnegative </xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="E11_InsulationRValue" type="env:InsulationRValue" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Interior Floor Insulation R-value</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input DecimalNonnegative </xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                 </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_F" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Slab Floor/Perimeter Insulation)</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if A11_ProjectScopeAddAltNonHERS contains Insulation.</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableSlab" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="F01_PartitionName" type="env:PartitionName" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">I.D.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="F02_ManufacturerBrand" type="env:ManufacturerBrand" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Manufacturer and Brand</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="F03_ExteriorFloorType" type="env:ExteriorFloorType" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Floor Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02; allowed values are: SlabOnGrade, SlabConcreteRaised, SlabHeated</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="F04_InsulationType" type="env:InsulationType" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Insulation Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list of insulation types: Cellulose, Cement EPS compound, Expanded polystyrene, Extruded polystyrene, Fiberglass, Insulation other, Mineral wool, Plastic polyisocyanurate, Plastic polystyrene, Polyurethane, Spray Foam Insulation (SPF), Urea formaldehyde;   If the insulation they used is not listed they should select Insulation Other.</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="F05_InsulationThickness" type="env:InsulationThickness" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Insulation Depth (inches)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input IntegerNonnegative</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="F06_InsulationRValue" type="env:InsulationRValue" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Insulation R-value</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input DecimalNonnegative</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="F07_SlabInsulationVerticalILength" type="com:SlabInsulationVerticalILength" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Vertical Insulation Length (inches)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input IntegerNonnegative, Else If no vertical insulation result is N/A stored in the NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="F07_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Vertical Insulation Length (inches)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input IntegerNonnegative, Else If no vertical insulation result is N/A stored in the NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="F08_SlabInsulationHorizontalLength" type="com:SlabInsulationHorizontalLength" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Horizontal Insulation Length (feet)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input IntegerNonnegative, Else If no horizontal insulation result is N/A stored in the NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="F08_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Horizontal Insulation Length (feet)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input IntegerNonnegative, Else If no horizontal insulation result is N/A stored in the NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="RoofingTitle" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">[d:b]Roofing and Radiant Barrier[/d:b]</xsd:documentation></xsd:annotation>
+         </xsd:element>
+         <xsd:element name="Section_G" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Radiant Barrier</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if A11_ProjectScopeAddAltNonHERS contains RoofRadiantBarrier.</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="G01_RadiantBarrierProductNameNumber" type="comp:RadiantBarrierProductNameNumber" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Brand Name and product number</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G02_RadiantBarrierInstallationType" type="env:RadiantBarrierInstallationType" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Installation Type</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from list:  UndersideRoofDeck display text: Attached to underside of roof deck; BottomTrussRafters display text: Attached to bottom of truss/rafters; BetweenTrussRafters  display text:  Attached between truss/rafters; OverTopTrussRafters display text: Draped over top of truss/rafters;  UndersideWithAirSpace display text: Attached to underside of roof deck with air space; UndersideWithBaffle display text: Attached to underside of roof deck with baffle.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G03_AtticFloorArea" type="env:AtticFloorArea" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Total Attic Area (ft[d:sup]2[/d:sup])</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input integer nonnegative</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_H" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Required Vent Area</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if A11_ProjectScopeAddAltNonHERS contains RoofRadiantBarrier.</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="H01_AtticInstalledTotalNetFreeArea" type="env:AtticInstalledTotalNetFreeArea" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Combined net free area (NFA) of installed upper and lower vents (in[d:sup]2[/d:sup])</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input DecimalNonnegative</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H02_AtticAllVentMinimumNetFreeAreaRequired" type="env:AtticAllVentMinimumNetFreeAreaRequired" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Minimum required combined net free area (NFA) of upper and lower vents (in[d:sup]2[/d:sup])</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: result = (G03_AtticFloorArea / 300) x 144</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H03_AtticUpperVentsTotalNetFreeAreaInstalled" type="env:AtticUpperVentsTotalNetFreeAreaInstalled" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Net Free Area (NFA) of installed upper vents (in[d:sup]2[/d:sup])</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input DecimalNonnegative</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H04_AtticUpperVentMinimumNetFreeAreaRequired" type="env:AtticUpperVentMinimumNetFreeAreaRequired" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Minimum required net free area (NFA) of upper vents (in[d:sup]2[/d:sup])</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: result = H02_AtticAllVentMinimumNetFreeAreaRequired x 0.3</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_I" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Roofing Products (Cool Roof) Installation Information</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if A11_ProjectScopeAddAltNonHERS contains RoofRadiantBarrier.</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableRoof" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="I01_IsRoofPitchGTE2Run12Rise" type="comp:IsRoofPitchGTE2Run12Rise" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Roof Pitch</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list; true value display term Roof pitch is greater or equal to than 2 :12, and false value display term Roof pitch is less than 2 :12</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="I02_CRRCProductID" type="env:CRRCProductID" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">CRRC Product ID Number</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input value from Cool Roof Rating Council (CRRC) rated product directory</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="I03_RoofProductType" type="env:RoofProductType" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Product type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from CRRC product list: AsphaltShingles, BuiltUpRoofing,  ClayRoofTiles, FactoryAppliedCoating, FieldAppliedCoating, FluidAppliedMembrane, MetalRoof, MetalShakesShingles, ModifiedBitumin, PolymerCompositeSteepSlope, RoofPavers, SinglePlyThermoplastic, SinglePlyThermoset, SprayPolyurethaneFoam, StoneAggregateBallast,</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="I04_IsAgedSolarReflectanceCRRC" type="comp:IsAgedSolarReflectanceCRRC" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">CRRC Listed Aged Solar Reflectance</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects Yes for Boolean true, No for Boolean false</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="I05_SolarReflectanceInitial" type="com:SolarReflectanceInitial" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Initial Solar Reflectance</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input DecimalNonnegative; value must be GT 0 and LT 1</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="I06_SolarReflectanceAged" type="com:SolarReflectanceAged" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Aged Solar Reflectance</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input DecimalNonnegative; value must be GT 0 and LT 1</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="I07_ThermalEmittance" type="com:ThermalEmittance" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Thermal Emittance</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input DecimalNonnegative; value must be GT 0 and LT 1</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="I08_SolarReflectanceIndex" type="env:SolarReflectanceIndex" minOccurs="0">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">SRI (Optional)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input value from CRRC rated product directory or from completed SRI Worksheet</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_J" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Radiant Barrier and Attic Ventilation - Additional Requirements</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if A11_ProjectScopeAddAltNonHERS contains RoofRadiantBarrier.</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="JBeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible persons signature on this compliance document affirms that all applicable requirements in Section J have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J_Before01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">[d:b]Radiant Barrier[/d:b]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Installed on all vertical surfaces</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Radiant barrier must be installed on all vertical surfaces in the attic including gable ends.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Radiant barrier emittance</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The emittance of the radiant barrier shall be less than or equal to 0.05 as tested with American Society for Testing and Materials (ASTM) C1371, or E408.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">California certified insulation materials</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The product shall meet all requirements for California certified insulation materials (radiant barriers) of the Department of Consumer Affairs, Bureau of Household Goods and Services, as specified by California Referenced Standards Code (California Code of Regulations), Title 24, Part 12, Chapter 12-13, Standards for Insulating Material</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J04" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Determining total attic area</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">When determining the Total Attic Area, the area over unconditioned spaces such as the garage is included when the attic spaces are connected</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J04AfterSubheading" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">[d:b]Lower Vents[/d:b]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J05" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Lower vent location</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Lower vents are within one foot of the eave.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J05AfterSubheading" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">[d:b]Upper Vents[/d:b]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J06" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Upper vent location</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Upper vents are within three feet of the ridge.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J06AfterSubheading" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">[d:b]Vent Area[/d:b]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J07" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Upper vents NFA</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The NFA of upper vents must be within required NFA range of upper vents  [d:line1/] Note: per Exception to R806.2 of the California Building Code (CBC) Title 24, Part2, Vol.2.5, if the net free ventilating area is less than 1:150, then the upper ventilation must be at least 40 percent and no more than 50 percent.  Part 2 contains additional requirements that must be met if the area is less than 1:150.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_K" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Roofing Products (Cool Roof) - Additional Requirements</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if A11_ProjectScopeAddAltNonHERS contains RoofRadiantBarrier.</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="KBeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible persons signature on this compliance document affirms that all applicable requirements in Section K have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="K01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">PV Solar Thermal Exception</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Any roof area covered by building integrated photovoltaic (PV) panels and solar thermal panels are exempt from the above Cool Roof requirements</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="K02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Field applied liquid coating</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Liquid field applied coatings must comply with installation criteria from section 110.8(i)4</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="K03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Mass roof</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Mass roof 25 pounds per square foot (lb/ft[d:sup]2[/d:sup]) or greater: Mass roofs are not required to have a cool roof even if the climate zone specifies minimum performance requirements</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="FenestrationTitle" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">[d:b]Fenestration[/d:b]</xsd:documentation></xsd:annotation>
+         </xsd:element>
+         <xsd:element name="Section_L" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Fenestration/ Glazing</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if A11_ProjectScopeAddAltNonHERS contains Fenestration</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="L_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 2</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Note: If meeting Exception 1 to 150.1(c)3A, New dwelling units with a conditioned floor area of 500 square feet or less in Climate Zone 5 may comply with a maximum U-factor of 0.30 
+[d:line1/]If meeting Exception 2 to 150.1(c)3A, For each dwelling unit, up to 3 square feet of glazing area installed in doors, and up to 3 square feet of tubular skyylights area with dual-pane diffusers shall not be reuired to meet the U-factor and SHGC requirements of Table 150.1-A.  
+[d:line1/] If meeting Exception 3 to 150.1(c)3A, In Climate Zones 2, 4 and 6 through 15, for each dwelling unit installing 16 sqare feet or less of skylight shall meet a maximum U-factor of 0.40 and a maximum SHGC of 0.30. In Climate Zones 1, 3, 5, and 16 there is no SHGC requirement.
+[d:line1/]Doors with greater than or equal to 25 percent glazing area are considered glazed doors and are treated as fenestration products.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="TableFenestration" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="L01_FenestrationVerticalName" type="env:FenestrationVerticalName" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Tag ID</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02;</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="L01_SkylightName" type="env:SkylightName" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Tag ID</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02;</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="L02_FenestrationManufacturerBrand" type="comp:FenestrationManufacturerBrand" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Manufacturer/Brand</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">user input</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="L03_FenestrationVerticalArea" type="env:FenestrationVerticalArea" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Fenestration Area (ft[d:sup]2[/d:sup])</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02;</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="L03_SkylightArea" type="env:SkylightArea" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Fenestration Area (ft[d:sup]2[/d:sup])</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02;</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="L04_CardinalOrientation" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Orientation</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02;</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="com:CardinalOrientation">
+                                             <xsd:enumeration value="East"/>
+                                             <xsd:enumeration value="North"/>
+                                             <xsd:enumeration value="South"/>
+                                             <xsd:enumeration value="West"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="L05_IsGlazingChromogenic" type="env:IsGlazingChromogenic" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Chromogenic</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects: Yes (result = true) or No (result = false)</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="L06_UFactor" type="com:UFactor" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">U-factor</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02, but user can override with value LTE CF1R value.</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="L07_FenestrationCertificationMethod" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Source</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User picks from list: NFRCRated display text: NFRC;    CECDefaultPerformance display text Tables 110.6-A and 110.6-B;    NA6Equations display text Equations NA 6-1 and NA 6 -2; and CF1R_ENV_02 display text: Area-weighted Average Worksheet (CF1R-ENV-02)</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="env:FenestrationCertificationMethod">
+                                             <xsd:enumeration value="CECDefaultPerformance"/>
+                                             <xsd:enumeration value="CF1R_ENV_02"/>
+                                             <xsd:enumeration value="NA6Equations"/>
+                                             <xsd:enumeration value="NFRCRated"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="L08_SHGC" type="com:SHGC" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">SHGC</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02 which may be N/A;  Allow user to override.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="L08_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">SHGC</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02 which may be N/A;  Allow user to override.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="L09_FenestrationCertificationMethod" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Source</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If L08 == N/A result = N/A stored in NotApplicableMessage Else User picks from list: NFRCRated display text: NFRC;    CECDefaultPerformance display text Tables 110.6-A and 110.6-B;    NA6Equations display text Equations NA 6-1 and NA 6 -2; and CF1R_ENV_02 display text: Area-weighted Average Worksheet (CF1R-ENV-02)</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="env:FenestrationCertificationMethod">
+                                                <xsd:enumeration value="CECDefaultPerformance"/>
+                                                <xsd:enumeration value="CF1R_ENV_02"/>
+                                                <xsd:enumeration value="NA6Equations"/>
+                                                <xsd:enumeration value="NFRCRated"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
+                                       <xsd:element name="L09_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">SHGC Source</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If L08 == N/A result = N/A stored in NotApplicableMessage Else User picks from list: NFRCRated display text: NFRC; CECDefaultPerformance display text Tables 110.6-A and 110.6-B; NA6Equations display text Equations NA 6-1 and NA 6 -2; and CF1R_ENV_02 display text: Area-weighted Average Worksheet (CF1R-ENV-02) </xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="L10_FenestrationAdditionType" type="env:FenestrationAdditionType" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Fenestration Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02;</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="L11_ExternalShadingObjectType" type="env:ExternalShadingObjectType" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Exterior Shading Devices</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02; allowed values from  ExternalShadingObjectType: Standard Bug Screen, Sun Screen,  Louvered Sun Screen,  Low Sun Angle Louvered Sun Screen,  Operable Awnings, Retractable Awnings, Drop Arm Awnings,  Roll Down Blinds Or Slats,  Vertical Roller Or Shades, and None</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="L12_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments"  minOccurs="0">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Comments/Special Features</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_M" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Fenestration/ Glazing - Additional Requirements</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if A11_ProjectScopeAddAltNonHERS contains Fenestration</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="MBeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible persons signature on this compliance document affirms that all applicable requirements in Section M have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="M01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Existing UFactor SHGC</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">For existing buildings the U-factor and solar heat gain coefficient SHGC) values should be the same or better than the required Energy Commission prescriptive requirements.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="M02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Temporary labels</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Temporary labels are not to be removed until verified by the building inspector.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="M03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Manufacturer installation instructions</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The fenestration product manufacturer's installation specifications shall be followed when installing these products. The space between the fenestration product and rough opening shall be completely filled with insulation.  If batt insulation is used, it is cut to size and placed properly around the fenestration product.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="MechPlbTitle" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">[d:b]Mechanical and Plumbing[/d:b]</xsd:documentation></xsd:annotation>
+         </xsd:element>
+         <xsd:element name="Section_N" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Space Conditioning (SC) Systems - Heating/ Cooling   (Section 150.2(b)</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if A11_ProjectScopeAddAltNonHERS contains SpaceConditioning.</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="NBeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Alterations to space conditioning systems shall be exempt from field verification requirements as prerequisite for use of the CF1R-ADD-02 and CF2R-ADD-02 compliance documents.  If new space conditioning systems are installed or existing systems are altered and are not exempt from field verification,
+ then a CF1R-ADD-01 and a CF1R-ALT-02 shall be completed and registered with an ECC Provider Data Registry.  In each row below for each space conditioning system, check the box that indicates the exemption from ECC verification compliance: [d:l t="a"] [d:list]space conditioning system was not altered; [/d:list][d:list] less than 25 feet (ft) of ducts were added or replaced;[/d:list]
+[d:list](exempt from duct leakage testing) if: the existing duct system was insulated with asbestos; [/d:list] [d:list](exempt from duct leakage testing) if: the existing duct system was previously tested and passed by an ECC Rater.[/d:list][/d:l]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="TableSC" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="N01_ResidentialSpaceConditioningSystemName" type="hvac:ResidentialSpaceConditioningSystemName" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">SC System Identification or Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="N02_ResidentialHvacSystemAreaServed" type="hvac:ResidentialHvacSystemAreaServed" >
+                                      <xsd:annotation>
+                                         <xsd:documentation source="FieldText">SC System Location or Area Served</xsd:documentation>
+                                         <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02</xsd:documentation>
+                                      </xsd:annotation>
+                                   </xsd:element>
+                                   <xsd:element name="N03_AdditionSpaceConditioningHERSException" type="comp:AdditionSpaceConditioningHERSException">
+                                     <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Exemption from Field Verification</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">User checks box a or b or c or d to select the correct exemption from field verification. If user selects box a, result = ExceptionNoChange Else If user selects box b, result = ExceptionDuctsLT25ft Else If user selects box c, result = ExceptionDuctsAsbestos Else If user select box d, result = ExceptionDuctsVerifiedByHERS </xsd:documentation>
+                                     </xsd:annotation>
+                                   </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_O" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Installed Water Heating Systems (Section 150.2(a)1D)</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if A11_ProjectScopeAddAltNonHERS includes WaterHeating</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="O_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Options: [d:l t="#"][d:list] A single heat pump water heater.  The storage tank shall not be located outdoors and shall be placed on an incompressible, rigid insulated surface with a minimum thermal resistance of R-10.  The water heater shall be installed with a communication interface that meets either the requirements of Section 110.12(a) or has an ANSI/CTA-2045-B communications port; or [/d:list]
+[d:list]  A single heat pump water heater that meets the requirements of NEEA Advanced Water Heater Specification Tier 3 or higher;  or [/d:list][d:list]For additions that are 500 square feet or less, an electric water heater with point of use distribution as specified in the Reference Appendices, Residential Appendix RA4.4.5 [/d:list][/d:l]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="TableWaterHeating" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="O01_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Water Heating System ID or Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference values in CF1R-ADD=-2</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="O02_ResidentialWaterHeatingSystemType" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Water Heating System Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list: DHW,  Hydronic,  Combined Hydronic</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="hvac:ResidentialWaterHeatingSystemType">
+                                             <xsd:enumeration value="DHW"/>
+                                             <xsd:enumeration value="Hydronic"/>
+                                             <xsd:enumeration value="HydronicSpaceConditioningDHW"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="O03_WaterHeatingSystemOption" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">System Option (from [d:t24ref/]150.2(a)1D</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from this list: OptionSingleHWH display term 1, OptionTier3SingleHWH display term 2, OptionElectPointOfUse display term 3</xsd:documentation>
+                                          <xsd:appinfo source="displayterm">
+                                             <dtyp:displayterm value="OptionSingleHWH">1</dtyp:displayterm>
+                                             <dtyp:displayterm value="OptionTier3SingleHWH">2</dtyp:displayterm>
+                                             <dtyp:displayterm value="OptionElectPointOfUse">3</dtyp:displayterm>
+                                          </xsd:appinfo>                                          
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="comp:WaterHeatingSystemOption">
+                                             <xsd:enumeration value="OptionElectPointOfUse"/>
+                                             <xsd:enumeration value="OptionSingleHWH"/>
+                                             <xsd:enumeration value="OptionTier3SingleHWH"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="O04_WaterHeaterTotalSystemCount" type="hvac:WaterHeaterTotalSystemCount" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"># of Water Heaters/Compressors in System</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from CF1R-ADD-02</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="O05_ResidentialWaterHeaterType" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Water Heater Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from CF1R-ADD-02 allowed values are ElectricPOUConsumer, HeatPumpWaterHeater, NEEA_Tier3HP</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="hvac:ResidentialWaterHeaterType">
+                                             <xsd:enumeration value="HeatPumpWaterHeater"/>
+                                             <xsd:enumeration value="ElectricPOUConsumer"/>
+                                             <xsd:enumeration value="NEEA_Tier3HP"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="O07_TankLocation" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Tank Location</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from CF1R-ADD-02 which may be N/A.</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="hvac:TankLocation">
+                                                <xsd:enumeration value="Conditioned"/>
+                                                <xsd:enumeration value="Garage"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
+                                       <xsd:element name="O07_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Tank Location</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from CF1R-ADD-02 which may be N/A.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="O08_ResidentialDHWDwellingUnitDistributionType" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Distribution Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If O03_WaterHeatingSystemOption  == OptionElectPointOfUse result = PointOfUse Else result = StandardDistribution</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="hvac:ResidentialDHWDwellingUnitDistributionType">
+                                             <xsd:enumeration value="PointOfUse"/>
+                                             <xsd:enumeration value="StandardDistribution"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_P" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Installed Water Heater Manufacturer Information</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if A11_ProjectScopeAddAltNonHERS includes WaterHeating</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableInstalledWaterHeater" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="P01_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Water Heating System ID or Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from O01_WaterHeatingSystemName</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="P02_WaterHeaterManufacturer" type="hvac:WaterHeaterManufacturer" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Manufacturer</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input;</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="P03_WaterHeaterModelNumber" type="hvac:WaterHeaterModelNumber" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Model Number</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input;</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="cF2RADD02E" type="CF2RADD02E">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF2RADD02E compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>

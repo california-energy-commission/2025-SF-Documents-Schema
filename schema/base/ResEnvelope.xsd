@@ -4385,6 +4385,7 @@ Not Shared</dtyp:displayterm>
    <xsd:simpleType name="PartitionType">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="Attic">Attic</dtyp:displayterm>
             <dtyp:displayterm value="Ceiling">Ceiling</dtyp:displayterm>
             <dtyp:displayterm value="Floor">Floor</dtyp:displayterm>
             <dtyp:displayterm value="Roof">Roof</dtyp:displayterm>
@@ -4392,6 +4393,7 @@ Not Shared</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="Attic"/>
          <xsd:enumeration value="Ceiling"/>
          <xsd:enumeration value="Floor"/>
          <xsd:enumeration value="Roof"/>
