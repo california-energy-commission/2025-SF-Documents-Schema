@@ -1356,13 +1356,13 @@ If meeting Exception 2 to 150.1(c)3A, Installing less than or equal to 3 square 
                                        <xsd:element name="I14_SolarHeatGainCoefficientExteriorShading" type="com:SolarHeatGainCoefficientExteriorShading">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Combined SHGC from CF1R-ENV-03</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If I13_ExternalShadingObjectType == NoExternalShadingDevice or If I04_DynamicGlazingType ==  ChromogenicGlazing or If Maximum Allowed SHGC for Windows H08 Or for Skylights H09 == N/A result = N/A stored in NotApplicableMessage, Else result =  value from CF-1R-ENV-03.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If I13_ExternalShadingObjectType == NoExternalShadingDevice or If I04_DynamicGlazingType ==  ChromogenicGlazing or If Maximum Allowed SHGC for Windows H08 Or for Skylights H09 == N/A result = N/A stored in NotApplicableMessage, Else user inputs total combined SHGC value from CF-1R-ENV-03 field D04.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="I14_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Combined SHGC from CF1R-ENV-03</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If I13_ExternalShadingObjectType == NoExternalShadingDevice or If I04_DynamicGlazingType ==  ChromogenicGlazing or If Maximum Allowed SHGC for Windows H08 Or for Skylights H09 == N/A result = N/A stored in NotApplicableMessage, Else result =  value from CF-1R-ENV-03.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If I13_ExternalShadingObjectType == NoExternalShadingDevice or If I04_DynamicGlazingType ==  ChromogenicGlazing or If Maximum Allowed SHGC for Windows H08 Or for Skylights H09 == N/A result = N/A stored in NotApplicableMessage, Else user inputs total combined SHGC value from CF-1R-ENV-03 field D04.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>

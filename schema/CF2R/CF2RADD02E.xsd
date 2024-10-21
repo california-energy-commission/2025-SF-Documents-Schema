@@ -1227,20 +1227,7 @@ WaterHeating display term Water Heating (Show tables O, P)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Reference values in CF1R-ADD=-2</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="O02_ResidentialWaterHeatingSystemType" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Water Heating System Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from list: DHW,  Hydronic,  Combined Hydronic</xsd:documentation>
-                                       </xsd:annotation>
-                                       <xsd:simpleType>
-                                          <xsd:restriction base="hvac:ResidentialWaterHeatingSystemType">
-                                             <xsd:enumeration value="DHW"/>
-                                             <xsd:enumeration value="Hydronic"/>
-                                             <xsd:enumeration value="HydronicSpaceConditioningDHW"/>
-                                          </xsd:restriction>
-                                       </xsd:simpleType>
-                                    </xsd:element>
-                                    <xsd:element name="O03_WaterHeatingSystemOption" >
+                                    <xsd:element name="O02_WaterHeatingSystemOption" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">System Option (from [d:t24ref/]150.2(a)1D</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from this list: OptionSingleHWH display term 1, OptionTier3SingleHWH display term 2, OptionElectPointOfUse display term 3</xsd:documentation>
@@ -1258,13 +1245,13 @@ WaterHeating display term Water Heating (Show tables O, P)</xsd:documentation>
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
-                                    <xsd:element name="O04_WaterHeaterTotalSystemCount" type="hvac:WaterHeaterTotalSystemCount" >
+                                    <xsd:element name="O03_WaterHeaterTotalSystemCount" type="hvac:WaterHeaterTotalSystemCount" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText"># of Water Heaters/Compressors in System</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Reference value from CF1R-ADD-02</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="O05_ResidentialWaterHeaterType" >
+                                    <xsd:element name="O04_ResidentialWaterHeaterType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Water Heater Type</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Reference value from CF1R-ADD-02 allowed values are ElectricPOUConsumer, HeatPumpWaterHeater, NEEA_Tier3HP</xsd:documentation>
@@ -1278,7 +1265,7 @@ WaterHeating display term Water Heating (Show tables O, P)</xsd:documentation>
                                        </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="O07_TankLocation" >
+                                       <xsd:element name="O05_TankLocation" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Tank Location</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Reference value from CF1R-ADD-02 which may be N/A.</xsd:documentation>
@@ -1290,17 +1277,17 @@ WaterHeating display term Water Heating (Show tables O, P)</xsd:documentation>
                                              </xsd:restriction>
                                           </xsd:simpleType>
                                        </xsd:element>
-                                       <xsd:element name="O07_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                       <xsd:element name="O05_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Tank Location</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Reference value from CF1R-ADD-02 which may be N/A.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="O08_ResidentialDHWDwellingUnitDistributionType" >
+                                    <xsd:element name="O06_ResidentialDHWDwellingUnitDistributionType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Distribution Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If O03_WaterHeatingSystemOption  == OptionElectPointOfUse result = PointOfUse Else result = StandardDistribution</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If O02_WaterHeatingSystemOption  == OptionElectPointOfUse result = PointOfUse Else result = StandardDistribution</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="hvac:ResidentialDHWDwellingUnitDistributionType">
