@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2020 (http://www.altova.com) by Diane Pepetone (L'Monte) -->
+<xsd:schema xmlns="http://www.lmonte.com/besm/CF2RMCH24cH" xmlns:d="http://www.lmonte.com/besm/d" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:env="http://www.lmonte.com/besm/env" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:com="http://www.lmonte.com/besm/com" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" targetNamespace="http://www.lmonte.com/besm/CF2RMCH24cH" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2016.1.006">
+	<xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+	<xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+	<xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+	<xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+	<xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+	<xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+	<xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+	<xsd:element name="ComplianceDocumentPackage">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="DocID" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RMCH24cH"/>
+						<xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
+						<xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Building Leakage Worksheet"/>
+						<xsd:attribute name="docVariantSubtitle" type="comp:ComplianceDocumentVariantSubtitle" fixed="MCH24c Multi-Point Air Tightness Test"/>
+						<xsd:attribute name="docVariantLetter" type="comp:ComplianceDocumentVariant" fixed="c"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Payload" type="comp:Payload"/>
+				<xsd:element name="DocumentData">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Header" type="comp:HeaderCF2R_3R"/>
+							<xsd:element ref="cF2RMCH24cH"/>
+							<xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+							<xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_H"/>
+							<xsd:element name="Footer" type="comp:Footer"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Report" type="xsd:base64Binary"/>
+			</xsd:sequence>
+			<xsd:attribute name="revision" type="xsd:string" use="required" fixed="rev 10/1/2016"/>
+			<xsd:attribute name="doc" type="comp:ComplianceDocumentTag" use="required" fixed="CF2RMCH24cH"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="CF2RMCH24cH">
+		<xsd:annotation>
+			<xsd:documentation>Building Leakage Worksheet - MCH24c Multi-Point Air Tightness Test</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation source="FieldText">Building Air Leakage - General Information</xsd:documentation>
+					<xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="A01_TestTemperatureIndoor" type="comp:TestTemperatureIndoor">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Indoor Temperature During Test ([d:deg/]F)</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="A02_TestTemperatureOutdoor" type="comp:TestTemperatureOutdoor">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Outdoor Temperature During Test ([d:deg/]F)</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="A03_BlowerDoorLocation" type="comp:BlowerDoorLocation">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Blower Door Location</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">maximum 50 characters</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="A04_Elevation" type="com:Elevation">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Building Elevation (ft)</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="A05_TotalConditionedVolume" type="com:TotalConditionedVolume">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Building Volume (ft[d:sup]3[/d:sup])</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Data from project CF-1R</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="A06_TestDate" type="comp:TestDate">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Date of Diagnostic Test for this Dwelling</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Section_B" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation source="FieldText">Diagnostic Equipment Information</xsd:documentation>
+					<xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="B01_ManometerCount" type="comp:ManometerCount">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Number of Manometers Used to Measure Home Pressurization</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">If ManometerCount is greater than 1, provide a row for each manometer in ManometerCount to record its data</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="Table">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Row" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="B02_ManometerMake" type="comp:ManometerMake">
+													<xsd:annotation>
+														<xsd:documentation source="FieldText">Manometer Make</xsd:documentation>
+														<xsd:documentation source="CalculationsAndRules">maximum 50 characters</xsd:documentation>
+													</xsd:annotation>
+												</xsd:element>
+												<xsd:element name="B03_ManometerModel" type="comp:ManometerModel">
+													<xsd:annotation>
+														<xsd:documentation source="FieldText">Manometer Model</xsd:documentation>
+														<xsd:documentation source="CalculationsAndRules">maximum 50 characters</xsd:documentation>
+													</xsd:annotation>
+												</xsd:element>
+												<xsd:element name="B04_ManometerSerialNumber" type="comp:ManometerSerialNumber">
+													<xsd:annotation>
+														<xsd:documentation source="FieldText">Manometer Serial Number</xsd:documentation>
+														<xsd:documentation source="CalculationsAndRules">maximum 50 characters</xsd:documentation>
+													</xsd:annotation>
+												</xsd:element>
+												<xsd:element name="B05_ManometerCalibrationDate" type="comp:ManometerCalibrationDate">
+													<xsd:annotation>
+														<xsd:documentation source="FieldText">Manometer Calibration Date</xsd:documentation>
+														<xsd:documentation source="CalculationsAndRules">maximum 50 characters</xsd:documentation>
+													</xsd:annotation>
+												</xsd:element>
+												<xsd:element name="B06_IsManometerCalibrationCurrent" type="comp:IsManometerCalibrationCurrent">
+													<xsd:annotation>
+														<xsd:documentation source="FieldText">Manometer Calibration Status</xsd:documentation>
+														<xsd:documentation source="CalculationsAndRules">If ManometerCalibrationDate  is within 12 months of the diagnostic TestDate in section A, then result is true.  For Boolean true value display text:   Manometer Calibration is valid.  Else result is false.  For Boolean false value display text: WARNING -  Manometer Calibration is expired. A manometer with current calibration is required in order to comply with this Building Leakage Worksheet measurement procedure.</xsd:documentation>
+													</xsd:annotation>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="B07_FanCount" type="comp:FanCount">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Number of Fans Used to Pressurize Home</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">If BlowerDoorFanCount is greater than 1, provide a row for each fan in BlowerDoorFanCount to record its data</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="Table2">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Row" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="B08_FanMake" type="comp:FanMake">
+													<xsd:annotation>
+														<xsd:documentation source="FieldText">Fan Make</xsd:documentation>
+														<xsd:documentation source="CalculationsAndRules">maximum 50 characters</xsd:documentation>
+													</xsd:annotation>
+												</xsd:element>
+												<xsd:element name="B09_FanModel" type="comp:FanModel">
+													<xsd:annotation>
+														<xsd:documentation source="FieldText">Fan Model</xsd:documentation>
+														<xsd:documentation source="CalculationsAndRules">maximum 50 characters</xsd:documentation>
+													</xsd:annotation>
+												</xsd:element>
+												<xsd:element name="B10_FanSerialNumber" type="comp:FanSerialNumber">
+													<xsd:annotation>
+														<xsd:documentation source="FieldText">Fan Serial Number</xsd:documentation>
+														<xsd:documentation source="CalculationsAndRules">maximum 50 characters</xsd:documentation>
+													</xsd:annotation>
+												</xsd:element>
+												<xsd:element name="B11_FanConfiguration" type="comp:FanConfiguration">
+													<xsd:annotation>
+														<xsd:documentation source="FieldText">Fan Configuration (rings)</xsd:documentation>
+														<xsd:documentation source="CalculationsAndRules">maximum 50 characters</xsd:documentation>
+													</xsd:annotation>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Section_C" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation source="FieldText">Envelope Leakage Worksheet - Depressurization -    MCH24c  -  Multi-Point Air Tightness Test</xsd:documentation>
+					<xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="C01_ASTM_E779_10Software" type="comp:ASTM_E779_10Software">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Name and version of ASTM E779-10 compliant software used for multi-point test.</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">User input; maximum 50 characters</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="C02_BuildingPressureReadingPreTest" type="comp:BuildingPressureReadingPreTest">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Pre-Test baseline building pressure</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">User input; Resolution of 0.1 Pa</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="C03_MeterTimeAveragePeriod" type="comp:MeterTimeAveragePeriod">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Time average period of meter</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">User input; Value entered by user must be no less than 10 seconds</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="C04_BuildingAirLeakageTestMethod" type="comp:BuildingAirLeakageTestMethod" fixed="Depressurization">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Test Methodology</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Fixed value of  Depressurization</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="C05_BuildingPressureTargetUnadjusted" type="comp:BuildingPressureTargetUnadjusted">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Unadjusted Building Pressure Target</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Use Calculation: -60 plus  BuildingPressureReadingPreTest.   Resolution of 0.1 Pa</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="C06_BuildingPressureMeasuredUnadjusted" type="comp:BuildingPressureMeasuredUnadjusted">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Unadjusted Building Pressure Measured</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">User input; Resolution of 0.1 Pa</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="C07_BuildingPressureInduced" type="comp:BuildingPressureInduced">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Induced building pressure</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Report result from subtracting  BuildingPressureReadingPreTest
+ from BuildingPressureMeasuredUnadjusted</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="C08_MinReadingAcknowledge" type="comp:MinReadingAcknowledge">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">A minimum of eight readings were taken spaced evenly between 15 Pa and 60 Pa (or highest attainable pressure)</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">User input to acknowledge this requirement; Boolean value - for true display choice Yes and for false display choice No</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="C09_BuildingPressureReadingPostTest" type="comp:BuildingPressureReadingPostTest">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Post-Test baseline building pressure</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">User input; Resolution of 0.1 Pa</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="C10_CFM50SoftwareCorrected" type="comp:CFM50SoftwareCorrected">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Corrected CFM50 (from software)</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">User input of value calculated by the software.  Resolution of 1 CFM</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="C10After" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Multifamily note</xsd:documentation>
+								<xsd:documentation source="AdditionalRequirements">Note:[d:line1/] [d:l t="*"] [d:list] For multifamily, each dwelling unit must be tested individually and shown to meet the leakage requirements. Pressurization of the adjacent dwelling units while conducting this test is not allowed. [/d:list][/d:l]</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Section_D" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation source="FieldText">Altitude and Temperature Correction (not used, performed by blower door software)</xsd:documentation>
+					<xsd:documentation source="CalculationsAndRules">This section is not used as corrections are performed  by blower door software</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Section_E" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation source="FieldText">Accuracy Adjustment</xsd:documentation>
+					<xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="E01_SoftwareTestPercentUncertainty" type="comp:SoftwareTestPercentUncertainty">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Percent Uncertainty at 95% confidence level (from software)</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Calculated by software. The value represented should be percent and not a fraction.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="E02_SoftwareTestAccuracy" type="comp:SoftwareTestAccuracy">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Accuracy Level</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">If SoftwareTestPercentUncertainty is less than or equal to 10, report Standard, else report Reduced</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="E03_TestAccuracyFactor" type="comp:TestAccuracyFactor">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Accuracy Adjustment factor</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">If SoftwareTestAccuracy is Standard report 1, Else If SoftwareTestAccuracy is Reduced report 1+ (SoftwareTestPercentUncertainty  divided by 100)</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="E04_CFM50Depressurization" type="comp:CFM50Depressurization">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Adjusted CFM50 Depressurization  (measured air leakage rate)</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Report result of calculation - NominalCFM50 in section C times TestAccuracyFactor</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Section_F" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation source="FieldText">Envelope Leakage Worksheet - Pressurization -    MCH24c  -  Multi-Point Air Tightness Test</xsd:documentation>
+					<xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="F01_ASTM_E779_10Software" type="comp:ASTM_E779_10Software">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Name and version of ASTM E779-10 compliant software used for multi-point test.</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">User input; maximum 50 characters</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="F02_BuildingPressureReadingPreTest" type="comp:BuildingPressureReadingPreTest">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Pre-Test baseline building pressure</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">User input; Resolution of 0.1 Pa</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="F03_MeterTimeAveragePeriod" type="comp:MeterTimeAveragePeriod">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Time average period of meter</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">User input; Value entered by user must be no less than 10 seconds</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="F04_BuildingAirLeakageTestMethod" type="comp:BuildingAirLeakageTestMethod" fixed="Pressurization">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Test Methodology</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Fixed value of  Pressurization</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="F05_BuildingPressureTargetUnadjusted" type="comp:BuildingPressureTargetUnadjusted">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Unadjusted Building Pressure Target</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Use Calculation: 60 plus  BuildingPressureReadingPreTest.     Resolution of 0.1 Pa</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="F06_BuildingPressureMeasuredUnadjusted" type="comp:BuildingPressureMeasuredUnadjusted">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Unadjusted Building Pressure Measured</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">User input; Resolution of 0.1 Pa</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="F07_BuildingPressureInduced" type="comp:BuildingPressureInduced">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Induced building pressure</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Report result from subtracting  BuildingPressureReadingPreTest
+ from BuildingPressureMeasuredUnadjusted</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="F08_MinReadingAcknowledge" type="comp:MinReadingAcknowledge">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">A minimum of eight readings were taken spaced evenly between 15 Pa and 60 Pa (or highest attainable pressure)</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">User input to acknowledge this requirement; Boolean value - for true display choice Yes and for false display choice No</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="F09_BuildingPressureReadingPostTest" type="comp:BuildingPressureReadingPostTest">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Post-Test baseline building pressure</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">User input; Resolution of 0.1 Pa</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="F10_CFM50SoftwareCorrected" type="comp:CFM50SoftwareCorrected">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Corrected CFM50 (from software)</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">User input of value calculated by the software.  Resolution of 1 CFM</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="F10After" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Multifamily note</xsd:documentation>
+								<xsd:documentation source="AdditionalRequirements">Note:[d:line1/] [d:l t="*"] [d:list] For multifamily, each dwelling unit must be tested individually and shown to meet the leakage requirements. Pressurization of the adjacent dwelling units while conducting this test is not allowed. [/d:list][/d:l]</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Section_G" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation source="FieldText">Altitude and Temperature Correction (not used, performed by blower door software)</xsd:documentation>
+					<xsd:documentation source="CalculationsAndRules">This section is not used as corrections are performed  by blower door software</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Section_H" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation source="FieldText">Accuracy Adjustment</xsd:documentation>
+					<xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="H01_SoftwareTestPercentUncertainty" type="comp:SoftwareTestPercentUncertainty">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Percent Uncertainty at 95% confidence level (from software)</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Calculated by software. The value represented should be percent and not a fraction.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="H02_SoftwareTestAccuracy" type="comp:SoftwareTestAccuracy">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Accuracy Level</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">If SoftwareTestPercentUncertainty is less than or equal to 10, report Standard, else report Reduced</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="H03_TestAccuracyFactor" type="comp:TestAccuracyFactor">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Accuracy Adjustment factor</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">If SoftwareTestAccuracy is Standard report 1, Else If SoftwareTestAccuracy is Reduced report 1+ (SoftwareTestPercentUncertainty  divided by 100)</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="H04_CFM50Pressurization" type="comp:CFM50Pressurization">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Adjusted CFM50 Pressurization  (measured air leakage rate)</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Report result of calculation - NominalCFM50 in section F times TestAccuracyFactor</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="cF2RMCH24cH" type="CF2RMCH24cH">
+		<xsd:annotation>
+			<xsd:documentation>This element contains all of the data and text required to generate the CF2RMCH24cH compliance report.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

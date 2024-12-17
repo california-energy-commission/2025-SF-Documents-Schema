@@ -79,24 +79,13 @@ If more than one person has responsibility for installation of the items on this
                         <xsd:documentation source="CalculationsAndRules">User input: IntegerNonnegative</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A09_ResidentialLowriseBuildingType">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Building Type</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User selects from list:  SingleFamily display term Single family,</xsd:documentation>
-                     </xsd:annotation>
-                     <xsd:simpleType>
-                        <xsd:restriction base="com:ResidentialLowriseBuildingType">
-                           <xsd:enumeration value="SingleFamily"/>
-                        </xsd:restriction>
-                     </xsd:simpleType>
-                  </xsd:element>
-                  <xsd:element name="A10_FloorSlabArea" type="env:FloorSlabArea">
+                  <xsd:element name="A09_FloorSlabArea" type="env:FloorSlabArea">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Slab Area (ft<d:sup>2</d:sup>):</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input: IntegerNonnegative</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A11_ProjectScopeAlterations" minOccurs="1" maxOccurs="unbounded">
+                  <xsd:element name="A10_ProjectScopeAlterations" minOccurs="1" maxOccurs="unbounded">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Project Scope</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User can select as many as are applicable from this list.  
@@ -149,7 +138,7 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show table H1).</xs
          <xsd:element name="Section_B" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Opaque Surface Details - Framed (Section 150.2(b)1)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if A11_ProjectScopeAlterations includes Insulation</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if A10_ProjectScopeAlterations includes Insulation</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -295,7 +284,7 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show table H1).</xs
             <xsd:annotation>
                <xsd:documentation source="FieldText">Opaque Surface Details - Non-Framed</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is applicable if if the project has at least one opaque non-framed roof or wall
- and A11_ProjectScopeAlterations includes Insulation</xsd:documentation>
+ and A10_ProjectScopeAlterations includes Insulation</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -403,7 +392,7 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show table H1).</xs
          <xsd:element name="Section_D" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Opaque Surface Details - Masonry/Mass Walls</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if the project has at least one opaque mass wall and If A11_ProjectScopeAlterations includes Insulation  .</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if the project has at least one opaque mass wall and If A10_ProjectScopeAlterations includes Insulation  .</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -557,7 +546,7 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show table H1).</xs
          <xsd:element name="Section_E" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Roof Replacement (Section 150.2(b)1I)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if A11_ProjectScopeAlterations includes  RoofAlterationGT50Percent</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if A10_ProjectScopeAlterations includes  RoofAlterationGT50Percent</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -611,7 +600,7 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show table H1).</xs
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="E04_CoolRoofException" type="comp:CoolRoofException">
+                                       <xsd:element name="E04_CoolRoofException">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Exception</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If E02_CoolRoofComplianceMethod !=  CoolRoofException result = N/A stored in the NotApplicableMessage; 
@@ -641,6 +630,17 @@ End If
  
 End If</xsd:documentation>
                                           </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:CoolRoofException">
+                                                <xsd:enumeration value="MassRoof25Lbs"/>
+                                                <xsd:enumeration value="NoDuctsInAttic"/>
+                                                <xsd:enumeration value="R38Insulation"/>
+                                                <xsd:enumeration value="RadiantBarrier"/>
+                                                <xsd:enumeration value="RoofDeckInsulationAbove"/>
+                                                <xsd:enumeration value="RoofDeckInsulationLowSlope"/>
+                                                <xsd:enumeration value="SolarOnRoof"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
                                        </xsd:element>
                                        <xsd:element name="E04_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
@@ -815,7 +815,7 @@ End If</xsd:documentation>
          <xsd:element name="Section_F" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Fenestration/Glazing Allowed Areas and Efficiencies  (Section 150.2(b)1A)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required is A11_ProjectScopeAlterations includes one or more  of the following: FenestrationGlazingAddition,  FenestrationGlazingReplacement, FenestrationGlazingWindowMinimumFt2Replacement FenestrationGlazingSkylightMinimumFt2Addition,  FenestrationGlazingSkylightMinimumFt2Replacement</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required is A10_ProjectScopeAlterations includes one or more  of the following: FenestrationGlazingAddition,  FenestrationGlazingReplacement, FenestrationGlazingWindowMinimumFt2Replacement FenestrationGlazingSkylightMinimumFt2Addition,  FenestrationGlazingSkylightMinimumFt2Replacement</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -900,7 +900,7 @@ End If</xsd:documentation>
                                        <xsd:element name="F06a_SHGC_Limit" type="com:SHGC_Limit">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Maximum Allowed SHGC (Windows)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If A07_ClimateZone == 1,3, 5 Or 16 result = N/A stored in the NotApplicableMessage; Else If F01_ProjectScopeAlteration contains FenestrationGlazingWindowMinimumFt2Replacement, Then result = 0.35  Else If A07_ClimateZone == 2, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16 result = 0.23</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If A07_ClimateZone == 1,3, 5 Or 16 result = N/A stored in the NotApplicableMessage; Else If F01_ProjectScopeAlteration contains FenestrationGlazingWindowMinimumFt2Replacement, Then result = 0.35  Else If A07_ClimateZone == 2, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, or 15 result = 0.23</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="F06a_NotApplicableMessage" type="comp:NotApplicableMessage">
@@ -942,7 +942,7 @@ End If</xsd:documentation>
          <xsd:element name="Section_G" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Fenestration Proposed Areas and Efficiencies - Add (Section 150.2(b)1A)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required if A11_ProjectScopeAlterations includes one of these values: FenestrationGlazingAddition, FenestrationGlazingSkylightMinimumFt2Addition, FenestrationGlazingWindowMinimumFt2Addition.  Each row in the table is for a unique type of vertical fenestration or  skylight in the project.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if A10_ProjectScopeAlterations includes one of these values: FenestrationGlazingAddition, FenestrationGlazingSkylightMinimumFt2Addition, FenestrationGlazingWindowMinimumFt2Addition.  Each row in the table is for a unique type of vertical fenestration or  skylight in the project.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -1153,13 +1153,13 @@ End If</xsd:documentation>
                      <xsd:element name="G15_TotalGlazingAreaAllOrientations" type="env:TotalGlazingAreaAllOrientations">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Existing + Proposed Fenestration Area</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A11_ProjectScopeAlterations does not contain FenestrationGlazingAddition result  = N/A stored in NotApplicableMessage; Else result = SUM ( F04a_TotalExistingGlazingAreaAllOrientations,  SUM ALL (G07_TotalGlazingAreaEastSameTypeAndFrame),  SUM ALL (G07_TotalGlazingAreaNorthSameTypeAndFrame),  SUM ALL (G07_TotalGlazingAreaSouthSameTypeAndFrame), SUM ALL (G08_TotalGlazingAreaWestSameTypeAndFrame))</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A10_ProjectScopeAlterations does not contain FenestrationGlazingAddition result  = N/A stored in NotApplicableMessage; Else result = SUM ( F04a_TotalExistingGlazingAreaAllOrientations,  SUM ALL (G07_TotalGlazingAreaEastSameTypeAndFrame),  SUM ALL (G07_TotalGlazingAreaNorthSameTypeAndFrame),  SUM ALL (G07_TotalGlazingAreaSouthSameTypeAndFrame), SUM ALL (G08_TotalGlazingAreaWestSameTypeAndFrame))</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="G15_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Existing + Proposed Fenestration Area</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A11_ProjectScopeAlterations does not contain FenestrationGlazingAddition result  = N/A stored in NotApplicableMessage; Else result = SUM ( F04a_TotalExistingGlazingAreaAllOrientations,  SUM ALL (G07_TotalGlazingAreaEastSameTypeAndFrame),  SUM ALL (G07_TotalGlazingAreaNorthSameTypeAndFrame),  SUM ALL (G07_TotalGlazingAreaSouthSameTypeAndFrame), SUM ALL (G08_TotalGlazingAreaWestSameTypeAndFrame))</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A10_ProjectScopeAlterations does not contain FenestrationGlazingAddition result  = N/A stored in NotApplicableMessage; Else result = SUM ( F04a_TotalExistingGlazingAreaAllOrientations,  SUM ALL (G07_TotalGlazingAreaEastSameTypeAndFrame),  SUM ALL (G07_TotalGlazingAreaNorthSameTypeAndFrame),  SUM ALL (G07_TotalGlazingAreaSouthSameTypeAndFrame), SUM ALL (G08_TotalGlazingAreaWestSameTypeAndFrame))</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -1195,13 +1195,13 @@ End If</xsd:documentation>
                      <xsd:element name="G18_TotalGlazingAreaWest" type="env:TotalGlazingAreaWest">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Existing + Proposed West-Facing Fenestration Area</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If A11_ProjectScopeAlterations  does not contain FenestrationGlazingAddition  result  = N/A stored in NotApplicableMessage; Else result = SUM (  F04a_TotalExistingGlazingAreaAllOrientations, SUM ALL (G08_TotalGlazingAreaWestSameTypeAndFrame))</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If A10_ProjectScopeAlterations  does not contain FenestrationGlazingAddition  result  = N/A stored in NotApplicableMessage; Else result = SUM (  F04a_TotalExistingGlazingAreaAllOrientations, SUM ALL (G08_TotalGlazingAreaWestSameTypeAndFrame))</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="G18_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Existing + Proposed West-Facing Fenestration Area</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If A11_ProjectScopeAlterations  does not contain FenestrationGlazingAddition  result  = N/A stored in NotApplicableMessage; Else result = SUM ( F04a_TotalExistingGlazingAreaAllOrientations, SUM ALL (G08_TotalGlazingAreaWestSameTypeAndFrame))</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If A10_ProjectScopeAlterations  does not contain FenestrationGlazingAddition  result  = N/A stored in NotApplicableMessage; Else result = SUM ( F04a_TotalExistingGlazingAreaAllOrientations, SUM ALL (G08_TotalGlazingAreaWestSameTypeAndFrame))</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -1247,10 +1247,10 @@ End If</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
-                  <xsd:element name="G22_UFactorLimit" type="com:UFactorLimit" fixed="0.30">
+                  <xsd:element name="G22_UFactorLimit" type="com:UFactorLimit">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Required Fenestration U-factor (Windows)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: result = 0.30</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: result = F05a_UFactorLimit</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:choice maxOccurs="1">
@@ -1285,13 +1285,13 @@ End If</xsd:documentation>
                      <xsd:element name="G25_SHGC_Limit" type="com:SHGC_Limit">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Required Fenestration SHGC (Windows)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A07_ClimateZone == 1, 3, 5 or 16 result = N/A, store in NotApplicableMessage, Else result = 0.23</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If F06a Maximum Allowed SHGC (Windows) == N/A result = N/A, store in NotApplicableMessage, Else result = F06a_SHGC_Limit</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="G25_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Required Fenestration SHGC (Windows)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A07_ClimateZone == 1, 3, 5 or 16 result = N/A, store in NotApplicableMessage, Else result = 0.23</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If F06a Maximum Allowed SHGC (Windows) == N/A result = N/A, store in NotApplicableMessage, Else result = F06a_SHGC_Limit</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -1313,20 +1313,20 @@ End If</xsd:documentation>
                      <xsd:element name="G27_UfactorProposedAllSkylightFenestration" type="comp:UfactorProposedAllSkylightFenestration">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Proposed Fenestration U-factor (Skylights)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If all G02_FenestrationProductType != Skylight  result = N/A stored in the NotApplicableMessage; Else for all rows where G02_FenestrationProductType == Skylight  result = Largest ( all G09_UFactor)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If all G02_FenestrationProductType != Skylight  result = N/A stored in the NotApplicableMessage; Else for all rows where G02_FenestrationProductType == Skylight result = Largest (of associated G09_UFactor)</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="G27_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Proposed Fenestration U-factor (Skylights)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If all G02_FenestrationProductType != Skylight  result = N/A stored in the NotApplicableMessage; Else for all rows where G02_FenestrationProductType == Skylight  result = Largest ( all G09_UFactor)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If all G02_FenestrationProductType != Skylight  result = N/A stored in the NotApplicableMessage;</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
                   <xsd:element name="G28_UFactorLimitSkylight" type="com:UFactorLimitSkylight">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Required Fenestration U-factor (Skylights)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: If F01_ProjectScopeAlteration == FenestrationGlazingSkylightMinimumFt2Addition, result = 0.40 Else result = 0.30</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: result = F05b_UFactorLimitSkylight</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:choice maxOccurs="1">
@@ -1361,13 +1361,13 @@ End If</xsd:documentation>
                      <xsd:element name="G31_SHGC_LimitSkylight" type="com:SHGC_LimitSkylight">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Required Fenestration SHGC (Skylights)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A07_ClimateZone == 1, 3, 5 or 16 result = N/A, store in NotApplicableMessage Else If F01_ProjectScopeAlteration == FenestrationGlazingSkylightMinimumFt2Addition, result = 0.30 Else result = 0.23</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If F06b Maximum Allowed SHGC (Skylights)== N/A result = N/A, store in NotApplicableMessage Else result = F06b_SHGC_LimitSkylight</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="G31_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Required Fenestration SHGC (Skylights)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A07_ClimateZone == 1, 3, 5 or 16 result = N/A, store in NotApplicableMessage Else If F01_ProjectScopeAlteration == FenestrationGlazingSkylightMinimumFt2Addition, result = 0.30 Else result = 0.23</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If F06b Maximum Allowed SHGC (Skylights)== N/A result = N/A, store in NotApplicableMessage Else result = F06b_SHGC_LimitSkylight</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -1391,7 +1391,7 @@ End If</xsd:documentation>
          <xsd:element name="Section_H" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Fenestration Proposed Areas and Efficiencies - Replace (Section 150.2(b)1B)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required if A11_ProjectScopeAlterations includes one of these values: FenestrationGlazingReplacement, FenestrationGlazingWindowMinimumFt2Replacement. FenestrationGlazingSkylightReplacement</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if A10_ProjectScopeAlterations includes one of these values: FenestrationGlazingReplacement, FenestrationGlazingWindowMinimumFt2Replacement. FenestrationGlazingSkylightReplacement</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -1626,7 +1626,7 @@ End If</xsd:documentation>
                   <xsd:element name="H15_NetAddedGlazingAreaWest" type="env:NetAddedGlazingAreaWest">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Net Added West-facing Fenestration Area</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: If H05_CardinalOrientation == West result = SUM ALL (H8_NetAddedGlazingAreaWestSameTypeAndFrame)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: result = SUM ALL (H8_NetAddedGlazingAreaWestSameTypeAndFrame If H05_CardinalOrientation == West )</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="H16_IsNetAddedWestFenestrationLTE_Zero" type="comp:IsNetAddedWestFenestrationLTE_Zero">
@@ -1666,7 +1666,7 @@ End If</xsd:documentation>
                   <xsd:element name="H20_UFactorLimit" type="com:UFactorLimit">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Required Fenestration U-factor (Windows)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field:  If F01_ProjectScopeAlteration includes FenestrationGlazingWindowMinimumFt2Replacement, result = 0.40 Else result = 0.30</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: result = F05a_UFactorLimit</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:choice maxOccurs="1">
@@ -1687,13 +1687,13 @@ End If</xsd:documentation>
                      <xsd:element name="H22_ProposedAllWindowFenestrationSHGC" type="comp:ProposedAllWindowFenestrationSHGC">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Proposed Fenestration SHGC (Windows)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If H11 Proposed SHGC or H14 Combined SHGC == N/A result = N/A stored in the NotApplicableMessage, Else If  all values for H02_FenestrationProductType != FixedWindow Or OperableWindow result = N/A stored in the NotApplicableMessage;  Else for all rows where  H02_FenestrationProductType == FixedWindow Or OperableWindow result = Largest (all H11_SolarHeatGainCoefficient values, all H14_SolarHeatGainCoefficientExteriorShading values)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If  all values for H02_FenestrationProductType != FixedWindow Or OperableWindow result = N/A stored in the NotApplicableMessage;  Else for all rows where  H02_FenestrationProductType == FixedWindow Or OperableWindow If H11 Proposed SHGC or H14 Combined SHGC == N/A result = N/A stored in the NotApplicableMessage, Else result = Largest (all H11_SolarHeatGainCoefficient values, all H14_SolarHeatGainCoefficientExteriorShading values)</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="H22_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Proposed Fenestration SHGC (Windows)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If H11 Proposed SHGC or H14 Combined SHGC == N/A result = N/A stored in the NotApplicableMessage, Else If  all values for H02_FenestrationProductType != FixedWindow Or OperableWindow result = N/A stored in the NotApplicableMessage;  Else for all rows where  H02_FenestrationProductType == FixedWindow Or OperableWindow result = Largest (all H11_SolarHeatGainCoefficient values, all H14_SolarHeatGainCoefficientExteriorShading values)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If  all values for H02_FenestrationProductType != FixedWindow Or OperableWindow result = N/A stored in the NotApplicableMessage;  Else for all rows where  H02_FenestrationProductType == FixedWindow Or OperableWindow If H11 Proposed SHGC or H14 Combined SHGC == N/A result = N/A stored in the NotApplicableMessage, Else result = Largest (all H11_SolarHeatGainCoefficient values, all H14_SolarHeatGainCoefficientExteriorShading values)</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -1701,13 +1701,13 @@ End If</xsd:documentation>
                      <xsd:element name="H23_SHGC_Limit" type="com:SHGC_Limit">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Required Fenestration SHGC (Windows)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A07_ClimateZone == 1, 3, 5 Or 16 then result = N/A, store in NotApplicableMessage, Else If F01_ProjectScopeAlteration == FenestrationGlazingWindowMinimumFt2Replacement, result = 0.35 Else result = 0.23</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If F06a Maximum Allowed SHGC (Windows) == N/A result = N/A, store in NotApplicableMessage, Else result = F06a_SHGC_Limit</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="H23_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Required Fenestration SHGC (Windows)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A07_ClimateZone == 1, 3, 5 Or 16 then result = N/A, store in NotApplicableMessage, Else If F01_ProjectScopeAlteration == FenestrationGlazingWindowMinimumFt2Replacement, result = 0.35 Else result = 0.23</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If F06a Maximum Allowed SHGC (Windows) == N/A result = N/A, store in NotApplicableMessage, Else result = F06a_SHGC_Limit</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -1739,10 +1739,10 @@ End If</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
-                  <xsd:element name="H26_UFactorLimitSkylight" type="com:UFactorLimitSkylight" fixed="0.40">
+                  <xsd:element name="H26_UFactorLimitSkylight" type="com:UFactorLimitSkylight">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Required Fenestration U-factor (Skylights)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: result = 0.40</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: result = F05b_UFactorLimitSkylight</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:choice maxOccurs="1">
@@ -1763,27 +1763,27 @@ End If</xsd:documentation>
                      <xsd:element name="H28_ProposedAllSkylightFenestrationSHGC" type="comp:ProposedAllSkylightFenestrationSHGC">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Proposed Fenestration SHGC (Skylights)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A07_ClimateZone == 1, 3, 5 Or 16 then result = N/A, store in NotApplicableMessage Else If all values for H02_FenestrationProductType != Skylight result = N/A stored in the NotApplicableMessage;  Else for all rows where H02_FenestrationProductType == Skylight result = Largest (all H11_SolarHeatGainCoefficient values, all H14_SolarHeatGainCoefficientExteriorShading values)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If H11 Or H14 == N/A then result = N/A, store in NotApplicableMessage Else If all values for H02_FenestrationProductType != Skylight result = N/A stored in the NotApplicableMessage;  Else for all rows where H02_FenestrationProductType == Skylight result = Largest (all H11_SolarHeatGainCoefficient values, all H14_SolarHeatGainCoefficientExteriorShading values)</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="H28_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Proposed Fenestration SHGC (Skylights)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A07_ClimateZone == 1, 3, 5 Or 16 then result = N/A, store in NotApplicableMessage, Else If all values for H02_FenestrationProductType != Skylight result = N/A stored in the NotApplicableMessage;  Else for all rows where H02_FenestrationProductType == Skylight result = Largest (all H11_SolarHeatGainCoefficient values, all H14_SolarHeatGainCoefficientExteriorShading values)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If H11 Or H14 == N/A then result = N/A, store in NotApplicableMessage; Else If all values for H02_FenestrationProductType != Skylight result = N/A stored in the NotApplicableMessage;  Else for all rows where H02_FenestrationProductType == Skylight result = Largest (all H11_SolarHeatGainCoefficient values, all H14_SolarHeatGainCoefficientExteriorShading values)</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
                   <xsd:choice maxOccurs="1">
-                     <xsd:element name="H29_SHGC_LimitSkylight" type="com:SHGC_LimitSkylight" fixed="0.30">
+                     <xsd:element name="H29_SHGC_LimitSkylight" type="com:SHGC_LimitSkylight">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Required Fenestration SHGC (Skylights)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A07_ClimateZone == 1, 3, 5 Or 16 then result = N/A, store in NotApplicableMessage, Else result = 0.30</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If F06b Maximum Allowed SHGC (Skylights)== N/A result = N/A, store in NotApplicableMessage Else result = F06b_SHGC_LimitSkylight</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="H29_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Required Fenestration SHGC (Skylights)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: IIf A07_ClimateZone == 1, 3, 5 Or 16 then result = N/A, store in NotApplicableMessage, Else If all values for H02_FenestrationProductType != Skylight result = N/A stored in the NotApplicableMessage;  Else result = 0.30</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If F06b Maximum Allowed SHGC (Skylights)== N/A result = N/A, store in NotApplicableMessage Else result = F06b_SHGC_LimitSkylight</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -1851,11 +1851,17 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input DecimalNonnegative x.xxx</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="H1dr04_DoorCertificationMethod" type="env:DoorCertificationMethod">
+                                    <xsd:element name="H1dr04_DoorCertificationMethod">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Proposed U-factor Source</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">user selects from list: NFRCRated display term NFRC, AreaWeightedWorksheet display term Area-weighted Average Worksheet (ENV-02)</xsd:documentation>
                                        </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="env:DoorCertificationMethod">
+                                             <xsd:enumeration value="AreaWeightedWorksheet"/>
+                                             <xsd:enumeration value="NFRCRated"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:element name="H1dr05_UFactorLimit" type="com:UFactorLimit">
                                        <xsd:annotation>
@@ -1887,7 +1893,7 @@ End If</xsd:documentation>
          <xsd:element name="Section_I" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Space Conditioning (SC) Systems - Heating/Cooling (Prescriptive Section 150.2(b)).</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if A11_ProjectScopeAlterations includes at least one of the following: HeatingSystemAlteration, CoolingSystemAlteration, or DuctSystemAlteration.  Require one row of data in this table and require one CF1R-ALT-02 and one CF2R-MCH-01b for the dwelling.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if A10_ProjectScopeAlterations includes at least one of the following: HeatingSystemAlteration, CoolingSystemAlteration, or DuctSystemAlteration.  Require one row of data in this table and require one CF1R-ALT-02 and one CF2R-MCH-01b for the dwelling.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -1928,10 +1934,10 @@ If new space conditioning systems are installed or existing systems are altered 
                                           <xsd:documentation source="CalculationsAndRules">User input: text 50 character limit</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="I03_AdditionSpaceConditioningHERSException" type="comp:AdditionSpaceConditioningHERSException">
+                                    <xsd:element name="I03_AdditionSpaceConditioningECCException" type="comp:AdditionSpaceConditioningECCException">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Exemption from Field Verification</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User checks box a or b or c or d to select the correct exemption from field verification. If user selects box a result = ExceptionNoChange Else If usrs selects box b result = ExceptionDuctsLT25ft Else If user selects box c result = ExceptionDuctsAsbestos Else If user select box d result = ExceptionDuctsVerifiedByHERS</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Exemption from ECC Verification</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User checks box a or b or c or d to select the correct exemption from field verification. If user selects box a result = ExceptionNoChange Else If usrs selects box b result = ExceptionDuctsLT25ft Else If user selects box c result = ExceptionDuctsAsbestos Else If user select box d result = ExceptionDuctsVerifiedByECC</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
@@ -1946,7 +1952,7 @@ If new space conditioning systems are installed or existing systems are altered 
          <xsd:element name="Section_J" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Water Heating Systems  (Section 150.2(b)1H)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if A11_ProjectScopeAlterations includes WaterHeatingAlteration.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if A10_ProjectScopeAlterations includes WaterHeatingAlteration.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>

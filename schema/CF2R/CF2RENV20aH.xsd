@@ -64,106 +64,65 @@
                <xsd:sequence>
                   <xsd:element name="A01_IsEnvelopeAirLeakageHERSVerificationRequired" type="comp:IsEnvelopeAirLeakageHERSVerificationRequired" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Is HERS verification of building enclosure air leakage to outside required by CF1R?</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: If project CF1R requires HERS verification of building enclosure air leakage result = true display term Required Else result = false display term N/A</xsd:documentation>
+                        <xsd:documentation source="FieldText">Is ECC verification of building enclosure air leakage to outside required by CF1R?</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If project CF1R requires ECC verification of building enclosure air leakage result = true display term Required Else result = false display term N/A</xsd:documentation>
                         <xsd:appinfo source="displayterm">
-                           <dtyp:displayterm value="false">N/A
-</dtyp:displayterm>
-                        </xsd:appinfo>
-                        
+                           <dtyp:displayterm value="false">N/A</dtyp:displayterm>
+                        </xsd:appinfo>                        
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:choice maxOccurs="1">
                      <xsd:element name="A02_EnclosureLeakageTargetCFM50" type="comp:EnclosureLeakageTargetCFM50" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Target  Enclosure Air Leakage from CF1R (CFM50)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A01_IsEnvelopeAirLeakageHERSVerificationRequired == true, result = CFM50 target value  from project CF1R Else result = N/A stored in NotApplicableMessage
- 
-2022.0.000 MOVED FROM: A03_EnclosureLeakageTargetCFM50</xsd:documentation>
-                           <xsd:appinfo source="PrevName">
-                              <dtyp:prevSchema version="2019.1.006" changed="cell number">A03_EnclosureLeakageTargetCFM50</dtyp:prevSchema>
-                           </xsd:appinfo>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A01_IsEnvelopeAirLeakageHERSVerificationRequired == true, result = CFM50 target value  from project CF1R Else result = N/A stored in NotApplicableMessage </xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="A02_NotApplicableMessage" type="comp:NotApplicableMessage" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Target  Enclosure Air Leakage from CF1R</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A01IsEnvelopeAirLeakageHERSVerificationRequired == true, result = CFM50 target value  from project CF1R Else result = N/A stored in NotApplicableMessage
-
-2022.0.000 MOVED FROM: A03_NotApplicableMessage</xsd:documentation>
-                           <xsd:appinfo source="PrevName">
-                              <dtyp:prevSchema version="2019.1.006" changed="cell number">A03_NotApplicableMessage</dtyp:prevSchema>
-                           </xsd:appinfo>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A01IsEnvelopeAirLeakageHERSVerificationRequired == true, result = CFM50 target value  from project CF1R Else result = N/A stored in NotApplicableMessage</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
                   <xsd:element name="A03_TestTemperatureIndoor" type="comp:TestTemperatureIndoor" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Indoor Temperature During Test  (degrees Fahrenheit ([d:deg/]F))</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input numeric x.x deg F
-
-2022.0.000 MOVED FROM: A04_TestTemperatureIndoor</xsd:documentation>
-                        <xsd:appinfo source="PrevName">
-                           <dtyp:prevSchema version="2019.1.006" changed="cell number">A04_TestTemperatureIndoor</dtyp:prevSchema>
-                        </xsd:appinfo>
+                        <xsd:documentation source="CalculationsAndRules">User input numeric x.x deg F</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A04_TestTemperatureOutdoor" type="comp:TestTemperatureOutdoor" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Outdoor Temperature During Test (degrees Fahrenheit ([d:deg/]F))</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input numeric x.x deg F
-
-2022.0.000 MOVED FROM: A05_TestTemperatureOutdoor</xsd:documentation>
-                        <xsd:appinfo source="PrevName">
-                           <dtyp:prevSchema version="2019.1.006" changed="cell number">A05_TestTemperatureOutdoor</dtyp:prevSchema>
-                        </xsd:appinfo>
+                        <xsd:documentation source="CalculationsAndRules">User input numeric x.x deg F</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A05_BlowerDoorLocation" type="comp:BlowerDoorLocation" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Blower Door Location</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">maximum 50 characters
-
-2022.0.000 MOVED FROM: A06_BlowerDoorLocation</xsd:documentation>
-                        <xsd:appinfo source="PrevName">
-                           <dtyp:prevSchema version="2019.1.006" changed="cell number">A06_BlowerDoorLocation</dtyp:prevSchema>
-                        </xsd:appinfo>
+                        <xsd:documentation source="CalculationsAndRules">maximum 50 characters</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A06_Elevation" type="com:Elevation" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Building Elevation Above Sea level (feet (ft))</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input integer xxxxx
-
-2022.0.000 MOVED FROM:A07_Elevation</xsd:documentation>
-                        <xsd:appinfo source="PrevName">
-                           <dtyp:prevSchema version="2019.1.006" changed="cell number">A07_Elevation</dtyp:prevSchema>
-                        </xsd:appinfo>
+                        <xsd:documentation source="CalculationsAndRules">User input integer xxxxx</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A07_TestDate" type="comp:TestDate" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Date of Diagnostic Test for this Dwelling</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input date 
-
-2022.0.000 MOVED FROM: A14_TestDate</xsd:documentation>
-                        <xsd:appinfo source="PrevName">
-                           <dtyp:prevSchema version="2019.1.006" changed="cell number">A14_TestDate</dtyp:prevSchema>
-                        </xsd:appinfo>
+                        <xsd:documentation source="CalculationsAndRules">User input date </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A08_AirLeakageTestProcedure" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Test Procedure Used</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User selects from list:  SinglePointTestManualMeter, display term Single-Point Test with Manual Meter    SinglePointTestAutomaticMeter,  display term Single-Point Test with Automatic Meter   
-
-2022.0.000 MOVED FROM:  A15_AirLeakageTestProcedure</xsd:documentation>
-                        <xsd:appinfo source="PrevName">
-                           <dtyp:prevSchema version="2019.1.006" changed="cell number">A15_AirLeakageTestProcedure</dtyp:prevSchema>
-                        </xsd:appinfo>
+                        <xsd:documentation source="CalculationsAndRules">User selects from list: MultiPointTest, display term Multi-Point Test    SinglePointTestManualMeter, display term Single-Point Test with Manual Meter    SinglePointTestAutomaticMeter,  display term Single-Point Test with Automatic Meter </xsd:documentation>
                      </xsd:annotation>
                      <xsd:simpleType>
                         <xsd:restriction base="comp:AirLeakageTestProcedure">
+                           <xsd:enumeration value="MultiPointTest"/>
                            <xsd:enumeration value="SinglePointTestAutomaticMeter"/>
                            <xsd:enumeration value="SinglePointTestManualMeter"/>
                         </xsd:restriction>
@@ -173,10 +132,7 @@
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Env20a Variant Banner</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">ENV20a - Single Point Air Tightness Test With Manual Meter</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If A08_AirLeakageTestProcedure == SinglePointTestManualMeter, Then variant result = ENV20a - Single Point Air Tightness Test With Manual Meter.  Use this variant for the remainder of this document.</xsd:documentation>
-                        <xsd:appinfo source="PrevName">
-                           <dtyp:prevSchema version="2019.1.006" changed="cell number">A15After</dtyp:prevSchema>
-                        </xsd:appinfo>
+                        <xsd:documentation source="CalculationsAndRules">If A08_AirLeakageTestProcedure == SinglePointTestManualMeter, Then variant result = ENV20a - Single Point Air Tightness Test With Manual Meter.  Use this variant for the remainder of this document.</xsd:documentation>                        
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>

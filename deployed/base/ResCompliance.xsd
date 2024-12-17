@@ -169,20 +169,20 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
-   <xsd:simpleType name="AdditionSpaceConditioningHERSException">
+   <xsd:simpleType name="AdditionSpaceConditioningECCException">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="ExceptionNoChange">space conditioning system not altered</dtyp:displayterm>
             <dtyp:displayterm value="ExceptionDuctsLT25ft">less than 25ft of ducts added or replaced</dtyp:displayterm>
             <dtyp:displayterm value="ExceptionDuctsAsbestos">existing duct system insulated with asbestos</dtyp:displayterm>
-            <dtyp:displayterm value="ExceptionDuctsVerifiedByHERS">existing duct system tested and passed by Rater</dtyp:displayterm>
+            <dtyp:displayterm value="ExceptionDuctsVerifiedByECC">existing duct system tested and passed by ECC Rater</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="ExceptionNoChange"/>
          <xsd:enumeration value="ExceptionDuctsLT25ft"/>
          <xsd:enumeration value="ExceptionDuctsAsbestos"/>
-         <xsd:enumeration value="ExceptionDuctsVerifiedByHERS"/>
+         <xsd:enumeration value="ExceptionDuctsVerifiedByECC"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="AdditionalAllowanceForPAF">

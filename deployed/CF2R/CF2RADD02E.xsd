@@ -15,7 +15,9 @@
          <xsd:element name="DocumentBeginNote1" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText"/>
-               <xsd:documentation source="AdditionalRequirements">Alterations to Space Conditioning Systems that are exempt from field verification requirements may use the CF1R-ADD-02 and CF2R-ADD-02 compliance documents.  Possible exemptions from duct leakage testing include: less than 25 feet (ft) of ducts were added or replaced; or the existing duct system was insulated with asbestos; or the existing duct system was previously tested and passed by an ECC Rater.  If space conditioning systems are altered and are not exempt from field verification, then a CF1R-ADD-01 and CF1R-ALT-02 must be completed and registered with an ECC Provider Data Registry.
+               <xsd:documentation source="AdditionalRequirements">This compliance document is only applicable to additions that do not require field verification for compliance.  When field verification is required, a CF1R-ADD-01 shall first be registered with a ECC Provider Data Registry. 
+                  <d:line2/> 
+Alterations to Space Conditioning Systems that are exempt from field verification requirements may use the CF1R-ADD-02 and CF2R-ADD-02 compliance documents.  Possible exemptions from duct leakage testing include: less than 25 feet (ft) of ducts were added or replaced; or the existing duct system was insulated with asbestos; or the existing duct system was previously tested and passed by an ECC Rater.  If space conditioning systems are altered and are not exempt from field verification, then a CF1R-ADD-01 and CF1R-ALT-02 must be completed and registered with an ECC Provider Data Registry.
                   <d:line2/> Additions or alterations that utilize closed cell Spray Polyurethane Foam (ccSPF) with a density of 1.5 to less than 2.5 pounds per cubic foot having an R-value greater than 5.8 per inch, or open cell Spray Polyurethane Foam (ocSPF) with a density of 0.4 to less than 1.5 pounds per cubic foot having an R-value of 3.6 per inch, shall complete and register a CF1R ADD-01 with an ECC Provider Data Registry.
                   <d:line2/> If more than one person has responsibility for installation of the items on this certificate, each person shall prepare and sign a certificate applicable to the portion of construction for which they are responsible. Alternatively, the person with chief responsibility for construction shall prepare and sign this certificate for the entire construction. All applicable Mandatory Measures shall be met. Temporary labels shall not be removed before verification by the building inspector.</xsd:documentation>
             </xsd:annotation>
@@ -75,24 +77,13 @@
                         <xsd:documentation source="CalculationsAndRules">auto-filled: reference text from CF1R</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A09_ResidentialLowriseBuildingType">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Building Type</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">result = SingleFamily display term Single family,</xsd:documentation>
-                     </xsd:annotation>
-                     <xsd:simpleType>
-                        <xsd:restriction base="com:ResidentialLowriseBuildingType">
-                           <xsd:enumeration value="SingleFamily"/>
-                        </xsd:restriction>
-                     </xsd:simpleType>
-                  </xsd:element>
-                  <xsd:element name="A10_FloorSlabArea" type="env:FloorSlabArea">
+                  <xsd:element name="A09_FloorSlabArea" type="env:FloorSlabArea">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Slab Area (ft<d:sup>2</d:sup>)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">auto-filled: reference text from CF1R</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A11_ProjectScopeAddAltNonHERS" type="comp:ProjectScopeAddAltNonHERS" minOccurs="1" maxOccurs="unbounded">
+                  <xsd:element name="A10_ProjectScopeAddAltNonHERS" type="comp:ProjectScopeAddAltNonHERS" minOccurs="1" maxOccurs="unbounded">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Project Scope</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User can select as many as are applicable from list: 
@@ -1173,10 +1164,10 @@ WaterHeating display term Water Heating (Show tables O, P)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="N03_AdditionSpaceConditioningHERSException" type="comp:AdditionSpaceConditioningHERSException">
+                                    <xsd:element name="N03_AdditionSpaceConditioningECCException" type="comp:AdditionSpaceConditioningECCException">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Exemption from Field Verification</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User checks box a or b or c or d to select the correct exemption from field verification. If user selects box a, result = ExceptionNoChange Else If user selects box b, result = ExceptionDuctsLT25ft Else If user selects box c, result = ExceptionDuctsAsbestos Else If user select box d, result = ExceptionDuctsVerifiedByHERS</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User checks box a or b or c or d to select the correct exemption from field verification. If user selects box a, result = ExceptionNoChange Else If user selects box b, result = ExceptionDuctsLT25ft Else If user selects box c, result = ExceptionDuctsAsbestos Else If user select box d, result = ExceptionDuctsVerifiedByECC</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>

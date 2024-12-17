@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RENV20aH" version="2025.0.000" xmlns="http://www.lmonte.com/besm/CF2RENV20aH" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RENV20cH" version="2016.1.006" xmlns="http://www.lmonte.com/besm/CF2RENV20cH" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
@@ -7,9 +7,9 @@
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
-   <xsd:complexType name="CF2RENV20aH">
+   <xsd:complexType name="CF2RENV20cH">
       <xsd:annotation>
-         <xsd:documentation>Building Air Leakage Diagnostic Test - Building Enclosures and Dwelling Unit Enclosures - ENV20a Single Point Air Tightness Test With Manual Meter</xsd:documentation>
+         <xsd:documentation>Building Air Leakage Diagnostic Test - Building Enclosures and Dwelling Unit Enclosures - ENV20c Multi-Point Air Tightness Test</xsd:documentation>
       </xsd:annotation>
       <xsd:sequence>
          <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
@@ -89,9 +89,9 @@
                   </xsd:element>
                   <xsd:element name="A08After" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Env20a Variant Banner</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">ENV20a - Single Point Air Tightness Test With Manual Meter</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If A08_AirLeakageTestProcedure == SinglePointTestManualMeter, Then variant result = ENV20a - Single Point Air Tightness Test With Manual Meter.  Use this variant for the remainder of this document.</xsd:documentation>
+                        <xsd:documentation source="FieldText">Env20c Variant Banner</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">ENV20c - Multi-Point Air Tightness Test</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If A08_AirLeakageTestProcedure == MultiPointTest, Then variant result = ENV20c - Multi-Point Air Tightness Test.  Use this variant for the remainder of this document.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
@@ -210,150 +210,75 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="C01_MeterTimeAveragePeriod" type="comp:MeterTimeAveragePeriod">
+                  <xsd:element name="C01_ASTM_E779_10Software" type="comp:ASTM_E779_10Software">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Name and version of ASTM E779 compliant software used for multi-point test.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">maximum 50 characters</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C02_MeterTimeAveragePeriod" type="comp:MeterTimeAveragePeriod">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Time Average Period of Meter (seconds)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input integer GTE  10 seconds</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="C02_BuildingAirLeakageTestMethod" type="comp:BuildingAirLeakageTestMethod">
+                  <xsd:element name="C03_BuildingAirLeakageTestMethod" type="comp:BuildingAirLeakageTestMethod">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Test Methodology</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User selects from list: Pressurization, Depressurization</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="C03_BuildingPressureReadingPreTest" type="comp:BuildingPressureReadingPreTest">
+                  <xsd:element name="C04_BuildingPressureReadingPreTest" type="comp:BuildingPressureReadingPreTest">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Pre-test Baseline Enclosure Pressure (Pa) (may be positive or negative)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input numeric xx.x in InclusiveRange(-40, 40)</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="C04_BuildingPressureTargetUnadjusted" type="comp:BuildingPressureTargetUnadjusted">
+                  <xsd:element name="C05_BuildingPressureTargetUnadjusted" type="comp:BuildingPressureTargetUnadjusted">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Unadjusted Enclosure Pressure Target (Pa)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Pressurization result = SUM (50, C03_  BuildingPressureReadingPreTest )  Else result = SUM (-50, C03_  BuildingPressureReadingPreTest )  (resolution of 0.1)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If C03_BuildingAirLeakageTestMethod == Pressurization result = SUM (60, C04_BuildingPressureReadingPreTest )  Else result = SUM (-60, C04_BuildingPressureReadingPreTest )  (resolution of 0.1)</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="C05_BuildingPressureMeasuredUnadjusted" type="comp:BuildingPressureMeasuredUnadjusted">
+                  <xsd:element name="C06_BuildingPressureMeasuredUnadjusted" type="comp:BuildingPressureMeasuredUnadjusted">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Unadjusted Enclosure Pressure Measured (Pa) (Pressurization is positive; Depressurization is negative)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input numeric xx.x in InclusiveRange(-75, 75)</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="C06_InducedEnclosurePressureDifference" type="comp:InducedEnclosurePressureDifference">
+                  <xsd:element name="C07_InducedEnclosurePressureDifference" type="comp:InducedEnclosurePressureDifference">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Induced Enclosure Pressure Difference (Pa) Goal = 50 +- 3 (Pressurization is positive; Depressurization is negative)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: result =  C05_BuildingPressureMeasuredUnadjusted - C03_BuildingPressureReadingPreTest</xsd:documentation>
+                        <xsd:documentation source="FieldText">Induced Enclosure Pressure Difference (Pa) Goal = 60 +- 3 (Pressurization is positive; Depressurization is negative)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: result =  C06_BuildingPressureMeasuredUnadjusted - C04_BuildingPressureReadingPreTest</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="C07_IsInducedPressureWithinRange" type="comp:IsInducedPressureWithinRange">
+                  <xsd:element name="C08_MinReadingAcknowledge" type="comp:MinReadingAcknowledge">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Induced Enclosure Pressure Check</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: If ABS  ( C06_InducedEnclosurePressureDifference) GTE 15 Pa, result = true.  display term Induced pressure within range for single point test.  Else result = false display term Induced pressure is too low for single point test.   Do Not Proceed.</xsd:documentation>
+                        <xsd:documentation source="FieldText">A minimum of five readings were taken spaced evenly between 10 Pa and 60 Pa (or highest attainable pressure)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User must acknowledge (result = true) this requirement to continue</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="C08_NominalFanFlow" type="comp:NominalFanFlow">
+                  <xsd:element name="C09_BuildingPressureReadingPostTest" type="comp:BuildingPressureReadingPostTest">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Measured Nominal Fan Flow at Above Fan Pressure (cfm) at the Induced Enclosure Pressure Difference (in C06 above)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input  integer (resolution of 1 CFM)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Post-test baseline building pressure</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input; Resolution of 0.1 Pa</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="C09_NominalCFM50" type="comp:NominalCFM50">
+                  <xsd:element name="C10_CFM50SoftwareCorrected" type="comp:CFM50SoftwareCorrected">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Calculated Nominal CFM50</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated Field: PRODUCT (C08_NominalFanlow, (50 / ABS(C06_InducedEnclosurePressureDifference )) exp 0.65)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Corrected CFM50 (from software)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User entry of value calculated by the software.  Resolution of 1 CFM</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_D" minOccurs="1" maxOccurs="1">
+         <xsd:element name="Section_D" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Altitude and Temperature Correction</xsd:documentation>
-               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+               <xsd:documentation source="FieldText">Altitude and Temperature Correction Performed by blower door software</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is not used as it is performed by blower door software</xsd:documentation>
             </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="Calculations">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="CalculationsAndRules">This subsection is not visible to the user.</xsd:documentation>
-                     </xsd:annotation>
-                     <xsd:complexType>
-                        <xsd:sequence>
-                           <xsd:choice maxOccurs="1">
-                              <xsd:element name="Da1_OutdoorAirViscosityCorrection" type="comp:OutdoorAirViscosityCorrection">
-                                 <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Outdoor Dynamic Viscosity of Air Correction</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Depressurization result = 2.629 * 10^-3 * ((A04_TestTemperatureOutdoor+460)^0.5 / (1+(198.7 /  (A04_TestTemperatureOutdoor+460)))); Else result = N/A</xsd:documentation>
-                                 </xsd:annotation>
-                              </xsd:element>
-                              <xsd:element name="Da1_NotApplicableMessage" type="comp:NotApplicableMessage">
-                                 <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Outdoor Dynamic Viscosity of Air Correction</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Depressurization result = 2.629 * 10^-3 * ((A04_TestTemperatureOutdoor+460)^0.5 / (1+(198.7 /  (A04_TestTemperatureOutdoor+460)))); Else result = N/A</xsd:documentation>
-                                 </xsd:annotation>
-                              </xsd:element>
-                           </xsd:choice>
-                           <xsd:choice maxOccurs="1">
-                              <xsd:element name="Da2_IndoorAirViscosityCorrection" type="comp:IndoorAirViscosityCorrection">
-                                 <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Indoor Dynamic Viscosity of Air Correction</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Pressurization result =2.629 * 10^-3 * ((A03_TestTemperatureIndoor+460)^0.5 / (1+(198.7 /  (A03_TestTemperatureIndoor+460))));   Else result = N/A</xsd:documentation>
-                                 </xsd:annotation>
-                              </xsd:element>
-                              <xsd:element name="Da2_NotApplicableMessage" type="comp:NotApplicableMessage">
-                                 <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Indoor Dynamic Viscosity of Air Correction</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Pressurization result =2.629 * 10^-3 * ((A03_TestTemperatureIndoor+460)^0.5 / (1+(198.7 /  (A03_TestTemperatureIndoor+460))));   Else result = N/A</xsd:documentation>
-                                 </xsd:annotation>
-                              </xsd:element>
-                           </xsd:choice>
-                           <xsd:choice maxOccurs="1">
-                              <xsd:element name="Da3_OutdoorAirDensityCorrection" type="comp:OutdoorAirDensityCorrection">
-                                 <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Outdoor Air Density Correction</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Depressurization result = 0.07517 * (1-((0.0035666 * A06_Elevation)/528))^(5.2553) * (528/(A04_TestTemperatureOutdoor+460)); Else result = N/A</xsd:documentation>
-                                 </xsd:annotation>
-                              </xsd:element>
-                              <xsd:element name="Da3_NotApplicableMessage" type="comp:NotApplicableMessage">
-                                 <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Outdoor Air Density Correction</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Depressurization result = 0.07517 * (1-((0.0035666 * A06_Elevation)/528))^(5.2553) * (528/(A04_TestTemperatureOutdoor+460)); Else result = N/A</xsd:documentation>
-                                 </xsd:annotation>
-                              </xsd:element>
-                           </xsd:choice>
-                           <xsd:choice maxOccurs="1">
-                              <xsd:element name="Da4_IndoorAirDensityCorrection" type="comp:IndoorAirDensityCorrection">
-                                 <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Indoor Air Density Correction</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Pressurization result = 0.07517 * (1-((0.0035666 * A06_Elevation)/528))^(5.2553) * (528/(A03_TestTemperatureIndoor+460)); Else result = N/A</xsd:documentation>
-                                 </xsd:annotation>
-                              </xsd:element>
-                              <xsd:element name="Da4_NotApplicableMessage" type="comp:NotApplicableMessage">
-                                 <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Indoor Air Density Correction</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Pressurization result = 0.07517 * (1-((0.0035666 * A06_Elevation)/528))^(5.2553) * (528/(A03_TestTemperatureIndoor+460)); Else result = N/A</xsd:documentation>
-                                 </xsd:annotation>
-                              </xsd:element>
-                           </xsd:choice>
-                        </xsd:sequence>
-                     </xsd:complexType>
-                  </xsd:element>
-                  <xsd:element name="D01_AltitudeTemperatureCorrectionFactor" type="comp:AltitudeTemperatureCorrectionFactor">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Altitude and Temperature Correction Factor</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field:  If C02_BuildingAirLeakageTestMethod == Depressurization result = (Da1_OutdoorAirVicosityCorrection / 0.044)^(2* 0.65-1) * (Da3_OutdoorAirDensityCorrection / 0.07517) ^(1-(0.65));  Else  If C02_BuildingAirLeakageTestMethod == Pressurization result =  (Da2_IndoorAirVicosityCorrection / 0.044)^(2 * 0.65-1) * (Da4_IndoorAirDensityCorrection / 0.07517)^(1-(0.65))</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="D02_CFM50TempAltCorrected" type="comp:CFM50TempAltCorrected">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Corrected CFM50</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field:  result = C09_NominalCFM50 *  D01_AltitudeTemperatureCorrectionFactor</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
          </xsd:element>
          <xsd:element name="Section_E" minOccurs="1" maxOccurs="1">
             <xsd:annotation>
@@ -362,10 +287,28 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="E01_CFM50Adjusted" type="comp:CFM50Adjusted">
+                  <xsd:element name="E01_SoftwareTestPercentUncertainty" type="comp:SoftwareTestPercentUncertainty">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Percent Uncertainty at 95% confidence level (from software)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User entry of value calculated by software. The value represented should be percent and not a fraction.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="E02_SoftwareTestAccuracy" type="comp:SoftwareTestAccuracy">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Accuracy Level</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If E01_SoftwareTestPercentUncertainty is less than or equal to 10, result = Standard, else result = Reduced</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="E03_TestAccuracyFactor" type="comp:TestAccuracyFactor">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Accuracy Adjustment Factor</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If E02_SoftwareTestAccuracy == Standard result = 1, Else If E02_SoftwareTestAccuracy == Reduced result = 1+ (E01_SoftwareTestPercentUncertainty / 100)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="E04_CFM50Adjusted" type="comp:CFM50Adjusted">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Adjusted CFM50 (measured air leakage rate)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: PRODUCT (D02_CFM50TempAltCorrected, 1.1)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Result = C10_CFM50SoftwareCorrected x E03_TestAccuracyFactor</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
@@ -381,18 +324,7 @@
                   <xsd:element name="F01_DoesBuildingAirLeakageTestComply" type="comp:DoesBuildingAirLeakageTestComply">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If B06_IsManometerCalibrationCurrent == true Then
-If A01_IsEnvelopeAirLeakageHERSVerificationRequired == true  And E01_CFM50Adjusted  LTE A02_EnclosureLeakageTargetCFM50, 
-result = true.  display term  Passes Enclosure Air Leakage Test;   
-
-Else result = false display term Fails Enclosure Air Leakage Test. 
-End If
-Else  If B06_IsManometerCalibrationCurrent == false result = false display term Manometer Calibration is expired, Fails Enclosure Air Leakage Test. 
-End If</xsd:documentation>
-                        <xsd:appinfo source="displayterm">
-                           <dtyp:displayterm value="false">Manometer Calibration is expired, Fails Enclosure Air Leakage Test.</dtyp:displayterm>
-                           <dtyp:displayterm value="false">Fails Enclosure Air Leakage Test.</dtyp:displayterm>
-                        </xsd:appinfo>
+                        <xsd:documentation source="CalculationsAndRules">If B05_ManometerCalibrationDate is within 12 months of the diagnostic A07_TestDate in section A and If E04_CFM50Adjusted in section E is less than or equal to the A02_AirInfiltrationRate in section A, then result is true.  For Boolean true value display text: Building Passes Envelope Leakage Test; Else if B05_ManometerCalibrationDate is more than 12 months from diagnostic A07_TestDate or if E04_CFM50Adjusted is more than A02_AirInfiltrationRate then  result is false.  For Boolean false value display text:  Building Fails Envelope Leakage Test</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
@@ -408,27 +340,19 @@ End If</xsd:documentation>
                   <xsd:element name="G01" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements">The procedure for preparing the enclosure for testing is detailed in RESNET 380-2019 Section 3.2.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The procedure for preparing the enclosure for testing is detailed in RESNET 380-2019 Section 4.2.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="G02" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements">The procedure for installation of the test apparatus, and preparations for measurement shall conform to RESNET 380-2019 Section 3.3</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">2022.0.000 MOVED FROM: G03</xsd:documentation>
-                        <xsd:appinfo source="PrevName">
-                           <dtyp:prevSchema version="2019.1.006" changed="cell number">G03</dtyp:prevSchema>
-                        </xsd:appinfo>
+                        <xsd:documentation source="AdditionalRequirements">The procedure for installation of the test apparatus, and preparations for measurement shall conform to RESNET 380-2019 Section 4.3</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="G03" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements">The procedure for the conduct of the enclosure air leakage test shall conform to the One-Point Airtightness Test specified in RESNET 380-2019 Section 3.4.1</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">2022.0.000 MOVED FROM: G04</xsd:documentation>
-                        <xsd:appinfo source="PrevName">
-                           <dtyp:prevSchema version="2019.1.006" changed="cell number">G04</dtyp:prevSchema>
-                        </xsd:appinfo>
+                        <xsd:documentation source="AdditionalRequirements">The procedure for the conduct of the enclosure air leakage test shall conform to the Multi-Point Airtightness Test specified in RESNET 380-2019 Section 4.4.2</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="GEndNote1" minOccurs="0">
@@ -447,11 +371,11 @@ End If</xsd:documentation>
          <xsd:sequence>
             <xsd:element name="DocID" minOccurs="0">
                <xsd:complexType>
-                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RENV20aH"/>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RENV20cH"/>
                   <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
                   <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Building Air Leakage Diagnostic Test - Building Enclosures and Dwelling Unit Enclosures"/>
-                  <xsd:attribute name="docVariantSubtitle" type="comp:ComplianceDocumentVariantSubtitle" fixed="ENV20a Single Point Air Tightness Test With Manual Meter"/>
-                  <xsd:attribute name="docVariantLetter" type="comp:ComplianceDocumentVariant" fixed="a"/>
+                  <xsd:attribute name="docVariantSubtitle" type="comp:ComplianceDocumentVariantSubtitle" fixed="ENV20c Multi-Point Air Tightness Test"/>
+                  <xsd:attribute name="docVariantLetter" type="comp:ComplianceDocumentVariant" fixed="c"/>
                </xsd:complexType>
             </xsd:element>
             <xsd:element name="Payload" type="comp:Payload"/>
@@ -459,7 +383,7 @@ End If</xsd:documentation>
                <xsd:complexType>
                   <xsd:sequence>
                      <xsd:element name="Header" type="comp:HeaderHERS"/>
-                     <xsd:element ref="cF2RENV20aH"/>
+                     <xsd:element ref="cF2RENV20cH"/>
                      <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
                      <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_H"/>
                      <xsd:element name="Footer" type="comp:Footer"/>
@@ -468,13 +392,13 @@ End If</xsd:documentation>
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
-         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RENV20aH"/>
+         <xsd:attribute name="revision" type="xsd:string" use="required" fixed="rev 20250101"/>
+         <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" use="required" fixed="CF2RENV20cH"/>
       </xsd:complexType>
    </xsd:element>
-   <xsd:element name="cF2RENV20aH" type="CF2RENV20aH">
+   <xsd:element name="cF2RENV20cH" type="CF2RENV20cH">
       <xsd:annotation>
-         <xsd:documentation>This element contains all of the data and text required to generate the CF2RENV20aH compliance report.</xsd:documentation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF2RENV20cH compliance report.</xsd:documentation>
       </xsd:annotation>
    </xsd:element>
 </xsd:schema>
