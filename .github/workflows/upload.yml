@@ -1,0 +1,47 @@
+name: Upload to Azure Blob Storage
+
+on:
+  pull_request:
+    types: [labeled]
+
+permissions:
+  id-token: write  # Required for OIDC authentication
+  contents: read   # Required to read repository contents
+
+jobs:
+  upload_to_blob:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Extract version label value
+        id: get-version
+        run: |
+          PREFIX="version:"
+          LABELS='${{ toJson(github.event.pull_request.labels) }}'
+          EXTRACTED_LABEL=$(echo "$LABELS" | jq -r '.[] | select(.name | startswith("'$PREFIX'")) | .name | sub("'$PREFIX'"; "")')
+          
+          if [ -n "$EXTRACTED_LABEL" ]; then
+            echo "Extracted label: $EXTRACTED_LABEL"
+            echo "extracted_label=$EXTRACTED_LABEL" >> $GITHUB_OUTPUT
+          else
+            echo "No label with prefix '$PREFIX' found."
+          fi
+          
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Upload schema files to Azure Blob storage
+        if: steps.get-version.outputs.extracted_label != ''
+        run: |
+            az storage container create --name ${{ steps.get-version.outputs.extracted_label }} --account-name compliancedocs
+            az storage blob upload-batch \
+              --account-name compliancedocs \
+              --auth-mode login \
+              --destination ${{ steps.get-version.outputs.extracted_label }} \
+              --destination-path schema \
+              --source deployed \
+              --pattern "**/*.xsd"
