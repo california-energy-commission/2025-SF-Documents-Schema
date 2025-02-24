@@ -174,10 +174,11 @@
                   <xsd:element name="A16_AirLeakageTestProcedure">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Test Procedure Used</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User selects from list:  SinglePointTestManualMeter, display term Single-Point Test with Manual Meter    SinglePointTestAutomaticMeter,  display term Single-Point Test with Automatic Meter</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from list: MultiPointTest display term Multi-Point Test;  SinglePointTestManualMeter, display term Single-Point Test with Manual Meter;    SinglePointTestAutomaticMeter,  display term Single-Point Test with Automatic Meter</xsd:documentation>
                      </xsd:annotation>
                      <xsd:simpleType>
                         <xsd:restriction base="comp:AirLeakageTestProcedure">
+                           <xsd:enumeration value="MultiPointTest"/>
                            <xsd:enumeration value="SinglePointTestAutomaticMeter"/>
                            <xsd:enumeration value="SinglePointTestManualMeter"/>
                         </xsd:restriction>

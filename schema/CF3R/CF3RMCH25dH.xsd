@@ -323,8 +323,7 @@ Require 1 row of data for each indoor unit listed in the "HERS Verification Requ
                                        <xsd:element name="D02_MinimumAirflowRateRequired" type="comp:MinimumAirflowRateRequired" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Minimum Required System Airflow Rate (cfm)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Calculated field: if A12 = no, then N/A;
-                                                Else If the parent MCH-01 indicates a MCH-28 is required for alternate minimum airflow rate compliance
+                                             <xsd:documentation source="CalculationsAndRules">Calculated field: If the parent MCH-01 indicates a MCH-28 is required for alternate minimum airflow rate compliance
 result = RequiredVerificationTable150BC stored in MinimumAirflowRateAlternative; 
  
 Else reference numeric value  from applicable MCH23 field for the indoor unit in D01 and store result in MinimumAirflowRateRequired.   
@@ -339,8 +338,7 @@ Mch23c  - field E02
                                        <xsd:element name="D02_MinimumAirflowRateAlternative" type="comp:MinimumAirflowRateAlternative" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Minimum Required System Airflow Rate (cfm)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Calculated field: if A12 = no, then N/A;
-                                                Else If the  parent MCH-01 indicates a MCH-28 is required for alternate minimum airflow rate compliance
+                                             <xsd:documentation source="CalculationsAndRules">Calculated field: If the  parent MCH-01 indicates a MCH-28 is required for alternate minimum airflow rate compliance
 result = RequiredVerificationTable150BC stored in MinimumAirflowRateAlternative; 
  
 Else reference numeric value  from applicable MCH23 field for the indoor unit in D01 and store result in MinimumAirflowRateRequired.   
@@ -352,17 +350,6 @@ Mch23c  - field E02
 (Mch23d not applicable)</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="D02_NotApplicableMessage" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Minimum Required System Airflow Rate (cfm)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">if A12 = no, then N/A;</xsd:documentation>                                            
-                                          </xsd:annotation>
-                                          <xsd:simpleType>
-                                             <xsd:restriction base="comp:NotApplicableMessage">
-                                                <xsd:enumeration value="N/A"/>                                            
-                                             </xsd:restriction>
-                                          </xsd:simpleType>
-                                       </xsd:element> 
                                     </xsd:choice>
                                     <xsd:element name="D03_MinimumAirflowRateVerificationStatus" >
                                        <xsd:annotation>

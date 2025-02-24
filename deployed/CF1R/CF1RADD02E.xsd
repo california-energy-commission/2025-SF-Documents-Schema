@@ -148,7 +148,7 @@ FenestrationGlazingSkylightTubularLTE3Ft2, display text Installing less than or 
          <xsd:element name="Section_B" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Opaque Surface Details - Framed (Section 150.2(a) and 150.1(c)1)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if the project has at least one opaque surface covered in this section And  If A11_ProjectScopeAddition includes at least one of the following: 
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if the project has at least one opaque surface covered in this section And  If A10_ProjectScopeAddition includes at least one of the following: 
 AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, AdditionLTE300ADU, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU, or AdditionGT700LTE1000ADU, display section but  entry is optional.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
@@ -292,7 +292,7 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
          <xsd:element name="Section_C" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Opaque Surface Details - Non-framed (Section 150.1(c)1)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if the project has at least one opaque non-framed wall or roof And If A11_ProjectScopeAddition includes one of the following: AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, AdditionLTE300ADU, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU, AdditionGT700LTE1000ADU, then display this section.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if the project has at least one opaque non-framed wall or roof And If A10_ProjectScopeAddition includes one of the following: AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, AdditionLTE300ADU, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU, AdditionGT700LTE1000ADU, then display this section.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -402,7 +402,7 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
          <xsd:element name="Section_D" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Opaque Surface Details - Masonry/Mass Walls  (Section 150.1(c)1Bii)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if the project has at least one opaque mass wall And  If A11_ProjectScopeAddition includes one of the following: AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, AdditionLTE300ADU, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU, AdditionGT700LTE1000ADU then display section.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if the project has at least one opaque mass wall And  If A10_ProjectScopeAddition includes one of the following: AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, AdditionLTE300ADU, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU, AdditionGT700LTE1000ADU then display section.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -431,7 +431,7 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
                                     </xsd:element>
                                     <xsd:element name="D02_PartitionAboveGrade" type="env:PartitionAboveGrade">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Location</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Above or Below Grade?</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects Above Grade, result = true or Below Grade, result = false.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -445,13 +445,13 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
                                     </xsd:element>
                                     <xsd:element name="D03_MasonryType" type="env:MasonryType">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Mass Type</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Masonry/Mass Type</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list: ClayBrick, ClayHollowUnit, CMULightWeight, CMUMediumWeight, CMUNormalWeight, Concrete</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="D04_MassWallThickness" type="env:MassWallThickness">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Mass Thickness (inches)</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Masonry/Mass Thickness (inches)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative;</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -615,7 +615,7 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
          <xsd:element name="Section_E" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Slab On Grade/Concrete Raised Floor Insulation (Table 150.1-A)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if A10_FloorSlabArea  GT 0 And  If A11_ProjectScopeAddition includes one of the following: AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, AdditionLTE300ADU, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU, AdditionGT700LTE1000ADU then display section.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if A10_FloorSlabArea  GT 0 And  If A10_ProjectScopeAddition includes one of the following: AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, AdditionLTE300ADU, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU, AdditionGT700LTE1000ADU then display section.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -743,7 +743,7 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
          <xsd:element name="Section_F" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Radiant Barrier (Section 150.1(c).2)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable If A07_ClimateZone is in InclusiveRange (2, 15) And  If A11_ProjectScopeAddition includes at least one of the following: AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, AdditionLTE300ADU, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU, AdditionGT700LTE1000ADU, display section but  entry is optional.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable If A07_ClimateZone is in InclusiveRange (2, 15) And  If A10_ProjectScopeAddition includes at least one of the following: AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, AdditionLTE300ADU, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU, AdditionGT700LTE1000ADU, display section but  entry is optional.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -788,7 +788,7 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
          <xsd:element name="Section_G" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Roofing Products (Cool Roof) (Section 150.1(c).11)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable If A11_ProjectScopeAddition includes one of the following: AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU, AdditionGT700LTE1000ADU, display section but  entry is optional.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable If A10_ProjectScopeAddition includes one of the following: AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU, AdditionGT700LTE1000ADU, display section but  entry is optional.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -1023,7 +1023,7 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
          <xsd:element name="Section_H" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Fenestration/Glazing Allowed Areas and Efficiencies (Section 150.2(a)1)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if A11_ProjectScopeAddition includes  FenestrationAddition.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if A10_ProjectScopeAddition includes  FenestrationAddition.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -1032,7 +1032,7 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Addition Type ft<d:sup>2</d:sup>
                         </xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Value auto-filled from A11_ProjectScopeAddition with one of these values: AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700,  AdditionGT700LTE1000, AdditionLTE300ADU, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU,  AdditionGT700LTE1000ADU</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Value auto-filled from A10_ProjectScopeAddition with one of these values: AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700,  AdditionGT700LTE1000, AdditionLTE300ADU, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU,  AdditionGT700LTE1000ADU</xsd:documentation>
                      </xsd:annotation>
                      <xsd:simpleType>
                         <xsd:restriction base="comp:ProjectScopeAdditions">
@@ -1168,7 +1168,7 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
          <xsd:element name="Section_I" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Fenestration Proposed Areas and Efficiencies (Section 150.2(a))</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if A11_ProjectScopeAddition includes FenestrationAddition.   Each row in the table is for a unique type of vertical fenestration or skylight in the project.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if A10_ProjectScopeAddition includes FenestrationAddition.   Each row in the table is for a unique type of vertical fenestration or skylight in the project.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -1581,7 +1581,7 @@ If meeting Exception 2 to 150.1(c)3A, Installing less than or equal to 3 square 
          <xsd:element name="Section_J" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Opaque Swinging Doors to Exterior (Section 150.1(c)5)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required if A11_ProjectScopeAddition includes ExteriorDoorsAddition</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if A10_ProjectScopeAddition includes ExteriorDoorsAddition</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -1719,7 +1719,7 @@ and diagnostic testing then a CF1R-ADD-01 and a CF1R-ALT-02 shall be completed a
          <xsd:element name="Section_L" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Water Heating Systems (Section 150.2(a)1D)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required if A11_ProjectScopeAddition includes WaterHeatingAddition</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if A10_ProjectScopeAddition includes WaterHeatingAddition</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>

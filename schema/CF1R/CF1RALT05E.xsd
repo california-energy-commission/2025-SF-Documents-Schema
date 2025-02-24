@@ -449,7 +449,7 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show table H1). </x
                                     </xsd:element>
                                     <xsd:element name="D02_PartitionAboveGrade" type="env:PartitionAboveGrade" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Mass Wall Location</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Above or Below Grade?</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects Above Grade (result = true) or Below Grade result = false).</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -467,7 +467,7 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show table H1). </x
                                     </xsd:element>
                                     <xsd:element name="D04_MassWallThickness" type="env:MassWallThickness" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Mass Wall Thickness (inches)</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Masonry/Mass Wall Thickness (inches)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative;</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>

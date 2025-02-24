@@ -340,7 +340,7 @@
                   <xsd:element name="E01_DoesCF3R_Pass" type="comp:DoesCF3R_Pass" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If C05_DoesSystemFanEfficacyComply == true and C08_DoesSystemComplyWithRequirements Not== Fail  result = true display term   Complies:  All specified verification protocol requirements on this document are met;   Else result = false display term   Does not comply:  One or more specified verification protocol requirements on this document are not met.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If C05_DoesSystemFanEfficacyComply == true and D08_DoesSystemComplyWithRequirements Not== Fail  result = true display term   Complies:  All specified verification protocol requirements on this document are met;   Else result = false display term   Does not comply:  One or more specified verification protocol requirements on this document are not met.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>

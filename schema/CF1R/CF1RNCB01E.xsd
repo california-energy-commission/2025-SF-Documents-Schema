@@ -162,7 +162,7 @@
          </xsd:element>
          <xsd:element name="Section_B" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Building Insulation Details - Framed Walls/ Framed Floors (Section 150.1(c)1)</xsd:documentation>
+               <xsd:documentation source="FieldText">Opaque Surface Details - Framed Walls/ Framed Floors (Section 150.1(c)1)</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is applicable if the project has at least one opaque framed wall, floor or raised concrete floor</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
@@ -195,11 +195,17 @@
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
-                                    <xsd:element name="B03_PartitionFramingMaterial" type="env:PartitionFramingMaterial" >
+                                    <xsd:element name="B03_PartitionFramingMaterial" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Frame Type</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list: Metal, Wood</xsd:documentation>
                                        </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="env:PartitionFramingMaterial">
+                                             <xsd:enumeration value="Metal"/>
+                                             <xsd:enumeration value="WoodFraming"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:element name="B04_FramingSize" type="env:FramingSize" >
                                        <xsd:annotation>
@@ -296,7 +302,7 @@ End If</xsd:documentation>
          </xsd:element>
          <xsd:element name="Section_C" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Building Insulation Details - Non-framed (Section 150.1(c)1)</xsd:documentation>
+               <xsd:documentation source="FieldText">Opaque Surface Details - Non-framed (Section 150.1(c)1)</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is applicable if the project has at least one opaque non-framed roof or wall</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
@@ -402,7 +408,7 @@ End If</xsd:documentation>
          </xsd:element>
          <xsd:element name="Section_D" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Opaque Surface Details - Mass Walls (Section 150.1(c)1Bii)</xsd:documentation>
+               <xsd:documentation source="FieldText">Opaque Surface Details - Masonry/Mass Walls (Section 150.1(c)1Bii)</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is applicable if the project has at least one opaque mass wall.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>

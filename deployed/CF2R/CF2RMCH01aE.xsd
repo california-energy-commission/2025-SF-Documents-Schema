@@ -272,7 +272,7 @@ End If</xsd:documentation>
                                     <xsd:element name="B07_ThermostatType">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Required Thermostat Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from parent CC-PRF</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If value from parent CC-PRF == NonSetbackThermostat And B02_ResidentialSpaceConditioningSystemType == HeatPumpHeatingCooling And If B03_ResidentialHeatingSystemType != RoomHP Or B04_ResidentialCoolingSystemType != RoomHP, then overwrite value and assign result = SetBackThermostat Else Auto filled value from parent CC-PRF</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="hvac:ThermostatType">
@@ -1757,7 +1757,7 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If system type in D04_ResidentialHeatingSystemType Or D05_ResidentialCoolingSystemType == DuctedMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctedMultiSplitAC, DuctedDuctlessMultiSplitAC 
 result = false display term No.  
  
-Else If system type in D04_ResidentialHeatingSystemType Or D05_ResidentialCoolingSystemType == CentralSplitAC, CentralSplitHP,   CentralPackagedAC, CentralPackagedHP, CentralLargePackagedAC Or CentralLargePackagedHP 
+Else If system type in D04_ResidentialHeatingSystemType Or D05_ResidentialCoolingSystemType == CentralSplitAC, CentralSplitHP,   CentralPackagedAC, CentralPackagedHP, CentralLargePackagedAC, CentralLargePackagedHP, VCHP_IndoorUnitDucted, Or VCHP_IndoorUnitDuctedAndDuctless 
 result = true display term Yes; 
  
 Else 

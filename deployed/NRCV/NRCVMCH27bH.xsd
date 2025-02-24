@@ -122,7 +122,7 @@
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Mch-27b Variant</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">MCH-27b - High-rise Residential Multifamily Ventilation</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field for Variant result: If A02  == HighRiseResidential And   A07_VentilationOperationSchedule != Scheduled Or  RealTimeControl Variant result = 27b – High-rise Residential Ventilation;</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field for Variant result: If A02  == HighRiseResidential And   A07_VentilationOperationSchedule == Continuous Or  ShortTermAverage Variant result = 27b – High-rise Residential Ventilation;</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="AEndNote1" minOccurs="0">
