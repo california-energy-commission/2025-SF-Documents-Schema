@@ -81,7 +81,7 @@
                   <xsd:element name="A04_WeightedAverageProperty" type="comp:WeightedAverageProperty" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Property Being Averaged</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User picks from list:  If AreaWeightedAverageFeature == Fenestration, display all enumerations: Ufactor, SHGC,  UFactorAndSHGC;   Else only display  Ufactor</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User picks from list:  If A03_AreaWeightedAverageFeature == Fenestration, display all enumerations: Ufactor, SHGC,  UFactorAndSHGC;   Else only display  Ufactor</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>

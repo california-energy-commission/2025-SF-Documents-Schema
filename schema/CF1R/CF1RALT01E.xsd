@@ -733,13 +733,14 @@ End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="E12b_SolarReflectanceAgedLimitMin" type="env:SolarReflectanceAgedLimitMin" >
+                                       <xsd:element name="E12_SolarReflectanceAgedLimitMin" type="env:SolarReflectanceAgedLimitMin" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Aged Solar Reflectance</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If E02_CoolRoofComplianceMethod == CoolRoofException And E03_IsRoofPitchGreaterThan2Run12Rise == false And E04_CoolRoofException ==  RoofDeckInsulationLowSlope, Switch (E07_RoofDeckInsulation) case R2: result = 0.60; case R4: result is 0.55; case R6: result = 0.50; case R8:  result = 0.45; case R12: result = 0.40; case R16: result = 0.35; case R20: result = 0.30; case R24: result = 0.25;  Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 15 then If E02_CoolRoofComplianceMethod == AgedSolarReflectanceThermaEmittance  Or InitialSolarReflectanceThermaEmittance result = 0.63, Else If E03_IsRoofPitchGreaterThan2Run12Rise == true And A09_ClimateZone is in InclusiveRange(10, 15) then If E02_CoolRoofComplianceMethod == AgedSolarReflectanceThermaEmittance  Or InitialSolarReflectanceThermaEmittance result = 0.20;  Else result = N/A stored in the NotApplicableMessage.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If E02_CoolRoofComplianceMethod == CoolRoofException And E03_IsRoofPitchGreaterThan2Run12Rise == false And E04_CoolRoofException ==  RoofDeckInsulationLowSlope, Switch (E07_RoofDeckInsulation) case R2: result = 0.60; case R4: result is 0.55; case R6: result = 0.50; case R8:  result = 0.45; case R12: result = 0.40; case R16: result = 0.35; case R20: result = 0.30; case R24: result = 0.25;  
+Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 15 then If E02_CoolRoofComplianceMethod == AgedSolarReflectanceThermaEmittance  Or InitialSolarReflectanceThermaEmittance result = 0.63, Else If E03_IsRoofPitchGreaterThan2Run12Rise == true And A09_ClimateZone is in InclusiveRange(10, 15) then If E02_CoolRoofComplianceMethod == AgedSolarReflectanceThermaEmittance  Or InitialSolarReflectanceThermaEmittance result = 0.20;  Else result = N/A stored in the NotApplicableMessage.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="E12b_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                       <xsd:element name="E12_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Aged Solar Reflectance</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If E02_CoolRoofComplianceMethod == CoolRoofException And E03_IsRoofPitchGreaterThan2Run12Rise == false And E04_CoolRoofException ==  RoofDeckInsulationLowSlope, Switch (E07_RoofDeckInsulation) case R2: result = 0.60; case R4: result is 0.55; case R6: result = 0.50; case R8:  result = 0.45; case R12: result = 0.40; case R16: result = 0.35; case R20: result = 0.30; case R24: result = 0.25;  Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 15 then If E02_CoolRoofComplianceMethod == AgedSolarReflectanceThermaEmittance  Or InitialSolarReflectanceThermaEmittance result = 0.63, Else If E03_IsRoofPitchGreaterThan2Run12Rise == true And A09_ClimateZone is in InclusiveRange(10, 15) then If E02_CoolRoofComplianceMethod == AgedSolarReflectanceThermaEmittance  Or InitialSolarReflectanceThermaEmittance result = 0.20;  Else result = N/A stored in the NotApplicableMessage.</xsd:documentation>
@@ -817,7 +818,6 @@ End If</xsd:documentation>
 			                     <xsd:enumeration value="FenestrationGlazingReplacement"/>
 			                     <xsd:enumeration value="FenestrationGlazingSkylightMinimumFt2Addition"/>
 			                     <xsd:enumeration value="FenestrationGlazingSkylightMinimumFt2Replacement"/>
-			                     <xsd:enumeration value="FenestrationGlazingWindowMinimumFt2Addition"/>
 			                     <xsd:enumeration value="FenestrationGlazingWindowMinimumFt2Replacement"/>
                                           </xsd:restriction>
                                        </xsd:simpleType>
@@ -1685,7 +1685,7 @@ End If</xsd:documentation>
                      <xsd:element name="H23_NotApplicableMessage" type="comp:NotApplicableMessage" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Required Fenestration SHGC (Windows)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: F06a_NotApplicableMessage</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: result= F06a_NotApplicableMessage</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -1893,6 +1893,12 @@ End If</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
+		  <xsd:element name="K_BeginNote1" minOccurs="0">
+			<xsd:annotation>
+				<xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+				<xsd:documentation source="AdditionalRequirements">List water heaters and boilers for both domestic hot water (DHW) heaters and hydronic space heating.</xsd:documentation>
+			</xsd:annotation>
+		  </xsd:element>
                   <xsd:element name="K01_WaterHeaterHasNaturalGas" type="hvac:WaterHeaterHasNaturalGas" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Is natural gas connected to the existing water heater?</xsd:documentation>
@@ -1973,7 +1979,7 @@ Else If K04__WaterHeatingSystemAlteredOption ==Option4Electric result = Electric
                   <xsd:element name="KEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Options:[d:l t="#"][d:list] A natural gas or propane water heating system. [/d:list] [d:list] A single heat pump water heater, storage tank shall not be located outdoors and placed on an incompressible, rigid insulated surface with a minimum thermal resistance of R-10 [/d:list] 
+                        <xsd:documentation source="AdditionalRequirements">Options:[d:l t="#"][d:list] A gas or propane water heating system. [/d:list] [d:list] A single heat pump water heater, storage tank shall not be located outdoors and placed on an incompressible, rigid insulated surface with a minimum thermal resistance of R-10.  The water heater shall be installed with a communication interface that meets either the requirements of Section 110.12(a) or has an ANSI/CTA-2045-B communication port [/d:list] 
 [d:list]A single heat pump water heater that meets the requirements of NEEA Advanced Water Heater Specification Tier 3 or higher; or  [/d:list] 
 [d:list]  If no natural gas is connected to the existing water heater location, a consumer electric water heater (Heat Pump Water Heater or Electric Resistance). [/d:list][/d:l]</xsd:documentation>
                      </xsd:annotation>

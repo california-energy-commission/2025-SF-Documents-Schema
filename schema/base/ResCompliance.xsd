@@ -8959,6 +8959,7 @@
    <xsd:simpleType name="FenestrationExceptionForUfactorSHGC">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="ConditionedFloorAreaLTE500Ft2">Conditioned floor area is less than or equal to 500 Ft2 in climate zone 5</dtyp:displayterm>
             <dtyp:displayterm value="FenestrationGlazingDoorLTE3Ft2">Installing less than or equal to 3 ft2 glass in door</dtyp:displayterm>
             <dtyp:displayterm value="FenestrationGlazingNoExceptions">NA (do not allow other entries)</dtyp:displayterm>
             <dtyp:displayterm value="FenestrationGlazingSkylightLTE16Ft2">Installing less than or equal to 16 ft2 skylight</dtyp:displayterm>
@@ -8967,6 +8968,7 @@
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstantPermissive">
+         <xsd:enumeration value="ConditionedFloorAreaLTE500Ft2"/>
          <xsd:enumeration value="FenestrationGlazingDoorLTE3Ft2"/>
          <xsd:enumeration value="FenestrationGlazingNoExceptions"/>
          <xsd:enumeration value="FenestrationGlazingSkylightLTE16Ft2"/>

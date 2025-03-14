@@ -1797,8 +1797,8 @@ Display Yes if result ==  true and No if result == false.</xsd:documentation>
                                     </xsd:element>
                                     <xsd:element name="J09_ReturnDuctDesignVerificationRequired" type="comp:ReturnDuctDesignVerificationRequired" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">MCH-28 [d:line2/]Return Duct Design - Table 160.3-A or B</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calculated field:  If G11_DuctFilterGrilleSizingComplianceMethod == HERS_ReturnDuctDesignTable160_3 then result = true;  Else result = false.   Display Yes if result ==  true and No if result == false.</xsd:documentation>
+                                          <xsd:documentation source="FieldText">MCH-28 [d:line2/]Return Duct Design - Table 150 B or C</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field:  If G11_DuctFilterGrilleSizingComplianceMethod == HERS_ReturnDuctDesignTable150 then result = true;  Else result = false.   Display Yes if result ==  true and No if result == false.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>

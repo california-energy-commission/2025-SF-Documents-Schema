@@ -485,16 +485,18 @@ End If</xsd:documentation>
                                        </xsd:element>
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="D13_DuctRValueLimit" type="hvac:DuctRValueLimit" >
+                                       <xsd:element name="D13_DuctRValueLimit">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">New Duct R-Value</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If B04 DuctedSystem == false Or D12_NotAppicableMessage == N/A, then result = N/A stored in NotApplicableMessage 
-Else If  A09_ClimateZone == 3, 5, 6 Or 7
- result = R6. 
-Else  If  A09_ClimateZone == 1, 2, 4 Or InRange(8, 16)
-result = R8
-End If</xsd:documentation>
+Else If  A09_ClimateZone == 3, 5, 6 Or 7  result = R6; Else  If  A09_ClimateZone == 1, 2, 4 Or InRange(8, 16) result = R8 End If</xsd:documentation>
                                           </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="hvac:DuctRValueLimit">
+                                                <xsd:enumeration value="R6"/>
+                                                <xsd:enumeration value="R8"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
                                        </xsd:element>
                                        <xsd:element name="D13_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
@@ -523,7 +525,7 @@ End If</xsd:documentation>
                   <xsd:element name="EBeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Required Documentation:</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:u]Required Documentation:[/d:u][d:line1/] CF2R-MCH-01-E - Space Conditioning Systems [d:line1/]  - Duct insulation requirement for the new portions of supply-air and return-air ducts or plenums: R6 (CZ 3, 5-7) and R8 (CZ 1, 2, 4, 8-16) [d:line1/] CF2R and CF3R-MCH-20-H Duct Leakage Test required [d:line1/]  - Leakage rate compliance: les than or equal to 5 percent. [d:line1/] CF2R and CF3R-MCH-22 Fan Efficacy [d:line1/] CF2R and CF3R-MCH-23 Airflow Rate [d:line1/] - Compliance: Fan Efficacy less than or equal to 0.58 W/cfm for non-gas furnaces and System Airflow greater than or equal to 350 cfm per ton.[d:line1/] - Alternative Compliance: CF2R and CF3R-MCH-28 Return Duct Design verification is an alternative to MCH-22 and MCH-23 verification. [d:line1/] CF2R and CF3R-MCH-25-H Refrigerant Charge verification required when refrigerant containing components are installed or altered (applicable in CZ 2, 8-15).[d:line1/]  [d:u]Note:[/d:u] An "entirely new or complete replacement duct system" means at least 75%  of the duct system is new duct material, and up to 25% may consist of reused parts from the dwelling unit's existing duct system (e.g., registers, grilles, boots, air handler, coil, plenums, duct material) if the reused parts are accessible and can be sealed to prevent leakage</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:u]Required Documentation:[/d:u][d:line1/] CF2R-MCH-01-E - Space Conditioning Systems [d:line1/]  - Duct insulation requirement for the new portions of supply-air and return-air ducts or plenums: R6 (CZ 3, 5-7) and R8 (CZ 1, 2, 4, 8-16) [d:line1/] CF2R and CF3R-MCH-20-H Duct Leakage Test required [d:line1/]  - Leakage rate compliance: less than or equal to 5 percent. [d:line1/] CF2R and CF3R-MCH-22 Fan Efficacy [d:line1/] CF2R and CF3R-MCH-23 Airflow Rate [d:line1/] - Compliance: Fan Efficacy less than or equal to 0.58 W/cfm for non-gas furnaces and System Airflow greater than or equal to 350 cfm per ton.[d:line1/] - Alternative Compliance: CF2R and CF3R-MCH-28 Return Duct Design verification is an alternative to MCH-22 and MCH-23 verification. [d:line1/] CF2R and CF3R-MCH-25-H Refrigerant Charge verification required when refrigerant containing components are installed or altered (applicable in CZ 2, 8-15).[d:line1/]  [d:u]Note:[/d:u] An "entirely new or complete replacement duct system" means at least 75%  of the duct system is new duct material, and up to 25% may consist of reused parts from the dwelling unit's existing duct system (e.g., registers, grilles, boots, air handler, coil, plenums, duct material) if the reused parts are accessible and can be sealed to prevent leakage</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="TableDuctNew" >
@@ -654,7 +656,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value SEER2</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If E08= no cooling component altered, then value =N/A; 
-                                                Else user enter value:  xx.x;  default minimum value for EER2/SEER2=13.4;
+                                                Else user enter SEER2 value:  xx.x;  default minimum value for EER2/SEER2=13.4;
                                                 Allow user to overwrite default value, but flag non-default values and report in project status notes field;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>                                      
@@ -662,8 +664,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value SEER/SEER2</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If D08= no cooling component altered, then value =N/A; If capacity is greater than 65,000 BTU/hr allow user to enter SEER1 value. 
-                                                Else user enter value:  xx.x;  default minimum value for EER/SEER=14;
-                                                Allow user to overwrite default value, but flag non-default values and report in project status notes field;</xsd:documentation>
+                                                 xx.x;  default minimum value for EER/SEER=14; Allow user to overwrite default value, but flag non-default values and report in project status notes field;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="E10_NotApplicableMessage" type="comp:NotApplicableMessage" >
@@ -680,7 +681,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value EER2/CEER</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If E08 = no cooling component altered, then value = N/A; 
-                                                Else user enter value: xx.x; default minimum value for EER2 and EER2/SEER2=11.2; or default minimum value for CEER=8.7;
+                                                Else user enter EER2 value: xx.x; default minimum value for EER2 and EER2/SEER2=11.2; or default minimum value for CEER=8.7;
                                                 Allow user to overwrite default value, but flag non-default values and report in project status notes field;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -688,7 +689,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value EER2/CEER</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If E08 = no cooling component altered, then value = N/A; 
-                                                Else user enter value: xx.x; default minimum value for EER2 and EER2/SEER2=11.2; or default minimum value for CEER=8.7;
+                                                Else user enter CEER value: xx.x; default minimum value for EER2 and EER2/SEER2=11.2; or default minimum value for CEER=8.7;
                                                 Allow user to overwrite default value, but flag non-default values and report in project status notes field;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -696,7 +697,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value EER/EER2/CEER</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If capacity is greater than 65,000 BTU/hr allow user to enter EER1 value.
-                                                User enter value: xx.x; default minimum value for EER and EER/SEER=11.7;
+                                                User enter EER1 value: xx.x; default minimum value for EER and EER/SEER=11.7;
                                                 Allow user to overwrite default value, but flag non-default values and report in project status notes field;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>                                        
@@ -715,15 +716,17 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                           <xsd:documentation source="CalculationsAndRules">Result = SetbackThermostat</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="E12_DuctRValueLimit" type="hvac:DuctRValueLimit" >
+                                    <xsd:element name="E12_DuctRValueLimit" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">New Duct R-Value</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If  A09_ClimateZone == 3, 5, 6 Or 7 
-result = R6. 
-Else If  A09_ClimateZone == 1, 2, 4 Or InRange(8, 16)
-result = R8
-End If</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If  A09_ClimateZone == 3, 5, 6 Or 7 result = R6; Else If  A09_ClimateZone == 1, 2, 4 Or InRange(8, 16)result = R8 End If</xsd:documentation>
                                        </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="hvac:DuctRValueLimit">
+                                                <xsd:enumeration value="R6"/>
+                                                <xsd:enumeration value="R8"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
                                     </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
@@ -745,7 +748,9 @@ End If</xsd:documentation>
                   <xsd:element name="FBeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Required Documentation:</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:u]Required Documentation:[/d:u][d:line1/] CF2R-MCH-01-E - Space Conditioning Systems [d:line1/]  - Duct insulation requirement for the new portions of supply-air and return-air ducts or plenums: R6 (CZ 3, 5-7) and R8 (CZ 1, 2, 4, 8-16) [d:line1/] CF2R and CF3R-MCH-20-H Duct Leakage Test required [d:line1/]  - Leakage rate compliance: less than or equal to 5 percent. [d:line1/] CF2R and CF3R-MCH-22 Fan Efficacy [d:line1/] CF2R and CF3R-MCH-23 Airflow Rate Verification [d:line1/] - Compliance: Fan Efficacy less than or equal to 0.58 W/cfm for non-gas furnaces and System Airflow greater than or equal to 350 cfm per ton.[d:line1/] - Alternative Compliance: CF2R and CF3R-MCH-28 Return Duct Design verification is an alternative to MCH-22 and MCH-23 verification. [d:line1/] CF2R and CF3R-MCH-25-H Refrigerant Charge verification required when refrigerant containing components are installed or altered (applicable in CZ 2, 8-15).[d:line1/] [d:u]Note:[/d:u] An "entirely new or replacement duct system" means at least 75%  of the duct system is new duct material, and up to 25% may consist of reused parts from the dwelling unit's existing duct system (e.g., registers, grilles, boots, air handler, coil, plenums, duct material) if the reused parts are accessible and can be sealed to prevent leakage</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:u]Required Documentation:[/d:u][d:line1/] CF2R-MCH-01-E - Space Conditioning Systems [d:line1/]  - Duct insulation requirement for the new portions of supply-air and return-air ducts or plenums: R6 (CZ 3, 5-7) and R8 (CZ 1, 2, 4, 8-16) [d:line1/] CF2R and CF3R-MCH-20-H Duct Leakage Test required [d:line1/]  - Leakage rate compliance: less than or equal to 5 percent. [d:line1/] 
+CF2R and CF3R-MCH-22 Fan Efficacy [d:line1/] CF2R and CF3R-MCH-23 Airflow Rate Verification [d:line1/] - Compliance: Fan Efficacy less than or equal to 0.58 W/cfm for non-gas furnaces and System Airflow greater than or equal to 350 cfm per ton.[d:line1/] - Alternative Compliance: CF2R and CF3R-MCH-28 Return Duct Design verification is an alternative to MCH-22 and MCH-23 verification. [d:line1/] 
+CF2R and CF3R-MCH-25-H Refrigerant Charge verification required when refrigerant containing components are installed or altered (applicable in CZ 2, 8-15).[d:line1/] [d:u]Note:[/d:u] An "entirely new or replacement duct system" means at least 75%  of the duct system is new duct material, and up to 25% may consist of reused parts from the dwelling unit's existing duct system (e.g., registers, grilles, boots, air handler, coil, plenums, duct material) if the reused parts are accessible and can be sealed to prevent leakage</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="TableConditioningNew" >
@@ -885,7 +890,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value SEER2</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If F08= no cooling component altered, then value =N/A; 
-                                                Else user enter value:  xx.x;  default minimum value for EER2/SEER2=13.4;
+                                                Else user enter SEER2 value:  xx.x;  default minimum value for EER2/SEER2=13.4;
                                                 Allow user to overwrite default value, but flag non-default values and report in project status notes field;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>                                     
@@ -893,15 +898,15 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value SEER/SEER2</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If D08= no cooling component altered, then value =N/A; If capacity is greater than 65,000 BTU/hr allow user to enter SEER1 value. 
-                                                Else user enter value:  xx.x;  default minimum value for EER/SEER=14;
+                                                Else user enter SEER1 value:  xx.x;  default minimum value for EER/SEER=14;
                                                 Allow user to overwrite default value, but flag non-default values and report in project status notes field;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="F10_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value SEER/SEER2</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value SEER2</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If F08= no cooling component altered, then value =N/A; 
-                                                Else user enter value:  xx.x;  default minimum value for EER2/SEER2=13.4;
+                                                Else user enter SEER2 value:  xx.x;  default minimum value for EER2/SEER2=13.4;
                                                 Allow user to overwrite default value, but flag non-default values and report in project status notes field;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -911,7 +916,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value EER2/CEER</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If F08 = no cooling component altered, then value = N/A; 
-                                                Else user enter value: xx.x; default minimum value for EER2 and EER2/SEER2=11.2; or default minimum value for CEER=8.7;
+                                                Else user enter EER2 value: xx.x; default minimum value for EER2 and EER2/SEER2=11.2; or default minimum value for CEER=8.7;
                                                 Allow user to overwrite default value, but flag non-default values and report in project status notes field;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -919,7 +924,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value EER2/CEER</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If F08 = no cooling component altered, then value = N/A; 
-                                                Else user enter value: xx.x; default minimum value for EER2 and EER2/SEER2=11.2; or default minimum value for CEER=8.7;
+                                                Else user enter CEER value: xx.x; default minimum value for EER2 and EER2/SEER2=11.2; or default minimum value for CEER=8.7;
                                                 Allow user to overwrite default value, but flag non-default values and report in project status notes field;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element> 
@@ -927,7 +932,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value EER/EER2/CEER</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If capacity is greater than 65,000 BTU/hr allow user to enter EER1 value.
-                                                User enter value: xx.x; default minimum value for EER and EER/SEER=11.7;
+                                                User enter EER1 value: xx.x; default minimum value for EER and EER/SEER=11.7;
                                                 Allow user to overwrite default value, but flag non-default values and report in project status notes field;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>                                       
@@ -947,23 +952,22 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="F12_DuctRValueLimit" type="hvac:DuctRValueLimit" >
+                                       <xsd:element name="F12_DuctRValueLimit" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">New Duct R-Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If B04_DuctedSystem== false. result is N/A stored in NotApplicableMessage
-Else   If A09_ClimateZone == 3, 5, 6 Or 7, then 
-result = R6. 
-Else If A09_ClimateZone == 1,2, 4 Or InRange(8, 16)
-result = R8
-End If</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If B04_DuctedSystem== false. result is N/A stored in NotApplicableMessage; Else   If A09_ClimateZone == 3, 5, 6 Or 7, then result = R6. Else If A09_ClimateZone == 1,2, 4 Or InRange(8, 16) result = R8 End If</xsd:documentation>
                                           </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="hvac:DuctRValueLimit">
+                                                <xsd:enumeration value="R6"/>
+                                                <xsd:enumeration value="R8"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
                                        </xsd:element>
                                        <xsd:element name="F12_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">New Duct R-Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If B04-DuctedSystem== false. 
-result is N/A 
-End If</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If B04-DuctedSystem== false. result is N/A End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>

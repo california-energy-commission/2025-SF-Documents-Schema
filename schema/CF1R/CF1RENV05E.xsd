@@ -90,7 +90,8 @@
          <xsd:element name="Section_B" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Fenestration/ Glazing Area</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">If CF1R parent == CF1R-ADD, CF1R-ALT or CF1R-NCB require a row for fenestration products with Proposed U-factor or SHGC Source property,  FenestrationCertificationMethod == NA6Equations Else If CF1R parent == CF1R-PRF, require a row for fenestration products with (nonSDD property)UfactorSHGCSource == ADFP</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">If CF1R parent == CF1R-ADD, CF1R-ALT or CF1R-NCB require a row for fenestration products with Proposed U-factor or SHGC Source property,  FenestrationCertificationMethod == NA6Equations 
+Else If CF1R parent == CF1R-PRF, require a row for fenestration products with M08aFenestrationCertificationMethod = NA6Equations Or M09aFenestrationCertificationMethod = NA6Equations </xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -128,7 +129,8 @@
          <xsd:element name="Section_C" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Default U-factor Using Reference Appendices, Nonresidential Appendix NA6, Equation NA6-1</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable If CF1R parent == CF1R-ADD, CF1R-ALT or CF1R-NCB and at least one fenestration product has Proposed U-factor Source property,  FenestrationCertificationMethod == NA6Equations Or If CF1R parent == CF1R-PRF, and at least one fenestration product has UfactorSHGCSource == ADFP.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable If CF1R parent == CF1R-ADD, CF1R-ALT or CF1R-NCB and at least one fenestration product has Proposed U-factor Source property,  FenestrationCertificationMethod == NA6Equations 
+Else If CF1R parent == CF1R-PRF, require a row for fenestration products with M08aFenestrationCertificationMethod = NA6Equations.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -395,7 +397,8 @@
          <xsd:element name="Section_D" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Default Solar Heat Gain Coefficient (SHGC) Using Reference Appendices, Nonresidential Appendix NA6 Equation NA6-2</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable If CF1R parent == CF1R-ADD, CF1R-ALT or CF1R-NCB and at least one fenestration product has Proposed SHGC Source property,  FenestrationCertificationMethod == NA6Equations Or If CF1R parent == CF1R-PRF, and at least one fenestration product has UfactorSHGCSource == ADFP.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable If CF1R parent == CF1R-ADD, CF1R-ALT or CF1R-NCB and at least one fenestration product has Proposed SHGC Source property,  FenestrationCertificationMethod == NA6Equations 
+Else If CF1R parent == CF1R-PRF, and at least one fenestration product has M09aFenestrationCertificationMethod = NA6Equations.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>

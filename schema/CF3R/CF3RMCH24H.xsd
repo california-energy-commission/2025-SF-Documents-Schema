@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2020 (http://www.altova.com) by Diane Pepetone (L'Monte) -->
-<xsd:schema xmlns="http://www.lmonte.com/besm/CF2RMCH24H" xmlns:d="http://www.lmonte.com/besm/d" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:env="http://www.lmonte.com/besm/env" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:com="http://www.lmonte.com/besm/com" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:altova="http://www.altova.com/xml-schema-extensions" targetNamespace="http://www.lmonte.com/besm/CF2RMCH24H" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2025.0.000">
+<xsd:schema xmlns="http://www.lmonte.com/besm/CF3RMCH24H" xmlns:d="http://www.lmonte.com/besm/d" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:env="http://www.lmonte.com/besm/env" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:com="http://www.lmonte.com/besm/com" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:altova="http://www.altova.com/xml-schema-extensions" targetNamespace="http://www.lmonte.com/besm/CF3RMCH24H" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2025.0.000">
 	<xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
 	<xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
 	<xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -13,8 +13,8 @@
 			<xsd:sequence>
 				<xsd:element name="DocID" minOccurs="0">
 					<xsd:complexType>
-						<xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RMCH24H"/>
-						<xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
+						<xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF3RMCH24H"/>
+						<xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF VERIFICATION"/>
 						<xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Building Air Leakage Diagnostic Test Worksheet - Building Enclosures and Dwelling Unit Enclosures"/>
 					</xsd:complexType>
 				</xsd:element>
@@ -23,9 +23,9 @@
 					<xsd:complexType>
 						<xsd:sequence>
 							<xsd:element name="Header" type="comp:HeaderHERS"/>
-							<xsd:element ref="cF2RMCH24H"/>
+							<xsd:element ref="cF3RMCH24H"/>
 							<xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
-							<xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_H"/>
+							<xsd:element name="RespPerson" type="comp:ResponsiblePersonCF3R"/>
 							<xsd:element name="Footer" type="comp:Footer"/>
 						</xsd:sequence>
 					</xsd:complexType>
@@ -33,10 +33,10 @@
 				<xsd:element name="Report" type="xsd:base64Binary"/>
 			</xsd:sequence>
 			<xsd:attribute name="revision" type="xsd:string" use="required" fixed="rev 20250101"/>
-			<xsd:attribute name="doc" type="comp:ComplianceDocumentTag" use="required" fixed="CF2RMCH24H"/>
+			<xsd:attribute name="doc" type="comp:ComplianceDocumentTag" use="required" fixed="CF3RMCH24H"/>
 		</xsd:complexType>
 	</xsd:element>
-	<xsd:complexType name="CF2RMCH24H">
+	<xsd:complexType name="CF3RMCH24H">
 		<xsd:annotation>
 			<xsd:documentation>Building Air Leakage Diagnostic Test Worksheet - Building Enclosures and Dwelling Unit Enclosures </xsd:documentation>
 		</xsd:annotation>
@@ -233,7 +233,7 @@
 			<xsd:element name="Section_C1" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation source="FieldText">Enclosure Air Leakage Diagnostic Test for Single-Point Test with Manual Meter</xsd:documentation>
-					<xsd:documentation source="MinOccurs">If this section is not required. display the Section Title and this text " This section does not apply to this project"</xsd:documentation>					
+					<xsd:documentation source="MinOccurs">If this section is not required. display the Section Title and this text " This section does not apply to this project</xsd:documentation>					
 					<xsd:documentation source="CalculationsAndRules">If A01_AirLeakageTestProcedure == SinglePointTestManualMeter  this section is required</xsd:documentation>
 				</xsd:annotation>
 				<xsd:complexType>
@@ -407,7 +407,7 @@
 						</xsd:element>
 						<xsd:element name="Cmp07_MinReadingAcknowledge" type="comp:MinReadingAcknowledge">
 							<xsd:annotation>
-								<xsd:documentation source="FieldText">A minimum of five readings were taken spaced evenly between 10 Pa and 60 Pa (or highest attainable pressure)</xsd:documentation>
+								<xsd:documentation source="FieldText">A minimum of five readings were taken spaced evenly between 15 Pa and 60 Pa (or highest attainable pressure)</xsd:documentation>
 								<xsd:documentation source="CalculationsAndRules">User input to acknowledge this requirement; Boolean value - for true display choice Yes and for false display choice No</xsd:documentation>
 							</xsd:annotation>
 						</xsd:element>
@@ -456,13 +456,13 @@
 										<xsd:element name="Da1_OutdoorAirViscosityCorrection" type="comp:OutdoorAirViscosityCorrection">
 											<xsd:annotation>
 												<xsd:documentation source="FieldText">Outdoor Dynamic Viscosity of Air Correction</xsd:documentation>
-												<xsd:documentation source="CalculationsAndRules">Calculated field: If Cspm02 Or Cspa02 BuildingAirLeakageTestMethod == Depressurization result = 2.629 * 10^-3 * ((A06_TestTemperatureOutdoor+460)^0.5 / (1+(198.7 /  (A06_TestTemperatureOutdoor+460)))); Else result = N/A</xsd:documentation>
+												<xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Depressurization result = 2.629 * 10^-3 * ((A06_TestTemperatureOutdoor+460)^0.5 / (1+(198.7 /  (A06_TestTemperatureOutdoor+460)))); Else result = N/A</xsd:documentation>
 											</xsd:annotation>
 										</xsd:element>
 										<xsd:element name="Da1_NotApplicableMessage" type="comp:NotApplicableMessage">
 											<xsd:annotation>
 												<xsd:documentation source="FieldText">Outdoor Dynamic Viscosity of Air Correction</xsd:documentation>
-												<xsd:documentation source="CalculationsAndRules">Calculated field: If Cspm02 Or Cspa02 BuildingAirLeakageTestMethod == Depressurization result = 2.629 * 10^-3 * ((A06_TestTemperatureOutdoor+460)^0.5 / (1+(198.7 /  (A06_TestTemperatureOutdoor+460)))); Else result = N/A</xsd:documentation>
+												<xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Depressurization result = 2.629 * 10^-3 * ((A06_TestTemperatureOutdoor+460)^0.5 / (1+(198.7 /  (A06_TestTemperatureOutdoor+460)))); Else result = N/A</xsd:documentation>
 											</xsd:annotation>
 										</xsd:element>
 									</xsd:choice>
@@ -470,13 +470,13 @@
 										<xsd:element name="Da2_IndoorAirViscosityCorrection" type="comp:IndoorAirViscosityCorrection">
 											<xsd:annotation>
 												<xsd:documentation source="FieldText">Indoor Dynamic Viscosity of Air Correction</xsd:documentation>
-												<xsd:documentation source="CalculationsAndRules">Calculated field: If Cspm02 Or Cspa02 BuildingAirLeakageTestMethod == Pressurization result =2.629 * 10^-3 * ((A05_TestTemperatureIndoor+460)^0.5 / (1+(198.7 /  (A05_TestTemperatureIndoor+460))));   Else result = N/A</xsd:documentation>
+												<xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Pressurization result =2.629 * 10^-3 * ((A05_TestTemperatureIndoor+460)^0.5 / (1+(198.7 /  (A05_TestTemperatureIndoor+460))));   Else result = N/A</xsd:documentation>
 											</xsd:annotation>
 										</xsd:element>
 										<xsd:element name="Da2_NotApplicableMessage" type="comp:NotApplicableMessage">
 											<xsd:annotation>
 												<xsd:documentation source="FieldText">Indoor Dynamic Viscosity of Air Correction</xsd:documentation>
-												<xsd:documentation source="CalculationsAndRules">Calculated field: If Cspm02 Or Cspa02 BuildingAirLeakageTestMethod == Pressurization result =2.629 * 10^-3 * ((A05_TestTemperatureIndoor+460)^0.5 / (1+(198.7 /  (A05_TestTemperatureIndoor+460))));   Else result = N/A</xsd:documentation>
+												<xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Pressurization result =2.629 * 10^-3 * ((A05_TestTemperatureIndoor+460)^0.5 / (1+(198.7 /  (A05_TestTemperatureIndoor+460))));   Else result = N/A</xsd:documentation>
 											</xsd:annotation>
 										</xsd:element>
 									</xsd:choice>
@@ -484,13 +484,13 @@
 										<xsd:element name="Da3_OutdoorAirDensityCorrection" type="comp:OutdoorAirDensityCorrection">
 											<xsd:annotation>
 												<xsd:documentation source="FieldText">Outdoor Air Density Correction</xsd:documentation>
-												<xsd:documentation source="CalculationsAndRules">Calculated field: If Cspm02 Or Cspa02 BuildingAirLeakageTestMethod == Depressurization result = 0.07517 * (1-((0.0035666 * A08_Elevation)/528))^(5.2553) * (528/(A06_TestTemperatureOutdoor+460)); Else result = N/A</xsd:documentation>
+												<xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Depressurization result = 0.07517 * (1-((0.0035666 * A08_Elevation)/528))^(5.2553) * (528/(A06_TestTemperatureOutdoor+460)); Else result = N/A</xsd:documentation>
 											</xsd:annotation>
 										</xsd:element>
 										<xsd:element name="Da3_NotApplicableMessage" type="comp:NotApplicableMessage">
 											<xsd:annotation>
 												<xsd:documentation source="FieldText">Outdoor Air Density Correction</xsd:documentation>
-												<xsd:documentation source="CalculationsAndRules">Calculated field: If Cspm02 Or Cspa02 BuildingAirLeakageTestMethod == Depressurization result = 0.07517 * (1-((0.0035666 * A08_Elevation)/528))^(5.2553) * (528/(A06_TestTemperatureOutdoor+460)); Else result = N/A</xsd:documentation>
+												<xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Depressurization result = 0.07517 * (1-((0.0035666 * A08_Elevation)/528))^(5.2553) * (528/(A06_TestTemperatureOutdoor+460)); Else result = N/A</xsd:documentation>
 											</xsd:annotation>
 										</xsd:element>
 									</xsd:choice>
@@ -498,13 +498,13 @@
 										<xsd:element name="Da4_IndoorAirDensityCorrection" type="comp:IndoorAirDensityCorrection">
 											<xsd:annotation>
 												<xsd:documentation source="FieldText">Indoor Air Density Correction</xsd:documentation>
-												<xsd:documentation source="CalculationsAndRules">Calculated field: If Cspm02 Or Cspa02 BuildingAirLeakageTestMethod == Pressurization result = 0.07517 * (1-((0.0035666 * A08_Elevation)/528))^(5.2553) * (528/(A05_TestTemperatureIndoor+460)); Else result = N/A</xsd:documentation>
+												<xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Pressurization result = 0.07517 * (1-((0.0035666 * A08_Elevation)/528))^(5.2553) * (528/(A05_TestTemperatureIndoor+460)); Else result = N/A</xsd:documentation>
 											</xsd:annotation>
 										</xsd:element>
 										<xsd:element name="Da4_NotApplicableMessage" type="comp:NotApplicableMessage">
 											<xsd:annotation>
 												<xsd:documentation source="FieldText">Indoor Air Density Correction</xsd:documentation>
-												<xsd:documentation source="CalculationsAndRules">Calculated field: If Cspm02 Or Cspa02 BuildingAirLeakageTestMethod == Pressurization result = 0.07517 * (1-((0.0035666 * A08_Elevation)/528))^(5.2553) * (528/(A05_TestTemperatureIndoor+460)); Else result = N/A</xsd:documentation>
+												<xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Pressurization result = 0.07517 * (1-((0.0035666 * A08_Elevation)/528))^(5.2553) * (528/(A05_TestTemperatureIndoor+460)); Else result = N/A</xsd:documentation>
 											</xsd:annotation>
 										</xsd:element>
 									</xsd:choice>
@@ -514,7 +514,7 @@
 						<xsd:element name="Dsp01_AltitudeTemperatureCorrectionFactor" type="comp:AltitudeTemperatureCorrectionFactor">
 							<xsd:annotation>
 								<xsd:documentation source="FieldText">Altitude and Temperature Correction Factor</xsd:documentation>
-								<xsd:documentation source="CalculationsAndRules">Calculated field:  If Cspm02 Or Cspa02 BuildingAirLeakageTestMethod == Depressurization result = (Da1_OutdoorAirVicosityCorrection / 0.044)^(2* 0.65-1) * (Da3_OutdoorAirDensityCorrection / 0.07517) ^(1-(0.65));  Else result =  (Da2_IndoorAirVicosityCorrection / 0.044)^(2 * 0.65-1) * (Da4_IndoorAirDensityCorrection / 0.07517)^(1-(0.65))</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Calculated field:  If Cspm02_BuildingAirLeakageTestMethod Or Cspa02_BuildingAirLeakageTestMethod == Depressurization result = (Da1_OutdoorAirVicosityCorrection / 0.044)^(2* 0.65-1) * (Da3_OutdoorAirDensityCorrection / 0.07517) ^(1-(0.65));  Else result =  (Da2_IndoorAirVicosityCorrection / 0.044)^(2 * 0.65-1) * (Da4_IndoorAirDensityCorrection / 0.07517)^(1-(0.65))</xsd:documentation>
 							</xsd:annotation>
 						</xsd:element>
 						<xsd:element name="Dsp02_CFM50TempAltCorrected" type="comp:CFM50TempAltCorrected">
@@ -574,7 +574,7 @@
 			   </xsd:element>
 			   <xsd:element name="Section_E2" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
-					<xsd:documentation source="FieldText">Accuracy Adjustment for Multi-Point Test</xsd:documentation>
+					<xsd:documentation source="FieldText">Accuracy Adjustment or Multi-Point Test</xsd:documentation>
 					<xsd:documentation source="MinOccurs">If this section is not required. display the Section Title and this text "This section does not apply to this project"</xsd:documentation>
 					<xsd:documentation source="CalculationsAndRules">If A01_AirLeakageTestProcedure == MultiPointTest this section is required</xsd:documentation>
 				</xsd:annotation>
@@ -641,11 +641,11 @@ Else If A03_IsEnvelopeAirLeakageHERSVerificationRequired == true, Then If A01_Ai
 					</xsd:sequence>
 				</xsd:complexType>
 			</xsd:element>
-			<xsd:choice maxOccurs="1">
-			   <xsd:element name="Section_G1" minOccurs="0">
+	                <xsd:choice maxOccurs="1">
+			    <xsd:element name="Section_G1" minOccurs="0">
 				<xsd:annotation>
-					<xsd:documentation source="FieldText">Additional Requirements For Worksheet Compliance</xsd:documentation>
-					<xsd:documentation source="CalculationsAndRules">If A01_AirLeakageTestProcedure != MultiPointTest use this choice for Section G</xsd:documentation>
+					<xsd:documentation source="FieldText">Additional Requirements For Worksheet Compliance</xsd:documentation>					
+					<xsd:documentation source="CalculationsAndRules">If A01_AirLeakageTestProcedure != MultiPointTest use this section G</xsd:documentation>
 				</xsd:annotation>
 				<xsd:complexType>
 					<xsd:sequence>
@@ -673,7 +673,8 @@ Else If A03_IsEnvelopeAirLeakageHERSVerificationRequired == true, Then If A01_Ai
 			<xsd:element name="Section_G2" minOccurs="0">
 				<xsd:annotation>
 					<xsd:documentation source="FieldText">Additional Requirements For Worksheet Compliance</xsd:documentation>
-					<xsd:documentation source="CalculationsAndRules">If A01_AirLeakageTestProcedure == MultiPointTest use this choice for Section G</xsd:documentation>
+					<xsd:documentation source="MinOccurs">If this section is not required. display the Section Title and this text "This section does not apply to this project"</xsd:documentation>
+					<xsd:documentation source="CalculationsAndRules">If A01_AirLeakageTestProcedure == MultiPointTest use this section G</xsd:documentation>
 				</xsd:annotation>
 				<xsd:complexType>
 					<xsd:sequence>
@@ -692,6 +693,7 @@ Else If A03_IsEnvelopeAirLeakageHERSVerificationRequired == true, Then If A01_Ai
 						<xsd:element name="Gmp03" minOccurs="0">
 							<xsd:annotation>
 								<xsd:documentation source="FieldText"/>
+								<xsd:documentation source="CalculationsAndRules">If A01_AirLeakageTestProcedure == MultiPointTest displa this field</xsd:documentation>
 								<xsd:documentation source="AdditionalRequirements">The procedure for the conduct of the enclosure air leakage test shall conform to the Multi-Point Airtightness Test specified in RESNET 380-2019 Section 4.4.2</xsd:documentation>
 							</xsd:annotation>
 						</xsd:element>
@@ -701,9 +703,9 @@ Else If A03_IsEnvelopeAirLeakageHERSVerificationRequired == true, Then If A01_Ai
                      </xsd:choice>
 		</xsd:sequence>
 	</xsd:complexType>
-	<xsd:element name="cF2RMCH24H" type="CF2RMCH24H">
+	<xsd:element name="cF3RMCH24H" type="CF3RMCH24H">
 		<xsd:annotation>
-			<xsd:documentation>This element contains all of the data and text required to generate the CF2RMCH24aH compliance report.</xsd:documentation>
+			<xsd:documentation>This element contains all of the data and text required to generate the CF3RMCH24aH compliance report.</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
 </xsd:schema>

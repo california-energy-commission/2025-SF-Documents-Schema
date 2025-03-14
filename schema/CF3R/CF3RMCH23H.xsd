@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2020 (http://www.altova.com) by Diane Pepetone (L'Monte) -->
-<xsd:schema xmlns="http://www.lmonte.com/besm/CF2RMCH23H" xmlns:d="http://www.lmonte.com/besm/d" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:env="http://www.lmonte.com/besm/env" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:com="http://www.lmonte.com/besm/com" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" targetNamespace="http://www.lmonte.com/besm/CF2RMCH23H" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2025.0.000">
+<xsd:schema xmlns="http://www.lmonte.com/besm/CF3RMCH23H" xmlns:d="http://www.lmonte.com/besm/d" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:env="http://www.lmonte.com/besm/env" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:com="http://www.lmonte.com/besm/com" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" targetNamespace="http://www.lmonte.com/besm/CF3RMCH23H" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2025.0.000">
 	<xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
 	<xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
 	<xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -13,8 +13,8 @@
 			<xsd:sequence>
 				<xsd:element name="DocID" minOccurs="0">
 					<xsd:complexType>
-						<xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RMCH23H"/>
-						<xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
+						<xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF3RMCH23H"/>
+						<xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF VERIFICATION"/>
 						<xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Space Conditioning System Airflow Rate"/>
 					</xsd:complexType>
 				</xsd:element>
@@ -23,9 +23,9 @@
 					<xsd:complexType>
 						<xsd:sequence>
 							<xsd:element name="Header" type="comp:HeaderHERS"/>
-							<xsd:element ref="cF2RMCH23H"/>
+							<xsd:element ref="cF3RMCH23H"/>
 							<xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
-							<xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_H"/>
+							<xsd:element name="RespPerson" type="comp:ResponsiblePersonCF3R"/>
 							<xsd:element name="Footer" type="comp:Footer"/>
 						</xsd:sequence>
 					</xsd:complexType>
@@ -33,10 +33,10 @@
 				<xsd:element name="Report" type="xsd:base64Binary"/>
 			</xsd:sequence>
 			<xsd:attribute name="revision" type="xsd:string" use="required" fixed="rev 20250101"/>
-			<xsd:attribute name="doc" type="comp:ComplianceDocumentTag" use="required" fixed="CF2RMCH23H"/>
+			<xsd:attribute name="doc" type="comp:ComplianceDocumentTag" use="required" fixed="CF3RMCH23H"/>
 		</xsd:complexType>
 	</xsd:element>
-	<xsd:complexType name="CF2RMCH23H">
+	<xsd:complexType name="CF3RMCH23H">
 		<xsd:annotation>
 			<xsd:documentation>Space Conditioning System Airflow Rate - MCH23 Forced Air System Airflow Rate Measurement </xsd:documentation>
 		</xsd:annotation>
@@ -84,7 +84,7 @@
 							<xsd:element name="A05_IndoorUnitNominalCoolingCapacity" type="hvac:IndoorUnitNominalCoolingCapacity">
 								<xsd:annotation>
 									<xsd:documentation source="FieldText">Nominal Cooling Capacity (tons)</xsd:documentation>
-									<xsd:documentation source="CalculationsAndRules">Calculated field - the assigned result value cannot be overwritten by the user except If parent is MCH01d and specific condition allows it. If MCH01's  ResidentialCoolingSystemType == NoCooling  result = N/A stored in the NotApplicableMessage and display text: N/A - Heating-only system;  Else Switch (parent MCH01 fields)  case MCH-01a:  If duct system in M03 has value in D06_IndoorUnitsCount GT 1 And the system type in D04_ResidentialHeatingSystemType or D05_ResidentialCoolingSystemType == VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctless, Or VCHP_IndoorUnitDuctedAndDuctless , then result = MCH-01a G10_IndoorUnitNominalCoolingCapacity;   Else If section F IsPresent  And not HP system result = MCH-01a F09_CondenserNominalCoolingCapacity; Else If section I IsPresent  And is HP system result = MCH-01a field I10_CondenserNominalCoolingCapacity.  case MCH01b: If duct system in J03 has value in C12_IndoorUnitsCount GT 1 And system type in C03_ResidentialHeatingSystemType Or C07_ResidentialCoolingSystemType ==  VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctless, Or VCHP_IndoorUnitDuctedAndDuctless  then If section F IsPResent (LT 75% of duct system altered) result = MCH-01b field F12_IndoorUnitNominalCoolingCapacity; Else If section G IsPresent (new or complete replaced duct system), result = G15_IndoorUnitNominalCoolingCapacity;  Else result = MCH-01b field E09_CondenserNominalCoolingCapacity.  case MCH-01c: If duct system in L03 has C11_IndoorUnitsCount GT 1 And  the system type in C04_ResidentialHeatingSystemType or C05_ResidentialCoolingSystemType == VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctless, Or VCHP_IndoorUnitDuctedAndDuctless, then result = F10_IndoorUnitNominalCoolingCapacity; Else If section E IsPresent  and not HP system result = E09_CondenserNominalCoolingCapacity; Else If section H IsPresent  and is HP system result = H10_CondenserNominalCoolingCapacity.  case Mch01d: If duct system in O03 has D06_IndoorUnitsCount GT 1  And the system type in D04_ResidentialHeatingSystemType or D05_ResidentialCoolingSystemType == VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctless, Or VCHP_IndoorUnitDuctedAndDuctless  Then If section K IsPresent (LT 75% of duct system altered) result = K12_IndoorUnitNominalCoolingCapacity; Else If section L IsPresent (new or complete replaced duct system), result = L15_IndoorUnitNominalCoolingCapacity; Else If section G IsPresent and not HP system result = G09_CondenserNominalCoolingCapacity; Else If section J IsPresent  and is HP system result = J10_ CondenserNominalCoolingCapacity;
+									<xsd:documentation source="CalculationsAndRules">Calculated field - the assigned result value cannot be overwritten by the user except for MCH23a, MCH23b, MCH23c, MCH23e, and MCH23f If parent is MCH01d and specific condition allows it. If MCH01's  ResidentialCoolingSystemType == NoCooling  result = N/A stored in the NotApplicableMessage and display text: N/A - Heating-only system;  Else Switch (parent MCH01 fields)  case MCH-01a:  If duct system in M03 has value in D06_IndoorUnitsCount GT 1 And the system type in D04_ResidentialHeatingSystemType or D05_ResidentialCoolingSystemType == VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctless, Or VCHP_IndoorUnitDuctedAndDuctless , then result = MCH-01a G10_IndoorUnitNominalCoolingCapacity;   Else If section F IsPresent  And not HP system result = MCH-01a F09_CondenserNominalCoolingCapacity; Else If section I IsPresent  And is HP system result = MCH-01a field I10_CondenserNominalCoolingCapacity.  case MCH01b: If duct system in J03 has value in C12_IndoorUnitsCount GT 1 And system type in C03_ResidentialHeatingSystemType Or C07_ResidentialCoolingSystemType ==  VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctless, Or VCHP_IndoorUnitDuctedAndDuctless  then If section F IsPResent (LT 75% of duct system altered) result = MCH-01b field F12_IndoorUnitNominalCoolingCapacity; Else If section G IsPresent (new or complete replaced duct system), result = G15_IndoorUnitNominalCoolingCapacity;  Else result = MCH-01b field E09_CondenserNominalCoolingCapacity.  case MCH-01c: If duct system in L03 has C11_IndoorUnitsCount GT 1 And  the system type in C04_ResidentialHeatingSystemType or C05_ResidentialCoolingSystemType == VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctless, Or VCHP_IndoorUnitDuctedAndDuctless, then result = F10_IndoorUnitNominalCoolingCapacity; Else If section E IsPresent  and not HP system result = E09_CondenserNominalCoolingCapacity; Else If section H IsPresent  and is HP system result = H10_CondenserNominalCoolingCapacity.  case Mch01d: If duct system in O03 has D06_IndoorUnitsCount GT 1  And the system type in D04_ResidentialHeatingSystemType or D05_ResidentialCoolingSystemType == VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctless, Or VCHP_IndoorUnitDuctedAndDuctless  Then If section K IsPresent (LT 75% of duct system altered) result = K12_IndoorUnitNominalCoolingCapacity; Else If section L IsPresent (new or complete replaced duct system), result = L15_IndoorUnitNominalCoolingCapacity; Else If section G IsPresent and not HP system result = G09_CondenserNominalCoolingCapacity; Else If section J IsPresent  and is HP system result = J10_ CondenserNominalCoolingCapacity;
 Else If D05_ResidentialCoolingSystemType != NoCooling And value could not be found in parent MCH01d, allow user input  End If
 End Switch  End If</xsd:documentation>
 								</xsd:annotation>
@@ -300,6 +300,13 @@ End Switch  End If</xsd:documentation>
 								<xsd:documentation source="CalculationsAndRules">User input, text, maximum 500 characters</xsd:documentation>
 							</xsd:annotation>
 						</xsd:element>
+                  				<xsd:element name="D09_DoesForcedAirSystemPassAlternativeComplianceRequirements" type="comp:DoesForcedAirSystemPassAlternativeComplianceRequirements" >
+                     					<xsd:annotation>
+                        					<xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
+                        					<xsd:documentation source="CalculationsAndRules">Calculated field: If D01-D07 values all == true then result = true display term System Complies;  Else If D08_SectionCorrectionNotes NotNull and has an explanation result =  true display term System Complies;
+Else result = false, display term System Does Not Comply:  one or more applicable remedial actions were not completed as required.  Enter reason(s) for non-compliance in corrections notes field below. End If</xsd:documentation>
+                     					</xsd:annotation>
+                 				</xsd:element>
 						<xsd:element name="DEndNote1" minOccurs="0">
 							<xsd:annotation>
 								<xsd:documentation source="FieldText">End Note 1</xsd:documentation>
@@ -663,7 +670,7 @@ result = true display term  System ventilation airflow rate complies. Else resul
 					</xsd:sequence>
 				</xsd:complexType>
 			</xsd:element>
-			<xsd:element name="Section_H1" minOccurs="0" maxOccurs="1">
+			<xsd:element name="Section_H" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation source="FieldText">Additional Requirements for All Systems</xsd:documentation>
 					<xsd:documentation source="MinOccurs">Ths section is always requird and displayed</xsd:documentation>
@@ -706,6 +713,18 @@ result = true display term  System ventilation airflow rate complies. Else resul
 								<xsd:documentation source="AdditionalRequirements">Airflow rate and fan watt draw shall be simultaneous measurements when used to calculate the Fan Efficacy tested value.</xsd:documentation>
 							</xsd:annotation>
 						</xsd:element>
+                  				<xsd:element name="H07_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements" >
+                     					<xsd:annotation>
+                       						<xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
+                        					<xsd:documentation source="CalculationsAndRules">For Pass choice display text: Pass - all applicable requirements are met.  For Fail choice display text: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display text: All n/a - This entire table is not applicable</xsd:documentation>
+                     					</xsd:annotation>
+                  				</xsd:element>
+                  				<xsd:element name="H08_SectionCorrectionNotes" type="comp:SectionCorrectionNotes"  minOccurs="0">
+                     					<xsd:annotation>
+                      						<xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
+                        					<xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required</xsd:documentation>
+                     					</xsd:annotation>
+                  				</xsd:element>
 						<xsd:element name="HEndNote1" minOccurs="0">
 							<xsd:annotation>
 								<xsd:documentation source="FieldText">End Note 1</xsd:documentation>
@@ -736,7 +755,19 @@ result = true display term  System ventilation airflow rate complies. Else resul
 								<xsd:documentation source="AdditionalRequirements">Multi-speed compressor space cooling systems or variable speed compressor systems with controls that vary fan speed subect to the number of zones, as certified by the installer may verify air flow (cfm/ton) and fan efficacy (Watt/cfm) with system operating at the maximum compressor capacity and system fan speed with all zones calling for conditioning.</xsd:documentation>
 							</xsd:annotation>
 						</xsd:element>
-						<xsd:element name="HEndNote1" minOccurs="0">
+                  				<xsd:element name="Hhc03_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements" >
+                     					<xsd:annotation>
+                       						<xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
+                        					<xsd:documentation source="CalculationsAndRules">For Pass choice display text: Pass - all applicable requirements are met.  For Fail choice display text: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display text: All n/a - This entire table is not applicable</xsd:documentation>
+                     					</xsd:annotation>
+                  				</xsd:element>
+                  				<xsd:element name="Hhc04_SectionCorrectionNotes" type="comp:SectionCorrectionNotes"  minOccurs="0">
+                     					<xsd:annotation>
+                      						<xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
+                        					<xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required</xsd:documentation>
+                     					</xsd:annotation>
+                  				</xsd:element>
+						<xsd:element name="HhcEndNote1" minOccurs="0">
 							<xsd:annotation>
 								<xsd:documentation source="FieldText">End Note 1</xsd:documentation>
 								<xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
@@ -759,7 +790,19 @@ result = true display term  System ventilation airflow rate complies. Else resul
 								<xsd:documentation source="AdditionalRequirements">For altered systems that do not comply with the minimum 300 cfm per ton airflow rate requirement but opt to comply using the remedial actions on this MCH-23 compliance document according to Section RA3.3.3.1.5, the system's thermostat shall conform to the specifications in Reference Joint Appendix JA5 and shall be capable of receiving and responding to Demand Response Signals prior to final approval of the building permit by the enforcing agency (Section 150.2(b)1Fia).</xsd:documentation>
 							</xsd:annotation>
 						</xsd:element>
-						<xsd:element name="HEndNote1" minOccurs="0">
+                  				<xsd:element name="Halt02_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements" >
+                     					<xsd:annotation>
+                       						<xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
+                        					<xsd:documentation source="CalculationsAndRules">For Pass choice display text: Pass - all applicable requirements are met.  For Fail choice display text: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display text: All n/a - This entire table is not applicable</xsd:documentation>
+                     					</xsd:annotation>
+                  				</xsd:element>
+                  				<xsd:element name="Halt03_SectionCorrectionNotes" type="comp:SectionCorrectionNotes"  minOccurs="0">
+                     					<xsd:annotation>
+                      						<xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
+                        					<xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required</xsd:documentation>
+                     					</xsd:annotation>
+                  				</xsd:element>
+						<xsd:element name="HaltEndNote1" minOccurs="0">
 							<xsd:annotation>
 								<xsd:documentation source="FieldText">End Note 1</xsd:documentation>
 								<xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
@@ -768,11 +811,34 @@ result = true display term  System ventilation airflow rate complies. Else resul
 					</xsd:sequence>
 				</xsd:complexType>
 			</xsd:element>
+         		<xsd:element name="Section_I" minOccurs="1">
+          			<xsd:annotation>
+               			<xsd:documentation source="FieldText">Determination of HERS Verification Compliance</xsd:documentation>
+               			<xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            			</xsd:annotation>
+            			<xsd:complexType>
+              				<xsd:sequence>
+                  				<xsd:element name="I_BeginNote1" minOccurs="0">
+                     					<xsd:annotation>
+                       						 <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                      						  <xsd:documentation source="AdditionalRequirements">All applicable sections of this document shall indicate compliance with the specified verification protocol requirements in order for this Certificate of Verification as a whole to be determined to be in compliance.</xsd:documentation>
+                   					</xsd:annotation>
+                 				</xsd:element>
+                  				<xsd:element name="I01_DoesCF3R_Pass" type="comp:DoesCF3R_Pass" >
+                     					<xsd:annotation>
+                       						<xsd:documentation source="FieldText"></xsd:documentation>
+                        					<xsd:documentation source="CalculationsAndRules">If  B01_HSPP_PSPP_ComplianceMethod =! HSPP_PSPP_NotInstalled; and C04_IsAirflowMeasurementDeviceCertified == true; and (Ems04_DoesForcedAirSystemAirflowRateComply Or Essz04_DoesForcedAirSystemAirflowRateComply Or Ealt04_DoesForcedAirSystemAirflowRateComply == true) 
+And If present D09_DoesForcedAirSystemPassAlternativeComplianceRequirements == true And If present F08_DoAllZonesComplyWithRequiredAirflowRate == true; And If present G03_DoesCentralFanVentilationCoolingSystemAirflowComply == true and H07_DoesSystemComplyWithRequirements == Pass or N/A And If present Hhc03_DoesSystemComplyWithRequirements == Pass or N/A And If present Halt02_DoesSystemComplyWithRequirements == Pass or N/A then result = true display term  Complies: All specified verification protocol requirements on this document are met;  Else result = false display term  Does not comply: One or more specified verification protocol requirements on this document are not met.</xsd:documentation>
+                     					</xsd:annotation>
+                  				</xsd:element>
+               				</xsd:sequence>
+           			 </xsd:complexType>
+         		</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
-	<xsd:element name="cF2RMCH23H" type="CF2RMCH23H">
+	<xsd:element name="cF3RMCH23H" type="CF3RMCH23H">
 		<xsd:annotation>
-			<xsd:documentation>This element contains all of the data and text required to generate the CF2RMCH23H compliance report.</xsd:documentation>
+			<xsd:documentation>This element contains all of the data and text required to generate the CF3RMCH23H compliance report.</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
 </xsd:schema>

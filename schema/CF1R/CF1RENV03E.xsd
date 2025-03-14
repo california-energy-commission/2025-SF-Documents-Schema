@@ -135,7 +135,8 @@ VerticalRollerOrShades,</xsd:documentation>
                                     <xsd:element name="A07_SolarHeatGainCoefficientExteriorShading" type="com:SolarHeatGainCoefficientExteriorShading" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Exterior Shading SHGC</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If  A06_ExteriorShadingObjectType ==  NoExternalShadingDevice, result = 1.0; Else If A06_ExteriorShadingObjectType ==  StandardBugScreen, result = 0.76;  Else If A06_ExteriorShadingObjectType == SunScreen, result = 0.30;  Else If A06_ExteriorShadingObjectType ==   LouveredSunScreen  result = 0.27;  Else for all other types, result = 0.13</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If  A06_ExteriorShadingObjectType ==  NoExternalShadingDevice, result = 1.0; Else If A06_ExteriorShadingObjectType ==  StandardBugScreen, result = 0.76;  Else If A06_ExteriorShadingObjectType == SunScreen, result = 0.30;  
+Else If A06_ExteriorShadingObjectType == LouveredSunScreen  result = 0.27;  Else for all other types, result = 0.13</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
@@ -297,7 +298,7 @@ VerticalRollerOrShades,</xsd:documentation>
                                     </xsd:element>
                                     <xsd:element name="C08_SiteBuiltFenestrationSHGC" type="comp:SiteBuiltFenestrationSHGC" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Total SHGC of the fenestration</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Total Allowed SHGC of the Non-Rated Site-Built Fenestration</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Calculated field:  Result = PRODUCT (C07_SHGC_CenterOfGlass, 0.86) + 0.08</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -346,7 +347,7 @@ VerticalRollerOrShades,</xsd:documentation>
                                     </xsd:element>
                                     <xsd:element name="D04_ProposedAllFenestrationAdjustedTotalSHGC" type="comp:ProposedAllFenestrationAdjustedTotalSHGC" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Total combined adjusted SHGC with exterior shading device (SHGC[d:sub]total[/d:sub])</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Total Combined Adjusted SHGC with Exterior Shading Device (SHGC[d:sub]total[/d:sub])</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Calculated field: Result = PRODUCT( PRODUCT(D02_LargestProposedSHGC, 0.2875) + .75), D03_SmallestProposedSHGC</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>

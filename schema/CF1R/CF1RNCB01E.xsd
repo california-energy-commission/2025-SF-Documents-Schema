@@ -90,10 +90,10 @@
                         <xsd:documentation source="CalculationsAndRules">User input: String</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A06_DwellingUnitCount" type="com:DwellingUnitCount" >
+                  <xsd:element name="A06_DwellingUnitCount" type="com:DwellingUnitCount" fixed="1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Number of Dwelling Units</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input: IntegerNonnegative; note If A11_ResidentialLowriseBuildingType== SingleFamily then result should == 1</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Fixed value of 1 for single family is displayed</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A07_Zipcode" type="dtyp:Zipcode" >
@@ -102,10 +102,10 @@
                         <xsd:documentation source="CalculationsAndRules">User input:  Zipcode</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A08_SiteFuelType" type="com:SiteFuelType" >
+                  <xsd:element name="A08_SiteFuelType" type="com:SiteFuelType" fixed="Electricity">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Fuel Type</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User selects from list: Electricity, Natural Gas, Propane</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Fixed value of Electricity; always display Electricity</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A09_ClimateZone" type="com:ClimateZone" >
@@ -120,16 +120,11 @@
                         <xsd:documentation source="CalculationsAndRules">User input: IntegerNonnegative</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A11_ResidentialLowriseBuildingType" >
+                  <xsd:element name="A11_ResidentialLowriseBuildingType" type="com:ResidentialLowriseBuildingType" fixed="SingleFamily">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Building Type</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User selects from list:  SingleFamily display term Single family,</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Fixed value of SingleFamily; always display Single Family</xsd:documentation>
                      </xsd:annotation>
-                     <xsd:simpleType>
-                        <xsd:restriction base="com:ResidentialLowriseBuildingType">
-                           <xsd:enumeration value="SingleFamily"/>
-                        </xsd:restriction>
-                     </xsd:simpleType>
                   </xsd:element>
                   <xsd:element name="A12_FloorSlabArea" type="env:FloorSlabArea" >
                      <xsd:annotation>
@@ -146,10 +141,12 @@
                   <xsd:element name="A14_FenestrationExceptionForUfactorSHGC"  maxOccurs="unbounded">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Fenestration Exceptions</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User selects  from list: FenestrationGlazingNoExceptions display text N/A (do not allow other selections if this is selected);   FenestrationGlazingDoorLTE3Ft2, display text Installing less than or equal to 3 ft2 glass in door, FenestrationGlazingSkylightLTE16Ft2, display text Installing less than or equal to 16 ft2 skylight, FenestrationGlazingSkylightTubularLTE3Ft2, display text Installing less than or equal to 3 ft2 tubular skylight</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects  from list: FenestrationGlazingNoExceptions display text N/A (do not allow other selections if this is selected);   FenestrationGlazingDoorLTE3Ft2, display text Installing less than or equal to 3 ft2 glass in door, FenestrationGlazingSkylightLTE16Ft2, display text Installing less than or equal to 16 ft2 skylight, 
+FenestrationGlazingSkylightTubularLTE3Ft2, display text Installing less than or equal to 3 ft2 tubular skylight; ConditionedFloorAreaLTE500Ft2 display term Conditioned floor area is less than or equal to 500 Ft2 in climate zone 5</xsd:documentation>
                      </xsd:annotation>
                      <xsd:simpleType>
                         <xsd:restriction base="comp:FenestrationExceptionForUfactorSHGC">
+                           <xsd:enumeration value="ConditionedFloorAreaLTE500Ft2"/>
                            <xsd:enumeration value="FenestrationGlazingDoorLTE3Ft2"/>
                            <xsd:enumeration value="FenestrationGlazingNoExceptions"/>
                            <xsd:enumeration value="FenestrationGlazingSkylightLTE16Ft2"/>
@@ -249,29 +246,12 @@
                                           <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative;</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="B08After_SubHeadingForB08toB09" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Joint Appendix JA4 Reference</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="B09_JAReferenceTableID" type="comp:JAReferenceTableID" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Table</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input: JA_TableID.  Format is #.#.#   For example 4.2.1  is the JA_TableID for the table  in JA4 for roofs that covers  U-factors of Wood Framed Attic Roofs.</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="B10_JAReferenceTableCell" type="comp:JAReferenceTableCell" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Cell</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input: JA_TableCell;  Format is the row number followed by the column letter (e.g. 1A) that identifies the cell in the table used to determine the R-value or U-factor</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="B10After_HeadingB10" minOccurs="0">
+                                    <xsd:element name="B08After_HeadingB09" minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">[d:b] Required[/d:b]</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="B11_UFactorLimit" type="com:UFactorLimit" >
+                                    <xsd:element name="B09_UFactorLimit" type="com:UFactorLimit" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">U-Factor from Table 150.1-A</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Calculated field: 
@@ -285,7 +265,7 @@ End If
 End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="B12_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments"  minOccurs="0">
+                                    <xsd:element name="B10_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments"  minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Comments</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input: Text</xsd:documentation>
@@ -335,7 +315,7 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative;</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="C03After_HeadingForC05toC09" minOccurs="0">
+                                    <xsd:element name="C03After_HeadingForC05toC06" minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">[d:b]Proposed[/d:b]</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">This multicolumn heading is for C05-C09</xsd:documentation>
@@ -359,39 +339,19 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative;</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="C06After_SubHeadingForC08toC09" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Joint Appendix JA4 Reference</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">This multicolumn subheading is for C08-C09</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="C07_JAReferenceTableID" type="comp:JAReferenceTableID" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Table</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input: JA_TableID</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="C08_JAReferenceTableCell" type="comp:JAReferenceTableCell" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Cell</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input: JA_TableCell</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="C08After_HeadingC10" minOccurs="0">
+                                    <xsd:element name="C06After_HeadingC07" minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">[d:b]Required[/d:b]</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">This column heading is for C10</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="C09_UFactorLimit" type="com:UFactorLimit" >
+                                    <xsd:element name="C07_UFactorLimit" type="com:UFactorLimit" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">U-factor from Table 150.1- A</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calculated field: If A09_ClimateZone == InclusiveRange( 1,5 ) Or InclusiveRange(8, 16 ) result = 0.048 
-Else result = 0.065;
-End If</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field: If A09_ClimateZone == InclusiveRange( 1,5 ) Or InclusiveRange(8, 16 ) result = 0.048; Else result = 0.065;</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="C10_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments"  minOccurs="0">
+                                    <xsd:element name="C08_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments"  minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Comments</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input: Text</xsd:documentation>
@@ -443,132 +403,96 @@ End If</xsd:documentation>
                                     </xsd:element>
                                     <xsd:element name="D03_MasonryType" type="env:MasonryType" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Mass Type</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Masonry/Mass Type</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list: ClayBrick, ClayHollowUnit, CMULightWeight, CMUMediumWeight, CMUNormalWeight, Concrete</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="D04_MassWallThickness" type="env:MassWallThickness" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Mass Thickness (inches)</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Masonry/Mass Thickness (inches)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative;</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="D04After_SubHeadingForD05ToD06" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Mass [d:line1/] Joint Appendix JA4 Reference</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">This multicolumn subheading is for D05-D06</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="D05_JAReferenceTableID" type="comp:JAReferenceTableID" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Table</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input: JA_TableID.  Format is #.#.#   For example 4.2.1</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="D06_JAReferenceTableCell" type="comp:JAReferenceTableCell" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Cell</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input: JA_TableCell;  Format is the row number followed by the column letter (e.g. 1A) that identifies the cell in the table used to determine the R-value or U-factor</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="D06After_SubHeadingForD07To08" minOccurs="0">
+                                    <xsd:element name="D04After_SubHeadingForD05To06" minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Exterior Insulation</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">This is the subheading is for D08</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">This is the subheading is for D06</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="D07_InsulationExteriorRValue" type="env:InsulationExteriorRValue" >
+                                       <xsd:element name="D05_InsulationExteriorRValue" type="env:InsulationExteriorRValue" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">R-value</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative;  Note: Either R-value or U-factor is required, not both. The same descriptor (R-value or U-factor) should be used throughout this table. If user enters R-value, it is stored in InsulationExteriorRValue; Else If user enters U-factor it is stored in InsulationExteriorUFactor</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="D08_InsulationExteriorUFactor" type="env:InsulationExteriorUFactor" >
+                                       <xsd:element name="D06_InsulationExteriorUFactor" type="env:InsulationExteriorUFactor" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">U-factor</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative;  Note: Either R-value or U-factor is required, not both. The same descriptor (R-value or U-factor) should be used throughout this table. If user enters R-value, it is stored in InsulationExteriorRValue; Else If user enters U-factor it is stored in InsulationExteriorUFactor</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="D08After_SubHeadingForD09toD10" minOccurs="0">
+                                    <xsd:element name="D06After_SubHeadingForD07toD08" minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Interior Insulation</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">This is the subheading is for D07</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="D09_InsulationInteriorRValue" type="env:InsulationInteriorRValue" >
+                                       <xsd:element name="D07_InsulationInteriorRValue" type="env:InsulationInteriorRValue" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">R-value</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative;  Note: Either R-value or U-factor is required, not both. The same descriptor (R-value or U-factor) should be used throughout this table. If user enters R-value, it is stored in InsulationInteriorRValue; Else If user enters U-factor it is stored in InsulationInteriorUFactor</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="D10_InsulationInteriorUFactor" type="env:InsulationInteriorUFactor" >
+                                       <xsd:element name="D08_InsulationInteriorUFactor" type="env:InsulationInteriorUFactor" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">U-factor</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative;  Note: Either R-value or U-factor is required, not both. The same descriptor (R-value or U-factor) should be used throughout this table. If user enters R-value, it is stored in InsulationInteriorRValue; Else If user enters U-factor it is stored in InsulationInteriorUFactor</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="D10After_SubHeadingForD11toD12" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Insulation  [d:line1/] Joint Appendix JA4 Reference</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">This multicolumn subheading is for D09-D10</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="D11_JAReferenceTableID" type="comp:JAReferenceTableID" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Table</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input: JA_TableID</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="D12_JAReferenceTableCell" type="comp:JAReferenceTableCell" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Cell</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input: JA_TableCell</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="D12After_HeadingD13toD16" minOccurs="0">
+                                    <xsd:element name="D08After_HeadingD09toD12" minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">[d:b]Required[/d:b]</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">This multicolumn heading is for D11-D12</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">This multicolumn heading is for D09-D12</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="D12AfterSubHeading_LabelForD13ToD14" minOccurs="0">
+                                    <xsd:element name="D08AfterSubHeading_LabelForD09ToD10" minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Exterior Insulation</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">This is the subheading is for D12</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">This is the subheading is for D10</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="D13_InsulationExteriorRValueMinimum" type="env:InsulationExteriorRValueMinimum" >
+                                       <xsd:element name="D09_InsulationExteriorRValueMinimum" type="env:InsulationExteriorRValueMinimum" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">R-value</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative; Note: Either R-value or U-factor is required, not both. The same descriptor (R-value or U-factor) should be used throughout this table.   If user  enters R-value, it is stored in InsulationExteriorRValueMinimum; Else If user enters U-factor it is stored in InsulationExteriorUFactorLimit</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="D14_InsulationExteriorUFactorLimit" type="env:InsulationExteriorUFactorLimit" >
+                                       <xsd:element name="D10_InsulationExteriorUFactorLimit" type="env:InsulationExteriorUFactorLimit" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">U-factor</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative; Note: Either R-value or U-factor is required, not both. The same descriptor (R-value or U-factor) should be used throughout this table.   If user  enters R-value, it is stored in InsulationExteriorRValueMinimum; Else If user enters U-factor it is stored in InsulationExteriorUFactorLimit</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="D14After_SubHeadingForD15ToD16" minOccurs="0">
+                                    <xsd:element name="D10After_SubHeadingForD11ToD12" minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Interior Insulation</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">This is subheading is for D11</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="D15_InsulationInteriorRValueMinimum" type="env:InsulationInteriorRValueMinimum" >
+                                       <xsd:element name="D11_InsulationInteriorRValueMinimum" type="env:InsulationInteriorRValueMinimum" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">R-value</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative; Note: Either R-value or U-factor is required, not both. The same descriptor (R-value or U-factor) should be used throughout this table.   If user  enters R-value, it is stored in InsulationInteriorRValueMinimum; Else If user enters U-factor it is stored in InsulationInteriorUFactorLimit</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="D16_InsulationInteriorUFactorLimit" type="env:InsulationInteriorUFactorLimit" >
+                                       <xsd:element name="D12_InsulationInteriorUFactorLimit" type="env:InsulationInteriorUFactorLimit" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">U-factor</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative; Note: Either R-value or U-factor is required, not both. The same descriptor (R-value or U-factor) should be used throughout this table.   If user  enters R-value, it is stored in InsulationInteriorRValueMinimum; Else If user enters U-factor it is stored in InsulationInteriorUFactorLimit</xsd:documentation>
@@ -623,7 +547,7 @@ End If</xsd:documentation>
                                        <xsd:element name="E02_SlabInsulationThermalResistance" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Insulation R-value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User selects from list of R-values: R0, R4, R5, R7, R8, R10 vertical, R10 vertical and R7 horizontal OR N/A stored in NotApplicableMessage.  If E01_ExteriorFloorType == SlabHeated Or If A09_ClimateZone == 16  N/A is not allowed .  Note: Either R-value or U-factor is required, no both</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User selects from list of R-values: R0, R4, R5, R7, R8, R10 vertical, R10 vertical and R7 horizontal OR N/A stored in NotApplicableMessage.  If E01_ExteriorFloorType == SlabHeated Or If A09_ClimateZone == 16  N/A is not allowed .  Note: Either R-value or U-factor is required, not both</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
                                              <xsd:restriction base="env:SlabInsulationThermalResistance">
@@ -640,7 +564,7 @@ End If</xsd:documentation>
                                        <xsd:element name="E02_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Insulation R-value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User selects from list of R-values: R0, R4, R5, R7, R8, R10 vertical, R10 vertical and R7 horizontal OR N/A stored in NotApplicableMessage.  If E01_ExteriorFloorType == SlabHeated Or If A09_ClimateZone == 16  N/A is not allowed .  Note: Either R-value or U-factor is required, no both</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If user is entering U-factor result = N/A Else User selects from list of R-values: R0, R4, R5, R7, R8, R10 vertical, R10 vertical and R7 horizontal OR N/A stored in NotApplicableMessage.  If E01_ExteriorFloorType == SlabHeated Or If A09_ClimateZone == 16  N/A is not allowed.  Note: Either R-value or U-factor is required, not both</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -648,13 +572,13 @@ End If</xsd:documentation>
                                        <xsd:element name="E03_InsulationUFactor" type="env:InsulationUFactor" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Insulation U-factor</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If E01_ExteriorFloorType == SlabHeated Or If A09_ClimateZone == 16 require User input: DecimalNonnegative;  Else allow N/A stored in NotApplicableMessage.  Note: Either R-value or U-factor is required, no both</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If E01_ExteriorFloorType == SlabHeated Or If A09_ClimateZone == 16 require User input: DecimalNonnegative;  Else allow N/A stored in NotApplicableMessage.  Note: Either R-value or U-factor is required, not both</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="E03_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Insulation U-factor</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If E01_ExteriorFloorType == SlabHeated Or If A09_ClimateZone == 16 require User input: DecimalNonnegative;  Else allow N/A stored in NotApplicableMessage.  Note: Either R-value or U-factor is required, no both</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If user is entering R-value result = N/A Else If E01_ExteriorFloorType == SlabHeated Or If A09_ClimateZone == 16 require User input: DecimalNonnegative;  Else allow N/A stored in NotApplicableMessage.  Note: Either R-value or U-factor is required, not both</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -727,57 +651,62 @@ End If</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User selects from list:  RoofInsulationOptionB  display term Option B,   RoofInsulationOptionC display term Option C</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="F02_DoesInsulationHaveAirSpace" type="comp:DoesInsulationHaveAirSpace" >
+                  <xsd:element name="F02_OpaqueSurfaceType" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Configuration</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from list:  AtticVentilated  display term Ventilated Attic and CeilingCathedral display term Cathedral Ceiling</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="env:OpaqueSurfaceType">
+                           <xsd:enumeration value="AtticVentilated"/>
+                           <xsd:enumeration value="CeilingCathedral"/>
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="F03_DoesInsulationHaveAirSpace" type="comp:DoesInsulationHaveAirSpace" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Air Space Required?</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: If F01_ResidentialCeilingRoofInsulationOption == OptionB And A09_ClimateZone == 4 Or InclusiveRange(8,16) result =  true display term Yes; Else result = false display term No</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="F03_RoofBelowDeckInsulation" type="env:RoofBelowDeckInsulation" >
+                  <xsd:element name="F04_RoofBelowDeckInsulation" type="env:RoofBelowDeckInsulation" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Proposed Below Roof Deck R-value</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input DecimalNonnegative.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="F04_CeilingInsulation" type="env:CeilingInsulation" >
+                  <xsd:element name="F05_CeilingInsulation" type="env:CeilingInsulation" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Proposed Ceiling Insul. R-value</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input DecimalNonnegative.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:choice maxOccurs="1">
-                     <xsd:element name="F05_RoofBelowDeckInsulationRequired" type="env:RoofBelowDeckInsulationRequired" >
+                     <xsd:element name="F06_RoofBelowDeckInsulationRequired" type="env:RoofBelowDeckInsulationRequired" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Required Below Roof Deck R-value</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">Calculated field: 
-If F01_ResidentialCeilingRoofInsulationOption == OptionC: result = N/A stored in NotApplicableMessage;   
- 
+If F01_ResidentialCeilingRoofInsulationOption == OptionC: result = N/A stored in NotApplicableMessage;  
 Else  If F01_ResidentialCeilingRoofInsulationOption == OptionB Then
-If A11_ResidentialLowriseBuildingType == SingleFamily then 
 If A09_ClimateZone == 4 Or InclusiveRange(8,16) result = R-19; 
-Else If A09_ClimateZone == 1,2,3,5,6 Or 7 result = N/A stored in NotApplicableMessage;
-End If
-End If 
-End If</xsd:documentation>
+Else If A09_ClimateZone == 1,2,3,5,6 Or 7 result = N/A stored in NotApplicableMessage; End If End If End If</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
-                     <xsd:element name="F05_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                     <xsd:element name="F06_NotApplicableMessage" type="comp:NotApplicableMessage" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Required Below Roof Deck R-value</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">Calculated field: If F01_ResidentialCeilingRoofInsulationOption == OptionC: Or 
-If F01_ResidentialCeilingRoofInsulationOption == OptionB And A09_ClimateZone == 1,2,3,5,6 Or 7
-result = N/A stored in NotApplicableMessage;  
-End If</xsd:documentation>
+If F01_ResidentialCeilingRoofInsulationOption == OptionB And A09_ClimateZone == 1,2,3,5,6 Or 7 result = N/A stored in NotApplicableMessage;  End If</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
-                  <xsd:element name="F06_CeilingInsulationRequired" type="env:CeilingInsulationRequired" >
+                  <xsd:element name="F07_CeilingInsulationRequired" type="env:CeilingInsulationRequired" >    
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Required Ceiling Insul. R-value</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: If F01_ ResidentialCeilingRoofInsulationOption == OptionB And  A09_ClimateZone == 3, 5, 6 or 7, result = R30; Else If F01_ResidentialCeilingRoofInsulationOption == OptionC And  A09_ClimateZone == InclusiveRange (2, 10) result = R30; Else result = R38.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If F01_ ResidentialCeilingRoofInsulationOption == OptionB And  A09_ClimateZone == 3, 5, 6 or 7, result = R30; Else If F01_ResidentialCeilingRoofInsulationOption == OptionC And F02_OpaqueSurfaceType == AtticVentilated And A09_ClimateZone == InclusiveRange (2, 7) result = R30; Else result = R38.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="F07_RadiantBarrierRequired" type="comp:RadiantBarrierRequired" >
+                  <xsd:element name="F08_RadiantBarrierRequired" type="comp:RadiantBarrierRequired" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Radiant Barrier Required?</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: If F01_ResidentialCeilingRoofInsulationOption == OptionC And  A09_ClimateZone == InclusiveRange( 2,15) result = true display term Yes Else If F01_ResidentialCeilingRoofInsulationOption ==  OptionB And  A09_ClimateZone =  2,3, 5, 6, Or 7 Then result  = true display term Yes;  Else result = false display term No</xsd:documentation>
@@ -788,7 +717,7 @@ End If</xsd:documentation>
                         
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="F08_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments"  minOccurs="0">
+                  <xsd:element name="F09_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments"  minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Comment</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User  input text</xsd:documentation>
@@ -797,7 +726,7 @@ End If</xsd:documentation>
                   <xsd:element name="FEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:b]Note:[/d:b] [d:l t="*"][d:list]Cathedral ceilings cannot comply with prescriptive requirements.  Performance compliance is required.[/d:list].[d:list] Option B requires below deck insulation in climate zones 4 and 8-16.  An air space is required if below deck insulation is required. [/d:list].[d:list] Option C requires heating and cooling ducts be located inside the conditioned space.[/d:list][/d:l]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]Options:[/d:b] [d:l t="*"][d:list]Option A - reserved.[/d:list].[d:list] Option B requires below deck insulation in climate zones 4 and 8-16.  An air space is required if below deck insulation is required. [/d:list].[d:list] Option C requires heating and cooling ducts be located inside the conditioned space below the ceiling separating the occupiable space from the attic or within a cathedral ceiling assembly.[/d:list][/d:l]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
@@ -1039,7 +968,8 @@ End If</xsd:documentation>
                   <xsd:element name="GEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:b]Notes:[/d:b] [d:l t="*"][d:list]Exception 1 Any roof area covered by building integrated photovoltaic (PV) panels or solar thermal panels are exempt from the above Cool Roof requirements[/d:list][d:list] Exception 2: Roof construction with a weight of 25 pounds per square foot (lb/ft[d:sup]2[/d:sup]) or greater are also exempt. [/d:list][d:list]Liquid field applied coatings must comply with installation criteria from Section 110.8(i)4[/d:list][/d:l]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]Notes:[/d:b] [d:l t="*"][d:list]Exception 1 Any roof area covered by building integrated photovoltaic (PV) panels or solar thermal panels is not required to comply with Cool Roof requirements[/d:list]
+[d:list] Exception 2: Roof construction with a weight of 25 pounds per square foot (lb/ft[d:sup]2[/d:sup]) or greater are not required to comply with Cool Roof requirements. [/d:list][d:list]Liquid field applied coatings must comply with installation criteria from Section 110.8(i)4[/d:list][/d:l]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
@@ -1047,7 +977,7 @@ End If</xsd:documentation>
          </xsd:element>
          <xsd:element name="Section_H" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Opaque Swinging Doors to Exterior (Section 150.1(c).5)</xsd:documentation>
+               <xsd:documentation source="FieldText">Opaque Swinging Doors to Exterior (Section 150.1(c)5)</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required if the project has any opaque swinging doors</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
@@ -1144,46 +1074,50 @@ End If</xsd:documentation>
                      <xsd:element name="I02_NotApplicableMessage" type="comp:NotApplicableMessage" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Maximum Allowed West-Facing Fenestration Area Only  (ft[d:sup]2[/d:sup])</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If A09_ClimateZone== 1, 3,  or 5 
-result = N/A stored in NotApplicableMessage
-End If</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If A09_ClimateZone == 1, 3,  or 5 result = N/A stored in NotApplicableMessage End If</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
                   <xsd:element name="I03_UFactorLimit" type="com:UFactorLimit" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Maximum Allowed  U-factor (Windows)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: result =  0.30</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If A09_ClimateZone == InclusiveRange( 1,5 ) Or InclusiveRange(11, 14 ) Or 16 result = 0.27 Else result =  0.30</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="I04_UFactorLimitSkylight" type="com:UFactorLimitSkylight" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Maximum Allowed  U-factor (Skylight)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: If A14_FenestrationUfactorSHGC150_1c3A_Exception includes  FenestrationGlazingSkylightLTE16Ft2 or FenestrationGlazingSkylightTubularLTE3Ft2, result = 0.55; 
-Else result = 0.30
-End If</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If A14_FenestrationUfactorSHGC150_1c3A_Exception includes  FenestrationGlazingSkylightLTE16Ft2 or FenestrationGlazingSkylightTubularLTE3Ft2, result = 0.40; Else result = 0.30 </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:choice maxOccurs="1">
                      <xsd:element name="I05_SHGC_Limit" type="com:SHGC_Limit" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Maximum Allowed SHGC (Windows)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If A09_ClimateZone == 1, 3, 5 Or 16 result = N/A stored in NotApplicableMessage;  Else result is fixed at 0.23</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If A09_ClimateZone == 1, 3, 5 Or 16 result = N/A stored in NotApplicableMessage;  Else If A09_ClimateZone == 15 result = 0.20 result = 0.23</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="I05_NotApplicableMessage" type="comp:NotApplicableMessage" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Maximum Allowed SHGC (Windows)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If A09_ClimateZone == 1, 3, 5 Or 16 result = N/A stored in NotApplicableMessage;  Else result is fixed at 0.23</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If A09_ClimateZone == 1, 3, 5 Or 16 result = N/A stored in NotApplicableMessage;  Else If A09_ClimateZone == 15 result = 0.20 result = 0.23</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
-                  <xsd:element name="I06_SHGC_LimitSkylight" type="com:SHGC_LimitSkylight" >
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Maximum Allowed SHGC (Skylight)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If A14_FenestrationUfactorSHGC150_1c3A_Exception includes FenestrationGlazingSkylightLTE16Ft2 or FenestrationGlazingSkylightTubularLTE3Ft2, result = 0.30; Else result = 0.23</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="I06_SHGC_LimitSkylight" type="com:SHGC_LimitSkylight" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Maximum Allowed SHGC (Skylight)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A14_FenestrationUfactorSHGC150_1c3A_Exception includes FenestrationGlazingSkylightLTE16Ft2 or FenestrationGlazingSkylightTubularLTE3Ft2, result = 0.30; Else result = 0.23</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="I06_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Maximum Allowed SHGC (Skylight)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If A09_ClimateZone == 1, 3, 5 Or 16 result = N/A stored in NotApplicableMessage;  Else If A14_FenestrationUfactorSHGC150_1c3A_Exception includes FenestrationGlazingSkylightLTE16Ft2 or FenestrationGlazingSkylightTubularLTE3Ft2, result = 0.30; Else result = 0.23</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
                   <xsd:element name="I07_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments"  minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Comments</xsd:documentation>
@@ -1204,7 +1138,10 @@ End If</xsd:documentation>
                   <xsd:element name="J_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Note: If meeting Exception 1 to 150.1(c)3A, Installing less than or equal to 3 square feet (ft[d:sup]2[/d:sup]) glass in door, it is assumed to meet the minimum required U-factor (0.30) and SHGC (0.23). [d:line1/][d:tab1/] If meeting Exception 1 to 150.1(c)3A, Installing less than or equal to 3 square feet (ft[d:sup]2[/d:sup]) tubular skylight, it is assumed to meet the minimum required U-factor (0.55) &amp; SHGC (0.30).  Doors with greater than or equal to 25 percent glazing are considered glazed doors and are treated as a fenestration product.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Note: [d:line1/] If meeting Execption 1 to 150.1(c)3A, New dwelling units with a conditioed floor area of 500 square feet or less in Climate Zzone 5 may comply with a maximum U-factor of 0.30. [d:line1/] 
+If meeting Exception 2 to 150.1(c)3A, Installing less than or equal to 3 square feet (ft[d:sup]2[/d:sup]) glass in door, or less than or equal to 3 square feet (ft[d:sup]2[/d:sup]) tubular sklight, it is assumed to meet the minimum required U-factor of 0.27 for climate zones 1 through 5, 11 through 14 and 16, and 0.30 for climate zones 6 through 10 and 15, and SHGC of 0.23 for climate zones 2, 4, 6 through 14 and 0.20 for climate zone 15. [d:line1/]
+If meeting Exception 3 to 150.1(c)3A, Installing less than or equal to 3 square feet (ft[d:sup]2[/d:sup]) tubular skylight, or installing less than or equal to 16 square feet (ft[d:sup]2[/d:sup]) tubular skylight, it is assumed to meet the minimum required U-factor 0.40 and SHGC of 0.30. In Climate Zones 1, 3, 5 and 16 there is no SHGC requirement. [d:line1/] 
+Doors with greater than or equal to 25 percent glazing are considered glazed doors and are treated as a fenestration product.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="TableFenestration" >
@@ -1326,18 +1263,34 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list: Choice NFRCRated, display text: NFRC;  Choice CECDefaultPerformance, display text: Tables 110.6A; Choice NA6Equations, display text: Equations NA6-1 and NA6-2; 6-2; and Choice CF1R_ENV_02 display text: Area-weighted Average Worksheet (CF1R-ENV-02)</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="J11_SHGC" type="com:SHGC" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Proposed SHGC</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegtive</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="J12_FenestrationCertificationMethod" type="env:FenestrationCertificationMethod" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Proposed SHGC Source</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from list: Choice NFRCRated, display text: NFRC;  Choice CECDefaultPerformance, display text: Tables 110.6B; Choice NA6Equations, display text: Equations NA6-1 and NA6-2 and Choice CF1R_ENV_02 display text: Area-weighted Average Worksheet (CF1R-ENV-02)</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="J11_SHGC" type="com:SHGC" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Proposed SHGC</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If SHGC in I05 Or I06 == N/A  result = N/A stored in NotApplicableMessage, Else User input: DecimalNonnegtive</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="J11_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Proposed SHGC</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If SHGC in I05 Or I06 == N/A  result = N/A stored in NotApplicableMessage, Else User input: DecimalNonnegtive</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="J12_FenestrationCertificationMethod" type="env:FenestrationCertificationMethod" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Proposed SHGC Source</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User selects from list: Choice NFRCRated, display text: NFRC;  Choice CECDefaultPerformance, display text: Tables 110.6B; Choice NA6Equations, display text: Equations NA6-1 and NA6-2 and Choice CF1R_ENV_02 display text: Area-weighted Average Worksheet (CF1R-ENV-02)</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="J12_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Proposed SHGC</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If J11 == N/A  result = N/A stored in NotApplicableMessage, Else User selects from list</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
                                     <xsd:element name="J13_ExternalShadingObjectType" type="env:ExternalShadingObjectType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Exterior Shading Device</xsd:documentation>
@@ -1348,13 +1301,13 @@ End If</xsd:documentation>
                                        <xsd:element name="J14_SolarHeatGainCoefficientExteriorShading" type="com:SolarHeatGainCoefficientExteriorShading" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Combined SHGC from CF1R-ENV-03</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If J13_ExternalShadingObjectType ==  NoExternalShadingDevice OR J04_DynamcGlazingType == ChromogenicGlazing  result = N/A stored in NotApplicableMessage, Else report value from CF-1R-ENV-03.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If J13_ExternalShadingObjectType ==  NoExternalShadingDevice OR J04_DynamcGlazingType == ChromogenicGlazing or J11_NotApplicableMessage == N/A  result = N/A stored in NotApplicableMessage, Else report value from CF-1R-ENV-03.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="J14_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Combined SHGC from CF1R-ENV-03</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If J13_ExternalShadingObjectType ==  NoExternalShadingDevice OR J04_DynamcGlazingType == ChromogenicGlazing  result = N/A stored in NotApplicableMessage, Else report value from CF-1R-ENV-03.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If J13_ExternalShadingObjectType ==  NoExternalShadingDevice OR J04_DynamcGlazingType == ChromogenicGlazing or  J11_NotApplicableMessage == N/A  result = N/A stored in NotApplicableMessage, Else report value from CF-1R-ENV-03.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -1367,7 +1320,7 @@ End If</xsd:documentation>
                   <xsd:element name="J15_TotalGlazingAreaAllOrientations" type="env:TotalGlazingAreaAllOrientations" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Total Proposed Fenestration Area</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: SUM (SUM ALL (I07), SUM ALL ( I08))</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: SUM (SUM ALL (J07), SUM ALL ( J08))</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="J16_GlazingAreaLimitAll" type="env:GlazingAreaLimitAll" >
@@ -1439,13 +1392,13 @@ End If</xsd:documentation>
                      <xsd:element name="J24_ProposedAllWindowFenestrationSHGC" type="comp:ProposedAllWindowFenestrationSHGC" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Proposed Fenestration SHGC (Windows)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field:   If J02_FenestrationAdditionType != FixedWindow Or OperableWindow result = N/A stored in the NotApplicableMessage;  Else If ALL J11_SHGC And ALL J14_SolarHeatGainCoefficientExteriorShading results are LTE 0.23, then result = Largest ((Largest(J09_SHGC results), Largest (J14_SolarHeatGainCoefficientExteriorShading results)); Else enter the weighted average value from the CF1R-ENV-02.</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:   If J02_FenestrationAdditionType != FixedWindow Or OperableWindow Or If J11_NotApplicableMessage  or J14_NotApplicableMessage == N/A result = N/A stored in the NotApplicableMessage;  Else If ALL J11_SHGC And ALL J14_SolarHeatGainCoefficientExteriorShading results are LTE 0.23, then result = Largest ((Largest(J11_SHGC results), Largest (J14_SolarHeatGainCoefficientExteriorShading results)); Else enter the weighted average value from the CF1R-ENV-02.</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="J24_NotApplicableMessage" type="comp:NotApplicableMessage" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Proposed Fenestration SHGC (Windows)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field:   If J02_FenestrationAdditionType != FixedWindow Or OperableWindow result = N/A stored in the NotApplicableMessage;  Else If ALL J11_SHGC And ALL J14_SolarHeatGainCoefficientExteriorShading results are LTE 0.23, then result = Largest ((Largest(J11_SHGC results), Largest (J14_SolarHeatGainCoefficientExteriorShading results)); Else enter the weighted average value from the CF1R-ENV-02.</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:   If J02_FenestrationAdditionType != FixedWindow Or OperableWindow Or If J11_NotApplicableMessage  or J14_NotApplicableMessage == N/A result = N/A stored in the NotApplicableMessage;  Else If ALL J11_SHGC And ALL J14_SolarHeatGainCoefficientExteriorShading results are LTE 0.23, then result = Largest ((Largest(J11_SHGC results), Largest (J14_SolarHeatGainCoefficientExteriorShading results)); Else enter the weighted average value from the CF1R-ENV-02.</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -1463,12 +1416,20 @@ End If</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
+                  <xsd:choice maxOccurs="1">
                   <xsd:element name="J26_IsWindowFenestrationAllowedSHGC_Compliant" type="comp:IsWindowFenestrationAllowedSHGC_Compliant" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: If J24_ProposedAllWindowFenestrationSHGC LTE J25_SolarHeatGainCoefficientLimit Or J25_NotApplicableMessage == N/A, then result  true display term Design complies with the Maximum Allowed Fenestration SHGC.  Else result = false display term  Fenestration SHGC Exceeds Allowable. Do Not Proceed.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If J24_NotApplicableMessage == N/A result = N/A stored in NotApplicableMessage Else If J24_ProposedAllWindowFenestrationSHGC LTE J25_SolarHeatGainCoefficientLimit Or J25_NotApplicableMessage == N/A, then result  true display term Design complies with the Maximum Allowed Fenestration SHGC.  Else result = false display term  Fenestration SHGC Exceeds Allowable. Do Not Proceed.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
+                     <xsd:element name="J26_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:   If J02_FenestrationAdditionType != FixedWindow Or OperableWindow Or If J11_NotApplicableMessage  or J14_NotApplicableMessage == N/A result = N/A stored in the NotApplicableMessage;  If J24_ProposedAllWindowFenestrationSHGC LTE J25_SolarHeatGainCoefficientLimit Or J25_NotApplicableMessage == N/A, then result  true display term Design complies with the Maximum Allowed Fenestration SHGC.  Else result = false display term  Fenestration SHGC Exceeds Allowable. Do Not Proceed.</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
                   <xsd:choice maxOccurs="1">
                      <xsd:element name="J27_UfactorProposedAllSkylightFenestration" type="comp:UfactorProposedAllSkylightFenestration" >
                         <xsd:annotation>
@@ -1507,35 +1468,43 @@ End If</xsd:documentation>
                      <xsd:element name="J30_ProposedAllSkylightFenestrationSHGC" type="comp:ProposedAllSkylightFenestrationSHGC" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Proposed Fenestration SHGC (Skylights)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field:   If J02_FenestrationAdditionType  ==Skylight result = Largest ((Largest(J11_SHGC results), Largest (J14_SolarHeatGainCoefficientExteriorShading results)); Else result is N/A stored in the NotApplicableMessage.</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If J02_FenestrationAdditionType != Skylight Or If J11_NotApplicableMessage  or J14_NotApplicableMessage == N/A result = N/A stored in the NotApplicableMessage; Else If J02_FenestrationAdditionType  ==Skylight result = Largest ((Largest(J11_SHGC results), Largest (J14_SolarHeatGainCoefficientExteriorShading results));</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="J30_NotApplicableMessage" type="comp:NotApplicableMessage" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Proposed Fenestration SHGC (Skylights)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field:   If J02_FenestrationAdditionType  ==Skylight result = Largest ((Largest(J11_SHGC results), Largest (J14_SolarHeatGainCoefficientExteriorShading results)); Else result is N/A stored in the NotApplicableMessage.</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If J02_FenestrationAdditionType != Skylight Or If J11_NotApplicableMessage  or J14_NotApplicableMessage == N/A result = N/A stored in the NotApplicableMessage; Else If J02_FenestrationAdditionType  == Skylight result = Largest ((Largest(J11_SHGC results), Largest (J14_SolarHeatGainCoefficientExteriorShading results));</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
-                  <xsd:element name="J31_SHGC_LimitSkylight" type="com:SHGC_LimitSkylight" >
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Required Fenestration SHGC (Skylights)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Auto-filled from I06_SHGC_LimitSkylight.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="J31_SHGC_LimitSkylight" type="com:SHGC_LimitSkylight" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Required Fenestration SHGC (Skylights)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Auto-filled from I06_SHGC_LimitSkylight Or I06_NotApplicableMessage.</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="J31_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Required Fenestration SHGC (Skylights)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: Auto-filled from I06_SHGC_LimitSkylight Or I06_NotApplicableMessage.</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
                   <xsd:choice maxOccurs="1">
                      <xsd:element name="J32_IsSkylightFenestrationAllowedSHGC_Compliant" type="comp:IsSkylightFenestrationAllowedSHGC_Compliant" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If J30_NotApplicableMessage ==  N/A result = N/A stored in the NotApplicableMessage, Else If J30_ProposedAllSkylightFenestrationSHGC LTE J31_SHGC_LimitSkylight. 
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If J30_NotApplicableMessage ==  N/A result = N/A stored in the NotApplicableMessage, Else If J30_ProposedAllSkylightFenestrationSHGC LTE J31_SHGC_LimitSkylight Or J31_NotApplicableMessage ==  N/A 
   result = true display term Design complies with the Maximum Allowed Fenestration SHGC.  Else result = false display term  Fenestration SHGC Exceeds Allowable. Do Not Proceed.</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="J32_NotApplicableMessage" type="comp:NotApplicableMessage" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If J30_NotApplicableMessage ==  N/A result = N/A stored in the NotApplicableMessage, Else If J30_ProposedAllSkylightFenestrationSHGC LTE J31_SHGC_LimitSkylight. 
-  result = true display term Design complies with the Maximum Allowed Fenestration SHGC.  Else result = false display term  Fenestration SHGC Exceeds Allowable. Do Not Proceed.</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If J30_NotApplicableMessage ==  N/A result = N/A stored in the NotApplicableMessage, Else If J30_ProposedAllSkylightFenestrationSHGC LTE J31_SHGC_LimitSkylight Or J31_NotApplicableMessage ==  N/A 
+ result = true display term Design complies with the Maximum Allowed Fenestration SHGC.  Else result = false display term  Fenestration SHGC Exceeds Allowable. Do Not Proceed.</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -1564,40 +1533,47 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input: ObjectNamePermissive</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="K02_ResidentialHeatingSystemType" type="hvac:ResidentialHeatingSystemType" >
+                                    <xsd:element name="K02_ResidentialHeatingSystemType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Heating System Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Choices for ResidentialHeatingSystemType:  BoilerSystem,  CentralGasFurnace   CentralLargePackagedHP,  CentralPackagedHP, CentralSplitHP,  CombinedHydronic, CombinedHydronicForcedAir,  DuctlessHP,  Electric, GasPackagedFurnace,   GasSpaceHeater  GasWallFurnace, Hydronic, HydronicForcedAir, HydronicHP, HydronicHP_ForcedAir, RoomHP, WoodHeat, SmallDuctHighVelocityHP, VCHP_IndoorUnitDucted,  VCHP_IndoorUnitDuctless, VCHP_IndoorUnitDuctedAndDuctless, PTHP, SPVHP</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Choices for ResidentialHeatingSystemType:  BoilerSystem,  CentralLargePackagedHP,  CentralSplitHP,  DuctlessHP,  Electric, HydronicHP, HydronicHP_ForcedAir, RoomHP, SmallDuctHighVelocityHP, VCHP_IndoorUnitDucted,  VCHP_IndoorUnitDuctless, VCHP_IndoorUnitDuctedAndDuctless</xsd:documentation>
                                        </xsd:annotation>
+                                       <xsd:simpleType>
+		                          <xsd:restriction base="hvac:ResidentialHeatingSystemType" >
+			                        <xsd:enumeration value="Boiler"/>
+	                         		<xsd:enumeration value="CentralLargePackagedHP"/>
+		                         	<xsd:enumeration value="CentralSplitHP"/>
+		                        	<xsd:enumeration value="DuctlessMiniSplitHP"/>
+	                        		<xsd:enumeration value="DuctlessMultiSplitHP"/>
+		                        	<xsd:enumeration value="DuctlessSplitHP"/>
+			                 	<xsd:enumeration value="DuctlessVRF_HP"/>
+			                 	<xsd:enumeration value="Electric"/>
+			                 	<xsd:enumeration value="HeatPumpDHWCombo"/>
+			                 	<xsd:enumeration value="HydronicHP"/>
+			                 	<xsd:enumeration value="HydronicHP_ForcedAir"/>
+			                 	<xsd:enumeration value="RoomHP"/>
+			                 	<xsd:enumeration value="SmallDuctHighVelocityHP"/>
+						<xsd:enumeration value="SPVHP"/>
+			                 	<xsd:enumeration value="VCHP_IndoorUnitDucted"/>
+			                 	<xsd:enumeration value="VCHP_IndoorUnitDuctedAndDuctless"/>
+			                 	<xsd:enumeration value="VCHP_IndoorUnitDuctless"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:element name="K03_EfficiencyType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Heating Efficiency Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Choices are: AFUE, COP, HSPF, HSPF2</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Choices are: COP, HSPF2</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="hvac:EfficiencyType">
-                                             <xsd:enumeration value="AFUE"/>
                                              <xsd:enumeration value="COP"/>
-                                             <xsd:enumeration value="HSPF"/>
                                              <xsd:enumeration value="HSPF2"/>
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="K04_EfficiencyMinimumValueAFUE" type="hvac:EfficiencyMinimumValueAFUE" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Proposed Heating Efficiency</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User input value for correct efficiency type</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
                                        <xsd:element name="K04_EfficiencyMinimumValueCOP" type="hvac:EfficiencyMinimumValueCOP" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Proposed Heating Efficiency</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User input value for correct efficiency type</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="K04_EfficiencyMinimumValueHSPF" type="hvac:EfficiencyMinimumValueHSPF" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Proposed Heating Efficiency</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">User input value for correct efficiency type</xsd:documentation>
@@ -1610,24 +1586,43 @@ End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="K05_ResidentialCoolingSystemType" type="hvac:ResidentialCoolingSystemType" >
+                                    <xsd:element name="K05_ResidentialCoolingSystemType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Cooling System Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Choices for ResidentialCoolingSystemType:  CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackagedHP, CentralSplitAC, CentralSplitHP, DuctlessAC, DuctlessHP, EvaporativeDirect, EvaporativeIndirect, EvaporativeIndirectDirect , EvaporativelyCooledCondenser, GasAbsorptionAC, Hydronic, HydronicHP, HydronicHP_ForcedAir, IceStorageAC, NoCooling, RoomAC, RoomHP, VCHP_IndoorUnitDucted,  VCHP_IndoorUnitDuctless, VCHP_IndoorUnitDuctedAndDuctless, PTAC, PTHP, SPVAC, SPVHP</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Choices for ResidentialCoolingSystemType:  CentralLargePackagedHP, CentralPackagedHP, CentralSplitHP, DuctlessHP, EvaporativeDirect, EvaporativeIndirect, EvaporativeIndirectDirect , EvaporativelyCooledCondenser, HydronicHP, HydronicHP_ForcedAir, NoCooling, RoomHP, VCHP_IndoorUnitDucted,  VCHP_IndoorUnitDuctless, VCHP_IndoorUnitDuctedAndDuctless</xsd:documentation>
                                        </xsd:annotation>
+                                       <xsd:simpleType>
+		                          <xsd:restriction base="hvac:ResidentialCoolingSystemType" >
+	                         		<xsd:enumeration value="CentralLargePackagedHP"/>
+						<xsd:enumeration value="CentralPackagedHP"/>
+		                         	<xsd:enumeration value="CentralSplitHP"/>
+	                        		<xsd:enumeration value="DuctlessMultiSplitHP"/>
+		                        	<xsd:enumeration value="DuctlessSplitHP"/>
+			                 	<xsd:enumeration value="DuctlessVRF_HP"/>
+						<xsd:enumeration value="EvaporativeDirect"/>
+						<xsd:enumeration value="EvaporativeIndirect"/>
+						<xsd:enumeration value="EvaporativeIndirectDirect"/>
+						<xsd:enumeration value="EvaporativelyCooledCondenser"/>
+			                 	<xsd:enumeration value="HydronicHP"/>
+			                 	<xsd:enumeration value="HydronicHP_ForcedAir"/>
+						<xsd:enumeration value="NoCooling"/>
+			                 	<xsd:enumeration value="RoomHP"/>
+			                 	<xsd:enumeration value="VCHP_IndoorUnitDucted"/>
+			                 	<xsd:enumeration value="VCHP_IndoorUnitDuctedAndDuctless"/>
+			                 	<xsd:enumeration value="VCHP_IndoorUnitDuctless"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="K06_EfficiencyType" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Efficiency Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If K05_ResidentialCoolingSystemType == NoCooling result = N/A stored in NotApplicableMessage; Else user selects from list:  EER, EER2, SEER, SEER2, CEER</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If K05_ResidentialCoolingSystemType == NoCooling result = N/A stored in NotApplicableMessage; Else user selects from list:  EER2, EER2/SEER2, CEER</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
                                              <xsd:restriction base="hvac:EfficiencyType">
                                                 <xsd:enumeration value="CEER"/>
-                                                <xsd:enumeration value="EER"/>
                                                 <xsd:enumeration value="EER2"/>
-						                              <xsd:enumeration value="EERSEER"/>
                                                 <xsd:enumeration value="EER2SEER2"/>
                                              </xsd:restriction>
                                           </xsd:simpleType>
@@ -1635,53 +1630,40 @@ End If</xsd:documentation>
                                        <xsd:element name="K06_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Efficiency Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If K05_ResidentialCoolingSystemType == NoCooling result = N/A stored in NotApplicableMessage; 
-eND iF</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If K05_ResidentialCoolingSystemType == NoCooling result = N/A stored in NotApplicableMessage; </xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="K07_EfficiencyMinimumValueSEER" type="hvac:EfficiencyMinimumValueSEER" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Proposed Cooling Efficiency SEER/SEER2</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If value in K05 = no cooling, then value = N/A; Else user Input: DecimalNonnegative;</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>                                      
+                                    <xsd:choice maxOccurs="1">                          
                                        <xsd:element name="K07_EfficiencySEER2" type="hvac:EfficiencySEER2" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Proposed Cooling Efficiency SEER/SEER2</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Proposed Cooling Efficiency SEER2</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If value in K05 = no cooling, then value = N/A; Else user Input: DecimalNonnegative;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="K07_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Proposed Cooling Efficiency SEER/SEER2</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Proposed Cooling Efficiency SEER2</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If value in K05 = no cooling, then value = N/A; Else user Input: DecimalNonnegative;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:choice maxOccurs="1">                                       
-                                       <xsd:element name="K07b_EfficiencyMinimumValueEER" type="hvac:EfficiencyMinimumValueEER" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Proposed Cooling Efficiency EER/EER2/CEER</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If value in K05 = no cooling, then value = N/A; Else user input: DecimalNonnegative;</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
+                                    <xsd:choice maxOccurs="1">  
                                        <xsd:element name="K07b_EfficiencyMinimumValueCEER" type="hvac:EfficiencyMinimumValueCEER" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Proposed Cooling Efficiency EER/EER2/CEER</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Proposed Cooling Efficiency EER2/CEER</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If value in K05 = no cooling, then value = N/A; Else user input: DecimalNonnegative;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="K07b_EfficiencyEER2" type="hvac:EfficiencyEER2" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Proposed Cooling Efficiency EER/EER2/CEER</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Proposed Cooling Efficiency EER2/CEER</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If value in K05 = no cooling, then value = N/A; Else user input: DecimalNonnegative;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>                                       
                                        <xsd:element name="K07b_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Proposed Cooling Efficiency EER/EER2/CEER</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Proposed Cooling Efficiency EER2/CEER</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If value in K05 = no cooling, then value = N/A; Else user input: DecimalNonnegative;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -1772,7 +1754,7 @@ eND iF</xsd:documentation>
                   <xsd:element name="KEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:b]Notes:[/d:b] [d:l t="*"][d:list] Any gas heating, heat pump or cooling appliance sold in California will meet the minimum appliance efficiency standard. Models can be checked at https://cacertappliances.energy.ca.gov/Pages/ApplianceSearch.aspx .[/d:list][/d:l]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]Notes:[/d:b] [d:l t="*"][d:list] Any heat pump appliance sold in California will meet the minimum appliance efficiency standard. Models can be checked at https://cacertappliances.energy.ca.gov/Pages/ApplianceSearch.aspx .[/d:list][/d:l]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
@@ -1806,7 +1788,7 @@ eND iF</xsd:documentation>
                   <xsd:element name="L03_WHFsTotalRatedAirFlow" type="comp:WHFsTotalRatedAirFlow" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Total CFM</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: result = PRODUCT (L01, L02); Check If result GTE L06_WholeHouseCoolingVentilationLimit  result complies, Else flag as non-compliant</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: result = L01_WHF_RatedAirFlow x L02_WHF_Count; Check If result GTE L06_WholeHouseCoolingVentilationLimit  result complies, Else flag as non-compliant</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="L04_DirectlyVentedToOutside" type="comp:DirectlyVentedToOutside" >
@@ -1826,23 +1808,16 @@ eND iF</xsd:documentation>
                         <xsd:documentation source="FieldText">[d:b]Required[/d:b]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="L06_WholeHouseCoolingVentilationLimit" type="com:WholeHouseCoolingVentilationLimit" >
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Airflow Rate (CFM)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A11 != SingleFamily result = N/A stored in NotApplicableMessage; Else result = PRODUCT (1.5 CFM per ft2, A10_ BuildingTotalConditionedFloorArea)</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="L06_NotApplicableMessage" type="comp:NotApplicableMessage" >
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Airflow Rate (CFM)</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
+                  <xsd:element name="L06_WholeHouseCoolingVentilationLimit" type="com:WholeHouseCoolingVentilationLimit" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Airflow Rate (CFM)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: result = 1.5 CFM per ft2 x A10_ BuildingTotalConditionedFloorArea</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                   <xsd:element name="L07_AtticVentFreeAreaRequired" type="env:AtticVentFreeAreaRequired" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Minimum Attic Vent Free Area (in[d:sup]2[/d:sup])</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field:  result = PRODUCT (L03_WholeHouseFansTotalRatedAirFlow,  0.192)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field:  result = L03_WholeHouseFansTotalRatedAirFlow x  0.192</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="L08_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments" >
@@ -1882,132 +1857,69 @@ eND iF</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="M02_ResidentialWaterHeatingSystemType" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Water Heating System Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from list: DHW,  Hydronic,  Combined Hydronic, and Central</xsd:documentation>
-                                       </xsd:annotation>
-                                       <xsd:simpleType>
-                                          <xsd:restriction base="hvac:ResidentialWaterHeatingSystemType">
-                                             <xsd:enumeration value="DHW"/>
-                                             <xsd:enumeration value="Hydronic"/>
-                                             <xsd:enumeration value="HydronicSpaceConditioningDHW"/>
-                                          </xsd:restriction>
-                                       </xsd:simpleType>
-                                    </xsd:element>
-                                    <xsd:element name="M03_WaterHeatingSystemOption" >
+                                    <xsd:element name="M02_WaterHeatingSystemOption" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">System Option (from [d:t24ref/]150.1(c)8</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from list: OptionSingleHWH display term 1, OptionTier3SingleHWH display term 2, OptionSolarWH display term 3, OptionInstantaneousWH display term 4, OptionElectInstantaneous display term 5</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list: OptionSingleHWH display term 1, OptionTier3SingleHWH display term 2, OptionSolarWH display term 3, include this option only If A10_ResidentialBuildingTotalConditionedFloorArea LTE 500 OptionElectInstantaneous display term 4</xsd:documentation>
                                           <xsd:appinfo source="displayterm">
                                              <dtyp:displayterm value="OptionSingleHWH">1</dtyp:displayterm>
                                              <dtyp:displayterm value="OptionTier3SingleHWH">2</dtyp:displayterm>
                                              <dtyp:displayterm value="OptionSolarWH">3</dtyp:displayterm>
-                                             <dtyp:displayterm value="OptionInstantaneousWH">4</dtyp:displayterm>
-                                             <dtyp:displayterm value="OptionElectInstantaneous">5</dtyp:displayterm>
-                                          </xsd:appinfo>
-                                          
+                                             <dtyp:displayterm value="OptionElectPointOfUse">4</dtyp:displayterm>
+                                          </xsd:appinfo>                                          
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="comp:WaterHeatingSystemOption">
-                                             <xsd:enumeration value="OptionElectInstantaneous"/>
-                                             <xsd:enumeration value="OptionInstantaneousWH"/>
+                                             <xsd:enumeration value="OptionElectPointOfUse"/>
                                              <xsd:enumeration value="OptionSingleHWH"/>
                                              <xsd:enumeration value="OptionSolarWH"/>
                                              <xsd:enumeration value="OptionTier3SingleHWH"/>
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
-                                    <xsd:element name="M04_WaterHeaterTotalSystemCount" type="hvac:WaterHeaterTotalSystemCount" >
+                                    <xsd:element name="M03_WaterHeaterTotalSystemCount" type="hvac:WaterHeaterTotalSystemCount" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText"># of Water Heaters/Compressors in System</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input integer</xsd:documentation>
-                                          <xsd:appinfo source="PrevName">
-                                             <dtyp:prevSchema version="2019.1.006" changed="cell number">M09_WaterHeaterTotalSystemCount</dtyp:prevSchema>
-                                          </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="M05_ResidentialWaterHeaterType" >
+                                    <xsd:element name="M04_ResidentialWaterHeaterType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Water Heater Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If  M03_WaterHeatingSystemOption == OptionInstantaneousWH Or OptionElectInstantaneous 
-result = InstantaneousConsumer; 
+                                          <xsd:documentation source="CalculationsAndRules">If  M02_WaterHeatingSystemOption == OptionElectPointOfUse 
+result = ElectricPOUConsumer; 
  
-Else If  M03_WaterHeatingSystemOption == OptionSingleHWH result =  HeatPumpWaterHeater
- 
-Else If M03_WaterHeatingSystemOption == OptionTier3SingleHWH   result = NEEA_Tier3HP
- 
-Else If M03_WaterHeatingSystemOption == OptionSolarWH
-result = SolarElectBackup
-End If</xsd:documentation>
-                                          <xsd:appinfo source="PrevName">
-                                             <dtyp:prevSchema version="2019.1.006" changed="cell number">M06_ResidentialWaterHeaterType</dtyp:prevSchema>
-                                          </xsd:appinfo>
+Else If  M02_WaterHeatingSystemOption == OptionSingleHWH result =  HeatPumpWaterHeater 
+Else If M02_WaterHeatingSystemOption == OptionTier3SingleHWH   result = NEEA_Tier3HP 
+Else If M02_WaterHeatingSystemOption == OptionSolarWH result = SolarElectBackup End If</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="hvac:ResidentialWaterHeaterType">
                                              <xsd:enumeration value="HeatPumpWaterHeater"/>
-                                             <xsd:enumeration value="InstantaneousConsumer"/>
+                                             <xsd:enumeration value="ElectricPOUConsumer"/>
                                              <xsd:enumeration value="NEEA_Tier3HP"/>
                                              <xsd:enumeration value="SolarElectBackup"/>
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
-                                    <xsd:element name="M06_WaterHeaterFuelSource" >
+                                    <xsd:element name="M05_WaterHeaterFuelSource" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Fuel Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If M03_WaterHeatingSystemOption  == OptionSingleHWH Or OptionTier3SingleHWH
- result = WaterHeatingHP
- Else If M03_WaterHeatingSystemOption  == OptionSolarWH Or OptionElectInstantaneous
- result = Electricity
- Else If M03_WaterHeatingSystemOption  == OptionInstantaneousWH
- user selects from NaturalGas or PropaneGas</xsd:documentation>
-                                          <xsd:appinfo source="PrevName">
-                                             <dtyp:prevSchema version="2019.1.006" changed="cell number">M08_WaterHeaterFuelSource</dtyp:prevSchema>
-                                          </xsd:appinfo>
-                                       </xsd:annotation>
-                                       <xsd:simpleType>
+                                          <xsd:documentation source="CalculationsAndRules">If M02_WaterHeatingSystemOption  == OptionSingleHWH Or OptionTier3SingleHWH result = WaterHeatingHP; Else If M02_WaterHeatingSystemOption  == OptionSolarWH Or OptionElectPointOfUse result = Electricity </xsd:documentation>
+                                       </xsd:annotation>                                       
+				       <xsd:simpleType>
                                           <xsd:restriction base="hvac:WaterHeaterFuelSource">
                                              <xsd:enumeration value="Electricity"/>
-                                             <xsd:enumeration value="NaturalGas"/>
-                                             <xsd:enumeration value="PropaneGas"/>
                                              <xsd:enumeration value="WaterHeatingHP"/>
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="M07_WaterHeaterGasFiredRatedInput" type="hvac:WaterHeaterGasFiredRatedInput" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Rated Input</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If M03_WaterHeatingSystemOption ==  OptionInstantaneousWH
- value allowed LTE 200000
- Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                                             <xsd:appinfo source="PrevName">
-                                                <dtyp:prevSchema version="2019.1.006" changed="cell number">M10_WaterHeaterGasFiredRatedInput</dtyp:prevSchema>
-                                             </xsd:appinfo>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="M07_NotApplicableMessage" type="comp:NotApplicableMessage" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Rated Input</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If M03_WaterHeatingSystemOption ==  OptionInstantaneousWH
- value allowed LTE 200000
- Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                                             <xsd:appinfo source="PrevName">
-                                                <dtyp:prevSchema version="2019.1.006" changed="cell number">M10_NotApplicableMessage</dtyp:prevSchema>
-                                             </xsd:appinfo>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                    </xsd:choice>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="M08_TankLocation" >
+                                       <xsd:element name="M06_TankLocation" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Tank Location</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If M03_WaterHeatingSystemOption  == OptionSingleHWH Or OptionTier3SingleHWH
  user selects from list: Conditioned Or Garage; Else result = N/A stored in NotApplicableMessage.</xsd:documentation>
-                                             <xsd:appinfo source="PrevName">
-                                                <dtyp:prevSchema version="2019.1.006" changed="cell number">M13_TankLocation</dtyp:prevSchema>
-                                             </xsd:appinfo>
                                           </xsd:annotation>
                                           <xsd:simpleType>
                                              <xsd:restriction base="hvac:TankLocation">
@@ -2016,67 +1928,34 @@ End If</xsd:documentation>
                                              </xsd:restriction>
                                           </xsd:simpleType>
                                        </xsd:element>
-                                       <xsd:element name="M08_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                       <xsd:element name="M06_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Tank Location</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If M03_WaterHeatingSystemOption  == OptionSingleHWH Or OptionTier3SingleHWH
  user selects from list: Conditioned Or Garage; Else result = N/A stored in NotApplicableMessage.</xsd:documentation>
-                                             <xsd:appinfo source="PrevName">
-                                                <dtyp:prevSchema version="2019.1.006" changed="cell number">M13_NotApplicableMessage</dtyp:prevSchema>
-                                             </xsd:appinfo>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="M09_ResidentialDHWDwellingUnitDistributionType" type="hvac:ResidentialDHWDwellingUnitDistributionType" >
+                                    <xsd:element name="M07_ResidentialDHWDwellingUnitDistributionType" type="hvac:ResidentialDHWDwellingUnitDistributionType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Distribution Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If A09_ClimateZone == 1
-If M03_WaterHeatingSystemOption  == OptionSingleHWH
-result = CompactHotWaterDistributionSystemBasic
-End If
-Else If  A09_ClimateZone == 16
-If M03_WaterHeatingSystemOption  == OptionSingleHWH
-result = CompactDistributionDrainHeatRecoveryHERS
-Else M03_WaterHeatingSystemOption  == OptionTier3SingleHWH
-result = DrainWaterHeatRecoveryHERS
-End If
-Else If A10_ BuildingTotalConditionedFloorArea LTE 500
-If M03_WaterHeatingSystemOption  == OptionElectInstantaneous
-result = PointOfUse
-End If
-Else
-User selects from StandardDistribution Or DemandRecirculationManualControl
-End If</xsd:documentation>
-                                          <xsd:appinfo source="PrevName">
-                                             <dtyp:prevSchema version="2019.1.006" changed="cell number">M14_ResidentialDHWDwellingUnitDistributionType</dtyp:prevSchema>
-                                          </xsd:appinfo>
-                                       </xsd:annotation>
+                                          <xsd:documentation source="CalculationsAndRules">If A09_ClimateZone == 1 If M02_WaterHeatingSystemOption  == OptionSingleHWH result = CompactHotWaterDistributionSystemBasic End If
+Else If  A09_ClimateZone == 16 If M02_WaterHeatingSystemOption  == OptionSingleHWH result = CompactDistributionDrainHeatRecoveryHERS Else M02_WaterHeatingSystemOption  == OptionTier3SingleHWH result = DrainWaterHeatRecoveryHERS End If
+Else If A10_ BuildingTotalConditionedFloorArea LTE 500 If M02_WaterHeatingSystemOption  == OptionElectPointOfUse result = PointOfUse End If
+Else User selects from StandardDistribution Or DemandRecirculationManualControl End If</xsd:documentation>         
+					</xsd:annotation>                                 
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="M10_WaterHeatingSolarFraction" type="hvac:WaterHeatingSolarFraction" >
+                                       <xsd:element name="M08_WaterHeatingSolarFraction" type="hvac:WaterHeatingSolarFraction" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Minimum Solar Savings Fraction</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If M03_WaterHeatingSystemOption ==   OptionSolarWH
-result = 0.70
-Else
-result = N/A stored in NotApplicableMessage.
-End If</xsd:documentation>
-                                             <xsd:appinfo source="PrevName">
-                                                <dtyp:prevSchema version="2019.1.006" changed="cell number">M11_WaterHeatingSolarFraction</dtyp:prevSchema>
-                                             </xsd:appinfo>
-                                          </xsd:annotation>
+                                             <xsd:documentation source="CalculationsAndRules">If M02_WaterHeatingSystemOption ==   OptionSolarWH result = 0.70 Else result = N/A stored in NotApplicableMessage. End If</xsd:documentation>          
+					  </xsd:annotation>                                   
                                        </xsd:element>
-                                       <xsd:element name="M10_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                       <xsd:element name="M08_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Minimum Solar Savings Fraction</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If M03_WaterHeatingSystemOption ==   OptionSolarWH
-result = 0.70
-Else
-result = N/A stored in NotApplicableMessage.
-End If</xsd:documentation>
-                                             <xsd:appinfo source="PrevName">
-                                                <dtyp:prevSchema version="2019.1.006" changed="cell number">M11_NotApplicableMessage</dtyp:prevSchema>
-                                             </xsd:appinfo>
+                                             <xsd:documentation source="CalculationsAndRules">If M02_WaterHeatingSystemOption ==   OptionSolarWH result = 0.70 Else result = N/A stored in NotApplicableMessage. End If</xsd:documentation>                                             
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -2089,7 +1968,9 @@ End If</xsd:documentation>
                   <xsd:element name="MEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Options: [d:l t="#"][d:list] A single 240 volt heat pump water heater (HPWH).  Installed in conditioned space or garage.[d:line1/][d:tab2/]C. In climate zone 1, compact hot water distribution is required. [d:line1/][d:tab2/]C. In climate zone 16, compact hot water distribution and a drain water heat recovery (HERS) is required. [/d:list][d:list]  A single 240 volt HPWH rated Tier 3 or higher by Northwest Energy Efficiency Alliance (NEEA). Installed in conditioned space or garage.[d:line1/][d:tab2/]a.  In climate zone 16, a drain water heat recovery (HERS) is required. [/d:list][d:list]A solar water-heating system with a minimum annual solar savings fraction of 0.7 and an electric backup meeting the installation criteria specified in Reference RA4. [/d:list][d:list]In climate zones 3, 4, 13 and 14, a gas or propane instantaneous water heater with an input of 200,000 Btu per hour or less and no storage tank may be installed. [d:line1/][d:tab2/]a. Space conditioning system shall be a heat pump as specified in Section 150.1(c)6. [/d:list][d:list]In new dwelling units that are 500 square feeet of less, an instantaneous electric water heater with point of use distribution. [/d:list][/d:l] [d:line2/]Notes [d:line1/][d:tab1/]A single 120V HPWH may be installed in place of a 240V HPWH for new dwelling units with 1 bedroom or less.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Options: [d:l t="#"][d:list] A single 240 volt heat pump water heater (HPWH).  Installed in conditioned space or garage.[d:line1/][d:tab2/]A. In climate zone 1, compact hot water distribution is required. [d:line1/][d:tab2/]B. In climate zone 16, compact hot water distribution and a drain water heat recovery (ECC) is required. [/d:list]
+[d:list]  A single 240 volt HPWH rated Tier 3 or higher by Northwest Energy Efficiency Alliance (NEEA). Installed in conditioned space or garage.[d:line1/][d:tab2/]a.  In climate zone 16, a drain water heat recovery (ECC) is required. [/d:list]
+[d:list]A solar water-heating system with a minimum annual solar savings fraction of 0.7 and an electric backup meeting the installation criteria specified in Reference RA4. [/d:list][d:list]In new dwelling units that are 500 square feeet of less, an electric water heater with point of use distribution. [/d:list][/d:l] [d:line2/]Notes [d:line1/][d:tab1/]A single 120V HPWH may be installed in place of a 240V HPWH for new dwelling units with 1 bedroom or less.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
@@ -2097,10 +1978,7 @@ End If</xsd:documentation>
          </xsd:element>
          <xsd:element name="Section_N" minOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Photovoltaic Requirements (Section 150.1(c)14)</xsd:documentation>
-               <xsd:appinfo source="PrevName">
-                  <dtyp:prevSchema version="2019.1.006" changed="section only">Section_O</dtyp:prevSchema>
-               </xsd:appinfo>
+               <xsd:documentation source="FieldText">Photovoltaic (PV) Requirements (Section 150.1(c)14)</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -2118,9 +1996,6 @@ End If</xsd:documentation>
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">PV Array ID or Name</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
-                                          <xsd:appinfo source="PrevName">
-                                             <dtyp:prevSchema version="2019.1.006" changed="section only">O01_ArrayName</dtyp:prevSchema>
-                                          </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="Pv02_PV_AdjustmentFactorA" type="comp:PV_AdjustmentFactorA" >
@@ -2145,9 +2020,6 @@ case 14: result = 0.741
 case 15: result = 1.56
 case 16: result = 0.59
 End Switch</xsd:documentation>
-                                          <xsd:appinfo source="PrevName">
-                                             <dtyp:prevSchema version="2019.1.006" changed="section only">O02_PV_AdjustmentFactorA</dtyp:prevSchema>
-                                          </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="Pv03_PV_AdjustmentFactorB" type="comp:PV_AdjustmentFactorB" >
@@ -2172,18 +2044,13 @@ case 14: result = 1.26
 case 15: result = 1.47
 case 16: result = 1.22
 End Switch</xsd:documentation>
-                                          <xsd:appinfo source="PrevName">
-                                             <dtyp:prevSchema version="2019.1.006" changed="section only">O03_PV_AdjustmentFactorB</dtyp:prevSchema>
-                                          </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="Pv04_PV_MinimumSize" type="comp:PV_MinimumSize" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Minimum PV Size</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calculated field: result = ( (A10__ ResidentialBuildingTotalConditionedFloorArea x Pv02_PV_AdjustmentFactorA) / 1000)  +  (A06_ ResidentialDwellingUnitCount  x  Pv03_PV_AdjustmentFactorB))</xsd:documentation>
-                                          <xsd:appinfo source="PrevName">
-                                             <dtyp:prevSchema version="2019.1.006" changed="section only">O04_PV_MinimumSize</dtyp:prevSchema>
-                                          </xsd:appinfo>
+                                          <xsd:documentation source="FieldText">Minimum PV Size from Equation 150.1-C</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field: result = ( (A10_ResidentialBuildingTotalConditionedFloorArea x Pv02_PV_AdjustmentFactorA) / 1000)  +  Pv03_PV_AdjustmentFactorB)</xsd:documentation>
+                                          
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="Pv05_PhotoVoltaicExceptionRes" >
@@ -2215,24 +2082,56 @@ End Switch</xsd:documentation>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="Pv06_PV_AdjustedMinimumSize" type="comp:PV_AdjustedMinimumSize" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Adjusted  PV Size</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Pv05_PhotoVoltaicExceptionRes ==  BatteryStorage 
-result = Pv04_PV_MinimumSize x 0.75 
-Else result =  N/A stored in NotApplicableMessage
-End If</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Adjusted  PV Size from Exception</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Pv05_PhotoVoltaicExceptionRes ==  BatteryStorage result = Pv04_PV_MinimumSize x 0.75 Else If Pv05_PhotoVoltaicExceptionRes == NoExceptionsNA result =  Pv04_PV_MinimumSize;
+Else result =  N/A stored in NotApplicableMessage End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="Pv06_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Adjusted  PV Size</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Pv05_PhotoVoltaicExceptionRes ==  BatteryStorage 
-result = Pv04_PV_MinimumSize x 0.75 
-Else result =  N/A stored in NotApplicableMessage
-End If</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Adjusted  PV Size from Exception</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Pv05_PhotoVoltaicExceptionRes ==  BatteryStorage result = Pv04_PV_MinimumSize x 0.75 Else If Pv05_PhotoVoltaicExceptionRes == NoExceptionsNA result =  Pv04_PV_MinimumSize;
+Else result =  N/A stored in NotApplicableMessage End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="Pv07_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments"  minOccurs="0">
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="Pv07_PV_MaxSizeSARA" type="comp:PV_MaxSizeSARA" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Solar Access Roof Area (SARA)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="Pv07_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Solar Access Roof Area (SARA)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Pv05_PhotoVoltaicExceptionRes !=  BatteryStorage And Pv05_PhotoVoltaicExceptionRes != NoExceptionsNA result =  NotApplicableMessage
+Else result =  N/A stored in NotApplicableMessage End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="Pv08_RoofSlope" type="env:RoofSlope" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Roof Slope Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from LowSlope and SteepSlope </xsd:documentation>
+                                       </xsd:annotation>
+                                   </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="Pv09_PV_MaxSizeSARA" type="comp:PV_MaxSizeSARA" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Adjusted PV System Size</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Pv06_NotApplicableMessage == N/A result = N/A stored in NotApplicableMessage; Else If Pv08_RoofSlope == LowSlope result1 = Pv06_PV_AdjustedMinimumSize x 14 Else result1 = Pv06_PV_AdjustedMinimumSize x 18 End If;
+If result1 less than Pv06_PV_AdjustedMinimumSize then result = result1 Else result = Pv06_PV_AdjustedMinimumSize</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="Pv09_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Adjusted PV System Size</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Pv06_NotApplicableMessage == N/A result = N/A stored in NotApplicableMessage;</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                   <xsd:element name="Pv10_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments"  minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Comments</xsd:documentation>
                                        </xsd:annotation>
@@ -2246,7 +2145,9 @@ End If</xsd:documentation>
                   <xsd:element name="PvEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Exceptions: [d:l t="#"][d:list]Solar Access Roof Area (SARA) is less than 80 contiguous sqare feet. [/d:list][d:list]No PV system is required when the mnimum PV system size specified by Section 150.1c(14) is less than 1.8kWdc. [/d:list][d:list]Enforcement authority determines it is not possible for PV system to meet the requirements of the American Society of Civil Engineers, Standard 7-16, Chapter 7, Snow Loads. [/d:list][d:list]Buildings approved prior to January 1, 2020 [/d:list][d:list]PV system size is reduced by 25% when installed with a battery storage system meeting the Joint Appendix JA12 requirements with a minimum useable capacity of 7.5kWh. [/d:list][/d:l]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Exceptions: [d:l t="#"][d:list]Solar Access Roof Area (SARA) is less than 80 contiguous sqare feet. [/d:list][d:list]No PV system is required when the mnimum PV system size specified by Section 150.1c(14) is less than 1.8kWdc. [/d:list]
+[d:list]Enforcement authority determines it is not possible for PV system to meet the requirements of the American Society of Civil Engineers, Standard 7-16, Chapter 7, Snow Loads. [/d:list][d:list]Buildings approved prior to January 1, 2020 [/d:list]
+[d:list]PV system size is reduced by 25% when installed with a BESS (battery storage system) meeting the Joint Appendix JA12 requirements with a minimum cycling capacity of 7.5kWh. [/d:list][/d:l]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
@@ -2254,10 +2155,7 @@ End If</xsd:documentation>
          </xsd:element>
          <xsd:element name="Section_O" minOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Indoor Air Quality (IAQ) Fan Information</xsd:documentation>
-               <xsd:appinfo source="PrevName">
-                  <dtyp:prevSchema version="2019.1.006" changed="section only">Section_P</dtyp:prevSchema>
-               </xsd:appinfo>
+               <xsd:documentation source="FieldText">Indoor Air Quality (IAQ) Fan Information</xsd:documentation>              
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -2275,26 +2173,29 @@ End If</xsd:documentation>
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Fan Name</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">user iput</xsd:documentation>
-                                          <xsd:appinfo source="PrevName">
-                                             <dtyp:prevSchema version="2019.1.006" changed="section only">P01_FanName</dtyp:prevSchema>
-                                          </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Fan02_VentilationSystemType" type="hvac:VentilationSystemType" >
+                                    <xsd:element name="Fan02_VentilationSystemType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">IAQ Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from list: SupplyVent display term Supply, ExhaustVent display term Exhaust, Balanced display term Balanced, BalancedERV display term Balanced ERV, BalancedHRV display term Balanced HRV, CentralFanIntegrated display term Central Fan Integrated (CFI), SupplyCentralVent display term Central Ventilation System - Supply, ExhaustCentralVent display term Central Ventilation System - Exhaust, BalancedCentralVent display term Central Ventilation System - Balanced</xsd:documentation>
-                                          <xsd:appinfo source="PrevName">
-                                             <dtyp:prevSchema version="2019.1.006" changed="section only">P02_VentilationSystemType</dtyp:prevSchema>
-                                          </xsd:appinfo>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list: SupplyVent display term Supply, Balanced display term Balanced, BalancedERV display term Balanced ERV, BalancedHRV display term Balanced HRV, 
+CentralFanIntegrated display term Central Fan Integrated (CFI), SupplyCentralVent display term Central Ventilation System - Supply, BalancedCentralVent display term Central Ventilation System - Balanced</xsd:documentation>
                                        </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="hvac:VentilationSystemType">
+                                             <xsd:enumeration value="SupplyVent"/>
+                                             <xsd:enumeration value="Balanced"/>
+                                             <xsd:enumeration value="BalancedERV"/>
+                                             <xsd:enumeration value="BalancedHRV"/>
+                                             <xsd:enumeration value="CentralFanIntegrated"/>
+                                             <xsd:enumeration value="SupplyCentralVent"/>
+                                             <xsd:enumeration value="BalancedCentralVent"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:element name="Fan03_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments"  minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Comments</xsd:documentation>
-                                          <xsd:appinfo source="PrevName">
-                                             <dtyp:prevSchema version="2019.1.006" changed="section only">P03_ComplianceDocumentTableComments</dtyp:prevSchema>
-                                          </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
@@ -2308,78 +2209,61 @@ End If</xsd:documentation>
          </xsd:element>
          <xsd:element name="Section_P" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">HERS Verification Summary</xsd:documentation>
-               <xsd:appinfo source="PrevName">
-                  <dtyp:prevSchema version="2019.1.006" changed="section only">Section_Q</dtyp:prevSchema>
-               </xsd:appinfo>
+               <xsd:documentation source="FieldText">Field Verification Summary</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="Hers_BeginNote1" minOccurs="0">
+                  <xsd:element name="PBeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The enforcement agency shall pay special attention to the HERS Measures specified in this checklist below.  A registered Certificate of Verification for all the measures specified shall be submitted to the building inspector before final inspection.</xsd:documentation>
-                        <xsd:appinfo source="PrevName">
-                           <dtyp:prevSchema version="2019.1.006" changed="section only">Q_BeginNote1</dtyp:prevSchema>
-                        </xsd:appinfo>
+                        <xsd:documentation source="AdditionalRequirements">The enforcement agency shall pay special attention to the ECC Measures specified in this checklist below.  A registered Certificate of Verification for all the measures specified shall be submitted to the building inspector before final inspection.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="HersText1" minOccurs="0">
+                  <xsd:element name="PNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:b]Quality Insulation Installation - Section 150.1(c)1E[/d:b]  [d:l t="*"][d:list]The dwelling unit shall meet all of the requirements of Quality Insulation Installation (QII) as specified in Reference Appendices Residential Appendix RA3.5 and be verified by a HERS rater.  [/d:list][/d:l].</xsd:documentation>
-                        <xsd:appinfo source="PrevName">
-                           <dtyp:prevSchema version="2019.1.006" changed="section only">Q_Text1</dtyp:prevSchema>
-                        </xsd:appinfo>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]Quality Insulation Installation - Section 150.1(c)1E[/d:b]  [d:l t="*"][d:list]The dwelling unit shall meet all of the requirements of Quality Insulation Installation (QII) as specified in Reference Appendices Residential Appendix RA3.5 and be verified by a ECC rater.  [/d:list][/d:l].</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="HersText2" minOccurs="0">
+                  <xsd:element name="PNote2" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:b]Duct Leakage Verification- Section 150.0(m)11[/d:b][d:l t="*"][d:list]Duct leakage testing is required (Reference Appendices, Residential Appendix RA3.1) in all climate zones for ducted heating and cooling systems.[/d:list][/d:l]</xsd:documentation>
-                        <xsd:appinfo source="PrevName">
-                           <dtyp:prevSchema version="2019.1.006" changed="section only">Q_Text2</dtyp:prevSchema>
-                        </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="HersText3" minOccurs="0">
+                  <xsd:element name="PNote3" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:b]Zonally Controlled Systems - Bypass Dampers - Section 150.1(c)13[/d:b]   [d:l t="*"][d:list]If system is zonally controlled, no bypass ducts are allowed, as confirmed by HERS verification  (Reference Appendices, Residential Appendix RA 3.4.1.6)[/d:list][/d:l]</xsd:documentation>
-                        <xsd:appinfo source="PrevName">
-                           <dtyp:prevSchema version="2019.1.006" changed="section only">Q_Text3</dtyp:prevSchema>
-                        </xsd:appinfo>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]Zonally Controlled Systems - Bypass Dampers - Section 150.1(c)13[/d:b]   [d:l t="*"][d:list]If system is zonally controlled, no bypass ducts are allowed, as confirmed by field verification  (Reference Appendices, Residential Appendix RA 3.4.1.6)[/d:list][/d:l]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="HersText4" minOccurs="0">
+                  <xsd:element name="PNote4" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:b]Refrigerant Charge Verification Section 150.1(c)7a[/d:b]  [d:l t="*"][d:list]Refrigerant Charge Testing is required (Reference Appendices, Residential Appendix RA3.2) in climate zones 2 and 8-15 for all air-cooled air conditioners and air source heat pumps.[/d:list] [d:list]Some exceptions apply to factory charged package systems[/d:list][/d:l]</xsd:documentation>
-                        <xsd:appinfo source="PrevName">
-                           <dtyp:prevSchema version="2019.1.006" changed="section only">Q_Text4</dtyp:prevSchema>
-                        </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="HersText5" minOccurs="0">
+                  <xsd:element name="PNote5" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:b]Central System Air Handlers - Air Flow and Fan Efficacy Verification  - Section 150.0(m)13[/d:b]  [d:l t="*"][d:list]Airflow (minimum 350 cfm/ton) and Fan Efficacy (max 0.45 Watts/cfm for gas furnace air handlers and 0.58 Watts/cfm for air handlers that are not gas furnace) on systems with ducted air conditioning as field verified by a HERS rater or Return Duct and Filter System Design according to Tables 150.0-C/D will be HERS verified.[/d:list][d:list]Heat-only systems with Central Fan Integrated (CFI) ventilation are required to have less than 0.45 Watts/ cfm as verified by a HERS rater. .[/d:list][d:list] Small duct high velocity systems: airflow (minimum 250 cfm/ton) and fan efficacy (max 0.62 Watts/cfm) as verified by a HERS rater. [/d:list][/d:l]</xsd:documentation>
-                        <xsd:appinfo source="PrevName">
-                           <dtyp:prevSchema version="2019.1.006" changed="section only">Q_Text5</dtyp:prevSchema>
-                        </xsd:appinfo>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]Central System Air Handlers - Air Flow and Fan Efficacy Verification  - Section 150.0(m)13[/d:b]  [d:l t="*"][d:list]Airflow (minimum 350 cfm/ton) and Fan Efficacy (max 0.58 Watts/cfm for air handlers that are not gas furnace) on systems with ducted air conditioning as field verified by a ECC rater or Return Duct and Filter System Design according to Tables 150.0-C/D will be ECC verified.[/d:list]
+[d:list]Heat-only systems with Central Fan Integrated (CFI) ventilation are required to have less than 0.45 Watts/ cfm as verified by a ECC rater. [/d:list][d:list] Small duct high velocity systems: airflow (minimum 250 cfm/ton) and fan efficacy (max 0.62 Watts/cfm) as verified by a ECC rater. [/d:list][/d:l]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="HersText6" minOccurs="0">
+                  <xsd:element name="PNote6" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:b]Indoor Air Quality (IAQ) Mechanical Ventilation - Section 150.0(o) [/d:b]  [d:l t="*"][d:list]Mechanical ventilation airflow rate according to American Society for Heating, Refrigerating, and Air-Conditioning Engineers (ASHRAE) 62.2 is required to be verified by a HERS rater (Reference Appendices, Residential Appendix RA3.7)[/d:list][/d:l]</xsd:documentation>
-                        <xsd:appinfo source="PrevName">
-                           <dtyp:prevSchema version="2019.1.006" changed="section only">Q_Text6</dtyp:prevSchema>
-                        </xsd:appinfo>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]Indoor Air Quality (IAQ) Mechanical Ventilation - Section 150.0(o) [/d:b]  [d:l t="*"][d:list]Mechanical ventilation airflow rate according to American Society for Heating, Refrigerating, and Air-Conditioning Engineers (ASHRAE) 62.2 is required to be verified by a ECC rater (Reference Appendices, Residential Appendix RA3.7)[/d:list][/d:l]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-               </xsd:sequence>
+                  <xsd:element name="PNote7" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]Ventilation System Fault Indicator Display (FID) - Section 150.1(c)15 [/d:b]  [d:l t="*"][d:list]All HRV/ERV systems serving individual dwelling units shall have a Fault Indicator Display (FID) as confirmed be field verification Reference Appendices, Joint Appendix JA17. [/d:list][/d:l]</xsd:documentation>
+		    </xsd:annotation>
+                 </xsd:element>               
+		</xsd:sequence>
             </xsd:complexType>
          </xsd:element>
       </xsd:sequence>
