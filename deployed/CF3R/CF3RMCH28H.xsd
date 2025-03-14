@@ -20,7 +20,7 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="A01_DuctSystemName" type="hvac:DuctSystemName">
+                  <xsd:element name="A01_ResidentialSpaceConditioningSystemName" type="hvac:ResidentialSpaceConditioningSystemName">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">System Identification or Name</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Data from MCH-01</xsd:documentation>

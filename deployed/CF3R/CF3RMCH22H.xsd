@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RMCH22H" version="2025.0.000" xmlns="http://www.lmonte.com/besm/CF2RMCH22H" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF3RMCH22H" version="2025.0.000" xmlns="http://www.lmonte.com/besm/CF3RMCH22H" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
@@ -7,7 +7,7 @@
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
-   <xsd:complexType name="CF2RMCH22H">
+   <xsd:complexType name="CF3RMCH22H">
       <xsd:annotation>
          <xsd:documentation>Space Conditioning System Fan Efficacy - Fan Efficacy Measurement Forced Air System Plus Central Fan Ventilation Cooling System And Zoned Systems</xsd:documentation>
       </xsd:annotation>
@@ -162,13 +162,14 @@
          <xsd:element name="Section_C1" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Forced Air System Fan Efficacy Measurement</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">If A06 Condenser Speed Type != SingleSpeed Or A07_ResidentialCoolingZoneType != ZoneControlled this section is required.  In this section MCH-23 refers to the project CF2R-MCH23 and MCH-01 refers to the project CF2R-MCH-01</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">In this section MCH-23 refers to the project CF2R-MCH23 and MCH-01 refers to the project CF2R-MCH-01</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section is not required. display the Section Title and this text "This section does not apply to this project"</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
                   <xsd:element name="Cms_BeginNote1" minOccurs="0">
                      <xsd:annotation>
+                        <xsd:documentation source="CalculationsAndRules">If A06 Condenser Speed Type != SingleSpeed Or A07_ResidentialCoolingZoneType != ZoneControlled this section is required</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Complete this section entering data for Newly Installed Non-Zoned Systems or Zoned Multi-Speed Compressor</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -218,13 +219,14 @@ Else If loading Row 2 of CFVCS data Then If parent document == MCH-01a Or MCH-01
          <xsd:element name="Section_C2" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Forced Air System Fan Efficacy Measurement – All Zones Calling</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">If A06 CondenserSpeedType == SingleSpeed And A07_ResidentialCoolingZoneType== ZoneControlled this section is required.  In this section MCH-23 refers to the project CF2R-MCH23 and MCH-01 refers to the project CF2R-MCH-01</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">In this section MCH-23 refers to the project CF2R-MCH23 and MCH-01 refers to the project CF2R-MCH-01</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section is not required. display the Section Title and this text "This section does not apply to this project"</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
                   <xsd:element name="Cssz_BeginNote1" minOccurs="0">
                      <xsd:annotation>
+                        <xsd:documentation source="CalculationsAndRules">If A06 CondenserSpeedType == SingleSpeed And A07_ResidentialCoolingZoneType== ZoneControlled this section is required</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Complete this section entering data for Newly Installed Zoned Single-Speed Compressor Systems</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -446,10 +448,44 @@ Else If parent document == MCH-01b Or Mch01c   If MCH01b- C06 or Mch01c - B05 Re
                         <xsd:documentation source="AdditionalRequirements">Portable Watt meters used for measurements of air handler watt draws shall be true power measurement systems (i.e., sensor plus data acquisition system) having an accuracy of +- 2 percent of reading or +- 10 Watts whichever is greater.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
+                  <xsd:element name="F08_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Verification Status</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">For Pass choice display text: Pass - all applicable requirements are met.  For Fail choice display text: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display text: All n/a - This entire table is not applicable</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F09_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                   <xsd:element name="FEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_G" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Determination of ECC Verification Compliance</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="G_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">All applicable sections of this document shall indicate compliance with the specified verification protocol requirements in order for this Certificate of Verification as a whole to be determined to be in compliance.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G01_DoesCF3R_Pass" type="comp:DoesCF3R_Pass">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If (Cms05_DoesSystemFanEfficacyComply == true Or Cssz05_DoesSystemFanEfficacyComply == true) and If present D09 == true And If present E05 == true And If F08_DoesSystemComplyWithRequirements != Fail  result = true display term   Complies:  All specified verification protocol requirements on this document are met;   Else result = false display term   Does not comply:  One or more specified verification protocol requirements on this document are not met.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
@@ -462,8 +498,8 @@ Else If parent document == MCH-01b Or Mch01c   If MCH01b- C06 or Mch01c - B05 Re
          <xsd:sequence>
             <xsd:element name="DocID" minOccurs="0">
                <xsd:complexType>
-                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RMCH22H"/>
-                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF3RMCH22H"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF VERIFICATION"/>
                   <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Space Conditioning System Fan Efficacy"/>
                </xsd:complexType>
             </xsd:element>
@@ -472,9 +508,9 @@ Else If parent document == MCH-01b Or Mch01c   If MCH01b- C06 or Mch01c - B05 Re
                <xsd:complexType>
                   <xsd:sequence>
                      <xsd:element name="Header" type="comp:HeaderHERS"/>
-                     <xsd:element ref="cF2RMCH22H"/>
+                     <xsd:element ref="cF3RMCH22H"/>
                      <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
-                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_H"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF3R"/>
                      <xsd:element name="Footer" type="comp:Footer"/>
                   </xsd:sequence>
                </xsd:complexType>
@@ -482,12 +518,12 @@ Else If parent document == MCH-01b Or Mch01c   If MCH01b- C06 or Mch01c - B05 Re
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
          <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
-         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH22dH"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF3RMCH22dH"/>
       </xsd:complexType>
    </xsd:element>
-   <xsd:element name="cF2RMCH22H" type="CF2RMCH22H">
+   <xsd:element name="cF3RMCH22H" type="CF3RMCH22H">
       <xsd:annotation>
-         <xsd:documentation>This element contains all of the data and text required to generate the CF2RMCH22H compliance report.</xsd:documentation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF3RMCH22H compliance report.</xsd:documentation>
       </xsd:annotation>
    </xsd:element>
 </xsd:schema>

@@ -3986,6 +3986,7 @@ Not Shared</dtyp:displayterm>
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="AtticRoof">Attic Roofs</dtyp:displayterm>
+            <dtyp:displayterm value="AtticVentilated">Ventilated Attic</dtyp:displayterm>
             <dtyp:displayterm value="CeilingBelowAttic">Ceilings (below attic)</dtyp:displayterm>
             <dtyp:displayterm value="CeilingCathedral">Cathedral Ceilings</dtyp:displayterm>
             <dtyp:displayterm value="CeilingInterior">Interior Ceiling</dtyp:displayterm>
@@ -4000,6 +4001,7 @@ Not Shared</dtyp:displayterm>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="AtticRoof"/>
+         <xsd:enumeration value="AtticVentilated"/>
          <xsd:enumeration value="CeilingBelowAttic"/>
          <xsd:enumeration value="CeilingCathedral"/>
          <xsd:enumeration value="CeilingInterior"/>
