@@ -108,7 +108,7 @@
                   <xsd:element name="A07_RefrigerantType" type="comp:RefrigerantType" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Refrigerant Type</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">user picks from list  Choice R22 display text: R-22; Choice R410A display text: R-410A;  Choice Other display text: Other;</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">user picks from list  Choice R454B display term R-454B, R22 display text: R-22; Choice R410A display text: R-410A;  Choice Other display text: Other;</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:choice maxOccurs="1">
@@ -144,10 +144,10 @@
                         </xsd:restriction>
                      </xsd:simpleType>
                   </xsd:element>
-                  <xsd:element name="A11_FaultIndicatorDisplayStatus" type="comp:FaultIndicatorDisplayStatus" >
+                  <xsd:element name="A11_FaultIndicatorDisplayStatus" type="comp:FaultIndicatorDisplayStatus" fixed="FIDStatusNA">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Fault Indicator Display (FID) Status (Note: Even systems with a FID must have refrigerant charge verified by installer).</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">user picks one from list.  Choice FactoryInstalledFID display text: This system has a factory installed FID  choice FieldInstalledFID display text: This system has a field installed FID; choice NoInstalledFID display text: This system does not have a FID device installed</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This field is fixed value FIDStatusNA display term N/A</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A12_UseMinimumAirflowApprovedVerificationProcedure" type="comp:UseMinimumAirflowApprovedVerificationProcedure" >
@@ -171,7 +171,7 @@ End If</xsd:documentation>
                   <xsd:element name="A13_UseRefrigerantChargeApprovedVerificationProcedure" type="comp:UseRefrigerantChargeApprovedVerificationProcedure" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Is the system of a type that approved refrigerant charge verification procedures can be used to verify compliance with the refrigerant charge verification requirements when temperatures are [d:gte/]  55[d:deg/]F (RA3.2.2, or RA1)?</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">For Boolean true value, display:  Yes, one of the Refrigerant charge verification procedures from RA3.2.2 or RA1 is applicable to this system and can be used to verify compliance.  For Boolean false value, display: No, none of the refrigerant charge verification procedures in RA3.2.2, or RA1 are applicable to the system therefore compliance shall use HERS Rater observation of the installer weigh-in charging procedure</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">For Boolean true value, display:  Yes, one of the Refrigerant charge verification procedures from RA3.2.2 or RA1 is applicable to this system and can be used to verify compliance.  For Boolean false value, display: No, none of the refrigerant charge verification procedures in RA3.2.2, or RA1 are applicable to the system therefore compliance shall use ECC Rater observation of the installer weigh-in charging procedure</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A14_RefrigerantChargeVerificationDate" type="comp:RefrigerantChargeVerificationDate" >
@@ -183,24 +183,24 @@ End If</xsd:documentation>
                   <xsd:element name="A15_RefrigerantChargeVerificationMethod" type="comp:RefrigerantChargeVerificationMethod" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Refrigerant charge verification method used.</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">user picks one from list: choice Superheat, display text: Superheat (outdoor temperature must be equal to or greater than 55 degF); choice Subcooling, display text Subcooling (outdoor temperature must be equal to or greater than 55 degF);  choice WeighIn, display text:  Weigh-in with Installer independent;  choice WeighInHERS, display text:  Weigh-in with HERS Rater observation; choice NewFactoryCharge display text: New package unit factory char</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">user picks one from list: choice Superheat, display text: Superheat (outdoor temperature must be equal to or greater than 55 degF); choice Subcooling, display text Subcooling (outdoor temperature must be equal to or greater than 55 degF);  choice WeighIn, display text:  Weigh-in with Installer independent;  choice WeighInObservation, display text:  Weigh-in with ECC Rater observation; choice NewFactoryCharge display text: New package unit factory char</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A16_RefrigerantChargeVerifier" type="comp:RefrigerantChargeVerifier" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Person who performed the Refrigerant Charge Verification reported on this Certificate of Installation</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If A15 equals WeighIn or WeighInHERS then result is Installer, Else user picks from list Choice HERS_Rater display text: HERS Rater;  choice Installer display text: HVAC system installer</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If A15 equals WeighIn or WeighInObservation then result is Installer, Else user picks from list Choice FieldVerifier display text: ECC Rater; choice Installer display text: HVAC system installer</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A17_RefrigerantChargeVerificationMessage" type="comp:RefrigerantChargeVerificationMessage" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">HERS Verification Compliance Requirement Status</xsd:documentation>
+                        <xsd:documentation source="FieldText">ECC Verification Compliance Requirement Status</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If any of the following conditions are true: 
-RefrigerantChargeVerifier equals HERS_Rater,  UseMinimumAirflowApprovedVerificationProcedure equals false, UseRefrigerantChargeApprovedVerificationProcedure equals false or RefrigerantChargeVerificationMethod equals WeighIn Or WeighInHERS, 
+RefrigerantChargeVerifier equals FieldVerifier,  UseMinimumAirflowApprovedVerificationProcedure equals false, UseRefrigerantChargeApprovedVerificationProcedure equals false or RefrigerantChargeVerificationMethod equals WeighIn Or WeighInObservation, 
 result = DoesNotQualifyForGroupSampling display term  System does not qualify for Group Sampling; 
    
 Else If RefrigerantChargeVerificationMethod equals NewFactoryCharge, 
-result = HERS_VerificationNotRequired display term HERS verification of refrigerant charge not required;  
+result = VerificationNotRequired display term ECC verification of refrigerant charge not required;  
 Else result = QualifiesForGroupSampling display term System qualifies for Group Sampling
 End If</xsd:documentation>
                      </xsd:annotation>
@@ -323,7 +323,7 @@ End If</xsd:documentation>
             <xsd:annotation>
                <xsd:documentation source="FieldText">Minimum System Airflow Rate Verification</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">All references to the MCH-01 in this section refer to the parent CF2R-MCH-01 and all other references are to other CF2R  compliance documents.  
-Require 1 row of data for each indoor unit listed in the "HERS Verification Requirements for Duct Systems" table in the parent CF2R-MCH-01for the SC system in A02</xsd:documentation>
+Require 1 row of data for each indoor unit listed in the "ECC Verification Requirements for Duct Systems" table in the parent CF2R-MCH-01for the SC system in A02</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -346,7 +346,7 @@ Require 1 row of data for each indoor unit listed in the "HERS Verification Requ
                                     <xsd:element name="E01_IndoorUnitName" type="hvac:IndoorUnitName" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Indoor Unit Name or Description of Area Served</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference value in  "HERS Verification Requirements for Duct Systems" table in the parent MCH-01 for value in A02_ResidentialHvacSystemAreaServed</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value in  "ECC Verification Requirements for Duct Systems" table in the parent MCH-01 for value in A02_ResidentialHvacSystemAreaServed</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
@@ -554,95 +554,6 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If IsMeasuredSuperheatWithinCEC_Range is true and MeasuredSuperheatWithinManufacturerSpec value is either WithinManufacturerRange or NotKnown then result is true.  For Boolean true value display text: Metering Device Verification Passes.  Else result is false.  For Boolean false value display text: Metering Device Verification Does Not Pass</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="G07After" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Variant MCH-25d</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">MCH-25d - Refrigeration Charge Verification - Fault Indicator Display (FID)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Use MCH-25d - FID for remainder of this report If FaultIndicatorDisplayStatus in section A equals FactoryInstalledFID or FieldInstalledFID</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="Section_H" minOccurs="0">
-            <xsd:annotation>
-               <xsd:documentation source="FieldText">Fault Indicator Display</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required if FaultIndicatorDisplayStatus in section A is FactoryInstalledFID or FieldInstalledFID.</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="H_BeginNote1" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Procedures for the Charge Indicator Display Verification are detailed in RA3.4.2</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="H01_FID_ManufacturerNameMake" type="comp:FID_ManufacturerNameMake" >
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">FID Manufacturer Name Make</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This FID name or make must be on list of approved devices</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="H02_FID_ModelNumber" type="comp:FID_ModelNumber" >
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">FID Model Number</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This FID model number must be on list of approved devices</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="H03_IsFID_MountedAdjacentThermostat" type="comp:IsFID_MountedAdjacentThermostat" >
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">The display module is mounted adjacent to the system thermostat</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If user confirms this is true, report a pass else report a fail and do not proceed</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="H04_DoesFID_MeetJA6Requirements" type="comp:DoesFID_MeetJA6Requirements" >
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">The manufacturer has certified to the Energy Commission that the FID model meets the requirements of Reference Joint Appendix JA6 (Make and model found on CEC list of approved FID devices)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If user confirms this is true, report a pass else report a fail and do not proceed</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="H05_DoesFID_ReportOperationWithinAcceptableParameters" type="comp:DoesFID_ReportOperationWithinAcceptableParameters" >
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">The system has operated for at least 15 minutes and the FID reports that the system is operating within acceptable parameters.</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If user confirms this is true, report a pass else report a fail and do not proceed</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="Section_I" minOccurs="0">
-            <xsd:annotation>
-               <xsd:documentation source="FieldText">Fault Indicator Display Additional Requirements</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required if FaultIndicatorDisplayStatus in section A equals FactoryInstalledFID or FieldInstalledFID.</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="I_BeginNote1" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The responsible persons signature on this document indicates the installation complies with the following requirements</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="I01" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">FID Factory or Field Installed</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Fault indicator display devices shall either be factory installed by the space-conditioning system manufacturer, or field installed according to the space-conditioning system manufacturer requirements and the FID manufacturer specifications.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="I02" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">FID Manufacturer User Instructions</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The installer shall ensure that a copy of the FID manufacturer user instructions documentation has been made available to the building owner.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="IEndNote1" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>

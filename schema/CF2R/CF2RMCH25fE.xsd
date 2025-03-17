@@ -108,7 +108,7 @@
                   <xsd:element name="A07_RefrigerantType" type="comp:RefrigerantType" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Refrigerant Type</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">user picks from list  Choice R22 display text: R-22; Choice R410A display text: R-410A;  Choice Other display text: Other;</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">user picks from list  Choice R22 display text: R-22; Choice R410A display text: R-410A; Choice R454B display text: R-454B;  Choice Other display text: Other;</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:choice maxOccurs="1">
@@ -144,22 +144,34 @@
                         </xsd:restriction>
                      </xsd:simpleType>
                   </xsd:element>
-                  <xsd:element name="A11_FaultIndicatorDisplayStatus" type="comp:FaultIndicatorDisplayStatus" >
+                  <xsd:element name="A11_FaultIndicatorDisplayStatus" type="comp:FaultIndicatorDisplayStatus" fixed="FIDStatusNA">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Fault Indicator Display (FID) Status (Note: Even systems with a FID must have refrigerant charge verified by installer).</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">user picks one from list.  Choice FactoryInstalledFID display text: This system has a factory installed FID  choice FieldInstalledFID display text: This system has a field installed FID; choice NoInstalledFID display text: This system does not have a FID device installed</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This field is fixed value FIDStatusNA display term N/A </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A12_UseMinimumAirflowApprovedVerificationProcedure" type="comp:UseMinimumAirflowApprovedVerificationProcedure" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Is the system of a type that the minimum airflow can be verified for all indoor units using an approved measurement procedure (RA3.3 or RA3.3.3)?</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">For Criterion1 reference value for CanRA3_3AirflowProtocolsTestSystem as follows: MCH-01a section J J12; MCH-01b section F F11 or section G G13; MCH-01c section I  I11; or MCH-01d section K K11 or section L L13.  For Criterion2 reference data as follows: MCH-01a D07 DuctLocation; MCH-01c C06 DuctSystemType; MCH-01d D07 DuctSystemTypePerf.  For Criterion3 reference data as follows: MCH-01b C12 IndoorUnitsCount, C13 DuctedIndoorUnitsCount; MCH-01d D06 IndoorUnitsCount, D13 DuctedIndoorUnitsCount.  Evaluation:  If (Criterion1) CanRA3_3AirflowProtocolsTestSystem == false;  Or If (Criterion2) DuctLocation, DuctSystemType Or DuctSystemTypePerf == DuctedAndDuctlessIndoorUnits Or Ductless;  Or If (Criterion3) DuctedIndoorUnitsCount LT IndoorUnitsCount  result = false, display term No, the system airflow rate measurement procedures in RA3.3 or RA3.3.3 cannot be used to verify system airflow rate requirements for all the indoor units for this system.;  Else result = true display term Yes.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Reference values from parent MCH-0! for the following evaluations
+For Criterion1 reference value for CanRA3_3AirflowProtocolsTestSystem from
+MCH-01a section J J12; MCH-01b section F F11 or section G G13; MCH-01c section I  I11; or MCH-01d section K K11 or section L L13.
+ 
+For Criterion2 reference data as follows: MCH-01a D07 DuctLocation; MCH-01c C06 DuctSystemType; MCH-01d D07 DuctSystemTypePerf.  
+ 
+For Criterion3 reference data as follows: MCH-01b C12 IndoorUnitsCount, C13 DuctedIndoorUnitsCount; MCH-01d D06 IndoorUnitsCount, D13 DuctedIndoorUnitsCount.  
+ 
+Evaluation:  If (Criterion1) CanRA3_3AirflowProtocolsTestSystem == false;  Or If (Criterion2) DuctLocation, DuctSystemType Or DuctSystemTypePerf == DuctedAndDuctlessIndoorUnits Or Ductless;  Or If (Criterion3) DuctedIndoorUnitsCount LT IndoorUnitsCount 
+ result = false, display term No, the system airflow rate measurement procedures in RA3.3 or RA3.3.3 cannot be used to verify system airflow rate requirements for all the indoor units for this system.;  
+ 
+Else result = true display term Yes.
+End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A13_UseRefrigerantChargeApprovedVerificationProcedure" type="comp:UseRefrigerantChargeApprovedVerificationProcedure" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Is the system of a type that approved refrigerant charge verification procedures can be used to verify compliance with the refrigerant charge verification requirements when temperatures are [d:gte/] 55[d:deg/]F (RA3.2.2, or RA1)?</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">For Boolean true value, display:  Yes, one of the Refrigerant charge verification procedures from RA3.2.2 or RA1 is applicable to this system and can be used to verify compliance.  For Boolean false value, display: No, none of the refrigerant charge verification procedures in RA3.2.2, or RA1 are applicable to the system therefore compliance shall use HERS Rater observation of the installer weigh-in charging procedure</xsd:documentation>
+                        <xsd:documentation source="FieldText">Is the system of a type that approved refrigerant charge verification procedures can be used to verify compliance with the refrigerant charge verification requirements when temperatures are [d:gte/]  55[d:deg/]F (RA3.2.2, or RA1)?</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">For Boolean true value, display:  Yes, one of the Refrigerant charge verification procedures from RA3.2.2 or RA1 is applicable to this system and can be used to verify compliance.  For Boolean false value, display: No, none of the refrigerant charge verification procedures in RA3.2.2, or RA1 are applicable to the system therefore compliance shall use ECC Rater observation of the installer weigh-in charging procedure</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A14_RefrigerantChargeVerificationDate" type="comp:RefrigerantChargeVerificationDate" >
@@ -171,19 +183,26 @@
                   <xsd:element name="A15_RefrigerantChargeVerificationMethod" type="comp:RefrigerantChargeVerificationMethod" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Refrigerant charge verification method used.</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">user picks one from list: choice Superheat, display text: Superheat (outdoor temperature must be equal to or greater than 55 degF); choice Subcooling, display text Subcooling (outdoor temperature must be equal to or greater than 55 degF);  choice WeighIn, display text:  Weigh-in with Installer independent;  choice WeighInHERS, display text:  Weigh-in with HERS Rater observation; choice NewFactoryCharge display text: New package unit factory charge;</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">user picks one from list: choice Superheat, display text: Superheat (outdoor temperature must be equal to or greater than 55 degF); choice Subcooling, display text Subcooling (outdoor temperature must be equal to or greater than 55 degF);  choice WeighIn, display text:  Weigh-in with Installer independent;  choice WeighInObservation, display text:  Weigh-in with ECC Rater observation; choice NewFactoryCharge display text: New package unit factory char</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A16_RefrigerantChargeVerifier" type="comp:RefrigerantChargeVerifier" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Person who performed the Refrigerant Charge Verification reported on this Certificate of Installation</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If A15 equals WeighIn or WeighInHERS then result is Installer, Else user picks from list Choice HERS_Rater display text: HERS Rater;  choice Installer display text: HVAC system installer</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If A15 equals WeighIn or WeighInObservation then result is Installer, Else user picks from list Choice FieldVerifier display text: ECC Rater;  choice Installer display text: HVAC system installer</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A17_RefrigerantChargeVerificationMessage" type="comp:RefrigerantChargeVerificationMessage" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">HERS Verification Compliance Requirement Status</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If any of the following conditions are true: RefrigerantChargeVerifier equals HERS_Rater,  UseMinimumAirflowApprovedVerificationProcedure equals false, UseRefrigerantChargeApprovedVerificationProcedure equals false or RefrigerantChargeVerificationMethod equals WeighIn Or WeighInHERS, Then result is System does not qualify for Group Sampling;    Else If RefrigerantChargeVerificationMethod equals NewFactoryCharge, result is HERS verification of refrigerant charge not required;  Else result is System qualifies for Group Sampling</xsd:documentation>
+                        <xsd:documentation source="FieldText">ECC Verification Compliance Requirement Status</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If any of the following conditions are true: 
+RefrigerantChargeVerifier equals FieldVerifier,  UseMinimumAirflowApprovedVerificationProcedure equals false, UseRefrigerantChargeApprovedVerificationProcedure equals false or RefrigerantChargeVerificationMethod equals WeighIn Or WeighInObservation, 
+result = DoesNotQualifyForGroupSampling display term  System does not qualify for Group Sampling; 
+   
+Else If RefrigerantChargeVerificationMethod equals NewFactoryCharge, 
+result = VerificationNotRequired display term ECC Verification of refrigerant charge not required;  
+Else result = QualifiesForGroupSampling display term System qualifies for Group Sampling
+End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A17After" minOccurs="0">
@@ -229,7 +248,7 @@
             <xsd:annotation>
                <xsd:documentation source="FieldText">Minimum System Airflow Rate Verification</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">All references to the MCH-01 in this section refer to the parent CF2R-MCH-01 and all other references are to other CF2R  compliance documents.
- This section is not required If parent MCH01a D07_DuctLocation == Ductless; Else in this section require 1 row of data for each indoor unit listed in the "HERS Verification Requirements for Duct Systems" table in the parent CF2R-MCH-01 for the SC system in A02</xsd:documentation>
+ This section is not required If parent MCH01a D07_DuctLocation == Ductless; Else in this section require 1 row of data for each indoor unit listed in the "ECC Verification Requirements for Duct Systems" table in the parent CF2R-MCH-01 for the SC system in A02</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -252,7 +271,7 @@
                                     <xsd:element name="C01_IndoorUnitName" type="hvac:IndoorUnitName" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Indoor Unit Name or Description of Area Served</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference value in  "HERS Verification Requirements for Duct Systems" table in the parent MCH-01 for value in A02_ResidentialHvacSystemAreaServed</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value in  "ECC Verification Requirements for Duct Systems" table in the parent MCH-01 for value in A02_ResidentialHvacSystemAreaServed</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
@@ -350,7 +369,7 @@ End If</xsd:documentation>
                   <xsd:element name="D_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Note: There is no HERS verification requirement for the MCH-25f . The Enforcement Agency has responsibility for verification of the MCH-25f.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Note: There is no ECC verification requirement for the MCH-25f . The Enforcement Agency has responsibility for verification of the MCH-25f.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="D01" minOccurs="0">

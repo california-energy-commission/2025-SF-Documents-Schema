@@ -23,7 +23,7 @@
                   <xsd:element name="A_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">HERS Rater to field-verify all system information, discrepancies to be noted by overwriting entry.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">ECC Rater to field-verify all system information, discrepancies to be noted by overwriting entry.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A01_ResidentialSpaceConditioningSystemName" type="hvac:ResidentialSpaceConditioningSystemName">
@@ -65,7 +65,7 @@
                   <xsd:element name="A07_RefrigerantType" type="comp:RefrigerantType">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Refrigerant Type</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from parent MCH-25.  Possible entries are: R22 display text: R-22; Choice R410A display text: R-410A;  Choice Other display text: Other;  If installed system does not match this entry, it can be overwritten by rater but it will be flagged as a possible fail</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from parent MCH-25.  Possible entries are: R454B display text: R-454B; R22 display text: R-22; Choice R410A display text: R-410A;  Choice Other display text: Other;  If installed system does not match this entry, it can be overwritten by rater but it will be flagged as a possible fail</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:choice maxOccurs="1">
@@ -101,10 +101,10 @@
                         </xsd:restriction>
                      </xsd:simpleType>
                   </xsd:element>
-                  <xsd:element name="A11_FaultIndicatorDisplayStatus" type="comp:FaultIndicatorDisplayStatus">
+                  <xsd:element name="A11_FaultIndicatorDisplayStatus" type="comp:FaultIndicatorDisplayStatus" fixed="FIDStatusNA">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Fault Indicator Display (FID) Status (Note: Even systems with a FID must have refrigerant charge verified by installer)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from parent MCH-25  Possible entries are FactoryInstalledFID display text: This system has a factory installed FID  choice FieldInstalledFID display text: This system has a field installed FID; choice NoInstalledFID display text: This system does not have a FID device installed  If installed system does not match this entry, it can be overwritten by rater but it will be flagged as a possible fail</xsd:documentation>
+                        <xsd:documentation source="FieldText">Fault Indicator Display (FID) Status (Note: Even systems with a FID must have refrigerant charge verified by installer).</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This field is fixed value FIDStatusNA display term N/A</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A12_UseMinimumAirflowApprovedVerificationProcedure" type="comp:UseMinimumAirflowApprovedVerificationProcedure">
@@ -130,54 +130,47 @@
                   <xsd:element name="A15_RefrigerantChargeVerificationMethod" type="comp:RefrigerantChargeVerificationMethod">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Refrigerant charge verification method used.</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from parent MCH-25. Possible entries are choice Superheat display text: Superheat (outdoor temperature must be equal to or greater than 55 degF); Subcooling display text: Subcooling (outdoor temperature must be equal to or greater than 55 degF);  choice WeighIn display text:  Weigh-in with Installer independent;  choice WeighInHERS display text:  Weigh-in with HERS Rater observation; choice NewFactoryCharge display text: New package unit factory charge;</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from parent MCH-25. Possible entries are choice Superheat display text: Superheat (outdoor temperature must be equal to or greater than 55 degF); Subcooling display text: Subcooling (outdoor temperature must be equal to or greater than 55 degF);  choice WeighIn display text:  Weigh-in with Installer independent;  choice WeighInObservation display text:  Weigh-in with ECC Rater observation; choice NewFactoryCharge display text: New package unit factory charge;</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A16_RefrigerantChargeVerifier" type="comp:RefrigerantChargeVerifier">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Person who performed the Refrigerant Charge Verification reported on this Certificate of Installation</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from parent MCH-25. Possible entries are Choice HERS_Rater display text: HERS Rater;  choice Installer display text: HVAC system installer</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from parent MCH-25. Possible entries are Choice FieldVerifier display text: ECC Rater;  choice Installer display text: HVAC system installer</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A17_RefrigerantChargeVerificationMessage" type="comp:RefrigerantChargeVerificationMessage">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">HERS Verification Compliance Requirement Status</xsd:documentation>
+                        <xsd:documentation source="FieldText">ECC Verification Compliance Requirement Status</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from parent MCH-25. Possible entries  System does not qualify for Group Sampling;   or  System qualifies for Group Sampling</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A18_RefrigerantChargeVerificationMethodHERS" type="comp:RefrigerantChargeVerificationMethodHERS">
+                  <xsd:element name="A18_RefrigerantChargeVerificationMethodECC" type="comp:RefrigerantChargeVerificationMethodECC">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Refrigerant charge verification method used by HERS Rater.</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User picks from list.  Possible choices for  RefrigerantChargeVerificationMethodHERS in this field are calculated as follows:  
+                        <xsd:documentation source="FieldText">Refrigerant Charge Verification Method Used by ECC Rater.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User picks from list.  Possible choices for  RefrigerantChargeVerificationMethodECC in this field are calculated as follows:  
 If A15_RefrigerantChargeVerificationMethod == NewFactoryCharge  
 Then do not proceed.  A CF3R-MCH-25 is not required when a CF2R-MCH-25f is used. 
  
 Else If A12_UseMinimumAirflowApprovedVerificationProcedure == false Or  
 A13_UseRefrigerantChargeApprovedVerificationProcedure == false Then 
-List  WeighInObservation; 
+List  WeighInObservation;     
  
-Else If A11_FaultIndicatorDisplayStatus == NoInstalledFID  Then     
- 
-If A15_RefrigerantChargeVerificationMethod == Superheat, 
-List  SuperheatHERS;  
+Else If A15_RefrigerantChargeVerificationMethod == Superheat, 
+List  SuperheatVerification;  
 ElseIf If A15_RefrigerantChargeVerificationMethod == Subcool 
-List SubcoolHERS; 
+List SubcoolVerification; 
 ElseIf A15_RefrigerantChargeVerificationMethod == WeighIn 
-List  SuperheatHERS, SubcoolHERS;   
-ElseIf A15_RefrigerantChargeVerificationMethod == WeighInHERS 
-List WeighInObservation;   
-End If
- 
-ElseIf A11_FaultIndicatorDisplayStatus == FactoryInstalledFID Or FieldInstalledFID 
-List FID_Verification;  
-End If</xsd:documentation>
+List  SuperheatVerification, SubcoolVerification;   
+ElseIf A15_RefrigerantChargeVerificationMethod == WeighInObservation 
+List WeighInObservation;</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A18After" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Variant MCH25c</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">MCH-25c - Refrigerant Charge Verification - Weigh In Observation Procedure</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If User selects  WeighInObservation, use the MCH-25c - Refrigerant Charge Verification - Weigh In Observation Procedure  for the remainder of the compliance document</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If A18_RefrigerantChargeVerificationMethodECC ==  WeighInObservation, use the MCH-25c - Refrigerant Charge Verification - Weigh In Observation Procedure  for the remainder of the compliance document</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
@@ -194,13 +187,13 @@ End If</xsd:documentation>
                   <xsd:element name="B_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">HERS Raters are required to visually field verify MAH.  Procedures for installing MAH are specified in Reference Residential Appendix RA3.2.2.3</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">ECC Raters are required to visually field verify MAH.  Procedures for installing MAH are specified in Reference Residential Appendix RA3.2.2.3</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="B01_MeasurementAccessHoleMethod" type="comp:MeasurementAccessHoleMethod">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Method Used to Demonstrate Compliance with the Measurement Access Hole (MAH) Requirement</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If UseMinimumAirflowApprovedVerificationProcedure equals false, Then result is MAH_NotRequiredWeighIn with display text: The airflow rate measurement procedures in RA3.3 or RA3.3.3 are not applicable to this system, therefore compliance shall use HERS Rater observation (RA3.2.3.2) of the installer weigh-in charging procedure(RA3.2.3.1); and compliance with MAH installation shall not be required;     Else display autofilled text referenced from parent MCH-25 as default but allow user to override the default.    For choice MAH_InstalledAsRequired display text:  MAH installed and labeled consistent with Figure 3.2-1  For choice MAH_NotRequired display text: Return side of system is located entirely within conditioned space such that an accurate return air dry-bulb temperature can be taken at the return grille.  For choice MAH_InstalledAlternativeLocation display text:  MAH cannot be installed consistent with Figure 3.2-1.  An alternative location has been provided and clearly labeled.  And for choice  MAH_NotInstalledFailsToComply display text: MAH is not installed. System does not comply.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If UseMinimumAirflowApprovedVerificationProcedure equals false, Then result is MAH_NotRequiredWeighIn with display text: The airflow rate measurement procedures in RA3.3 or RA3.3.3 are not applicable to this system, therefore compliance shall use ECC Rater observation (RA3.2.3.2) of the installer weigh-in charging procedure(RA3.2.3.1); and compliance with MAH installation shall not be required;     Else display autofilled text referenced from parent MCH-25 as default but allow user to override the default.    For choice MAH_InstalledAsRequired display text:  MAH installed and labeled consistent with Figure 3.2-1  For choice MAH_NotRequired display text: Return side of system is located entirely within conditioned space such that an accurate return air dry-bulb temperature can be taken at the return grille.  For choice MAH_InstalledAlternativeLocation display text:  MAH cannot be installed consistent with Figure 3.2-1.  An alternative location has been provided and clearly labeled.  And for choice  MAH_NotInstalledFailsToComply display text: MAH is not installed. System does not comply.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
@@ -210,7 +203,7 @@ End If</xsd:documentation>
             <xsd:annotation>
                <xsd:documentation source="FieldText">Minimum System Airflow Rate Verification</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">All references to the MCH-01 in this section refer to the parent CF2R-MCH-01 and all other references are to other CF2R  or CF3R compliance documents.  
-Require 1 row of data for each indoor unit listed in the "HERS Verification Requirements for Duct Systems" table in the parent CF2R-MCH-01for the SC system in A02</xsd:documentation>
+Require 1 row of data for each indoor unit listed in the "ECC Verification Requirements for Duct Systems" table in the parent CF2R-MCH-01for the SC system in A02</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -233,19 +226,16 @@ Require 1 row of data for each indoor unit listed in the "HERS Verification Requ
                                     <xsd:element name="C01_IndoorUnitName" type="hvac:IndoorUnitName">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Indoor Unit Name or Description of Area Served</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference value in  "HERS Verification Requirements for Duct Systems" table in the parent MCH-01 for value in A02_ResidentialHvacSystemAreaServed</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value in  "ECC Verification Requirements for Duct Systems" table in the parent MCH-01 for value in A02_ResidentialHvacSystemAreaServed</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="C02_MinimumAirflowRateRequired" type="comp:MinimumAirflowRateRequired">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Minimum Required System Airflow Rate (cfm)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Calculated field: if A12 = no, then N/A;
-                                                Else If the parent MCH-01 indicates a MCH-28 is required for alternate minimum airflow rate compliance
-result = RequiredVerificationTable150BC stored in MinimumAirflowRateAlternative; 
- 
+                                             <xsd:documentation source="CalculationsAndRules">Calculated field: If A12_UseMinimumAirflowApprovedVerificationProcedure == false result = MinimumAirflowRateNA display term N/A stored in MinimumAirflowRateAlternative; 
+Else If the parent MCH-01 indicates a MCH-28 is required for alternate minimum airflow rate compliance result = RequiredVerificationTable150BC stored in MinimumAirflowRateAlternative;  
 Else reference numeric value  from applicable MCH23 field for the indoor unit in C01 and store result in MinimumAirflowRateRequired.   
- 
 Applicable MCH23 field as follows:  
 Mch23a, Mch23e and Mch23f  - field D02
 Mch23b -  field E03
@@ -256,12 +246,9 @@ Mch23c  - field E02
                                        <xsd:element name="C02_MinimumAirflowRateAlternative" type="comp:MinimumAirflowRateAlternative">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Minimum Required System Airflow Rate (cfm)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Calculated field: if A12 = no, then N/A;
-                                                Else If the parent MCH-01 indicates a MCH-28 is required for alternate minimum airflow rate compliance
-result = RequiredVerificationTable150BC stored in MinimumAirflowRateAlternative; 
- 
-Else reference numeric value  from applicable MCH23 field for the indoor unit in C01 and store result in MinimumAirflowRateRequired.   
- 
+                                             <xsd:documentation source="CalculationsAndRules">Calculated field: If A12_UseMinimumAirflowApprovedVerificationProcedure == false result = MinimumAirflowRateNA display term N/A stored in MinimumAirflowRateAlternative; 
+Else If the parent MCH-01 indicates a MCH-28 is required for alternate minimum airflow rate compliance result = RequiredVerificationTable150BC stored in MinimumAirflowRateAlternative;  
+Else reference numeric value  from applicable MCH23 field for the indoor unit in C01 and store result in MinimumAirflowRateRequired.    
 Applicable MCH23 field as follows:  
 Mch23a, Mch23e and Mch23f  - field D02
 Mch23b -  field E03
@@ -285,7 +272,7 @@ Mch23c  - field E02
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">System Airflow Rate Verification Status</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If A12_UseMinimumAirflowApprovedVerificationProcedure == false,  then 
-result =  SystemCompliesUsingObservationOfWeighIn display term The airflow rate measurement procedures in RA3.3 or RA3.3.3 are not applicable to this system, therefore compliance shall use HERS Rater observation (RA3.2.3.2) of the installer's weigh-in charging procedure (RA3.2.3.1);  
+result =  SystemCompliesUsingObservationOfWeighIn display term The airflow rate measurement procedures in RA3.3 or RA3.3.3 are not applicable to this system, therefore compliance shall use ECC Rater observation (RA3.2.3.2) of the installer's weigh-in charging procedure (RA3.2.3.1);  
  
 Else If the parent MCH-01 indicates a MCH-28 is required for alternate minimum airflow rate compliance: 
 If the system has a registered CF3R-MCH-28 that indicates compliance with Table 150.0-B or C return duct design requirements, 
@@ -345,7 +332,7 @@ End If</xsd:documentation>
                   <xsd:element name="D_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">HERS Rater must observe and confirm all data collected.  Procedures for Refrigerant Charge using the Weigh-in Charging Procedure are given in Reference Residential Appendix RA3.2.2.2 and RA3.2.3</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">ECC Rater must observe and confirm all data collected.  Procedures for Refrigerant Charge using the Weigh-in Charging Procedure are given in Reference Residential Appendix RA3.2.2.2 and RA3.2.3</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="D01_CondenserEnteringDryBulbTemperature" type="comp:CondenserEnteringDryBulbTemperature">
@@ -481,100 +468,134 @@ End If</xsd:documentation>
                <xsd:sequence>
                   <xsd:element name="E01" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Indoor coil correction</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The indoor coil correction to refrigerant weight is used if it is supplied by the manufacturer.</xsd:documentation>
+                        <xsd:documentation source="FieldText">Brazing of Refrigerant Lines</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">If refrigerant line connections reqquire welding, the system is braised with dry nitrogen in lines and indoor coil</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="E02" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Prior to Introducing Refrigerant</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Prior to introducing refrigerant, system is evacuated to 500 microns or less and, when isolated, has risen no more than 300 microns after 5 minutes.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">
+                           <d:tab1/> i. In all cases where the OEM instructions call for checking gas leaks with vacuum, prior to introducing refrigerant, system is evacuated to 500 microns or less and, when isolated, has risen no more than 300 microns after 5 minutes.
+                           <d:line1>
+d:tab1/] In all cases where the OEM instructions call for checking gas leaks with nitrogen gas, the system was pressurized to the manufacturer's specified  pressure and if the pressure could not be maintained, leaks were located and fixed.</d:line1>
+                        </xsd:documentation>
                      </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="E03_DoesSystemComplyWithRequirements">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">(Note: If Verification Status for this table indicates "Fail", the reason shall be described in the correction notes for this table.)</xsd:documentation>
-                     </xsd:annotation>
-                     <xsd:simpleType>
-                        <xsd:restriction base="comp:DoesSystemComplyWithRequirements">
-                           <xsd:enumeration value="Fail"/>
-                           <xsd:enumeration value="Pass"/>
-                        </xsd:restriction>
-                     </xsd:simpleType>
-                  </xsd:element>
-                  <xsd:element name="E03a_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="EEndNote1" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met unless otherwise noted in the Verification Status and the Correction Notes in this table.</xsd:documentation>
-                     </xsd:annotation>
+                     <xsd:element name="E03" minOccurs="0">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Prior to Introducing Refrigerant</xsd:documentation>
+                           <xsd:documentation source="AdditionalRequirements">Observation and documentation of the vacuum and pressurization tests are not required if no fittings (other than the fitting to the compressor) are compression or flare fittings</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="E04" minOccurs="0">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Lineset Adjustment</xsd:documentation>
+                           <xsd:documentation source="AdditionalRequirements">The calculated weight adjustment for lineset length is based on the length and diameter of the lineset</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="E05" minOccurs="0">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Coil Adjustment</xsd:documentation>
+                           <xsd:documentation source="AdditionalRequirements">The calculated weight adjustment for coil size is based on manufacturer instructions.</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="E06" minOccurs="0">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Total Adjustment</xsd:documentation>
+                           <xsd:documentation source="AdditionalRequirements">The actual total weight adjustment is equal to the sum of the calculated weight adjustment for lineset and coil size.</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="E07" minOccurs="0">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Total Weight Refrigerant</xsd:documentation>
+                           <xsd:documentation source="AdditionalRequirements">The calculated and actual total weights of refrigerant in the system are recorded on or near the nameplate label in indelible ink or other permanent means.</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="E08_DoesSystemComplyWithRequirements">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
+                           <xsd:documentation source="AdditionalRequirements">(Note: If Verification Status for this table indicates "Fail", the reason shall be described in the correction notes for this table.)</xsd:documentation>
+                        </xsd:annotation>
+                        <xsd:simpleType>
+                           <xsd:restriction base="comp:DoesSystemComplyWithRequirements">
+                              <xsd:enumeration value="Fail"/>
+                              <xsd:enumeration value="Pass"/>
+                           </xsd:restriction>
+                        </xsd:simpleType>
+                     </xsd:element>
+                     <xsd:element name="E08a_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="EEndNote1" minOccurs="0">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText"/>
+                           <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met unless otherwise noted in the Verification Status and the Correction Notes in this table.</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
                   </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="Section_F" minOccurs="1">
-            <xsd:annotation>
-               <xsd:documentation source="FieldText">Determination of HERS Verification Compliance</xsd:documentation>
-               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="F_BeginNote1" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">All applicable sections of this document shall indicate compliance with the specified verification protocol requirements in order for this Certificate of Verification as a whole to be determined to be in compliance.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="F01_DoesCF3R_Pass" type="comp:DoesCF3R_Pass">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="CalculationsAndRules">If MeasurementAccessHoleMethod does not equal MAH_NotInstalledFailsToComply,  And  MinimumAirflowRateVerificationStatus does not equal  SystemDoesNotComplyCF3RMCH23Required Or SystemDoesNotComplyCF3RMCH28Required, And  IsRefrigerantChargeWeighInCompliant is true and E03, DoesSystemComplyWithRequirements doesn't equal Fail  then result is true.  For Boolean true value display text This System Complies with all requirements.    Else result is false.  For Boolean false value display text;  This   System Does Not Comply.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
-      </xsd:sequence>
-   </xsd:complexType>
-   <xsd:element name="ComplianceDocumentPackage">
-      <xsd:complexType>
-         <xsd:sequence>
-            <xsd:element name="DocID" minOccurs="0">
-               <xsd:complexType>
-                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF3RMCH25cH"/>
-                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF VERIFICATION"/>
-                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Refrigerant Charge Verification"/>
-                  <xsd:attribute name="docVariantSubtitle" type="comp:ComplianceDocumentVariantSubtitle" fixed="MCH25c Weigh In Observation  Procedure"/>
-                  <xsd:attribute name="docVariantLetter" type="comp:ComplianceDocumentVariant" fixed="c"/>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Payload" type="comp:Payload"/>
-            <xsd:element name="DocumentData">
+            <xsd:element name="Section_F" minOccurs="1">
+               <xsd:annotation>
+                  <xsd:documentation source="FieldText">Determination of ECC Verification Compliance</xsd:documentation>
+                  <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+               </xsd:annotation>
                <xsd:complexType>
                   <xsd:sequence>
-                     <xsd:element name="Header" type="comp:HeaderHERS"/>
-                     <xsd:element ref="cF3RMCH25cH"/>
-                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
-                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF3R"/>
-                     <xsd:element name="Footer" type="comp:Footer"/>
+                     <xsd:element name="F_BeginNote1" minOccurs="0">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                           <xsd:documentation source="AdditionalRequirements">All applicable sections of this document shall indicate compliance with the specified verification protocol requirements in order for this Certificate of Verification as a whole to be determined to be in compliance.</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="F01_DoesCF3R_Pass" type="comp:DoesCF3R_Pass">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText"/>
+                           <xsd:documentation source="CalculationsAndRules">If MeasurementAccessHoleMethod does not equal MAH_NotInstalledFailsToComply,  And  MinimumAirflowRateVerificationStatus does not equal  SystemDoesNotComplyCF3RMCH23Required Or SystemDoesNotComplyCF3RMCH28Required, And  IsRefrigerantChargeWeighInCompliant is true and E08, DoesSystemComplyWithRequirements doesn't equal Fail  then result is true.  For Boolean true value display text This System Complies with all requirements.    Else result is false.  For Boolean false value display text;  This   System Does Not Comply.</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
                   </xsd:sequence>
                </xsd:complexType>
             </xsd:element>
-            <xsd:element name="Report" type="xsd:base64Binary"/>
-         </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
-         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF3RMCH25cH"/>
-      </xsd:complexType>
-   </xsd:element>
-   <xsd:element name="cF3RMCH25cH" type="CF3RMCH25cH">
-      <xsd:annotation>
-         <xsd:documentation>This element contains all of the data and text required to generate the CF3RMCH25cH compliance report.</xsd:documentation>
-      </xsd:annotation>
-   </xsd:element>
+         </xsd:element>
+      </xsd:sequence>
+      <xsd:element name="ComplianceDocumentPackage">
+         <xsd:complexType>
+            <xsd:sequence>
+               <xsd:element name="DocID" minOccurs="0">
+                  <xsd:complexType>
+                     <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF3RMCH25cH"/>
+                     <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF VERIFICATION"/>
+                     <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Refrigerant Charge Verification"/>
+                     <xsd:attribute name="docVariantSubtitle" type="comp:ComplianceDocumentVariantSubtitle" fixed="MCH25c Weigh In Observation  Procedure"/>
+                     <xsd:attribute name="docVariantLetter" type="comp:ComplianceDocumentVariant" fixed="c"/>
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="Payload" type="comp:Payload"/>
+               <xsd:element name="DocumentData">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="Header" type="comp:HeaderHERS"/>
+                        <xsd:element ref="cF3RMCH25cH"/>
+                        <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                        <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF3R"/>
+                        <xsd:element name="Footer" type="comp:Footer"/>
+                     </xsd:sequence>
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="Report" type="xsd:base64Binary"/>
+            </xsd:sequence>
+            <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
+            <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF3RMCH25cH"/>
+         </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="cF3RMCH25cH" type="CF3RMCH25cH">
+         <xsd:annotation>
+            <xsd:documentation>This element contains all of the data and text required to generate the CF3RMCH25cH compliance report.</xsd:documentation>
+         </xsd:annotation>
+      </xsd:element>
+   </xsd:complexType>
 </xsd:schema>

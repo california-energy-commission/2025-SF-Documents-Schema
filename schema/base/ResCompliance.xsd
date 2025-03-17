@@ -8928,12 +8928,14 @@
             <dtyp:displayterm value="FactoryInstalledFID">This system has a factory installed FID</dtyp:displayterm>
             <dtyp:displayterm value="FieldInstalledFID">This system has a field installed FID</dtyp:displayterm>
             <dtyp:displayterm value="NoInstalledFID">This system does not have a FID device installed</dtyp:displayterm>
+            <dtyp:displayterm value="FIDStatusNA">N/A</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="FactoryInstalledFID"/>
          <xsd:enumeration value="FieldInstalledFID"/>
          <xsd:enumeration value="NoInstalledFID"/>
+         <xsd:enumeration value="FIDStatusNA"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="FenestrationComplianceCalc">
@@ -8959,7 +8961,6 @@
    <xsd:simpleType name="FenestrationExceptionForUfactorSHGC">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="ConditionedFloorAreaLTE500Ft2">Conditioned floor area is less than or equal to 500 Ft2 in climate zone 5</dtyp:displayterm>
             <dtyp:displayterm value="FenestrationGlazingDoorLTE3Ft2">Installing less than or equal to 3 ft2 glass in door</dtyp:displayterm>
             <dtyp:displayterm value="FenestrationGlazingNoExceptions">NA (do not allow other entries)</dtyp:displayterm>
             <dtyp:displayterm value="FenestrationGlazingSkylightLTE16Ft2">Installing less than or equal to 16 ft2 skylight</dtyp:displayterm>
@@ -8968,7 +8969,6 @@
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstantPermissive">
-         <xsd:enumeration value="ConditionedFloorAreaLTE500Ft2"/>
          <xsd:enumeration value="FenestrationGlazingDoorLTE3Ft2"/>
          <xsd:enumeration value="FenestrationGlazingNoExceptions"/>
          <xsd:enumeration value="FenestrationGlazingSkylightLTE16Ft2"/>
@@ -12666,7 +12666,7 @@
             <dtyp:displayterm value="MAH_InstalledAsRequired">MAH installed and labeled consistent with Figure 3.2-1</dtyp:displayterm>
             <dtyp:displayterm value="MAH_NotInstalledFailsToComply">MAH is not installed. System does not comply</dtyp:displayterm>
             <dtyp:displayterm value="MAH_NotRequired">Return side of system is located entirely within conditioned space such that an accurate return air dry-bulb temperature can be taken at the return grille</dtyp:displayterm>
-            <dtyp:displayterm value="MAH_NotRequiredWeighIn">The airflow rate measurement procedures in RA3.3 or RA3.2.2.7 are not applicable to this system, therefore compliance shall use HERS Rater observation (RA3.2.3.2) of the installer's weigh-in charging procedure (RA3.2.3.1) and compliance with MAH installation shall not be required</dtyp:displayterm>
+            <dtyp:displayterm value="MAH_NotRequiredWeighIn">The airflow rate measurement procedures in RA3.3 or RA3.2.2.7 are not applicable to this system, therefore compliance shall use ECC Rater observation (RA3.2.3.2) of the installer's weigh-in charging procedure (RA3.2.3.1) and compliance with MAH installation shall not be required</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -12794,10 +12794,12 @@
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="RequiredVerificationTable150BC">Verification of Table 150.0-B or C Alternative Return Duct Design Criteria is Required</dtyp:displayterm>
-         </xsd:appinfo>
+            <dtyp:displayterm value="MinimumAirflowRateNA">N/A</dtyp:displayterm>
+	</xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="RequiredVerificationTable150BC"/>
+         <xsd:enumeration value="MinimumAirflowRateNA"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="MinimumAirflowRateRequired">
@@ -15710,13 +15712,13 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
    <xsd:simpleType name="RefrigerantChargeVerificationMessage">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="HERS_VerificationNotRequired">HERS verification of refrigerant charge is not required</dtyp:displayterm>
+            <dtyp:displayterm value="VerificationNotRequired">Verification of refrigerant charge is not required</dtyp:displayterm>
             <dtyp:displayterm value="DoesNotQualifyForGroupSampling">System does not qualify for group sampling</dtyp:displayterm>
             <dtyp:displayterm value="QualifiesForGroupSampling">System qualifies for group sampling</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstantPermissive">
-         <xsd:enumeration value="HERS_VerificationNotRequired"/>
+         <xsd:enumeration value="VerificationNotRequired"/>
          <xsd:enumeration value="DoesNotQualifyForGroupSampling"/>
          <xsd:enumeration value="QualifiesForGroupSampling"/>
       </xsd:restriction>
@@ -15728,7 +15730,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
             <dtyp:displayterm value="Subcooling">Subcooling (outdoor temperature must be equal to or greater than 55 degF)</dtyp:displayterm>
             <dtyp:displayterm value="Superheat">Superheat (outdoor temperature must be equal to or greater than 55 degF)</dtyp:displayterm>
             <dtyp:displayterm value="WeighIn">Weigh-in with Installer independent</dtyp:displayterm>
-            <dtyp:displayterm value="WeighInHERS">Weigh-in with HERS Rater Observation</dtyp:displayterm>
+            <dtyp:displayterm value="WeighInObservation">Weigh-in with ECC Rater Observation</dtyp:displayterm>
             <dtyp:displayterm value="WinterSetup">Winter setup (applicable when outdoor temperature is less than 55 degF)</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
@@ -15737,28 +15739,28 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
          <xsd:enumeration value="Subcooling"/>
          <xsd:enumeration value="Superheat"/>
          <xsd:enumeration value="WeighIn"/>
-         <xsd:enumeration value="WeighInHERS"/>
+         <xsd:enumeration value="WeighInObservation"/>
          <xsd:enumeration value="WinterSetup"/>
       </xsd:restriction>
    </xsd:simpleType>
-   <xsd:simpleType name="RefrigerantChargeVerificationMethodHERS">
+   <xsd:simpleType name="RefrigerantChargeVerificationMethodECC">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="FID_Verification">FID verification</dtyp:displayterm>
-            <dtyp:displayterm value="NoTestRequiredHERS">No HERS test required</dtyp:displayterm>
-            <dtyp:displayterm value="SubcoolingHERS">Subcooling</dtyp:displayterm>
-            <dtyp:displayterm value="SuperheatHERS">Superheat</dtyp:displayterm>
+            <dtyp:displayterm value="NoTestRequired">No Verification test required</dtyp:displayterm>
+            <dtyp:displayterm value="SubcoolingVerification">Subcooling</dtyp:displayterm>
+            <dtyp:displayterm value="SuperheatVerification">Superheat</dtyp:displayterm>
             <dtyp:displayterm value="WeighInObservation">Weigh-In Observation</dtyp:displayterm>
-            <dtyp:displayterm value="WinterSetupHERS">Winter Setup</dtyp:displayterm>
+            <dtyp:displayterm value="WinterSetupVerification">Winter Setup</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="FID_Verification"/>
-         <xsd:enumeration value="NoTestRequiredHERS"/>
-         <xsd:enumeration value="SubcoolingHERS"/>
-         <xsd:enumeration value="SuperheatHERS"/>
+         <xsd:enumeration value="NoTestRequired"/>
+         <xsd:enumeration value="SubcoolingVerification"/>
+         <xsd:enumeration value="SuperheatVerification"/>
          <xsd:enumeration value="WeighInObservation"/>
-         <xsd:enumeration value="WinterSetupHERS"/>
+         <xsd:enumeration value="WinterSetupVerification"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="RefrigerantChargeVerificationRequired">
@@ -15784,12 +15786,12 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
    <xsd:simpleType name="RefrigerantChargeVerifier">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="HERS_Rater">HERS rater</dtyp:displayterm>
+            <dtyp:displayterm value="FieldVerifier">ECC rater</dtyp:displayterm>
             <dtyp:displayterm value="Installer">HVAC system installer</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="HERS_Rater"/>
+         <xsd:enumeration value="FieldVerifier"/>
          <xsd:enumeration value="Installer"/>
       </xsd:restriction>
    </xsd:simpleType>
@@ -15846,12 +15848,14 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
             <dtyp:displayterm value="Other">Other</dtyp:displayterm>
             <dtyp:displayterm value="R22">R-22</dtyp:displayterm>
             <dtyp:displayterm value="R410A">R-410A</dtyp:displayterm>
+            <dtyp:displayterm value="R454B">R-454B</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="Other"/>
          <xsd:enumeration value="R22"/>
          <xsd:enumeration value="R410A"/>
+         <xsd:enumeration value="R454B"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="RefrigerantTypeOther">
