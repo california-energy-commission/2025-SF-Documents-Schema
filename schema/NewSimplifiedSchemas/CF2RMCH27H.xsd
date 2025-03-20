@@ -1,0 +1,885 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+   targetNamespace="http://www.lmonte.com/besm/CF2RMCH27H"
+   xmlns="http://www.lmonte.com/besm/CF2RMCH27H"
+   xmlns:d="http://www.lmonte.com/besm/d"
+   xmlns:bld="http://www.lmonte.com/besm/bld"
+   xmlns:env="http://www.lmonte.com/besm/env"
+   xmlns:lit="http://www.lmonte.com/besm/lit"
+   xmlns:hvac="http://www.lmonte.com/besm/hvac"
+   xmlns:comp="http://www.lmonte.com/besm/comp"
+   xmlns:com="http://www.lmonte.com/besm/com"
+   xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:altova="http://www.altova.com/xml-schema-extensions"
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2025.0.000">
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RMCH27H"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Indoor Air Quality and Mechanical Ventilation"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderHERS" />
+                     <xsd:element ref="cF2RMCH27H" />
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor" />
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_H" />
+                     <xsd:element name="Footer" type="comp:Footer" />
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH27H"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:complexType name="CF2RMCH27H">
+      <xsd:annotation>
+         <xsd:documentation>Indoor Air Quality and Mechanical Ventilation</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Whole-Dwelling Mechanical Ventilation - General Information</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="A_BeforeNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Before Section Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Title 24, Part 6, Section 150.0(o) [d:b]Ventilation for Indoor Air Quality.[/d:b] All dwelling units shall meet the requirements of ANSI/ASHRAE Standard 62.2.-2022 Ventilation and Acceptable Indoor Air Quality in Single Family Residential Buildings subject to amendments specified by Title 24, Part 6 Section 150.0(o)1.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A01_DwellingUnitName" type="com:DwellingUnitName" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Dwelling unit name</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: Referenced data from Mch01, A01_DwellingUnitName, Else If information not available then allow user input;</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A02_ResidentialBuildingType" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Building Type</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: Referenced data from CF1R, allowed values: SingleFamilyAttached display term Single family attached, SingleFamilyDetached display term Single family detached; Or allow user to pick NonDwellingUnit display term Non-dwelling Unit</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="com:ResidentialBuildingType">
+                           <xsd:enumeration value="NonDwellingUnit"/>
+                           <xsd:enumeration value="SingleFamilyAttached"/>
+                           <xsd:enumeration value="SingleFamilyDetached"/>
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="A03_ProjectScopePerformance" type="comp:ProjectScopePerformance" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Project scope</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Referenced data from CF1R: If parent is CF1R-PRF allowed values are NewConstruction display term Newly Constructed, AdditionAlteration display term Addition and/or Alteration, AdditionOnly display term Newly Constructed Addition</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="A03_ProjectScopeNew" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Project scope</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Referenced data from CF1R: If parent is CF1R-NCB allowed values are: AdditionAlone display term Newly constructed  (addition alone)</xsd:documentation>
+                        </xsd:annotation>
+                        <xsd:simpleType>
+                           <xsd:restriction base="comp:ProjectScopeNew">
+                              <xsd:enumeration value="AdditionAlone"/>
+                              <xsd:enumeration value="NewConstruction"/>
+                           </xsd:restriction>
+                        </xsd:simpleType>
+                     </xsd:element>
+                     <xsd:element name="A03_ProjectScopeAdditions" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Project scope</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Referenced data from CF1R  If parent is CF1R-ADD allowed values are: AdditionLTE300ADU display term ADU Addition  LTE 300 ft2,  AdditionGT300LTE400ADU display term ADU Addition GT 300 ft2 toLTE 400 ft2, AdditionGT400LTE700ADU display term ADU Addition GT 400 ft2 to LTE 700 ft2, AdditionGT700LTE1000ADU display term ADU Addition GT 700 ft2 to LTE  1,000 ft2</xsd:documentation>
+                        </xsd:annotation>
+                        <xsd:simpleType>
+                           <xsd:restriction base="comp:ProjectScopeAdditions">
+                              <xsd:enumeration value="AdditionGT300LTE400ADU"/>
+                              <xsd:enumeration value="AdditionGT400LTE700ADU"/>
+                              <xsd:enumeration value="AdditionGT700LTE1000ADU"/>
+                              <xsd:enumeration value="AdditionLTE300ADU"/>
+                           </xsd:restriction>
+                        </xsd:simpleType>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:element name="A04_DwellingUnitConditionedFloorArea" type="com:DwellingUnitConditionedFloorArea" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Total Conditioned Floor Area of Dwelling Unit</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">(For addition projects the conditioned floor area equals existing area plus addition area. )</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: reference value from MCH-01; A03 DwellingUnitConditionedFloorArea, Else If information not available then allow user input;</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A05_BedroomCount" type="com:BedroomCount" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Number of Bedrooms in Dwelling Unit</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">(For addition projects the number of bedrooms equals the existing bedrooms plus addition bedrooms)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: default value referenced from MCH-01 A09 BedroomCount; If result = 0, replace with result = 1, Else If information not available then allow user input;</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="A06_VentilationSystemType" type="hvac:VentilationSystemType" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Ventilation System Type</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated value: 
+If A02_ResidentialBuildingType == NonDwellingUnit 
+result = NotApplicable stored in NotApplicableMessage  
+ 
+Else If registered CF1R form equals CF1R-PRF-01, 
+reference data from CF1R 
+ 
+Else if registered CF1R form equals CF1R-NCB-01, 
+user picks one from list of following values: Balanced display term Balanced, BalancedCentralVent display term Central Ventilation System - Balanced, BalancedERV display term Balanced ERV, BalancedHRV display term Balanced HRV, CentralFanIntegrated display term Central Fan Integrated (CFI), ExhaustCentralVent display term Central Ventilation System - Exhaust, ExhaustVent display term Exhaust, SupplyCentralVent display term Central Ventilation System - Supply, SupplyVent display Supply;
+End If</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="A06_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Ventilation System Type</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated value: 
+If A02_ResidentialBuildingType == NonDwellingUnit 
+result = NotApplicable stored in NotApplicableMessage
+End if</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="A07_VentilationOperationSchedule" type="hvac:VentilationOperationSchedule" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Ventilation Operation Schedule</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If registered CF1R == CF1R-PRF-01 reference data from CF1R;  Else If A02 == NonDwellingUnit result = N/A stored in NotApplcableMessage; Else If registered CF1R == CF1R-NCB-01 Or CF1R-ADD-01  User picks from list: ContinuousVentilation, display term: Continuous display term Continuous, ShortTermAverage display term Short Term Average;  If result = Continuous And A06_VentilationSystemType ==CentralFanIntegrated Display message Central Fan Integrated Ventilation System Not Allowed to Operate Continuously - Do Not Proceed</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="A07_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Ventilation Operation Schedule</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If registered CF1R == CF1R-PRF-01 reference data from CF1R;  Else If A02 == NonDwellingUnit result = N/A stored in NotApplcableMessage; Else If registered CF1R == CF1R-NCB-01 Or CF1R-ADD-01  User picks from list: ContinuousVentilation, display term: Continuous display term Continuous, ShortTermAverage display term Short Term Average;  If result = Continuous And A06_VentilationSystemType ==CentralFanIntegrated Display message Central Fan Integrated Ventilation System Not Allowed to Operate Continuously - Do Not Proceed</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:element name="A08_FaultIndicatorDisplayStatus" type="comp:FaultIndicatorDisplayStatus" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Fault Indicator Display (FID) Status </xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">user picks one from list.  Choice FactoryInstalledFID display text: This system has a factory installed FID  choice FieldInstalledFID display text: This system has a field installed FID; choice NoInstalledFID display text: This system does not have a FID device installed</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A09_ClimateZone" type="com:ClimateZone" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Value from CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="AEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Note: [d:line1/]Non-dwelling units do not meet the definition for a dwelling unit as defined in Section 100.1(b).  Non-dwelling units are not designed to provide independent living facilities and do not provide permanent provisions for living, sleeping, eating, cooking and sanitation.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+        <xsd:choice maxOccurs="1">
+         <xsd:element name="Section_B1" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Non Dwelling Unit Compliance Statement</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Calculated field: If A02_ResidentialBuildingType == NonDwellingUnit use this choice for this report</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="Bndu01_MechanicalVentilationCompliance" type="comp:MechanicalVentilationCompliance" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If A02_ResidentialBuildingType == NonDwellingUnit result = BuildingPasses display term Building Passes</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="DwellingUnitData" >
+         <xsd:complexType>
+          <xsd:sequence>                  
+         <xsd:element name="Section_B" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Single Family Attached/Detached General Information</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Calculated field: If A02_ResidentialBuildingType != NonDwellingUnit use this choice for the remainder of the report</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="B01_FloorToCeilingHeight" type="com:FloorToCeilingHeight" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Average Ceiling Height</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If parent document is CF1R-PRF-01 reference value from it; Else If parent is CF1R-NCB-01 or CF1F-ADD-01user enter nonnegative number with up to 2 decimal places; Else If A02_ResidentialBuildingType == NonDwellingUnit result = N/A stored in NotApplicableMessage.</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B01_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Average Ceiling Height</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If parent document is CF1R-PRF-01 reference value from it; Else If parent is CF1R-NCB-01 or CF1F-ADD-01user enter nonnegative number with up to 2 decimal places; Else If A02_ResidentialBuildingType == NonDwellingUnit result = N/A stored in NotApplicableMessage.</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="B02_TotalConditionedVolume" type="com:TotalConditionedVolume" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Total Conditioned Volume</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A02_ResidentialBuildingType == NonDwellingUnit result = N/A stored in NotApplicableMessage. Else result = PRODUCT (A04_DwellingUnitConditionedFloorArea , B01_FloorToCeilingHeight).</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B02_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Total Conditioned Volume</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A02_ResidentialBuildingType == NonDwellingUnit result = N/A stored in NotApplicableMessage. Else result = PRODUCT (A04_DwellingUnitConditionedFloorArea , B01_FloorToCeilingHeight).</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="B03_FirstFloorToHighestCeilingHeight" type="com:FirstFloorToHighestCeilingHeight" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Vertical distance between the lowest and highest above grade points within the pressure boundary in feet</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If parent document is CF1R-PRF-01 reference value from it; Else If parent is CF1R-NCB-01 or CF1F-ADD-01user enter nonnegative number with up to 2 decimal places; Else If A02_ResidentialBuildingType == NonDwellingUnit result = N/A stored in NotApplicableMessage.</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B03_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Vertical distance between the lowest and highest above grade points within the pressure boundary in feet</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A02_ResidentialBuildingType == NonDwellingUnit result = N/A stored in NotApplicableMessage Else If parent document is CF1R-PRF-01 reference value from it; Else If parent is CF1R-NCB-01 or CF1F-ADD-01user enter nonnegative number with up to 2 decimal places; </xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="B04_ACH50_Method" type="comp:ACH50_Method" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Air Changes Per Hour at 50 Pa</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A02_ResidentialBuildingType == NonDwellingUnit result = N/A stored in NotApplicableMessage; Else user select from list: DefaultACH50 display term Default, MeasuredACH50 display term Measured.</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B04_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Air Changes Per Hour at 50 Pa</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A02_ResidentialBuildingType == NonDwellingUnit result = N/A stored in NotApplicableMessage; Else user select from list: DefaultACH50 display term Default, MeasuredACH50 display term Measured.</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="B05_WeatherStationName" type="com:WeatherStationName" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Name of ANSI/ASHRAE Standard 62.2-2022 weather station for climate zone</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If parent document is CF1R-PRF-01 reference value from it but allow user to override it.  If not overridden, result is stored in B05_WeatherStationANSI_ASHRAE; Else if user overrides CF1R-PRF-01  value Or parent is CF1R-NCB-01 or CF1F-ADD-01, user selects from list based on value in A09_ClimateZone and this is stored in B05_WeatherStationCZ# where # is the climate zone; Else If A02_ResidentialBuildingType == NonDwellingUnit result = N/A stored in NotApplicableMessage</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B05_WeatherStationCZ1" type="com:WeatherStationCZ1" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Name of ANSI/ASHRAE Standard 62.2-2022 weather station for climate zone</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Use this choice If user is overriding CF1R-PRF weather station If A09_ClimateZone == 1</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B05_WeatherStationCZ2" type="com:WeatherStationCZ2" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Name of ANSI/ASHRAE Standard 62.2-2022 weather station for climate zone</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Use this choice If A09_ClimateZone == 2</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B05_WeatherStationCZ3" type="com:WeatherStationCZ3" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Name of ANSI/ASHRAE Standard 62.2-2022 weather station for climate zone</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Use this choice If A09_ClimateZone == 3</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B05_WeatherStationCZ4" type="com:WeatherStationCZ4" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Name of ANSI/ASHRAE Standard 62.2-2022 weather station for climate zone</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Use this choice If A09_ClimateZone == 4</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B05_WeatherStationCZ5" type="com:WeatherStationCZ5" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Name of ANSI/ASHRAE Standard 62.2-2022 weather station for climate zone</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Use this choice If A09_ClimateZone == 5</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B05_WeatherStationCZ6" type="com:WeatherStationCZ6" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Name of ANSI/ASHRAE Standard 62.2-2022 weather station for climate zone</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Use this choice If A09_ClimateZone ==  6</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B05_WeatherStationCZ7" type="com:WeatherStationCZ7" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Name of ANSI/ASHRAE Standard 62.2-2022 weather station for climate zone</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Use this choice If A09_ClimateZone == 7</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B05_WeatherStationCZ8" type="com:WeatherStationCZ8" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Name of ANSI/ASHRAE Standard 62.2-2022 weather station for climate zone</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Use this choice If A09_ClimateZone == 8</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B05_WeatherStationCZ9" type="com:WeatherStationCZ9" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Name of ANSI/ASHRAE Standard 62.2-2022 weather station for climate zone</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Use this choice If A09_ClimateZone == 9</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B05_WeatherStationCZ10" type="com:WeatherStationCZ10" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Name of ANSI/ASHRAE Standard 62.2-2022 weather station for climate zone</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Use this choice If A09_ClimateZone == 10</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B05_WeatherStationCZ11" type="com:WeatherStationCZ11" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Name of ANSI/ASHRAE Standard 62.2-2022 weather station for climate zone</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Use this choice If A09_ClimateZone ==  11</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B05_WeatherStationCZ12" type="com:WeatherStationCZ12" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Name of ANSI/ASHRAE Standard 62.2-2022 weather station for climate zone</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Use this choice If A09_ClimateZone ==  12</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B05_WeatherStationCZ13" type="com:WeatherStationCZ13" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Name of ANSI/ASHRAE Standard 62.2-2022 weather station for climate zone</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Use this choice If A09_ClimateZone == 13</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B05_WeatherStationCZ14" type="com:WeatherStationCZ14" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Name of ANSI/ASHRAE Standard 62.2-2022 weather station for climate zone</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Use this choice If A09_ClimateZone ==  14</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B05_WeatherStationCZ15" type="com:WeatherStationCZ15" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Name of ANSI/ASHRAE Standard 62.2-2022 weather station for climate zone</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Use this choice If A09_ClimateZone == 15</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B05_WeatherStationCZ16" type="com:WeatherStationCZ16" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Name of ANSI/ASHRAE Standard 62.2-2022 weather station for climate zone</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Use this choice If A09_ClimateZone ==16</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B05_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Name of ANSI/ASHRAE Standard 62.2-2022 weather station for climate zone</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A02_ResidentialBuildingType == NonDwellingUnit result = N/A stored in NotApplicableMessage Else If parent document is CF1R-PRF-01 reference value from it but allow user to override it.  If not overriden, result is stored in B05_WeatherStationANSI_ASHRAE; Else if user overrides CF1R-PRF-01  value Or parent is CF1R-NCB-01 or CF1F-ADD-01, user selects from list based on value in A09_ClimateZone and this is stored in B05_WeatherStationCZ# where # is the climate zone; </xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="B06_WeatherShieldingFactor" type="com:WeatherShieldingFactor" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Weather and shielding factor (wsf) (Based on city identified above)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If parent document is CF1R-PRF-01 And B05_WeatherStationANSI_ASHRAE has a value, reference value from  CF1R-PRF-0; Else If B05_WeatherStationCZ# (# is the climate zone) has a value, based on weather station value in B05_WeatherStationCZ#,  assign lookup wsf from Table B1 US Climates, Normative Appendix B shown in the instructions section of the layout document;   Else If A02_ResidentialBuildingType == NonDwellingUnit result = N/A stored in NotApplicableMessage</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B06_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Weather and shielding factor (wsf) (Based on city identified above)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A02_ResidentialBuildingType == NonDwellingUnit result = N/A stored in NotApplicableMessage Else If parent document is CF1R-PRF-01 And B05_WeatherStationANSI_ASHRAE has a value, reference value from  CF1R-PRF-0; Else If B05_WeatherStationCZ# (# is the climate zone) has a value, based on weather station value in B05_WeatherStationCZ#,  assign lookup wsf from Table B1 US Climates, Normative Appendix B shown in the instructions section of the layout document;  </xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_C" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Ventilation - Total Ventilation Rate</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="C_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">A mechanical supply system, exhaust system or combination thereof shall provide whole-dwelling ventilation with outdoor air each hour at no less than the rate in 150.0(o)1Ci</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C01_MinimumAirflowRateRequired" type="comp:MinimumAirflowRateRequired" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Total Required Ventilation Rate (Q[d:sub]tot[/d:sub])</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: (use equation 4.1a)  result = [PRODUCT(0.03, A04_DwellingUnitConditionedFloorArea ) + PRODUCT (7.5, A05_BedroomCount + 1)], (CFM)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C02_AirLeakageRateMeasuredCFM50" type="comp:AirLeakageRateMeasuredCFM50" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Enclosure Leakage Rate (Q[d:sub]50[/d:sub])</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If B04_ACH50_Method == DefaultACH50  result = PRODUCT (B02_BuildingTotalConditionedVolume, 2) /60 (CFM); Else If B04_ACH50_Method == MeasuredACH50, If Mch24 D03_ACH50Adjusted GT 2.0, result = PRODUCT (B02_BuildingTotalConditionedVolume, 2) / 60 (CFM); Else If Mch24 D03_ACH50Adjusted LTE 2.0, result = PRODUCT (B02_BuildingTotalConditionedVolume, Mch24 D03_ACH50Adjusted) /60 (CFM);</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C03_IAQ_InfiltrationVentilation" type="hvac:IAQ_InfiltrationVentilation" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Effective Annual Average Infiltration Rate (Q[d:sub]inf[/d:sub]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: result = PRODUCT ( 0.052, C02_AirLeakageRateMeasuredCFM50, B06_WeatherShieldingFactor, (B03_FirstFloorToHighestCeilingHeight / 8.2)^0.4)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="C04_ExteriorEnvelopeAreaTotal" type="env:ExteriorEnvelopeAreaTotal" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Total Exterior Envelope Surface Area</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A02_ResidentialBuildingType == SingleFamilyDetached  result = N/A atored in NotApplicableMessage; Else If A02_ResidentialBuildingType == SingleFamilyAttached then If parent CF1R == CF1R-PRF-01 result = value from CF1R but allow user to override it; Else If parent CF1R == CF1R-NCB-01 Or CF1R-ADD-01 user input integer units ft^2</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="C04_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Total Exterior Envelope Surface Area</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A02_ResidentialBuildingType == SingleFamilyDetached  result = N/A atored in NotApplicableMessage; Else If A02_ResidentialBuildingType == SingleFamilyAttached then If parent CF1R == CF1R-PRF-01 result = value from CF1R but allow user to override it; Else If parent CF1R == CF1R-NCB-01 Or CF1R-ADD-01 user input integer units ft^2</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="C05_ExteriorEnvelopeAreaNotShared" type="env:ExteriorEnvelopeAreaNotShared" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Unshared Exterior Envelope Surface Area (exclude surface areas attached to garages or other dwelling units)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A02_ResidentialBuildingType == SingleFamilyDetached  result = N/A atored in NotApplicableMessage; Else If A02_ResidentialBuildingType == SingleFamilyAttached then If parent CF1R == CF1R-PRF-01 result = value from CF1R but allow user to override it; Else If parent CF1R == CF1R-NCB-01 Or CF1R-ADD-01 user input integer units ft^2</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="C05_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Unshared Exterior Envelope Surface Area (exclude surface areas attached to garages or other dwelling units)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A02_ResidentialBuildingType == SingleFamilyDetached  result = N/A atored in NotApplicableMessage; Else If A02_ResidentialBuildingType == SingleFamilyAttached then If parent CF1R == CF1R-PRF-01 result = value from CF1R but allow user to override it; Else If parent CF1R == CF1R-NCB-01 Or CF1R-ADD-01 user input integer units ft^2</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:element name="C06_MechanicalVentilationRequiredRate" type="comp:MechanicalVentilationRequiredRate" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Required Mechanical Ventilation Rate (Q[d:sub]fan[/d:sub])</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If A02_ResidentialBuildingType == SingleFamilyDetached Then If A06_VentilationSystemType == Balanced, BalancedERV Or  BalancedHRV result = C01_MinimumAirflowRateRequired - PRODUCT (1, C03_IAQ_InfiltrationVentilation, 1) Else If  A06_VentilationSystemType == SupplyVent, ExhaustVent, CentralFanIntegrated result = C01_MinimumAirflowRateRequired - PRODUCT (C03_IAQ_InfiltrationVentilation / C01_MinimumAirflowRateRequired), C03_IAQ_InfiltrationVentilation, 1); Else If A02_ResidentialBuildingType == SingleFamilyAttached Then If A06_VentilationSystemType == Balanced, BalancedERV Or  BalancedHRV result = result = C01_MinimumAirflowRateRequired - (PRODUCT (1, C03_IAQ_InfiltrationVentilation, C05_ExteriorEnvelopeAreaNotShared) /  C04_ExteriorEnvelopeAreaTotal); Else If A06_VentilationSystemType == SupplyVent, ExhaustVent, CentralFanIntegrated result = C01_MinimumAirflowRateRequired - PRODUCT((C03_IAQ_InfiltrationVentilation / C01_MinimumAirflowRateRequired), C03_IAQ_InfiltrationVentilation, (C05_ExteriorEnvelopeAreaNotShared /  C04_ExteriorEnvelopeAreaTotal)).</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_D" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Installed  Ventilation - Total Ventilation Rate</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="D_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">A mechanical supply system, exhaust system, or combination thereof shall provide whole-dwelling ventilation with outdoor air each hour at no less than the rate in 150.0(o)1Ci</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="TableVentilation" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="D01_IAQ_VentilationFanName" type="hvac:IAQ_VentilationFanName" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Fan Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D02_IAQ_FanLocation" type="hvac:IAQ_FanLocation" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Fan Location</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D03_VentilationOperationRuntime" type="hvac:VentilationOperationRuntime" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Runtime (min/hr)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field: If A07__VentilationOperationSchedule == Continuous result = 60; Else If A07__VentilationOperationSchedule == ShortTermAverage, user input postive integer LTE 60.</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D04_MechanicalVentilationInstalledRate" type="comp:MechanicalVentilationInstalledRate" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Installed Mechanical Ventilation Rate (CFM)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input positive integer</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D05_ContinuousAirflowRateInstalled" type="hvac:ContinuousAirflowRateInstalled" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Equivalent Continuous Ventilation (CFM)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field: result = PRODUCT (D03_VentilationOperationRuntime, (D04_MechanicalVentilationInstalledRate / 60)) CFM.</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="D06_TotalContinuousAirflowRateInstalled" type="hvac:TotalContinuousAirflowRateInstalled" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Total Installed Continuous Ventilation (CFM)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: result = SUM ALL (D05_ContinuousAirflowRateInstalled)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_E" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">HRV or ERV Serving Individual Dwelling Unit Information</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required If A06_VentilationSystemType == BalancedERV Or  BalancedHRV</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="HErvBeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Balanced ventilation systems shall comply with appropriate requirements in 150.0(o)2C.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="TableHrvErv" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="Herv01_VentilationManufacturer" type="hvac:VentilationManufacturer" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Manufcturer Make</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Herv02_VentilationModelNumber" type="hvac:VentilationModelNumber" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Manufcturer Model Number</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Herv03_FanPowerPerFlow" type="hvac:FanPowerPerFlow" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Fan Efficacy Performance Rating (W/CFM)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CF1R-PRF parent and  data available, load from the CF1R
+                                             Else user input; Range check: User entered value must be Less than or Equal to 1.0;</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_F" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Requirements for Balanced and Supply Only Ventialtion Systems (150.0(o)Civa1)</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">The section is required if FaultIndicatorDisplayStatus in section A equals FactoryInstalledFID or FieldInstalledFID.</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="F_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible persons signature on this document indicates the installation complies with the following requirements</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">IAQ Filter and HRV/ERV</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">IAQ filter and HRV/ERV accessibility. System air filters ad HRV/ERV heat/energy recovery cores shall be located such that they are accessible for service from within occupiable spaces, basements, garages, balconies, and mechanical closets.
+Filters and heat/energy cores behind access panels, access doors, or grilles located no more than 10 feet above a walking surface inside a space specified above comply with this requirement.  [d:line1/][d:b]Exception to Section 150.0(o)1Civa:[/d:b] Systems that require servicing from inside the attic shall have the following:
+[d:l t="#"][d:list] A Fault Indicator Display (FID) meeting the requirements of Reference Appendix JA17 and [/d:list][d:list] An attic access door located in a wall or , where attic access is provided through a ceiling, an attic access hatch that includes an integrated ladder; and [/d:list][d:list] A walkway from the attic access door to the HRV/ERV. [/d:list][/d:l] </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">IAQ Accessibility</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">IAQ System component accessibility: Fans, motors, heat exchangers, filters and recovery cores shall meet all applicable requirements of California Mechanical Code Section 304.0 accessibility for service.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Outdoor Air Intake Design</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Outdoor air intake design: Outdoor air intakes shall compl with California Mechanical Code Section 402.4.1.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F04" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Outdoor Air Intake Location</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Outdoor air intake location and accessibility: To provide access for cleaning, outdoor air intakes shall be accessible.  Air intakes located not more than 10 feet above a walking surface comply with this requirement,  If located on roofs, they shall meet all applicable requirements of California Mechanical Code Section 304.3.1 
+[d:line1/] [d:b]Exception to Section 1550.0(o)1Civd: [/d:b] Outdoor air intake serving equipment with an FID meeting requirements of Reference Appendix JA 17.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="FEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_G" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Fault Indicator Display</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">The section is required if If FaultIndicatorDisplayStatus in section A equals FactoryInstalledFID or FieldInstalledFID.</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="G_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Qualification Requirements for Ventilation Sstem Fault Indicator Displays are detailed in Appendix JA17.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G01_FID_ManufacturerNameMake" type="comp:FID_ManufacturerNameMake" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">FID Manufacturer Name/Make</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input; This FID name or make must be on list of approved devices</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G02_FID_ModelNumber" type="comp:FID_ModelNumber" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">FID Model Number</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input; This FID model number must be on list of approved devices</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G03_IsFID_MountedAdjacentThermostat" type="comp:IsFID_MountedAdjacentThermostat" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">The display module is mounted adjacent to the system thermostat</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects Yes or No; If user selects Yes and confirms this is true, report a pass else report a fail and do not proceed</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G04_DoesFID_MeetJA6Requirements" type="comp:DoesFID_MeetJA6Requirements" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">The manufacturer has certified to the Energy Commission that the FID model meets the requirements of Reference Joint Appendix JA17 (Make and model found on CEC list of approved FID devices)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects Yes or No; If user selects Yes and confirms this is true, report a pass else report a fail and do not proceed</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G05_DoesFID_ReportOperationWithinAcceptableParameters" type="comp:DoesFID_ReportOperationWithinAcceptableParameters" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">The system has operated for at least 15 minutes and the FID reports that the system is operating within acceptable parameters.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects Yes or No; If user selects Yes and confirms this is true, report a pass else report a fail and do not proceed</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_H" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Fault Indicator Display - Additional Requirements</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">The section is required if FaultIndicatorDisplayStatus in section A equals FactoryInstalledFID or FieldInstalledFID.</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="H_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible persons signature on this document indicates the installation complies with the following requirements</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">FID Factory or Field Installed</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Fault indicator display devices shall either be factory installed by the space-conditioning system manufacturer, or field installed according to the space-conditioning system manufacturer requirements and the FID manufacturer specifications.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">FID Manufacturer User Instructions</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The installer shall ensure that a copy of the FID manufacturer's user instructions documentation has been made available to the building owner.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="HEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_I" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Dwelling Unit Compliance Statement</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="I01_MechanicalVentilationCompliance" type="comp:MechanicalVentilationCompliance" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field:  If A02_ResidentialBuildingType == NonDwellingUnit result = BuildingPasses display term Building Passes ; Else If D06_TotalContinuousAirflowRateInstalled  GTE C06_MechanicalVentilationRequiredRate result = BuildingPassesRateTest display term Building Passes Mechanical Ventilation RateTest; Else result = BuildingFailsRateTest display term Building Fails Mechanical Ventilation RateTest</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_J" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Other Requirements</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="J_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i]The items listed below (6.1 through 6,6 abd 6.8) correspond to the information given in ASHRAE 62.2 Section 6 "Other Requirements".  Refer also to Chapter 4.6 of the Residential Compliance Manual (Section 4.6.8) for information describing these "Other Requirements".  The signature of the Responsible Person in the declaration statement below certifies that the dwelling complies with these requirements specified in ASHRAE 62.2 Section 6.1 through 6.6 and 6.8 if applicable.[/d:i]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]6.1 Adjacent Spaces and Transfer Air.[/d:b] Measures shall be taken to minimize air movement across envelope components to dwelling units from adjacent spaces such as garages, unconditioned crawl spaces, unconditioned attics and other dwelling. Supply and balanced mechanical ventilation systems shall be designed and constructed to provide ventilation air directly from the outdoors. [d:line1/][d:tab1/] 6.1.1 [d:b]Attached Dwelling Units [/d:b]. Attached dwelling units, except existing units s described in Normative Appendix A, Section A5, shall demonstrate compliance with Section 6.1 by verifying a leakage rate less than or equal to 0.2 cfm per ft [d:sup]2[/d:sup] (100 L/s per 100 m2) of the dwelling unit boundary area by means of a blower door test at a test pressure if 50 Pa.  Testing shall be conducted in accordance with either ANSI/RESNET/ICC Standard 380.  
+For horizontally attached dwelling units that are being evaluated for the infiltration credit in Section 4.1.2, the procedure specified in Section 4.1.2 shall be an alternative to the procedure of this section.
+[d:line1/] [d:tab1/]6.1.2 [d:b]Garages.[/d:b] When an occupiable space adjoins a garage, the design must prevent migration of contaminants to the adjoining occupiable space. Air seal the walls, ceilings, and floors that separate garages from occupiable space. To be considered air sealed, all joints, seams, penetrations, openings between door assemblies and their respective jambs and framing, and other sources of air leakage through wall and ceiling assemblies separating the garage from the residence and its attic area shall be caulked, gasketed, weather stripped, wrapped, or otherwise sealed to limit air movement. Doors between garages and occupiable spaces shall be gasketed or made substantially airtight with weather stripping.
+[d:line1/][d:tab1/] 6.1.3 [d:b]Space-Conditioning Systems Ducts.  All air distribution joints located outside the dwelling unit boundary shall be sealed.  HVAC systems that serve spaces within the dwelling unit boundary shall not be designed to supply air to or return air from the garage.  HVAC systems that include air handlers or duct located outside the dwelling unit boundary shall have total air leakage of no more that 6% ot total fan airflow when measured at 0.1 in. of water (25Pa) using California Building energy Efficiency Standards, Residential Appendix RA3.1 or equivalent.  Method D of ASTM E1554 may be used to meet this requirement.  If the air handler, ducts, or both are located in the garage, the garage door shall be open to the outside when the duct leakage is tested.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]6.2 Labeling.[/d:b] Controls shall be labeled as to their function (unless that function is obvious, such as toilet exhaust fan switches).</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]6.3 Clothes Dryers.[/d:b] Clothes dryers shall be exhausted directly to the outdoors. Exception to 6.3: Condensing dryers plumbed to a drain.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J04" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]6.4 Combustion and Solid-Fuel Burning Appliances.[/d:b] [d:line1/][d:tab1/] 6.4.1 Combustion and solid-fuel burning appliances must be provided with adequate combustion and ventilation air and vented in accordance with manufacturer installation instructions, NFPA 31, NFPA 54/ ANSI Z223.1, NFPA 211, or other equivalent code acceptable to the building official.  [d:line1/][d:tab1/] 6.4.2  Where atmospherically vented combustion appliances or solid-fuel burning appliances are located inside the dwelling unit boundary, the total net exhaust flow of the two largest exhaust fans (not including a summer cooling fan intended to be operated in conjunction with windows or other openings) shall not exceed 15 cfm/100 ft[d:sup]2[/d:sup] (75 L/s per 100 m[d:sup]2[/d:sup]) of floor area when in operation at full capacity. If the designed total net airflow exceeds this limit, the net exhaust airflow must be reduced by reducing the exhaust airflow or providing compensating outdoor airflow. Atmospherically vented combustion appliances do not include direct-vent appliances.  Combustion appliances that pass safety testing performed according to ANSI/BPI-1200 shall be deemed as complying with Section 6.4.2</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J05" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]6.5 Ventilation Opening Area.[/d:b] Spaces shall have ventilation openings as listed in the following subsections. Such openings shall meet the requirements of Section 6.6.[d:line1/] [d:b]Exception to 6.5:[/d:b] Attached dwelling units and spaces that meet the local ventilation requirements set for bathrooms in Section 5 [of ASHRAE 62.2].  [d:line1/][d:tab1/] 6.5.1 [d:b]Habitable Spaces.[/d:b]  Each habitable space shall be provided with ventilation openings with an openable area not less than 4% of the floor area or less than 5 ft2 (0.5 m2).  
+[d:line1/][d:tab1/] 6.5.2 [d:b]Toilets and Utility Rooms[/d:b]  Toilets and utility rooms shall be provided with natural ventilation openings with an openable area not less than 4% of the floor area or less than 1.5 ft2 (0.5 m2). [d:line1/] [d:b]Exceptions to 6.5.2:[/d:b] [d:l t="#"][d:list] Utility rooms with a dryer exhaust duct. [/d:list][d:list] Toilet compartments in bathrooms. [/d:list][/d:l]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J06" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]6.6 Air Inlets.[/d:b] Air inlets that are part of the ventilation design shall be located a minimum of 10 ft (3 m) from known sources of contamination such as a stack, vent, exhaust hood, or vehicle exhaust. The intake shall be placed so that entering air is not obstructed by snow, plantings, or other material. Forced air inlets shall be provided with rodent/insect screens (mesh not larger than 0.5 inch [13 mm]). 
+[d:line1/][d:b] Exceptions to 6.6 [/d:b] [d:l t="#"][d:list] Ventilation openings in the wall may be as close as a stretched-string distance of 3 ft (1 m) from sources of contamination exiting through the roof or dryer exhausts. [/d:list][d:list] No minimum separation distance shall be required between windows and local exhaust outlets in kitchens and bathrooms.  [/d:list][d:list] Vent terminations covered by and meeting the requirements of the National Fuel Gas Code NFPA 54/ ANSI Z223.1) or equivalent. [/d:list]
+[d:list] Where a combined exhaust/intake termination is used to separate intake air from exhaust air originating in a living space other than kitchens, no minimum separation distance between these two openings is required.  For these combined terminations, the exhaust air concentration within the intake air shall not exceed 10%, as established by the manufacturer. [/d:list][/d:l]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J07" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]6.8 Carbon Monoxide Alarms.[/d:b] A carbon monoxide alarm shall be installed in each dwelling unit in accordance with NFPA 72, [d:i]National Fire Alarm and Signaling Code[/d:i], and shall be consistent with requirements of applicable laws, codes, and standards.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J08" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]Air Filter Efficiency.[/d:b] Supply only ventilation systems, makeup air-systems, and supply side balanced systems including HRV/ERV shall be provided with air filters having a designated efficiency equal to or greater than MERV 13 when tested in accordance with ASHRAE Standard 52.2, or a particle size efficiency rating equal to or greater than 50% in the 0.30-1.0 um range and equal to or greater than 85% in the 1.0-3.0 um range when tested in accordance with AHRI Standard 680.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="JEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_K" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Air Moving Equipment</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="K_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i]The items listed below (7.1 through 7.5) correspond to the information given in ASHRAE 62.2 Section 7 "Air-Moving Equipment".  Refer also to Chapter 4.6 of the Residential Compliance Manual (Section 4.6.9) for information describing these requirements in more detail.  The signature of the Responsible Person in the declaration statement below certifies that the dwelling complies with these requirements specified in ASHRAE 62.2 Section 7.1 through 7.5 if applicable.[/d:i]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="K01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]7.1  Ratings.[/d:b] Airfflow and sound ratings shall be provided for ventilation devices and equipment serving individual dwelling units.  Airflow and sound ratings shall be provided in accordance with HVI 920, or equivalent, by an administration and certification body that is accredited in accordance with ISO/IEC 17065 with respect to application of the standards and test procedures referenced in Section 7.1 and accredited by an accreditation body operating in accordance ISO/IEC 17011.
+Laboratory tests of representative units shall be conducted for airflow in accordance with ANSI/ASHRAE Standard 51/ AMCA 210, as prescribed by HVI 916, or equivalent, and conducted for sound in accordance with ANSI/AMCA Standard 300, as prescribed by HVI 915, or equivalent.  This section does not require certification to HVI 917 </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="K02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]7.2 Installation[/d:b] Installations of systems or equipment shall be carried out in accordance with manufacturers' design requirements and installation instructions.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="K03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]7.3  Sound Ratings for Fans.[/d:b] Ventilation fans shall be rated for sound at no less than the minimum airflow rate required by this standard, as noted below. These sound ratings shall be at a minimum of 0.1 in. w.c. (25 Pa) static pressure in accordance with the HVI procedure referenced in 7.1. [d:line1/] [d:b]Exception to 7.3 [/d:b]: HVAC air handlers and remote mounted fans need not meet sound requirements.  To be considered for this exception, a remote mounted fan must be mounted outside the habitable spaces, bathrooms, toilets, and hallways, and there must be at least 4 ft (1 m) of ductwork between the fan and the intake grille. 
+[d:line1/][d:tab1/] 7.3.1 [d:b] Dwelling Unit Ventilation or Continuous Local Exhaust  Fans.[/d:b] These fans shall be rated for sound at a maximum of 1.0 sone. [d:line1/][d:tab1/]   7.3.2 [d:b]Demand-Controlled Local Exhaust Fans.[/d:b] Bathroom exhaust fans used to comply with Section 5.2 shall be rated for sound at a maximum of 3 sone, Kitchen exhaust fans used to comply with Section 5.2 shall be rated for sound at a maximum of 3 sone at one or more airflow settings greater than or equal to 100 cfm (47 L/s).  
+[d:line1/] [d:b]Exception to 7.3.2:[/d:b] [d:line1/] Fans with minimum airflow settings exceeding 400 cfm (189 L/s) need not comply. </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="K04" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]7.4 Exhaust Ducts.[/d:b] [d:line1/][d:tab1/] 7.4.1 [d:b] Multiple Exhaust Fans Using One Duct.[/d:b] Exhaust fans in separate dwelling units shall not share a common exhaust duct.  If more than one of the exhaust fans in a dwelling unit shares a common exhaust duct, each fan shall be equipped with a back draft damper to prevent the recirculation of exhaust air from one room to another through the exhaust ducting system. 
+[d:line1/][d:tab1/] 7.4.2 [d:b] Single Exhaust Fan Ducted to Multiple Exhaust Inlets.[/d:b] Where exhaust inlets are commonly ducted across multiple dwelling units, one or more exhaust fans located downstream of the exhaust inlets shall be designed and intended to run continuously, or a system of one or more backdraft dampers shall be installed to isolate each dwelling unit from the common duct when the fan is not running.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="K05" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]7.5 Supply Ducts.[/d:b]  Where supply outlets are commonly ducted across multiple dwelling units, one or more supply fans located upstream of the supply inlets shall be designed and intended to run continuously, or a system of one or more backdraft dampers shall be installed to isolate each dwelling unit from the common duct when the fan is not running.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="KEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         </xsd:sequence>
+         </xsd:complexType>
+         </xsd:element>
+       </xsd:choice>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="cF2RMCH27H" type="CF2RMCH27H">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF2RMCH27H compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>

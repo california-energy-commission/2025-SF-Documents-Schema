@@ -65,7 +65,7 @@
                   <xsd:element name="A_BeforeNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Before Section Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Title 24, Part 6, Section 150.0(o) [d:b]Ventilation for Indoor Air Quality.[/d:b] All dwelling units shall meet the requirements of ANSI/ASHRAE Standard 62.2.-2019 Ventilation and Acceptable Indoor Air Quality in Low-Rise Residential Buildings subject to amendments specified by Title 24, Part 6 Section 150.0(o)1.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Title 24, Part 6, Section 150.0(o) [d:b]Ventilation for Indoor Air Quality.[/d:b] All dwelling units shall meet the requirements of ANSI/ASHRAE Standard 62.2.-2022 Ventilation and Acceptable Indoor Air Quality in Single Family Residential Buildings subject to amendments specified by Title 24, Part 6 Section 150.0(o)1.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A01_DwellingUnitName" type="com:DwellingUnitName" >

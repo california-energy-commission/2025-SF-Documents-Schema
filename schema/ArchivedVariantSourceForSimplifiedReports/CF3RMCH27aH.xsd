@@ -175,7 +175,13 @@ End if</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
-                  <xsd:element name="A07After" minOccurs="0">
+                  <xsd:element name="A08_FaultIndicatorDisplayStatus" type="comp:FaultIndicatorDisplayStatus" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Fault Indicator Display (FID) Status </xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto filled from CF2R; Possible values: FactoryInstalledFID display text: This system has a factory installed FID,   FieldInstalledFID display text: This system has a field installed FID; NoInstalledFID display text: This system does not have a FID device installed.  If installed system doesn't match value from CF2R, it can be overwritten by rater but it will be flagged as a possible fail</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A08After" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Mch-27a Variant</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">MCH-27a - Single Family Attached/Detached</xsd:documentation>
@@ -528,9 +534,9 @@ End If</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_D2" minOccurs="0">
+         <xsd:element name="Section_E" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">HRV or ERV</xsd:documentation>
+               <xsd:documentation source="FieldText">HRV or ERV Serving Individual Dwelling Unit Information</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required If A06_VentilationSystemType == BalancedERV Or  BalancedHRV</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
@@ -539,6 +545,7 @@ End If</xsd:documentation>
                   <xsd:element name="HErvBeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Balanced ventilation systems shall comply with appropriate requirements in 150.0(o)2C.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="TableHrvErv" >
@@ -578,14 +585,67 @@ End If</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_E" minOccurs="1">
+         <xsd:element name="Section_F" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Fault Indicator Display Installation Verification</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">The section is required if If FaultIndicatorDisplayStatus in section A equals FactoryInstalledFID or FieldInstalledFID.</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="F_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Qualification Requirements for Ventilation Sstem Fault Indicator Displays are detailed in Appendix JA17.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F01_FID_ManufacturerNameMake" type="comp:FID_ManufacturerNameMake" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">FID Manufacturer Name/Make</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto-filled from CF2R.  If installed system does not match the value from the CF2R, it can be overwritten by rater but it will be flagged as a possible fail</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F02_FID_ModelNumber" type="comp:FID_ModelNumber" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">FID Model Number</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto-filled from CF2R.  If installed system does not match the value from the CF2R, it can be overwritten by rater but it will be flagged as a possible fail</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F03_IsFID_MountedAdjacentThermostat" type="comp:IsFID_MountedAdjacentThermostat" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">The display module is mounted adjacent to the system thermostat</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects Yes or No; </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F04_DoesFID_MeetJA6Requirements" type="comp:DoesFID_MeetJA6Requirements" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">The manufacturer has certified to the Energy Commission that the FID model meets the requirements of Reference Joint Appendix JA17 (Make and model found on CEC list of approved FID devices)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects Yes or No; </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F05_DoesFID_ReportOperationWithinAcceptableParameters" type="comp:DoesFID_ReportOperationWithinAcceptableParameters" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">The system has operated for at least 15 minutes and the FID reports that the system is operating within acceptable parameters.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects Yes or No; </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F06_IsFID_Compliant" type="comp:IsFID_Compliant" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Compliance Statement:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If IsFID_MountedAdjacentThermostat is true and DoesFID_MeetJA6Requirements is true and DoesFID_ReportOperationWithinAcceptableParameters is true then result is true.  For Boolean true value display text: FID complies.  Else result is false.  For Boolean false value display text: FID does NOT comply.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_G" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="E01_MechanicalVentilationCompliance" type="comp:MechanicalVentilationCompliance" >
+                  <xsd:element name="G01_MechanicalVentilationCompliance" type="comp:MechanicalVentilationCompliance" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field:  If A02_ResidentialBuildingType == NonDwellingUnit result = BuildingPasses display term Building Passes ; Else If D06_TotalContinuousAirflowRateInstalled  GTE C06_MechanicalVentilationRequiredRate result = BuildingPassesRateTest display term Building Passes Mechanical Ventilation RateTest; Else result = BuildingFailsRateTest display term Building Fails Mechanical Ventilation RateTest</xsd:documentation>
@@ -594,9 +654,9 @@ End If</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_F" minOccurs="1" maxOccurs="1">
+         <xsd:element name="Section_H" minOccurs="1" maxOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Determination of HERS Verification Compliance</xsd:documentation>
+               <xsd:documentation source="FieldText">Determination of ECC Verification Compliance</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -610,7 +670,7 @@ End If</xsd:documentation>
                   <xsd:element name="F01_DoesCF3R_Pass" type="comp:DoesCF3R_Pass" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If E01_MechanicalVentilationCompliance == BuildingPassesRateTest  result =  true  display term Complies: All specified verification protocol requirements on this document are met. Else result = false display term: Does not comply: One or more specified verification protocol requirements on this document are not met.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If G01_MechanicalVentilationCompliance == BuildingPassesRateTest And F06_IsFID_Compliant == true result =  true  display term Complies: All specified verification protocol requirements on this document are met. Else result = false display term: Does not comply: One or more specified verification protocol requirements on this document are not met.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
