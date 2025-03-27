@@ -4126,6 +4126,16 @@
          <xsd:enumeration value="T20CompliantSingleVoltageExternalPower"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="CompliantSection">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="CompliantSectionF">
       <xsd:annotation>
          <xsd:appinfo source="displaytermType">
@@ -17406,7 +17416,19 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="SectionErrorMessage">
-      <xsd:restriction base="xsd:token">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="VerifiedCapacityNotInstalled">The installed cooling capacity, heating capacity or CFA served does not match the Installation Certificate</dtyp:displayterm>
+            <dtyp:displayterm value="VerifiedCapacityAndAHUNotInstalled">The installed cooling capacity, heating capacity or CFA served does not match the Installation Certificate and the Air-Handling unit Manufacturer Name or Model Number does not match the Installation Certificate</dtyp:displayterm>
+            <dtyp:displayterm value="VerifiedAHUNotInstalledAHU">The Air-Handling unit Manufacturer Name or Model Number does not match the Installation Certificate</dtyp:displayterm>
+            <dtyp:displayterm value="VerifiedSameAsInstalled"></dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstantPhrase">
+         <xsd:enumeration value="VerifiedCapacityNotInstalled"/>
+         <xsd:enumeration value="VerifiedAHUNotInstalledAHU"/>
+         <xsd:enumeration value="VerifiedCapacityAndAHUNotInstalled"/>
+         <xsd:enumeration value="VerifiedSameAsInstalled"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="SectionExceptionalConditionNotes">

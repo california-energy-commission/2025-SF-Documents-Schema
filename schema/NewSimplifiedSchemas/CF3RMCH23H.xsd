@@ -713,18 +713,18 @@ result = true display term  System ventilation airflow rate complies. Else resul
                         <xsd:documentation source="AdditionalRequirements">Airflow rate and fan watt draw shall be simultaneous measurements when used to calculate the Fan Efficacy tested value.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                              <xsd:element name="H07_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements" >
-                                    <xsd:annotation>
-                                         <xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
-                                       <xsd:documentation source="CalculationsAndRules">For Pass choice display text: Pass - all applicable requirements are met.  For Fail choice display text: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display text: All n/a - This entire table is not applicable</xsd:documentation>
-                                    </xsd:annotation>
-                              </xsd:element>
-                              <xsd:element name="H08_SectionCorrectionNotes" type="comp:SectionCorrectionNotes"  minOccurs="0">
-                                    <xsd:annotation>
-                                        <xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
-                                       <xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required</xsd:documentation>
-                                    </xsd:annotation>
-                              </xsd:element>
+                  <xsd:element name="H07_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">For Pass choice display text: Pass - all applicable requirements are met.  For Fail choice display text: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display text: All n/a - This entire table is not applicable</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H08_SectionCorrectionNotes" type="comp:SectionCorrectionNotes"  minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
                   <xsd:element name="HEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
@@ -813,7 +813,7 @@ result = true display term  System ventilation airflow rate complies. Else resul
          </xsd:element>
                <xsd:element name="Section_I" minOccurs="1">
                    <xsd:annotation>
-                        <xsd:documentation source="FieldText">Determination of HERS Verification Compliance</xsd:documentation>
+                        <xsd:documentation source="FieldText">Determination of ECC Verification Compliance</xsd:documentation>
                         <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>

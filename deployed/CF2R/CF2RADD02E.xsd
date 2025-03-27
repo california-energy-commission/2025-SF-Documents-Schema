@@ -9,7 +9,7 @@
    <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
    <xsd:complexType name="CF2RADD02E">
       <xsd:annotation>
-         <xsd:documentation>Prescriptive Additions That Do Not Require Hers Field Verification</xsd:documentation>
+         <xsd:documentation>Prescriptive Additions That Do Not Require Field Verification</xsd:documentation>
       </xsd:annotation>
       <xsd:sequence>
          <xsd:element name="DocumentBeginNote1" minOccurs="0">
@@ -59,31 +59,49 @@ Alterations to Space Conditioning Systems that are exempt from field verificatio
                         <xsd:documentation source="CalculationsAndRules">auto-filled: reference text from CF1R</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A06_Zipcode" type="dtyp:Zipcode">
+                  <xsd:element name="A06_DwellingUnitsWithAdditionsCount" type="com:DwellingUnitsWithAdditionsCount" fixed="1">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Number of Dwelling Units with Additions</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Fixed value of 1 which is displayed;</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A07_Zipcode" type="dtyp:Zipcode">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Zip Code</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">auto-filled: reference text from CF1R</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A07_ClimateZone" type="com:ClimateZone">
+                  <xsd:element name="A08_SiteFuelType" type="com:SiteFuelType" fixed="Electricity">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Fuel Type</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Fixed value of Electricity; always display Electricity</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A09_ClimateZone" type="com:ClimateZone">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Climate Zone</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">auto-filled: reference text from CF1R</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A08_AdditionTotalConditionedFloorArea" type="com:AdditionTotalConditionedFloorArea">
+                  <xsd:element name="A10_AdditionTotalConditionedFloorArea" type="com:AdditionTotalConditionedFloorArea">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Total Conditioned Floor Area (ft<d:sup>2</d:sup>) (Addition)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">auto-filled: reference text from CF1R</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A09_FloorSlabArea" type="env:FloorSlabArea">
+                  <xsd:element name="A11_ResidentialLowriseBuildingType" type="com:ResidentialLowriseBuildingType" fixed="SingleFamily">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Building Type</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Fixed value of SingleFamily; always display Single Family</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A12_FloorSlabArea" type="env:FloorSlabArea">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Slab Area (ft<d:sup>2</d:sup>)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">auto-filled: reference text from CF1R</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A10_ProjectScopeAddAltNonHERS" type="comp:ProjectScopeAddAltNonHERS" minOccurs="1" maxOccurs="unbounded">
+                  <xsd:element name="A13_ProjectScopeAddAltNonHERS" type="comp:ProjectScopeAddAltNonHERS" minOccurs="1" maxOccurs="unbounded">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Project Scope</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User can select as many as are applicable from list: 
@@ -1253,8 +1271,21 @@ WaterHeating display term Water Heating (Show tables O, P)</xsd:documentation>
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
+                                    <xsd:element name="O05_WaterHeaterFuelSource">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Fuel Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If O02_WaterHeatingSystemOption  == OptionSingleHWH Or OptionTier3SingleHWH result = WaterHeatingHP
+Else If L02_WaterHeatingSystemOption  == OptionElectPointOfUse result = Electricity</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="hvac:WaterHeaterFuelSource">
+                                             <xsd:enumeration value="Electricity"/>
+                                             <xsd:enumeration value="WaterHeatingHP"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="O05_TankLocation">
+                                       <xsd:element name="O06_TankLocation">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Tank Location</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Reference value from CF1R-ADD-02 which may be N/A.</xsd:documentation>
@@ -1266,14 +1297,14 @@ WaterHeating display term Water Heating (Show tables O, P)</xsd:documentation>
                                              </xsd:restriction>
                                           </xsd:simpleType>
                                        </xsd:element>
-                                       <xsd:element name="O05_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                       <xsd:element name="O06_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Tank Location</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Reference value from CF1R-ADD-02 which may be N/A.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="O06_ResidentialDHWDwellingUnitDistributionType">
+                                    <xsd:element name="O07_ResidentialDHWDwellingUnitDistributionType">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Distribution Type</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If O02_WaterHeatingSystemOption  == OptionElectPointOfUse result = PointOfUse Else result = StandardDistribution</xsd:documentation>

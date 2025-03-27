@@ -179,19 +179,6 @@ End if</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">auto filled from CF2R; Possible values: FactoryInstalledFID display text: This system has a factory installed FID,   FieldInstalledFID display text: This system has a field installed FID; NoInstalledFID display text: This system does not have a FID device installed.  If installed system doesn't match value from CF2R, it can be overwritten by rater but it will be flagged as a possible fail</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A08After" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Mch-27a Variant</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">MCH-27a - Single Family Attached/Detached</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field for Variant result: 
-If A02_ResidentialBuildingType == SingleFamilyAttached Or SingleFamilyDetached  
-And A06_VentilationSystemType == SupplyVent, ExhaustVent, Balanced,BalancedERV, BalancedHRV Or CentralFanIntegrated 
-And A07_VentilationOperationSchedule == Continuous Or ShortTermAverage
-variant result =  Mch27a Single Family Attached/Detached Ventilation; 
- 
-End If</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
                   <xsd:element name="A09_ClimateZone" type="com:ClimateZone" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
@@ -594,7 +581,7 @@ End If</xsd:documentation>
                   <xsd:element name="F_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Qualification Requirements for Ventilation Sstem Fault Indicator Displays are detailed in Appendix JA17.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Qualification Requirements for Ventilation System Fault Indicator Displays are detailed in Appendix JA17.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="F01_FID_ManufacturerNameMake" type="comp:FID_ManufacturerNameMake" >
@@ -659,13 +646,13 @@ End If</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="F_BeginNote1" minOccurs="0">
+                  <xsd:element name="H_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">All applicable sections of this document shall indicate compliance with the specified verification protocol requirements in order for this Certificate of Verification as a whole to be determined to be in compliance.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="F01_DoesCF3R_Pass" type="comp:DoesCF3R_Pass" >
+                  <xsd:element name="H01_DoesCF3R_Pass" type="comp:DoesCF3R_Pass" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If G01_MechanicalVentilationCompliance == BuildingPassesRateTest And F06_IsFID_Compliant == true result =  true  display term Complies: All specified verification protocol requirements on this document are met. Else result = false display term: Does not comply: One or more specified verification protocol requirements on this document are not met.</xsd:documentation>

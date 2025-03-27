@@ -50,7 +50,7 @@
    </xsd:element>
    <xsd:complexType name="CF1RADD02E">
       <xsd:annotation>
-         <xsd:documentation>Prescriptive Additions That Do Not Require Hers Field Verification</xsd:documentation>
+         <xsd:documentation>Prescriptive Additions That Do Not Require Field Verification</xsd:documentation>
       </xsd:annotation>
       <xsd:sequence>
          <xsd:element name="DocumentBeginNote1" minOccurs="0">
@@ -100,31 +100,49 @@ If more than one person has responsibility for installation of the items on this
                         <xsd:documentation source="CalculationsAndRules">User input: String</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A06_Zipcode" type="dtyp:Zipcode" >
+                  <xsd:element name="A06_DwellingUnitsWithAdditionsCount" type="com:DwellingUnitsWithAdditionsCount" fixed="1">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Number of Dwelling Units with Additions</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Fixed value of 1 which is displayed;</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A07_Zipcode" type="dtyp:Zipcode" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Zip Code</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input: Zipcode</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A07_ClimateZone" type="com:ClimateZone" >
+                  <xsd:element name="A08_SiteFuelType" type="com:SiteFuelType" fixed="Electricity" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Fuel Type</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Fixed value of Electricity; always display Electricity</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A09_ClimateZone" type="com:ClimateZone" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Climate Zone</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User selects from list: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A08_AdditionTotalConditionedFloorArea" type="com:AdditionTotalConditionedFloorArea" >
+                  <xsd:element name="A10_AdditionTotalConditionedFloorArea" type="com:AdditionTotalConditionedFloorArea" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Total Conditioned Floor Area (ft[d:sup]2[/d:sup]) (Addition)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input: IntegerNonnegative</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A09_FloorSlabArea" type="env:FloorSlabArea" >
+                  <xsd:element name="A11_ResidentialLowriseBuildingType" type="com:ResidentialLowriseBuildingType" fixed="SingleFamily">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Building Type</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Fixed value of SingleFamily; always display Single Family</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A12_FloorSlabArea" type="env:FloorSlabArea" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Slab Area (ft[d:sup]2[/d:sup])</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input: IntegerNonnegative</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A10_ProjectScopeAdditions" minOccurs="1" maxOccurs="unbounded">
+                  <xsd:element name="A13_ProjectScopeAdditions" minOccurs="1" maxOccurs="unbounded">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Project Scope</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User can select as many as are applicable from list: 
@@ -151,7 +169,7 @@ HeatingSystemAddition display term Space heating system, CoolingSystemAddition d
                         </xsd:restriction>
                      </xsd:simpleType>
                   </xsd:element>
-                  <xsd:element name="A11_FenestrationExceptionForUfactorSHGC"  maxOccurs="unbounded">
+                  <xsd:element name="A14_FenestrationExceptionForUfactorSHGC"  maxOccurs="unbounded">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Fenestration Exceptions</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User selects as many values as applicable:   FenestrationGlazingDoorLTE3Ft2, display text Installing less than or equal to 3 ft2 glass in door, FenestrationGlazingSkylightLTE16Ft2, display text Installing less than or equal to 16 ft2 skylight, 
@@ -172,7 +190,7 @@ FenestrationGlazingSkylightTubularLTE3Ft2, display text Installing less than or 
          <xsd:element name="Section_B" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Opaque Surface Details - Framed (Section 150.2(a) and 150.1(c)1)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if the project has at least one opaque surface covered in this section And  If A10_ProjectScopeAddition includes at least one of the following: 
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if the project has at least one opaque surface covered in this section And  If A13_ProjectScopeAdditions includes at least one of the following: 
 AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, AdditionLTE300ADU, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU, or AdditionGT700LTE1000ADU, display section but  entry is optional.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
@@ -307,7 +325,7 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
          <xsd:element name="Section_C" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Opaque Surface Details - Non-framed (Section 150.1(c)1)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if the project has at least one opaque non-framed wall or roof And If A10_ProjectScopeAddition includes one of the following: AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, AdditionLTE300ADU, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU, AdditionGT700LTE1000ADU, then display this section.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if the project has at least one opaque non-framed wall or roof And If A13_ProjectScopeAdditions includes one of the following: AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, AdditionLTE300ADU, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU, AdditionGT700LTE1000ADU, then display this section.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -411,7 +429,7 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
          <xsd:element name="Section_D" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Opaque Surface Details - Masonry/Mass Walls  (Section 150.1(c)1Bii)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if the project has at least one opaque mass wall And  If A10_ProjectScopeAddition includes one of the following: AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, AdditionLTE300ADU, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU, AdditionGT700LTE1000ADU then display section.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if the project has at least one opaque mass wall And  If A13_ProjectScopeAdditions includes one of the following: AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, AdditionLTE300ADU, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU, AdditionGT700LTE1000ADU then display section.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -615,7 +633,7 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
          <xsd:element name="Section_E" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Slab On Grade/Concrete Raised Floor Insulation (Table 150.1-A)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if A10_FloorSlabArea  GT 0 And  If A10_ProjectScopeAddition includes one of the following: AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, AdditionLTE300ADU, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU, AdditionGT700LTE1000ADU then display section.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if A10_FloorSlabArea  GT 0 And  If A13_ProjectScopeAdditions includes one of the following: AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, AdditionLTE300ADU, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU, AdditionGT700LTE1000ADU then display section.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -651,7 +669,7 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
                                        <xsd:element name="E02_SlabInsulationThermalResistance" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Insulation R-value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User selects from list of R-values: R0, R4, R5, R7, R8, R10 vertical, R10 vertical and R7 horizontal OR N/A stored in NotApplicableMessage.  If E01_ExteriorFloorType == SlabHeated Or If A07_ClimateZone == 16  N/A is not allowed .  Note: Either R-value or U-factor is required, no both</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User selects from list of R-values: R0, R4, R5, R7, R8, R10 vertical, R10 vertical and R7 horizontal OR N/A stored in NotApplicableMessage.  If E01_ExteriorFloorType == SlabHeated Or If A09_ClimateZone == 16  N/A is not allowed .  Note: Either R-value or U-factor is required, no both</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
                                              <xsd:restriction base="env:SlabInsulationThermalResistance">
@@ -668,7 +686,7 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
                                        <xsd:element name="E02_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Insulation R-value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User selects from list of R-values: R0, R4, R5, R7, R8, R10 vertical, R10 vertical and R7 horizontal OR N/A stored in NotApplicableMessage.  If E01_ExteriorFloorType == SlabHeated Or If A07_ClimateZone == 16  N/A is not allowed .  Note: Either R-value or U-factor is required, no both</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User selects from list of R-values: R0, R4, R5, R7, R8, R10 vertical, R10 vertical and R7 horizontal OR N/A stored in NotApplicableMessage.  If E01_ExteriorFloorType == SlabHeated Or If A09_ClimateZone == 16  N/A is not allowed .  Note: Either R-value or U-factor is required, no both</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -676,13 +694,13 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
                                        <xsd:element name="E03_InsulationUFactor" type="env:InsulationUFactor" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Insulation U-factor</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative; If E01_ExteriorFloorType == SlabHeated Or If A07_ClimateZone == 16 require user input; Else allow N/A stored in NotApplicableMessage, Note: Either R-value or U-factor is required, no both</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative; If E01_ExteriorFloorType == SlabHeated Or If A09_ClimateZone == 16 require user input; Else allow N/A stored in NotApplicableMessage, Note: Either R-value or U-factor is required, no both</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="E03_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Insulation U-factor</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative;  If E01_ExteriorFloorType == SlabHeated Or If A07_ClimateZone == 16 require user input; Else allow N/A stored in NotApplicableMessage.  Note: Either R-value or U-factor is required, no both</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative;  If E01_ExteriorFloorType == SlabHeated Or If A09_ClimateZone == 16 require user input; Else allow N/A stored in NotApplicableMessage.  Note: Either R-value or U-factor is required, no both</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -696,13 +714,13 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
                                        <xsd:element name="E04_SlabInsulationRValueRequired" type="env:SlabInsulationRValueRequired" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Insulation R-value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If E02_NotApplicablemessage == N/A result = N/A stored in NotApplicablemessage Else Switch ( E01_ExteriorFloorType) case SlabOnGrade: If A07_ClimateZone == 16 result = R7; Else If A07_ClimateZone == InRange(1,15) result = N/A stored in NotApplicableMessage;  case SlabConcreteRaised:  If A07_ClimateZone == 1,2,11,13,14 Or 16 result = R8; Else If A07_ClimateZone == InRange(3,10) result = R0; Else If A07_ClimateZone == 12 Or 15 result = R4;  case SlabHeated: If A07_ClimateZone == InRange(1,15) result = R5; Else If A07_ClimateZone == 16, user selects:  R10 vertical  Or  R10 vertical and R7 horizontal</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If E02_NotApplicablemessage == N/A result = N/A stored in NotApplicablemessage Else Switch ( E01_ExteriorFloorType) case SlabOnGrade: If A09_ClimateZone == 16 result = R7; Else If A09_ClimateZone == InRange(1,15) result = N/A stored in NotApplicableMessage;  case SlabConcreteRaised:  If A09_ClimateZone == 1,2,11,13,14 Or 16 result = R8; Else If A09_ClimateZone == InRange(3,10) result = R0; Else If A09_ClimateZone == 12 Or 15 result = R4;  case SlabHeated: If A09_ClimateZone == InRange(1,15) result = R5; Else If A09_ClimateZone == 16, user selects:  R10 vertical  Or  R10 vertical and R7 horizontal</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="E04_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Insulation R-value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If E02_NotApplicablemessage == N/A result = N/A stored in NotApplicablemessage Else Switch ( E01_ExteriorFloorType) case SlabOnGrade: If A07_ClimateZone == 16 result = R7; Else If A07_ClimateZone == InRange(1,15) result = N/A stored in NotApplicableMessage;  case SlabConcreteRaised:  If A07_ClimateZone == 1,2,11,13,14 Or 16 result = R8; Else If A07_ClimateZone == InRange(3,10) result = R0; Else If A07_ClimateZone == 12 Or 15 result = R4;  case SlabHeated: If A07_ClimateZone == InRange(1,15) result = R5; Else If A07_ClimateZone == 16, user selects:  R10 vertical  Or  R10 vertical and R7 horizontal</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If E02_NotApplicablemessage == N/A result = N/A stored in NotApplicablemessage Else Switch ( E01_ExteriorFloorType) case SlabOnGrade: If A09_ClimateZone == 16 result = R7; Else If A09_ClimateZone == InRange(1,15) result = N/A stored in NotApplicableMessage;  case SlabConcreteRaised:  If A09_ClimateZone == 1,2,11,13,14 Or 16 result = R8; Else If A09_ClimateZone == InRange(3,10) result = R0; Else If A09_ClimateZone == 12 Or 15 result = R4;  case SlabHeated: If A09_ClimateZone == InRange(1,15) result = R5; Else If A09_ClimateZone == 16, user selects:  R10 vertical  Or  R10 vertical and R7 horizontal</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -710,13 +728,13 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
                                        <xsd:element name="E05_SlabInsulationUFactorRequired" type="env:SlabInsulationUFactorRequired" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Insulation U-factor</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If E03_NotApplicablemessage == N/A result = N/A stored in NotApplicablemessage Else Switch ( E01_ExteriorFloorType) case SlabOnGrade: If A07_ClimateZone == 16 result = 0.58; Else If A07_ClimateZone == InRange(1,15) result = N/A stored in NotApplicableMessage;  case SlabConcreteRaised:  If A07_ClimateZone == 1,2,11,13,14 Or 16 result = 0.092; Else If A07_ClimateZone == InRange(3,10) result = 0.269; Else If A07_ClimateZone == 12 Or 15 result = 0.138;  case SlabHeated: result = N/A stored in NotApplicableMessage.  Note: Range check, value in E03 must be less than or equal to E05 (both can be N/A) in order to comply.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If E03_NotApplicablemessage == N/A result = N/A stored in NotApplicablemessage Else Switch ( E01_ExteriorFloorType) case SlabOnGrade: If A09_ClimateZone == 16 result = 0.58; Else If A09_ClimateZone == InRange(1,15) result = N/A stored in NotApplicableMessage;  case SlabConcreteRaised:  If A09_ClimateZone == 1,2,11,13,14 Or 16 result = 0.092; Else If A09_ClimateZone == InRange(3,10) result = 0.269; Else If A09_ClimateZone == 12 Or 15 result = 0.138;  case SlabHeated: result = N/A stored in NotApplicableMessage.  Note: Range check, value in E03 must be less than or equal to E05 (both can be N/A) in order to comply.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="E05_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Insulation U-factor</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If E03_NotApplicablemessage == N/A result = N/A stored in NotApplicablemessage Else Switch ( E01_ExteriorFloorType) case SlabOnGrade: If A07_ClimateZone == 16 result = 0.58; Else If A07_ClimateZone == InRange(1,15) result = N/A stored in NotApplicableMessage;  case SlabConcreteRaised:  If A07_ClimateZone == 1,2,11,13,14 Or 16 result = 0.092; Else If A07_ClimateZone == InRange(3,10) result = 0.269; Else If A07_ClimateZone == 12 Or 15 result = 0.138;  case SlabHeated: result = N/A stored in NotApplicableMessage.  Note: Range check, value in E03 must be less than or equal to E05 (both can be N/A)  in order to comply.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If E03_NotApplicablemessage == N/A result = N/A stored in NotApplicablemessage Else Switch ( E01_ExteriorFloorType) case SlabOnGrade: If A09_ClimateZone == 16 result = 0.58; Else If A09_ClimateZone == InRange(1,15) result = N/A stored in NotApplicableMessage;  case SlabConcreteRaised:  If A09_ClimateZone == 1,2,11,13,14 Or 16 result = 0.092; Else If A09_ClimateZone == InRange(3,10) result = 0.269; Else If A09_ClimateZone == 12 Or 15 result = 0.138;  case SlabHeated: result = N/A stored in NotApplicableMessage.  Note: Range check, value in E03 must be less than or equal to E05 (both can be N/A)  in order to comply.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -738,7 +756,7 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
          <xsd:element name="Section_F" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Radiant Barrier (Section 150.1(c).2)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable If A07_ClimateZone is in InclusiveRange (2, 15) And  If A10_ProjectScopeAddition includes at least one of the following: AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, AdditionLTE300ADU, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU, AdditionGT700LTE1000ADU, display section but  entry is optional.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable If A09_ClimateZone is in InclusiveRange (2, 15) And  If A13_ProjectScopeAdditions includes at least one of the following: AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, AdditionLTE300ADU, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU, AdditionGT700LTE1000ADU, display section but  entry is optional.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -777,7 +795,7 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
          <xsd:element name="Section_G" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Roofing Products (Cool Roof) (Section 150.1(c).11)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable If A10_ProjectScopeAddition includes one of the following: AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU, AdditionGT700LTE1000ADU, display section but  entry is optional.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable If A13_ProjectScopeAdditions includes one of the following: AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU, AdditionGT700LTE1000ADU, display section but  entry is optional.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -951,13 +969,13 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
                                        <xsd:element name="G11_SolarReflectanceAgedLimit" type="env:SolarReflectanceAgedLimit" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Aged Solar Reflectance</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If G02_CoolRoofException != NoException result = N/A stored in NotApplicablemessage; Else  Calculated field: If A07_ClimateZone == 13 Or 15, and  G03_IsRoofPitchGreaterThan2Run12Rise == false, result = 0.63; Else If A07_ClimateZone is in InclusiveRange(10, 15) and G03_IsRoofPitchGreaterThan2Run12Rise == true result = 0.20;   Else for all other combinations of climate zone and roof pitch, the result = N/A stored in NotApplicableMessage.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If G02_CoolRoofException != NoException result = N/A stored in NotApplicablemessage; Else  Calculated field: If A09_ClimateZone == 13 Or 15, and  G03_IsRoofPitchGreaterThan2Run12Rise == false, result = 0.63; Else If A09_ClimateZone is in InclusiveRange(10, 15) and G03_IsRoofPitchGreaterThan2Run12Rise == true result = 0.20;   Else for all other combinations of climate zone and roof pitch, the result = N/A stored in NotApplicableMessage.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="G11_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Aged Solar Reflectance</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If G02_CoolRoofException != NoException result = N/A stored in NotApplicablemessage; Else  Calculated field: If A07_ClimateZone == 13 Or 15, and  G03_IsRoofPitchGreaterThan2Run12Rise == false, result = 0.63; Else If A07_ClimateZone is in InclusiveRange(10, 15) and G03_IsRoofPitchGreaterThan2Run12Rise == true result = 0.20;   Else for all other combinations of climate zone and roof pitch, the result = N/A stored in NotApplicableMessage.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If G02_CoolRoofException != NoException result = N/A stored in NotApplicablemessage; Else  Calculated field: If A09_ClimateZone == 13 Or 15, and  G03_IsRoofPitchGreaterThan2Run12Rise == false, result = 0.63; Else If A09_ClimateZone is in InclusiveRange(10, 15) and G03_IsRoofPitchGreaterThan2Run12Rise == true result = 0.20;   Else for all other combinations of climate zone and roof pitch, the result = N/A stored in NotApplicableMessage.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -965,13 +983,13 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
                                        <xsd:element name="G12_ThermalEmittanceLimit" type="com:ThermalEmittanceLimit" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Thermal Emittance</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If G02_CoolRoofException != NoException result = N/A stored in NotApplicablemessage; Else Calculated field: If A07_ClimateZone == 13 Or 15, and  G03_IsRoofPitchGreaterThan2Run12Rise == false  Then If G04_CoolRoofComplianceMethod == SolarReflectanceIndex result = 0.85; Else If G04_CoolRoofComplianceMethod == AgedSolarReflectanceThermaEmittance then  result = 0.75;  If A07_ClimateZone is in InclusiveRange(10, 15) and G03_IsRoofPitchGreaterThan2Run12Rise == true result = 0.75;  Else for all other combinations of climate zone, roof pitch and cool roof compliance method, the result is N/A stored in NotApplicableMessage.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If G02_CoolRoofException != NoException result = N/A stored in NotApplicablemessage; Else Calculated field: If A09_ClimateZone == 13 Or 15, and  G03_IsRoofPitchGreaterThan2Run12Rise == false  Then If G04_CoolRoofComplianceMethod == SolarReflectanceIndex result = 0.85; Else If G04_CoolRoofComplianceMethod == AgedSolarReflectanceThermaEmittance then  result = 0.75;  If A09_ClimateZone is in InclusiveRange(10, 15) and G03_IsRoofPitchGreaterThan2Run12Rise == true result = 0.75;  Else for all other combinations of climate zone, roof pitch and cool roof compliance method, the result is N/A stored in NotApplicableMessage.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="G12_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Thermal Emittance</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If G02_CoolRoofException != NoException result = N/A stored in NotApplicablemessage; Else Calculated field: If A07_ClimateZone == 13 Or 15, and  G03_IsRoofPitchGreaterThan2Run12Rise == false  Then If G04_CoolRoofComplianceMethod == SolarReflectanceIndex result = 0.85; Else If G04_CoolRoofComplianceMethod == AgedSolarReflectanceThermaEmittance then  result = 0.75;  If A07_ClimateZone is in InclusiveRange(10, 15) and G03_IsRoofPitchGreaterThan2Run12Rise == true result = 0.75;  Else for all other combinations of climate zone, roof pitch and cool roof compliance method, the result is N/A stored in NotApplicableMessage.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If G02_CoolRoofException != NoException result = N/A stored in NotApplicablemessage; Else Calculated field: If A09_ClimateZone == 13 Or 15, and  G03_IsRoofPitchGreaterThan2Run12Rise == false  Then If G04_CoolRoofComplianceMethod == SolarReflectanceIndex result = 0.85; Else If G04_CoolRoofComplianceMethod == AgedSolarReflectanceThermaEmittance then  result = 0.75;  If A09_ClimateZone is in InclusiveRange(10, 15) and G03_IsRoofPitchGreaterThan2Run12Rise == true result = 0.75;  Else for all other combinations of climate zone, roof pitch and cool roof compliance method, the result is N/A stored in NotApplicableMessage.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -979,13 +997,13 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
                                        <xsd:element name="G13_SolarReflectanceIndexLimit" type="env:SolarReflectanceIndexLimit" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">SRI (optional)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If G02_CoolRoofException != NoException result = N/A stored in NotApplicablemessage; Else Calculated field: G04_CoolRoofComplianceMethod != SolarReflectanceIndex result = N/A stored in the NotApplicableMessage;   Else If A07_ClimateZone == 13 Or 15, and  G03_IsRoofPitchGreaterThan2Run12Rise == false  result = 75; Else If A07_ClimateZone is in InclusiveRange(10, 15) and G03_IsRoofPitchGreaterThan2Run12Rise == true result = 16;  Else for all other combinations of climate zone and roof pitch, result is N/A stored in the NotApplicableMessage;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If G02_CoolRoofException != NoException result = N/A stored in NotApplicablemessage; Else Calculated field: G04_CoolRoofComplianceMethod != SolarReflectanceIndex result = N/A stored in the NotApplicableMessage;   Else If A09_ClimateZone == 13 Or 15, and  G03_IsRoofPitchGreaterThan2Run12Rise == false  result = 75; Else If A09_ClimateZone is in InclusiveRange(10, 15) and G03_IsRoofPitchGreaterThan2Run12Rise == true result = 16;  Else for all other combinations of climate zone and roof pitch, result is N/A stored in the NotApplicableMessage;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="G13_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">SRI (optional)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If G02_CoolRoofException != NoException result = N/A stored in NotApplicablemessage; Else Calculated field: G04_CoolRoofComplianceMethod != SolarReflectanceIndex result = N/A stored in the NotApplicableMessage;   Else If A07_ClimateZone == 13 Or 15, and  G03_IsRoofPitchGreaterThan2Run12Rise == false  result = 75; Else If A07_ClimateZone is in InclusiveRange(10, 15) and G03_IsRoofPitchGreaterThan2Run12Rise == true result = 16;  Else for all other combinations of climate zone and roof pitch, result is N/A stored in the NotApplicableMessage;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If G02_CoolRoofException != NoException result = N/A stored in NotApplicablemessage; Else Calculated field: G04_CoolRoofComplianceMethod != SolarReflectanceIndex result = N/A stored in the NotApplicableMessage;   Else If A09_ClimateZone == 13 Or 15, and  G03_IsRoofPitchGreaterThan2Run12Rise == false  result = 75; Else If A09_ClimateZone is in InclusiveRange(10, 15) and G03_IsRoofPitchGreaterThan2Run12Rise == true result = 16;  Else for all other combinations of climate zone and roof pitch, result is N/A stored in the NotApplicableMessage;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -1001,7 +1019,7 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
          <xsd:element name="Section_H" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Fenestration/Glazing Allowed Areas and Efficiencies (Section 150.2(a)1)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if A10_ProjectScopeAddition includes  FenestrationAddition.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if A13_ProjectScopeAdditions includes  FenestrationAddition.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -1009,7 +1027,7 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
                   <xsd:element name="H01_ProjectScopeAdditions" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Addition Type ft[d:sup]2[/d:sup]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Value auto-filled from A10_ProjectScopeAddition with one of these values: AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700,  AdditionGT700LTE1000, AdditionLTE300ADU, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU,  AdditionGT700LTE1000ADU </xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Value auto-filled from A12_ProjectScopeAddition with one of these values: AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700,  AdditionGT700LTE1000, AdditionLTE300ADU, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU,  AdditionGT700LTE1000ADU </xsd:documentation>
                      </xsd:annotation>
                      <xsd:simpleType>
                         <xsd:restriction base="comp:ProjectScopeAdditions">
@@ -1039,7 +1057,7 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
                   <xsd:element name="H02_GlazingAreaAdditionLimitPercentBased" type="env:GlazingAreaAdditionLimitPercentBased" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Maximum Calculated based on Allowed %</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: If H01_ProjectScopeAddition == AdditionLTE300, AdditionGT300LTE400, AdditionLTE300ADU or AdditionGT300LTE400ADU result = PRODUCT ( A08_AdditionTotalConditionedFloorArea,   0.30);  Else If  H01_ProjectScopeAddition == AdditionGT400LTE700 OR AdditionGT400LTE700ADU result = PRODUCT (A08_AdditionTotalConditionedFloorArea,  0.25);  Else If  H01_ProjectScopeAddition == AdditionGT700LTE1000 OR AdditionGT700LTE1000ADU result = PRODUCT ( A08_AdditionTotalConditionedFloorArea,  0.20).</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If H01_ProjectScopeAddition == AdditionLTE300, AdditionGT300LTE400, AdditionLTE300ADU or AdditionGT300LTE400ADU result = PRODUCT ( A10_AdditionTotalConditionedFloorArea,   0.30);  Else If  H01_ProjectScopeAddition == AdditionGT400LTE700 OR AdditionGT400LTE700ADU result = PRODUCT (A10_AdditionTotalConditionedFloorArea,  0.25);  Else If  H01_ProjectScopeAddition == AdditionGT700LTE1000 OR AdditionGT700LTE1000ADU result = PRODUCT ( A10_AdditionTotalConditionedFloorArea,  0.20).</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="H03_GlazingAreaAdditionLimit" type="env:GlazingAreaAdditionLimit" >
@@ -1064,13 +1082,13 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
                      <xsd:element name="H04_GlazingAreaLimitWestPercentageBased" type="env:GlazingAreaLimitWestPercentageBased" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Maximum Calculated based on Allowed %</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A07_ClimateZone == 1,   3, 5 Or 16 result = N/A stored in the NotApplicableMessage;  Else If H01_ProjectScopeAddition ==  AdditionLTE300 Or AdditionGT300LTE400 Or AdditionGT400LTE700 or AdditionLTE300ADU Or AdditionGT300LTE400ADU Or AdditionGT400LTE700ADU, result = N/A stored in the NotApplicableMessage;   Else If  H01_ProjectScopeAddition == AdditionGT700LTE1000 or AdditionGT700LTE1000ADU result = PRODUCT(A08_AdditionTotalConditionedFloorArea,  0.05).</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A09_ClimateZone == 1,   3, 5 Or 16 result = N/A stored in the NotApplicableMessage;  Else If H01_ProjectScopeAddition ==  AdditionLTE300 Or AdditionGT300LTE400 Or AdditionGT400LTE700 or AdditionLTE300ADU Or AdditionGT300LTE400ADU Or AdditionGT400LTE700ADU, result = N/A stored in the NotApplicableMessage;   Else If  H01_ProjectScopeAddition == AdditionGT700LTE1000 or AdditionGT700LTE1000ADU result = PRODUCT(A10_AdditionTotalConditionedFloorArea,  0.05).</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="H04_NotApplicableMessage" type="comp:NotApplicableMessage" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Maximum Calculated based on Allowed %</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A07_ClimateZone == 1,   3, 5 Or 16 result = N/A stored in the NotApplicableMessage;  Else If H01_ProjectScopeAddition ==  AdditionLTE300 Or AdditionGT300LTE400 Or AdditionGT400LTE700 or AdditionLTE300ADU Or AdditionGT300LTE400ADU Or AdditionGT400LTE700ADU, result = N/A stored in the NotApplicableMessage;   Else If  H01_ProjectScopeAddition == AdditionGT700LTE1000 or AdditionGT700LTE1000ADU result = PRODUCT(A08_AdditionTotalConditionedFloorArea,  0.05).</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A09_ClimateZone == 1,   3, 5 Or 16 result = N/A stored in the NotApplicableMessage;  Else If H01_ProjectScopeAddition ==  AdditionLTE300 Or AdditionGT300LTE400 Or AdditionGT400LTE700 or AdditionLTE300ADU Or AdditionGT300LTE400ADU Or AdditionGT400LTE700ADU, result = N/A stored in the NotApplicableMessage;   Else If  H01_ProjectScopeAddition == AdditionGT700LTE1000 or AdditionGT700LTE1000ADU result = PRODUCT(A10_AdditionTotalConditionedFloorArea,  0.05).</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -1078,39 +1096,39 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
                      <xsd:element name="H05_GlazingAreaAdditionLimitWest" type="env:GlazingAreaAdditionLimitWest" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Maximum Calculated Allowed ft[d:sup]2[/d:sup]</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A07_ClimateZone == 1,   3, 5 Or 16 result = N/A stored in the NotApplicableMessage;  Else If H01_ProjectScopeAddition ==  AdditionLTE300 Or AdditionGT300LTE400 Or AdditionGT400LTE700 or AdditionLTE300ADU Or AdditionGT300LTE400ADU Or AdditionGT400LTE700ADU, result = 60 ft2;  ElseIf  H01 equals AdditionGT700LTE1000 or AdditionGT700LTE1000ADU result = 70 ft2</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A09_ClimateZone == 1,   3, 5 Or 16 result = N/A stored in the NotApplicableMessage;  Else If H01_ProjectScopeAddition ==  AdditionLTE300 Or AdditionGT300LTE400 Or AdditionGT400LTE700 or AdditionLTE300ADU Or AdditionGT300LTE400ADU Or AdditionGT400LTE700ADU, result = 60 ft2;  ElseIf  H01 equals AdditionGT700LTE1000 or AdditionGT700LTE1000ADU result = 70 ft2</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="H05_NotApplicableMessage" type="comp:NotApplicableMessage" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Maximum Calculated Allowed ft[d:sup]2[/d:sup]</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A07_ClimateZone == 1,   3, 5 Or 16 result = N/A stored in the NotApplicableMessage;  Else If H01_ProjectScopeAddition ==  AdditionLTE300 Or AdditionGT300LTE400 Or AdditionGT400LTE700 or AdditionLTE300ADU Or AdditionGT300LTE400ADU Or AdditionGT400LTE700ADU, result = 60 ft2;  ElseIf  H01 equals AdditionGT700LTE1000 or AdditionGT700LTE1000ADU result = 70 ft2</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A09_ClimateZone == 1,   3, 5 Or 16 result = N/A stored in the NotApplicableMessage;  Else If H01_ProjectScopeAddition ==  AdditionLTE300 Or AdditionGT300LTE400 Or AdditionGT400LTE700 or AdditionLTE300ADU Or AdditionGT300LTE400ADU Or AdditionGT400LTE700ADU, result = 60 ft2;  ElseIf  H01 equals AdditionGT700LTE1000 or AdditionGT700LTE1000ADU result = 70 ft2</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
                   <xsd:element name="H06_UFactorLimit" type="com:UFactorLimit" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Maximum Allowed  U-factor (Windows)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If A07_ClimateZone == 1, 2, 3, 4, 5, 11, 12, 13, 14 Or 16 result = 0.27; Else If A07_ClimateZone == 6, 7, 8, 9, 10 Or 15 result =  0.30</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If A09_ClimateZone == 1, 2, 3, 4, 5, 11, 12, 13, 14 Or 16 result = 0.27; Else If A09_ClimateZone == 6, 7, 8, 9, 10 Or 15 result =  0.30</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="H07_UFactorLimitSkylight" type="com:UFactorLimitSkylight" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Maximum Allowed  U-factor (Skylights)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If A11_FenestrationExceptionForUfactorSHGC includes FenestrationGlazingSkylightLTE16Ft2 Or FenestrationGlazingSkylightTubularLTE3Ft2, Then If A07_ClimateZone == 2, 4, or InRange (6-15) result = 0.40 End If; Else If A07_ClimateZone == InRange (1-5) or InRange (11-14) or 16 result = 0.27 Else If A07_ClimateZone == InRange (6-10) or 15 result = 0.30 End If</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If A14_FenestrationExceptionForUfactorSHGC includes FenestrationGlazingSkylightLTE16Ft2 Or FenestrationGlazingSkylightTubularLTE3Ft2, Then If A09_ClimateZone == 2, 4, or InRange (6-15) result = 0.40 End If; Else If A09_ClimateZone == InRange (1-5) or InRange (11-14) or 16 result = 0.27 Else If A09_ClimateZone == InRange (6-10) or 15 result = 0.30 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:choice maxOccurs="1">
                      <xsd:element name="H08_SHGC_Limit" type="com:SHGC_Limit" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Maximum Allowed SHGC (Windows)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A07_ClimateZone == 1,   3, 5 Or 16 result = N/A stored in the NotApplicableMessage;  Else If A07_ClimateZone == 2, 4, or InRange (6-15) result =  0.23</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A09_ClimateZone == 1,   3, 5 Or 16 result = N/A stored in the NotApplicableMessage;  Else If A09_ClimateZone == 2, 4, or InRange (6-15) result =  0.23</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="H08_NotApplicableMessage" type="comp:NotApplicableMessage" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Maximum Allowed SHGC (Windows)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A07_ClimateZone == 1,   3, 5 Or 16 result = N/A stored in the NotApplicableMessage;  Else result =  0.23</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A09_ClimateZone == 1,   3, 5 Or 16 result = N/A stored in the NotApplicableMessage;  Else result =  0.23</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -1118,13 +1136,13 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
                   <xsd:element name="H09_SHGC_Limit" type="com:SHGC_Limit" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Maximum Allowed SHGC (Skylights)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If A07_ClimateZone == 1,   3, 5 Or 16 result = N/A stored in the NotApplicableMessage; Else If A11_FenestrationExceptionForUfactorSHGC includes FenestrationGlazingSkylightLTE16Ft2 Or FenestrationGlazingSkylightTubularLTE3Ft2,  result = 0.30; Else result = 0.23</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If A09_ClimateZone == 1,   3, 5 Or 16 result = N/A stored in the NotApplicableMessage; Else If A14_FenestrationExceptionForUfactorSHGC includes FenestrationGlazingSkylightLTE16Ft2 Or FenestrationGlazingSkylightTubularLTE3Ft2,  result = 0.30; Else result = 0.23</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                      <xsd:element name="H09_NotApplicableMessage" type="comp:NotApplicableMessage" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Maximum Allowed SHGC (Skylights)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A07_ClimateZone == 1,   3, 5 Or 16 result = N/A stored in the NotApplicableMessage;  Else If A11_FenestrationExceptionForUfactorSHGC includes FenestrationGlazingSkylightLTE16Ft2 Or FenestrationGlazingSkylightTubularLTE3Ft2,  result = 0.30; Else result = 0.23</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A09_ClimateZone == 1,   3, 5 Or 16 result = N/A stored in the NotApplicableMessage;  Else If A14_FenestrationExceptionForUfactorSHGC includes FenestrationGlazingSkylightLTE16Ft2 Or FenestrationGlazingSkylightTubularLTE3Ft2,  result = 0.30; Else result = 0.23</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -1140,7 +1158,7 @@ AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000, 
          <xsd:element name="Section_I" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Fenestration Proposed Areas and Efficiencies (Section 150.2(a))</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if A10_ProjectScopeAddition includes FenestrationAddition.   Each row in the table is for a unique type of vertical fenestration or skylight in the project.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if A13_ProjectScopeAdditions includes FenestrationAddition.   Each row in the table is for a unique type of vertical fenestration or skylight in the project.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -1171,7 +1189,7 @@ If meeting Exception 2 to 150.1(c)3A, Installing less than or equal to 3 square 
                                     <xsd:element name="I02_FenestrationAdditionType" type="env:FenestrationAdditionType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Fenestration Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from list:  FixedWindow  display term fixed window, OperableWindow display term operable window, Skylight display term skylight,  If A11_FenestrationExceptionForUfactorSHGC includes FenestrationGlazingSkylightTubularLTE3Ft2  also list TubularSkylight display term tubular skylight;  If A11_FenestrationExceptionForUfactorSHGC includes FenestrationGlazingDoorLTE3Ft2 also list GlazedDoor display term glass in door.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list:  FixedWindow  display term fixed window, OperableWindow display term operable window, Skylight display term skylight,  If A14_FenestrationExceptionForUfactorSHGC includes FenestrationGlazingSkylightTubularLTE3Ft2  also list TubularSkylight display term tubular skylight;  If A14_FenestrationExceptionForUfactorSHGC includes FenestrationGlazingDoorLTE3Ft2 also list GlazedDoor display term glass in door.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="I03_FenestrationFraming" >
@@ -1544,7 +1562,7 @@ If meeting Exception 2 to 150.1(c)3A, Installing less than or equal to 3 square 
          <xsd:element name="Section_J" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Opaque Swinging Doors to Exterior (Section 150.1(c)5)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required if A10_ProjectScopeAddition includes ExteriorDoorsAddition</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if A13_ProjectScopeAdditions includes ExteriorDoorsAddition</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -1618,7 +1636,7 @@ If meeting Exception 2 to 150.1(c)3A, Installing less than or equal to 3 square 
          <xsd:element name="Section_K" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Space Conditioning (SC) Systems - Heating/ Cooling   (Section 150.2(b) or (Section 150.1(c)7)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if A10_ProjectScopeAdditions  includes at least one of the following: HeatingSystemAddition, CoolingSystemAddition, or DuctSystemAddition.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if A13_ProjectScopeAdditions  includes at least one of the following: HeatingSystemAddition, CoolingSystemAddition, or DuctSystemAddition.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -1670,7 +1688,7 @@ and diagnostic testing then a CF1R-ADD-01 and a CF1R-ALT-02 shall be completed a
          <xsd:element name="Section_L" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Water Heating Systems (Section 150.2(a)1D)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required if A10_ProjectScopeAddition includes WaterHeatingAddition</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if A13_ProjectScopeAdditions includes WaterHeatingAddition</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -1734,8 +1752,21 @@ and diagnostic testing then a CF1R-ADD-01 and a CF1R-ALT-02 shall be completed a
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
+                                    <xsd:element name="L05_WaterHeaterFuelSource" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Fuel Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If L02_WaterHeatingSystemOption  == OptionSingleHWH Or OptionTier3SingleHWH result = WaterHeatingHP
+Else If L02_WaterHeatingSystemOption  == OptionElectPointOfUse result = Electricity</xsd:documentation>                                          
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="hvac:WaterHeaterFuelSource">
+                                             <xsd:enumeration value="Electricity"/>
+                                             <xsd:enumeration value="WaterHeatingHP"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="L05_TankLocation" >
+                                       <xsd:element name="L06_TankLocation" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Tank Location</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If L03_WaterHeatingSystemOption  == OptionSingleHWH Or OptionTier3SingleHWH user selects from list: Conditioned Or Garage; Else result = N/A stored in NotApplicableMessage.</xsd:documentation>
@@ -1747,14 +1778,14 @@ and diagnostic testing then a CF1R-ADD-01 and a CF1R-ALT-02 shall be completed a
                                              </xsd:restriction>
                                           </xsd:simpleType>
                                        </xsd:element>
-                                       <xsd:element name="L05_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                       <xsd:element name="L06_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Tank Location</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If L03_WaterHeatingSystemOption  == OptionSingleHWH Or OptionTier3SingleHWH user selects from list: Conditioned Or Garage; Else result = N/A stored in NotApplicableMessage.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="L06_ResidentialDHWDwellingUnitDistributionType" >
+                                    <xsd:element name="L07_ResidentialDHWDwellingUnitDistributionType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Distribution Type</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If L03_WaterHeatingSystemOption  == OptionElectPointOfUse result = PointOfUse Else result = StandardDistribution</xsd:documentation>

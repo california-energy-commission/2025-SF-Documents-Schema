@@ -304,7 +304,7 @@ End Switch</xsd:documentation>
                   <xsd:element name="C01" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Certified Low Leakage Air-Handling Unit</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The Low Leakage Air-handling Unit Model identified on this compliance document is included in the list of certified Low Leakage Air-Handling Units published on the Energy Commission Website at: http://www.energy.ca.gov/title24/equipment_cert/llahu/low_leakage_air_handling_units.pdf</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The Low Leakage Air-handling Unit Model identified on this compliance document is included in the list of certified Low Leakage Air-Handling Units published on the Energy Commission Website at: http://www.energy.ca.gov/rules-and-regulations/building-energy-efficiency/manufacturer-certification-building-equipment/low</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="C02" minOccurs="0">

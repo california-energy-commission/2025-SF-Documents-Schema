@@ -624,7 +624,7 @@ Filters and heat/energy cores behind access panels, access doors, or grilles loc
                               <xsd:element name="G_BeginNote1" minOccurs="0">
                                  <xsd:annotation>
                                     <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                                    <xsd:documentation source="AdditionalRequirements">Qualification Requirements for Ventilation Sstem Fault Indicator Displays are detailed in Appendix JA17.</xsd:documentation>
+                                    <xsd:documentation source="AdditionalRequirements">Qualification Requirements for Ventilation System Fault Indicator Displays are detailed in Appendix JA17.</xsd:documentation>
                                  </xsd:annotation>
                               </xsd:element>
                               <xsd:element name="G01_FID_ManufacturerNameMake" type="comp:FID_ManufacturerNameMake">
