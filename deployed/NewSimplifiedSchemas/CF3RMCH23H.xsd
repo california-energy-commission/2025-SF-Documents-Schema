@@ -644,9 +644,9 @@ result = true display term  System ventilation airflow rate complies. Else resul
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_H1" minOccurs="0" maxOccurs="1">
+         <xsd:element name="Section_H" minOccurs="1" maxOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Additional Requirements for All Systems</xsd:documentation>
+               <xsd:documentation source="FieldText">Additional Requirements</xsd:documentation>
                <xsd:documentation source="MinOccurs">Ths section is always requird and displayed</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -665,119 +665,61 @@ result = true display term  System ventilation airflow rate complies. Else resul
                   </xsd:element>
                   <xsd:element name="H03" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">All registers fully open</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">All registers were fully open during the diagnostic test.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="H04" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">System fan testing speed</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">System fan was set at maximum speed during the diagnostic test.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="H05" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Fresh Air Duct</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">If fresh air duct is part of the HVAC system it was not closed during the diagnostic test.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="H06" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Fan Efficacy tested value</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Airflow rate and fan watt draw shall be simultaneous measurements when used to calculate the Fan Efficacy tested value.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="H07_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">For Pass choice display text: Pass - all applicable requirements are met.  For Fail choice display text: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display text: All n/a - This entire table is not applicable</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="H08_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="HEndNote1" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="Section_H2" minOccurs="0" maxOccurs="1">
-            <xsd:annotation>
-               <xsd:documentation source="FieldText">Additional Requirements for Systems with Heating and Cooling</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">If A05 Nominal Cooling Capacity != N/A this section is required</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section title and the statement 'This section does not apply to this project.'</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="Hhc01" minOccurs="0">
-                     <xsd:annotation>
                         <xsd:documentation source="FieldText">Bypass Duct</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If A05 Nominal Cooling Capacity != N/A display this field</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">A visual inspection shall confirm that bypass ducts that deliver conditioned supply air directly to the space conditioning system return duct airflow are not used on 
                            <d:u> newly constructed</d:u> zonally controlled systems unless the Performance Certificate of Compliance indicates an allowance for use of a bypass duct.  When a bypass duct is accounted for on the Performance Certificate of Compliance, the airflow rate shall conform to the specifications listed on this document.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Hhc02" minOccurs="0">
+                  <xsd:element name="H04" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">All registers fully open</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">All registers were fully open during the diagnostic test.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H05" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">System fan testing speed</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">System fan was set at maximum speed during the diagnostic test.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H06" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Fresh Air Duct</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">If fresh air duct is part of the HVAC system it was not closed during the diagnostic test.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H07" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Fan Efficacy tested value</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Airflow rate and fan watt draw shall be simultaneous measurements when used to calculate the Fan Efficacy tested value.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H08" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Multi-speed compressor</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Multi-speed compressor space cooling systems or variable speed compressor systems with controls that vary fan speed subect to the number of zones, as certified by the installer may verify air flow (cfm/ton) and fan efficacy (Watt/cfm) with system operating at the maximum compressor capacity and system fan speed with all zones calling for conditioning.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Hhc03_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">For Pass choice display text: Pass - all applicable requirements are met.  For Fail choice display text: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display text: All n/a - This entire table is not applicable</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Hhc04_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="HhcEndNote1" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="Section_H3" minOccurs="0" maxOccurs="1">
-            <xsd:annotation>
-               <xsd:documentation source="FieldText">Additional Requirements for Altered Systems Using Alternative Compliance</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">If A04_ImprovementStatus == Alteration And A11_AirflowRateMeasurementProtocol == AirflowRateProtocolAlternativeCompliance this section is required</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section title and the statement 'This section does not apply to this project.'</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="Halt01" minOccurs="0">
+                  <xsd:element name="H09" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Alternative Compliance</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">For altered systems that do not comply with the minimum 300 cfm per ton airflow rate requirement but opt to comply using the remedial actions on this MCH-23 compliance document according to Section RA3.3.3.1.5, the system's thermostat shall conform to the specifications in Reference Joint Appendix JA5 and shall be capable of receiving and responding to Demand Response Signals prior to final approval of the building permit by the enforcing agency (Section 150.2(b)1Fia).</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Halt02_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements">
+                  <xsd:element name="H10_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">For Pass choice display text: Pass - all applicable requirements are met.  For Fail choice display text: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display text: All n/a - This entire table is not applicable</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Halt03_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element name="H11_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="HaltEndNote1" minOccurs="0">
+                  <xsd:element name="HEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
@@ -803,7 +745,7 @@ result = true display term  System ventilation airflow rate complies. Else resul
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="CalculationsAndRules">If  B01_HSPP_PSPP_ComplianceMethod =! HSPP_PSPP_NotInstalled; and C04_IsAirflowMeasurementDeviceCertified == true; and (Ems04_DoesForcedAirSystemAirflowRateComply Or Essz04_DoesForcedAirSystemAirflowRateComply Or Ealt04_DoesForcedAirSystemAirflowRateComply == true) 
-And If present D09_DoesForcedAirSystemPassAlternativeComplianceRequirements == true And If present F08_DoAllZonesComplyWithRequiredAirflowRate == true; And If present G03_DoesCentralFanVentilationCoolingSystemAirflowComply == true and H07_DoesSystemComplyWithRequirements == Pass or N/A And If present Hhc03_DoesSystemComplyWithRequirements == Pass or N/A And If present Halt02_DoesSystemComplyWithRequirements == Pass or N/A then result = true display term  Complies: All specified verification protocol requirements on this document are met;  Else result = false display term  Does not comply: One or more specified verification protocol requirements on this document are not met.</xsd:documentation>
+And If present D09_DoesForcedAirSystemPassAlternativeComplianceRequirements == true And If present F08_DoAllZonesComplyWithRequiredAirflowRate == true; And If present G03_DoesCentralFanVentilationCoolingSystemAirflowComply == true and H10_DoesSystemComplyWithRequirements == Pass or N/A then result = true display term  Complies: All specified verification protocol requirements on this document are met;  Else result = false display term  Does not comply: One or more specified verification protocol requirements on this document are not met.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>

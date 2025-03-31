@@ -50,7 +50,7 @@
    </xsd:element>
    <xsd:complexType name="CF3RENV20H">
       <xsd:annotation>
-         <xsd:documentation>Building Air Leakage Diagnostic Test - Building Enclosures and Dwelling Unit Enclosures - ENV20a Single Point Air Tightness Test With Manual Meter</xsd:documentation>
+         <xsd:documentation>Building Air Leakage Diagnostic Test - Building Enclosures and Dwelling Unit Enclosures</xsd:documentation>
       </xsd:annotation>
       <xsd:sequence>
          <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
@@ -640,100 +640,58 @@ End If </xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-	<xsd:choice maxOccurs="1">
-	   <xsd:element name="Section_G1" minOccurs="1">
-		<xsd:annotation>
-			<xsd:documentation source="FieldText">Additional Requirements For Single-Point Test Worksheet Compliance</xsd:documentation>
-			<xsd:documentation source="CalculationsAndRules">If A01_AirLeakageTestProcedure != MultiPointTest use this choice for Section G</xsd:documentation>
-		</xsd:annotation>
-		<xsd:complexType>
-			<xsd:sequence>
-				<xsd:element name="Gsp01" minOccurs="0">
-					<xsd:annotation>
-						<xsd:documentation source="FieldText"/>
-						<xsd:documentation source="AdditionalRequirements">The procedure for preparing the enclosure for testing is detailed in RESNET 380-2019 Section 4.2.</xsd:documentation>
-					</xsd:annotation>
-				</xsd:element>
-				<xsd:element name="Gsp02" minOccurs="0">
-					<xsd:annotation>
-						<xsd:documentation source="FieldText"/>
-						<xsd:documentation source="AdditionalRequirements">The procedure for installation of the test apparatus, and preparations for measurement shall conform to RESNET 380-2019 Section 4.3.</xsd:documentation>
-					</xsd:annotation>
-				</xsd:element>
-				<xsd:element name="Gsp03" minOccurs="0">
-					<xsd:annotation>
-						<xsd:documentation source="FieldText"/>
-						<xsd:documentation source="AdditionalRequirements">The procedure for the conduct of the enclosure air leakage test shall conform to the One-Point Airtightness Test specified in RESNET 380-2019 Section 4.4.1</xsd:documentation>
-					</xsd:annotation>
-				</xsd:element>
-                  		<xsd:element name="Gsp04_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements" >
-                     			<xsd:annotation>
-                       				<xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
-                        			<xsd:documentation source="CalculationsAndRules">For Pass choice display text: Pass - all applicable requirements are met.  For Fail choice display text: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display text: All n/a - This entire table is not applicable</xsd:documentation>
-                     			</xsd:annotation>
-                  		</xsd:element>
-                  		<xsd:element name="Gsp05_SectionCorrectionNotes" type="comp:SectionCorrectionNotes"  minOccurs="0">
-                     			<xsd:annotation>
-                      				<xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
-                        			<xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required</xsd:documentation>
-                     			</xsd:annotation>
-                  		</xsd:element>
-				<xsd:element name="GspEndNote1" minOccurs="0">
-					<xsd:annotation>
-						<xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-						<xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
-					</xsd:annotation>
-				</xsd:element>
-			</xsd:sequence>
-		</xsd:complexType>
+	 <xsd:element name="Section_G" minOccurs="0">
+	    <xsd:annotation>
+		<xsd:documentation source="FieldText">Additional Requirements For Compliance</xsd:documentation>
+		<xsd:documentation source="CalculationsAndRules">This section applies to all systems</xsd:documentation>
+	    </xsd:annotation>
+	    <xsd:complexType>
+		<xsd:sequence>
+		   <xsd:element name="G01" minOccurs="0">
+			<xsd:annotation>
+			   <xsd:documentation source="FieldText"/>
+			   <xsd:documentation source="AdditionalRequirements">The procedure for preparing the enclosure for testing is detailed in RESNET 380-2019 Section 4.2.</xsd:documentation>
+			</xsd:annotation>
+	          </xsd:element>
+	          <xsd:element name="G02" minOccurs="0">
+		     <xsd:annotation>
+			<xsd:documentation source="FieldText"/>
+			<xsd:documentation source="AdditionalRequirements">The procedure for installation of the test apparatus, and preparations for measurement shall conform to RESNET 380-2019 Section 4.3.</xsd:documentation>
+		     </xsd:annotation>
+		  </xsd:element>
+		  <xsd:element name="G03" minOccurs="0">
+		     <xsd:annotation>
+			<xsd:documentation source="FieldText"/>
+			<xsd:documentation source="AdditionalRequirements">The procedure for the conduct of the enclosure air leakage test shall conform to the One-Point Airtightness Test specified in RESNET 380-2019 Section 4.4.1</xsd:documentation>
+		     </xsd:annotation>
+		  </xsd:element>
+		  <xsd:element name="G04" minOccurs="0">
+		     <xsd:annotation>
+			<xsd:documentation source="FieldText"/>
+			<xsd:documentation source="AdditionalRequirements">The procedure for the conduct of the enclosure air leakage test shall conform to the Multi-Point Airtightness Test specified in RESNET 380-2019 Section 4.4.2</xsd:documentation>
+		     </xsd:annotation>
+		  </xsd:element>
+                  <xsd:element name="G05_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements" >
+                     <xsd:annotation>
+                       	<xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">For Pass choice display text: Pass - all applicable requirements are met.  For Fail choice display text: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display text: All n/a - This entire table is not applicable</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G06_SectionCorrectionNotes" type="comp:SectionCorrectionNotes"  minOccurs="0">
+                     <xsd:annotation>
+                      	<xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+		<xsd:element name="GEndNote1" minOccurs="0">
+		   <xsd:annotation>
+			<xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+			<xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+		   </xsd:annotation>
+		</xsd:element>  
+	     </xsd:sequence>
+	   </xsd:complexType>
 	</xsd:element>
-	<xsd:element name="Section_G2" minOccurs="1">
-		<xsd:annotation>
-			<xsd:documentation source="FieldText">Additional Requirements For Multi-Point Test Worksheet Compliance </xsd:documentation>
-			<xsd:documentation source="CalculationsAndRules">If A01_AirLeakageTestProcedure == MultiPointTest use this choice for Section G</xsd:documentation>
-		</xsd:annotation>
-		<xsd:complexType>
-			<xsd:sequence>
-				<xsd:element name="Gmp01" minOccurs="0">
-					<xsd:annotation>
-						<xsd:documentation source="FieldText"/>
-						<xsd:documentation source="AdditionalRequirements">The procedure for preparing the enclosure for testing is detailed in RESNET 380-2019 Section 4.2.</xsd:documentation>
-					</xsd:annotation>
-				</xsd:element>
-				<xsd:element name="Gmp02" minOccurs="0">
-					<xsd:annotation>
-						<xsd:documentation source="FieldText"/>
-						<xsd:documentation source="AdditionalRequirements">The procedure for installation of the test apparatus, and preparations for measurement shall conform to RESNET 380-2019 Section 4.3.</xsd:documentation>
-					</xsd:annotation>
-				</xsd:element>
-				<xsd:element name="Gmp03" minOccurs="0">
-					<xsd:annotation>
-						<xsd:documentation source="FieldText"/>
-						<xsd:documentation source="AdditionalRequirements">The procedure for the conduct of the enclosure air leakage test shall conform to the Multi-Point Airtightness Test specified in RESNET 380-2019 Section 4.4.2</xsd:documentation>
-					</xsd:annotation>
-				</xsd:element>
-                  		<xsd:element name="Gmp04_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements" >
-                     			<xsd:annotation>
-                       				<xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
-                        			<xsd:documentation source="CalculationsAndRules">For Pass choice display text: Pass - all applicable requirements are met.  For Fail choice display text: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display text: All n/a - This entire table is not applicable</xsd:documentation>
-                     			</xsd:annotation>
-                  		</xsd:element>
-                  		<xsd:element name="Gmp05_SectionCorrectionNotes" type="comp:SectionCorrectionNotes"  minOccurs="0">
-                     			<xsd:annotation>
-                      				<xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
-                        			<xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required</xsd:documentation>
-                     			</xsd:annotation>
-                  		</xsd:element>
-				<xsd:element name="GmpEndNote1" minOccurs="0">
-					<xsd:annotation>
-						<xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-						<xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
-					</xsd:annotation>
-				</xsd:element>
-			</xsd:sequence>
-		</xsd:complexType>
-	   </xsd:element>
-        </xsd:choice>
         <xsd:element name="Section_H" minOccurs="1">
             <xsd:annotation>
                 <xsd:documentation source="FieldText">Determination of ECC Verification Compliance</xsd:documentation>
@@ -750,8 +708,8 @@ End If </xsd:documentation>
                <xsd:element name="H01_DoesCF3R_Pass" type="comp:DoesCF3R_Pass" >
                 <xsd:annotation>
                     <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
-                    <xsd:documentation source="CalculationsAndRules">If B06 IsManometerCalibrationCurrent == false Or F01 DoesBuildingAirLeakageTestComply == false Or Gsp04 or Gmp04 DoesSystemComplyWithRequirements == Fail then the result is false,  display term:  Does not comply: One or more specified verification protocol requirements on this document are not met.  
-Else the result is true, display term:  Complies: All specified verification protocol requirements on this document are met.</xsd:documentation>
+                    <xsd:documentation source="CalculationsAndRules">If B06 IsManometerCalibrationCurrent != false Or F01 DoesBuildingAirLeakageTestComply != false Or G05 DoesSystemComplyWithRequirements != Fail then result is true, display term:  Complies: All specified verification protocol requirements on this document are met. 
+Else result is false,  display term:  Does not comply: One or more specified verification protocol requirements on this document are not met.  </xsd:documentation>
                 </xsd:annotation>
               </xsd:element>
             </xsd:sequence>

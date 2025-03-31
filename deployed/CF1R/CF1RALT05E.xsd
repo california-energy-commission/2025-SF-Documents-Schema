@@ -202,41 +202,26 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show table H1).</xs
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="B04_FramingSize" type="env:FramingSize">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Frame Depth (inches)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User selects from list: 2x4, 2x6, 2x8, 2x10, 2x12, 2x14 Else result = NA</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="B04_NotApplicableMessage" type="comp:NotApplicableMessage">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Frame Depth (inches)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User selects from list:  2x4, 2x6, 2x8, 2x10, 2x12, 2x14 Else result = NA</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                    </xsd:choice>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="B05_FramingSpacing">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Frame Spacing (inches)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User selects from list: 16 inches on center,  24 inches of center,  48 inches of center Else result = NA</xsd:documentation>
-                                          </xsd:annotation>
-                                          <xsd:simpleType>
-                                             <xsd:restriction base="env:FramingSpacing">
-                                                <xsd:enumeration value="16InchOC"/>
-                                                <xsd:enumeration value="24InchOC"/>
-                                                <xsd:enumeration value="48InchOC"/>
-                                             </xsd:restriction>
-                                          </xsd:simpleType>
-                                       </xsd:element>
-                                       <xsd:element name="B05_NotApplicableMessage" type="comp:NotApplicableMessage">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Frame Spacing (inches)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User selects from list: 16 inches on center, 24 inches of center, 48 inches on center Else result = NA</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                    </xsd:choice>
+                                    <xsd:element name="B04_FramingSize" type="env:FramingSize">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Frame Depth (inches)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list: 2x4, 2x6, 2x8, 2x10, 2x12, 2x14</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B05_FramingSpacing">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Frame Spacing (inches)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list: 16 inches on center,  24 inches of center,  48 inches of center</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="env:FramingSpacing">
+                                             <xsd:enumeration value="16InchOC"/>
+                                             <xsd:enumeration value="24InchOC"/>
+                                             <xsd:enumeration value="48InchOC"/>
+                                             <xsd:enumeration value="Other"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
                                     <xsd:element name="B06toB07SubHeading" minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">

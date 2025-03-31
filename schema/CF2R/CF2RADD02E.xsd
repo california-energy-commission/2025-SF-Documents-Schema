@@ -180,7 +180,7 @@ WaterHeating display term Water Heating (Show tables O, P)</xsd:documentation>
                                     <xsd:element name="B01_PartitionName" type="env:PartitionName" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">I.D.</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Pull date from CF1R-ADD-02</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="B02_ManufacturerBrand" type="env:ManufacturerBrand" >
@@ -314,7 +314,7 @@ WaterHeating display term Water Heating (Show tables O, P)</xsd:documentation>
                                     </xsd:element>
                                     <xsd:element name="C03_PartitionFramingMaterial" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Framing Material</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Framing Type</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02; allowed values are:  Metal or WoodFraming</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
@@ -324,34 +324,18 @@ WaterHeating display term Water Heating (Show tables O, P)</xsd:documentation>
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="C04_FramingSize" type="env:FramingSize" >
+                                    <xsd:element name="C04_FramingSize" type="env:FramingSize" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Frame Depth (inches)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02; allowed values are: 2x4, 2x6, 2x8, 2x10, 2x12, 2x14 Else result = NA</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02; allowed values are: 2x4, 2x6, 2x8, 2x10, 2x12, 2x14 </xsd:documentation>
                                           </xsd:annotation>
-                                       </xsd:element> 
-                                       <xsd:element name="C04_NotApplicableMessage" type="comp:NotApplicableMessage" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Frame Depth (inches)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02; allowed values are: 2x4, 2x6, 2x8, 2x10, 2x12, 2x14 Else result = NA</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                    </xsd:choice>
-                                    <xsd:choice maxOccurs="1">
-				       <xsd:element name="C05_FramingSpacing" type="env:FramingSpacing" >
+                                    </xsd:element> 
+				    <xsd:element name="C05_FramingSpacing" type="env:FramingSpacing" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Frame Spacing (inches)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02; allowed values are:  16 inches on center, 24 inches of center, 48 inches on center; Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02; allowed values are:  16 inches on center, 24 inches of center, 48 inches on center; </xsd:documentation>
                                           </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="C05_NotApplicableMessage" type="comp:NotApplicableMessage" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Frame Spacing (inches)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Data from CF1R, Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                    </xsd:choice>
+                                    </xsd:element>
                                     <xsd:element name="C06_InsulationType" type="env:InsulationType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Insulation Type</xsd:documentation>
@@ -436,13 +420,13 @@ WaterHeating display term Water Heating (Show tables O, P)</xsd:documentation>
                                     </xsd:element>
                                     <xsd:element name="D03_PartitionAboveGrade" type="env:PartitionAboveGrade" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Mass Wall Location</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Above or Below Grade?</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02; allowed values are: yes (true value) if wall is located above grade and No (false value) if wall is below grade</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="D04_MassWallThickness" type="env:MassWallThickness" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Mass Thickness (inches)</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Masonry/Mass Thickness (inches)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ADD-02; allowed value is a DecimalNonnegative</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -557,13 +541,13 @@ WaterHeating display term Water Heating (Show tables O, P)</xsd:documentation>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="E07_ICCESReportNumber" type="env:ICCESReportNumber" >
                                            <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Insulation Type</xsd:documentation>
+                                             <xsd:documentation source="FieldText">ESR Number</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If user is using a non-standard R-value for SPF insulation, complete an ICC Evaluation Service Report and record the ESR number here; Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="E07_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Core/Cavity Insulation R-value</xsd:documentation>
+                                             <xsd:documentation source="FieldText">ESR Number</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If user is using a non-standard R-value for SPF insulation, complete an ICC Evaluation Service Report and record the ESR number here; Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -1039,7 +1023,7 @@ WaterHeating display term Water Heating (Show tables O, P)</xsd:documentation>
                                     </xsd:element>
                                     <xsd:element name="L07_FenestrationCertificationMethod" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Source</xsd:documentation>
+                                          <xsd:documentation source="FieldText">U-factor Source</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User picks from list: NFRCRated display text: NFRC;    CECDefaultPerformance display text Tables 110.6-A and 110.6-B;    NA6Equations display text Equations NA 6-1 and NA 6 -2; and CF1R_ENV_02 display text: Area-weighted Average Worksheet (CF1R-ENV-02)</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
@@ -1068,7 +1052,7 @@ WaterHeating display term Water Heating (Show tables O, P)</xsd:documentation>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="L09_FenestrationCertificationMethod" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Source</xsd:documentation>
+                                             <xsd:documentation source="FieldText">SHGC Source</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If L08 == N/A result = N/A stored in NotApplicableMessage Else User picks from list: NFRCRated display text: NFRC;    CECDefaultPerformance display text Tables 110.6-A and 110.6-B;    NA6Equations display text Equations NA 6-1 and NA 6 -2; and CF1R_ENV_02 display text: Area-weighted Average Worksheet (CF1R-ENV-02)</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
@@ -1164,8 +1148,8 @@ WaterHeating display term Water Heating (Show tables O, P)</xsd:documentation>
                   <xsd:element name="NBeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Alterations to space conditioning systems shall be exempt from field verification requirements as prerequisite for use of the CF1R-ADD-02 and CF2R-ADD-02 compliance documents.  If new space conditioning systems are installed or existing systems are altered and are not exempt from field verification,
- then a CF1R-ADD-01 and a CF1R-ALT-02 shall be completed and registered with an ECC Provider Data Registry.  In each row below for each space conditioning system, check the box that indicates the exemption from ECC verification compliance: [d:l t="a"] [d:list]space conditioning system was not altered; [/d:list][d:list] less than 25 feet (ft) of ducts were added or replaced;[/d:list]
+                        <xsd:documentation source="AdditionalRequirements">Alterations to space conditioning systems shall be exempt from field verification and diagnostic testing requirements as prerequisite for use of the CF1R-ADD-02 and CF2R-ADD-02 compliance documents.  If new space conditioning systems are installed or existing systems are altered and are not exempt from field verification and diagnostic testing,
+ then a CF1R-ADD-01 and a CF1R-ALT-02 shall be completed and registered with an ECC Provider Data Registry.  In each row below for each space conditioning system, check the box that indicates the exemption from ield verification compliance: [d:l t="a"] [d:list]space conditioning system was not altered; [/d:list][d:list] less than 25 feet (ft) of ducts were added or replaced;[/d:list]
 [d:list](exempt from duct leakage testing) if: the existing duct system was insulated with asbestos; [/d:list] [d:list](exempt from duct leakage testing) if: the existing duct system was previously tested and passed by an ECC Rater.[/d:list][/d:l]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>

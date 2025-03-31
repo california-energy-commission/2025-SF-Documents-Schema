@@ -27,7 +27,7 @@
                <xsd:complexType>
                   <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="NRCVMCH24H"/>
                   <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF VERIFICATION"/>
-                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Building Air Leakage Diagnostic Test Worksheet - Building Enclosures and Dwelling Unit Enclosures"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Building Air Leakage Diagnostic Test - Building Enclosures and Dwelling Unit Enclosures"/>
                </xsd:complexType>
             </xsd:element>
             <xsd:element name="Payload" type="comp:Payload"/>
@@ -696,66 +696,38 @@ Else If  A03_CompartmentilizationLeakageVerificationRequiredHERS == true Then If
             </xsd:complexType>
          </xsd:element>
 	 <xsd:choice maxOccurs="1">
-         <xsd:element name="Section_G1" minOccurs="0">
+         <xsd:element name="Section_G" minOccurs="0">
             <xsd:annotation>
-		<xsd:documentation source="FieldText">Additional Requirements For Worksheet Compliance</xsd:documentation>
-		<xsd:documentation source="CalculationsAndRules">If A01_AirLeakageTestProcedure != MultiPointTest use this section G</xsd:documentation>
+		<xsd:documentation source="FieldText">Additional Requirements For Test Compliance</xsd:documentation>
+		<xsd:documentation source="CalculationsAndRules">This section applies to all systems</xsd:documentation>
            </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="Gsp01" minOccurs="0">
+                  <xsd:element name="G01" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The procedure for preparing the enclosure for testing is detailed in RESNET 380-2019 Section 4.2.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Gsp02" minOccurs="0">
+                  <xsd:element name="G02" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">When multifamily attached dwelling units must comply with the maximum dwelling unit enclosure air leakage specified in Standards Section 160.2(b)2Aivb2, the test shall be conducted with the dwelling unit as if it were exposed to the outdoor air on all sides, top and bottom by opening doors and windows of adjacent dwelling units as specified by NA7.18.2.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Gsp03" minOccurs="0">
+                  <xsd:element name="G03" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The test procedure for installation of the test apparatus, and preparations for measurement shall conform to RESNET 380-2019 Section 4.3</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Gsp04" minOccurs="0">
+                  <xsd:element name="G04" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The procedure for the conduct of the enclosure air leakage test shall conform to the One-Point Airtightness Test specified in RESNET 380-2019 Section 4.4.1</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="Section_G2" minOccurs="0">
-            <xsd:annotation>
-		<xsd:documentation source="FieldText">Additional Requirements For Worksheet Compliance</xsd:documentation>
-		<xsd:documentation source="CalculationsAndRules">If A01_AirLeakageTestProcedure == MultiPointTest use this section G</xsd:documentation>
-           </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="Gmp01" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The procedure for preparing the enclosure for testing is detailed in RESNET 380-2019 Section 4.2.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Gmp02" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">When multifamily attached dwelling units must comply with the maximum dwelling unit enclosure air leakage specified in Standards Section 160.2(b)2Aivb2, the test shall be conducted with the dwelling unit as if it were exposed to the outdoor air on all sides, top and bottom by opening doors and windows of adjacent dwelling units as specified by NA7.18.2.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Gmp03" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The test procedure for installation of the test apparatus, and preparations for measurement shall conform to RESNET 380-2019 Section 4.3</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Gmp04" minOccurs="0">
+                  <xsd:element name="G05" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The procedure for the conduct of the enclosure air leakage test shall conform to the Multi-Point Airtightness Test specified in RESNET 380-2019 Section 4.4.2</xsd:documentation>

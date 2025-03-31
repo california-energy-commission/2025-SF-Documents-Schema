@@ -285,34 +285,18 @@ All joints, penetrations and other openings in the building envelope that are po
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="C04_FramingSize" type="env:FramingSize">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Frame Depth (inches)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-AAL-05 which may be N/A;  allowed values are: 2x4, 2x6, 2x8, 2x10, 2x12, 2x14</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="C04_NotApplicableMessage" type="comp:NotApplicableMessage">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Frame Depth (inches)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ALT-05 which may be N/A;</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                    </xsd:choice>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="C05_FramingSpacing" type="env:FramingSpacing">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Frame Spacing (inches)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ALT-05 which may be N/A; allowed values are 16 inches on center,  24 inches of center,  48 inches of center</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="C05_NotApplicableMessage" type="comp:NotApplicableMessage">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Frame Spacing (inches)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ALT-05 which may be N/A</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                    </xsd:choice>
+                                    <xsd:element name="C04_FramingSize" type="env:FramingSize">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Frame Depth (inches)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ALT-05 allowed values are: 2x4, 2x6, 2x8, 2x10, 2x12, 2x14</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C05_FramingSpacing" type="env:FramingSpacing">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Frame Spacing (inches)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Pull data from the CF1R-ALT-05 allowed values are 16 inches on center,  24 inches of center,  48 inches of center</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
                                     <xsd:element name="C06_InsulationType" type="env:InsulationType">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Insulation Type</xsd:documentation>
@@ -397,7 +381,7 @@ All joints, penetrations and other openings in the building envelope that are po
                                     </xsd:element>
                                     <xsd:element name="D03_PartitionAboveGrade" type="env:PartitionAboveGrade">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Mass Wall Location</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Above or Below Grade?</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects yes (true value) if wall is located above grade or No (false value) if wall is below grade</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
