@@ -1,0 +1,1466 @@
+<?xml version="1.0" ?>
+<xs:schema xmlns:ns1="http://www.lmonte.com/besm/d" xmlns:ns2="http://www.lmonte.com/besm/dtyp" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/NRCVMCH27H" version="2025.0.000">
+   
+   
+   <xs:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   
+   
+   <xs:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   
+   
+   <xs:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   
+   
+   <xs:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   
+   
+   <xs:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   
+   
+   <xs:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   
+   
+   <xs:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   
+   
+   <xs:element name="ComplianceDocumentPackage">
+      
+      
+      <xs:complexType>
+         
+         
+         <xs:sequence>
+            
+            
+            <xs:element minOccurs="0" name="DocID">
+               
+               
+               <xs:complexType>
+                  
+                  
+                  <xs:attribute fixed="NRCVMCH27H" name="doc" type="comp:ComplianceDocumentTag"/>
+                  
+                  
+                  <xs:attribute fixed="CERTIFICATE OF VERIFICATION" name="docType" type="comp:ComplianceDocumentType"/>
+                  
+                  
+                  <xs:attribute fixed="Indoor Air Quality and Mechanical Ventilation" name="docTitle" type="comp:ComplianceDocumentTitleRes"/>
+                  
+               
+               </xs:complexType>
+               
+            
+            </xs:element>
+            
+            
+            <xs:element name="Payload" type="comp:Payload"/>
+            
+            
+            <xs:element name="DocumentData">
+               
+               
+               <xs:complexType>
+                  
+                  
+                  <xs:sequence>
+                     
+                     
+                     <xs:element name="Header" type="comp:HeaderHERS"/>
+                     
+                     
+                     <xs:element ref="nRCVMCH27H"/>
+                     
+                     
+                     <xs:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     
+                     
+                     <xs:element name="RespPerson" type="comp:ResponsiblePersonNRCV"/>
+                     
+                     
+                     <xs:element name="Footer" type="comp:Footer"/>
+                     
+                  
+                  </xs:sequence>
+                  
+               
+               </xs:complexType>
+               
+            
+            </xs:element>
+            
+            
+            <xs:element name="Report" type="xsd:base64Binary"/>
+            
+         
+         </xs:sequence>
+         
+         
+         <xs:attribute fixed="rev 20250101" name="revision" type="xsd:string" use="required"/>
+         
+         
+         <xs:attribute fixed="NRCVMCH27H" name="doc" type="comp:ComplianceDocumentTag" use="required"/>
+         
+      
+      </xs:complexType>
+      
+   
+   </xs:element>
+   
+   
+   <xs:complexType name="NRCVMCH27H">
+      
+      
+      <xs:annotation>
+         
+         
+         <xs:documentation>Indoor Air Quality and Mechanical Ventilation </xs:documentation>
+         
+      
+      </xs:annotation>
+      
+      
+      <xs:sequence>
+         
+         
+         <xs:element maxOccurs="1" minOccurs="1" name="Section_A">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">Whole Dwelling Mechanical Ventilation - General Information</xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">This section is required.</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element minOccurs="0" name="A_BeforeNote1">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Before Section Note 1</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">
+                           Title 24, Part 6, Section 160.2(b)2 
+                           <ns1:b> Ventilation and Indoor Air Quality for Attached Dwelling Units</ns1:b>
+                            Ventilation. All dwelling units shall meet the requirements of ANSI/ASHRAE Standard 62.2.-2022 Ventilation and Acceptable Indoor Air Quality in Low-Rise Residential Buildings subject to amendments specified by Title 24, Part 6 Section 160.2(b)2A
+                        </xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="A01_DwellingUnitName" type="com:DwellingUnitName">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Dwelling unit name</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User input text maximum 50 characters</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element fixed="HighRiseResidential" name="A02_WholeBuildingOccupancy" type="com:WholeBuildingOccupancy">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Building Type</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Calculated field: Fixed value HighRiseResidential</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="A03_ProjectScopeNR">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Project scope</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User selects from list: New, Addition, Alteration</xs:documentation>
+                        
+                        
+                        <xs:appinfo source="displayterm">
+                           
+                           
+                           <ns2:displayterm value="ExistingAddition">Addition</ns2:displayterm>
+                           
+                           
+                           <ns2:displayterm value="ExistingAlteration">Alteration</ns2:displayterm>
+                           
+                           
+                           <ns2:displayterm value="NewComplete">New</ns2:displayterm>
+                           
+                        
+                        </xs:appinfo>
+                        
+                        
+                     
+                     </xs:annotation>
+                     
+                     
+                     <xs:simpleType>
+                        
+                        
+                        <xs:restriction base="comp:ProjectScopeNR">
+                           
+                           
+                           <xs:enumeration value="ExistingAddition"/>
+                           
+                           
+                           <xs:enumeration value="ExistingAlteration"/>
+                           
+                           
+                           <xs:enumeration value="NewComplete"/>
+                           
+                        
+                        </xs:restriction>
+                        
+                     
+                     </xs:simpleType>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="A04_DwellingUnitConditionedFloorArea" type="com:DwellingUnitConditionedFloorArea">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Total Conditioned Floor Area of Dwelling Unit</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">(For addition projects the conditioned floor area equals existing area plus addition area. )</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User input integer</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="A05_BedroomCount" type="com:BedroomCount">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Number of Bedrooms in Dwelling Unit</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">(For addition projects the number of bedrooms equals the existing bedrooms plus addition bedrooms)</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User input integer</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="A06_VentilationSystemType" type="hvac:VentilationSystemType">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Ventilation System Type</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User picks one from list of following values: Balanced display term Balanced, BalancedCentralVent display term Central Ventilation System - Balanced, BalancedERV display term Balanced ERV, BalancedHRV display term Balanced HRV, CentralFanIntegrated display term Central Fan Integrated (CFI), ExhaustCentralVent display term Central Ventilation System - Exhaust, ExhaustVent display term Exhaust, SupplyCentralVent display term Ventilation System - Supply, SupplyVent display term Supply</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="A07_VentilationOperationSchedule">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Ventilation Operation Schedule</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User picks from list: ContinuousVentilation, display term: Continuous display term Continuous, ShortTermAverage display term Short Term Average;  If result = Continuous And A06_VentilationSystemType ==CentralFanIntegrated, Display message Central Fan Integrated Ventilation System Not Allowed to Operate Continuously - Do Not Proceed</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                     
+                     <xs:simpleType>
+                        
+                        
+                        <xs:restriction base="hvac:VentilationOperationSchedule">
+                           
+                           
+                           <xs:enumeration value="Continuous"/>
+                           
+                           
+                           <xs:enumeration value="ShortTermAverage"/>
+                           
+                        
+                        </xs:restriction>
+                        
+                     
+                     </xs:simpleType>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="A08_FaultIndicatorDisplayStatus" type="comp:FaultIndicatorDisplayStatus">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Fault Indicator Display (FID) Status </xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">auto filled from LMCI; Possible values: FactoryInstalledFID display text: This system has a factory installed FID,   FieldInstalledFID display text: This system has a field installed FID; NoInstalledFID display text: This system does not have a FID device installed.  If installed system doesn't match value from CF2R, it can be overwritten by rater but it will be flagged as a possible fail</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="AEndNote1">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText"/>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">
+                           Note: 
+                           <ns1:line1/>
+                           Non-dwelling units do not meet the definition for a dwelling unit as defined in Section 100.1(b).  Non-dwelling units are not designed to provide independent living facilities and do not provide permanent provisions for living, sleeping, eating, cooking and sanitation.
+                        </xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+               
+               </xs:sequence>
+               
+            
+            </xs:complexType>
+            
+         
+         </xs:element>
+         
+         
+         <xs:element maxOccurs="1" minOccurs="1" name="Section_B">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">Ventilation - Total Ventilation Rate </xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">This section is required.</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element minOccurs="0" name="B_BeginNote1">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Begin Note 1</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">A mechanical supply system, exhaust system or combination thereof shall provide whole-dwelling ventilation with outdoor air each hour at no less than the rate in 160.2(b)2Aiv</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="B01_MinimumAirflowRateRequired" type="comp:MinimumAirflowRateRequired">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">
+                           Total Required Ventilation rate, (Q
+                           <ns1:sub>tot</ns1:sub>
+                           )
+                        </xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Calculated field: (use equation 160.2-B)  result = [PRODUCT(0.03, A04_DwellingUnitConditionedFloorArea ) + PRODUCT (7.5, A05_BedroomCount + 1)], (CFM)</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+               
+               </xs:sequence>
+               
+            
+            </xs:complexType>
+            
+         
+         </xs:element>
+         
+         
+         <xs:element maxOccurs="1" minOccurs="1" name="Section_C">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">Installed  Ventilation - Total Ventilation Rate</xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">This section is required.</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element minOccurs="0" name="C_BeginNote1">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText"/>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">A mechanical supply system, exhaust system, or combination thereof shall provide whole-dwelling ventilation with outdoor air each hour at no less than the rate in 160.2(b)2Aiv</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="TableVentilation">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText"/>
+                        
+                     
+                     </xs:annotation>
+                     
+                     
+                     <xs:complexType>
+                        
+                        
+                        <xs:sequence>
+                           
+                           
+                           <xs:element maxOccurs="unbounded" minOccurs="1" name="Row">
+                              
+                              
+                              <xs:complexType>
+                                 
+                                 
+                                 <xs:sequence>
+                                    
+                                    
+                                    <xs:element name="C01_IAQ_VentilationFanName" type="hvac:IAQ_VentilationFanName">
+                                       
+                                       
+                                       <xs:annotation>
+                                          
+                                          
+                                          <xs:documentation source="FieldText">Fan Name</xs:documentation>
+                                          
+                                          
+                                          <xs:documentation source="CalculationsAndRules">User input text</xs:documentation>
+                                          
+                                       
+                                       </xs:annotation>
+                                       
+                                    
+                                    </xs:element>
+                                    
+                                    
+                                    <xs:element name="C02_IAQ_FanLocation" type="hvac:IAQ_FanLocation">
+                                       
+                                       
+                                       <xs:annotation>
+                                          
+                                          
+                                          <xs:documentation source="FieldText">Fan Location</xs:documentation>
+                                          
+                                          
+                                          <xs:documentation source="CalculationsAndRules">User input text</xs:documentation>
+                                          
+                                       
+                                       </xs:annotation>
+                                       
+                                    
+                                    </xs:element>
+                                    
+                                    
+                                    <xs:element name="C03_VentilationOperationRuntime" type="hvac:VentilationOperationRuntime">
+                                       
+                                       
+                                       <xs:annotation>
+                                          
+                                          
+                                          <xs:documentation source="FieldText">Runtime (min/hr)</xs:documentation>
+                                          
+                                          
+                                          <xs:documentation source="CalculationsAndRules">Calculated field: If A07__VentilationOperationSchedule == Continuous result = 60; Else If A07__VentilationOperationSchedule == ShortTermAverage, user input postive integer LTE 60.</xs:documentation>
+                                          
+                                       
+                                       </xs:annotation>
+                                       
+                                    
+                                    </xs:element>
+                                    
+                                    
+                                    <xs:element name="C04_MechanicalVentilationInstalledRate" type="comp:MechanicalVentilationInstalledRate">
+                                       
+                                       
+                                       <xs:annotation>
+                                          
+                                          
+                                          <xs:documentation source="FieldText">Installed Mechanical Ventilation Rate (CFM)</xs:documentation>
+                                          
+                                          
+                                          <xs:documentation source="CalculationsAndRules">User input positive integer</xs:documentation>
+                                          
+                                       
+                                       </xs:annotation>
+                                       
+                                    
+                                    </xs:element>
+                                    
+                                    
+                                    <xs:element name="C05_ContinuousAirflowRateInstalled" type="hvac:ContinuousAirflowRateInstalled">
+                                       
+                                       
+                                       <xs:annotation>
+                                          
+                                          
+                                          <xs:documentation source="FieldText">Equivalent Continuous Ventilation (CFM)</xs:documentation>
+                                          
+                                          
+                                          <xs:documentation source="CalculationsAndRules">Calculated field: result = PRODUCT (C03_VentilationOperationRuntime, (C04_MechanicalVentilationInstalledRate / 60)) CFM.</xs:documentation>
+                                          
+                                       
+                                       </xs:annotation>
+                                       
+                                    
+                                    </xs:element>
+                                    
+                                 
+                                 </xs:sequence>
+                                 
+                              
+                              </xs:complexType>
+                              
+                           
+                           </xs:element>
+                           
+                        
+                        </xs:sequence>
+                        
+                     
+                     </xs:complexType>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="C06_TotalContinuousAirflowRateInstalled" type="hvac:TotalContinuousAirflowRateInstalled">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Total Installed Continuous Ventilation (CFM)</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Calculated field: result = SUM ALL (C05_ContinuousAirflowRateInstalled)</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+               
+               </xs:sequence>
+               
+            
+            </xs:complexType>
+            
+         
+         </xs:element>
+         
+         
+         <xs:element minOccurs="0" name="Section_D">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">Additional Envelope Requirements</xs:documentation>
+               
+               
+               <xs:documentation source="CalculationsAndRules">This section is required if A06_VentilationSystemType  == SupplyVent , ExhaustVent, CentralFanIntegrated, SupplyCentralVent Or ExhaustCentralVent</xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element name="D01_AirLeakageRateMeasuredCFM50" type="comp:AirLeakageRateMeasuredCFM50">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Envelope Leakage</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Calculated field: Reference data from NRCV-MCH-24 AirLeakageRateMeasuredCFM50</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+               
+               </xs:sequence>
+               
+            
+            </xs:complexType>
+            
+         
+         </xs:element>
+         
+         
+         <xs:element minOccurs="0" name="Section_E">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">Additional Central Ventilation System Balancing Requirements</xs:documentation>
+               
+               
+               <xs:documentation source="CalculationsAndRules">This section is required if A06_VentilationSystemType  == SupplyCentralVent, ExhaustCentralVent Or BalancedCentralVent</xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element name="E01_MaximumAirflowRate" type="comp:MaximumAirflowRate">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Maximum Ventilation Flow (CFM)</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Calculated field: result = PRODUCT (B01_MinimumAirflowRateRequired, 1.20)</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+               
+               </xs:sequence>
+               
+            
+            </xs:complexType>
+            
+         
+         </xs:element>
+         
+         
+         <xs:element minOccurs="0" name="Section_F">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">HRV or ERV Serving Individual Dwelling Unit</xs:documentation>
+               
+               
+               <xs:documentation source="CalculationsAndRules">This section is required If A06_VentilationSystemType == BalancedERV Or  BalancedHRV</xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element minOccurs="0" name="HErvBeginNote1">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText"/>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">
+                           Heat or Energy Recovery Systems must have a fan efficacy of 
+                           <ns1:lte/>
+                            1.0 W/cfm in all climate zones (Section 160.2(b)2Biii)
+
+Heat or Energy Recovery Systems must prescriptively have a fan efficacy of 
+                           <ns1:lte/>
+                            0.6 W/cfm and a minimum sensible heat recovery of 67% in climate zones 1, 2, 4, 11-14 and 16 (Section 170.2(c)3Biva)
+                        </xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="TableHrvErv">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText"/>
+                        
+                     
+                     </xs:annotation>
+                     
+                     
+                     <xs:complexType>
+                        
+                        
+                        <xs:sequence>
+                           
+                           
+                           <xs:element maxOccurs="unbounded" minOccurs="1" name="Row">
+                              
+                              
+                              <xs:complexType>
+                                 
+                                 
+                                 <xs:sequence>
+                                    
+                                    
+                                    <xs:element name="Herv01_VentilationManufacturer" type="hvac:VentilationManufacturer">
+                                       
+                                       
+                                       <xs:annotation>
+                                          
+                                          
+                                          <xs:documentation source="FieldText">Manufcturer Make</xs:documentation>
+                                          
+                                          
+                                          <xs:documentation source="CalculationsAndRules">User input</xs:documentation>
+                                          
+                                       
+                                       </xs:annotation>
+                                       
+                                    
+                                    </xs:element>
+                                    
+                                    
+                                    <xs:element name="Herv02_VentilationModelNumber" type="hvac:VentilationModelNumber">
+                                       
+                                       
+                                       <xs:annotation>
+                                          
+                                          
+                                          <xs:documentation source="FieldText">Manufcturer Model Number</xs:documentation>
+                                          
+                                          
+                                          <xs:documentation source="CalculationsAndRules">User input</xs:documentation>
+                                          
+                                       
+                                       </xs:annotation>
+                                       
+                                    
+                                    </xs:element>
+                                    
+                                    
+                                    <xs:element name="Herv03_FanPowerPerFlow" type="hvac:FanPowerPerFlow">
+                                       
+                                       
+                                       <xs:annotation>
+                                          
+                                          
+                                          <xs:documentation source="FieldText">Fan Efficacy Performance Rating (W/CFM)</xs:documentation>
+                                          
+                                          
+                                          <xs:documentation source="CalculationsAndRules">User input Check that result is in acceptable range as follows:
+If complying prescriptively And A09_ClimateZone == 1 Or 2 Or 4 Or InRange(11,14) Or 16 check that result LTE 0.6 Else check that result LTE 1.0 End If</xs:documentation>
+                                          
+                                       
+                                       </xs:annotation>
+                                       
+                                    
+                                    </xs:element>
+                                    
+                                    
+                                    <xs:element name="Herv04_SensibleRecoveryEfficiency" type="hvac:SensibleRecoveryEfficiency">
+                                       
+                                       
+                                       <xs:annotation>
+                                          
+                                          
+                                          <xs:documentation source="FieldText">Sensible Recovery Efficiency (%)</xs:documentation>
+                                          
+                                          
+                                          <xs:documentation source="CalculationsAndRules">User input  Check that result is in acceptable range as follows:
+If complying prescriptively And A09_ClimateZone == 1 Or 2 Or 4 Or InRange(11,14) Or 16 check that result GTE 67% End If</xs:documentation>
+                                          
+                                       
+                                       </xs:annotation>
+                                       
+                                    
+                                    </xs:element>
+                                    
+                                 
+                                 </xs:sequence>
+                                 
+                              
+                              </xs:complexType>
+                              
+                           
+                           </xs:element>
+                           
+                        
+                        </xs:sequence>
+                        
+                     
+                     </xs:complexType>
+                     
+                  
+                  </xs:element>
+                  
+               
+               </xs:sequence>
+               
+            
+            </xs:complexType>
+            
+         
+         </xs:element>
+         
+         
+         <xs:element minOccurs="0" name="Section_G">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">Requirements for Balanced and Supply Only Ventialtion Systems (160.0(b)2Axi)</xs:documentation>
+               
+               
+               <xs:documentation source="CalculationsAndRules">The section is required if FaultIndicatorDisplayStatus in section A equals FactoryInstalledFID or FieldInstalledFID.</xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element minOccurs="0" name="G_BeginNote1">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Begin Note 1</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">Balanced and supply ventilation component accessibility.  Balanced and supply ventilation systems shall meet the following requirements for accessibility:</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="G01">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">IAQ Filter and HRV/ERV</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">
+                           IAQ filter and HRV/ERV accessibility. System air filters ad HRV/ERV heat/energy recovery cores shall be located such that they are accessible for service from within occupiable spaces, basements, garages, balconies, mechanical closets or accessible rooftops.
+Filters and heat/energy recovery cores behind access panels, access doors, or grilles located no more than 10 feet above a walking surface inside a space specified above comply with this requirement.  
+                           <ns1:line1/>
+                           <ns1:b>Exception to Section 160.2(b)2Axia:</ns1:b>
+                            Systems that require servicing from inside the attic shall have the following:
+
+                           <ns1:l t="#">
+                              <ns1:list> A Fault Indicator Display (FID) meeting the requirements of Reference Appendix JA17 and </ns1:list>
+                              <ns1:list> An attic access door located in a wall or , where attic access is provided through a ceiling, an attic access hatch that includes an integrated ladder; and </ns1:list>
+                              <ns1:list> A walkway from the attic access door to the HRV/ERV. </ns1:list>
+                           </ns1:l>
+                            
+                        </xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="G02">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">IAQ Accessibility</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">IAQ system component accessibility. Fans, motors, heat exchangers, filters and recovery cores shall meet all applicable requirements of California Mechanical Code 304.0 accessibility of service.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="GEndNote1">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">End Note 1</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+               
+               </xs:sequence>
+               
+            
+            </xs:complexType>
+            
+         
+         </xs:element>
+         
+         
+         <xs:element minOccurs="0" name="Section_H">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">Fault Indicator Display Installation Verification</xs:documentation>
+               
+               
+               <xs:documentation source="CalculationsAndRules">The section is required if If FaultIndicatorDisplayStatus in section A equals FactoryInstalledFID or FieldInstalledFID.</xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element minOccurs="0" name="H_BeginNote1">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Begin Note 1</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">Procedures for the System Fault Indicator Display Verification are detailed in Appendix JA17.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="H01_FID_ManufacturerNameMake" type="comp:FID_ManufacturerNameMake">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">FID Manufacturer Name/Make</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User input; This FID name or make must be on list of approved devices</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="H02_FID_ModelNumber" type="comp:FID_ModelNumber">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">FID Model Number</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User input; This FID model number must be on list of approved devices</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="H03_IsFID_MountedAdjacentThermostat" type="comp:IsFID_MountedAdjacentThermostat">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">The display module is mounted adjacent to the system thermostat</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User selects Yes or No; If user selects Yes and confirms this is true, report a pass else report a fail and do not proceed</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="H04_DoesFID_MeetJA6Requirements" type="comp:DoesFID_MeetJA6Requirements">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">The manufacturer has certified to the Energy Commission that the FID model meets the requirements of Reference Joint Appendix JA17 (Make and model found on CEC list of approved FID devices)</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User selects Yes or No; If user selects Yes and confirms this is true, report a pass else report a fail and do not proceed</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="H05_DoesFID_ReportOperationWithinAcceptableParameters" type="comp:DoesFID_ReportOperationWithinAcceptableParameters">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">The system has operated for at least 15 minutes and the FID reports that the system is operating within acceptable parameters.</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User selects Yes or No; If user selects Yes and confirms this is true, report a pass else report a fail and do not proceed</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="H06_IsFID_Compliant" type="comp:IsFID_Compliant">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Compliance Statement:</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">If IsFID_MountedAdjacentThermostat is true and DoesFID_MeetJA6Requirements is true and DoesFID_ReportOperationWithinAcceptableParameters is true then result is true.  For Boolean true value display text: FID complies.  Else result is false.  For Boolean false value display text: FID does NOT comply.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+               
+               </xs:sequence>
+               
+            
+            </xs:complexType>
+            
+         
+         </xs:element>
+         
+         
+         <xs:element minOccurs="0" name="Section_I">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">Fault Indicator Display - Additional Requirements</xs:documentation>
+               
+               
+               <xs:documentation source="CalculationsAndRules">The section is required if FaultIndicatorDisplayStatus in section A equals FactoryInstalledFID or FieldInstalledFID.</xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element minOccurs="0" name="I_BeginNote1">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Begin Note 1</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="I01">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">FID Factory or Field Installed</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">Fault indicator display devices shall either be factory installed by the space-conditioning system manufacturer, or field installed according to the space-conditioning system manufacturer requirements and the FID manufacturer specifications.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="I02">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">FID Manufacturer User Instructions</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">The installer shall ensure that a copy of the FID manufacturer's user instructions documentation has been made available to the building owner.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+               
+               </xs:sequence>
+               
+            
+            </xs:complexType>
+            
+         
+         </xs:element>
+         
+         
+         <xs:element minOccurs="1" name="Section_J">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">Compliance Statement</xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">This section is required.</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element name="J01_MechanicalVentilationCompliance" type="comp:MechanicalVentilationCompliance">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText"/>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">If  A06_VentilationSystemType == Balanced, BalancedERV Or  BalancedHRV  And C06_TotalContinuousAirflowRateInstalled GTE B01_MinimumAirflowRateRequired 
+result = BuildingPassesRateTest display term Building Passes Mechanical Ventilation RateTest; 
+
+Else If  A06_VentilationSystemType == BalancedCentralVent And C06_TotalContinuousAirflowRateInstalled GTE B01_MinimumAirflowRateRequired And C06_TotalContinuousAirflowRateInstalled LTE E01_MaximumAirflowRate 
+result = BuildingPassesRateTest display term Building Passes Mechanical Ventilation RateTest;
+
+ Else If  A06_VentilationSystemType == SupplyVent, ExhaustVent, CentralFanIntegrated And C06_TotalContinuousAirflowRateInstalled GTE B01_MinimumAirflowRateRequired And D01_AirLeakageRateMeasuredCFM50 LTE NRCV-Mch24 CompartmentalizationLeakageTargetCFM50 
+result = BuildingPassesRateTest display term Building Passes Mechanical Ventilation RateTest; 
+
+Else If  A06_VentilationSystemType == SupplyCentralVent Or ExhaustCentralVent And C06_TotalContinuousAirflowRateInstalled GTE B01_MinimumAirflowRateRequired And D01_AirLeakageRateMeasuredCFM50 LTE NRCV-Mch24 CompartmentalizationLeakageTargetCFM50 And C06_TotalContinuousAirflowRateInstalled LTE E01_MaximumAirflowRate 
+result = BuildingPassesRateTest display term Building Passes Mechanical Ventilation RateTest; 
+Else result = BuildingFailsRateTest display term Building Fails Mechanical Ventilation RateTest
+End If</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+               
+               </xs:sequence>
+               
+            
+            </xs:complexType>
+            
+         
+         </xs:element>
+         
+         
+         <xs:element maxOccurs="1" minOccurs="1" name="Section_K">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">Determination of HERS Verification Compliance</xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">This section is required.</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element minOccurs="0" name="K_BeginNote1">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Begin Note 1</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">All applicable sections of this document shall indicate compliance with the specified verification protocol requirements in order for this Certificate of Verification as a whole to be determined to be in compliance.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="K01_DoesCF3R_Pass" type="comp:DoesCF3R_Pass">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText"/>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">If J01_MechanicalVentilationCompliance == BuildingPassesRateTest  result =  true  display term Complies: All specified verification protocol requirements on this document are met. Else result = false display term: Does not comply: One or more specified verification protocol requirements on this document are not met.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+               
+               </xs:sequence>
+               
+            
+            </xs:complexType>
+            
+         
+         </xs:element>
+         
+      
+      </xs:sequence>
+      
+   
+   </xs:complexType>
+   
+   
+   <xs:element name="nRCVMCH27H" type="NRCVMCH27H">
+      
+      
+      <xs:annotation>
+         
+         
+         <xs:documentation>This element contains all of the data and text required to generate the NRCVMCH27H compliance report.</xs:documentation>
+         
+      
+      </xs:annotation>
+      
+   
+   </xs:element>
+   
+
+</xs:schema>
