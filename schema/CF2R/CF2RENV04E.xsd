@@ -341,7 +341,7 @@
                   <xsd:element name="F03" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">California certified insulation materials</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The product shall meet all requirements for California certified insulation materials (radiant barriers) of the Department of Consumer Affairs, Bureau of Household Goods and Services, as specified by California Referenced Standards Code (CCR), Title 24, Part 12, Chapter 12-13, Standards for Insulating Material</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The product shall meet all requirements for California certified insulation materials (radiant barriers) of the Department of Consumer Affairs, Bureau of Household Goods and Services, as specified by California Referenced Standards Code (California Code of Regulations (CCR)), Title 24, Part 12, Chapter 12-13, Standards for Insulating Material</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="F04" minOccurs="0">

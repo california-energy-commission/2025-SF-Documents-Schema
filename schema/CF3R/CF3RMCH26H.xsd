@@ -799,7 +799,7 @@ Else If Mch01 C03_EfficiencyMinimumValueHSPF2 IsPresent and assigned to G01_Effi
          </xsd:element>
          <xsd:element name="Section_K" minOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Determination of HERS Verification Compliance</xsd:documentation>
+               <xsd:documentation source="FieldText">Determination of ECC Verification Compliance</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>

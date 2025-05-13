@@ -1,215 +1,687 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RMCH20H" version="2025.0.000" xmlns="http://www.lmonte.com/besm/CF2RMCH20H" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
-   <xsd:complexType name="CF2RMCH20H">
-      <xsd:annotation>
-         <xsd:documentation>Duct Leakage Diagnostic Test</xsd:documentation>
-      </xsd:annotation>
-      <xsd:sequence>
-         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
-            <xsd:annotation>
-               <xsd:documentation source="FieldText">System Information</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">In this section MCH-01 refers to the parent CF2R-MCH-01 and  parent CC refers to the parent CF1R Certificate of Compliance (CC)</xsd:documentation>
-               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="A01_ResidentialSpaceConditioningSystemName" type="hvac:ResidentialSpaceConditioningSystemName">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Space Conditioning System Identification or Name</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Data from MCH-01</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="A02_ResidentialHvacSystemAreaServed" type="hvac:ResidentialHvacSystemAreaServed">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Space Conditioning System Location or Area Served</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Data from MCH-01</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="A03_IndoorUnitName" type="hvac:IndoorUnitName">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Indoor Unit Name or Description of Area Served</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Data from MCH-01</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="A04_ResidentialLowriseBuildingType" type="com:ResidentialLowriseBuildingType">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Building Type from parent CC</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Data from parent CF1R</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="A05_VerifiedLowLeakageDuctsConditionedSpace" type="comp:VerifiedLowLeakageDuctsConditionedSpace">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Verified Low Leakage Ducts in Conditioned Space (VLLDCS) Credit from parent CC?</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field using data from parent CC.  
+<?xml version="1.0" ?>
+<xs:schema xmlns:ns1="http://www.lmonte.com/besm/dtyp" xmlns:ns2="http://www.lmonte.com/besm/d" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RMCH20H" version="2025.0.000">
+   
+   
+   <xs:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   
+   
+   <xs:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   
+   
+   <xs:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   
+   
+   <xs:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   
+   
+   <xs:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   
+   
+   <xs:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   
+   
+   <xs:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   
+   
+   <xs:element name="ComplianceDocumentPackage">
+      
+      
+      <xs:complexType>
+         
+         
+         <xs:sequence>
+            
+            
+            <xs:element minOccurs="0" name="DocID">
+               
+               
+               <xs:complexType>
+                  
+                  
+                  <xs:attribute fixed="CF2RMCH20H" name="doc" type="comp:ComplianceDocumentTag"/>
+                  
+                  
+                  <xs:attribute fixed="CERTIFICATE OF INSTALLATION" name="docType" type="comp:ComplianceDocumentType"/>
+                  
+                  
+                  <xs:attribute fixed="Duct Leakage Diagnostic Test" name="docTitle" type="comp:ComplianceDocumentTitleRes"/>
+                  
+               
+               </xs:complexType>
+               
+            
+            </xs:element>
+            
+            
+            <xs:element name="Payload" type="comp:Payload"/>
+            
+            
+            <xs:element name="DocumentData">
+               
+               
+               <xs:complexType>
+                  
+                  
+                  <xs:sequence>
+                     
+                     
+                     <xs:element name="Header" type="comp:HeaderHERS"/>
+                     
+                     
+                     <xs:element ref="cF2RMCH20H"/>
+                     
+                     
+                     <xs:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     
+                     
+                     <xs:element name="RespPerson" type="comp:ResponsiblePersonCF2R_H"/>
+                     
+                     
+                     <xs:element name="Footer" type="comp:Footer"/>
+                     
+                  
+                  </xs:sequence>
+                  
+               
+               </xs:complexType>
+               
+            
+            </xs:element>
+            
+            
+            <xs:element name="Report" type="xsd:base64Binary"/>
+            
+         
+         </xs:sequence>
+         
+         
+         <xs:attribute fixed="rev 20250101" name="revision" type="xsd:string" use="required"/>
+         
+         
+         <xs:attribute fixed="CF2RMCH20H" name="doc" type="comp:ComplianceDocumentTag" use="required"/>
+         
+      
+      </xs:complexType>
+      
+   
+   </xs:element>
+   
+   
+   <xs:complexType name="CF2RMCH20H">
+      
+      
+      <xs:annotation>
+         
+         
+         <xs:documentation>Duct Leakage Diagnostic Test</xs:documentation>
+         
+      
+      </xs:annotation>
+      
+      
+      <xs:sequence>
+         
+         
+         <xs:element maxOccurs="1" minOccurs="1" name="Section_A">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">System Information</xs:documentation>
+               
+               
+               <xs:documentation source="CalculationsAndRules">In this section MCH-01 refers to the parent CF2R-MCH-01 and  parent CC refers to the parent CF1R Certificate of Compliance (CC)</xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">This section is required.</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element name="A01_ResidentialSpaceConditioningSystemName" type="hvac:ResidentialSpaceConditioningSystemName">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Space Conditioning System Identification or Name</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Data from MCH-01</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="A02_ResidentialHvacSystemAreaServed" type="hvac:ResidentialHvacSystemAreaServed">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Space Conditioning System Location or Area Served</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Data from MCH-01</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="A03_IndoorUnitName" type="hvac:IndoorUnitName">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Indoor Unit Name or Description of Area Served</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Data from MCH-01</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="A04_ResidentialLowriseBuildingType" type="com:ResidentialLowriseBuildingType">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Building Type from parent CC</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Data from parent CF1R</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="A05_VerifiedLowLeakageDuctsConditionedSpace" type="comp:VerifiedLowLeakageDuctsConditionedSpace">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Verified Low Leakage Ducts in Conditioned Space (VLLDCS) Credit from parent CC?</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Calculated field using data from parent CC.  
 If performance path, if parent CC's  Y02_ResidentialHeatingSystemType == VCHP_IndoorUnitDucted Or VCHP_IndoorUnitDuctedAndDuctless Or  VCHP_IndoorUnitDuctless
  result = true 
 Else calculated result depending on parent CC data
 End If
 
-If result == true, display text  Low Leakage Ducts in Conditioned Space (LLDCS) method Mch20b should be used</xsd:documentation>
-                        <xsd:appinfo source="displayterm">
-                           <dtyp:displayterm value="true">Low Leakage Ducts in Conditioned Space (LLDCS) method Mch20b should be used</dtyp:displayterm>
-                        </xsd:appinfo>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="A06_VerifiedLowLeakageAirHandlingUnit" type="comp:VerifiedLowLeakageAirHandlingUnit">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Verified Low Leakage Air Handling Unit Credit from parent CC?</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field using data from parent CC.   
+If result == true, display text  Low Leakage Ducts in Conditioned Space (LLDCS) method Mch20b should be used</xs:documentation>
+                        
+                        
+                        <xs:appinfo source="displayterm">
+                           
+                           
+                           <ns1:displayterm value="true">Low Leakage Ducts in Conditioned Space (LLDCS) method Mch20b should be used</ns1:displayterm>
+                           
+                        
+                        </xs:appinfo>
+                        
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="A06_VerifiedLowLeakageAirHandlingUnit" type="comp:VerifiedLowLeakageAirHandlingUnit">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Verified Low Leakage Air Handling Unit Credit from parent CC?</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Calculated field using data from parent CC.   
 If performance path, if parent CC's   Y02_ResidentialHeatingSystemType == VCHP_IndoorUnitDucted Or VCHP_IndoorUnitDuctedAndDuctless Or  VCHP_IndoorUnitDuctless
  result = false 
 Else calculated result depending on parent CC data
 End If
 
-If result == true, display text Low Leakage Air Handling Unit (LLAHU) method Mch20c should be used</xsd:documentation>
-                        <xsd:appinfo source="displayterm">
-                           <dtyp:displayterm value="true">Low Leakage Air Handling Unit (LLAHU) method Mch20c should be used</dtyp:displayterm>
-                        </xsd:appinfo>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="A07_DuctSystemLeakageComplianceCategory" type="comp:DuctSystemLeakageComplianceCategory">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Duct System Compliance Category</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If parent  MCH-01is MCH-01b and its B08 or B09 == true, user selects from list: New display term New, Replacement display term Replacement, Else user selects from list:  Alteration display term Alteration, AlterationUsingSmokeTest display term Alteration using smoke test, New display term New, Replacement display term Replacement, ReplacementUsingSmokeTest display term Replacement using smoke test</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="A08_AreDuctsInGarage" type="comp:AreDuctsInGarage">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Portions of Duct Located in Garage?</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User selects from list: true display term Yes, false display term No</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="A09_IsSystemSDHV" type="hvac:IsSystemSDHV">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Is the system type Small Duct High Velocity (SDHV) ?</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If system type on the MCH-01 ==  SmallDuctHighVelocityAC Or SmallDuctHighVelocityHP result = true; Else result = false.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="Section_B1" minOccurs="0">
-            <xsd:annotation>
-               <xsd:documentation source="FieldText">Duct Leakage Diagnostic Test for Completely New Duct System</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required If A07_DuctSystemLeakageComplianceCategory == New And A05_VerifiedLowLeakageDuctsConditionedSpace and A06_VerifiedLowLeakageAirHandlingUnit == false.  In this section the parent CC refers to the parent CF1R Certificate of Compliance CC)</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="Bnew01_AirflowMethod" type="comp:AirflowMethod">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Air Handling Unit Airflow (AHU Airflow) Determination Method</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User selects from list CoolingSystemMethod display term Cooling system method, DefaultAirFlowMethod display term Default air flow method, HeatingSystemMethod display term Heating system method, MeasuredAirFlowMethod display term Measured air flow method, IndoorUnitMethod display term Indoor unit method</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="Bnew02_CondenserNominalCoolingCapacity" type="hvac:CondenserNominalCoolingCapacity">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Condenser Nominal Cooling Capacity (ton)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bnew01_AirflowMethod ==CoolingSystemMethod user input numeric x.xx stored in CondenserNominalCoolingCapacity  Else result =  N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="Bnew02_NotApplicableMessage" type="comp:NotApplicableMessage">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Condenser Nominal Cooling Capacity (ton)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bnew01_AirflowMethod ==CoolingSystemMethod user input numeric x.xx stored in CondenserNominalCoolingCapacity  Else result =  N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="Bnew03_IndoorUnitNominalCoolingCapacity" type="hvac:IndoorUnitNominalCoolingCapacity">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Indoor Unit Nominal Cooling Capacity</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bnew01_AirflowMethod == IndoorUnitMethod user input numeric x.xx stored in IndoorUnitNominalCoolingCapacity   Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="Bnew03_NotApplicableMessage" type="comp:NotApplicableMessage">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Indoor Unit Nominal Cooling Capacity</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bnew01_AirflowMethod == IndoorUnitMethod user input numeric x.xx stored in IndoorUnitNominalCoolingCapacity   Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="Bnew04_HeatingCapacity" type="hvac:HeatingCapacity">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Heating Capacity (kBtu/h)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bnew01_AirflowMethod == HeatingSystemMethod user input numeric xxx.x  Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="Bnew04_NotApplicableMessage" type="comp:NotApplicableMessage">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Heating Capacity (kBtu/h)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bnew01_AirflowMethod == HeatingSystemMethod user input numeric xxx.x  Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="Bnew05_HvacSystemConditionedFloorArea" type="hvac:HvacSystemConditionedFloorArea">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Conditioned Floor Area Served by this HVAC System (ft<d:sup>2</d:sup>)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bnew01_AirflowMethod == DefaultAirFlowMethod user input numeric xx,xxx Else result = N/A stored in NotApplicableMessage 
-( should be consistent with the parent CC zone CFA data)</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="Bnew05_NotApplicableMessage" type="comp:NotApplicableMessage">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Conditioned Floor Area Served by this HVAC System (ft<d:sup>2</d:sup>)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bnew01_AirflowMethod == DefaultAirFlowMethod user input numeric xx,xxx Else result = N/A stored in NotApplicableMessage 
-( should be consistent with  the parent CC zone CFA data)</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="Bnew06_AHU_AirflowMeasured" type="comp:AHU_AirflowMeasured">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Measured AHU Airflow (cfm)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bnew01_AirflowMethod == MeasuredAirFlowMethod user input numeric  x,xxx Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="Bnew06_NotApplicableMessage" type="comp:NotApplicableMessage">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Measured AHU Airflow (cfm)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bnew01_AirflowMethod == MeasuredAirFlowMethod user input numeric  x,xxx Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:element name="Bnew07_LeakageTestCondition" type="comp:LeakageTestCondition">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Duct Leakage Test Conditions</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User selects from list: TestFinal display term Test final, TestRoughInAHU display term Test rough-in with AHU, TestRoughInNoAHU display term Test rough-in with no AHU</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Bnew08_LeakageTestMethod" type="comp:LeakageTestMethod">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Duct Leakage Test Method</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User selects from list; LeakageToOutside display term Leakage to the outside, TotalLeakage display term Total leakage</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Bnew09_DuctSystemLeakageFactor" type="comp:DuctSystemLeakageFactor">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Leakage Factor</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field:  
+If result == true, display text Low Leakage Air Handling Unit (LLAHU) method Mch20c should be used</xs:documentation>
+                        
+                        
+                        <xs:appinfo source="displayterm">
+                           
+                           
+                           <ns1:displayterm value="true">Low Leakage Air Handling Unit (LLAHU) method Mch20c should be used</ns1:displayterm>
+                           
+                        
+                        </xs:appinfo>
+                        
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="A07_DuctSystemLeakageComplianceCategory" type="comp:DuctSystemLeakageComplianceCategory">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Duct System Compliance Category</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">If parent  MCH-01is MCH-01b and its B08 or B09 == true, user selects from list: New display term New, Replacement display term Replacement, Else user selects from list:  Alteration display term Alteration, AlterationUsingSmokeTest display term Alteration using smoke test, New display term New, Replacement display term Replacement, ReplacementUsingSmokeTest display term Replacement using smoke test</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="A08_AreDuctsInGarage" type="comp:AreDuctsInGarage">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Portions of Duct Located in Garage?</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User selects from list: true display term Yes, false display term No</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="A09_IsSystemSDHV" type="hvac:IsSystemSDHV">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Is the system type Small Duct High Velocity (SDHV) ?</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">If system type on the MCH-01 ==  SmallDuctHighVelocityAC Or SmallDuctHighVelocityHP result = true; Else result = false.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+               
+               </xs:sequence>
+               
+            
+            </xs:complexType>
+            
+         
+         </xs:element>
+         
+         
+         <xs:element minOccurs="0" name="Section_B1">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">Duct Leakage Diagnostic Test for Completely New Duct System</xs:documentation>
+               
+               
+               <xs:documentation source="CalculationsAndRules">This section is required If A07_DuctSystemLeakageComplianceCategory == New And A05_VerifiedLowLeakageDuctsConditionedSpace and A06_VerifiedLowLeakageAirHandlingUnit == false.  In this section the parent CC refers to the parent CF1R Certificate of Compliance CC)</xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element name="Bnew01_AirflowMethod" type="comp:AirflowMethod">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Air Handling Unit Airflow (AHU Airflow) Determination Method</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User selects from list CoolingSystemMethod display term Cooling system method, DefaultAirFlowMethod display term Default air flow method, HeatingSystemMethod display term Heating system method, MeasuredAirFlowMethod display term Measured air flow method, IndoorUnitMethod display term Indoor unit method</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:choice maxOccurs="1">
+                     
+                     
+                     <xs:element name="Bnew02_CondenserNominalCoolingCapacity" type="hvac:CondenserNominalCoolingCapacity">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Condenser Nominal Cooling Capacity (ton)</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bnew01_AirflowMethod ==CoolingSystemMethod user input numeric x.xx stored in CondenserNominalCoolingCapacity  Else result =  N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                     
+                     <xs:element name="Bnew02_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Condenser Nominal Cooling Capacity (ton)</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bnew01_AirflowMethod ==CoolingSystemMethod user input numeric x.xx stored in CondenserNominalCoolingCapacity  Else result =  N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                  
+                  </xs:choice>
+                  
+                  
+                  <xs:choice maxOccurs="1">
+                     
+                     
+                     <xs:element name="Bnew03_IndoorUnitNominalCoolingCapacity" type="hvac:IndoorUnitNominalCoolingCapacity">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Indoor Unit Nominal Cooling Capacity</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bnew01_AirflowMethod == IndoorUnitMethod user input numeric x.xx stored in IndoorUnitNominalCoolingCapacity   Else result = N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                     
+                     <xs:element name="Bnew03_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Indoor Unit Nominal Cooling Capacity</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bnew01_AirflowMethod == IndoorUnitMethod user input numeric x.xx stored in IndoorUnitNominalCoolingCapacity   Else result = N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                  
+                  </xs:choice>
+                  
+                  
+                  <xs:choice maxOccurs="1">
+                     
+                     
+                     <xs:element name="Bnew04_HeatingCapacity" type="hvac:HeatingCapacity">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Heating Capacity (kBtu/h)</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bnew01_AirflowMethod == HeatingSystemMethod user input numeric xxx.x  Else result = N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                     
+                     <xs:element name="Bnew04_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Heating Capacity (kBtu/h)</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bnew01_AirflowMethod == HeatingSystemMethod user input numeric xxx.x  Else result = N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                  
+                  </xs:choice>
+                  
+                  
+                  <xs:choice maxOccurs="1">
+                     
+                     
+                     <xs:element name="Bnew05_HvacSystemConditionedFloorArea" type="hvac:HvacSystemConditionedFloorArea">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">
+                              Conditioned Floor Area Served by this HVAC System (ft
+                              <ns2:sup>2</ns2:sup>
+                              )
+                           </xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bnew01_AirflowMethod == DefaultAirFlowMethod user input numeric xx,xxx Else result = N/A stored in NotApplicableMessage 
+( should be consistent with the parent CC zone CFA data)</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                     
+                     <xs:element name="Bnew05_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">
+                              Conditioned Floor Area Served by this HVAC System (ft
+                              <ns2:sup>2</ns2:sup>
+                              )
+                           </xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bnew01_AirflowMethod == DefaultAirFlowMethod user input numeric xx,xxx Else result = N/A stored in NotApplicableMessage 
+( should be consistent with  the parent CC zone CFA data)</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                  
+                  </xs:choice>
+                  
+                  
+                  <xs:choice maxOccurs="1">
+                     
+                     
+                     <xs:element name="Bnew06_AHU_AirflowMeasured" type="comp:AHU_AirflowMeasured">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Measured AHU Airflow (cfm)</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bnew01_AirflowMethod == MeasuredAirFlowMethod user input numeric  x,xxx Else result = N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                     
+                     <xs:element name="Bnew06_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Measured AHU Airflow (cfm)</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bnew01_AirflowMethod == MeasuredAirFlowMethod user input numeric  x,xxx Else result = N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                  
+                  </xs:choice>
+                  
+                  
+                  <xs:element name="Bnew07_LeakageTestCondition" type="comp:LeakageTestCondition">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Duct Leakage Test Conditions</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User selects from list: TestFinal display term Test final, TestRoughInAHU display term Test rough-in with AHU, TestRoughInNoAHU display term Test rough-in with no AHU</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="Bnew08_LeakageTestMethod" type="comp:LeakageTestMethod">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Duct Leakage Test Method</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User selects from list; LeakageToOutside display term Leakage to the outside, TotalLeakage display term Total leakage</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="Bnew09_DuctSystemLeakageFactor" type="comp:DuctSystemLeakageFactor">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Leakage Factor</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Calculated field:  
 If A04_ResidentialLowriseBuildingType == SingleFamily And Bnew08_LeakageTestMethod == TotalLeakage Then 
 If Bnew07_LeakageTestCondition == TestRoughInNoAHU,   result = 0.04     
 Else If Bnew07_LeakageTestCondition == TestRoughInAHU  result = 0.05  
 Else If  Bnew07_LeakageTestCondition == TestFinal  result = 0.05.  
 End If
 Else error message if invalid entries for arguments
-End If</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Bnew10_DuctLeakageAllowed" type="comp:DuctLeakageAllowed">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Calculated Target Allowable Duct Leakage (cfm)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: Switch (Bnew01_AirflowMethod) 
+End If</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="Bnew10_DuctLeakageAllowed" type="comp:DuctLeakageAllowed">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Calculated Target Allowable Duct Leakage (cfm)</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Calculated field: Switch (Bnew01_AirflowMethod) 
 case DefaultAirflowMethod: result = PRODUCT (Bnew05_HvacSystemConditionedFloorArea, 0.5, Bnew09_DuctSystemLeakageFactor); 
 case CoolingSystemMethod:  
 If A09_IsSystemSDHV == false result = PRODUCT (Bnew02_CondenserNominalCoolingCapacity, 400, Bnew09_DuctSystemLeakageFactor); 
@@ -218,184 +690,540 @@ End If
 case HeatingSystemMethod: result = PRODUCT (Bnew04_HvacSystemHeatingCapacity, 21.7,  Bnew09_DuctSystemLeakageFactor);  
 case MeasuredAirflowMethod: result = PRODUCT (Bnew06_AHU_AirflowMeasured, Bnew09_DuctSystemLeakageFactor); 
 case IndoorUnitMethod: result = PRODUCT (Bnew03_IndoorUnitNominalCoolingCapacity, 350, Bnew09_DuctSystemLeakageFactor).
-End Switch</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Bnew11_DuctLeakageTestActual" type="comp:DuctLeakageTestActual">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Actual Duct Leakage Rate from Leakage Test Measurement (cfm)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input numeric xxx.x</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Bnew12_DoesDuctLeakageTestPass" type="comp:DoesDuctLeakageTestPass">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If  Bnew11_DuctLeakageTestActual LTE Bnew10_DuctLeakageAllowed result = true display term:  System Passes Leakage Test.  
-Else result = false display term System Fails Leakage Test</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="Section_B2" minOccurs="0">
-            <xsd:annotation>
-               <xsd:documentation source="FieldText">Duct Leakage Diagnostic Test for Low Leakage Ducts in Conditioned Space</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required If A07_DuctSystemLeakageComplianceCategory == New And A05_VerifiedLowLeakageDuctsConditionedSpace  == true.</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="Blld01_AreDuctsEntirelyInConditionedSpace" type="comp:AreDuctsEntirelyInConditionedSpace">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">System compliance with visual inspection per RA3.1.4.1.3?</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User selects from list:   Boolean true value display term: Duct system is located entirely in conditioned space - complies with RA3.1.4.1.3, Boolean false value, display term Parts of the duct system are located outside of conditioned space - does not comply with RA3.1.4.1.3</xsd:documentation>
-                        <xsd:appinfo source="displayterm">
-                           <dtyp:displayterm value="true">Duct system is located entirely in conditioned space - complies with RA3.1.4.1.3</dtyp:displayterm>
-                           <dtyp:displayterm value="false">Parts of the duct system are located outside of conditioned space - does not comply with RA3.1.4.1.3</dtyp:displayterm>
-                        </xsd:appinfo>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Blld02_LeakageTestCondition" type="comp:LeakageTestCondition" fixed="TestFinal">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Duct Leakage Test Conditions</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Auto-filled value: TestFinal  This is the only allowable test condition for LLDCS</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Blld03_LeakageTestMethod" type="comp:LeakageTestMethod" fixed="LeakageToOutside">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Duct Leakage Test Method</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Auto-filled value:  LeakageToOutside is the only allowable test method for LLDCS</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Blld04_DuctLeakageAllowed" type="comp:DuctLeakageAllowed" fixed="25.0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Target Allowable Duct Leakage (cfm)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Auto-filled value:  25.0   This is the mandatory target value for LLDCS</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Blld05_DuctLeakageTestActual" type="comp:DuctLeakageTestActual">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Actual Duct Leakage Rate from Leakage Test Measurement (cfm)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input numeric xxx.x</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Blld06_DoesDuctLeakageTestPass" type="comp:DoesDuctLeakageTestPass">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If Blld05_DuctLeakageTestActual LTE Blld04_DuctLeakageAllowed And Blld01_AreDuctsEntirelyInConditionedSpace == true then result = true display term: System Passes Leakage Test.  Else result = false. display term: System Fails Leakage Test</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="Section_B3" minOccurs="0">
-            <xsd:annotation>
-               <xsd:documentation source="FieldText">Duct Leakage Diagnostic Test for Low Leakage Air-Handling Unit (LLAHU)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required If A07_DuctSystemLeakageComplianceCategory == New And A06_VerifiedLowLeakageAirHandlingUnit == true.  In this section MCH-01 refers to the parent CF2R-MCH-01 and parent CC refers to the parent CF1R Certificate of Compliance CC)</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="Bahu01_AirflowMethod" type="comp:AirflowMethod">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Air Handling Unit Airflow (AHU Airflow) Determination Method</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User selects from list CoolingSystemMethod display term Cooling system method, DefaultAirFlowMethod display term Default air flow method, HeatingSystemMethod display term Heating system method, MeasuredAirFlowMethod display term Measured air flow method, IndoorUnitMethod display term Indoor unit method</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="Bahu02_CondenserNominalCoolingCapacity" type="hvac:CondenserNominalCoolingCapacity">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Condenser Nominal Cooling Capacity (ton)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bahu01_AirflowMethod ==CoolingSystemMethod user input numeric x.xx stored in CondenserNominalCoolingCapacity  Else result =  N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="Bahu02_NotApplicableMessage" type="comp:NotApplicableMessage">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Condenser Nominal Cooling Capacity (ton)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bahu01_AirflowMethod ==CoolingSystemMethod user input numeric x.xx stored in CondenserNominalCoolingCapacity  Else result =  N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="Bahu03_IndoorUnitNominalCoolingCapacity" type="hvac:IndoorUnitNominalCoolingCapacity">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Indoor Unit Nominal Cooling Capacity</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bahu01_AirflowMethod == IndoorUnitMethod user input numeric x.xx stored in IndoorUnitNominalCoolingCapacity   Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="Bahu03_NotApplicableMessage" type="comp:NotApplicableMessage">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Indoor Unit Nominal Cooling Capacity</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bahu01_AirflowMethod == IndoorUnitMethod user input numeric x.xx stored in IndoorUnitNominalCoolingCapacity   Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="Bahu04_HeatingCapacity" type="hvac:HeatingCapacity">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Heating Capacity (kBtu/h)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bahu01_AirflowMethod == HeatingSystemMethod user input numeric xxx.x  Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="Bahu04_NotApplicableMessage" type="comp:NotApplicableMessage">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Heating Capacity (kBtu/h)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bahu01_AirflowMethod == HeatingSystemMethod user input numeric xxx.x  Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="Bahu05_HvacSystemConditionedFloorArea" type="hvac:HvacSystemConditionedFloorArea">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Conditioned Floor Area Served by this HVAC System (ft<d:sup>2</d:sup>)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bahu01_AirflowMethod == DefaultAirFlowMethod user input numeric xx,xxx Else result = N/A stored in NotApplicableMessage 
-( should be consistent with parent CC zone CFA data)</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="Bahu05_NotApplicableMessage" type="comp:NotApplicableMessage">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Conditioned Floor Area Served by this HVAC System (ft<d:sup>2</d:sup>)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bahu01_AirflowMethod == DefaultAirFlowMethod user input numeric xx,xxx Else result = N/A stored in NotApplicableMessage 
-( should be consistent with parent CC zone CFA data)</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="Bahu06_AHU_AirflowMeasured" type="comp:AHU_AirflowMeasured">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Measured AHU Airflow (cfm)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bahu01_AirflowMethod == MeasuredAirFlowMethod user input numeric  x,xxx Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="Bahu06_NotApplicableMessage" type="comp:NotApplicableMessage">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Measured AHU Airflow (cfm)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bahu01_AirflowMethod == MeasuredAirFlowMethod user input numeric  x,xxx Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:element name="Bahu07_LeakageTestCondition" type="comp:LeakageTestCondition" fixed="TestFinal">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Duct Leakage Test Conditions</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">auto-filled: TestFinal  is the only allowable test condition for  LLAHU</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Bahu08_LeakageTestMethod" type="comp:LeakageTestMethod" fixed="TotalLeakage">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Duct Leakage Test Method</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">auto-filled: TotalLeakage is the only allowable test method for  LLAHU</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Bahu09_DuctSystemLeakageFactor" type="comp:DuctSystemLeakageFactor">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Leakage Factor</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">numeric 0.xx (referenced from the parent CC )</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Bahu10_DuctLeakageAllowed" type="comp:DuctLeakageAllowed">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Calculated Target Allowable Duct Leakage (cfm)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: Switch (Bahu01_AirflowMethod) 
+End Switch</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="Bnew11_DuctLeakageTestActual" type="comp:DuctLeakageTestActual">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Actual Duct Leakage Rate from Leakage Test Measurement (cfm)</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User input numeric xxx.x</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="Bnew12_DoesDuctLeakageTestPass" type="comp:DoesDuctLeakageTestPass">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Compliance Statement</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">If  Bnew11_DuctLeakageTestActual LTE Bnew10_DuctLeakageAllowed result = true display term:  System Passes Leakage Test.  
+Else result = false display term System Fails Leakage Test</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+               
+               </xs:sequence>
+               
+            
+            </xs:complexType>
+            
+         
+         </xs:element>
+         
+         
+         <xs:element minOccurs="0" name="Section_B2">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">Duct Leakage Diagnostic Test for Low Leakage Ducts in Conditioned Space</xs:documentation>
+               
+               
+               <xs:documentation source="CalculationsAndRules">This section is required If A07_DuctSystemLeakageComplianceCategory == New And A05_VerifiedLowLeakageDuctsConditionedSpace  == true.  </xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element name="Blld01_AreDuctsEntirelyInConditionedSpace" type="comp:AreDuctsEntirelyInConditionedSpace">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">System compliance with visual inspection per RA3.1.4.1.3?</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User selects from list:   Boolean true value display term: Duct system is located entirely in conditioned space - complies with RA3.1.4.1.3, Boolean false value, display term Parts of the duct system are located outside of conditioned space - does not comply with RA3.1.4.1.3</xs:documentation>
+                        
+                        
+                        <xs:appinfo source="displayterm">
+                           
+                           
+                           <ns1:displayterm value="true">Duct system is located entirely in conditioned space - complies with RA3.1.4.1.3</ns1:displayterm>
+                           
+                           
+                           <ns1:displayterm value="false">Parts of the duct system are located outside of conditioned space - does not comply with RA3.1.4.1.3</ns1:displayterm>
+                           
+                        
+                        </xs:appinfo>
+                                                
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element fixed="TestFinal" name="Blld02_LeakageTestCondition" type="comp:LeakageTestCondition">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Duct Leakage Test Conditions</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Auto-filled value: TestFinal  This is the only allowable test condition for LLDCS</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element fixed="LeakageToOutside" name="Blld03_LeakageTestMethod" type="comp:LeakageTestMethod">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Duct Leakage Test Method</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Auto-filled value:  LeakageToOutside is the only allowable test method for LLDCS</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element fixed="25.0" name="Blld04_DuctLeakageAllowed" type="comp:DuctLeakageAllowed">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Target Allowable Duct Leakage (cfm)</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Auto-filled value:  25.0   This is the mandatory target value for LLDCS</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="Blld05_DuctLeakageTestActual" type="comp:DuctLeakageTestActual">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Actual Duct Leakage Rate from Leakage Test Measurement (cfm)</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User input numeric xxx.x</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="Blld06_DoesDuctLeakageTestPass" type="comp:DoesDuctLeakageTestPass">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Compliance Statement</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">If Blld05_DuctLeakageTestActual LTE Blld04_DuctLeakageAllowed And Blld01_AreDuctsEntirelyInConditionedSpace == true then result = true display term: System Passes Leakage Test.  Else result = false. display term: System Fails Leakage Test</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+               
+               </xs:sequence>
+               
+            
+            </xs:complexType>
+            
+         
+         </xs:element>
+         
+         
+         <xs:element minOccurs="0" name="Section_B3">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">Duct Leakage Diagnostic Test for Low Leakage Air-Handling Unit (LLAHU)</xs:documentation>
+               
+               
+               <xs:documentation source="CalculationsAndRules">This section is required If A07_DuctSystemLeakageComplianceCategory == New And A06_VerifiedLowLeakageAirHandlingUnit == true.  In this section MCH-01 refers to the parent CF2R-MCH-01 and parent CC refers to the parent CF1R Certificate of Compliance CC)</xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element name="Bahu01_AirflowMethod" type="comp:AirflowMethod">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Air Handling Unit Airflow (AHU Airflow) Determination Method</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User selects from list CoolingSystemMethod display term Cooling system method, DefaultAirFlowMethod display term Default air flow method, HeatingSystemMethod display term Heating system method, MeasuredAirFlowMethod display term Measured air flow method, IndoorUnitMethod display term Indoor unit method</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:choice maxOccurs="1">
+                     
+                     
+                     <xs:element name="Bahu02_CondenserNominalCoolingCapacity" type="hvac:CondenserNominalCoolingCapacity">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Condenser Nominal Cooling Capacity (ton)</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bahu01_AirflowMethod ==CoolingSystemMethod user input numeric x.xx stored in CondenserNominalCoolingCapacity  Else result =  N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                     
+                     <xs:element name="Bahu02_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Condenser Nominal Cooling Capacity (ton)</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bahu01_AirflowMethod ==CoolingSystemMethod user input numeric x.xx stored in CondenserNominalCoolingCapacity  Else result =  N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                  
+                  </xs:choice>
+                  
+                  
+                  <xs:choice maxOccurs="1">
+                     
+                     
+                     <xs:element name="Bahu03_IndoorUnitNominalCoolingCapacity" type="hvac:IndoorUnitNominalCoolingCapacity">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Indoor Unit Nominal Cooling Capacity</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bahu01_AirflowMethod == IndoorUnitMethod user input numeric x.xx stored in IndoorUnitNominalCoolingCapacity   Else result = N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                     
+                     <xs:element name="Bahu03_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Indoor Unit Nominal Cooling Capacity</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bahu01_AirflowMethod == IndoorUnitMethod user input numeric x.xx stored in IndoorUnitNominalCoolingCapacity   Else result = N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                  
+                  </xs:choice>
+                  
+                  
+                  <xs:choice maxOccurs="1">
+                     
+                     
+                     <xs:element name="Bahu04_HeatingCapacity" type="hvac:HeatingCapacity">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Heating Capacity (kBtu/h)</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bahu01_AirflowMethod == HeatingSystemMethod user input numeric xxx.x  Else result = N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                     
+                     <xs:element name="Bahu04_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Heating Capacity (kBtu/h)</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bahu01_AirflowMethod == HeatingSystemMethod user input numeric xxx.x  Else result = N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                  
+                  </xs:choice>
+                  
+                  
+                  <xs:choice maxOccurs="1">
+                     
+                     
+                     <xs:element name="Bahu05_HvacSystemConditionedFloorArea" type="hvac:HvacSystemConditionedFloorArea">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">
+                              Conditioned Floor Area Served by this HVAC System (ft
+                              <ns2:sup>2</ns2:sup>
+                              )
+                           </xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bahu01_AirflowMethod == DefaultAirFlowMethod user input numeric xx,xxx Else result = N/A stored in NotApplicableMessage 
+( should be consistent with parent CC zone CFA data)</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                     
+                     <xs:element name="Bahu05_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">
+                              Conditioned Floor Area Served by this HVAC System (ft
+                              <ns2:sup>2</ns2:sup>
+                              )
+                           </xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bahu01_AirflowMethod == DefaultAirFlowMethod user input numeric xx,xxx Else result = N/A stored in NotApplicableMessage 
+( should be consistent with parent CC zone CFA data)</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                  
+                  </xs:choice>
+                  
+                  
+                  <xs:choice maxOccurs="1">
+                     
+                     
+                     <xs:element name="Bahu06_AHU_AirflowMeasured" type="comp:AHU_AirflowMeasured">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Measured AHU Airflow (cfm)</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bahu01_AirflowMethod == MeasuredAirFlowMethod user input numeric  x,xxx Else result = N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                     
+                     <xs:element name="Bahu06_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Measured AHU Airflow (cfm)</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bahu01_AirflowMethod == MeasuredAirFlowMethod user input numeric  x,xxx Else result = N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                  
+                  </xs:choice>
+                  
+                  
+                  <xs:element fixed="TestFinal" name="Bahu07_LeakageTestCondition" type="comp:LeakageTestCondition">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Duct Leakage Test Conditions</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">auto-filled: TestFinal  is the only allowable test condition for  LLAHU</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element fixed="TotalLeakage" name="Bahu08_LeakageTestMethod" type="comp:LeakageTestMethod">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Duct Leakage Test Method</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">auto-filled: TotalLeakage is the only allowable test method for  LLAHU</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="Bahu09_DuctSystemLeakageFactor" type="comp:DuctSystemLeakageFactor">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Leakage Factor</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">numeric 0.xx (referenced from the parent CC )</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="Bahu10_DuctLeakageAllowed" type="comp:DuctLeakageAllowed">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Calculated Target Allowable Duct Leakage (cfm)</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Calculated field: Switch (Bahu01_AirflowMethod) 
 case DefaultAirflowMethod: result = PRODUCT (Bahu05_HvacSystemConditionedFloorArea, 0.5, Bahu09_DuctSystemLeakageFactor); 
 case CoolingSystemMethod:  
 If A09_IsSystemSDHV == false  result = PRODUCT (Bahu02_CondenserNominalCoolingCapacity, 400, Bahu09_DuctSystemLeakageFactor); 
@@ -404,138 +1232,404 @@ End If
 case HeatingSystemMethod: result = PRODUCT (Bahu04_HvacSystemHeatingCapacity, 21.7,  Bahu09_DuctSystemLeakageFactor);  
 case MeasuredAirflowMethod: result = PRODUCT (Bahu06_AHU_AirflowMeasured, Bahu09_DuctSystemLeakageFactor); 
 case IndoorUnitMethod: result = PRODUCT (Bahu03_IndoorUnitNominalCoolingCapacity, 350, Bahu09_DuctSystemLeakageFactor).
-End Switch</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Bahu11_DuctLeakageTestActual" type="comp:DuctLeakageTestActual">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Actual Duct Leakage Rate from Leakage Test Measurement (cfm)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input numeric xxx.x</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Bahu12_AHU_Manufacturer" type="comp:AHU_Manufacturer">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Air Handling Unit Manufacturer Name</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Data from MCH-01</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Bahu13_AHU_ModelNumber" type="comp:AHU_ModelNumber">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Air Handling Unit Model Number</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Data from MCH-01</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Bahu14_DoesDuctLeakageTestPass" type="comp:DoesDuctLeakageTestPass">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If  Bahu11_DuctLeakageTestActual LTE Bahu10_DuctLeakageAllowed result = true display term:  System Passes Leakage Test. Else result = false display term System Fails Leakage Test</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="Section_B4" minOccurs="0">
-            <xsd:annotation>
-               <xsd:documentation source="FieldText">Duct Leakage Diagnostic Test for Complete Replacement or Altered Duct System</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required If A07_DuctSystemLeakageComplianceCategory == Replacement Or Alteration.  In this section the parent CC refers to the parent CF1R Certificate of Compliance CC)</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="Balt01_AirflowMethod" type="comp:AirflowMethod">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Air Handling Unit Airflow (AHU Airflow) Determination Method</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User selects from list CoolingSystemMethod display term Cooling system method, DefaultAirFlowMethod display term Default air flow method, HeatingSystemMethod display term Heating system method, MeasuredAirFlowMethod display term Measured air flow method, IndoorUnitMethod display term Indoor unit method</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="Balt02_CondenserNominalCoolingCapacity" type="hvac:CondenserNominalCoolingCapacity">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Condenser Nominal Cooling Capacity (ton)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If B01_AirflowMethod ==CoolingSystemMethod user input numeric x.xx stored in CondenserNominalCoolingCapacity  Else result =  N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="Balt02_NotApplicableMessage" type="comp:NotApplicableMessage">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Condenser Nominal Cooling Capacity (ton)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Balt01_AirflowMethod ==CoolingSystemMethod user input numeric x.xx stored in CondenserNominalCoolingCapacity  Else result =  N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="Balt03_IndoorUnitNominalCoolingCapacity" type="hvac:IndoorUnitNominalCoolingCapacity">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Indoor Unit Nominal Cooling Capacity</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Balt01_AirflowMethod == IndoorUnitMethod user input numeric x.xx stored in IndoorUnitNominalCoolingCapacity   Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="Balt03_NotApplicableMessage" type="comp:NotApplicableMessage">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Indoor Unit Nominal Cooling Capacity</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Balt01_AirflowMethod == IndoorUnitMethod user input numeric x.xx stored in IndoorUnitNominalCoolingCapacity   Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="Balt04_HeatingCapacity" type="hvac:HeatingCapacity">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Heating Capacity (kBtu/h)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Balt01_AirflowMethod == HeatingSystemMethod user input numeric xxx.x  Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="Balt04_NotApplicableMessage" type="comp:NotApplicableMessage">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Heating Capacity (kBtu/h)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Balt01_AirflowMethod == HeatingSystemMethod user input numeric xxx.x  Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="Balt05_HvacSystemConditionedFloorArea" type="hvac:HvacSystemConditionedFloorArea">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Conditioned Floor Area Served by this HVAC System (ft<d:sup>2</d:sup>)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Balt01_AirflowMethod == DefaultAirFlowMethod user input numeric xx,xxx Else result = N/A stored in NotApplicableMessage 
-( should be consistent with parent CC zone CFA data)</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="Balt05_NotApplicableMessage" type="comp:NotApplicableMessage">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Conditioned Floor Area Served by this HVAC System (ft<d:sup>2</d:sup>)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Balt01_AirflowMethod == DefaultAirFlowMethod user input numeric xx,xxx Else result = N/A stored in NotApplicableMessage 
-( should be consistent with parent CC zone CFA data)</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="Balt06_AHU_AirflowMeasured" type="comp:AHU_AirflowMeasured">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Measured AHU Airflow (cfm)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Balt01_AirflowMethod == MeasuredAirFlowMethod user input numeric  x,xxx Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="Balt06_NotApplicableMessage" type="comp:NotApplicableMessage">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Measured AHU Airflow (cfm)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Balt01_AirflowMethod == MeasuredAirFlowMethod user input numeric  x,xxx Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:element name="Balt07_LeakageTestCondition" type="comp:LeakageTestCondition" fixed="TestFinal">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Duct Leakage Test Conditions</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Auto filled field:  TestFinal is the only allowable test condition for Replacement or Alteration</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Balt08_LeakageTestMethod" type="comp:LeakageTestMethod">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Duct Leakage Test Method</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User pick one from list: LeakageToOutside; TotalLeakage</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Balt09_DuctSystemLeakageFactor" type="comp:DuctSystemLeakageFactor">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Leakage Factor</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field:  All conditions include Balt07_LeakageTestCondition==TestFinal, the only value allowed for Alteration or Replacement
+End Switch</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="Bahu11_DuctLeakageTestActual" type="comp:DuctLeakageTestActual">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Actual Duct Leakage Rate from Leakage Test Measurement (cfm)</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User input numeric xxx.x</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="Bahu12_AHU_Manufacturer" type="comp:AHU_Manufacturer">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Air Handling Unit Manufacturer Name</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Data from MCH-01</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="Bahu13_AHU_ModelNumber" type="comp:AHU_ModelNumber">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Air Handling Unit Model Number</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Data from MCH-01</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="Bahu14_DoesDuctLeakageTestPass" type="comp:DoesDuctLeakageTestPass">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Compliance Statement</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">If  Bahu11_DuctLeakageTestActual LTE Bahu10_DuctLeakageAllowed result = true display term:  System Passes Leakage Test. Else result = false display term System Fails Leakage Test</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+               
+               </xs:sequence>
+               
+            
+            </xs:complexType>
+            
+         
+         </xs:element>
+         
+         
+         <xs:element minOccurs="0" name="Section_B4">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">Duct Leakage Diagnostic Test for Complete Replacement or Altered Duct System</xs:documentation>
+               
+               
+               <xs:documentation source="CalculationsAndRules">This section is required If A07_DuctSystemLeakageComplianceCategory == Replacement Or Alteration.  In this section the parent CC refers to the parent CF1R Certificate of Compliance CC)</xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element name="Balt01_AirflowMethod" type="comp:AirflowMethod">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Air Handling Unit Airflow (AHU Airflow) Determination Method</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User selects from list CoolingSystemMethod display term Cooling system method, DefaultAirFlowMethod display term Default air flow method, HeatingSystemMethod display term Heating system method, MeasuredAirFlowMethod display term Measured air flow method, IndoorUnitMethod display term Indoor unit method</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:choice maxOccurs="1">
+                     
+                     
+                     <xs:element name="Balt02_CondenserNominalCoolingCapacity" type="hvac:CondenserNominalCoolingCapacity">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Condenser Nominal Cooling Capacity (ton)</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If B01_AirflowMethod ==CoolingSystemMethod user input numeric x.xx stored in CondenserNominalCoolingCapacity  Else result =  N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                     
+                     <xs:element name="Balt02_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Condenser Nominal Cooling Capacity (ton)</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Balt01_AirflowMethod ==CoolingSystemMethod user input numeric x.xx stored in CondenserNominalCoolingCapacity  Else result =  N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                  
+                  </xs:choice>
+                  
+                  
+                  <xs:choice maxOccurs="1">
+                     
+                     
+                     <xs:element name="Balt03_IndoorUnitNominalCoolingCapacity" type="hvac:IndoorUnitNominalCoolingCapacity">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Indoor Unit Nominal Cooling Capacity</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Balt01_AirflowMethod == IndoorUnitMethod user input numeric x.xx stored in IndoorUnitNominalCoolingCapacity   Else result = N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                     
+                     <xs:element name="Balt03_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Indoor Unit Nominal Cooling Capacity</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Balt01_AirflowMethod == IndoorUnitMethod user input numeric x.xx stored in IndoorUnitNominalCoolingCapacity   Else result = N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                  
+                  </xs:choice>
+                  
+                  
+                  <xs:choice maxOccurs="1">
+                     
+                     
+                     <xs:element name="Balt04_HeatingCapacity" type="hvac:HeatingCapacity">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Heating Capacity (kBtu/h)</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Balt01_AirflowMethod == HeatingSystemMethod user input numeric xxx.x  Else result = N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                     
+                     <xs:element name="Balt04_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Heating Capacity (kBtu/h)</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Balt01_AirflowMethod == HeatingSystemMethod user input numeric xxx.x  Else result = N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                  
+                  </xs:choice>
+                  
+                  
+                  <xs:choice maxOccurs="1">
+                     
+                     
+                     <xs:element name="Balt05_HvacSystemConditionedFloorArea" type="hvac:HvacSystemConditionedFloorArea">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">
+                              Conditioned Floor Area Served by this HVAC System (ft
+                              <ns2:sup>2</ns2:sup>
+                              )
+                           </xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Balt01_AirflowMethod == DefaultAirFlowMethod user input numeric xx,xxx Else result = N/A stored in NotApplicableMessage 
+( should be consistent with parent CC zone CFA data)</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                     
+                     <xs:element name="Balt05_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">
+                              Conditioned Floor Area Served by this HVAC System (ft
+                              <ns2:sup>2</ns2:sup>
+                              )
+                           </xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Balt01_AirflowMethod == DefaultAirFlowMethod user input numeric xx,xxx Else result = N/A stored in NotApplicableMessage 
+( should be consistent with parent CC zone CFA data)</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                  
+                  </xs:choice>
+                  
+                  
+                  <xs:choice maxOccurs="1">
+                     
+                     
+                     <xs:element name="Balt06_AHU_AirflowMeasured" type="comp:AHU_AirflowMeasured">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Measured AHU Airflow (cfm)</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Balt01_AirflowMethod == MeasuredAirFlowMethod user input numeric  x,xxx Else result = N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                     
+                     <xs:element name="Balt06_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Measured AHU Airflow (cfm)</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Balt01_AirflowMethod == MeasuredAirFlowMethod user input numeric  x,xxx Else result = N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                  
+                  </xs:choice>
+                  
+                  
+                  <xs:element fixed="TestFinal" name="Balt07_LeakageTestCondition" type="comp:LeakageTestCondition">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Duct Leakage Test Conditions</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Auto filled field:  TestFinal is the only allowable test condition for Replacement or Alteration</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="Balt08_LeakageTestMethod" type="comp:LeakageTestMethod">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Duct Leakage Test Method</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User pick one from list: LeakageToOutside; TotalLeakage</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="Balt09_DuctSystemLeakageFactor" type="comp:DuctSystemLeakageFactor">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Leakage Factor</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Calculated field:  All conditions include Balt07_LeakageTestCondition==TestFinal, the only value allowed for Alteration or Replacement
 Switch (A07_DuctSystemLeakageComplianceCategory) 
 case Alteration:  
 If Balt08_LeakageTestMethod == LeakageToOutside result = 0.07 
@@ -547,13 +1641,25 @@ If  A04_ResidentialLowriseBuildingType ==  SingleFamily result = 0.05
 Else error message if invalid entries for arguments.
 End If
 End If
-End Switch</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Balt10_DuctLeakageAllowed" type="comp:DuctLeakageAllowed">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Calculated Target Allowable Duct Leakage (cfm)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: Switch (Balt01_AirflowMethod) 
+End Switch</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="Balt10_DuctLeakageAllowed" type="comp:DuctLeakageAllowed">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Calculated Target Allowable Duct Leakage (cfm)</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Calculated field: Switch (Balt01_AirflowMethod) 
 case DefaultAirflowMethod: result = PRODUCT (Balt05_HvacSystemConditionedFloorArea, 0.5, Balt09_DuctSystemLeakageFactor); 
 case CoolingSystemMethod:  
 If A09_IsSystemSDHV == false result = PRODUCT (Balt02_CondenserNominalCoolingCapacity, 400, Balt09_DuctSystemLeakageFactor); 
@@ -562,126 +1668,368 @@ End Ifalt
 case HeatingSystemMethod: result = PRODUCT (Balt04_HvacSystemHeatingCapacity, 21.7,  Balt09_DuctSystemLeakageFactor);  
 case MeasuredAirflowMethod: result = PRODUCT (Balt06_AHU_AirflowMeasured, Balt09_DuctSystemLeakageFactor); 
 case IndoorUnitMethod: result = PRODUCT (Balt03_IndoorUnitNominalCoolingCapacity, 350, Balt09_DuctSystemLeakageFactor).
-End Switch</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Balt11_DuctLeakageTestActual" type="comp:DuctLeakageTestActual">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Actual Duct Leakage Rate from Leakage Test Measurement (cfm)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input numeric xxx.x</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Balt12_DoesDuctLeakageTestPass" type="comp:DoesDuctLeakageTestPass">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Compliance Statement:</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If  Balt11_DuctLeakageTestActual LTE Balt10_DuctLeakageAllowed result = true.   display term:  System Passes Leakage Test.  Else result = false display term System Fails Leakage Test</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="Section_B5" minOccurs="0">
-            <xsd:annotation>
-               <xsd:documentation source="FieldText">Duct Leakage Diagnostic Test for Replacement or Alteration Using Smoke Test</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required If A07_DuctSystemLeakageComplianceCategory == ReplacementUsingSmokeTest Or AlterationUsingSmokeTest.  In this section the parent CC refers to the parent CF1R Certificate of Compliance CC)</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="Bsmt01_AirflowMethod" type="comp:AirflowMethod">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Air Handling Unit Airflow (AHU Airflow) Determination Method</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User selects from list CoolingSystemMethod display term Cooling system method, DefaultAirFlowMethod display term Default air flow method, HeatingSystemMethod display term Heating system method, MeasuredAirFlowMethod display term Measured air flow method, IndoorUnitMethod display term Indoor unit method</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="Bsmt02_CondenserNominalCoolingCapacity" type="hvac:CondenserNominalCoolingCapacity">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Condenser Nominal Cooling Capacity (ton)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bsmt01_AirflowMethod ==CoolingSystemMethod user input numeric x.xx stored in CondenserNominalCoolingCapacity  Else result =  N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="Bsmt02_NotApplicableMessage" type="comp:NotApplicableMessage">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Condenser Nominal Cooling Capacity (ton)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bsmt01_AirflowMethod ==CoolingSystemMethod user input numeric x.xx stored in CondenserNominalCoolingCapacity  Else result =  N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="Bsmt03_IndoorUnitNominalCoolingCapacity" type="hvac:IndoorUnitNominalCoolingCapacity">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Indoor Unit Nominal Cooling Capacity</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bsmt01_AirflowMethod == IndoorUnitMethod user input numeric x.xx stored in IndoorUnitNominalCoolingCapacity   Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="Bsmt03_NotApplicableMessage" type="comp:NotApplicableMessage">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Indoor Unit Nominal Cooling Capacity</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bsmt01_AirflowMethod == IndoorUnitMethod user input numeric x.xx stored in IndoorUnitNominalCoolingCapacity   Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="Bsmt04_HeatingCapacity" type="hvac:HeatingCapacity">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Heating Capacity (kBtu/h)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bsmt01_AirflowMethod == HeatingSystemMethod user input numeric xxx.x  Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="Bsmt04_NotApplicableMessage" type="comp:NotApplicableMessage">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Heating Capacity (kBtu/h)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bsmt01_AirflowMethod == HeatingSystemMethod user input numeric xxx.x  Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="Bsmt05_HvacSystemConditionedFloorArea" type="hvac:HvacSystemConditionedFloorArea">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Conditioned Floor Area Served by this HVAC System (ft<d:sup>2</d:sup>)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bsmt01_AirflowMethod == DefaultAirFlowMethod user input numeric xx,xxx Else result = N/A stored in NotApplicableMessage 
-( should be consistent with parent CC zone CFA data)</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="Bsmt05_NotApplicableMessage" type="comp:NotApplicableMessage">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Conditioned Floor Area Served by this HVAC System (ft<d:sup>2</d:sup>)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bsmt01_AirflowMethod == DefaultAirFlowMethod user input numeric xx,xxx Else result = N/A stored in NotApplicableMessage 
-( should be consistent with parent CC zone CFA data)</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="Bsmt06_AHU_AirflowMeasured" type="comp:AHU_AirflowMeasured">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Measured AHU Airflow (cfm)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bsmt01_AirflowMethod == MeasuredAirFlowMethod user input numeric  x,xxx Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="Bsmt06_NotApplicableMessage" type="comp:NotApplicableMessage">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Measured AHU Airflow (cfm)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Bsmt01_AirflowMethod == MeasuredAirFlowMethod user input numeric  x,xxx Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:element name="Bsmt07_LeakageTestCondition" type="comp:LeakageTestCondition" fixed="TestFinal">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Duct Leakage Test Conditions</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">TestFinal is the only allowable test condition for Replacement or Alteration using Smoke Test</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Bsmt08_LeakageTestMethod" type="comp:LeakageTestMethod" fixed="TotalLeakage">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Duct Leakage Test Method</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">TotalLeakage is the only allowable test condition for Replacement or Alteration using Smoke Test</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Bsmt09_DuctSystemLeakageFactor" type="comp:DuctSystemLeakageFactor">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Leakage Factor</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field:  All conditions include Bsmt07_LeakageTestCondition==TestFinal And Bsmt08_LeakageTestMethod==TotalLeakage, the only values allowed for Alteration using Smoke Test or Replacement using Smoke Test
+End Switch</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="Balt11_DuctLeakageTestActual" type="comp:DuctLeakageTestActual">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Actual Duct Leakage Rate from Leakage Test Measurement (cfm)</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User input numeric xxx.x</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="Balt12_DoesDuctLeakageTestPass" type="comp:DoesDuctLeakageTestPass">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Compliance Statement:</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">If  Balt11_DuctLeakageTestActual LTE Balt10_DuctLeakageAllowed result = true.   display term:  System Passes Leakage Test.  Else result = false display term System Fails Leakage Test</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+               
+               </xs:sequence>
+               
+            
+            </xs:complexType>
+            
+         
+         </xs:element>
+         
+         
+         <xs:element minOccurs="0" name="Section_B5">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">Duct Leakage Diagnostic Test for Replacement or Alteration Using Smoke Test</xs:documentation>
+               
+               
+               <xs:documentation source="CalculationsAndRules">This section is required If A07_DuctSystemLeakageComplianceCategory == ReplacementUsingSmokeTest Or AlterationUsingSmokeTest.  In this section the parent CC refers to the parent CF1R Certificate of Compliance CC)</xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element name="Bsmt01_AirflowMethod" type="comp:AirflowMethod">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Air Handling Unit Airflow (AHU Airflow) Determination Method</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User selects from list CoolingSystemMethod display term Cooling system method, DefaultAirFlowMethod display term Default air flow method, HeatingSystemMethod display term Heating system method, MeasuredAirFlowMethod display term Measured air flow method, IndoorUnitMethod display term Indoor unit method</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:choice maxOccurs="1">
+                     
+                     
+                     <xs:element name="Bsmt02_CondenserNominalCoolingCapacity" type="hvac:CondenserNominalCoolingCapacity">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Condenser Nominal Cooling Capacity (ton)</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bsmt01_AirflowMethod ==CoolingSystemMethod user input numeric x.xx stored in CondenserNominalCoolingCapacity  Else result =  N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                     
+                     <xs:element name="Bsmt02_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Condenser Nominal Cooling Capacity (ton)</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bsmt01_AirflowMethod ==CoolingSystemMethod user input numeric x.xx stored in CondenserNominalCoolingCapacity  Else result =  N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                  
+                  </xs:choice>
+                  
+                  
+                  <xs:choice maxOccurs="1">
+                     
+                     
+                     <xs:element name="Bsmt03_IndoorUnitNominalCoolingCapacity" type="hvac:IndoorUnitNominalCoolingCapacity">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Indoor Unit Nominal Cooling Capacity</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bsmt01_AirflowMethod == IndoorUnitMethod user input numeric x.xx stored in IndoorUnitNominalCoolingCapacity   Else result = N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                     
+                     <xs:element name="Bsmt03_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Indoor Unit Nominal Cooling Capacity</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bsmt01_AirflowMethod == IndoorUnitMethod user input numeric x.xx stored in IndoorUnitNominalCoolingCapacity   Else result = N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                  
+                  </xs:choice>
+                  
+                  
+                  <xs:choice maxOccurs="1">
+                     
+                     
+                     <xs:element name="Bsmt04_HeatingCapacity" type="hvac:HeatingCapacity">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Heating Capacity (kBtu/h)</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bsmt01_AirflowMethod == HeatingSystemMethod user input numeric xxx.x  Else result = N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                     
+                     <xs:element name="Bsmt04_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Heating Capacity (kBtu/h)</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bsmt01_AirflowMethod == HeatingSystemMethod user input numeric xxx.x  Else result = N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                  
+                  </xs:choice>
+                  
+                  
+                  <xs:choice maxOccurs="1">
+                     
+                     
+                     <xs:element name="Bsmt05_HvacSystemConditionedFloorArea" type="hvac:HvacSystemConditionedFloorArea">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">
+                              Conditioned Floor Area Served by this HVAC System (ft
+                              <ns2:sup>2</ns2:sup>
+                              )
+                           </xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bsmt01_AirflowMethod == DefaultAirFlowMethod user input numeric xx,xxx Else result = N/A stored in NotApplicableMessage 
+( should be consistent with parent CC zone CFA data)</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                     
+                     <xs:element name="Bsmt05_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">
+                              Conditioned Floor Area Served by this HVAC System (ft
+                              <ns2:sup>2</ns2:sup>
+                              )
+                           </xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bsmt01_AirflowMethod == DefaultAirFlowMethod user input numeric xx,xxx Else result = N/A stored in NotApplicableMessage 
+( should be consistent with parent CC zone CFA data)</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                  
+                  </xs:choice>
+                  
+                  
+                  <xs:choice maxOccurs="1">
+                     
+                     
+                     <xs:element name="Bsmt06_AHU_AirflowMeasured" type="comp:AHU_AirflowMeasured">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Measured AHU Airflow (cfm)</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bsmt01_AirflowMethod == MeasuredAirFlowMethod user input numeric  x,xxx Else result = N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                     
+                     <xs:element name="Bsmt06_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Measured AHU Airflow (cfm)</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If Bsmt01_AirflowMethod == MeasuredAirFlowMethod user input numeric  x,xxx Else result = N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                  
+                  </xs:choice>
+                  
+                  
+                  <xs:element fixed="TestFinal" name="Bsmt07_LeakageTestCondition" type="comp:LeakageTestCondition">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Duct Leakage Test Conditions</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">TestFinal is the only allowable test condition for Replacement or Alteration using Smoke Test</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element fixed="TotalLeakage" name="Bsmt08_LeakageTestMethod" type="comp:LeakageTestMethod">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Duct Leakage Test Method</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">TotalLeakage is the only allowable test condition for Replacement or Alteration using Smoke Test</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="Bsmt09_DuctSystemLeakageFactor" type="comp:DuctSystemLeakageFactor">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Leakage Factor</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Calculated field:  All conditions include Bsmt07_LeakageTestCondition==TestFinal And Bsmt08_LeakageTestMethod==TotalLeakage, the only values allowed for Alteration using Smoke Test or Replacement using Smoke Test
 
 If A07_DuctSystemLeakageComplianceCategory == Alteration using Smoke Test result = 0.10 
 
@@ -689,13 +2037,25 @@ Else If A07_DuctSystemLeakageComplianceCategory == Replacement Using Smoke Test 
 If A04_ResidentialLowriseBuildingType == SingleFamily  result = 0.05 
 End If
 Else provide applicable error message if invalid entries are given
-End If</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Bsmt10_DuctLeakageAllowed" type="comp:DuctLeakageAllowed">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Calculated Target Allowable Duct Leakage (cfm)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: Switch (Bsmt01_AirflowMethod) 
+End If</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="Bsmt10_DuctLeakageAllowed" type="comp:DuctLeakageAllowed">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Calculated Target Allowable Duct Leakage (cfm)</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Calculated field: Switch (Bsmt01_AirflowMethod) 
 case DefaultAirflowMethod: result = PRODUCT (Bsmt05_HvacSystemConditionedFloorArea, 0.5, Bsmt09_ DuctSystemLeakageFactor); 
 case CoolingSystemMethod: 
 If A09_IsSystemSDHV == false result = PRODUCT (Bsmt02_CondenserNominalCoolingCapacity, 400, Bsmt09_DuctSystemLeakageFactor); 
@@ -704,223 +2064,555 @@ End If
 case HeatingSystemMethod: result = PRODUCT (Bsmt04_HvacSystemHeatingCapacity, 21.7,  Bsmt09_ DuctSystemLeakageFactor);  
 case MeasuredAirflowMethod: result = PRODUCT (Bsmt06_AHU_AirflowMeasured, Bsmt09_ DuctSystemLeakageFactor); 
 case IndoorUnitMethod: result = PRODUCT (Bsmt03_IndoorUnitNominalCoolingCapacity, 350, Bsmt09_ DuctSystemLeakageFactor).
-End If</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Bsmt11_DuctLeakageTestActual" type="comp:DuctLeakageTestActual">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Actual Duct Leakage Rate from Leakage Test Measurement (cfm)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input numeric xxx.x</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Bsmt12_DuctLeakageTestStatusUsingSmokeTest" type="comp:DuctLeakageTestStatusUsingSmokeTest">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Compliance Statement:</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If  Bsmt11_DuctLeakageTestActual LTE Bsmt10_DuctLeakageAllowed result = PassAllowableDuctLeakageRate, display term:    System Passes - System Complies With Allowable Duct Leakage Rate Criterion.   Else result = PassUsingSmokeTestRes   display term: System Passes Using Smoke Test On Altered System In Existing Building... (complete display term in base definition)</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="Section_C" minOccurs="0">
-            <xsd:annotation>
-               <xsd:documentation source="FieldText">Ducts Located in Garage Spaces</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required if A08_AreDuctsInGarage== true.</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="C01_LeakageTestMethod" type="comp:LeakageTestMethod" fixed="TotalLeakage">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Duct Leakage Test Method</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Auto-filled value = TotalLeakage (this is the only method allowed)</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="C02_DuctSystemLeakageFactor" type="comp:DuctSystemLeakageFactor">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Leakage Factor</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Auto-filled value = 0.06</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="C03_AirflowMethod" type="comp:AirflowMethod">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Air Handling Unit Airflow (AHU Airflow) Determination Method</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Auto-filled from  Section B1/2/3/4/5 field 01 AirflowMethod</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="C04_AHU_AirflowMeasured" type="comp:AHU_AirflowMeasured">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Measured AHU Airflow (cfm)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Auto-filled from AHU_AirflowMeasured in Section B1/3/4/5 field 06 or Section B2 field 05</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="C04_NotApplicableMessage" type="comp:NotApplicableMessage">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Measured AHU Airflow (cfm)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Auto-filled from NotApplicableMessage in Section B1/3/4/5 field 06 or Section B2 field 05</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:element name="C05_DuctLeakageAllowed" type="comp:DuctLeakageAllowed">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Calculated Target Allowable Duct Leakage (cfm)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: Switch (Section B1/3/4/5 field 01_AirflowMethod) 
+End If</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="Bsmt11_DuctLeakageTestActual" type="comp:DuctLeakageTestActual">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Actual Duct Leakage Rate from Leakage Test Measurement (cfm)</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User input numeric xxx.x</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="Bsmt12_DuctLeakageTestStatusUsingSmokeTest" type="comp:DuctLeakageTestStatusUsingSmokeTest">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Compliance Statement:</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">If  Bsmt11_DuctLeakageTestActual LTE Bsmt10_DuctLeakageAllowed result = PassAllowableDuctLeakageRate, display term:    System Passes - System Complies With Allowable Duct Leakage Rate Criterion.   Else result = PassUsingSmokeTestRes   display term: System Passes Using Smoke Test On Altered System In Existing Building... (complete display term in base definition)</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+               
+               </xs:sequence>
+               
+            
+            </xs:complexType>
+            
+         
+         </xs:element>
+         
+         
+         <xs:element minOccurs="0" name="Section_C">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">Ducts Located in Garage Spaces</xs:documentation>
+               
+               
+               <xs:documentation source="CalculationsAndRules">This section is required if A08_AreDuctsInGarage== true.</xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element fixed="TotalLeakage" name="C01_LeakageTestMethod" type="comp:LeakageTestMethod">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Duct Leakage Test Method</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Auto-filled value = TotalLeakage (this is the only method allowed)</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="C02_DuctSystemLeakageFactor" type="comp:DuctSystemLeakageFactor">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Leakage Factor</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Auto-filled value = 0.06</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="C03_AirflowMethod" type="comp:AirflowMethod">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Air Handling Unit Airflow (AHU Airflow) Determination Method</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Auto-filled from  Section B1/2/3/4/5 field 01 AirflowMethod</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:choice maxOccurs="1">
+                     
+                     
+                     <xs:element name="C04_AHU_AirflowMeasured" type="comp:AHU_AirflowMeasured">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Measured AHU Airflow (cfm)</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">Auto-filled from AHU_AirflowMeasured in Section B1/3/4/5 field 06 or Section B2 field 05</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                     
+                     <xs:element name="C04_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Measured AHU Airflow (cfm)</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules"> Auto-filled from NotApplicableMessage in Section B1/3/4/5 field 06 or Section B2 field 05</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                  
+                  </xs:choice>
+                  
+                  
+                  <xs:element name="C05_DuctLeakageAllowed" type="comp:DuctLeakageAllowed">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Calculated Target Allowable Duct Leakage (cfm)</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Calculated field: Switch (Section B1/3/4/5 field 01_AirflowMethod) 
 case DefaultAirflowMethod: result = PRODUCT (B05_HvacSystemConditionedFloorArea, 0.5, 0.06); 
 case CoolingSystemMethod: result = PRODUCT (B02_CondenserNominalCoolingCapacity, 400, 0.06);  
 case HeatingSystemMethod: result = PRODUCT (B04_HvacSystemHeatingCapacity, 21.7,  0.06);  
 case MeasuredAirflowMethod: result = PRODUCT (AHU_AirflowMeasured, 0.06); 
 case IndoorUnitMethod: result = PRODUCT (B03_IndoorUnitNominalCoolingCapacity, 350, 0.06).
-End Switch</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="C06_DuctLeakageTestActual" type="comp:DuctLeakageTestActual">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Actual Duct Leakage Rate from Leakage Test Measurement (cfm)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Auto-filled from DuctLeakageTestActual in Section B1/3/4/5 field 11</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="C07_DoesGarageDuctLeakageTestPass" type="comp:DoesGarageDuctLeakageTestPass">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Compliance Statement:</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If  C06_DuctLeakageTestActual LTE C05_DuctLeakageAllowed result = true display term Ducts in garage passes - overall system leakage complies  Else result = false display term Ducts in garage passes using smoke test of an altered HVAC system in an existing building 
-                           <d:l t="*">
-                              <d:list> No visible smoke exits the accessible portions of the ducts in the garage.</d:list>
-                           </d:l>
-                        </xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="Section_D" minOccurs="0">
-            <xsd:annotation>
-               <xsd:documentation source="FieldText">Additional Requirements for Compliance</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="D01" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">No Temporary Taping Allowed</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">System was tested in its normal operation condition.  No temporary taping allowed.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="D02" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Outside Air (OA) Ducts for Central Fan Integrated (CFI)</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Outside air (OA) duct connections to the central forced air duct system shall not be sealed/taped off during duct leakage testing. OA ducts used for Central Fan Integrated (CFI) Indoor Air Quality ventilation systems, or Central Fan Ventilation Cooling Systems, that utilize dampers that open only when OA is required and automatically close when OA is not required, may configure the OA damper to the closed position during duct leakage testing.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="D03" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Supply and Return Register Boots</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">All supply and return register boots were sealed to the drywall.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="D04" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Building Cavities</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Building cavities were not used as plenums or platform returns in lieu of ducts.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="D05" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Cloth Backed Tape</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">If cloth backed tape was used it was covered with Mastic and draw bands.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="D06" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">All Connection Points Sealed</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">All connection points between the air handler and the supply and return plenums are completely sealed.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="D06After_HeadingForC07toC09" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">
-                           <d:b>Visual Inspection at Final Construction Stage (applicable if system was tested at rough-in).</d:b>
-                        </xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="D06After_Note" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements">After installing the interior finishing wall and verifying that the above rough-in tests was completed, the following procedure must be performed</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="D07" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Supply and return registers</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">For all supply and return registers, verify that the spaces between the register boot and the interior finishing wall are properly sealed.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="D08" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Rough-in duct leakage test</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">If the house rough-in duct leakage test was conducted without an air handler installed, inspect the connection points between the air handler and the supply and return plenums to verify that the connection points are properly sealed.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="D09" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Inspect all joints</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Inspect all joints to ensure that no cloth backed rubber adhesive duct tape is used.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="D10" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Certified Low Leakage Air-Handling Unit</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">For Duct Systems with Low Leakage Air-Handling Unit (LLAHU): The Low Leakage Air-handling Unit Model identified on this compliance document is included in the list of certified Low Leakage Air-Handling Units published on the Energy Commission Website at: http://www.energy.ca.gov/rules-and-regulations/building-energy-efficiency/manufacturer-certification-building-equipment/low</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="D11" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Smoke Test method</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">If the system complies using the Smoke Test method, the smoke test was conducted in accordance with the requirements of Reference Residential Appendix RA3.1.4.3.6.  Systems that comply using smoke test shall not be included in sample groups for ECC verification compliance.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="DEndNote1" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
-      </xsd:sequence>
-   </xsd:complexType>
-   <xsd:element name="ComplianceDocumentPackage">
-      <xsd:complexType>
-         <xsd:sequence>
-            <xsd:element name="DocID" minOccurs="0">
-               <xsd:complexType>
-                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RMCH20H"/>
-                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
-                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Duct Leakage Diagnostic Test"/>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Payload" type="comp:Payload"/>
-            <xsd:element name="DocumentData">
-               <xsd:complexType>
-                  <xsd:sequence>
-                     <xsd:element name="Header" type="comp:HeaderHERS"/>
-                     <xsd:element ref="cF2RMCH20H"/>
-                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
-                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_H"/>
-                     <xsd:element name="Footer" type="comp:Footer"/>
-                  </xsd:sequence>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Report" type="xsd:base64Binary"/>
-         </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
-         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH20H"/>
-      </xsd:complexType>
-   </xsd:element>
-   <xsd:element name="cF2RMCH20H" type="CF2RMCH20H">
-      <xsd:annotation>
-         <xsd:documentation>This element contains all of the data and text required to generate the CF2RMCH20H compliance report.</xsd:documentation>
-      </xsd:annotation>
-   </xsd:element>
-</xsd:schema>
+End Switch</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="C06_DuctLeakageTestActual" type="comp:DuctLeakageTestActual">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Actual Duct Leakage Rate from Leakage Test Measurement (cfm)</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Auto-filled from DuctLeakageTestActual in Section B1/3/4/5 field 11</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="C07_DoesGarageDuctLeakageTestPass" type="comp:DoesGarageDuctLeakageTestPass">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Compliance Statement:</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">
+                           If  C06_DuctLeakageTestActual LTE C05_DuctLeakageAllowed result = true display term Ducts in garage passes - overall system leakage complies  Else result = false display term Ducts in garage passes using smoke test of an altered HVAC system in an existing building 
+                           <ns2:l t="*">
+                               
+                              <ns2:list> No visible smoke exits the accessible portions of the ducts in the garage.</ns2:list>
+                           </ns2:l>
+                        </xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+               
+               </xs:sequence>
+               
+            
+            </xs:complexType>
+            
+         
+         </xs:element>
+         
+         
+         <xs:element minOccurs="0" name="Section_D">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">Additional Requirements for Compliance</xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element minOccurs="0" name="D01">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">No Temporary Taping Allowed</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">System was tested in its normal operation condition.  No temporary taping allowed.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="D02">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Outside Air (OA) Ducts for Central Fan Integrated (CFI)</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">Outside air (OA) duct connections to the central forced air duct system shall not be sealed/taped off during duct leakage testing. OA ducts used for Central Fan Integrated (CFI) Indoor Air Quality ventilation systems, or Central Fan Ventilation Cooling Systems, that utilize dampers that open only when OA is required and automatically close when OA is not required, may configure the OA damper to the closed position during duct leakage testing.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="D03">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Supply and Return Register Boots</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">All supply and return register boots were sealed to the drywall.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="D04">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Building Cavities</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">Building cavities were not used as plenums or platform returns in lieu of ducts.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="D05">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Cloth Backed Tape</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">If cloth backed tape was used it was covered with Mastic and draw bands.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="D06">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">All Connection Points Sealed</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">All connection points between the air handler and the supply and return plenums are completely sealed.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="D06After_HeadingForC07toC09">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">
+                           <ns2:b>Visual Inspection at Final Construction Stage (applicable if system was tested at rough-in).</ns2:b>
+                        </xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="D06After_Note">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText"/>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">After installing the interior finishing wall and verifying that the above rough-in tests was completed, the following procedure must be performed</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="D07">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Supply and return registers</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">For all supply and return registers, verify that the spaces between the register boot and the interior finishing wall are properly sealed.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="D08">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Rough-in duct leakage test</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">If the house rough-in duct leakage test was conducted without an air handler installed, inspect the connection points between the air handler and the supply and return plenums to verify that the connection points are properly sealed.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="D09">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Inspect all joints</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">Inspect all joints to ensure that no cloth backed rubber adhesive duct tape is used.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="D10">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Certified Low Leakage Air-Handling Unit</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">For Duct Systems with Low Leakage Air-Handling Unit (LLAHU): The Low Leakage Air-handling Unit Model identified on this compliance document is included in the list of certified Low Leakage Air-Handling Units published on the Energy Commission Website at: http://www.energy.ca.gov/rules-and-regulations/building-energy-efficiency/manufacturer-certification-building-equipment/low</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="D11">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Smoke Test method</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">If the system complies using the Smoke Test method, the smoke test was conducted in accordance with the requirements of Reference Residential Appendix RA3.1.4.3.6.  Systems that comply using smoke test shall not be included in sample groups for ECC verification compliance.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="DEndNote1">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">End Note 1</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+               
+               </xs:sequence>
+               
+            
+            </xs:complexType>
+            
+         
+         </xs:element>
+         
+      
+      </xs:sequence>
+      
+   
+   </xs:complexType>
+   
+   
+   <xs:element name="cF2RMCH20H" type="CF2RMCH20H">
+      
+      
+      <xs:annotation>
+         
+         
+         <xs:documentation>This element contains all of the data and text required to generate the CF2RMCH20H compliance report.</xs:documentation>
+         
+      
+      </xs:annotation>
+      
+   
+   </xs:element>
+   
+
+</xs:schema>

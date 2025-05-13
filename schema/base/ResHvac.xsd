@@ -2544,6 +2544,16 @@
       <xsd:restriction base="dtyp:DecimalNonnegative">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="CoolingCapacity">
+      <xsd:annotation>
+         <xsd:documentation>Cooling capacity of an HVAC system  Units: Btu per h</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Cooling Capacity</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:Decimal1Place">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="CoolingCapacityTotalRatedVerified">
       <xsd:annotation>
          <xsd:documentation>The total cooling capacity of a coil at rated conditions</xsd:documentation>
@@ -2766,6 +2776,20 @@
          <xsd:documentation>  Units: none</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="DesignCoolingOutdoorTemp">
+      <xsd:annotation>
+         <xsd:documentation> Units: F</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:Decimal">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="DesignHeatingOutdoorTemp">
+      <xsd:annotation>
+         <xsd:documentation> Units: F</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:Decimal">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="DesignSensibleCoolingLoad">
@@ -11331,6 +11355,16 @@
       <xsd:restriction base="dtyp:Decimal1PlaceNonnegative">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="PoolSpaSurfaceArea">
+      <xsd:annotation>
+         <xsd:documentation>  Units: ft2</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Pool  or Spa Surface Area</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:IntegerNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="PoolSuctionLineFlowRate">
       <xsd:annotation>
          <xsd:documentation>  Units: ft per sec</xsd:documentation>
@@ -12083,24 +12117,24 @@
       <xsd:annotation>
          <xsd:documentation>This describes the type of mechanism is used to distribute hot water in a dwelling unit in a low-rise residential buildings</xsd:documentation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="CompactDistributionDrainHeatRecoveryHERS">HERS Verified Compact Hot Water Distribution and drain water heat recovery</dtyp:displayterm>
+            <dtyp:displayterm value="CompactDistributionDrainHeatRecoveryHERS">Field Verified Compact Hot Water Distribution and drain water heat recovery</dtyp:displayterm>
             <dtyp:displayterm value="CompactHotWaterDistributionSystemBasic">Basic Compact Hot Water Distribution System</dtyp:displayterm>
-            <dtyp:displayterm value="CompactHotWaterDistributionSystemHERS">HERS Verified Compact Hot Water Distribution System</dtyp:displayterm>
+            <dtyp:displayterm value="CompactHotWaterDistributionSystemHERS">Field Verified Compact Hot Water Distribution System</dtyp:displayterm>
             <dtyp:displayterm value="DemandRecirculation">Demand recirculation</dtyp:displayterm>
             <dtyp:displayterm value="DemandRecirculationManualControl">Demand Recirculation Manual Control</dtyp:displayterm>
-            <dtyp:displayterm value="DemandRecirculationManualControlHERS">HERS Verified Demand Recirculation Manual Control</dtyp:displayterm>
+            <dtyp:displayterm value="DemandRecirculationManualControlHERS">Field Verified Demand Recirculation Manual Control</dtyp:displayterm>
             <dtyp:displayterm value="DemandRecirculationSensorControls">Demand Recirculation Sensor Controls</dtyp:displayterm>
-            <dtyp:displayterm value="DemandRecirculationSensorControlsHERS">HERS Verified Demand Recirculation Sensor Controls</dtyp:displayterm>
-            <dtyp:displayterm value="DrainWaterHeatRecoveryHERS">HERS Drain Water Heat Recovery</dtyp:displayterm>
+            <dtyp:displayterm value="DemandRecirculationSensorControlsHERS">Field Verified Demand Recirculation Sensor Controls</dtyp:displayterm>
+            <dtyp:displayterm value="DrainWaterHeatRecoveryHERS">Field Drain Water Heat Recovery</dtyp:displayterm>
             <dtyp:displayterm value="Other">Other</dtyp:displayterm>
             <dtyp:displayterm value="PointOfUse">Point of Use</dtyp:displayterm>
-            <dtyp:displayterm value="PointOfUseHERS">HERS Verified Point of Use</dtyp:displayterm>
+            <dtyp:displayterm value="PointOfUseHERS">Field Verified Point of Use</dtyp:displayterm>
             <dtyp:displayterm value="RecirculationNonDemand">Recirculation System Non-Demand Control</dtyp:displayterm>
             <dtyp:displayterm value="StandardDistribution">Standard Distribution System</dtyp:displayterm>
-            <dtyp:displayterm value="StandardDistributionCentralParallelPiping">Parallel Piping</dtyp:displayterm>
-            <dtyp:displayterm value="StandardDistributionCentralParallelPipingHERS">HERS Verified Parallel Piping</dtyp:displayterm>
+            <dtyp:displayterm value="StandardDistributionCentralParallelPiping">Central Parallel Piping</dtyp:displayterm>
+            <dtyp:displayterm value="StandardDistributionCentralParallelPipingHERS">Field Verified Central Parallel Piping</dtyp:displayterm>
             <dtyp:displayterm value="StandardDistributionInsulatedPipes">Pipe Insulation Credit</dtyp:displayterm>
-            <dtyp:displayterm value="StandardDistributionInsulatedPipesHERS">HERS Verified Pipe Insulation credit</dtyp:displayterm>
+            <dtyp:displayterm value="StandardDistributionInsulatedPipesHERS">Field Verified Pipe Insulation credit</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">

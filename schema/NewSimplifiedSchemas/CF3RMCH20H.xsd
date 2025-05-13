@@ -963,7 +963,7 @@ End Switch</xsd:documentation>
                    <xsd:element name="E01_DoesCF3R_Pass" type="comp:DoesCF3R_Pass" >
                        <xsd:annotation>
                            <xsd:documentation source="FieldText"></xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If Compliance Statement field in B1 or B2 or B3 or B4 or B5 == true And D12_DoesSystemComplyWithRequirements != ail  then result = true display term  Complies: All specified verification protocol requirements on this document are met;  
+                           <xsd:documentation source="CalculationsAndRules">If Compliance Statement field in B1 or B2 or B3 or B4 or B5 == true And D12_DoesSystemComplyWithRequirements != Fail  then result = true display term  Complies: All specified verification protocol requirements on this document are met;  
 Else result = false display term  Does not comply: One or more specified verification protocol requirements on this document are not met.</xsd:documentation>
                         </xsd:annotation>
                     </xsd:element>

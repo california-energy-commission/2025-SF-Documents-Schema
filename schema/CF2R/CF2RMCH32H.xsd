@@ -170,7 +170,7 @@ End If</xsd:documentation>
          <xsd:element name="Section_B" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Local Mechanical Exhaust System  (Section 150.0(o)1G) - Fan selection and duct design criteria for compliance</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section consists entirely of static text reproducing 2022 T24 Standards Table 150.0-E, Table 150.0-F, Table 150.0-G and Table 150.0-H</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section consists entirely of static text reproducing 2025 T24 Standards Table 150.0-E, Table 150.0-F, Table 150.0-G and Table 150.0-H</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -184,7 +184,7 @@ End If</xsd:documentation>
                   <xsd:element name="B_Table150E" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Table 150.0_E  Demand-Controlled Local Ventialtion Exhaust Aiflow Rates and Capture Efficiency</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Insert in report Table 150.0-E from 2022 T24 Standards as shown in the layout doc</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Insert in report Table 150.0-E from 2025 T24 Standards as shown in the layout doc</xsd:documentation>
                         <xsd:appinfo source="filenameterm">
                            <dtyp:filenameterm>2019Mch32Table5.html</dtyp:filenameterm>
                         </xsd:appinfo>
@@ -193,7 +193,7 @@ End If</xsd:documentation>
                   <xsd:element name="B_Table150F" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Table 150.0_F  Continuous Local Ventialtion Exhaust Aiflow Rates</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Insert in report Table 150.0-F from 2022 T24 Standards as shown in the layout doc</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Insert in report Table 150.0-F from 2025 T24 Standards as shown in the layout doc</xsd:documentation>
                         <xsd:appinfo source="filenameterm">
                            <dtyp:filenameterm>2019Mch32Table5.html</dtyp:filenameterm>
                         </xsd:appinfo>
@@ -202,7 +202,7 @@ End If</xsd:documentation>
                   <xsd:element name="B_Table150G" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Table 150.0_G  Kitchen Range Hood Aiflow Rates (cfm) and ASTM E3087 Capture Efficiency(CE) Ratings According to Dwelling Unit Floor Area and Kitchen Range Fuel Type</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Insert in report Table 150.0-G from 2022 T24 Standards as shown in the layout doc</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Insert in report Table 150.0-G from 2022 T25 Standards as shown in the layout doc</xsd:documentation>
                         <xsd:appinfo source="filenameterm">
                            <dtyp:filenameterm>2019Mch32Table5.html</dtyp:filenameterm>
                         </xsd:appinfo>
@@ -210,8 +210,8 @@ End If</xsd:documentation>
                   </xsd:element>
                   <xsd:element name="B_Table150H" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Table 150.0_H  Prescriptive Ventialtion System Duct Sizing</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Insert in report Table 150.0-H from 2022 T24 Standards as shown in the layout doc</xsd:documentation>
+                        <xsd:documentation source="FieldText">Table 150.0_H  Prescriptive Ventilation System Duct Sizing</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Insert in report Table 150.0-H from 2025 T24 Standards as shown in the layout doc</xsd:documentation>
                         <xsd:appinfo source="filenameterm">
                            <dtyp:filenameterm>2019Mch32Table5.html</dtyp:filenameterm>
                         </xsd:appinfo>
@@ -494,7 +494,7 @@ End If</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_D2" minOccurs="0">
+         <xsd:element name="Section_E" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Kitchen Range Hood Capture Efficiency Option</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required If C09a_HoodExhaustComplianceMethod == CaptureEfficiency</xsd:documentation>
@@ -567,50 +567,50 @@ End If</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_E" minOccurs="0">
+         <xsd:element name="Section_F" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Other Requirements</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="E_BeginNote1" minOccurs="0">
+                  <xsd:element name="F_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:i]The items listed below correspond to the information given in Section 150.0(o)1G.   Refer also to Chapter 4.6 of the Residential Compliance Manual  for information describing these requirements in more detail.  The signature of the Responsible Person in the declaration statement below certifies that the building complies with these requirements if applicable.[/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="E01" minOccurs="0">
+                  <xsd:element name="F01" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Demand control exhaust system shall be provided with at least one of the following: [d:l t="#"][d:list] A readily accessible occupant-controlled on-off control.[/d:list][d:list] An automatic control that does not impeded occupant on control.[/d:list][/d:l]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="E02" minOccurs="0">
+                  <xsd:element name="F02" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Nonenclosed kitchens shall be provided with a demand-controlled mechanical exhaust system.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="E03" minOccurs="0">
+                  <xsd:element name="F03" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Each continuous mechanical exhaust system shall be provided with a readily accessible manual on-off control. (Multifamily dwellings are exempt from readily accessible requirement. )</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="E04" minOccurs="0">
+                  <xsd:element name="F04" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Continuous mechanical exhaust systems shall be designed to operate during all occupiable hours.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="E05" minOccurs="0">
+                  <xsd:element name="F05" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Exhaust fans in separate dwelling units shall not share a common exhaust duct.  Exhaust inlets from more than one dwelling unit may be served by a single exhaust fan downstream of all the exhaust inlets if the fan is designated and intended to run continuously or if each inlet is equipped with a back-draft damper to prevent cross-contamination when the fan is not running.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="EEndNote1" minOccurs="0">
+                  <xsd:element name="FEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>

@@ -1,404 +1,1210 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RENV20cH" version="2016.1.006" xmlns="http://www.lmonte.com/besm/CF2RENV20cH" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
-   <xsd:complexType name="CF2RENV20cH">
-      <xsd:annotation>
-         <xsd:documentation>Building Air Leakage Diagnostic Test - Building Enclosures and Dwelling Unit Enclosures - ENV20c Multi-Point Air Tightness Test</xsd:documentation>
-      </xsd:annotation>
-      <xsd:sequence>
-         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
-            <xsd:annotation>
-               <xsd:documentation source="FieldText">Enclosure Air Leakage - General Information</xsd:documentation>
-               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="A01_IsEnvelopeAirLeakageHERSVerificationRequired" type="comp:IsEnvelopeAirLeakageHERSVerificationRequired">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Is ECC verification of building enclosure air leakage to outside required by CF1R?</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: If project CF1R requires ECC verification of building enclosure air leakage result = true display term Required Else result = false display term N/A</xsd:documentation>
-                        <xsd:appinfo source="displayterm">
-                           <dtyp:displayterm value="false">N/A</dtyp:displayterm>
-                        </xsd:appinfo>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="A02_EnclosureLeakageTargetCFM50" type="comp:EnclosureLeakageTargetCFM50">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Target  Enclosure Air Leakage from CF1R (CFM50)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A01_IsEnvelopeAirLeakageHERSVerificationRequired == true, result = CFM50 target value  from project CF1R Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="A02_NotApplicableMessage" type="comp:NotApplicableMessage">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Target  Enclosure Air Leakage from CF1R</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A01IsEnvelopeAirLeakageHERSVerificationRequired == true, result = CFM50 target value  from project CF1R Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:element name="A03_TestTemperatureIndoor" type="comp:TestTemperatureIndoor">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Indoor Temperature During Test  (degrees Fahrenheit (
-                           <d:deg/>F))</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input numeric x.x deg F</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="A04_TestTemperatureOutdoor" type="comp:TestTemperatureOutdoor">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Outdoor Temperature During Test (degrees Fahrenheit (
-                           <d:deg/>F))</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input numeric x.x deg F</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="A05_BlowerDoorLocation" type="comp:BlowerDoorLocation">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Blower Door Location</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">maximum 50 characters</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="A06_Elevation" type="com:Elevation">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Building Elevation Above Sea level (feet (ft))</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input integer xxxxx</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="A07_TestDate" type="comp:TestDate">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Date of Diagnostic Test for this Dwelling</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input date</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="A08_AirLeakageTestProcedure">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Test Procedure Used</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User selects from list: MultiPointTest, display term Multi-Point Test    SinglePointTestManualMeter, display term Single-Point Test with Manual Meter    SinglePointTestAutomaticMeter,  display term Single-Point Test with Automatic Meter</xsd:documentation>
-                     </xsd:annotation>
-                     <xsd:simpleType>
-                        <xsd:restriction base="comp:AirLeakageTestProcedure">
-                           <xsd:enumeration value="MultiPointTest"/>
-                           <xsd:enumeration value="SinglePointTestAutomaticMeter"/>
-                           <xsd:enumeration value="SinglePointTestManualMeter"/>
-                        </xsd:restriction>
-                     </xsd:simpleType>
-                  </xsd:element>
-                  <xsd:element name="A08After" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Env20c Variant Banner</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">ENV20c - Multi-Point Air Tightness Test</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If A08_AirLeakageTestProcedure == MultiPointTest, Then variant result = ENV20c - Multi-Point Air Tightness Test.  Use this variant for the remainder of this document.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="Section_B" minOccurs="1" maxOccurs="1">
-            <xsd:annotation>
-               <xsd:documentation source="FieldText">Diagnostic Equipment Information</xsd:documentation>
-               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="B01_ManometerCount" type="comp:ManometerCount">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Number of Manometers Used to Measure Home Pressurization</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If ManometerCount GT 1, provide a row for each manometer in ManometerCount to record its data</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="TableEquipment">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"/>
-                     </xsd:annotation>
-                     <xsd:complexType>
-                        <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
-                              <xsd:complexType>
-                                 <xsd:sequence>
-                                    <xsd:element name="B02_ManometerMake" type="comp:ManometerMake">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Manometer Make</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input text maximum 50 characters</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="B03_ManometerModel" type="comp:ManometerModel">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Manometer Model</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input text maximum 50 characters</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="B04_ManometerSerialNumber" type="comp:ManometerSerialNumber">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Manometer Serial Number</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input text maximum 50 characters</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="B05_ManometerCalibrationDate" type="comp:ManometerCalibrationDate">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Manometer Calibration Date</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input (Date)</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="B06_IsManometerCalibrationCurrent" type="comp:IsManometerCalibrationCurrent">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Manometer Calibration Status</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If B05_ManometerCalibrationDate  is within 12 months of the diagnostic TestDate in section A, then result = true  display term   Manometer Calibration is valid.  Else result = false display term WARNING -  Manometer Calibration is expired. A manometer with current calibration is required in order to comply with this Enclosure Air Leakage Diagnostic Test</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                 </xsd:sequence>
-                              </xsd:complexType>
-                           </xsd:element>
-                        </xsd:sequence>
-                     </xsd:complexType>
-                  </xsd:element>
-                  <xsd:element name="B07_FanCount" type="comp:FanCount">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Number of Fans Used to Pressurize Home</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If BlowerDoorFanCount GT 1, provide a row for each fan in BlowerDoorFanCount to record its data</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="TableFans">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"/>
-                     </xsd:annotation>
-                     <xsd:complexType>
-                        <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
-                              <xsd:complexType>
-                                 <xsd:sequence>
-                                    <xsd:element name="B08_FanMake" type="comp:FanMake">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Fan Make</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input text maximum 50 characters</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="B09_FanModel" type="comp:FanModel">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Fan Model</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input text maximum 50 characters</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="B10_FanSerialNumber" type="comp:FanSerialNumber">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Fan Serial Number</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input text maximum 50 characters</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="B11_FanConfiguration" type="comp:FanConfiguration">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Fan Configuration (rings)</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input text maximum 50 characters</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                 </xsd:sequence>
-                              </xsd:complexType>
-                           </xsd:element>
-                        </xsd:sequence>
-                     </xsd:complexType>
-                  </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="Section_C" minOccurs="1" maxOccurs="1">
-            <xsd:annotation>
-               <xsd:documentation source="FieldText">Enclosure Air Leakage Diagnostic Test</xsd:documentation>
-               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="C01_ASTM_E779_10Software" type="comp:ASTM_E779_10Software">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Name and version of ASTM E779 compliant software used for multi-point test.</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">maximum 50 characters</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="C02_MeterTimeAveragePeriod" type="comp:MeterTimeAveragePeriod">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Time Average Period of Meter (seconds)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input integer GTE  10 seconds</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="C03_BuildingAirLeakageTestMethod" type="comp:BuildingAirLeakageTestMethod">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Test Methodology</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User selects from list: Pressurization, Depressurization</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="C04_BuildingPressureReadingPreTest" type="comp:BuildingPressureReadingPreTest">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Pre-test Baseline Enclosure Pressure (Pa) (may be positive or negative)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input numeric xx.x in InclusiveRange(-40, 40)</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="C05_BuildingPressureTargetUnadjusted" type="comp:BuildingPressureTargetUnadjusted">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Unadjusted Enclosure Pressure Target (Pa)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: If C03_BuildingAirLeakageTestMethod == Pressurization result = SUM (60, C04_BuildingPressureReadingPreTest )  Else result = SUM (-60, C04_BuildingPressureReadingPreTest )  (resolution of 0.1)</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="C06_BuildingPressureMeasuredUnadjusted" type="comp:BuildingPressureMeasuredUnadjusted">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Unadjusted Enclosure Pressure Measured (Pa) (Pressurization is positive; Depressurization is negative)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input numeric xx.x in InclusiveRange(-75, 75)</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="C07_InducedEnclosurePressureDifference" type="comp:InducedEnclosurePressureDifference">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Induced Enclosure Pressure Difference (Pa) Goal = 60 +- 3 (Pressurization is positive; Depressurization is negative)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: result =  C06_BuildingPressureMeasuredUnadjusted - C04_BuildingPressureReadingPreTest</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="C08_MinReadingAcknowledge" type="comp:MinReadingAcknowledge">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">A minimum of five readings were taken spaced evenly between 10 Pa and 60 Pa (or highest attainable pressure)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User must acknowledge (result = true) this requirement to continue</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="C09_BuildingPressureReadingPostTest" type="comp:BuildingPressureReadingPostTest">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Post-test baseline building pressure</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input; Resolution of 0.1 Pa</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="C10_CFM50SoftwareCorrected" type="comp:CFM50SoftwareCorrected">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Corrected CFM50 (from software)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User entry of value calculated by the software.  Resolution of 1 CFM</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="Section_D" minOccurs="0" maxOccurs="1">
-            <xsd:annotation>
-               <xsd:documentation source="FieldText">Altitude and Temperature Correction Performed by blower door software</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is not used as it is performed by blower door software</xsd:documentation>
-            </xsd:annotation>
-         </xsd:element>
-         <xsd:element name="Section_E" minOccurs="1" maxOccurs="1">
-            <xsd:annotation>
-               <xsd:documentation source="FieldText">Accuracy Adjustment</xsd:documentation>
-               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="E01_SoftwareTestPercentUncertainty" type="comp:SoftwareTestPercentUncertainty">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Percent Uncertainty at 95% confidence level (from software)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User entry of value calculated by software. The value represented should be percent and not a fraction.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="E02_SoftwareTestAccuracy" type="comp:SoftwareTestAccuracy">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Accuracy Level</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If E01_SoftwareTestPercentUncertainty is less than or equal to 10, result = Standard, else result = Reduced</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="E03_TestAccuracyFactor" type="comp:TestAccuracyFactor">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Accuracy Adjustment Factor</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If E02_SoftwareTestAccuracy == Standard result = 1, Else If E02_SoftwareTestAccuracy == Reduced result = 1+ (E01_SoftwareTestPercentUncertainty / 100)</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="E04_CFM50Adjusted" type="comp:CFM50Adjusted">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Adjusted CFM50 (measured air leakage rate)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Result = C10_CFM50SoftwareCorrected x E03_TestAccuracyFactor</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="Section_F" minOccurs="1" maxOccurs="1">
-            <xsd:annotation>
-               <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
-               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="F01_DoesBuildingAirLeakageTestComply" type="comp:DoesBuildingAirLeakageTestComply">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If B05_ManometerCalibrationDate is within 12 months of the diagnostic A07_TestDate in section A and If E04_CFM50Adjusted in section E is less than or equal to the A02_AirInfiltrationRate in section A, then result is true.  For Boolean true value display text: Building Passes Envelope Leakage Test; Else if B05_ManometerCalibrationDate is more than 12 months from diagnostic A07_TestDate or if E04_CFM50Adjusted is more than A02_AirInfiltrationRate then  result is false.  For Boolean false value display text:  Building Fails Envelope Leakage Test</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="Section_G" minOccurs="0">
-            <xsd:annotation>
-               <xsd:documentation source="FieldText">Additional Requirements For Compliance</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="G01" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements">The procedure for preparing the enclosure for testing is detailed in RESNET 380-2019 Section 4.2.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="G02" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements">The procedure for installation of the test apparatus, and preparations for measurement shall conform to RESNET 380-2019 Section 4.3</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="G03" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements">The procedure for the conduct of the enclosure air leakage test shall conform to the Multi-Point Airtightness Test specified in RESNET 380-2019 Section 4.4.2</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="GEndNote1" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
-      </xsd:sequence>
-   </xsd:complexType>
-   <xsd:element name="ComplianceDocumentPackage">
-      <xsd:complexType>
-         <xsd:sequence>
-            <xsd:element name="DocID" minOccurs="0">
-               <xsd:complexType>
-                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RENV20cH"/>
-                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
-                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Building Air Leakage Diagnostic Test - Building Enclosures and Dwelling Unit Enclosures"/>
-                  <xsd:attribute name="docVariantSubtitle" type="comp:ComplianceDocumentVariantSubtitle" fixed="ENV20c Multi-Point Air Tightness Test"/>
-                  <xsd:attribute name="docVariantLetter" type="comp:ComplianceDocumentVariant" fixed="c"/>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Payload" type="comp:Payload"/>
-            <xsd:element name="DocumentData">
-               <xsd:complexType>
-                  <xsd:sequence>
-                     <xsd:element name="Header" type="comp:HeaderHERS"/>
-                     <xsd:element ref="cF2RENV20cH"/>
-                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
-                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_H"/>
-                     <xsd:element name="Footer" type="comp:Footer"/>
-                  </xsd:sequence>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Report" type="xsd:base64Binary"/>
-         </xsd:sequence>
-         <xsd:attribute name="revision" type="xsd:string" use="required" fixed="rev 20250101"/>
-         <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" use="required" fixed="CF2RENV20cH"/>
-      </xsd:complexType>
-   </xsd:element>
-   <xsd:element name="cF2RENV20cH" type="CF2RENV20cH">
-      <xsd:annotation>
-         <xsd:documentation>This element contains all of the data and text required to generate the CF2RENV20cH compliance report.</xsd:documentation>
-      </xsd:annotation>
-   </xsd:element>
-</xsd:schema>
+<?xml version="1.0" ?>
+<xs:schema xmlns:ns1="http://www.lmonte.com/besm/dtyp" xmlns:ns2="http://www.lmonte.com/besm/d" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RENV20cH" version="2016.1.006">
+   
+	
+   <xs:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   
+	
+   <xs:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   
+	
+   <xs:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   
+	
+   <xs:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   
+	
+   <xs:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   
+	
+   <xs:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   
+	
+   <xs:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   
+	
+   <xs:element name="ComplianceDocumentPackage">
+      
+		
+      <xs:complexType>
+         
+			
+         <xs:sequence>
+            
+				
+            <xs:element minOccurs="0" name="DocID">
+               
+					
+               <xs:complexType>
+                  
+						
+                  <xs:attribute fixed="CF2RENV20cH" name="doc" type="comp:ComplianceDocumentTag"/>
+                  
+						
+                  <xs:attribute fixed="CERTIFICATE OF INSTALLATION" name="docType" type="comp:ComplianceDocumentType"/>
+                  
+						
+                  <xs:attribute fixed="Building Air Leakage Diagnostic Test - Building Enclosures and Dwelling Unit Enclosures" name="docTitle" type="comp:ComplianceDocumentTitleRes"/>
+                  
+						
+                  <xs:attribute fixed="ENV20c Multi-Point Air Tightness Test" name="docVariantSubtitle" type="comp:ComplianceDocumentVariantSubtitle"/>
+                  
+						
+                  <xs:attribute fixed="c" name="docVariantLetter" type="comp:ComplianceDocumentVariant"/>
+                  
+					
+               </xs:complexType>
+               
+				
+            </xs:element>
+            
+				
+            <xs:element name="Payload" type="comp:Payload"/>
+            
+				
+            <xs:element name="DocumentData">
+               
+					
+               <xs:complexType>
+                  
+						
+                  <xs:sequence>
+                     
+							
+                     <xs:element name="Header" type="comp:HeaderHERS"/>
+                     
+							
+                     <xs:element ref="cF2RENV20cH"/>
+                     
+							
+                     <xs:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     
+							
+                     <xs:element name="RespPerson" type="comp:ResponsiblePersonCF2R_H"/>
+                     
+							
+                     <xs:element name="Footer" type="comp:Footer"/>
+                     
+						
+                  </xs:sequence>
+                  
+					
+               </xs:complexType>
+               
+				
+            </xs:element>
+            
+				
+            <xs:element name="Report" type="xsd:base64Binary"/>
+            
+			
+         </xs:sequence>
+         
+			
+         <xs:attribute fixed="rev 20250101" name="revision" type="xsd:string" use="required"/>
+         
+			
+         <xs:attribute fixed="CF2RENV20cH" name="doc" type="comp:ComplianceDocumentTag" use="required"/>
+         
+		
+      </xs:complexType>
+      
+	
+   </xs:element>
+   
+   
+   <xs:complexType name="CF2RENV20cH">
+      
+      
+      <xs:annotation>
+         
+	
+         <xs:documentation>Building Air Leakage Diagnostic Test - Building Enclosures and Dwelling Unit Enclosures - ENV20c Multi-Point Air Tightness Test</xs:documentation>
+         
+      
+      </xs:annotation>
+      
+      
+      <xs:sequence>
+         
+         
+         <xs:element maxOccurs="1" minOccurs="1" name="Section_A">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">Enclosure Air Leakage - General Information</xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">This section is required.</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element name="A01_IsEnvelopeAirLeakageHERSVerificationRequired" type="comp:IsEnvelopeAirLeakageHERSVerificationRequired">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Is ECC verification of building enclosure air leakage to outside required by CF1R?</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Calculated field: If project CF1R requires ECC verification of building enclosure air leakage result = true display term Required Else result = false display term N/A</xs:documentation>
+                        
+                        
+                        <xs:appinfo source="displayterm">
+                           
+                           
+                           <ns1:displayterm value="false">N/A</ns1:displayterm>
+                           
+                        
+                        </xs:appinfo>
+                                                
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:choice maxOccurs="1">
+                     
+                     
+                     <xs:element name="A02_EnclosureLeakageTargetCFM50" type="comp:EnclosureLeakageTargetCFM50">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Target  Enclosure Air Leakage from CF1R (CFM50)</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">Calculated field: If A01_IsEnvelopeAirLeakageHERSVerificationRequired == true, result = CFM50 target value  from project CF1R Else result = N/A stored in NotApplicableMessage </xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                     
+                     <xs:element name="A02_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Target  Enclosure Air Leakage from CF1R</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">Calculated field: If A01IsEnvelopeAirLeakageHERSVerificationRequired == true, result = CFM50 target value  from project CF1R Else result = N/A stored in NotApplicableMessage</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                  
+                  </xs:choice>
+                  
+                  
+                  <xs:element name="A03_TestTemperatureIndoor" type="comp:TestTemperatureIndoor">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">
+                           Indoor Temperature During Test  (degrees Fahrenheit (
+                           <ns2:deg/>
+                           F))
+                        </xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User input numeric x.x deg F</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="A04_TestTemperatureOutdoor" type="comp:TestTemperatureOutdoor">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">
+                           Outdoor Temperature During Test (degrees Fahrenheit (
+                           <ns2:deg/>
+                           F))
+                        </xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User input numeric x.x deg F</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="A05_BlowerDoorLocation" type="comp:BlowerDoorLocation">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Blower Door Location</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">maximum 50 characters</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="A06_Elevation" type="com:Elevation">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Building Elevation Above Sea level (feet (ft))</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User input integer xxxxx</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="A07_TestDate" type="comp:TestDate">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Date of Diagnostic Test for this Dwelling</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User input date </xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="A08_AirLeakageTestProcedure">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Test Procedure Used</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User selects from list: MultiPointTest, display term Multi-Point Test    SinglePointTestManualMeter, display term Single-Point Test with Manual Meter    SinglePointTestAutomaticMeter,  display term Single-Point Test with Automatic Meter </xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                     
+                     <xs:simpleType>
+                        
+                        
+                        <xs:restriction base="comp:AirLeakageTestProcedure">
+                           
+                           
+                           <xs:enumeration value="MultiPointTest"/>
+                           
+                           
+                           <xs:enumeration value="SinglePointTestAutomaticMeter"/>
+                           
+                           
+                           <xs:enumeration value="SinglePointTestManualMeter"/>
+                           
+                        
+                        </xs:restriction>
+                        
+                     
+                     </xs:simpleType>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="A08After">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Env20c Variant Banner</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">ENV20c - Multi-Point Air Tightness Test</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">If A08_AirLeakageTestProcedure == MultiPointTest, Then variant result = ENV20c - Multi-Point Air Tightness Test.  Use this variant for the remainder of this document.</xs:documentation>
+                                                
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+               
+               </xs:sequence>
+               
+            
+            </xs:complexType>
+            
+         
+         </xs:element>
+         
+         
+         <xs:element maxOccurs="1" minOccurs="1" name="Section_B">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">Diagnostic Equipment Information</xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">This section is required.</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element name="B01_ManometerCount" type="comp:ManometerCount">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Number of Manometers Used to Measure Home Pressurization</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">If ManometerCount GT 1, provide a row for each manometer in ManometerCount to record its data</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="TableEquipment">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText"/>
+                        
+                     
+                     </xs:annotation>
+                     
+                     
+                     <xs:complexType>
+                        
+                        
+                        <xs:sequence>
+                           
+                           
+                           <xs:element maxOccurs="unbounded" minOccurs="1" name="Row">
+                              
+                              
+                              <xs:complexType>
+                                 
+                                 
+                                 <xs:sequence>
+                                    
+                                    
+                                    <xs:element name="B02_ManometerMake" type="comp:ManometerMake">
+                                       
+                                       
+                                       <xs:annotation>
+                                          
+                                          
+                                          <xs:documentation source="FieldText">Manometer Make</xs:documentation>
+                                          
+                                          
+                                          <xs:documentation source="CalculationsAndRules">User input text maximum 50 characters</xs:documentation>
+                                          
+                                       
+                                       </xs:annotation>
+                                       
+                                    
+                                    </xs:element>
+                                    
+                                    
+                                    <xs:element name="B03_ManometerModel" type="comp:ManometerModel">
+                                       
+                                       
+                                       <xs:annotation>
+                                          
+                                          
+                                          <xs:documentation source="FieldText">Manometer Model</xs:documentation>
+                                          
+                                          
+                                          <xs:documentation source="CalculationsAndRules">User input text maximum 50 characters</xs:documentation>
+                                          
+                                       
+                                       </xs:annotation>
+                                       
+                                    
+                                    </xs:element>
+                                    
+                                    
+                                    <xs:element name="B04_ManometerSerialNumber" type="comp:ManometerSerialNumber">
+                                       
+                                       
+                                       <xs:annotation>
+                                          
+                                          
+                                          <xs:documentation source="FieldText">Manometer Serial Number</xs:documentation>
+                                          
+                                          
+                                          <xs:documentation source="CalculationsAndRules">User input text maximum 50 characters</xs:documentation>
+                                          
+                                       
+                                       </xs:annotation>
+                                       
+                                    
+                                    </xs:element>
+                                    
+                                    
+                                    <xs:element name="B05_ManometerCalibrationDate" type="comp:ManometerCalibrationDate">
+                                       
+                                       
+                                       <xs:annotation>
+                                          
+                                          
+                                          <xs:documentation source="FieldText">Manometer Calibration Date</xs:documentation>
+                                          
+                                          
+                                          <xs:documentation source="CalculationsAndRules">User input (Date)</xs:documentation>
+                                          
+                                       
+                                       </xs:annotation>
+                                       
+                                    
+                                    </xs:element>
+                                    
+                                    
+                                    <xs:element name="B06_IsManometerCalibrationCurrent" type="comp:IsManometerCalibrationCurrent">
+                                       
+                                       
+                                       <xs:annotation>
+                                          
+                                          
+                                          <xs:documentation source="FieldText">Manometer Calibration Status</xs:documentation>
+                                          
+                                          
+                                          <xs:documentation source="CalculationsAndRules">If B05_ManometerCalibrationDate  is within 12 months of the diagnostic TestDate in section A, then result = true  display term   Manometer Calibration is valid.  Else result = false display term WARNING -  Manometer Calibration is expired. A manometer with current calibration is required in order to comply with this Enclosure Air Leakage Diagnostic Test</xs:documentation>
+                                          
+                                       
+                                       </xs:annotation>
+                                       
+                                    
+                                    </xs:element>
+                                    
+                                 
+                                 </xs:sequence>
+                                 
+                              
+                              </xs:complexType>
+                              
+                           
+                           </xs:element>
+                           
+                        
+                        </xs:sequence>
+                        
+                     
+                     </xs:complexType>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="B07_FanCount" type="comp:FanCount">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Number of Fans Used to Pressurize Home</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">If BlowerDoorFanCount GT 1, provide a row for each fan in BlowerDoorFanCount to record its data</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="TableFans">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText"/>
+                        
+                     
+                     </xs:annotation>
+                     
+                     
+                     <xs:complexType>
+                        
+                        
+                        <xs:sequence>
+                           
+                           
+                           <xs:element maxOccurs="unbounded" minOccurs="1" name="Row">
+                              
+                              
+                              <xs:complexType>
+                                 
+                                 
+                                 <xs:sequence>
+                                    
+                                    
+                                    <xs:element name="B08_FanMake" type="comp:FanMake">
+                                       
+                                       
+                                       <xs:annotation>
+                                          
+                                          
+                                          <xs:documentation source="FieldText">Fan Make</xs:documentation>
+                                          
+                                          
+                                          <xs:documentation source="CalculationsAndRules">User input text maximum 50 characters</xs:documentation>
+                                          
+                                       
+                                       </xs:annotation>
+                                       
+                                    
+                                    </xs:element>
+                                    
+                                    
+                                    <xs:element name="B09_FanModel" type="comp:FanModel">
+                                       
+                                       
+                                       <xs:annotation>
+                                          
+                                          
+                                          <xs:documentation source="FieldText">Fan Model</xs:documentation>
+                                          
+                                          
+                                          <xs:documentation source="CalculationsAndRules">User input text maximum 50 characters</xs:documentation>
+                                          
+                                       
+                                       </xs:annotation>
+                                       
+                                    
+                                    </xs:element>
+                                    
+                                    
+                                    <xs:element name="B10_FanSerialNumber" type="comp:FanSerialNumber">
+                                       
+                                       
+                                       <xs:annotation>
+                                          
+                                          
+                                          <xs:documentation source="FieldText">Fan Serial Number</xs:documentation>
+                                          
+                                          
+                                          <xs:documentation source="CalculationsAndRules">User input text maximum 50 characters</xs:documentation>
+                                          
+                                       
+                                       </xs:annotation>
+                                       
+                                    
+                                    </xs:element>
+                                    
+                                    
+                                    <xs:element name="B11_FanConfiguration" type="comp:FanConfiguration">
+                                       
+                                       
+                                       <xs:annotation>
+                                          
+                                          
+                                          <xs:documentation source="FieldText">Fan Configuration (rings)</xs:documentation>
+                                          
+                                          
+                                          <xs:documentation source="CalculationsAndRules">User input text maximum 50 characters</xs:documentation>
+                                          
+                                       
+                                       </xs:annotation>
+                                       
+                                    
+                                    </xs:element>
+                                    
+                                 
+                                 </xs:sequence>
+                                 
+                              
+                              </xs:complexType>
+                              
+                           
+                           </xs:element>
+                           
+                        
+                        </xs:sequence>
+                        
+                     
+                     </xs:complexType>
+                     
+                  
+                  </xs:element>
+                  
+               
+               </xs:sequence>
+               
+            
+            </xs:complexType>
+            
+         
+         </xs:element>
+         						
+         
+         <xs:element maxOccurs="1" minOccurs="1" name="Section_C">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">Enclosure Air Leakage Diagnostic Test</xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">This section is required.</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element name="C01_ASTM_E779_10Software" type="comp:ASTM_E779_10Software">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Name and version of ASTM E779 compliant software used for multi-point test.</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">maximum 50 characters</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="C02_MeterTimeAveragePeriod" type="comp:MeterTimeAveragePeriod">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Time Average Period of Meter (seconds)</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User input integer GTE  10 seconds</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="C03_BuildingAirLeakageTestMethod" type="comp:BuildingAirLeakageTestMethod">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Test Methodology</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User selects from list: Pressurization, Depressurization</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="C04_BuildingPressureReadingPreTest" type="comp:BuildingPressureReadingPreTest">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Pre-test Baseline Enclosure Pressure (Pa) (may be positive or negative)</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User input numeric xx.x in InclusiveRange(-40, 40)</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="C05_BuildingPressureTargetUnadjusted" type="comp:BuildingPressureTargetUnadjusted">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Unadjusted Enclosure Pressure Target (Pa)</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Calculated field: If C03_BuildingAirLeakageTestMethod == Pressurization result = SUM (60, C04_BuildingPressureReadingPreTest )  Else result = SUM (-60, C04_BuildingPressureReadingPreTest )  (resolution of 0.1)</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="C06_BuildingPressureMeasuredUnadjusted" type="comp:BuildingPressureMeasuredUnadjusted">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Unadjusted Enclosure Pressure Measured (Pa) (Pressurization is positive; Depressurization is negative)</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User input numeric xx.x in InclusiveRange(-75, 75)</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="C07_InducedEnclosurePressureDifference" type="comp:InducedEnclosurePressureDifference">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Induced Enclosure Pressure Difference (Pa) Goal = 60 +- 3 (Pressurization is positive; Depressurization is negative)</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Calculated field: result =  C06_BuildingPressureMeasuredUnadjusted - C04_BuildingPressureReadingPreTest</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+		  
+                  <xs:element name="C08_MinReadingAcknowledge" type="comp:MinReadingAcknowledge">
+                     
+		     
+                     <xs:annotation>
+                        
+		        
+                        <xs:documentation source="FieldText">A minimum of five readings were taken spaced evenly between 10 Pa and 60 Pa (or highest attainable pressure)</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User must acknowledge (result = true) this requirement to continue  </xs:documentation>
+                        		     
+                     
+                     </xs:annotation>
+                     
+		  
+                  </xs:element>
+                  
+	          
+                  <xs:element name="C09_BuildingPressureReadingPostTest" type="comp:BuildingPressureReadingPostTest">
+                     
+	             
+                     <xs:annotation>
+                        
+	                
+                        <xs:documentation source="FieldText">Post-test baseline building pressure</xs:documentation>
+                        
+			
+                        <xs:documentation source="CalculationsAndRules">User input; Resolution of 0.1 Pa</xs:documentation>
+                        
+		     
+                     </xs:annotation>
+                     
+		  
+                  </xs:element>
+                  
+		  
+                  <xs:element name="C10_CFM50SoftwareCorrected" type="comp:CFM50SoftwareCorrected">
+                     
+		     
+                     <xs:annotation>
+                        
+			
+                        <xs:documentation source="FieldText">Corrected CFM50 (from software)</xs:documentation>
+                        
+			
+                        <xs:documentation source="CalculationsAndRules">User entry of value calculated by the software.  Resolution of 1 CFM</xs:documentation>
+                        
+		     
+                     </xs:annotation>
+                     
+		  
+                  </xs:element>
+                  
+	       
+               </xs:sequence>
+               
+	    
+            </xs:complexType>
+            
+	
+         </xs:element>
+                
+	
+         <xs:element maxOccurs="1" minOccurs="0" name="Section_D">
+            
+	   
+            <xs:annotation>
+               
+	      
+               <xs:documentation source="FieldText">Altitude and Temperature Correction Performed by blower door software</xs:documentation>
+               
+              
+               <xs:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xs:documentation>
+               
+	      
+               <xs:documentation source="CalculationsAndRules">This section is not used as it is performed by blower door software</xs:documentation>
+               
+	   
+            </xs:annotation>
+                         
+	
+         </xs:element>
+         
+	
+         <xs:element maxOccurs="1" minOccurs="1" name="Section_E">
+            
+	   
+            <xs:annotation>
+               
+	      
+               <xs:documentation source="FieldText">Accuracy Adjustment</xs:documentation>
+               
+	      
+               <xs:documentation source="MinOccurs">This section is required.</xs:documentation>
+               
+	   
+            </xs:annotation>
+            
+	   
+            <xs:complexType>
+               
+	      
+               <xs:sequence>
+                  
+		
+                  <xs:element name="E01_SoftwareTestPercentUncertainty" type="comp:SoftwareTestPercentUncertainty">
+                     
+		   
+                     <xs:annotation>
+                        
+		      
+                        <xs:documentation source="FieldText">Percent Uncertainty at 95% confidence level (from software)</xs:documentation>
+                        
+		      
+                        <xs:documentation source="CalculationsAndRules">User entry of value calculated by software. The value represented should be percent and not a fraction.</xs:documentation>
+                        
+		   
+                     </xs:annotation>
+                     
+		
+                  </xs:element>
+                  
+		
+                  <xs:element name="E02_SoftwareTestAccuracy" type="comp:SoftwareTestAccuracy">
+                     
+		   
+                     <xs:annotation>
+                        
+		      
+                        <xs:documentation source="FieldText">Accuracy Level</xs:documentation>
+                        
+		      
+                        <xs:documentation source="CalculationsAndRules">If E01_SoftwareTestPercentUncertainty is less than or equal to 10, result = Standard, else result = Reduced</xs:documentation>
+                        
+		   
+                     </xs:annotation>
+                     
+		
+                  </xs:element>
+                    
+		
+                  <xs:element name="E03_TestAccuracyFactor" type="comp:TestAccuracyFactor">
+                     
+		   
+                     <xs:annotation>
+                        
+		      
+                        <xs:documentation source="FieldText">Accuracy Adjustment Factor</xs:documentation>
+                        
+		      
+                        <xs:documentation source="CalculationsAndRules">If E02_SoftwareTestAccuracy == Standard result = 1, Else If E02_SoftwareTestAccuracy == Reduced result = 1+ (E01_SoftwareTestPercentUncertainty / 100)</xs:documentation>
+                        
+		   
+                     </xs:annotation>
+                     
+		
+                  </xs:element>
+                  
+		
+                  <xs:element name="E04_CFM50Adjusted" type="comp:CFM50Adjusted">
+                     
+	           
+                     <xs:annotation>
+                        
+		      
+                        <xs:documentation source="FieldText">Adjusted CFM50 (measured air leakage rate)</xs:documentation>
+                        
+		      
+                        <xs:documentation source="CalculationsAndRules">Result = C10_CFM50SoftwareCorrected x E03_TestAccuracyFactor</xs:documentation>
+                        
+		   
+                     </xs:annotation>
+                     
+		
+                  </xs:element>
+                  
+	     
+               </xs:sequence>
+               
+	   
+            </xs:complexType>
+            
+	
+         </xs:element>
+         
+	
+         <xs:element maxOccurs="1" minOccurs="1" name="Section_F">
+            
+	   
+            <xs:annotation>
+               
+	      
+               <xs:documentation source="FieldText">Compliance Statement</xs:documentation>
+               
+	      
+               <xs:documentation source="MinOccurs">This section is required.</xs:documentation>
+               
+	   
+            </xs:annotation>
+            
+	   
+            <xs:complexType>
+               
+	      
+               <xs:sequence>
+                  
+		
+                  <xs:element name="F01_DoesBuildingAirLeakageTestComply" type="comp:DoesBuildingAirLeakageTestComply">
+                     
+		   
+                     <xs:annotation>
+                        
+		      
+                        <xs:documentation source="FieldText">Compliance Statement</xs:documentation>
+                        
+		      
+                        <xs:documentation source="CalculationsAndRules">If B05_ManometerCalibrationDate is within 12 months of the diagnostic A07_TestDate in section A and If E04_CFM50Adjusted in section E is less than or equal to the A02_AirInfiltrationRate in section A, then result is true.  For Boolean true value display text: Building Passes Envelope Leakage Test; Else if B05_ManometerCalibrationDate is more than 12 months from diagnostic A07_TestDate or if E04_CFM50Adjusted is more than A02_AirInfiltrationRate then  result is false.  For Boolean false value display text:  Building Fails Envelope Leakage Test</xs:documentation>
+                        
+		   
+                     </xs:annotation>
+                     
+		
+                  </xs:element>
+                  
+	      
+               </xs:sequence>
+               
+	   
+            </xs:complexType>
+            
+	
+         </xs:element>
+         
+         
+         <xs:element minOccurs="0" name="Section_G">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">Additional Requirements For Compliance</xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element minOccurs="0" name="G01">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText"/>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">The procedure for preparing the enclosure for testing is detailed in RESNET 380-2019 Section 4.2.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="G02">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText"/>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">The procedure for installation of the test apparatus, and preparations for measurement shall conform to RESNET 380-2019 Section 4.3</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="G03">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText"/>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">The procedure for the conduct of the enclosure air leakage test shall conform to the Multi-Point Airtightness Test specified in RESNET 380-2019 Section 4.4.2</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="GEndNote1">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">End Note 1</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+               
+               </xs:sequence>
+               
+            
+            </xs:complexType>
+            
+         
+         </xs:element>
+         
+     
+      </xs:sequence>
+      
+   
+   </xs:complexType>
+   
+
+   <xs:element name="cF2RENV20cH" type="CF2RENV20cH">
+      
+   
+      <xs:annotation>
+         
+      
+         <xs:documentation>This element contains all of the data and text required to generate the CF2RENV20cH compliance report.</xs:documentation>
+         
+   
+      </xs:annotation>
+      
+
+   </xs:element>
+   
+
+</xs:schema>

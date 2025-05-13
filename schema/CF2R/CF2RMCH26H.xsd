@@ -96,7 +96,7 @@
                   <xsd:element name="A03_VerificationRequiredSEER" type="comp:VerificationRequiredSEER" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Status:  SEER/SEER2 Performance Compliance Credit Check</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: If the parent CC flags HERS Verification of SEER  Performance result = true display term Yes; Else result = false display term No.  Special condition: If In CF1R-PRF XML A07b_ComplianceSoftwareVersionDetail == EnergyPro 9.0.1.0 And Ea02_CoolingSystemFeatureHERS == VerifiedSEER_SEER2 result = true</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If the parent CC flags ECC Verification of SEER  Performance result = true display term Yes; Else result = false display term No.  Special condition: If In CF1R-PRF XML A07b_ComplianceSoftwareVersionDetail == EnergyPro 9.0.1.0 And Ea02_CoolingSystemFeatureHERS == VerifiedSEER_SEER2 result = true</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A04_VerificationRequiredEER" type="comp:VerificationRequiredEER" >
@@ -177,13 +177,13 @@ End Switch.</xsd:documentation>
                   <xsd:element name="A05_VerificationRequiredHeatingOutputHP" type="comp:VerificationRequiredHeatingOutputHP" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Status: Heat Pump Heating Output Performance Compliance Check</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: If the parent CC flags HERS Verification of Heat Pump Heating Output  result = true display term Yes; Else result = false display term No</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If the parent CC flags ECC Verification of Heat Pump Heating Output  result = true display term Yes; Else result = false display term No</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A06_VerificationRequiredHSPF" type="comp:VerificationRequiredHSPF" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Status: HSPF/HSPF2 Performance Compliance Credit Check</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field; If the parent CC  flags the requirement for HERS verification of HSPF/HSPF2 Performance then result = true; Else result = false.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field; If the parent CC  flags the requirement for ECC verification of HSPF/HSPF2 Performance then result = true; Else result = false.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A07_ProductPerformanceDirectory" type="comp:ProductPerformanceDirectory" >
@@ -439,7 +439,7 @@ If A03_VerificationRequiredSEER == true Or A04_VerificationRequiredEER == true O
                                     <xsd:element name="C02_ResidentialHvacSystemAreaServed" type="hvac:ResidentialHvacSystemAreaServed" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">SC System Description of  Area Served</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Auto-filled from MCH01a D02 Or MCH-01d D02. Note that the text in the MCH01 D02 is required to be unique in each dwelling (unique within the scope of each MCH-01), thus D02 is a useful key for finding associated data in other tales in the MCH-01 for a specific system.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Auto-filled from MCH01a D02 Or MCH-01d D02. Note that the text in the MCH01 D02 is required to be unique in each dwelling (unique within the scope of each MCH-01), thus D02 is a useful key for finding associated data in other tables in the MCH-01 for a specific system.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="C03_IndoorUnitName" type="hvac:IndoorUnitName" >

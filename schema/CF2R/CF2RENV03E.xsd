@@ -409,7 +409,7 @@
          </xsd:element>
          <xsd:element name="Section_C" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Mass Insulation</xsd:documentation>
+               <xsd:documentation source="FieldText">Masonry/Mass Insulation</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required If the CF1R contains a mass entry,</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
@@ -813,19 +813,19 @@
                   <xsd:element name="G06" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Above Grade Exterior Wall - 150.0(c)1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:b]Above Grade Exterior Wall[/d:b] - 150.0(c)1 and 150.1(c)6: All 2x4 wood-frame walls have a minimum R-13 insulation or equivalent U-factor not exceeding U-0.102.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]Above Grade Exterior Wall[/d:b] - 150.0(c)1 and 150.1(c)6: All 2x4 wood-frame walls have a minimum R-13 insulation or equivalent U-factor not exceeding U-0.95.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="G07" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Above Grade Exterior Wall - 150.0(c)2</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:b]Above Grade Exterior Wall[/d:b] - 150.0(c)2 and 150.1(c)6: All 2x6 wood-frame walls have a minimum R-20 insulation or equivalent U-factor not exceeding U-0.071.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]Above Grade Exterior Wall[/d:b] - 150.0(c)2 and 150.1(c)6: All 2x6 wood-frame walls have a minimum R-20 insulation or equivalent U-factor not exceeding U-0.069.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="G08" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Roof Deck</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:b] Roof Deck[/d:b] - 150.0(a)1: All newly constructed attic systems have a maximum area-weighted average U-factor not exceeding U-0.184.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b] Roof Deck[/d:b] - 150.0(a)1: All newly constructed attic that are above conditioned space have a maximum area-weighted average U-factor not exceeding U-0.184.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="G09" minOccurs="0">

@@ -60,6 +60,12 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
+                  <xsd:element name="ABeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]Note: This Certificate of Installation document is only applicable if a PV system is in the proposed design or PV Exceptions are selected in the CF1R-PRF-01 or CF1R-NCB-01.[/d:b]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                   <xsd:element name="A01_ProjectCity" type="comp:ProjectCity" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Project Location (City)</xsd:documentation>
@@ -84,12 +90,20 @@
                         <xsd:documentation source="CalculationsAndRules">Reference value from CF1R</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A05_PhotoVoltaicExceptionRes" type="comp:PhotoVoltaicExceptionRes" >
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Qualifying Exceptions</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User picks from list.  Enum values are BatteryStorage, LT1_8kWdcRequired, NoExceptionsNA, LimitedSolarAccess, PlansBefore2020, CommunitySolar, DeclaredEmergencyArea, SnowLoad, Section10_109k</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="A05_PhotoVoltaicExceptionRes" type="comp:PhotoVoltaicExceptionRes" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Qualifying Exceptions</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If CF1R-PRF reports Battery Storage or Community solar result = N/A stored in NotApplicableMessage Else User picks from list.  Enum values are BatteryStorage, LT1_8kWdcRequired, NoExceptionsNA, LimitedSolarAccess, PlansBefore2020, CommunitySolar, DeclaredEmergencyArea, SnowLoad, Section10_109k</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="A05_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Qualifying Exceptions</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If CF1R-PRF reports Battery Storage or Community solar result = N/A stored in NotApplicableMessage</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
                   <xsd:choice maxOccurs="1">
                      <xsd:element name="A06_PVExceptionString" type="comp:PVExceptionString" >
                         <xsd:annotation>
@@ -140,8 +154,8 @@ Or allow user input; Else result = NotApplicable store in NotApplicableMessage</
                                     </xsd:element>
                                     <xsd:element name="B03_ArrayAdjustedPowerOutput" type="hvac:ArrayAdjustedPowerOutput" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Adjusted Value from Exception</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If CF1R-PRF parent result = B02_ArrayPowerOutput, Else If A05_PhotoVoltaicExceptionRes == NoExceptionsNA result = B02_ArrayPowerOutput, Else if A05_PhotoVoltaicExceptionRes == BatteryStorage result = PRODUCT ( CF1R-NCB P04 , 0.75) + CF1R-NCB P05); Else user input decimal non-negative value.</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Adjusted Minimum PV Size from Qualified Exception Requirement (kW)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CF1R-PRF parent result = B02_ArrayPowerOutput, Else If prescriptive CC And A05_PhotoVoltaicExceptionRes == NoExceptionsNA result = O09 from CF1R; Else user input decimal non-negative value.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
@@ -600,7 +614,7 @@ Else user input value for the measurement type in C05. Value must be GTE 0 and L
                   <xsd:element name="F01" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Limited Solar Access</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The installer shall provide documentation of the roof area limitations that justify the exception. Documentation may include roof plans, aerial photos, satellite images, 3D model, or other documentation that clearly shows the available roof areas that meet the solar access requirements.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The installer shall provide documentation of the solar access roof area (SARA) limitations that justify the exception. Documentation may include roof plans, aerial photos, satellite images, 3D model, or other documentation that clearly shows the available solar access roof areas that meet the definition of SARA in 150.1(c)14.</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If A05_PhotoVoltaicExceptionRes == LimitedSolarAccess  Or PlansBefore2020
  
 result is the static text in FieldText and AdditionalRequirements static are displayed
@@ -624,19 +638,14 @@ End If</xsd:documentation>
                   <xsd:element name="F03" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Snow Load</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The installer shall provide roof design, PV system design, and or ASCE Standard 7-16, Chapter 7, Snow Loads calculation to the enforcement authority.  The enforcement authoriity must determine that it is not possible for the PV system, including panels, modules, components, supports, and attachments to the roof, to meet ASCE Standard 7-16, Chapter 7, Snow Loads.</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If A05_PhotoVoltaicExceptionRes ==  SnowLoad
- 
-result is the static text in FieldText and AdditionalRequirements static are displayed
- 
-Else nothing is displayed
-End If</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The installer shall provide roof design, PV system design, and or ASCE Standard 7-22, Chapter 7, Snow Loads calculation to the enforcement authority.  The enforcement authoriity must determine that it is not possible for the PV system, including panels, modules, components, supports, and attachments to the roof, to meet ASCE Standard 7-22, Chapter 7, Snow Loads.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If A05_PhotoVoltaicExceptionRes ==  SnowLoad result is the static text in FieldText and AdditionalRequirements static are displayed Else nothing is displayed End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="F04" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">10-109(k) PV Requirement Determination</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Only buildings within the jurisdiction of Trinity Public Utility District or the City of Needles qualify for this exception.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Only buildings within the jurisdiction of Trinity Public Utility District qualify for this exception.</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If A05_PhotoVoltaicExceptionRes ==  Section10_109k
  
 result is the static text in FieldText and AdditionalRequirements static are displayed
@@ -668,13 +677,13 @@ End If</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Value loaded from CF1R-PRF</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G02a" minOccurs="0">
+                  <xsd:element name="G02" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Standard Design kW (CFI1 orientation and 98% Annual Solar Access)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Value loaded from CF1R-PRF</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G02" minOccurs="0">
+                  <xsd:element name="G03" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Attach a copy of SMUD Attestation of Premise Registration in Neighborhood SolarShares (Attestation).</xsd:documentation>
                      </xsd:annotation>

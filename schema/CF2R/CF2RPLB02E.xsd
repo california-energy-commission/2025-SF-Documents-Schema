@@ -199,7 +199,7 @@ End If</xsd:documentation>
                                        <xsd:element name="A10_CompactDistributionType" type="hvac:CompactDistributionType" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Compact Distrib.</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If parent CF1R = NCB-01, then if NCB-01 Field M09 = CompactHotWaterDistributionSystemHERS or CompactHotWaterDistributionSystemBasic or CompactDistributionDrainHeatRecoveryHERS then value is BasicType else NotCompact;
+                                             <xsd:documentation source="CalculationsAndRules">If parent CF1R = NCB-01, then if NCB-01 Field M07 = CompactHotWaterDistributionSystemHERS or CompactHotWaterDistributionSystemBasic or CompactDistributionDrainHeatRecoveryHERS then value is BasicType else NotCompact;
                                                 Else if parent CF1R = ALT-01 or ADD-01, then value = NotCompact;
                                                 Else if information not available from PRF-01, allow user select. Allowed values are
                                                 *Basic
@@ -212,9 +212,7 @@ End If</xsd:documentation>
                                        <xsd:element name="A10_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Compact Distrib.</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If parent CC is prescriptive ALT
-result = NotApplicable stored in NotApplicableMessage
-End If</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If parent CC is prescriptive ALT result = NotApplicable stored in NotApplicableMessage End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -317,7 +315,7 @@ This  section is required if the parent CC  has any HPWH systems, Require one ro
 If  performance parent CC, values are: 
 StandardDistribution display term: Standard Distribution System; 
 PointOfUse display term: Point Of Use,
-StandardDistributionCentralParallelPiping display term: Parallel Piping;
+StandardDistributionCentralParallelPiping display term: Central Parallel Piping;
 RecirculationNonDemand display term:  Recirculation System Non-Demand Control; 
 DemandRecirculationManualControl display term: Demand Recirculation Manual Control;  
 DemandRecirculationSensorControls display term: Demand Recirculation Sensor Control;  
@@ -346,7 +344,7 @@ End If</xsd:documentation>
                                        <xsd:element name="A2hp08_CompactDistributionType" type="hvac:CompactDistributionType" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Compact Distribution</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If parent CF1R = NCB-01, then if NCB-01 Field M09 = CompactHotWaterDistributionSystemHERS or CompactHotWaterDistributionSystemBasic or CompactDistributionDrainHeatRecoveryHERS then value is BasicType else NotCompact;
+                                             <xsd:documentation source="CalculationsAndRules">If parent CF1R = NCB-01, then if NCB-01 Field M07 = CompactHotWaterDistributionSystemHERS or CompactHotWaterDistributionSystemBasic or CompactDistributionDrainHeatRecoveryHERS then value is BasicType else NotCompact;
                                                 Else if parent CF1R = ALT-01 or ADD-01, then value = NotCompact;
                                                 Else if information not available from PRF-01, allow user select. Allowed values are
                                                 *Basic
@@ -1600,7 +1598,7 @@ Check:  If result != C06 flag as non-compliant and do not allow doc to be regist
          </xsd:element>
          <xsd:element name="Section_F" minOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Mandatory Measures for all Domestic Hot Water Distribution Systems</xsd:documentation>
+               <xsd:documentation source="FieldText">Mandatory Measures for Single Dwelling Systems</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -1614,19 +1612,38 @@ Check:  If result != C06 flag as non-compliant and do not allow doc to be regist
                   <xsd:element name="F02" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Unfired storage tanks are insulated with an external R-3.5 or combination of R-16 internal and external Insulation. (Section 110.3(c)4).</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Unfired storage tanks are insulated with an external R-3.5 or combination of R-16 internal and external Insulation. (Section 110.3(c)3).</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="F03" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">All domestic hot water pipes shall be insulated as specified in Section 609.11 of the California Plumbing Code.  [d:l t="*"][d:list] Insulation buried below grade must be installed in a waterproof and non-crushable casing or sleeve. [/d:list][d:list]Piping that penetrates framing members shall not be required to have pipe insulation for the distance of the framing penetration.[/d:list][d:list] Piping that penetrates metal framing shall use grommets, plugs, wrapping or other insulating material to assure that no contact is made with the metal framing. Insulation shall butt securely against all framing members.[/d:list][d:list] Piping installed in interior or exterior walls that is surrounded on all sides by at least 1 inch (2.5 cm) of insulation. [/d:list][d:list] Piping installed in crawl space with a minimum of 1 inch (2.5 cm) of crawl space insulation above and below. [/d:list][d:list]Piping installed in attics with a minimum of 4 inches (10 cm) of attic insulation on top [/d:list][d:list]Piping insulation shall fit tightly, and all elbows and tees shall be fully insulated. [/d:list][/d:l]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Domestic hot water piping insulation requirements (Section 150(j)): See the exceptions to Section 150(j)[d:l t="*"][d:list] All domestic hot water pipes shall be insulated as specified in Section 609.12 of the California Plumbing Code. [/d:list]
+[d:list] Insulation buried below grade must be installed in a waterproof and non-crushable casing or sleeve. [/d:list][d:list]Pipe insulation shall fit tightly and all elbows and tees shall be fully insulated.[/d:list][d:list]Piping that penetrates framing members shall not be required to have pipe insulation for the distance of the framing penetration.[/d:list]
+[d:list] Piping that penetrates metal framing shall use grommets, plugs, wrapping or other insulating material to assure that no contact is made with the metal framing. Insulation shall butt securely against all framing members.[/d:list][d:list] Piping surrounded with a minimum of 1 inch of wall insulation, 2 inches of crawl space insulation or 4 inches of attic insulation shall not be required to have pipe insulation.[/d:list][/d:l]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="F04" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">For Gas or Propane Water Heaters: Ensure either a or b are installed (Section 150.0(n)) [d:line1/][d:tab1/]a) A designated space at least 2.5 feet by 2.5 feet and 7 feet tall within 3 feet from the water heater  [d:l t="#"][d:list]A dedicated 120V, 20A electrical receptacle connected to the electrical panel with a 120/240V 3 conductor, 10AWG copper branch circuit, within 3 feet from the water heater and accessible with no obstructions [/d:list][d:list]The conductor shall be labeled with the word "Spare" on both ends; and [/d:list][d:list] A reserved single pole circuit breaker space next to the circuit breaker next to the branch circuit  labeled "Future" 240V shall be provided. [/d:list][d:list]A condensate drain no more than 2 inches higher than the base on water heater for natural draining[/d:list][/d:l]  [d:line1/][d:tab1/]b) A designated space at least 2.5 feet by 2.5 feet and 7 feet tall within 3 feet from the water heater  [d:l t="#"][d:list]A dedicated 240 volt branch circuit shall be installed within 3 feet from the designated space.  The branch circuit shall be rated at 30 amps minimum.  The blank cover shall be identified as "240V ready"; and [/d:list][d:list]The main electrical service panel shall have a reserved space to allow for the installation of a double pole circuit breaker for a future HPWH installation.  The reserved space shall be permanently marked as "For Future 240V use"; and [/d:list][d:list]Either a dedicated cold water supply, or the cold water supply shall pass through the designated HPWH location just before reaching the gas or propane water heater; and [/d:list][d:list] The hot water supply pipe coming out of the gas or propane water heater shall be routed first through the designated HPWH location before serving any fixtures; and [/d:list][d:list]The hot and cold water piping at the designated HPWH location shall be exposed and readily accessible for future installation of a HPWH; and [/d:list][d:list]A condensate drain no more than 2 inches higher than the base of the installed water heater, and allows natural draining without pump assistance. [/d:list][/d:l]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">For Gas or Propane Water Heaters: Ensure either a or b are installed (Section 150.0(n)) [d:line1/][d:tab1/]a) A designated space at least 2.5 feet by 2.5 feet and 7 feet tall within 3 feet from the water heater  [d:l t="*"][d:list]A dedicated 120V, 20A electrical receptacle connected to the electrical panel with a 120/240V 3 conductor, 10AWG copper branch circuit, within 3 feet from the water heater and accessible with no obstructions [/d:list]
+[d:list]The conductor shall be labeled with the word "Spare" on both ends; and [/d:list][d:list] A reserved single pole circuit breaker space next to the circuit breaker next to the branch circuit  labeled "Future 240V use" shall be provided. [/d:list][d:list]A condensate drain no more than 2 inches higher than the base of the water heater, and allows for natural draining without pump assistance. [/d:list][/d:l]  [d:line1/][d:tab1/]b) A designated space at least 2.5 feet by 2.5 feet and 7 feet tall within 3 feet from the water heater  
+[d:l t="*"][d:list]A dedicated 240 volt branch circuit shall be installed within 3 feet from the designated space.  The branch circuit shall be rated at 30 amps minimum.  The blank cover shall be identified as "240V ready"; and [/d:list][d:list]The main electrical service panel shall have a reserved space to allow for the installation of a double pole circuit breaker for a future HPWH installation.  The reserved space shall be permanently marked as "For Future 240V use"; and [/d:list][d:list]Either a dedicated cold water supply, or the cold water supply shall pass through the designated HPWH location just before reaching the gas or propane water heater; and [/d:list][d:list] The hot water supply pipe coming out of the gas or propane water heater shall be routed first through the designated HPWH location before serving any fixtures; and [/d:list][d:list]The hot and cold water piping at the designated HPWH location shall be exposed and readily accessible for future installation of a HPWH; and [/d:list][d:list]A condensate drain no more than 2 inches higher than the base of the installed water heater, and allows natural draining without pump assistance. [/d:list][/d:l]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F05" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">For Air-Source Heat Pump Water Heaters (HPWH), the following shall be met (Section 110.3(c)7) [d:line1/][d:tab1/]a) Backup heat is required when inlet air is unconditioned, unless the compressor cutout cut-off temperature is below the Heating Winter Median of Extreme.  Backup heat may be internal or external to the HPWH. 
+[d:line1/][d:tab1/]b) Meet one of the ventilation requirements below.  Minimum volume and opening size requirements shall be the sum of all HPWHs installed within the same space.  Compressor capacity shall be determined using AHRI 540 Table 4 reference conditions for refrigeration with the "High" rating test point:
+[d:line1/][d:tab2/]a. Installed using a method provided by the manufacturer to meet or exceed the level of performance provided by the ventilation requirements of Section 110.3(c)7B2 through Section 110.3(c)B4.
+[d:line1/][d:tab2/]b. For HPWH installation without ducts, the installation space shall have a volume not less then the greater of 100 cubic feet per kBtu per hour of compressor capacity, or the minimum volume provided by the manufacturer for this method;  or
+[d:line1/][d:tab2/]c. For HPWH installation without ducts, the installation space shall be vented to a communicating space via permanent openings, according to the following requirements: [d:line1/][d:tab3/]i. Communicating space shall meet the minimum volume of Section 110.3(c)7B12 above, minus the volume of the HPWH installation space; and 
+[d:line1/][d:tab3/]ii. Permanent openings shall consist of a single layer of fixed flat slat louvers or grilles, with a total minimum Net Fee Area (NFA) the larger of 125 square inches plus 25 square inches per kBtu per hour of compressor capacity, or the minimum provided by the manufacturer for this method.  The permanent openings shall be fully louvered doors or two openings of equal area, one in the upper half of the enclosure and one in the bottom half of the enclosure.  The top of the upper opening must be 12 inches or less from the enclosure top and the bottom of the lower vent must be 12 inches or less from the enclosure bottom;  or
+[d:line1/][d:tab2/]d. For HPWH installations with ducts, the following requirements shall be met:[d:line1/][d:tab3/]i. The space joined to the installation space via ducts shall meet the minimum volume of Section 110.3(c)7B2 above, minus the volume of the HPWH installation space, and
+[d:line1/][d:tab3/]ii. All duct connections and building penetrations shall be sealed, and [d:line1/][d:tab3/]iii. Exhaust air ducts and all ducts which cross pressure boundaries shall be insulaated to minimum of R-6, and
+[d:line1/][d:tab3/]iv. Where only the HPWH inlet or outlet is ducted, installation space shall include permanent openings shall consist of a single layer of fixed flat slat louvers or grilles in the bottom half of the room, and/or a door undercut.  With a ducted inlet, the minimum NFA shall be equal to the cross-sectional area of the duct.  With a ducted exhaust, the minimum NA shall be the larger of 20 square inches or the minimum NFA provided by the manufacturer for this method, and
+[d:line1/][d:tab3/]v. Where only the inlet and outlet ducts both terminate within the same pressure boundary, airflow from the termination points shall be diverted away from each other</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="FEndNote1" minOccurs="0">
@@ -1640,7 +1657,7 @@ Check:  If result != C06 flag as non-compliant and do not allow doc to be regist
          </xsd:element>
          <xsd:element name="Section_G" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Compact Hot Water Distribution (CHWDS) RA4.4.6</xsd:documentation>
+               <xsd:documentation source="FieldText">Compact Hot Water Distribution RA4.4.6</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is applicable if at least one dwelling has B10_CompactDistributionType == BasicType Or at least one dwelling has Section B2 B2hp08_CompactDistributionType == BasicType.  Require one row of data, reporting the longest distances, for each dwelling unit  with B10_CompactDistributionType == BasicType Ot B2hp08_CompactDistributionType == BasicType.
  
 In this section parent CC refers to the parent CF1R</xsd:documentation>
@@ -1788,7 +1805,7 @@ End If</xsd:documentation>
          </xsd:element>
          <xsd:element name="Section_H" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Parallel Piping Requirements (PP) (RA4.4.4)</xsd:documentation>
+               <xsd:documentation source="FieldText">Central Parallel Piping Requirements (RA4.4.4)</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A09_ResidentialDHWDwellingUnitDistributionType == StandardDistributionCentralParallelPiping Or at least one water heating system that has Section A2  A2hp07_ResidentialDHWDwellingUnitDistributionType == StandardDistributionCentralParallelPiping</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
@@ -1821,7 +1838,7 @@ End If</xsd:documentation>
                   <xsd:element name="H04" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The hot water distribution piping must be separated by at least 2 inches from any other hot water supply piping, and at least 6 inches from any cold water supply piping.  Alternatively, the hot water supply piping must be insulated to the thicknesses shown in TABLE 120.3-A.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The hot water distribution piping must be separated by at least 2 inches from any other hot water supply piping, and at least 6 inches from any cold water supply piping.  Alternatively, the hot water supply piping must be insulated to the thicknesses shown in TABLE 120.3-A-1.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="HEndNote1" minOccurs="0">
@@ -1911,7 +1928,7 @@ End If</xsd:documentation>
          </xsd:element>
          <xsd:element name="Section_K" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Recirculation Non-Demand Controls Requirements (R-ND) (RA4.4.8)</xsd:documentation>
+               <xsd:documentation source="FieldText">Recirculation Non-Demand Controls Requirements (RA4.4.8)</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A09_ResidentialDHWDwellingUnitDistributionType == RecirculationNonDemand Or at least one water heating system that has  Section A2  A2hp07_ResidentialDHWDwellingUnitDistributionType == RecirculationNonDemand</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
@@ -1940,7 +1957,7 @@ End If</xsd:documentation>
          </xsd:element>
          <xsd:element name="Section_L" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Demand Recirculation Manual Control (R-DRmc) (RA4.4.9)/ Sensor Control Requirements (RDRsc) (RA4.4.10)</xsd:documentation>
+               <xsd:documentation source="FieldText">Demand Recirculation Manual Control (RA4.4.9)/ Sensor Control (RA4.4.10) Requirements</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A09_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl Or DemandRecirculationSensorControls Or at least one water heating system that has  Section A2  A2hp07_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl Or DemandRecirculationSensorControls</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
@@ -1967,7 +1984,7 @@ End If</xsd:documentation>
                   <xsd:element name="L03" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Manual controls may be activated by wired or wireless mechanisms.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Manual controls may be activated by wired or wireless mechanisms. Each control shall have standby power of 1 Watt or less.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="L04" minOccurs="0">

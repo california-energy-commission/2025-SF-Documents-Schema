@@ -183,7 +183,7 @@ Provide one row of data for each of the indoor units listed on the MCH-01 that a
                                        <xsd:element name="B06_AirflowRequiredMinimumTarget" type="hvac:AirflowRequiredMinimumTarget" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Indoor Unit Required Minimum System Airflow Rate (cfm)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If B03_IndoorUnitDuct == Ductless  result = N/A stored in NotApplicablemessage; Else auto-filled from MCH23 D02 for all variants</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If B03_IndoorUnitDuct == Ductless  result = N/A stored in NotApplicablemessage; Else auto-filled from MCH23 Section E 03 AirflowRequiredMinimumTarget</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="B06_NotApplicableMessage" type="comp:NotApplicableMessage" >

@@ -80,7 +80,7 @@
          </xsd:element>
          <xsd:element name="Section_B" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Energy Storage System Ready</xsd:documentation>
+               <xsd:documentation source="FieldText">Battery Energy Storage System (BESS)Ready</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is applicable if A01_ResElectricReadyScope includes ReadyEnergyStorageSystem</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
@@ -89,15 +89,16 @@
                   <xsd:element name="Stor01" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">ESS Ready interconnection equipment with minimum backed up of 60 amps and 4 ESS branch circuits, 
-OR
-A dedicated raceway from the main service to a panelboard (subpanel). The panelboard that supplies the branch circuits (subpanel) must be labeled "Subpanel shall include all backed-up load circuits."</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">BESS Ready interconnection equipment with minimum backed up of 60 amps and a minimum of 4 BESS-supplied branch circuits specified in Section 150.0(s)2. [d:line1/] OR
+[d:line1/]A dedicated raceway from the main service to a panelboard (subpanel) that supplies the branch circuit in Section 150.0(s)2.  All branch circuits are permitted to be supplied by the main service panel prior to the installation of a BESS. 
+The trade size of the raceway shall be not less than one inch. The panelboard that supplies the branch circuits (subpanel) must be labeled "Subpanel shall include all backed-up load circuits."</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Stor02" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">A minimum of four branch circuits shall be identified and have their source of supply collocated at a single panelboard suitable to be supplied by the ESS.  At least one circuit shall supply the refrigerator, one lighting circuit near the primary egress, and at least one circuit shall supply a sleeping room receptacle outlet.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">A minimum of four branch circuits shall be identified and have their source of supply collocated at a single panelboard suitable to be supplied by the BESS.  
+At least one circuit shall supply the refrigerator, one lighting circuit near the primary egress, and at least one circuit shall supply a sleeping room receptacle outlet.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Stor03" minOccurs="0">
@@ -109,7 +110,14 @@ A dedicated raceway from the main service to a panelboard (subpanel). The panelb
                   <xsd:element name="Stor04" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Sufficient space shall be reserved to allow future installation of a system isolation equipment/transfer switch within 3 feet of the main panelboard.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Sufficient space shall be reserved to allow future installation of a system isolation equipment/transfer switch within 3 feet of the main panelboard.
+Raceways shall be installed between the panelboard and the system isolation equipment/transfer switch location to allow the connection of backup power source.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Stor05" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Exception to Section 150.0(s): Buildings which have a BESS installed.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="StorEndNote1" minOccurs="0">

@@ -63,6 +63,13 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
+                  <xsd:element name="ABeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Notes: [d:l t="#"][d:list]The outdoor design temperatures for heating shall be [d:gte/] to 99.0% Heating Dry Bulb or the Heating Winter Median of Extremes values [/d:list]
+[d:list]The outdoor design temperatures for cooling shall be [d:lte/] 1.0% Cooling Dry Bulb and Mean Coincident Wet Bulb values. [/d:list][/d:l]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                   <xsd:element name="A01_DwellingUnitName" type="com:DwellingUnitName" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Dwelling Unit Name</xsd:documentation>
@@ -77,17 +84,13 @@
                   </xsd:element>
                   <xsd:element name="A03_DwellingUnitConditionedFloorArea" type="com:DwellingUnitConditionedFloorArea" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Dwelling Unit Total  Conditioned Floor Area (ft[d:sup]2[/d:sup])</xsd:documentation>
+                        <xsd:documentation source="FieldText">Dwelling Unit Total Conditioned Floor Area (ft[d:sup]2[/d:sup])</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Value is numeric: xxxxx  
 If parent  CC is CF1R-PRF, then 
-If project scope = Newly Constructed (Addition Alone) Then
-If CF1R-PRF B02_BuildingAdditionalConditionedFloorArea == Adu03_BuildingAdditionalConditionedFloorArea
-result = Adu03_BuildingAdditionalConditionedFloorArea
-Else prompt user to enter a value equal to dwelling unit existing CFA + addition CFA
-End If 
+If project scope = Newly Constructed (Addition Alone) 
+prompt user to enter a value equal to dwelling unit existing CFA + addition CFA, 
 Else reference the value from CF1R PRF 
-End If
-End If         
+End If        
  
 Else If parent  CC is CF1R-NCB-01, then 
 If project scope =  AdditionGT1000 then 
@@ -115,8 +118,11 @@ End If
                   </xsd:element>
                   <xsd:element name="A04_ResidentialDwellingUnitSpaceConditioningCount" type="hvac:ResidentialDwellingUnitSpaceConditioningCount" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Number of Space Conditioning Systems in this dwelling unit.</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">integer xx; If parent is CF1R-ALT-02 doc type, then use as default the value referenced from CF1R ALT-02 Section A (field A10); or allow user to override the default and input a new value;  flag non-default values and report in project status notes field;  else if  parent is not CF1R-ALT-02 doc type, then user input the integer value</xsd:documentation>
+                        <xsd:documentation source="FieldText">Number of Space Conditioning Systems in this Dwelling Unit.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If parent CC is CF1R-ALT-02, use value from parent Section A A10 as default Or allow user to override default value and flag non-default values and report in project status notes field
+Else 
+user input the integer value xx
+End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A05_ComplianceMethod" >
@@ -136,63 +142,132 @@ End If
                   <xsd:element name="A06_HvacLoadCalculationMethod" type="comp:HvacLoadCalculationMethod" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Method Used to Calculate HVAC Loads (See Section 150.0(h))</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input; Choices to display: ASHRAE Handbook;  SMACNA Residential Comfort System Installation Standards Manual, ACCA Manual J, Not applicable - equipment change out, like-for-like.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input;  Choices to display: ASHRAE Handbook;  SMACNA Residential Comfort System Installation Standards Manual, ACCA Manual J, Not applicable - equipment change out, like-for-like; and Exception 1 to Section 150.0(h)1: Block loads for system sizing for additions.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A07_HvacOutdoorDesignCondSource" type="comp:HvacOutdoorDesignCondSource" maxOccurs="unbounded">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Outdoor Design Condition Source (See Section 150.0((h)2</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User select all that apply; Reference Joint Appendix JA2; ASHRAE Handbook; ACCA Manual J </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A08_DesignCoolingOutdoorTemp" type="hvac:DesignCoolingOutdoorTemp">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Cooling Outdoor Design Temperature Selected ([d:deg/]F)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User enters temperature in degrees F</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A09_DesignHeatingOutdoorTemp" type="hvac:DesignHeatingOutdoorTemp">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Heating Outdoor Design Temperature Selected ([d:deg/]F)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User enters temperature in degrees F</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:choice maxOccurs="1">
-                     <xsd:element name="A07_DesignSensibleCoolingLoad" type="hvac:DesignSensibleCoolingLoad" >
+                     <xsd:element name="A10_DesignSensibleCoolingLoad" type="hvac:DesignSensibleCoolingLoad" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Calculated Dwelling Unit Sensible Cooling Load (Btu/h)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If   A06_HvacLoadCalculationMethod == NotApplicableEquipmentChangeout Then result = N/A stored in the  NotAppplicableMessage Else User entry integer xxxxx</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If   A06_HvacLoadCalculationMethod == NotApplicableEquipmentChangeout Then result = NotApplicable stored in the  NotAppplicableMessage Else User entry integer xxxxx</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
-                     <xsd:element name="A07_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                     <xsd:element name="A10_NotApplicableMessage" type="comp:NotApplicableMessage" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Calculated Dwelling Unit Sensible Cooling Load (Btu/h)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If   A06_HvacLoadCalculationMethod == NotApplicableEquipmentChangeout Then result = N/A stored in the  NotAppplicableMessage Else User entry integer xxxxx</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If   A06_HvacLoadCalculationMethod == NotApplicableEquipmentChangeout Then result = NotApplicable stored in the  NotAppplicableMessage Else User entry integer xxxxx</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
                   <xsd:choice maxOccurs="1">
-                     <xsd:element name="A08_DwellingUnitDesignHeatingLoad" type="hvac:DwellingUnitDesignHeatingLoad" >
+                     <xsd:element name="A11_DwellingUnitDesignHeatingLoad" type="hvac:DwellingUnitDesignHeatingLoad" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Calculated Dwelling Unit Heating Load (Btu/h)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If   A06_HvacLoadCalculationMethod == NotApplicableEquipmentChangeout Then result = N/A stored in the  NotAppplicableMessage Else User entry integer xxxxx</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If   A06_HvacLoadCalculationMethod == NotApplicableEquipmentChangeout Then result = NotApplicable stored in the  NotAppplicableMessage Else User entry integer xxxxx</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
-                     <xsd:element name="A08_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                     <xsd:element name="A11_NotApplicableMessage" type="comp:NotApplicableMessage" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Calculated Dwelling Unit Heating Load (Btu/h)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If   A06_HvacLoadCalculationMethod == NotApplicableEquipmentChangeout Then result = N/A stored in the  NotAppplicableMessage Else User entry integer xxxxx</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If   A06_HvacLoadCalculationMethod == NotApplicableEquipmentChangeout Then result = NotApplicable stored in the  NotAppplicableMessage Else User entry integer xxxxx</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
-                  <xsd:element name="A09_BedroomCount" type="com:BedroomCount" >
+                  <xsd:element name="A12_BedroomCount" type="com:BedroomCount" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Dwelling Unit Number of Bedrooms</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: integer xx;  
-If A05_ComplianceMethod == Performance Then 
-If CF1R-PRF B05_BedroomsAdditionCount == Adu06_BedroomsAdditionCount
-result = Adu06_BedroomsAdditionCount
-Else use as default the value referenced from the parent CC Or allow user to override  default and input a new value, constrained to be GTE to default value from parent CC, flag non-default values and report of change in the project status notes field.  
-End If
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: integer xx;  If A05_ComplianceMethod == Performance Then use as default the value referenced from the parent CC Or allow user to override  default and input a new value, constrained to be GTE to default value from parent CC, flag non-default values and report of change in the project status notes field.  
 Else If ComplianceMethod != Performance  then user inputs integer value.
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A09After" minOccurs="0">
+                  <xsd:element name="A12After" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Variant MCH-01d</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">MCH-01d - Space Conditioning Systems Ducts and Fans - For use with Performance E+A+A Certificate of Compliance</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: 
+                        <xsd:documentation source="CalculationsAndRules">Calculated field:  
 If A05_ComplianceMethod  == Performance, 
 If CF1R-PRF project scope == Addition and/or Alteration Or Newly Constructed (Addition Alone) then display doc variation MCH-01d ;   
-Else If  CF1R-PRF project scope == Newly Constructed display doc variation  MCH-01a 
-End If     
+Else If  CF1R-PRF project scope == Newly Constructed display doc variation  MCH-01a End If     
 Else If A05_ComplianceMethod == PrescriptiveAlterations, Or  PrescriptiveAddiitions, then display doc variation MCH-01b;  
-Else If A05_ComplianceMethod  == PrescriptiveNewConstruction  then display doc variation MCH-01c  
-End If</xsd:documentation>
+Else If A05_ComplianceMethod  == PrescriptiveNewConstruction  then display doc variation MCH-01c  End If</xsd:documentation>
                      </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="AdditionsOnlyInformation" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">This group of fields are required If A05_ComplianceMethod  == Performance And CF1R-PRF project scope == Addition and/or Alteration Or Newly Constructed (Addition Alone) Or If A05_ComplianceMethod == PrescriptiveAddiitions</xsd:documentation>
+			   <xsd:documentation source="MinOccurs">If fields A13-A16 don't apply, display only  the statement 'Fields A13-A16 do not apply.'</xsd:documentation>
+                        </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                  <xsd:element name="AddBeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Notes: In fields A13 and A14 [d:l t="#"][d:list]If the airflow is verified to be 350 CFM/ton or higher there is no maximum capacity (Section 150.2(a)1Eii) and user should enter N/A.[/d:list]
+[d:list]If the space conditioning system is ductless (Exception 1 to Section 150.2(a)1Eii) user should enter N/A.[/d:list][/d:l]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                           <xsd:choice>
+                              <xsd:element name="A13_HeatingCapacity" type="hvac:HeatingCapacity" >
+                                 <xsd:annotation>
+                                    <xsd:documentation source="FieldText">Maximum Heating Capacity According to Table 150.2-A (Btu/h)</xsd:documentation>
+                                    <xsd:documentation source="CalculationsAndRules">User enters a numeric value or N/A stored in NotAppicableMessage; If result == N/A because airflow is verified to be 350 CFM/ton or higher, the system cannot be ductless and a MCH-23 is required.  </xsd:documentation>
+                                </xsd:annotation>
+                             </xsd:element>
+                             <xsd:element name="A13_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                <xsd:annotation>
+                                   <xsd:documentation source="FieldText">Maximum Heating Capacity According to Table 150.2-A (Btu/h)</xsd:documentation>
+                                   <xsd:documentation source="CalculationsAndRules">User enters a numeric value or N/A stored in NotAppicableMessage; If result == N/A because airflow is verified to be 350 CFM/ton or higher, the system cannot be ductless and a MCH-23 is required. </xsd:documentation>
+                               </xsd:annotation>
+                            </xsd:element>
+                         </xsd:choice> 
+                           <xsd:choice>
+                              <xsd:element name="A14_CoolingCapacity" type="hvac:CoolingCapacity" >
+                                 <xsd:annotation>
+                                    <xsd:documentation source="FieldText">Maximum Cooling Capacity According to Table 150.2-A (Btu/h)</xsd:documentation>
+                                    <xsd:documentation source="CalculationsAndRules">User enters a numeric value or N/A stored in NotAppicableMessage; If result == N/A because airflow is verified to be 350 CFM/ton or higher, the system cannot be ductless and a MCH-23 is required. </xsd:documentation>
+                                </xsd:annotation>
+                             </xsd:element>
+                             <xsd:element name="A14_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                <xsd:annotation>
+                                   <xsd:documentation source="FieldText">Maximum Heating Capacity According to Table 150.2-A (Btu/h)</xsd:documentation>
+                                   <xsd:documentation source="CalculationsAndRules">User enters a numeric value or N/A stored in NotAppicableMessage; If result == N/A because airflow is verified to be 350 CFM/ton or higher, the system cannot be ductless and a MCH-23 is required. </xsd:documentation>
+                               </xsd:annotation>
+                            </xsd:element>
+                         </xsd:choice>
+                         <xsd:element name="A15_ACH50" type="comp:ACH50" >
+                            <xsd:annotation>
+                               <xsd:documentation source="FieldText">Envelope Leakage Specified in Load Calculation (ACH)</xsd:documentation>
+                               <xsd:documentation source="CalculationsAndRules">User input DecimalNonnegative, allow value from Table 150.2-C if result LTE values in table,  or value from Field Verification and Diagnostic Testing</xsd:documentation>
+                           </xsd:annotation>
+                         </xsd:element> 
+                         <xsd:element name="A16_LeakageInLoadCalcSource" type="comp:LeakageInLoadCalcSource" >
+                            <xsd:annotation>
+                               <xsd:documentation source="FieldText">Source of Envelope Leakage Specified in Load Calculation</xsd:documentation>
+                               <xsd:documentation source="CalculationsAndRules">User selects from Table 150-C and Field Verification and Diagnostic Testing</xsd:documentation>
+                           </xsd:annotation>
+                         </xsd:element>                          
+                      </xsd:sequence>
+                    </xsd:complexType>
                   </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
@@ -537,10 +612,7 @@ Require one row of data for each SC System in Section B;  do not allow user to o
                                        <xsd:element name="C06a_EfficiencyType" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Efficiency Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Auto fill from  parent CC-PRF  for this system name if data is available
-Else
-result = N/A stored in C06a_NotApplicableMessage
-End If</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Auto fill from  parent CC-PRF  for this system name if data is available Else result = N/A stored in C06a_NotApplicableMessage End If</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
                                              <xsd:restriction base="hvac:EfficiencyType">
@@ -557,10 +629,7 @@ End If</xsd:documentation>
                                        <xsd:element name="C06a_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Efficiency Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Auto fill from  parent CC-PRF  for this system name if data is available
-Else
-result = N/A
-End If</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Auto fill from  parent CC-PRF  for this system name if data is available Else result = N/A End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -965,7 +1034,7 @@ result = false.  Allow user to override default and select from list: Yes (true 
                                     <xsd:element name="E09_ResidentialHvacAlterationType" type="hvac:ResidentialHvacAlterationType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Alteration Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calculated field: determine the correct result for alteration type for entry in this field by the user responses in E03, E04, E05, E06, E07, E08 and use of Logic Table for Determining Alteration Type and HERS Verification Requirements (logic table is inserted below this section); constrain user input for fields E03, E04, E05, E06, E07, E08 to allow only the available combinations of responses given in the Logic Table in rows a through t;  alteration types are: DuctSystemExistingExtended display term Extension of Existing Duct System;   SpaceConditioningSystemAltered display term Altered Space Conditioning System;   DuctSystemEntirelyNewReplacement display term Entirely New or Complete Replacement Duct System with or without Equipment Changeout; SpaceConditioningSystemEntirelyNewReplacement display term Entirely New or Complete Replacement Space Conditioning System; NoAlterationsPerformed display term No Alteration Performed</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field: determine the correct result for alteration type for entry in this field by the user responses in E03, E04, E05, E06, E07, E08 and use of Logic Table for Determining Alteration Type and ECC Verification Requirements (logic table is inserted below this section); constrain user input for fields E03, E04, E05, E06, E07, E08 to allow only the available combinations of responses given in the Logic Table in rows a through t;  alteration types are: DuctSystemExistingExtended display term Extension of Existing Duct System;   SpaceConditioningSystemAltered display term Altered Space Conditioning System;   DuctSystemEntirelyNewReplacement display term Entirely New or Complete Replacement Duct System with or without Equipment Changeout; SpaceConditioningSystemEntirelyNewReplacement display term Entirely New or Complete Replacement Space Conditioning System; NoAlterationsPerformed display term No Alteration Performed</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="E10_ResidentialHvacHeatingComponentType"  maxOccurs="unbounded">
@@ -1106,7 +1175,7 @@ If E10_ResidentialHvacHeatiingComponentType == GasPackagedFurnace require one ro
                                        <xsd:element name="F06_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Heating Efficiency Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If SC system is not listed in section C, user picks from list: AFUE, COP, HSPF and N/A stored in NotApplicableMessage; Else as default reference value from C02_EfficiencyType but allow user to override and select from same list;   Flag non-default values and report in project status notes field; a revised parent CC-PRF may be required</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If SC system is not listed in section C, user picks from list: AFUE, COP, HSFP, HSPF2 and N/A stored in NotApplicableMessage; Else as default reference value from C02_EfficiencyType but allow user to override and select from same list;   Flag non-default values and report in project status notes field; a revised parent CC-PRF may be required</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -2076,7 +2145,7 @@ result = true display term Yes;
 Else user selects from list: Yes (Boolean true value), No (Boolean false value).  
 End If
  
-Compliance check: If result == false then report in project status notes field that exemption from mandatory HERS verification of system airflow has been claimed.  Enforcement agency confirmation is recommended.</xsd:documentation>
+Compliance check: If result == false then report in project status notes field that exemption from mandatory ECC verification of system airflow has been claimed.  Enforcement agency confirmation is recommended.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
@@ -2288,9 +2357,9 @@ Else If B10=New or ExistingAlteration AND one or more of the following seven con
 (5) C08_AirflowPerUnitCoolingCapacity GT 250 And D05_ResidentialCoolingSystemType == SmallDuctHighVelocityAC Or SmallDuctHighVelocityHP 
 (6) D09_ResidentialCoolingZoneType == ZoneControlled, 
 (7) If F04 Or H06 == true  then 
-result = HERS_FanEfficacyAirflowRate, display text: HERS Verified Fan Efficacy and Airflow Rate  
+result = HERS_FanEfficacyAirflowRate, display text: ECC Verified Fan Efficacy and Airflow Rate  
  
-Else If CF1R-PRF indicates that verification is required, user selects from  list: HERS_FanEfficacyAirflowRate, display text: HERS Verified Fan Efficacy and Airflow Rate, or HERS_ReturnDuctDesignTable150, display text:  HERS verified Return Duct Design per Table 150.0
+Else If CF1R-PRF indicates that verification is required, user selects from  list: HERS_FanEfficacyAirflowRate, display text: ECC Verified Fan Efficacy and Airflow Rate, or HERS_ReturnDuctDesignTable150, display text:  ECC verified Return Duct Design per Table 150.0
 End If</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
@@ -2323,7 +2392,7 @@ result = true; display term Yes;
 Else user selects from list: Yes (Boolean true value), No (Boolean false value). 
 End if
  
- Compliance check: If result == false then report in project status notes field that exemption from mandatory HERS verification of system airflow has been claimed.  Enforcement agency confirmation is recommended.   Also report in project status notes field that better than minimum EER or SEER cannot not be claimed for performance compliance credit if the system cannot comply with the required HERS verification; a revised parent CC-PRF may be required.</xsd:documentation>
+ Compliance check: If result == false then report in project status notes field that exemption from mandatory ECC verification of system airflow has been claimed.  Enforcement agency confirmation is recommended.   Also report in project status notes field that better than minimum EER or SEER cannot not be claimed for performance compliance credit if the system cannot comply with the required ECC verification; a revised parent CC-PRF may be required.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="L14_CanFanEfficacyProtocolsTestSystem" type="comp:CanFanEfficacyProtocolsTestSystem" >
@@ -2340,7 +2409,7 @@ result = CanTest display term Yes ;
 Else  user selects from list: CanTest display term Yes, CanNotTest display term No. 
 End If 
  
-Compliance check: If result == CanNotTest  then report in project status notes field that exemption from mandatory HERS verification of system fan efficacy has been claimed.  Enforcement agency confirmation is recommended.   Also report in project status notes field that better than minimum EER or SEER cannot not be claimed for performance compliance credit if the system cannot comply with the required HERS verification; a revised parent CC-PRF may be required.</xsd:documentation>
+Compliance check: If result == CanNotTest  then report in project status notes field that exemption from mandatory ECC verification of system fan efficacy has been claimed.  Enforcement agency confirmation is recommended.   Also report in project status notes field that better than minimum EER or SEER cannot not be claimed for performance compliance credit if the system cannot comply with the required ECC verification; a revised parent CC-PRF may be required.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
@@ -2562,7 +2631,7 @@ Compliance check: If result == CanNotTest  then report in project status notes f
          </xsd:element>
          <xsd:element name="Section_O" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">HERS Verification Requirements for Duct Systems</xsd:documentation>
+               <xsd:documentation source="FieldText">ECC Verification Requirements for Duct Systems</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">n this section parent CC-PRF refers to the parent CF1R-PRF Certificate of Compliance (CC)
  
 This section applies if section K or section L applies;  Require one row of data for each of the indoor units listed in L03; Also require one row of data for each of the indoor units listed in K03</xsd:documentation>
@@ -2600,7 +2669,7 @@ This section applies if section K or section L applies;  Require one row of data
                                     <xsd:element name="O04_DuctLeakageTestExemption" type="comp:DuctLeakageTestExemption" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">[d:line3/]Exemption From Duct Leakage Requirements</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calculated field: Default value = NoExemptions, display text No Exemptions;  Allow user to override the default and select from this list: DuctsSealedTested_HERSCertified display text: Ducts have previously been sealed, tested, and certified by a HERS rater;  DuctLessThan40Feet display text: Duct system has less than 40 ft of duct.  Or DuctSystemAsbestos display text: Duct system is insulated or sealed with asbestos.  Flag non-default values and report in project status notes field;  The enforcement agency may require additional documentation as validation.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field: Default value = NoExemptions, display text No Exemptions;  Allow user to override the default and select from this list: DuctsSealedTested_HERSCertified display text: Ducts have previously been sealed, tested, and certified by a ECC rater;  DuctLessThan40Feet display text: Duct system has less than 40 ft of duct.  Or DuctSystemAsbestos display text: Duct system is insulated or sealed with asbestos.  Flag non-default values and report in project status notes field;  The enforcement agency may require additional documentation as validation.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="O05_DuctLeakageTestRequired" type="comp:DuctLeakageTestRequired" >
@@ -2609,7 +2678,7 @@ This section applies if section K or section L applies;  Require one row of data
                                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If O04_DuctLeakageTestExemption != NoExemptions  result = false display term No; 
 Else If D04_ResidentialHeatingSystemType  Or D05_ResidentialCoolingSystemType  == VCHP_IndoorUnitDucted Or  VCHP_IndoorUnitDuctedAndDuctless And D11_EAA_SpaceConditionSystemStatus  == New result = true display term Yes;
  
-Else If the parent CC-PRF flags the requirement for HERS verification of duct leakage of system ID/name in O01 result = true display term Yes,  Else If Section E applies, then determine the result for this field by the user responses in E03, E04, E05 , E06, E07, E08, and use of Logic Table (inserted below section E); constrain user input for fields E03-E08 to allow only the available combinations of responses given in the Logic Table in rows a through t, and determine result for this field as follows:  If the term DctLk appears in the HERS column, then result = true, else result = false.</xsd:documentation>
+Else If the parent CC-PRF flags the requirement for ECC verification of duct leakage of system ID/name in O01 result = true display term Yes,  Else If Section E applies, then determine the result for this field by the user responses in E03, E04, E05 , E06, E07, E08, and use of Logic Table (inserted below section E); constrain user input for fields E03-E08 to allow only the available combinations of responses given in the Logic Table in rows a through t, and determine result for this field as follows:  If the term DctLk appears in the ECC column, then result = true, else result = false.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="O06_DuctsInConditionedSpaceVerification" type="comp:DuctsInConditionedSpaceVerification" >
@@ -2660,7 +2729,7 @@ result is false.</xsd:documentation>
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">MCH-29 [d:line1/]Supply Duct Surface Area R-Value Buried Ducts</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Calculated field: If D04_ResidentialHeatingSystemType  Or D05_ResidentialCoolingSystemType  == VCHP_IndoorUnitDucted Or  VCHP_IndoorUnitDuctedAndDuctless And D11_EAA_SpaceConditionSystemStatus  == New result = false display term No;
-Else If  the parent CC-PRF flags the requirement for HERS verified duct design ( Supply Duct Surface Area R-Value or Buried Ducts) then result = true; else result = false.</xsd:documentation>
+Else If  the parent CC-PRF flags the requirement for ECC verified duct design ( Supply Duct Surface Area R-Value or Buried Ducts) then result = true; else result = false.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="O11_VentilationCoolingCreditVerificationRequired" type="comp:VentilationCoolingCreditVerificationRequired" >
@@ -2686,7 +2755,7 @@ Else If  the parent CC-PRF flags the requirement for HERS verified duct design (
          </xsd:element>
          <xsd:element name="Section_P" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">HERS Verification Requirements For Space Conditioning Equipment</xsd:documentation>
+               <xsd:documentation source="FieldText">ECC Verification Requirements For Space Conditioning Equipment</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">n this section parent CC-PRF refers to the parent CF1R-PRF Certificate of Compliance (CC)
  
 This section is required If Section G has data Or If Section I has data. 
@@ -2738,8 +2807,7 @@ Else If C06_EfficiencyMinimumValueSEER IsPresent And GT 15.0 Or C06_EfficiencyMi
 result = true;  
  
 Else If B04_ResidentialCoolingSystemType == CentralPackagedAC And If  C07_EfficiencyMinimumValueEER Or  C07_EfficiencyMinimumValueEER2 IsPresent And GT 11.0 
-result = true; 
- 
+result = true;
 Else If C06a_EfficiencyType == EER or EERSEER
 If B04_ResidentialCoolingSystemType == CentralSplitAC 
 If C07_EfficiencyMinimumValueEER GT 11.7  And G10_ CondenserRatedCoolingCapacity GTE 45000 
@@ -2748,12 +2816,12 @@ Else If   C07_EfficiencyMinimumValueEER GT 12.2 And G10_ CondenserRatedCoolingCa
 result = true, 
 Else result = false.  
 End If
-End If
+End If 
 Else If C06a_EfficiencyType == EER2 or EER2SEER2
 If B04_ResidentialCoolingSystemType == CentralSplitAC 
-If C07_EfficiencyMinimumValueEER GT 11.2  And G10_ CondenserRatedCoolingCapacity GTE 45000 
+If C07_EfficiencyMinimumValueEER2 GT 11.2  And G10_ CondenserRatedCoolingCapacity GTE 45000 
 result = true 
-Else If   C07_EfficiencyMinimumValueEER GT 11.7 And G10_ CondenserRatedCoolingCapacity LT 45000  
+Else If   C07_EfficiencyMinimumValueEER2 GT 11.7 And G10_CondenserRatedCoolingCapacity LT 45000  
 result = true, 
 Else result = false.  
 End If
@@ -2809,13 +2877,13 @@ Display Yes and No to represent Boolean values true and false</xsd:documentation
                   <xsd:element name="Q02" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Controls</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Controls:  All unitary heating systems, including heat pumps, must be controlled by a setback thermostat.  These thermostats must be capable of allowing the occupant to program the temperature set points for at least four different periods in 24 hours. See Sections 150.0(i), 110.2(b).</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Controls:  All unitary heating systems, including heat pumps, must be controlled by a setback thermostat.  These thermostats must be capable of allowing the occupant to program the temperature set points for at least four different periods in 24 hours. See Sections 150.0(i), 110.2(c).</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Q03" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Sizing:</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Sizing:  Heating load calculations must be done on portions of the building served by new heating systems to prevent inadvertent undersizing or oversizing. See sections 150.0(h)1 and 2).</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Sizing:  Heating load calculations must be done on portions of the building served by new heating systems to prevent inadvertent undersizing or oversizing. See sections 150.0(h)1 and 2 and the exception.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Q04" minOccurs="0">
@@ -2862,53 +2930,133 @@ Display Yes and No to represent Boolean values true and false</xsd:documentation
                   <xsd:element name="Q10" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Sizing</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Sizing: Cooling load calculations must be done on portions of the building served by new cooling systems to prevent inadvertent undersizing or oversizing. See Section 150.0(h)1 and 2.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Sizing: Cooling load calculations must be done on portions of the building served by new cooling systems to prevent inadvertent undersizing or oversizing. See Section 150.0(h)1 and 2 and the exception.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Q10After_Heading" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">[d:b] Air Distribution System Ducts, Plenums and Fans[/d:b]</xsd:documentation>
+                        <xsd:documentation source="FieldText">[d:b] Cooling and Heating Equipment (Additional Requirements)[/d:b]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Q11" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">System Selection Requirements</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]System Selection:[/d:b] See Section 150.0(h)5 [d:line1/] A. Equipment sizing and selection shall meet the cooling and heating loads of Section 150.0(h) 1 and 2
+[d:line1/]B. Systems shall be sized based on ACCA Manual S-2023 in accordance with these requirements: [d:line1/][d:tab1/] i. [d:b]Cooling Capacity:[/d:b] There is no limit on the minimum capacity. [d:line1/][d:tab1/] i. [d:b]urnaces:[/d:b] Heating capacity shall be sized based on ACCA Manual S-2023, Table N2.5
+[d:line1/][d:tab1/] i. [d:b]Heat Pump Heating Capacity:[/d:b] [d:line1/][d:tab2/] a. Minimum: Heating systems are required to have a heating capacity meeting the minimum requirements of the CBC not including any supplemental heating. [d:line1/][d:tab2/] b. Maximum: There is no limit on the maximum heating capacity.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Q12" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Defrost Requirements</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]Defrost:[/d:b] See Section 150.0(h)6 [d:line1/] A. If a heat pump is equipped with an installer adjustable defrost delay timer, the delay timer shall be set to greater than or equal to 90 minutes.
+[d:line1/]B. The installer shall certify on the Certificate of Installation (CF2R) that the control configuration has been tested in accordance with the testing procedure in the CF2R.[d:line1/] [d:b]Exception 1 to Section 1550.0(h)6. [/d:b] Dwelling units in Climate Zones 6 and 7. 
+[d:line1/] [d:b]Exception 1 to Section 1550.0(h)6. [/d:b] Dwelling units with a conditioned floor area of 500 square feet or less in Climate Zones 3, 5 through 10 and 15.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Q13" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Supplemental Heating Controls</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]Supplementary heating control configuration:[/d:b] See Section 150.0(h)7 [d:line1/] Heat pumps with supplementary heating, including but not limited to, electric resistance heaters or gas furnace supplementary heating, shall comply with the following requirements: [d:b]See Section 150.0(h)7 for exceptions [/d:b]
+[d:line1/] A. Lock out supplementary heating above an outdoor air temperature of no greater than 35[d:deg/]F. There are additional thermostat requirements in Section 150.0(i).
+[d:line1/] B. The installer shall certify on the Certificate of Installation (CF2R) that the control configuration has been tested in accordance with the testing procedure in the CF2R. 
+[d:line1/] C. The controls may allow supplementary heater operation above 35[d:deg/]F only during defrost; or when the user selects emergency operation.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Q14" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Electric Resistance Sizing</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]Sizing of electric resistance supplementary heat:[/d:b] See Section 150.0(h)8 [d:line1/] For heat pumps with electric resistance heating, the capacity of electric resistance heat shall not exceed the heat pump nominal cooling capacity (at 95[d:deg/]F ambient conditions) multiplied by 2.7 kW per ton, rounded up to the closest kW.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Q15" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Third-party Thermostats</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]Capacity variation with third-party thermostats[/d:b] See Section 150.0(h)9 [d:line1/] Variable or multi-speed systems shall comply with the following requirements: [d:line1/] A. The space conditioning system and thermostat together shall be capable of responding to heating and cooling loads by modulating system compressor speed, and meet thermostat requirements in Section 150.0(i)2</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Q15After_Heading" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">[d:b] Air Distribution System Ducts, Plenums and Fans[/d:b]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Q16" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Insulation</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Insulation:  The minimum duct insulation value is R-6 or ducts can be uninsulated if the duct system is located entirely in conditioned space.  Note that higher values may be required by the prescriptive or performance requirements. See Section 150.0(m)1B for exceptions.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Q12" minOccurs="0">
+                  <xsd:element name="Q17" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Connections and Closures</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Connections and Closures: All installed air-distribution system ducts and plenums must meet the requirements of CMC Sections 601.0, 602.0, 603.0, 604.0, 605.0 and ANSI/SMACNA-006-2006:</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Q12After_Heading" minOccurs="0">
+                  <xsd:element name="Q17After_Heading" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b] Heat Pump Thermostat[/d:b]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Q13" minOccurs="0">
+                  <xsd:element name="Q18" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Requirements of Section 110.2(b) and (c)</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">A thermostat shall be installed that meets the requirements of Section 110.2(b) and Section 110.2(c).</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Q14" minOccurs="0">
+                  <xsd:element name="Q19" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Manufacturers published installation specifications</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The thermostat shall be installed in accordance with the manufacturers published installation specifications</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Q15" minOccurs="0">
+                  <xsd:element name="Q20" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">First stage of heating</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">First stage of heating shall be assigned to heat pump heating.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Q16" minOccurs="0">
+                  <xsd:element name="Q21" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Second stage back up heating</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Second stage back up heating shall be set to come on only when the indoor set temperature cannot be met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Q22" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Setback Thermostats</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Setback Thermostats:  All heating or cooling systems, including heat pumps, not controlled by a central energy management control system (EMCS) shall have a setback thermostat, as specified in Section 110.2(c).  See Section 150.0(i)1</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Q23" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Supplemental Heating Thermostats</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Thermostats that are applied to heat pumps with supplementary heating . See Section 150.0(i)2 [d:line1/] The thermostats controlling heat pumps with electric resistance supplementary heat or gas furnace supplementary heat shall comply with the following requirements: See Section 150.0((i)2 for exceptions. 
+[d:line1/] A. The thermostat shall receive outdoor air temperature from an outdoor air temperature sensor or from an internet weather service.[d:line1/] B. The thermostat shall display the outdoor air temperature. [d:line1/] C. The thermostat and heat pump shall lock out supplementary heat when the outdoor air temperature is above 35[d:deg/]F.
+[d:line1/] D. The thermostat shall have an indicator to notify when supplementary heat or emergency heat is in use. [d:line1/] E. During defrost or when the user selects emergency heating, supplementary heat operation is permitted above 35[d:deg/]F. </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Q23After_Heading" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">[d:b] Space Conditioning Load Calculations and System Capacity for Additions[/d:b]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Q24" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Minimum Capacity</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Minimum capacity limits and suppementary heating requirements are as described in Section 150.0(h)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Q25" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Maximum Capacity</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The maximum capacity depends on the relative sizes of the calculated heating design load (HL) and cooling design load (CL), the type of space conditioning system, and the duct sizing. [d:b]See Section 150.2(a)1Eii for exceptions [/d:b]
+[d:line1/] a. In situations where airflow is field verified to be at least 350 cfm/ton, there is no maximum capacity limit. [d:line1/] b. In situations where airflow is NOT field verified to be at least 350 cfm/ton, the system capacities shall be no larger than indicated in Table 150.2-A for heating and Table 150.2-B for cooling.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Q26" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Envelope Leakage</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">For additions, envelope leakage specified in the load calculation shall be no greater than the values shown in Table 150.2-C [d:b]See Section 150.2(a)1Eiii for exceptions [/d:b] </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="QEndNote1" minOccurs="0">
@@ -2918,6 +3066,171 @@ Display Yes and No to represent Boolean values true and false</xsd:documentation
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_R" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Test of Defrost Delay Timer Setting (Section 150.0(h)6)</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">In this section parent CC refers to the parent CF1R Certificate of Compliance (CC)</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="RBeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The installing contractor shall confirm that a heat pump's installer-adjustable Defrost Delay Timer Setting (if it exists) is set to no less than 90 minutes</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="R01_DefrostDelayTimerTestApplies" type="comp:DefrostDelayTimerTestApplies" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Test Applicability. Select the statement describing test applicability for this project:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from TestApplies display term 1. Test applies and no exceptions, NoAdjustDefrostDelayTimer display term 2 Test does not apply because no adjustable Defrost Delay Timer Setting, 
+Exception1TestNA display term 3 Test does not apply because of Exception 1 Dwelling units in Climate Zones 6 and 7, Exception2TestNA display term  Test does not apply because of Exception 2 Dwelling units with conditioned floor area of 500 square feet or less in Climate Zones 3, 5 through 10 and 15</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="R01a_DefrostDelayTimerTestMessage" type="comp:DefrostDelayTimerTestMessage" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This field is required and displayed If R01_DefrostDelayTimerTestApplies != TestApplies If R01_DefrostDelayTimerTestApplies == NoAdjustDefrostDelayTimer result = NoTimerMessage; Else If R01_DefrostDelayTimerTestApplies == Exception1TestNA result = Exception1Message; Else If R01_DefrostDelayTimerTestApplies == Exception2TestNA result = Exception2Message;</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="DefrostDelayTimerTestData" minOccurs="0" maxOccurs="1">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Test of Defrost Delay Timer Setting (Section 150.0(h)6)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required and displayed If R01_DefrostDelayTimerTestApplies == TestApplies</xsd:documentation>
+                        <xsd:documentation source="MinOccurs">If this subsection is not required, nothing is displayed.</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="R02_DefrostDelayTimerControls" type="comp:DefrostDelayTimerControls">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Record Configuration of Controls.  Specify the mechanism for setting the Defrost Delay Timer Setting</xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">(for example, the name of the defrost delay timer in the thermostat setup, or the location and number of the specific dip switch, jumper, or dial that adjusts the Defrost Delay timer)</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                             </xsd:annotation>
+                          </xsd:element>
+                           <xsd:element name="R03_DefrostDelayTimerMaxMinutes" type="comp:DefrostDelayTimerMaxMinutes">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Record heat pump's Maximum Available Defrost Delay Timer Setting (minutes)</xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements"></xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input IntegerNonnegative</xsd:documentation>
+                             </xsd:annotation>
+                          </xsd:element>
+                           <xsd:element name="R04_DefrostDelayTimerSetting" type="comp:DefrostDelayTimerSetting">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Record where you set the Defrost Delay Timer Setting</xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">(for example, the numeric timer setting, dip switch position, jumper configuration, or dial setting)</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                             </xsd:annotation>
+                          </xsd:element>
+                           <xsd:element name="R05_DefrostDelayTimerMinutes" type="comp:DefrostDelayTimerMinutes">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Record where you set the Defrost Delay Timer Setting in minutes</xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements"></xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input IntegerNonnegative</xsd:documentation>
+                             </xsd:annotation>
+                          </xsd:element>
+                           <xsd:element name="R06_DefrostDelayTimerCompliance" type="comp:DefrostDelayTimerCompliance">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Confirming Configuration of Controls.  If possible, the Defrost Delay Timer Setting must be 90 minutes or greater.  Confirm the Defrost Delay Timer Setting is at least 90 minutes</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User selects from Yes (Boolean true) or No - Do Not Proceed (Boolean false)</xsd:documentation>
+                             </xsd:annotation>
+                          </xsd:element>
+                       </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>        
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_S" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Test of Supplementary Heating Lockout</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">In this section parent CC refers to the parent CF1R Certificate of Compliance (CC)</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="SBeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The installing contractor shall confirm that the heat pump or thermostat is configured to lock out supplementary heating anytime the outdoor temperature is above 35[d:deg/]F</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="S01_SupplementHeatLockoutTestApplies" type="comp:SupplementHeatLockoutTestApplies" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Test Applicability. Select the statement describing test applicability for this project:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from TestApplies display term 1. The test applies because the heating system is a heat pump with supplementary heating and there are no exceptions, NoSupplementHeat 2. Test does not apply because heating system does not include heat pump with auxiliary heating, 
+Exception1TestNA display term 3 Test does not apply because of Exception 1 Heat pump being installed in a single family dwelling unit in Climate Zones 7 or 15, Exception2TestNA display term  Test does not apply because of Exception 2 Heat pump being installed in a single family dwelling unit with conditioned floor area of 500 square feet or less.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="S01a_SupplementHeatLockoutTestMessage" type="comp:SupplementHeatLockoutTestMessage" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This field is required and displayed If S01_SupplementHeatLockoutTestApplies != TestApplies If S01_SupplementHeatLockoutTestApplies == NoSupplementHeat result = NoSupplementHeatMessage; Else If S01_SupplementHeatLockoutTestApplies == Exception1TestNA result = Exception1Message; Else If S01_SupplementHeatLockoutTestApplies == Exception2TestNA result = Exception2Message;</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="SupplementalHeatingLockout" minOccurs="0" maxOccurs="1">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Test of Supplementary Heating Lockout</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required and displayed If S01_SupplementHeatLockoutTestApplies == TestApplies</xsd:documentation>
+                        <xsd:documentation source="MinOccurs">If this subsection is not required, nothing is displayed.</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+			   <xsd:choice maxOccurs="1">
+                              <xsd:element name="S02_ElectricResistanceHeatingCapacity" type="hvac:ElectricResistanceHeatingCapacity">
+                                   <xsd:annotation>
+                                      <xsd:documentation source="FieldText">If supplementary heating is electric resistance, what is its rated capacity (kW)? </xsd:documentation>
+                                      <xsd:documentation source="CalculationsAndRules">User input DecimalNonnegative; Units kW</xsd:documentation>
+                                  </xsd:annotation>
+                               </xsd:element>
+                               <xsd:element name="S02_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                  <xsd:annotation>
+                                     <xsd:documentation source="FieldText">If supplementary heating is electric resistance, what is its rated capacity (kW)?</xsd:documentation>
+                                     <xsd:documentation source="CalculationsAndRules">If supplementary heating is not electric resistance heating result = NotApplicable stored in NotApplicablemessage; </xsd:documentation>
+                                 </xsd:annotation>
+                              </xsd:element>
+                           </xsd:choice>
+                           <xsd:choice maxOccurs="1">
+                              <xsd:element name="S03_HeatingSupplementalCapacity" type="hvac:HeatingSupplementalCapacity">
+                                 <xsd:annotation>
+                                    <xsd:documentation source="FieldText">If supplementary heating is gas, what is its rated input capacity (kBtu/hr)?</xsd:documentation>
+                                    <xsd:documentation source="CalculationsAndRules">User input Integer; Units kBtu/hr</xsd:documentation>
+                                </xsd:annotation>
+                              </xsd:element>
+                               <xsd:element name="S03_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                  <xsd:annotation>
+                                     <xsd:documentation source="FieldText">If supplementary heating is gas, what is its rated input capacity (kBtu/hr)?</xsd:documentation>
+                                     <xsd:documentation source="CalculationsAndRules">If supplementary heating is not gas heating result = NotApplicable stored in NotApplicablemessage; </xsd:documentation>
+                                 </xsd:annotation>
+                              </xsd:element>
+                           </xsd:choice>
+                           <xsd:element name="S04_SupplementHeatLockoutControls" type="comp:SupplementHeatLockoutControls">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Record Configuration of Controls.  Specify the mechanism for locking out supplementary heating</xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">(for example, the name of the supplementary heating lockout setting in the thermostat setup, or the location and number of the specific dip switch, jumper, or dial that adjusts the lockout temperature)
+If there is not mechanism to lockout supplementary heating above a temperature no greater than 35[d:deg/]F, this test fails.</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                             </xsd:annotation>
+                          </xsd:element>
+                           <xsd:element name="S05_SupplementHeatLockoutSetting" type="comp:SupplementHeatLockoutSetting">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Record supplementary heating lockout setting</xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">(for example, the numeric thermostat lock-out setpoint, dip switch position, jumper configuration, or dial setting)</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                             </xsd:annotation>
+                          </xsd:element>
+                           <xsd:element name="S06_SupplementHeatLockoutTemp" type="comp:SupplementHeatLockoutTemp">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">At what Outdoor Air Temperature (OAT) are the controls configured to begin locking out supplementary heating?  If this number is above 35[d:deg/]F this test fails</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User enters temperature xx.x; Units: degrees F.  If result GT 35, Do Not Proceed</xsd:documentation>
+                             </xsd:annotation>
+                          </xsd:element>
+                       </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>        
             </xsd:complexType>
          </xsd:element>
       </xsd:sequence>

@@ -1,34 +1,176 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RSRA01E" version="2025.0.000" xmlns="http://www.lmonte.com/besm/CF2RSRA01E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
-   <xsd:complexType name="CF2RSRA01E">
-      <xsd:annotation>
-         <xsd:documentation>Solar Readiness - New Construction</xsd:documentation>
-      </xsd:annotation>
-      <xsd:sequence>
-         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
-            <xsd:annotation>
-               <xsd:documentation source="FieldText">General Information</xsd:documentation>
-               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="A_BeginNote1" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Only use this form if the newly constructed do not have a PV system installed.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="A01_SolarReadyAreaComplianceMethod" type="comp:SolarReadyAreaComplianceMethod">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Method of Compliance</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User selects from the following: 
+<?xml version="1.0" ?>
+<xs:schema xmlns:ns1="http://www.lmonte.com/besm/d" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RSRA01E" version="2025.0.000">
+   
+   
+   <xs:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   
+   
+   <xs:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   
+   
+   <xs:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   
+   
+   <xs:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   
+   
+   <xs:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   
+   
+   <xs:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   
+   
+   <xs:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   
+   
+   <xs:element name="ComplianceDocumentPackage">
+      
+      
+      <xs:complexType>
+         
+         
+         <xs:sequence>
+            
+            
+            <xs:element minOccurs="0" name="DocID">
+               
+               
+               <xs:complexType>
+                  
+                  
+                  <xs:attribute fixed="CF2RSRA01E" name="doc" type="comp:ComplianceDocumentTag"/>
+                  
+                  
+                  <xs:attribute fixed="CERTIFICATE OF INSTALLATION" name="docType" type="comp:ComplianceDocumentType"/>
+                  
+                  
+                  <xs:attribute fixed="Solar Readiness - New Construction" name="docTitle" type="comp:ComplianceDocumentTitleRes"/>
+                  
+               
+               </xs:complexType>
+               
+            
+            </xs:element>
+            
+            
+            <xs:element name="Payload" type="comp:Payload"/>
+            
+            
+            <xs:element name="DocumentData">
+               
+               
+               <xs:complexType>
+                  
+                  
+                  <xs:sequence>
+                     
+                     
+                     <xs:element name="Header" type="comp:HeaderHERS"/>
+                     
+                     
+                     <xs:element ref="cF2RSRA01E"/>
+                     
+                     
+                     <xs:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     
+                     
+                     <xs:element name="RespPerson" type="comp:ResponsiblePersonCF2R_E"/>
+                     
+                     
+                     <xs:element name="Footer" type="comp:Footer"/>
+                     
+                  
+                  </xs:sequence>
+                  
+               
+               </xs:complexType>
+               
+            
+            </xs:element>
+            
+            
+            <xs:element name="Report" type="xsd:base64Binary"/>
+            
+         
+         </xs:sequence>
+         
+         
+         <xs:attribute fixed="rev 20250101" name="revision" type="xsd:string" use="required"/>
+         
+         
+         <xs:attribute fixed="CF2RSRA01E" name="doc" type="comp:ComplianceDocumentTag" use="required"/>
+         
+      
+      </xs:complexType>
+      
+   
+   </xs:element>
+   
+   
+   <xs:complexType name="CF2RSRA01E">
+      
+      
+      <xs:annotation>
+         
+         
+         <xs:documentation>Solar Readiness - New Construction</xs:documentation>
+         
+      
+      </xs:annotation>
+      
+      
+      <xs:sequence>
+         
+         
+         <xs:element maxOccurs="1" minOccurs="1" name="Section_A">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">General Information</xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">This section is required.</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element minOccurs="0" name="A_BeginNote1">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Begin Note 1</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">Only use this form if the newly constructed do not have a PV system installed.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="A01_SolarReadyAreaComplianceMethod" type="comp:SolarReadyAreaComplianceMethod">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Method of Compliance</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User selects from the following: 
 SolarReadyRequirements display term:  Building meets the solar ready requirements;  
 
 InstalledSolarWaterHeating display term:  Permanently Installed Solar Water Heating System;   
@@ -38,221 +180,508 @@ SmartThermostatAlternativeEfficiencyMeasure display term:   Smart Thermostats an
 For choice NotApplicableSubdivision display text:  Residence not in an Applicable Subdivision.  
 
 
-2022.0.000 MOVED FROM: A02_SolarReadyAreaComplianceMethod</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="Section_B" minOccurs="0">
-            <xsd:annotation>
-               <xsd:documentation source="FieldText">Building Meets the Solar Readiness Requirements</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if A01_SolarReadyAreaComplianceMethod == SolarReadyRequirements</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="B01_DoesBuildingComplyWithSolarReadyRequirements" type="comp:DoesBuildingComplyWithSolarReadyRequirements">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Compliance with Solar Readiness Requirements</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: If compliant CF2R-SRA-02E is registered, then result = true. For Boolean true value display text:  Design complies.  Else result = false.  For Boolean false value display text: Registered CF2R-SRA-02 required to continue</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="B02" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Construction Documents Information</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The construction documents indicate: 
-                           <d:l t="*">
-                              <d:list> The solar zone</d:list>
-                              <d:list>  A location for inverters and metering equipment </d:list>
-                              <d:list>  A pathway for routing of conduit from the solar zone to the point of interconnection with the electrical service </d:list>
-                              <d:list>  A Pathway for routing of plumbing from the solar zone to the water heating system </d:list>
-                              <d:list>   The structural design loads for roof dead load and roof live load, in the solar zone.</d:list>
-                           </d:l>
-                        </xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="B03" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Construction Documents Provided to Occupant</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">A copy of the construction documents including all the information above will be provided to the occupant.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="B04" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Electric Service Panel</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">
-                           <d:l t="*">
-                              <d:list> The main electric service panel shall have a minimum busbar rating of 200 amps.</d:list>
-                              <d:list>  The main electric service panel shall have reserved space to allow for the installation of a double pole circuit breaker. The reserved space shall be positioned at the opposite (load) end from the input feeder location or main circuit location. The reserved space shall be permanently marked as " For Future Solar Electric".</d:list>
-                           </d:l>
-                        </xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="BEndNote3" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">End Note 3</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="Section_C" minOccurs="0">
-            <xsd:annotation>
-               <xsd:documentation source="FieldText">Residence not in an Applicable Subdivision</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if A01_SolarReadyAreaComplianceMethod == NotApplicableSubdivision</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="C01" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Single Family Residence Subdivision</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The single family residence is located in a newly constructed subdivision with fewer than ten single family residences.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="CEndNote1" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">End Note 3</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="Section_D" minOccurs="0">
-            <xsd:annotation>
-               <xsd:documentation source="FieldText">Permanently Installed Solar Water Heating System</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if A01SolarReadyAreaComplianceMethod == InstalledSolarWaterHeating</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="D01_SolarWaterHeatingCertificationType" type="comp:SolarWaterHeatingCertificationType">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Solar Water Heating System Rating</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User picks from list: For choice OG100 display text: OG-100.  For choice OG300 display text: OG-300</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="D02_WaterHeatingSolarFraction" type="hvac:WaterHeatingSolarFraction">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Solar savings fraction of the proposed solar water heating system</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If D01_SolarWaterHeatingSRCC_CertificationType == OG300 
+2022.0.000 MOVED FROM: A02_SolarReadyAreaComplianceMethod</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+               
+               </xs:sequence>
+               
+            
+            </xs:complexType>
+            
+         
+         </xs:element>
+         
+         
+         <xs:element minOccurs="0" name="Section_B">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">Building Meets the Solar Readiness Requirements</xs:documentation>
+               
+               
+               <xs:documentation source="CalculationsAndRules">This section is applicable if A01_SolarReadyAreaComplianceMethod == SolarReadyRequirements</xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element name="B01_DoesBuildingComplyWithSolarReadyRequirements" type="comp:DoesBuildingComplyWithSolarReadyRequirements">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Compliance with Solar Readiness Requirements</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Calculated field: If compliant CF2R-SRA-02E is registered, then result = true. For Boolean true value display text:  Design complies.  Else result = false.  For Boolean false value display text: Registered CF2R-SRA-02 required to continue</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="B02">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Construction Documents Information</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">
+                           The construction documents indicate: 
+                           <ns1:l t="*">
+                              <ns1:list> The solar zone</ns1:list>
+                              <ns1:list>  A location for inverters and metering equipment </ns1:list>
+                              <ns1:list>  A pathway for routing of conduit from the solar zone to the point of interconnection with the electrical service </ns1:list>
+                              <ns1:list>  A Pathway for routing of plumbing from the solar zone to the water heating system </ns1:list>
+                              <ns1:list>   The structural design loads for roof dead load and roof live load, in the solar zone.</ns1:list>
+                           </ns1:l>
+                        </xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="B03">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Construction Documents Provided to Occupant</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">A copy of the construction documents including all the information above will be provided to the occupant.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="B04">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Electric Service Panel</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">
+                           <ns1:l t="*">
+                              <ns1:list> The main electric service panel shall have a minimum busbar rating of 200 amps.</ns1:list>
+                              <ns1:list>  The main electric service panel shall have reserved space to allow for the installation of a double pole circuit breaker. The reserved space shall be positioned at the opposite (load) end from the input feeder location or main circuit location. The reserved space shall be permanently marked as " For Future Solar Electric".</ns1:list>
+                           </ns1:l>
+                        </xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="BEndNote3">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">End Note 3</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+               
+               </xs:sequence>
+               
+            
+            </xs:complexType>
+            
+         
+         </xs:element>
+         
+         
+         <xs:element minOccurs="0" name="Section_C">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">Residence not in an Applicable Subdivision</xs:documentation>
+               
+               
+               <xs:documentation source="CalculationsAndRules">This section is applicable if A01_SolarReadyAreaComplianceMethod == NotApplicableSubdivision</xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element minOccurs="0" name="C01">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Single Family Residence Subdivision</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">The single family residence is located in a newly constructed subdivision with fewer than ten single family residences.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="CEndNote1">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">End Note 3</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+               
+               </xs:sequence>
+               
+            
+            </xs:complexType>
+            
+         
+         </xs:element>
+         
+         
+         <xs:element minOccurs="0" name="Section_D">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">Permanently Installed Solar Water Heating System</xs:documentation>
+               
+               
+               <xs:documentation source="CalculationsAndRules">This section is applicable if A01SolarReadyAreaComplianceMethod == InstalledSolarWaterHeating</xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element name="D01_SolarWaterHeatingCertificationType" type="comp:SolarWaterHeatingCertificationType">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Solar Water Heating System Rating</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User picks from list: For choice OG100 display text: OG-100.  For choice OG300 display text: OG-300</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:choice maxOccurs="1">
+                     
+                     
+                     <xs:element name="D02_WaterHeatingSolarFraction" type="hvac:WaterHeatingSolarFraction">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Solar savings fraction of the proposed solar water heating system</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If D01_SolarWaterHeatingSRCC_CertificationType == OG300 
 User input 
 Else If  D01_SolarWaterHeatingSRCC_CertificationType == OG100 
 result =  from registered  CF1R-STH-01 
 Else If no registered  solar water heating  form CF1R-STH-01 is found 
 result =  NoRegisteredCF1RSTH  stored in  RequiredDocumentNotRegistered and display term: Registered CF1R-STH-01 required to continue
-End If</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="D02_RequiredDocumentNotRegistered" type="comp:RequiredDocumentNotRegistered" fixed="NoRegisteredCF1RSTH">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Solar savings fraction of the proposed solar water heating system</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If D01_SolarWaterHeatingSRCC_CertificationType == OG300 
+End If</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                     
+                     <xs:element fixed="NoRegisteredCF1RSTH" name="D02_RequiredDocumentNotRegistered" type="comp:RequiredDocumentNotRegistered">
+                        
+                        
+                        <xs:annotation>
+                           
+                           
+                           <xs:documentation source="FieldText">Solar savings fraction of the proposed solar water heating system</xs:documentation>
+                           
+                           
+                           <xs:documentation source="CalculationsAndRules">If D01_SolarWaterHeatingSRCC_CertificationType == OG300 
 User input 
 Else If  D01_SolarWaterHeatingSRCC_CertificationType == OG100 
 result =  from registered  CF1R-STH-01 
 Else If no registered  solar water heating  form CF1R-STH-01 is found 
 result =  NoRegisteredCF1RSTH  stored in  RequiredDocumentNotRegistered and display term: Registered CF1R-STH-01 required to continue
-End If</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:element name="D03_IsSolarWaterHeatingSavingsFractionCompliant" type="comp:IsSolarWaterHeatingSavingsFractionCompliant">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: If D02_WaterHeatingSolarFraction GTE 0.5  result = true.  For Boolean true value display text: System complies.  Else result = false.  For Boolean false value display text: System does not comply.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="DEndNote1" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="Section_E" minOccurs="0">
-            <xsd:annotation>
-               <xsd:documentation source="FieldText">Smart Thermostats and Alternative Efficiency Measure</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if A01_SolarReadyAreaComplianceMethod ==  SmartThermostatAlternativeEfficiencyMeasure</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="E01" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Thermostat Complies</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">All thermostats comply with Section 110.12(a) and are capable of receiving and responding to Demand Response Signals prior to granting of an occupancy permit by the enforcing agency.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="E02_SolarReadyAlternativeEfficiencyMeasure">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Alternative Efficiency Measure</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User selects one from list:  
+End If</xs:documentation>
+                           
+                        
+                        </xs:annotation>
+                        
+                     
+                     </xs:element>
+                     
+                  
+                  </xs:choice>
+                  
+                  
+                  <xs:element name="D03_IsSolarWaterHeatingSavingsFractionCompliant" type="comp:IsSolarWaterHeatingSavingsFractionCompliant">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Compliance Statement</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">Calculated field: If D02_WaterHeatingSolarFraction GTE 0.5  result = true.  For Boolean true value display text: System complies.  Else result = false.  For Boolean false value display text: System does not comply.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="DEndNote1">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">End Note 1</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+               
+               </xs:sequence>
+               
+            
+            </xs:complexType>
+            
+         
+         </xs:element>
+         
+         
+         <xs:element minOccurs="0" name="Section_E">
+            
+            
+            <xs:annotation>
+               
+               
+               <xs:documentation source="FieldText">Smart Thermostats and Alternative Efficiency Measure</xs:documentation>
+               
+               
+               <xs:documentation source="CalculationsAndRules">This section is applicable if A01_SolarReadyAreaComplianceMethod ==  SmartThermostatAlternativeEfficiencyMeasure</xs:documentation>
+               
+               
+               <xs:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xs:documentation>
+               
+            
+            </xs:annotation>
+            
+            
+            <xs:complexType>
+               
+               
+               <xs:sequence>
+                  
+                  
+                  <xs:element minOccurs="0" name="E01">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Thermostat Complies</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">All thermostats comply with Section 110.12(a) and are capable of receiving and responding to Demand Response Signals prior to granting of an occupancy permit by the enforcing agency.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element name="E02_SolarReadyAlternativeEfficiencyMeasure">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">Alternative Efficiency Measure</xs:documentation>
+                        
+                        
+                        <xs:documentation source="CalculationsAndRules">User selects one from list:  
 EnergyStarAppliances with display term: Install a dishwasher that meets or exceeds ENERGY STAR Program requirements with either a refrigerator that meets or exceeds the ENERGY STAR Program requirements or a whole house fan driven by an electronically commutated motor or a Level 2 EVSE/ EV Charger; or  
 
 HomeAutomationDemandResponseCapable with display term:  Install a home automation system capable of, at a minimum, controlling the appliances and lighting of the dwelling and responding to demand response signals; or 
 
 AlternativePlumbingForGrayWaterIrrigation with display term: Install alternative plumbing piping to permit the discharge from the clothes washer and all showers and bathtubs to be used for an irrigation system in compliance with the California Plumbing Code and any applicable local ordinances; or 
 
-RainwaterCatchmentSystem with display term: Install a rainwater catchment system designed to comply with the California Plumbing Code and any applicable local ordinances, and that uses rainwater flowing from at least 65 percent of the available roof area.</xsd:documentation>
-                     </xsd:annotation>
-                     <xsd:simpleType>
-                        <xsd:restriction base="comp:SolarReadyAlternativeEfficiencyMeasure">
-                           <xsd:enumeration value="AlternativePlumbingForGrayWaterIrrigation"/>
-                           <xsd:enumeration value="EnergyStarAppliances"/>
-                           <xsd:enumeration value="HomeAutomationDemandResponseCapable"/>
-                           <xsd:enumeration value="RainwaterCatchmentSystem"/>
-                        </xsd:restriction>
-                     </xsd:simpleType>
-                  </xsd:element>
-                  <xsd:element name="EEndNote1" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
-      </xsd:sequence>
-   </xsd:complexType>
-   <xsd:element name="ComplianceDocumentPackage">
-      <xsd:complexType>
-         <xsd:sequence>
-            <xsd:element name="DocID" minOccurs="0">
-               <xsd:complexType>
-                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RSRA01E"/>
-                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
-                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Solar Readiness - New Construction"/>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Payload" type="comp:Payload"/>
-            <xsd:element name="DocumentData">
-               <xsd:complexType>
-                  <xsd:sequence>
-                     <xsd:element name="Header" type="comp:HeaderHERS"/>
-                     <xsd:element ref="cF2RSRA01E"/>
-                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
-                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_E"/>
-                     <xsd:element name="Footer" type="comp:Footer"/>
-                  </xsd:sequence>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Report" type="xsd:base64Binary"/>
-         </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
-         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RSRA01E"/>
-      </xsd:complexType>
-   </xsd:element>
-   <xsd:element name="cF2RSRA01E" type="CF2RSRA01E">
-      <xsd:annotation>
-         <xsd:documentation>This element contains all of the data and text required to generate the CF2RSRA01E compliance report.</xsd:documentation>
-      </xsd:annotation>
-   </xsd:element>
-</xsd:schema>
+RainwaterCatchmentSystem with display term: Install a rainwater catchment system designed to comply with the California Plumbing Code and any applicable local ordinances, and that uses rainwater flowing from at least 65 percent of the available roof area.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                     
+                     <xs:simpleType>
+                        
+                        
+                        <xs:restriction base="comp:SolarReadyAlternativeEfficiencyMeasure">
+                           
+                           
+                           <xs:enumeration value="AlternativePlumbingForGrayWaterIrrigation"/>
+                           
+                           
+                           <xs:enumeration value="EnergyStarAppliances"/>
+                           
+                           
+                           <xs:enumeration value="HomeAutomationDemandResponseCapable"/>
+                           
+                           
+                           <xs:enumeration value="RainwaterCatchmentSystem"/>
+                           
+                        
+                        </xs:restriction>
+                        
+                     
+                     </xs:simpleType>
+                     
+                  
+                  </xs:element>
+                  
+                  
+                  <xs:element minOccurs="0" name="EEndNote1">
+                     
+                     
+                     <xs:annotation>
+                        
+                        
+                        <xs:documentation source="FieldText">End Note 1</xs:documentation>
+                        
+                        
+                        <xs:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xs:documentation>
+                        
+                     
+                     </xs:annotation>
+                     
+                  
+                  </xs:element>
+                  
+               
+               </xs:sequence>
+               
+            
+            </xs:complexType>
+            
+         
+         </xs:element>
+         
+      
+      </xs:sequence>
+      
+   
+   </xs:complexType>
+   
+   
+   <xs:element name="cF2RSRA01E" type="CF2RSRA01E">
+      
+      
+      <xs:annotation>
+         
+         
+         <xs:documentation>This element contains all of the data and text required to generate the CF2RSRA01E compliance report.</xs:documentation>
+         
+      
+      </xs:annotation>
+      
+   
+   </xs:element>
+   
+
+</xs:schema>

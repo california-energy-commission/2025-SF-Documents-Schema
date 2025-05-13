@@ -64,7 +64,8 @@
                   <xsd:element name="A_BeforeNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Before Section Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Title 24, Part 6, Section 150.0(o) [d:b]Ventilation for Indoor Air Quality.[/d:b] All dwelling units shall meet the requirements of ASHRAE Standard 62.2. Ventilation and Acceptable Indoor Air Quality in Residential Buildings, subject to the amendments specified in Section 150.0(o)1.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Title 24, Part 6, Section 150.0(o) [d:b]Ventilation for Indoor Air Quality.[/d:b] All dwelling units shall meet the requirements of ASHRAE Standard 62.2. Ventilation and Acceptable Indoor Air Quality in Residential Buildings, subject to the amendments specified in Section 150.0(o)1.
+[d:b] Equation and table numbering on this form corresponds to the numbering for thatinformation in the published ANSI/ASHRAE Standard 62.2-2022.[/d:b]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A01_DwellingUnitName" type="com:DwellingUnitName" >
@@ -446,7 +447,7 @@ End If</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_C2" minOccurs="0">
+         <xsd:element name="Section_D" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Kitchen Range Hood Capture Efficiency Option</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required If B09a_HoodExhaustComplianceMethod == CaptureEfficiency</xsd:documentation>
@@ -519,20 +520,20 @@ End If</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_D" minOccurs="1">
+         <xsd:element name="Section_E" minOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Determination of HERS Verification Compliance</xsd:documentation>
+               <xsd:documentation source="FieldText">Determination of ECC Verification Compliance</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="D_BeginNote1" minOccurs="0">
+                  <xsd:element name="E_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">All applicable sections of this document shall indicate compliance with the specified verification protocol requirements in order for this Certificate of Verification as a whole to be determined to be in compliance.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="D01_DoesCF3R_Pass" type="comp:DoesCF3R_Pass" >
+                  <xsd:element name="E01_DoesCF3R_Pass" type="comp:DoesCF3R_Pass" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If B11_DoesKitchenExhaustSystemComply == true for all rows And B12_DoesKitchenExhaustSoundComply == true for all rows And 

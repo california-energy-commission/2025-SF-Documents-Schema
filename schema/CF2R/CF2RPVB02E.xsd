@@ -95,14 +95,14 @@
          </xsd:element>
          <xsd:element name="Section_B" minOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Design Battery Storage Systems Information</xsd:documentation>
+               <xsd:documentation source="FieldText">Design Battery Energy Storage System (BESS) Information</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
                   <xsd:element name="B01_BatteryCapacity" type="hvac:BatteryCapacity" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Battery Capacity (kWh)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Battery Compliance Cycling Capacity (kWh)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If A04_ComplianceMethod Not== Performance result = 7.5 Else reference value from CF1R-PRF</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -167,11 +167,18 @@
          </xsd:element>
          <xsd:element name="Section_C" minOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Installed Battery Storage Systems  Information</xsd:documentation>
+               <xsd:documentation source="FieldText">Installed Battery Energy Storage System (BESS) Information</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
+                  <xsd:element name="CBeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]The responsible builder/installer certifies that the battery energy storage system installer has installed the 2025 JA12 compliant battery energy storage system. The list of JA12 compliant battery energy storage systems are available at:
+[d:line1/] https://solarequipment.energy.ca.gov/Home/EnergyStorage for Integrated BESS  and [d:line1/]https://solarequipment.energy.ca.gov/Home/BatteryList for Field-Assembled BESS [/d:b]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                   <xsd:element name="C01_BatteryManufacturer" type="hvac:BatteryManufacturer" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Manufacturer</xsd:documentation>
@@ -186,14 +193,14 @@
                   </xsd:element>
                   <xsd:element name="C03_BatteryCapacity" type="hvac:BatteryCapacity" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Battery Capacity (kWh)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Battery Compliance Cycling Capacity (kWh)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Reference B01_BatteryCapacity as default; allow user to override value only if result is GTE B01_BatteryCapacity</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="C04_BatteryControl" type="hvac:BatteryControl" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Control</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User selects from list with options as follows: If parent == CF1R-NCB Or B02_BatteryControl == Basic Or If B02_NotApplicableMessage == N/A, list Basic, TOU and AdvancedDR Else If B02_BatteryControl == TOU list TOU and AdvancedDR Else If B02_BatteryControl ==AdvancedDR list AdvancedDR</xsd:documentation>
+                        <xsd:documentation source="FieldText">Control During Commissioning</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from list with options as follows: If parent == CF1R-NCB Or B02_BatteryControl == Basic Or If B02_NotApplicableMessage == N/A, list Basic, TOU and AdvancedDR Else If B02_BatteryControl == TOU list TOU and AdvancedDR Else If B02_BatteryControl == AdvancedDR list AdvancedDR</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="C05_ChargingEfficiency" type="hvac:ChargingEfficiency" >
@@ -208,15 +215,15 @@
                         <xsd:documentation source="CalculationsAndRules">Reference B04_DischargingEffiency as default; allow user to override value only if result is GTE B04_DischargingEffiency;  If B04_NotApplicableMessage == N/A,, user input</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="C06a_DischargingEfficiency" type="hvac:RoundTripEfficiency">
+                  <xsd:element name="C06a_RoundTripEfficiency" type="hvac:RoundTripEfficiency">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Round Trip Efficiency (%)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Reference B04_DischargingEffiency as default; allow user to override value only if result is GTE B04_DischargingEffiency;  If B04_NotApplicableMessage == N/A,, user input</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Reference B05_RoundTripEfficiency as default; allow user to override value only if result is GTE B05_RoundTripEfficiency;  If B05_NotApplicableMessage == N/A,, user input</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="C07_IsBatterySystemCertified" type="comp:IsBatterySystemCertified" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Battery Storage System Certified and listed by CEC</xsd:documentation>
+                        <xsd:documentation source="FieldText">Battery Energy Storage System (BESS) Certified and listed by CEC for JA12-2025.</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>

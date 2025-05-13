@@ -801,8 +801,8 @@ Else result = false.  For Boolean false value display term: System does not comp
                   <xsd:element name="I02" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Prior to Introducing Refrigerant</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:tab1/] i. In all cases where the OEM instructions call for checking gas leaks with vacuum, prior to introducing refrigerant, system is evacuated to 500 microns or less and, when isolated, has risen no more than 300 microns after 5 minutes.[d:line1]
-d:tab1/] In all cases where the OEM instructions call for checking gas leaks with nitrogen gas, the system was pressurized to the manufacturer's specified  pressure and if the pressure could not be maintained, leaks were located and fixed.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:tab1/] i. In all cases where the OEM instructions call for checking gas leaks with vacuum, prior to introducing refrigerant, system is evacuated to 500 microns or less and, when isolated, has risen no more than 300 microns after 5 minutes.[d:line1/]
+[d:tab1/] In all cases where the OEM instructions call for checking gas leaks with nitrogen gas, the system was pressurized to the manufacturer's specified  pressure and if the pressure could not be maintained, leaks were located and fixed.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="I03" minOccurs="0">

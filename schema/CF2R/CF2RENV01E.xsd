@@ -75,7 +75,11 @@
                   <xsd:element name="A_BeginNote2" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 2</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Note: If meeting Exception 1 to 150.1(c)3A, Installing [d:lte/] 3 square feet (ft[d:sup]2[/d:sup]) glass in door, it is assumed to meet the minimum required U-factor (0.30) and SHGC (0.23). [d:line1/][d:tab1/] If meeting Exception 1 to 150.1(c)3A, Installing [d:lte/] 3 square feet  (ft[d:sup]2[/d:sup]) tubular skylight, it is assumed to meet the minimum required U-factor (0.55) and SHGC (0.30).[d:line1/][d:tab1/] Doors with greater than or equal to 25 percent glazing area are considered glazed doors and are treated as fenestration products.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Note: If meeting Exception 1 to 150.1(c)3A, new dwelling units with a conditioned floor area of [d:lte/] 500 square feet (ft[d:sup]2[/d:sup]) in Climate Zone 5 may comply with a maximum U-factor of 0.30. 
+[d:line1/][d:tab1/]If meeting Exception 2 to 150.1(c)3A, for each dwelling unit, up to 3 square feet of glazing area installed in doors and up to 3 square feet of tubular skylights area with dual-pane diffusers shall not be required to meet U-factor and SHGC requirements of Table 150.1-A. 
+[d:line1/][d:tab1/]If meeting Exception 3 to 150.1(c)3A, in Climate Zones 2,4,6 through 15 or each dwelling unit installing [d:lte/] 16 square feet (ft[d:sup]2[/d:sup]) of skylight shall meet a maximum U-factor of 0.40 and a maximum SHGC of 0.30.  In Climate Zones 1, 3, 5 and 16 there is no SHGC requirement. 
+[d:line1/][d:tab1/]If meeting Exception 3 to 150.1(c)1B, in Climate Zone 15 vertical fenestration shall have a maximum U-factor of 0.23.
+[d:line1/][d:tab1/] Doors with greater than or equal to 25 percent glazing area are considered glazed doors and are treated as fenestration products.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="TableFenestration" >
@@ -232,7 +236,7 @@
                   <xsd:element name="B02" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Installed window SHGC</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The SHGC of the installed windows for new construction and existing buildings must be equal to or less than those listed on the CF1R in climate zones 2, 4 and 8-15.  For climate zones 1, 3, 5 and 16 there is no SHGC requirement.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The SHGC of the installed windows for new construction and existing buildings must be equal to or less than those listed on the CF1R in climate zones 2, 4 and 6-15.  For climate zones 1, 3, 5 and 16 there is no SHGC requirement.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="B03" minOccurs="0">

@@ -63,7 +63,7 @@
                   <xsd:element name="A_BeforeNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:i]NOTE: When the Certificate of Compliance indicates a Central Fan Ventilation Cooling system is installed, the following items must be verified.[/d:i]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i]NOTE: When the Certificate of Compliance indicates a Central Fan Ventilation Cooling system (CFVCS) is installed, the following items must be verified.[/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A01_ResidentialSpaceConditioningSystemName" type="hvac:ResidentialSpaceConditioningSystemName" >
@@ -123,13 +123,13 @@
                   <xsd:element name="A10_IsRequiredCF3RMCH23Registered" type="comp:IsRequiredCF3RMCH23Registered" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Airflow Rate Verification Status</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">calculated field:  If variant == CF3R-MCH-23e then If its E03 ==true Or variant == CF3R-MCH-23f then If its F03 == true result = true display term System Complies with Airflow Rate Verification Requirements;  Else result = false display term   System Does not Comply.  A registered CF3R-MCH-23 is required</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">calculated field:  If CF3R-MCH-23 G03 ==true result = true display term System Complies with Airflow Rate Verification Requirements;  Else result = false display term   System Does not Comply.  A registered CF3R-MCH-23 is required</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A11_IsRequiredCF3RMCH22Registered" type="comp:IsRequiredCF3RMCH22Registered" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Fan Efficacy Verification Status</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">calculated field: If variant == CF3R-MCH-22c  and D05 == true Or   If variant == CF3R-MCH-22d  and E05 == true  then result = true display term System Complies with Fan Efficacy Verification Requirements;  Else result = false display term  System Does not Comply.  A registered CF3R-MCH-22 is required</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">calculated field: If CF3R-MCH-22 E05 == true result = true display term System Complies with Fan Efficacy Verification Requirements;  Else result = false display term  System Does not Comply.  A registered CF3R-MCH-22 is required</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A12_DoesSystemComplyWithFanDuctVerification" type="comp:DoesSystemComplyWithFanDuctVerification" >
@@ -143,7 +143,7 @@
          </xsd:element>
          <xsd:element name="Section_B" minOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Determination of HERS Verification Compliance</xsd:documentation>
+               <xsd:documentation source="FieldText">Determination of ECC Verification Compliance</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>

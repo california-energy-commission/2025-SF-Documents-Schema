@@ -400,9 +400,6 @@
          <xsd:element name="Section_I" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Special Requirements for SIPs</xsd:documentation>
-               <xsd:appinfo source="PrevName">
-                  <dtyp:prevSchema version="2019.1.006" changed="section only">Section_J</dtyp:prevSchema>
-               </xsd:appinfo>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -411,27 +408,18 @@
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">SIPs are considered an air barrier when properly sealed at top, bottom, sides and all penetrations.</xsd:documentation>
-                        <xsd:appinfo source="PrevName">
-                           <dtyp:prevSchema version="2019.1.006" changed="section only">J01</dtyp:prevSchema>
-                        </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Sip02" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Air barrier is continuous across all surfaces, including between SIPs and non-SIP sections.</xsd:documentation>
-                        <xsd:appinfo source="PrevName">
-                           <dtyp:prevSchema version="2019.1.006" changed="section only">J02</dtyp:prevSchema>
-                        </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="SipEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
-                        <xsd:appinfo source="PrevName">
-                           <dtyp:prevSchema version="2019.1.006" changed="section only">JEndNote1</dtyp:prevSchema>
-                        </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
@@ -440,9 +428,6 @@
          <xsd:element name="Section_J" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Special Requirements for ICF</xsd:documentation>
-               <xsd:appinfo source="PrevName">
-                  <dtyp:prevSchema version="2019.1.006" changed="section only">Section_K</dtyp:prevSchema>
-               </xsd:appinfo>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -451,27 +436,18 @@
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">ICF sections are considered an air barrier when properly sealed at top, bottom, sides and all penetrations.</xsd:documentation>
-                        <xsd:appinfo source="PrevName">
-                           <dtyp:prevSchema version="2019.1.006" changed="section only">K01</dtyp:prevSchema>
-                        </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Icf02" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Air barrier is continuous across all surfaces, including between ICF and non-ICF sections.</xsd:documentation>
-                        <xsd:appinfo source="PrevName">
-                           <dtyp:prevSchema version="2019.1.006" changed="section only">K02</dtyp:prevSchema>
-                        </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="IcfEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
-                        <xsd:appinfo source="PrevName">
-                           <dtyp:prevSchema version="2019.1.006" changed="section only">KEndNote1</dtyp:prevSchema>
-                        </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>

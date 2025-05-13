@@ -140,8 +140,8 @@
                   </xsd:element>
                   <xsd:element name="B04" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">HERS Rater Verification of Duct System Installation</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The duct system installation shall be verified by a HERS rater according to the requirements in RA3.1.4.1.4.</xsd:documentation>
+                        <xsd:documentation source="FieldText">ECC Rater Verification of Duct System Installation</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The duct system installation shall be verified by a ECC rater according to the requirements in RA3.1.4.1.4.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="B05" minOccurs="0">
@@ -193,8 +193,8 @@
                   </xsd:element>
                   <xsd:element name="C04" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">HERS Rater Verification of Duct System Installation</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The duct system installation shall be verified by a HERS rater according to the requirements in RA3.1.4.1.5.  Verification of duct system installation shall be completed prior to burial of ducts.  Verification of insulation installation shall be completed by a second HERS inspection after ducts are buried.</xsd:documentation>
+                        <xsd:documentation source="FieldText">ECC Rater Verification of Duct System Installation</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The duct system installation shall be verified by a ECC rater according to the requirements in RA3.1.4.1.5.  Verification of duct system installation shall be completed prior to burial of ducts.  Verification of insulation installation shall be completed by a second ECC inspection after ducts are buried.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="C05" minOccurs="0">
@@ -258,8 +258,8 @@
                   </xsd:element>
                   <xsd:element name="D04" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">HERS Rater Verification of Duct System Installation</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The duct system installation shall be verified by a HERS rater according to the requirements in RA3.1.4.1.6.  Verification of duct system installation shall be completed prior to burial of ducts.  Verification of insulation installation shall be completed by a second HERS inspection after ducts are buried.</xsd:documentation>
+                        <xsd:documentation source="FieldText">ECC Rater Verification of Duct System Installation</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The duct system installation shall be verified by a ECC rater according to the requirements in RA3.1.4.1.6.  Verification of duct system installation shall be completed prior to burial of ducts.  Verification of insulation installation shall be completed by a second ECC inspection after ducts are buried.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="D05" minOccurs="0">

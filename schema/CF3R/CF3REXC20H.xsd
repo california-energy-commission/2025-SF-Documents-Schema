@@ -1308,7 +1308,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
          </xsd:element>
          <xsd:element name="Section_M" minOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Determination of HERS Verification Compliance</xsd:documentation>
+               <xsd:documentation source="FieldText">Determination of ECC Verification Compliance</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>

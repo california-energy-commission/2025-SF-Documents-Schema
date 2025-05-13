@@ -50,12 +50,12 @@
    </xsd:element>
    <xsd:complexType name="CF3RPLB22H">
       <xsd:annotation>
-         <xsd:documentation>HERS Verified Single Dwelling Unit Hot Water System Distribution</xsd:documentation>
+         <xsd:documentation> Verified Single Dwelling Unit Hot Water System Distribution</xsd:documentation>
       </xsd:annotation>
       <xsd:sequence>
          <xsd:element name="Section_A" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Design HERS Verified Dwelling Unit Water Heating Systems Information (other than HPWH)</xsd:documentation>
+               <xsd:documentation source="FieldText">Design  Verified Dwelling Unit Water Heating Systems Information (other than HPWH)</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">In this section parent CC refers to the CF1R Certificate of Compliance (CC).   This  section is required if the CF1R parent  has any non-HPWH systems, Require one row of data for each non-HPWH system identified on the CF1R</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
@@ -161,23 +161,22 @@
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>                                    
-                                    <xsd:element name="A10_ResidentialDHWDwellingUnitDistributionType" type="hvac:ResidentialDHWDwellingUnitDistributionType" >
+                                    <xsd:element name="A09_ResidentialDHWDwellingUnitDistributionType" type="hvac:ResidentialDHWDwellingUnitDistributionType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Dwelling Unit DHW System Distribution Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If performance parent CC, Then 
-If A09_IsDHW_Central == false  allowed values are: StandardDistribution display term: Standard Distribution System; PointOfUse display term: Point Of Use, StandardDistributionCentralParallelPiping display term: Parallel Piping;  RecirculationNonDemand display term:  Recirculation System Non-Demand Control; DemandRecirculationManualControl display term: Demand Recirculation Manual Control;  DemandRecirculationSensorControls display term: Demand Recirculation Sensor Control; StandardDistributionInsulatedPipesHERS display term HERS Verified Pipe Insulation credit, StandardDistributionCentralParallelPipingHERS display term HERS Verified Parallel Piping, DemandRecirculationManualControlHERS display term HERS Verified Demand Recirculation Manual Control, DemandRecirculationSensorControlsHERSHERS display term Verified Demand Recirculation Sensor Controls; 
-
-Else  If A09_IsDHW_Central == true allowed values are: StandardDistribution. Display term: Standard Distribution System, StandardDistributionInsulatedPipesHERS display term HERS Verified Pipe Insulation credit;  
+                                          <xsd:documentation source="CalculationsAndRules">If performance parent CC, Then If A09_IsDHW_Central == false  allowed values are: StandardDistribution display term: Standard Distribution System; PointOfUse display term: Point Of Use, StandardDistributionCentralParallelPiping display term: Central Parallel Piping;  RecirculationNonDemand display term:  Recirculation System Non-Demand Control; 
+DemandRecirculationManualControl display term: Demand Recirculation Manual Control;  DemandRecirculationSensorControls display term: Demand Recirculation Sensor Control; StandardDistributionInsulatedPipesHERS display term  Verified Pipe Insulation for Central Systems, StandardDistributionCentralParallelPipingHERS display term  Verified Central Parallel Piping, DemandRecirculationManualControlHERS display term  Verified Demand Recirculation Manual Control, DemandRecirculationSensorControlsHERS display term Verified Demand Recirculation Sensor Controls; 
+Else  If A09_IsDHW_Central == true allowed values are: StandardDistribution. Display term: Standard Distribution System, StandardDistributionInsulatedPipesHERS display term  Verified Pipe Insulation for Central Systems;  
 End If
 
 Else If prescriptive parent CC  allowed values are: StandardDistribution display term: Standard Distribution System; DemandRecirculationManualControl display term: Demand Recirculation Manual Control;  DemandRecirculation display term Demand Recirculation;  
 End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="A11_CompactDistributionType" type="hvac:CompactDistributionType" >
+                                    <xsd:element name="A10_CompactDistributionType" type="hvac:CompactDistributionType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Compact Distrib.</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = NCB-01, then if NCB-01 Field M09 = CompactHotWaterDistributionSystemHERS or CompactHotWaterDistributionSystemBasic or CompactDistributionDrainHeatRecoveryHERS then value is BasicType else NotCompact;
+                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = NCB-01, then if NCB-01 Field M07 = CompactHotWaterDistributionSystemHERS or CompactHotWaterDistributionSystemBasic or CompactDistributionDrainHeatRecoveryHERS then value is BasicType else NotCompact;
                                              Else if parent CF1R = ALT-01 or ADD-01, then value = NotCompact;
                                              Else if information not available from PRF-01, allow user select. Allowed values are
                                              *Basic
@@ -187,7 +186,7 @@ End If</xsd:documentation>
                                           </xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="A12_DWHR_Type" type="hvac:DWHR_Type" >
+                                    <xsd:element name="A11_DWHR_Type" type="hvac:DWHR_Type" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Drain Water Heat Recovery</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If parent CF1R = NCB-01, then if NCB-01 Field M09 = CompactDistriutionDrainHeatRecoveryHERS or DrainWaterHeatRecoveryHERS then value is DWHR else NoDWHR;
@@ -210,7 +209,7 @@ End If</xsd:documentation>
          </xsd:element>
          <xsd:element name="Section_A2" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Design HERS Verified Dwelling Unit  HPWH System Information</xsd:documentation>
+               <xsd:documentation source="FieldText">Design  Verified Dwelling Unit  HPWH System Information</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">In this section parent CC refers to the CF1R Certificate of Compliance.This section is required if the CF1R parent  has any HPWH systems, Require one row of data for each HPWH system identified on the CF1R</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
@@ -292,37 +291,30 @@ End If</xsd:documentation>
                                     <xsd:element name="Hpd07_ResidentialDHWDwellingUnitDistributionType" type="hvac:ResidentialDHWDwellingUnitDistributionType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Dwelling Unit DHW System Distribution Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference parent CC as follows: 
-If performance parent CC values are: 
-StandardDistribution display term: Standard Distribution System; PointOfUse display term: Point Of Use, StandardDistributionCentralParallelPiping display term: Parallel Piping;  RecirculationNonDemand display term:  Recirculation System Non-Demand Control; DemandRecirculationManualControl display term: Demand Recirculation Manual Control;  DemandRecirculationSensorControls display term: Demand Recirculation Sensor Control; StandardDistributionInsulatedPipesHERS display term HERS Verified Pipe Insulation credit, StandardDistributionCentralParallelPipingHERS display term HERS Verified Parallel Piping, DemandRecirculationManualControlHERS display term HERS Verified Demand Recirculation Manual Control, DemandRecirculationSensorControlsHERS display term HERS Verified Demand Recirculation Sensor Controls; 
-
-Else If prescriptive parent CC values are: StandardDistribution display term: Standard Distribution System; DemandRecirculationManualControl display term: Demand Recirculation Manual Control;   DemandRecirculation display term Demand Recirculation;  
-End If</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference parent CC as follows: If performance parent CC values are: StandardDistribution display term: Standard Distribution System; PointOfUse display term: Point Of Use, StandardDistributionCentralParallelPiping display term: Central Parallel Piping;  RecirculationNonDemand display term:  Recirculation System Non-Demand Control; DemandRecirculationManualControl display term: Demand Recirculation Manual Control;  
+DemandRecirculationSensorControls display term: Demand Recirculation Sensor Control; StandardDistributionInsulatedPipesHERS display term  Verified Pipe Insulation for Central Systems, StandardDistributionCentralParallelPipingHERS display term  Verified Central Parallel Piping, DemandRecirculationManualControlHERS display term  Verified Demand Recirculation Manual Control, DemandRecirculationSensorControlsHERS display term  Verified Demand Recirculation Sensor Controls; 
+Else If prescriptive parent CC values are: StandardDistribution display term: Standard Distribution System; DemandRecirculationManualControl display term: Demand Recirculation Manual Control;   DemandRecirculation display term Demand Recirculation;  End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="Hpd08_CompactDistributionType" type="hvac:CompactDistributionType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Compact Distribution</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = NCB-01, then if NCB-01 Field M09 = CompactHotWaterDistributionSystemHERS or CompactHotWaterDistributionSystemBasic or CompactDistributionDrainHeatRecoveryHERS then value is BasicType else NotCompact;
-                                             Else if parent CF1R = ALT-01 or ADD-01, then value = NotCompact;
-                                             Else if information not available from PRF-01, allow user select. Allowed values are
+                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = NCB-01, then if NCB-01 Field M07 = CompactHotWaterDistributionSystemHERS or CompactHotWaterDistributionSystemBasic or CompactDistributionDrainHeatRecoveryHERS then value is BasicType else NotCompact;
+                                             Else if parent CF1R = ALT-01 or ADD-01, then value = NotCompact; Else if information not available from PRF-01, allow user select. Allowed values are
                                              *Basic
                                              *Expanded
                                              *NotCompact;
-                                             Else use value from PRF-01;
-                                          </xsd:documentation>
+                                             Else use value from PRF-01; </xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="Hpd09_DWHR_Type" type="hvac:DWHR_Type" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Drain Water Heat Recovery</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = NCB-01, then if NCB-01 Field M09 = CompactDistriutionDrainHeatRecoveryHERS or DrainWaterHeatRecoveryHERS then value is DWHR else NoDWHR;
-                                             Else if parent CF1R = ALT-01 or ADD-01, then value = NoDWHR;
-                                             Else if information not available from PRF-01, allow user select. Allowed values are
+                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = NCB-01, then if NCB-01 Field M07 = CompactDistriutionDrainHeatRecoveryHERS or DrainWaterHeatRecoveryHERS then value is DWHR else NoDWHR;
+                                             Else if parent CF1R = ALT-01 or ADD-01, then value = NoDWHR; Else if information not available from PRF-01, allow user select. Allowed values are
                                              *DWHR
                                              *NoDWHR;
-                                             Else use value from PRF-01;
-                                          </xsd:documentation>
+                                             Else use value from PRF-01; </xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="Hpd10_HeatPumpWaterHeaterSimulationGroup" type="hvac:HeatPumpWaterHeaterSimulationGroup"  minOccurs="0">
@@ -343,7 +335,7 @@ End If</xsd:documentation>
          </xsd:element>
          <xsd:element name="Section_B" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Installed HERS Verified Dwelling Unit Water Heating Systems Information</xsd:documentation>
+               <xsd:documentation source="FieldText">Installed  Verified Dwelling Unit Water Heating Systems Information</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required If Section_A IsPresent.
 Require one row of data for each water heater identified in Section_A TableDesignSystem</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
@@ -450,22 +442,22 @@ Require one row of data for each water heater identified in Section_A TableDesig
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>                                   
-                                    <xsd:element name="B10_ResidentialDHWDwellingUnitDistributionType" type="hvac:ResidentialDHWDwellingUnitDistributionType" >
+                                    <xsd:element name="B09_ResidentialDHWDwellingUnitDistributionType" type="hvac:ResidentialDHWDwellingUnitDistributionType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Dwelling Unit DHW System Distribution Type</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Reference value from A10</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="B11_CompactDistributionType" type="hvac:CompactDistributionType" >
+                                    <xsd:element name="B10_CompactDistributionType" type="hvac:CompactDistributionType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Compact Distrib.</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference value from A11</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from A10</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="B12_DWHR_Type" type="hvac:DWHR_Type" >
+                                    <xsd:element name="B11_DWHR_Type" type="hvac:DWHR_Type" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Drain Water Heat Recovery</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference value from A12</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from A10</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
@@ -479,7 +471,7 @@ Require one row of data for each water heater identified in Section_A TableDesig
          </xsd:element>
          <xsd:element name="Section_B2" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Installed HERS Verified Dwelling Unit HPWH System Information</xsd:documentation>
+               <xsd:documentation source="FieldText">Installed  Verified Dwelling Unit HPWH System Information</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required If Section_A2 IsPresent
 Require one row of data for each  water heater identified in TableHpwhd</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
@@ -1195,7 +1187,7 @@ Else If M03_WaterHeatingSystemOption == OptionTier3SingleHWH (display term "2") 
          </xsd:element>
          <xsd:element name="Section_C" minOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Design HERS Verified Dwelling Unit Water Heating Efficiency Information</xsd:documentation>
+               <xsd:documentation source="FieldText">Design Verified Dwelling Unit Water Heating Efficiency Information</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">In this section parent CC refers to the CF1R Certificate of Compliance. Require one row of data for each water heater identified in Section A TableDesignSystem and Section A2 TableHpwhd</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
@@ -1337,7 +1329,7 @@ Else If M03_WaterHeatingSystemOption == OptionTier3SingleHWH (display term "2") 
          </xsd:element>
          <xsd:element name="Section_D" minOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Installed HERS Verified Dwelling Unit Water Heating Efficiency Information</xsd:documentation>
+               <xsd:documentation source="FieldText">Installed Verified Dwelling Unit Water Heating Efficiency Information</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heater identified in section C</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
@@ -1537,7 +1529,7 @@ End If</xsd:documentation>
          </xsd:element>
          <xsd:element name="Section_F" minOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Mandatory Measures For All Domestic Hot Water Distribution Systems</xsd:documentation>
+               <xsd:documentation source="FieldText">Mandatory Measures For Single Dwelling Systems</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -1551,22 +1543,46 @@ End If</xsd:documentation>
                   <xsd:element name="F02" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Unfired storage tanks are insulated with an external R-3.5 or combination of R-16 internal and external Insulation. (Section 110.3(c)4).</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Unfired storage tanks are insulated with an external R-3.5 or combination of R-16 internal and external Insulation. (Section 110.3(c)3).</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="F03" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The following pipes are insulated, to the thicknesses required by Table 120.3A, except for those sections of pipe that are subject to one of the exceptions below: All domestic hot water pipes shall be insulated as specified in Section 609.11 of the California Plumbing Code. [d:l t="*"][d:list] Insulation buried below grade must be installed in a waterproof and non-crushable casing or sleeve. [/d:list][d:list]Piping from the heating source to storage tank or between tanks. [/d:list] [d:list]Piping that penetrates framing members shall not be required to have pipe insulation for the distance of the framing penetration. Piping that penetrates metal framing shall use grommets, plugs, wrapping or other insulating material to assure that no contact is made with the metal framing. Insulation shall butt securely against all framing members.[/d:list][d:list] Piping installed in interior or exterior walls that is surrounded on all sides by at least 1 inch (2.5 cm) of insulation. [/d:list][d:list] Piping installed in crawl space with a minimum of 1 inch (2.5 cm) of crawl space insulation above and below. [/d:list][d:list]Piping installed in attics with a minimum of 4 inches (10 cm) of attic insulation on top [/d:list][d:list]Piping insulation shall fit tightly and all elbows and tees shall be fully insulated. [/d:list][/d:l]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Domestic hot water piping insulation requirements (Section 150(j)): [d:l t="*"] [d:list] All domestic hot water pipes shall be insulated as specified in Section 609.12 of the California Plumbing Code. Insulation buried below grade must be installed in a waterproof and non-crushable casing or sleeve. [/d:list]
+[d:list] Pipe insulation shall fit tightly and all elbows and tees shall be fully insulated.[/d:list][d:list]Piping that penetrates framing members shall not be required to have pipe insulation for the distance of the framing penetration.[/d:list]
+[d:list] Piping that penetrates metal framing shall use grommets, plugs, wrapping or other insulating material to assure that no contact is made with the metal framing. Insulation shall butt securely against all framing members.[/d:list]
+[d:list] Piping surrounded with a minimum of 1 inch of wall insulation, 2 inches of crawlspace insulation or 4 inches of attic insulation shall not be required to have pipe insulation.[/d:list][/d:l]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="F04" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">For Gas or Propane Water Heaters: Ensure either a or b are installed (Section 150.0(n)) [d:line1/][d:tab1/]a) A designated space at least 2.5 feet by 2.5 feet and 7 feet tall within 3 feet from the water heater  [d:l t="#"][d:list]A dedicated 120V, 20A electrical receptacle connected to the electrical panel with a 120/240V 3 conductor, 10AWG copper branch circuit, within 3 feet from the water heater and accessible with no obstructions [/d:list][d:list]The conductor shall be labeled with the word "Spare" on both ends; and [/d:list][d:list] A reserved single pole circuit breaker space next to the circuit breaker next to the branch circuit  labeled "Future" 240V shall be provided. [/d:list][d:list]A condensate drain no more than 2 inches higher than the base on water heater for natural draining[/d:list][/d:l]  [d:line1/][d:tab1/]b) A designated space at least 2.5 feet by 2.5 feet and 7 feet tall more than 3 feet from the water heater  [d:l t="#"][d:list]A dedicated 240 volt branch circuit shall be installed within 3 feet from the designated space.  The branch circuit shall be rated at 30 amps minimum.  The blank cover shall be identified as "240V ready"; and [/d:list][d:list]The main electrical service panel shall have a reserved space to allow for the installation of a double pole circuit breaker for a future HPWH installation.  The reserved space shall be permanently marked as "For Future 240V use"; and [/d:list][d:list]Either a dedicated cold water supply, or the cold water supply shall pass through the designated HPWH location just before reaching the gas or propane water heater; and [/d:list][d:list] The hot water supply pipe coming out of the gas or propane water heater shall be routed first through the designated HPWH location before serving any fixtures; and [/d:list][d:list]The hot and cold water piping at the designated HPWH location shall be exposed and readily accessible for future installation of a HPWH; and [/d:list][d:list]A condensate drain no more than 2 inches higher than the base of the installed water heater, and allows natural draining without pump assistance. [/d:list][/d:l]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">For Gas or Propane Water Heaters: Ensure either a or b are installed (Section 150.0(n)) [d:line1/][d:tab1/]a) A designated space at least 2.5 feet by 2.5 feet and 7 feet tall within 3 feet from the water heater  [d:l t="#"][d:list]A dedicated 125V, 20A electrical receptacle connected to the electrical panel with a 120/240V 3 conductor, branch circuit rated at 30 amps minimum, within 3 feet from the water heater and accessible with no obstructions [/d:list][d:list]The conductor shall be labeled with the word "Spare" on both ends; and [/d:list][d:list] A reserved single pole circuit breaker space next to the circuit breaker next to the branch circuit  labeled "Future 240V use" shall be provided. [/d:list][d:list]A condensate drain no more than 2 inches higher than the base of the water heater, and allows natural draining without pump assistance[/d:list][/d:l]  
+[d:line1/][d:tab1/]b) A designated space at least 2.5 feet by 2.5 feet and 7 feet tall more than 3 feet from the water heater  [d:l t="#"][d:list]A dedicated 240 volt branch circuit shall be installed within 3 feet from the designated space.  The branch circuit shall be rated at 30 amps minimum.  The blank cover shall be identified as "240V ready"; and [/d:list]
+[d:list]The main electrical service panel shall have a reserved space to allow for the installation of a double pole circuit breaker for a future HPWH installation.  The reserved space shall be permanently marked as "For Future 240V use"; and [/d:list]
+[d:list]Either a dedicated cold water supply, or the cold water supply shall pass through the designated HPWH location just before reaching the gas or propane water heater; and [/d:list]
+[d:list] The hot water supply pipe coming out of the gas or propane water heater shall be routed first through the designated HPWH location before serving any fixtures; and [/d:list]
+[d:list]The hot and cold water piping at the designated HPWH location shall be exposed and readily accessible for future installation of a HPWH; and [/d:list]
+[d:list]A condensate drain no more than 2 inches higher than the base of the installed water heater, and allows natural draining without pump assistance. [/d:list][/d:l]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="F05_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements" >
+                  <xsd:element name="F05" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">For Air-Source Heat Pump Water Heaters (HPWH), the following shall be met (Section 110.3(c)7) [d:line1/][d:tab1/]a) Backup heat is required when inlet air is unconditioned, unless the compressor cutout cut-off temperature is below the Heating Winter Median of Extreme.  Backup heat may be internal or external to the HPWH. 
+[d:line1/][d:tab1/]b) Meet one of the ventilation requirements below.  Minimum volume and opening size requirements shall be the sum of all HPWHs installed within the same space.  Compressor capacity shall be determined using AHRI 540 Table 4 reference conditions for refrigeration with the "High" rating test point:
+[d:line1/][d:tab2/]a. Installed using a method provided by the manufacturer to meet or exceed the level of performance provided by the ventilation requirements of Section 110.3(c)7B2 through Section 110.3(c)B4.
+[d:line1/][d:tab2/]b. For HPWH installation without ducts, the installation space shall have a volume not less then the greater of 100 cubic feet per kBtu per hour of compressor capacity, or the minimum volume provided by the manufacturer for this method;  or
+[d:line1/][d:tab2/]c. For HPWH installation without ducts, the installation space shall be vented to a communicating space via permanent openings, according to the following requirements: [d:line1/][d:tab3/]i. Communicating space shall meet the minimum volume of Section 110.3(c)7B12 above, minus the volume of the HPWH installation space; and 
+[d:line1/][d:tab3/]ii. Permanent openings shall consist of a single layer of fixed flat slat louvers or grilles, with a total minimum Net Fee Area (NFA) the larger of 125 square inches plus 25 square inches per kBtu per hour of compressor capacity, or the minimum provided by the manufacturer for this method.  The permanent openings shall be fully louvered doors or two openings of equal area, one in the upper half of the enclosure and one in the bottom half of the enclosure.  The top of the upper opening must be 12 inches or less from the enclosure top and the bottom of the lower vent must be 12 inches or less from the enclosure bottom;  or
+[d:line1/][d:tab2/]d. For HPWH installations with ducts, the following requirements shall be met:[d:line1/][d:tab3/]i. The space joined to the installation space via ducts shall meet the minimum volume of Section 110.3(c)7B2 above, minus the volume of the HPWH installation space, and
+[d:line1/][d:tab3/]ii. All duct connections and building penetrations shall be sealed, and [d:line1/][d:tab3/]iii. Exhaust air ducts and all ducts which cross pressure boundaries shall be insulaated to minimum of R-6, and
+[d:line1/][d:tab3/]iv. Where only the HPWH inlet or outlet is ducted, installation space shall include permanent openings shall consist of a single layer of fixed flat slat louvers or grilles in the bottom half of the room, and/or a door undercut.  With a ducted inlet, the minimum NFA shall be equal to the cross-sectional area of the duct.  With a ducted exhaust, the minimum NA shall be the larger of 20 square inches or the minimum NFA provided by the manufacturer for this method, and
+[d:line1/][d:tab3/]v. Where only the inlet and outlet ducts both terminate within the same pressure boundary, airflow from the termination points shall be diverted away from each other</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F06_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Display choices: Pass,  Fail  or N/A</xsd:documentation>
@@ -1589,7 +1605,7 @@ End If</xsd:documentation>
          </xsd:element>
          <xsd:element name="Section_G" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">HERS Verified Compact Hot Water Distribution Expanded Credit  (CHWDS-H-EX) RA3.6.5</xsd:documentation>
+               <xsd:documentation source="FieldText"> Verified Compact Hot Water Distribution Expanded Credit  (CHWDS-H-EX) RA3.6.5</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">In this section parent CC refers to the CF1R Certificate of Compliance (CC).  
 This section is applicable if at least one dwelling has B11_CompactDistributionType == Expanded Or at least one dwelling has  Section B2 Hpi08_CompactDistributionType == Expanded.  Require one row of data, reporting the longest distances, for each dwelling unit  with B11_CompactDistributionType == Expanded Ot Hpi08_CompactDistributionType == Expanded.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
@@ -1665,10 +1681,10 @@ End If</xsd:documentation>
 Else If prescriptive parent CC or not available in XML,
  Then
 If G01_ResidentialDwellingUnitName is loaded from A01_ResidentialDwellingUnitName Then
-If A10_ResidentialDHWDwellingUnitDistributionType == StandardDistribution 
+If A09_ResidentialDHWDwellingUnitDistributionType == StandardDistribution 
 result =  (G03_WaterHeaterToBath x  0.4)  +  (G04_WaterHeaterToKitchen x 0.4)  + (G05_WaterHeaterToFurthest3rdFixture x 0.2); 
  
-Else If A10_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl 
+Else If A09_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl 
 result = G05_WaterHeaterToFurthest3rdFixture
 End If
  
@@ -1761,7 +1777,7 @@ End If</xsd:documentation>
                   <xsd:element name="G13" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Eligible recirculating systems must be HERS-Verified Demand Recirculation: Manual Control conforming to RA4.4.17.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Eligible recirculating systems must be -Verified Demand Recirculation: Manual Control conforming to RA4.4.17.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="G14_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements" >
@@ -1787,7 +1803,7 @@ End If</xsd:documentation>
          </xsd:element>
          <xsd:element name="Section_H" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Compact Hot Water Distribution (CHWDS) RA4.4.6</xsd:documentation>
+               <xsd:documentation source="FieldText">Compact Hot Water Distribution RA4.4.6</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">In this section parent CC refers to the CF1R Certificate of Compliance.  This section is applicable if at least one dwelling has B11_CompactDistributionType == BasicType Or at least one dwelling has Section B2 Hpi08_CompactDistributionType == BasicType.  Require one row of data, reporting the longest distances, for each dwelling unit  with B11_CompactDistributionType == BasicType Ot Hpi08_CompactDistributionType == BasicType.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
@@ -1862,10 +1878,10 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If performance parent CC  result = parent CC  value; 
 Else If prescriptive parent CC or not available in XML, Then
 If H01_ResidentialDwellingUnitName is loaded from A01_ResidentialDwellingUnitName Then
-If A10_ResidentialDHWDwellingUnitDistributionType == StandardDistribution 
+If A09_ResidentialDHWDwellingUnitDistributionType == StandardDistribution 
 result =  (H03_WaterHeaterToBath x  0.4)  +  (H04_WaterHeaterToKitchen x 0.4)  + (H05_WaterHeaterToFurthest3rdFixture x 0.2); 
  
-Else If A10_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl result = H05_WaterHeaterToFurthest3rdFixture
+Else If A09_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl result = H05_WaterHeaterToFurthest3rdFixture
 End If
  
 Else If H01_ResidentialDwellingUnitName is loaded from Hpd01_ResidentialDwellingUnitName Then
@@ -1945,9 +1961,9 @@ End If</xsd:documentation>
          </xsd:element>
          <xsd:element name="Section_I" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">HERS-Verified Drain Water Heat Recovery System (DWHR-H)</xsd:documentation>
+               <xsd:documentation source="FieldText">Verified Drain Water Heat Recovery System (RA3.6.9)</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">In this section parent CC refers to the CF1R Certificate of Compliance.  
-This section is applicable if at least one drain water heat recovery system in Section B has B12_DWHR_Type == DWHR Or  at least one drain water heat recovery system in Section B2 has Hpi09_.DWHR_Type == DWHR.   Require one row of data for each drain water heat recovery system with B12_DWHR_Type == DWHR Or Hpi09_.DWHR_Type == DWHR.</xsd:documentation>
+This section is applicable if at least one drain water heat recovery system in Section B has B11_DWHR_Type == DWHR Or  at least one drain water heat recovery system in Section B2 has Hpi09_.DWHR_Type == DWHR.   Require one row of data for each drain water heat recovery system with B11_DWHR_Type == DWHR Or Hpi09_.DWHR_Type == DWHR.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -2117,8 +2133,8 @@ This section is applicable if at least one drain water heat recovery system in S
          </xsd:element>
          <xsd:element name="Section_J" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">HERS-Verified Pipe Insulation Credit Requirements (PIC-H) (RA3.6.3)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required if at least one water heating system has A10_ResidentialDHWDwellingUnitDistributionType   == StandardDistributionInsulatedPipesHERS Or at least one water heating system has Section A2 Hpd07_ResidentialDHWDwellingUnitDistributionType == StandardDistributionInsulatedPipesHERS</xsd:documentation>
+               <xsd:documentation source="FieldText">Verified Pipe Insulation for Single Dwelling Systems Requirements (RA3.6.2)</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if at least one water heating system has A09_ResidentialDHWDwellingUnitDistributionType == StandardDistributionInsulatedPipesHERS Or at least one water heating system has Section A2 Hpd07_ResidentialDHWDwellingUnitDistributionType == StandardDistributionInsulatedPipesHERS</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -2132,7 +2148,7 @@ This section is applicable if at least one drain water heat recovery system in S
                   <xsd:element name="J01" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">HERS rater shall perform a visual inspection that all hot water piping comply with the insulation requirements in 150.0(J)</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">ECC rater shall perform a visual inspection that all hot water piping comply with the insulation requirements in 150.0(J)</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="J02_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements" >
@@ -2158,8 +2174,8 @@ This section is applicable if at least one drain water heat recovery system in S
          </xsd:element>
          <xsd:element name="Section_K" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">HERS-Verified Parallel Piping Requirements (PP-H) (RA3.6.4)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required if at least one water heating system has A10_ResidentialDHWDwellingUnitDistributionType   == StandardDistributionCentralParallelPipingHERS Or at least one water heating system has Section A2 Hpd07_ResidentialDHWDwellingUnitDistributionType == StandardDistributionCentralParallelPipingHERS</xsd:documentation>
+               <xsd:documentation source="FieldText">Verified Central Parallel Piping Requirements (PP-H) (RA3.6.4)</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if at least one water heating system has A09_ResidentialDHWDwellingUnitDistributionType   == StandardDistributionCentralParallelPipingHERS Or at least one water heating system has Section A2 Hpd07_ResidentialDHWDwellingUnitDistributionType == StandardDistributionCentralParallelPipingHERS</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -2191,7 +2207,7 @@ This section is applicable if at least one drain water heat recovery system in S
                   <xsd:element name="K04" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The hot water distribution piping must be separated by at least 2 inches from any other hot water supply piping, and at least 6 inches from any cold water supply piping.  Alternatively, the hot water supply piping must be insulated to the thicknesses shown in Table 120.3-A. (RA 4.4.4)</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The hot water distribution piping must be separated by at least 2 inches from any other hot water supply piping, and at least 6 inches from any cold water supply piping.  Alternatively, the hot water supply piping must be insulated to the thicknesses shown in Table 120.3-A-1.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="K05_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements" >
@@ -2217,8 +2233,8 @@ This section is applicable if at least one drain water heat recovery system in S
          </xsd:element>
          <xsd:element name="Section_L" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Parallel Piping Requirements (PP) (RA4.4.4)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A10_ResidentialDHWDwellingUnitDistributionType == StandardDistributionCentralParallelPiping Or at least one water heating system has Section A2 Hpd07_ResidentialDHWDwellingUnitDistributionType == StandardDistributionCentralParallelPiping</xsd:documentation>
+               <xsd:documentation source="FieldText">Central Parallel Piping Requirements (RA4.4.4)</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A09_ResidentialDHWDwellingUnitDistributionType == StandardDistributionCentralParallelPiping Or at least one water heating system has Section A2 Hpd07_ResidentialDHWDwellingUnitDistributionType == StandardDistributionCentralParallelPiping</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -2250,7 +2266,7 @@ This section is applicable if at least one drain water heat recovery system in S
                   <xsd:element name="L04" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The hot water distribution piping must be separated by at least 2 inches from any other hot water supply piping, and at least 6 inches from any cold water supply piping.  Alternatively, the hot water supply piping must be insulated to the thicknesses shown in Table 120.3-A.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The hot water distribution piping must be separated by at least 2 inches from any other hot water supply piping, and at least 6 inches from any cold water supply piping.  Alternatively, the hot water supply piping must be insulated to the thicknesses shown in Table 120.3-A-1.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="LEndNote1" minOccurs="0">
@@ -2265,7 +2281,7 @@ This section is applicable if at least one drain water heat recovery system in S
          <xsd:element name="Section_M" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Point of Use Requirements (POU) (RA4.4.5)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A10_  ResidentialDHWDwellingUnitDistributionType == PointOfUse Or at least one water heating system has Section A2 Hpd07_ResidentialDHWDwellingUnitDistributionType == PointOfUse</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A09_ResidentialDHWDwellingUnitDistributionType == PointOfUse Or at least one water heating system has Section A2 Hpd07_ResidentialDHWDwellingUnitDistributionType == PointOfUse</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -2279,7 +2295,8 @@ This section is applicable if at least one drain water heat recovery system in S
                   <xsd:element name="M01" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">All hot water supply pipe run lengths are equal to or less than the maximum values shown below, based on the pipe diameter.   If a combination of piping is used in a single run then one half the allowed length of each size is the maximum installed length.  [d:line1/]The maximum allowed length of piping for the longest run terminating in:  [d:line1/][d:tab1/]3/8 inch - For only one pipe size - max length allowed is 15 feet.   [d:line1/][d:tab2/]For combination pipe sizes the max allowed length of 3/8 inch piping is 7.5 feet, of 1/2 inch piping is 5 feet, and 3/4 inch piping is 2.5 feet.   [d:line1/][d:tab1/]1/2 inch - For only one pipe size - max length allowed is 10 feet. [d:line1/][d:tab2/]For combination pipe sizes the allowed length of 1/2 inch piping is 5 feet, and 3/4  inch piping is 2.5 feet.  [d:line1/][d:tab1/]3/4 inch  - For only one pipe size = 5 feet</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">All hot water supply pipe run lengths are equal to or less than the maximum values shown below, based on the pipe diameter.   If a combination of piping is used in a single run then one half the allowed length of each size is the maximum installed length.  [d:line1/]The maximum allowed length of piping for the longest run terminating in:  
+[d:line1/][d:tab1/]3/8 inch - For only one pipe size - max length allowed is 15 feet.   [d:line1/][d:tab2/]For combination pipe sizes the max allowed length of 3/8 inch piping is 7.5 feet, of 1/2 inch piping is 5 feet, and 3/4 inch piping is 2.5 feet.   [d:line1/][d:tab1/]1/2 inch - For only one pipe size - max length allowed is 10 feet. [d:line1/][d:tab2/]For combination pipe sizes the allowed length of 1/2 inch piping is 5 feet, and 3/4  inch piping is 2.5 feet.  [d:line1/][d:tab1/]3/4 inch  - For only one pipe size = 5 feet</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="MEndNote1" minOccurs="0">
@@ -2294,7 +2311,7 @@ This section is applicable if at least one drain water heat recovery system in S
          <xsd:element name="Section_N" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Mandatory Requirements For All Recirculation Systems (RA4.4.7)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A10_ResidentialDHWDwellingUnitDistributionType == RecirculationNonDemand, DemandRecirculationManualControl,  DemandRecirculationSensorControls, DemandRecirculationManualControlsHERS, Or DemandRecirculationSensorControlsHERS Or If at least one water heating system has Section A2 Hpd07_ResidentialDHWDwellingUnitDistributionType == RecirculationNonDemand, DemandRecirculationManualControl,  DemandRecirculationSensorControls, DemandRecirculationManualControlsHERS, Or DemandRecirculationSensorControlsHERS</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A09_ResidentialDHWDwellingUnitDistributionType == RecirculationNonDemand, DemandRecirculationManualControl,  DemandRecirculationSensorControls, DemandRecirculationManualControlsHERS, Or DemandRecirculationSensorControlsHERS Or If at least one water heating system has Section A2 Hpd07_ResidentialDHWDwellingUnitDistributionType == RecirculationNonDemand, DemandRecirculationManualControl,  DemandRecirculationSensorControls, DemandRecirculationManualControlsHERS, Or DemandRecirculationSensorControlsHERS</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -2323,12 +2340,6 @@ This section is applicable if at least one drain water heat recovery system in S
                         <xsd:documentation source="AdditionalRequirements">Insulation is not required on the cold water line when it is used as the return.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="N04" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">If more than one loop installed, each loop shall have its own pump and controls</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
                   <xsd:element name="NEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
@@ -2340,8 +2351,8 @@ This section is applicable if at least one drain water heat recovery system in S
          </xsd:element>
          <xsd:element name="Section_O" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Recirculation Non-Demand Controls Requirements (R-ND) (RA4.4.8)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A10_ResidentialDHWDwellingUnitDistributionType == RecirculationNonDemand Or at least one water heating system has Section A2 Hpd07_ResidentialDHWDwellingUnitDistributionType == RecirculationNonDemand</xsd:documentation>
+               <xsd:documentation source="FieldText">Recirculation Non-Demand Controls Requirements (RA4.4.8)</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A09_ResidentialDHWDwellingUnitDistributionType == RecirculationNonDemand Or at least one water heating system has Section A2 Hpd07_ResidentialDHWDwellingUnitDistributionType == RecirculationNonDemand</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -2358,6 +2369,12 @@ This section is applicable if at least one drain water heat recovery system in S
                         <xsd:documentation source="AdditionalRequirements">The active control shall be either: timer, temperature, or time and temperature. Timers shall be set to less than 24 hours. The temperature sensor shall be connected to the piping and to the controls for the pump.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
+                  <xsd:element name="O02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">If more than one loop installed, each loop shall have its own pump and controls</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                   <xsd:element name="OEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
@@ -2369,8 +2386,8 @@ This section is applicable if at least one drain water heat recovery system in S
          </xsd:element>
          <xsd:element name="Section_P" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Demand Recirculation Manual Control (R-DRmc) (RA4.4.9)/ Sensor Control Requirements (RDRsc) (RA4.4.10)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A10_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl,  DemandRecirculationManualControlsHERS, DemandRecirculationSensorControls, Or DemandRecirculationSensorControlsHERS Or If at least one water heating system has Section A2 Hpd07_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl,  DemandRecirculationManualControlsHERS, DemandRecirculationSensorControls, Or DemandRecirculationSensorControlsHERS</xsd:documentation>
+               <xsd:documentation source="FieldText">Demand Recirculation Manual Control (RA4.4.9)/ Sensor Control Requirements (RA4.4.10)</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A09_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl,  DemandRecirculationManualControlsHERS, DemandRecirculationSensorControls, Or DemandRecirculationSensorControlsHERS Or If at least one water heating system has Section A2 Hpd07_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl,  DemandRecirculationManualControlsHERS, DemandRecirculationSensorControls, Or DemandRecirculationSensorControlsHERS</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -2396,7 +2413,7 @@ This section is applicable if at least one drain water heat recovery system in S
                   <xsd:element name="P03" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Manual controls may be activated by wired or wireless mechanisms.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Manual controls may be activated by wired or wireless mechanisms. Each control shall have standby power of 1 Watt or less.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="P04" minOccurs="0">
@@ -2434,8 +2451,8 @@ This section is applicable if at least one drain water heat recovery system in S
          </xsd:element>
          <xsd:element name="Section_Q" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">HERS-Verified Demand Recirculation Manual Control (RDRmc-H)  (RA3.6.6)/ Sensor Control (RDRsc - H) (RA3.6.7)Requirements</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A10_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControlsHERS Or DemandRecirculationSensorControlsHERS Or If at least one water heating system has Section A2 Hpd07_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControlsHERS Or DemandRecirculationSensorControlsHERS</xsd:documentation>
+               <xsd:documentation source="FieldText">Verified Demand Recirculation Manual Control (RDRmc-H)  (RA3.6.6)/ Sensor Control (RDRsc - H) (RA3.6.7)Requirements</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A09_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControlsHERS Or DemandRecirculationSensorControlsHERS Or If at least one water heating system has Section A2 Hpd07_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControlsHERS Or DemandRecirculationSensorControlsHERS</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -2449,7 +2466,7 @@ This section is applicable if at least one drain water heat recovery system in S
                   <xsd:element name="Q01" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">HERS rater shall perform a visual inspection to verify that the demand pump, manual/sensor controls and thermo-sensor are present and operationg properly consistent with the applicable requirements of RA4.4.9 and RA4.4.10</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">ECC rater shall perform a visual inspection to verify that the demand pump, manual/sensor controls and thermo-sensor are present and operationg properly consistent with the applicable requirements of RA4.4.9 and RA4.4.10</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Q02_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements" >
@@ -2475,7 +2492,7 @@ This section is applicable if at least one drain water heat recovery system in S
          </xsd:element>
          <xsd:element name="Section_R" minOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Determination of HERS Verification Compliance</xsd:documentation>
+               <xsd:documentation source="FieldText">Determination of ECC Verification Compliance</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>

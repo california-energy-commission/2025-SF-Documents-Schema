@@ -1563,17 +1563,24 @@ Doors with greater than or equal to 25 percent glazing are considered glazed doo
                                     <xsd:element name="K03_EfficiencyType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Heating Efficiency Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Choices are: COP, HSPF2</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Choices are: COP, HSPF, HSPF2</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="hvac:EfficiencyType">
                                              <xsd:enumeration value="COP"/>
+                                             <xsd:enumeration value="HSPF"/>
                                              <xsd:enumeration value="HSPF2"/>
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="K04_EfficiencyMinimumValueCOP" type="hvac:EfficiencyMinimumValueCOP" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Proposed Heating Efficiency</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input value for correct efficiency type</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="K04_EfficiencyHSPF" type="hvac:EfficiencyHSPF" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Proposed Heating Efficiency</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">User input value for correct efficiency type</xsd:documentation>
@@ -1623,7 +1630,11 @@ Doors with greater than or equal to 25 percent glazing are considered glazed doo
                                              <xsd:restriction base="hvac:EfficiencyType">
                                                 <xsd:enumeration value="CEER"/>
                                                 <xsd:enumeration value="EER2"/>
+                                                <xsd:enumeration value="SEER2"/>
                                                 <xsd:enumeration value="EER2SEER2"/>
+                                                <xsd:enumeration value="EER"/>
+                                                <xsd:enumeration value="SEER"/>
+                                                <xsd:enumeration value="EERSEER"/>
                                              </xsd:restriction>
                                           </xsd:simpleType>
                                        </xsd:element>
@@ -1637,13 +1648,19 @@ Doors with greater than or equal to 25 percent glazing are considered glazed doo
                                     <xsd:choice maxOccurs="1">                          
                                        <xsd:element name="K07_EfficiencySEER2" type="hvac:EfficiencySEER2" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Proposed Cooling Efficiency SEER2</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Proposed Cooling Efficiency SEER/SEER2</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If value in K05 = no cooling, then value = N/A; Else user Input: DecimalNonnegative;</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>                         
+                                       <xsd:element name="K07_EfficiencySEER" type="hvac:EfficiencySEER" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Proposed Cooling Efficiency SEER/SEER2</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If value in K05 = no cooling, then value = N/A; Else user Input: DecimalNonnegative;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="K07_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Proposed Cooling Efficiency SEER2</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Proposed Cooling Efficiency SEER/SEER2</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If value in K05 = no cooling, then value = N/A; Else user Input: DecimalNonnegative;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -1651,19 +1668,25 @@ Doors with greater than or equal to 25 percent glazing are considered glazed doo
                                     <xsd:choice maxOccurs="1">  
                                        <xsd:element name="K07b_EfficiencyMinimumValueCEER" type="hvac:EfficiencyMinimumValueCEER" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Proposed Cooling Efficiency EER2/CEER</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Proposed Cooling Efficiency EER/EER2/CEER</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If value in K05 = no cooling, then value = N/A; Else user input: DecimalNonnegative;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="K07b_EfficiencyEER2" type="hvac:EfficiencyEER2" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Proposed Cooling Efficiency EER2/CEER</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Proposed Cooling Efficiency EER/EER2/CEER</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If value in K05 = no cooling, then value = N/A; Else user input: DecimalNonnegative;</xsd:documentation>
                                           </xsd:annotation>
-                                       </xsd:element>                                       
+                                       </xsd:element>        
+                                       <xsd:element name="K07b_EfficiencyEER" type="hvac:EfficiencyEER" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Proposed Cooling Efficiency EER/EER2/CEER</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If value in K05 = no cooling, then value = N/A; Else user input: DecimalNonnegative;</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>                                      
                                        <xsd:element name="K07b_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Proposed Cooling Efficiency EER2/CEER</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Proposed Cooling Efficiency EER/EER2/CEER</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If value in K05 = no cooling, then value = N/A; Else user input: DecimalNonnegative;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
