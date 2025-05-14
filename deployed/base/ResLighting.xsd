@@ -1,1588 +1,514 @@
-<?xml version="1.0" ?>
-<xs:schema xmlns:ns1="http://www.lmonte.com/besm/dtyp" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/lit" version="2025.0.000">
-   
-   
-   <xs:import namespace="http://www.lmonte.com/besm/com" schemaLocation="ResCommon.xsd"/>
-   
-   
-   <xs:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="DataTypes.xsd"/>
-   
-   
-   <xs:simpleType name="AllLuminairePowerInArea">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: W</xs:documentation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Power of All  Luminaires Installed in Area</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="AlteredLightingConditionedFloorArea">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: ft2</xs:documentation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Altered Lighting Conditioned Floor Area</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="AlteredLightingUnconditionedFloorArea">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: ft2</xs:documentation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Altered Lighting Unconditioned Floor Area</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="BankingKioskCount">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: none</xs:documentation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Number of ATM's</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:IntegerNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="BoardLightingLength">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: ft</xs:documentation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>White/ Chalk Board Lighting Length</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="DisplayCaseArea">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>Area of very valuable display case used in determining tailored method lighting allowance  Units: ft2</xs:documentation>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="IlluminationMethod">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:appinfo source="displayterm">
-            
-            
-            <ns1:displayterm value="External">Externally</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="Internal">Internally</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:EnumerationConstant">
-         
-         
-         <xs:enumeration value="External"/>
-         
-         
-         <xs:enumeration value="Internal"/>
-         
-      
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="InteriorLightingSystemName">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>Unique identification name for an InteriorLightingSystem instance</xs:documentation>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:ObjectNamePermissive">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="InteriorLightingSystemPower">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: W</xs:documentation>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="InterlockedLightingSystems">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Does area have Interlocked Lighting Systems?</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-         
-         <xs:appinfo source="displayterm">
-            
-            
-            <ns1:displayterm value="true">Yes</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="false">No</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="xsd:boolean">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="IsLightingControlSystemOrEMCS_Present">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:appinfo source="displayterm">
-            
-            
-            <ns1:displayterm value="true">Yes</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="false">No</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="xsd:boolean">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="IsLuminaireTrackLighting">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Is luminaire track lighting?</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-         
-         <xs:appinfo source="displayterm">
-            
-            
-            <ns1:displayterm value="true">Yes</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="false">No</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="xsd:boolean">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="KitchenLuminaireHighEfficacySameTypeTotalPower">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: W</xs:documentation>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="KitchenLuminaireLowEfficacySameTypeTotalPower">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: W</xs:documentation>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="KitchenLuminairesHighEfficacyAllTypesTotalPower">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: W</xs:documentation>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="KitchenLuminairesLowEfficacyAdditionalPowerAllowance">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: W</xs:documentation>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="KitchenLuminairesLowEfficacyAllTypesTotalPower">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: W</xs:documentation>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="KitchenLuminairesTotalLowEfficacyPowerAllowed">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: W</xs:documentation>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="LightedSignArea">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: ft2</xs:documentation>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="LightedSignDescription">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>Description of a Sign that is illuminated</xs:documentation>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="xsd:token">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="LightedSignLocation">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Sign Type</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-         
-         <xs:appinfo source="displayterm">
-            
-            
-            <ns1:displayterm value="ElecMessageCenter">Elec. Message Center</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="Indoor">Indoor</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="Outdoor">Outdoor</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:EnumerationConstant">
-         
-         
-         <xs:enumeration value="ElecMessageCenter"/>
-         
-         
-         <xs:enumeration value="Indoor"/>
-         
-         
-         <xs:enumeration value="Outdoor"/>
-         
-      
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="LightedSignName">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>Unique identification name for a Sign that is illuminated</xs:documentation>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="xsd:token">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="LightingControlDevice">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>Type of lighting control device used in calculating allowed lighting power.</xs:documentation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Lighting Control Device</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-         
-         <xs:appinfo source="displayterm">
-            
-            
-            <ns1:displayterm value="AutomaticMultiLevelDaylightingControl">Automatic multi-level daylighting control</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="InterlockSwitch">Interlock switch</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="ManualOnOccupancy">Manual on occupancy</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="MultiLevelAstronomicalTimeSwitch">Multi-level astronomical time switch</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="MultiLevelOccupantSensor">Multi-level occupant sensor</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="OutdoorAstronomicalTimeSwitch">Outdoor astronomical time switch</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="OverrideSwitch">Override switch</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="SwitchingOrControlDevice">Switching or control device</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="SystemShutOff">System shut off</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:EnumerationConstant">
-         
-         
-         <xs:enumeration value="AutomaticMultiLevelDaylightingControl"/>
-         
-         
-         <xs:enumeration value="InterlockSwitch"/>
-         
-         
-         <xs:enumeration value="ManualOnOccupancy"/>
-         
-         
-         <xs:enumeration value="MultiLevelAstronomicalTimeSwitch"/>
-         
-         
-         <xs:enumeration value="MultiLevelOccupantSensor"/>
-         
-         
-         <xs:enumeration value="OutdoorAstronomicalTimeSwitch"/>
-         
-         
-         <xs:enumeration value="OverrideSwitch"/>
-         
-         
-         <xs:enumeration value="SwitchingOrControlDevice"/>
-         
-         
-         <xs:enumeration value="SystemShutOff"/>
-         
-      
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="LightingControlScheme">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>Type of lighting control scheme used in calculating allowed lighting power.</xs:documentation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Lighting Control Scheme</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:EnumerationConstant">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="LightingPAF">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>The fraction that may be subtracted from the total controlled lighting wattage to simulate energy savings resulting from control devices such as occupancy sensor controls that turn lights off when no one is in the space.  Units: none</xs:documentation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Power Adjustment Factor</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="LightingPowerReductionPercent">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: none</xs:documentation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Percent Lighting Power Reduction for Space</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="LuminaireCategory">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>Enumeration type for determining luminaire heat gain distribution</xs:documentation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Luminaire Category</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-         
-         <xs:appinfo source="displayterm">
-            
-            
-            <ns1:displayterm value="DownlightCompactFluorescentLuminaire">Downlight compact fluorescent luminaire</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="DownlightIncandescentLuminaire">Downlight incandescent luminaire</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="NonInCeilingFluorescentLuminaire">No in ceiling fluorescent luminaire</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="RecessedFluorescentLuminaireLens">Recessed fluorescent luminaire  with lens</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="RecessedFluorescentLuminaireNoLens">Recessed fluorescent luminaire without lens</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:EnumerationConstant">
-         
-         
-         <xs:enumeration value="DownlightCompactFluorescentLuminaire"/>
-         
-         
-         <xs:enumeration value="DownlightIncandescentLuminaire"/>
-         
-         
-         <xs:enumeration value="NonInCeilingFluorescentLuminaire"/>
-         
-         
-         <xs:enumeration value="RecessedFluorescentLuminaireLens"/>
-         
-         
-         <xs:enumeration value="RecessedFluorescentLuminaireNoLens"/>
-         
-      
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="LuminaireCountByType">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>Number of luminaries of a specific type  Units: none</xs:documentation>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:IntegerNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="LuminaireDescription">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>Description of the luminaire</xs:documentation>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="xsd:string">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="LuminaireMountingHeight">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>Distance from the finished floor to the bottom of the luminaire  Units: ft</xs:documentation>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="LuminaireName">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>Unique identification name for a Luminaire instance.</xs:documentation>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:StringMin1Char">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="LuminairePower">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: W</xs:documentation>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="LuminairePowerByType">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: W</xs:documentation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Installed Luminaire Power By Type</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="LuminairePowerInArea">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: W</xs:documentation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Installed Luminaire Power in Area</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="LuminairesTotalLF">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: ft</xs:documentation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Luminaires Total Linear Feet</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="LuminaireUse">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:appinfo source="displayterm">
-            
-            
-            <ns1:displayterm value="SmallApertureColorChanging">Small Aperture and Color Change Nonres</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="SmallApertureColorChangingMF">Small Aperture and Color Change Multifamily</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="TrackLighting">Modular (Track)</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:EnumerationConstant">
-         
-         
-         <xs:enumeration value="SmallApertureColorChanging"/>
-         
-         
-         <xs:enumeration value="SmallApertureColorChangingMF"/>
-         
-         
-         <xs:enumeration value="TrackLighting"/>
-         
-      
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="LuminaireWattsPerLF">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: W per ft</xs:documentation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Watts per LF</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="MirrorsCount">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: none</xs:documentation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Number of lighted mirrors in fitting room</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:IntegerNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="MountingHeightFactor">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>An adjustment to the Wall Display allowance and the Floor Display allowance in the Tailored Method, based on the mounting height of the fixtures.  Units: none</xs:documentation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>MountingHeightFactor</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="NewLightingConditionedFloorArea">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: ft2</xs:documentation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>New Lighting Conditioned Floor Area</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="NewLightingUnconditionedFloorArea">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: ft2</xs:documentation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>New Lighting Unconditioned Floor Area</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="SpaceIlluminationLevel">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Space Illumination Level</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-         
-         <xs:appinfo source="displayterm">
-            
-            
-            <ns1:displayterm value="100">100 lux</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="1000">1000 lux</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="150">150 lux</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="200">200 lux</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="300">300 lux</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="400">400 lux</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="50">50 lux</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="500">500 lux</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="600">600 lux</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="700">700 lux</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="800">800 lux</ns1:displayterm>
-            
-            
-            <ns1:displayterm value="900">900 lux</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:EnumerationIntegerNonNegative">
-         
-         
-         <xs:enumeration value="100"/>
-         
-         
-         <xs:enumeration value="1000"/>
-         
-         
-         <xs:enumeration value="150"/>
-         
-         
-         <xs:enumeration value="200"/>
-         
-         
-         <xs:enumeration value="300"/>
-         
-         
-         <xs:enumeration value="400"/>
-         
-         
-         <xs:enumeration value="50"/>
-         
-         
-         <xs:enumeration value="500"/>
-         
-         
-         <xs:enumeration value="600"/>
-         
-         
-         <xs:enumeration value="700"/>
-         
-         
-         <xs:enumeration value="800"/>
-         
-         
-         <xs:enumeration value="900"/>
-         
-      
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="TrackLengthPowerCalculated">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: W</xs:documentation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Track Lighting Length Watts Calculated</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="TrackLightingBranchCircuitPower">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: W</xs:documentation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Branch Circuit VA Rating (as Watts)
-</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="TrackLightingCurrentLimiterPower">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: W</xs:documentation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>VA of Current Limiter (as Watts)
-</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="TrackLightingDescription">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Track Lighting Description</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="xsd:token">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="TrackLightingLength">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: ft</xs:documentation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Track Lighting Lenght</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="TrackLightingName">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Track Lighting ID</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="xsd:token">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="TrackLightingPowerSourceRatedWattage">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: W</xs:documentation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Maximum rated input wattage per manufacturer</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="TrackLightingWattsCalculated">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: W</xs:documentation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Track lighting watts calculated for luminaire</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="TrackOvercurrentPanelsTotalPower">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: W</xs:documentation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Sum of VA ratings for all Overcurrent Panels</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="VeryValuableDisplayDescription">
-      
-      
-      <xs:restriction base="xsd:token">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="WallDisplayLength">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>Length of wall display used in determining tailored method lighting allowance  Units: ft</xs:documentation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Wall Display Length</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-   
-   <xs:simpleType name="WattsPerLinearFootDefault">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>  Units: W per ft</xs:documentation>
-         
-         
-         <xs:appinfo source="displaytermType">
-            
-            
-            <ns1:displayterm>Track Lighting Default Watts/LF</ns1:displayterm>
-            
-         
-         </xs:appinfo>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:restriction base="dtyp:DecimalNonnegative">
-      </xs:restriction>
-      
-   
-   </xs:simpleType>
-   
-
-</xs:schema>
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/lit" version="2025.0.000" xmlns:com="http://www.lmonte.com/besm/com" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="DataTypes.xsd"/>
+   <xsd:simpleType name="AllLuminairePowerInArea">
+      <xsd:annotation>
+         <xsd:documentation>Units: W</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Power of All  Luminaires Installed in Area</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="AlteredLightingConditionedFloorArea">
+      <xsd:annotation>
+         <xsd:documentation>Units: ft2</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Altered Lighting Conditioned Floor Area</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="AlteredLightingUnconditionedFloorArea">
+      <xsd:annotation>
+         <xsd:documentation>Units: ft2</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Altered Lighting Unconditioned Floor Area</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="BankingKioskCount">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Number of ATM's</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:IntegerNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="BoardLightingLength">
+      <xsd:annotation>
+         <xsd:documentation>Units: ft</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>White/ Chalk Board Lighting Length</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="DisplayCaseArea">
+      <xsd:annotation>
+         <xsd:documentation>Area of very valuable display case used in determining tailored method lighting allowance  Units: ft2</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="IlluminationMethod">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="External">Externally</dtyp:displayterm>
+            <dtyp:displayterm value="Internal">Internally</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="External"/>
+         <xsd:enumeration value="Internal"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="InteriorLightingSystemName">
+      <xsd:annotation>
+         <xsd:documentation>Unique identification name for an InteriorLightingSystem instance</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:ObjectNamePermissive"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="InteriorLightingSystemPower">
+      <xsd:annotation>
+         <xsd:documentation>Units: W</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="InterlockedLightingSystems">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Does area have Interlocked Lighting Systems?</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="IsLightingControlSystemOrEMCS_Present">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="IsLuminaireTrackLighting">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Is luminaire track lighting?</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="KitchenLuminaireHighEfficacySameTypeTotalPower">
+      <xsd:annotation>
+         <xsd:documentation>Units: W</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="KitchenLuminaireLowEfficacySameTypeTotalPower">
+      <xsd:annotation>
+         <xsd:documentation>Units: W</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="KitchenLuminairesHighEfficacyAllTypesTotalPower">
+      <xsd:annotation>
+         <xsd:documentation>Units: W</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="KitchenLuminairesLowEfficacyAdditionalPowerAllowance">
+      <xsd:annotation>
+         <xsd:documentation>Units: W</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="KitchenLuminairesLowEfficacyAllTypesTotalPower">
+      <xsd:annotation>
+         <xsd:documentation>Units: W</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="KitchenLuminairesTotalLowEfficacyPowerAllowed">
+      <xsd:annotation>
+         <xsd:documentation>Units: W</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="LightedSignArea">
+      <xsd:annotation>
+         <xsd:documentation>Units: ft2</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="LightedSignDescription">
+      <xsd:annotation>
+         <xsd:documentation>Description of a Sign that is illuminated</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="LightedSignLocation">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Sign Type</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="ElecMessageCenter">Elec. Message Center</dtyp:displayterm>
+            <dtyp:displayterm value="Indoor">Indoor</dtyp:displayterm>
+            <dtyp:displayterm value="Outdoor">Outdoor</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="ElecMessageCenter"/>
+         <xsd:enumeration value="Indoor"/>
+         <xsd:enumeration value="Outdoor"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="LightedSignName">
+      <xsd:annotation>
+         <xsd:documentation>Unique identification name for a Sign that is illuminated</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="LightingControlDevice">
+      <xsd:annotation>
+         <xsd:documentation>Type of lighting control device used in calculating allowed lighting power.</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Lighting Control Device</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="AutomaticMultiLevelDaylightingControl">Automatic multi-level daylighting control</dtyp:displayterm>
+            <dtyp:displayterm value="InterlockSwitch">Interlock switch</dtyp:displayterm>
+            <dtyp:displayterm value="ManualOnOccupancy">Manual on occupancy</dtyp:displayterm>
+            <dtyp:displayterm value="MultiLevelAstronomicalTimeSwitch">Multi-level astronomical time switch</dtyp:displayterm>
+            <dtyp:displayterm value="MultiLevelOccupantSensor">Multi-level occupant sensor</dtyp:displayterm>
+            <dtyp:displayterm value="OutdoorAstronomicalTimeSwitch">Outdoor astronomical time switch</dtyp:displayterm>
+            <dtyp:displayterm value="OverrideSwitch">Override switch</dtyp:displayterm>
+            <dtyp:displayterm value="SwitchingOrControlDevice">Switching or control device</dtyp:displayterm>
+            <dtyp:displayterm value="SystemShutOff">System shut off</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="AutomaticMultiLevelDaylightingControl"/>
+         <xsd:enumeration value="InterlockSwitch"/>
+         <xsd:enumeration value="ManualOnOccupancy"/>
+         <xsd:enumeration value="MultiLevelAstronomicalTimeSwitch"/>
+         <xsd:enumeration value="MultiLevelOccupantSensor"/>
+         <xsd:enumeration value="OutdoorAstronomicalTimeSwitch"/>
+         <xsd:enumeration value="OverrideSwitch"/>
+         <xsd:enumeration value="SwitchingOrControlDevice"/>
+         <xsd:enumeration value="SystemShutOff"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="LightingControlScheme">
+      <xsd:annotation>
+         <xsd:documentation>Type of lighting control scheme used in calculating allowed lighting power.</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Lighting Control Scheme</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="LightingPAF">
+      <xsd:annotation>
+         <xsd:documentation>The fraction that may be subtracted from the total controlled lighting wattage to simulate energy savings resulting from control devices such as occupancy sensor controls that turn lights off when no one is in the space.  Units: none</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Power Adjustment Factor</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="LightingPowerReductionPercent">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Percent Lighting Power Reduction for Space</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="LuminaireCategory">
+      <xsd:annotation>
+         <xsd:documentation>Enumeration type for determining luminaire heat gain distribution</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Luminaire Category</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="DownlightCompactFluorescentLuminaire">Downlight compact fluorescent luminaire</dtyp:displayterm>
+            <dtyp:displayterm value="DownlightIncandescentLuminaire">Downlight incandescent luminaire</dtyp:displayterm>
+            <dtyp:displayterm value="NonInCeilingFluorescentLuminaire">No in ceiling fluorescent luminaire</dtyp:displayterm>
+            <dtyp:displayterm value="RecessedFluorescentLuminaireLens">Recessed fluorescent luminaire  with lens</dtyp:displayterm>
+            <dtyp:displayterm value="RecessedFluorescentLuminaireNoLens">Recessed fluorescent luminaire without lens</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="DownlightCompactFluorescentLuminaire"/>
+         <xsd:enumeration value="DownlightIncandescentLuminaire"/>
+         <xsd:enumeration value="NonInCeilingFluorescentLuminaire"/>
+         <xsd:enumeration value="RecessedFluorescentLuminaireLens"/>
+         <xsd:enumeration value="RecessedFluorescentLuminaireNoLens"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="LuminaireCountByType">
+      <xsd:annotation>
+         <xsd:documentation>Number of luminaries of a specific type  Units: none</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:IntegerNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="LuminaireDescription">
+      <xsd:annotation>
+         <xsd:documentation>Description of the luminaire</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:string"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="LuminaireMountingHeight">
+      <xsd:annotation>
+         <xsd:documentation>Distance from the finished floor to the bottom of the luminaire  Units: ft</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="LuminaireName">
+      <xsd:annotation>
+         <xsd:documentation>Unique identification name for a Luminaire instance.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:StringMin1Char"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="LuminairePower">
+      <xsd:annotation>
+         <xsd:documentation>Units: W</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="LuminairePowerByType">
+      <xsd:annotation>
+         <xsd:documentation>Units: W</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Installed Luminaire Power By Type</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="LuminairePowerInArea">
+      <xsd:annotation>
+         <xsd:documentation>Units: W</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Installed Luminaire Power in Area</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="LuminaireUse">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="SmallApertureColorChanging">Small Aperture and Color Change Nonres</dtyp:displayterm>
+            <dtyp:displayterm value="SmallApertureColorChangingMF">Small Aperture and Color Change Multifamily</dtyp:displayterm>
+            <dtyp:displayterm value="TrackLighting">Modular (Track)</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="SmallApertureColorChanging"/>
+         <xsd:enumeration value="SmallApertureColorChangingMF"/>
+         <xsd:enumeration value="TrackLighting"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="LuminaireWattsPerLF">
+      <xsd:annotation>
+         <xsd:documentation>Units: W per ft</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Watts per LF</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="LuminairesTotalLF">
+      <xsd:annotation>
+         <xsd:documentation>Units: ft</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Luminaires Total Linear Feet</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="MirrorsCount">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Number of lighted mirrors in fitting room</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:IntegerNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="MountingHeightFactor">
+      <xsd:annotation>
+         <xsd:documentation>An adjustment to the Wall Display allowance and the Floor Display allowance in the Tailored Method, based on the mounting height of the fixtures.  Units: none</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>MountingHeightFactor</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="NewLightingConditionedFloorArea">
+      <xsd:annotation>
+         <xsd:documentation>Units: ft2</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>New Lighting Conditioned Floor Area</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="NewLightingUnconditionedFloorArea">
+      <xsd:annotation>
+         <xsd:documentation>Units: ft2</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>New Lighting Unconditioned Floor Area</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="SpaceIlluminationLevel">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Space Illumination Level</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="100">100 lux</dtyp:displayterm>
+            <dtyp:displayterm value="1000">1000 lux</dtyp:displayterm>
+            <dtyp:displayterm value="150">150 lux</dtyp:displayterm>
+            <dtyp:displayterm value="200">200 lux</dtyp:displayterm>
+            <dtyp:displayterm value="300">300 lux</dtyp:displayterm>
+            <dtyp:displayterm value="400">400 lux</dtyp:displayterm>
+            <dtyp:displayterm value="50">50 lux</dtyp:displayterm>
+            <dtyp:displayterm value="500">500 lux</dtyp:displayterm>
+            <dtyp:displayterm value="600">600 lux</dtyp:displayterm>
+            <dtyp:displayterm value="700">700 lux</dtyp:displayterm>
+            <dtyp:displayterm value="800">800 lux</dtyp:displayterm>
+            <dtyp:displayterm value="900">900 lux</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationIntegerNonNegative">
+         <xsd:enumeration value="100"/>
+         <xsd:enumeration value="1000"/>
+         <xsd:enumeration value="150"/>
+         <xsd:enumeration value="200"/>
+         <xsd:enumeration value="300"/>
+         <xsd:enumeration value="400"/>
+         <xsd:enumeration value="50"/>
+         <xsd:enumeration value="500"/>
+         <xsd:enumeration value="600"/>
+         <xsd:enumeration value="700"/>
+         <xsd:enumeration value="800"/>
+         <xsd:enumeration value="900"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="TrackLengthPowerCalculated">
+      <xsd:annotation>
+         <xsd:documentation>Units: W</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Track Lighting Length Watts Calculated</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="TrackLightingBranchCircuitPower">
+      <xsd:annotation>
+         <xsd:documentation>Units: W</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Branch Circuit VA Rating (as Watts)</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="TrackLightingCurrentLimiterPower">
+      <xsd:annotation>
+         <xsd:documentation>Units: W</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>VA of Current Limiter (as Watts)</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="TrackLightingDescription">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Track Lighting Description</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="TrackLightingLength">
+      <xsd:annotation>
+         <xsd:documentation>Units: ft</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Track Lighting Lenght</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="TrackLightingName">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Track Lighting ID</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="TrackLightingPowerSourceRatedWattage">
+      <xsd:annotation>
+         <xsd:documentation>Units: W</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Maximum rated input wattage per manufacturer</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="TrackLightingWattsCalculated">
+      <xsd:annotation>
+         <xsd:documentation>Units: W</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Track lighting watts calculated for luminaire</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="TrackOvercurrentPanelsTotalPower">
+      <xsd:annotation>
+         <xsd:documentation>Units: W</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Sum of VA ratings for all Overcurrent Panels</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="VeryValuableDisplayDescription">
+      <xsd:restriction base="xsd:token"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="WallDisplayLength">
+      <xsd:annotation>
+         <xsd:documentation>Length of wall display used in determining tailored method lighting allowance  Units: ft</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Wall Display Length</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="WattsPerLinearFootDefault">
+      <xsd:annotation>
+         <xsd:documentation>Units: W per ft</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Track Lighting Default Watts/LF</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+</xsd:schema>

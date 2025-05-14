@@ -1,1381 +1,453 @@
-<?xml version="1.0" ?>
-<xs:schema xmlns:ns1="http://www.lmonte.com/besm/d" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF1RENV05E" version="2025.0.000">
-   
-   
-   <xs:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
-   
-   
-   <xs:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
-   
-   
-   <xs:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
-   
-   
-   <xs:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
-   
-   
-   <xs:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
-   
-   
-   <xs:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
-   
-   
-   <xs:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
-   
-   
-   <xs:element name="ComplianceDocumentPackage">
-      
-      
-      <xs:complexType>
-         
-         
-         <xs:sequence>
-            
-            
-            <xs:element minOccurs="0" name="DocID">
-               
-               
-               <xs:complexType>
-                  
-                  
-                  <xs:attribute fixed="CF1RENV05E" name="doc" type="comp:ComplianceDocumentTag"/>
-                  
-                  
-                  <xs:attribute fixed="CERTIFICATE OF COMPLIANCE" name="docType" type="comp:ComplianceDocumentType"/>
-                  
-                  
-                  <xs:attribute fixed="Alternative Default Fenestration Procedure (NA6) Worksheet" name="docTitle" type="comp:ComplianceDocumentTitleRes"/>
-                  
-               
-               </xs:complexType>
-               
-            
-            </xs:element>
-            
-            
-            <xs:element name="Payload" type="comp:Payload"/>
-            
-            
-            <xs:element name="DocumentData">
-               
-               
-               <xs:complexType>
-                  
-                  
-                  <xs:sequence>
-                     
-                     
-                     <xs:element name="Header" type="comp:HeaderHERSCC"/>
-                     
-                     
-                     <xs:element ref="cF1RENV05E"/>
-                     
-                     
-                     <xs:element name="DocAuthor" type="comp:DocumentAuthor"/>
-                     
-                     
-                     <xs:element name="RespPerson" type="comp:ResponsiblePersonCF1R"/>
-                     
-                     
-                     <xs:element name="Footer" type="comp:Footer"/>
-                     
-                  
-                  </xs:sequence>
-                  
-               
-               </xs:complexType>
-               
-            
-            </xs:element>
-            
-            
-            <xs:element name="Report" type="xsd:base64Binary"/>
-            
-         
-         </xs:sequence>
-         
-         
-         <xs:attribute fixed="rev 20250101" name="revision" type="xsd:string" use="required"/>
-         
-         
-         <xs:attribute fixed="CF1RENV05E" name="doc" type="comp:ComplianceDocumentTag" use="required"/>
-         
-      
-      </xs:complexType>
-      
-   
-   </xs:element>
-   
-   
-   <xs:complexType name="CF1RENV05E">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>Alternative Default Fenestration Procedure (NA6) Worksheet</xs:documentation>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:sequence>
-         
-         
-         <xs:element maxOccurs="1" minOccurs="1" name="Section_A">
-            
-            
-            <xs:annotation>
-               
-               
-               <xs:documentation source="FieldText">General Information</xs:documentation>
-               
-               
-               <xs:documentation source="MinOccurs">This section is required.</xs:documentation>
-               
-            
-            </xs:annotation>
-            
-            
-            <xs:complexType>
-               
-               
-               <xs:sequence>
-                  
-                  
-                  <xs:element name="A01_ResidentialBuildingTotalConditionedFloorArea" type="com:ResidentialBuildingTotalConditionedFloorArea">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText">Conditioned Floor Area</xs:documentation>
-                        
-                        
-                        <xs:documentation source="CalculationsAndRules">Auto-filled from CF1R</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element name="A02_ConditionedFloorArea5Percent" type="com:ConditionedFloorArea5Percent">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText">5% of the Conditioned Floor Area</xs:documentation>
-                        
-                        
-                        <xs:documentation source="CalculationsAndRules">Result = PRODUCT( A01_ResidentialBuildingTotalConditionedFloorArea, .05)</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element name="A03_FenestrationNonRatedSiteBuiltTotalAreaAllowed" type="env:FenestrationNonRatedSiteBuiltTotalAreaAllowed">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText">Total Allowed Non-Rated Site-built Fenestration Area</xs:documentation>
-                        
-                        
-                        <xs:documentation source="CalculationsAndRules">Result = Largest (A02_ResidentialBuildingConditionedFloorArea5Percent, 250)</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element name="A04_FenestrationNonRatedSiteBuiltTotalAreaProposed" type="env:FenestrationNonRatedSiteBuiltTotalAreaProposed">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText">Proposed Area of Site-built Fenestration</xs:documentation>
-                        
-                        
-                        <xs:documentation source="CalculationsAndRules">Calculated field: SUM ALL (B02_GlazingArea</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-               
-               </xs:sequence>
-               
-            
-            </xs:complexType>
-            
-         
-         </xs:element>
-         
-         
-         <xs:element minOccurs="1" name="Section_B">
-            
-            
-            <xs:annotation>
-               
-               
-               <xs:documentation source="FieldText">Fenestration/ Glazing Area</xs:documentation>
-               
-               
-               <xs:documentation source="CalculationsAndRules">If CF1R parent == CF1R-ADD, CF1R-ALT or CF1R-NCB require a row for fenestration products with Proposed U-factor or SHGC Source property,  FenestrationCertificationMethod == NA6Equations 
-Else If CF1R parent == CF1R-PRF, require a row for fenestration products with M08aFenestrationCertificationMethod = NA6Equations Or M09aFenestrationCertificationMethod = NA6Equations </xs:documentation>
-               
-               
-               <xs:documentation source="MinOccurs">This section is required.</xs:documentation>
-               
-            
-            </xs:annotation>
-            
-            
-            <xs:complexType>
-               
-               
-               <xs:sequence>
-                  
-                  
-                  <xs:element name="TableFenestration">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                     
-                     </xs:annotation>
-                     
-                     
-                     <xs:complexType>
-                        
-                        
-                        <xs:sequence>
-                           
-                           
-                           <xs:element maxOccurs="unbounded" minOccurs="1" name="Row">
-                              
-                              
-                              <xs:complexType>
-                                 
-                                 
-                                 <xs:sequence>
-                                    
-                                    
-                                    <xs:element name="B01_FenestrationName" type="comp:FenestrationName">
-                                       
-                                       
-                                       <xs:annotation>
-                                          
-                                          
-                                          <xs:documentation source="FieldText">Tag/Identification</xs:documentation>
-                                          
-                                          
-                                          <xs:documentation source="CalculationsAndRules">Auto-filled from CF1R.</xs:documentation>
-                                          
-                                       
-                                       </xs:annotation>
-                                       
-                                    
-                                    </xs:element>
-                                    
-                                    
-                                    <xs:element name="B02_GlazingArea" type="env:GlazingArea">
-                                       
-                                       
-                                       <xs:annotation>
-                                          
-                                          
-                                          <xs:documentation source="FieldText">
-                                             Area (ft
-                                             <ns1:sup>2</ns1:sup>
-                                          </xs:documentation>
-                                          
-                                          
-                                          <xs:documentation source="CalculationsAndRules">User entry, nonnegative decimal</xs:documentation>
-                                          
-                                       
-                                       </xs:annotation>
-                                       
-                                    
-                                    </xs:element>
-                                    
-                                 
-                                 </xs:sequence>
-                                 
-                              
-                              </xs:complexType>
-                              
-                           
-                           </xs:element>
-                           
-                        
-                        </xs:sequence>
-                        
-                     
-                     </xs:complexType>
-                     
-                  
-                  </xs:element>
-                  
-               
-               </xs:sequence>
-               
-            
-            </xs:complexType>
-            
-         
-         </xs:element>
-         
-         
-         <xs:element maxOccurs="1" minOccurs="0" name="Section_C">
-            
-            
-            <xs:annotation>
-               
-               
-               <xs:documentation source="FieldText">Default U-factor Using Reference Appendices, Nonresidential Appendix NA6, Equation NA6-1</xs:documentation>
-               
-               
-               <xs:documentation source="CalculationsAndRules">This section is applicable If CF1R parent == CF1R-ADD, CF1R-ALT or CF1R-NCB and at least one fenestration product has Proposed U-factor Source property,  FenestrationCertificationMethod == NA6Equations 
-Else If CF1R parent == CF1R-PRF, require a row for fenestration products with M08aFenestrationCertificationMethod = NA6Equations.</xs:documentation>
-               
-               
-               <xs:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xs:documentation>
-               
-            
-            </xs:annotation>
-            
-            
-            <xs:complexType>
-               
-               
-               <xs:sequence>
-                  
-                  
-                  <xs:element minOccurs="0" name="C_BeginNote1">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText">Begin Note 1</xs:documentation>
-                        
-                        
-                        <xs:documentation source="AdditionalRequirements">
-                           Equation NA6-1: U
-                           <ns1:sub>T</ns1:sub>
-                            = C
-                           <ns1:sub>1</ns1:sub>
-                            + (C
-                           <ns1:sub>2</ns1:sub>
-                            x U
-                           <ns1:sub>C</ns1:sub>
-                        </xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element name="TableUFactor">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                     
-                     </xs:annotation>
-                     
-                     
-                     <xs:complexType>
-                        
-                        
-                        <xs:sequence>
-                           
-                           
-                           <xs:element maxOccurs="unbounded" minOccurs="1" name="Row">
-                              
-                              
-                              <xs:complexType>
-                                 
-                                 
-                                 <xs:sequence>
-                                    
-                                    
-                                    <xs:element name="C01_FenestrationName" type="comp:FenestrationName">
-                                       
-                                       
-                                       <xs:annotation>
-                                          
-                                          
-                                          <xs:documentation source="FieldText">Tag/Identification</xs:documentation>
-                                          
-                                          
-                                          <xs:documentation source="CalculationsAndRules">User selects from list provided from B01_FenestrationName for this section</xs:documentation>
-                                          
-                                       
-                                       </xs:annotation>
-                                       
-                                    
-                                    </xs:element>
-                                    
-                                    
-                                    <xs:element name="C02_NA6FenestrationType" type="comp:NA6FenestrationType">
-                                       
-                                       
-                                       <xs:annotation>
-                                          
-                                          
-                                          <xs:documentation source="FieldText">Product Type</xs:documentation>
-                                          
-                                          
-                                          <xs:documentation source="CalculationsAndRules">User selects from list: SiteBuiltVertical, SkylightCurb, SkylightNoCurb</xs:documentation>
-                                          
-                                       
-                                       </xs:annotation>
-                                       
-                                    
-                                    </xs:element>
-                                    
-                                    
-                                    <xs:element name="C03_FenestrationFraming">
-                                       
-                                       
-                                       <xs:annotation>
-                                          
-                                          
-                                          <xs:documentation source="FieldText">Frame Type</xs:documentation>
-                                          
-                                          
-                                          <xs:documentation source="CalculationsAndRules">User picks from list: Metal with thermal break; Metal; NonMetal</xs:documentation>
-                                          
-                                       
-                                       </xs:annotation>
-                                       
-                                       
-                                       <xs:simpleType>
-                                          
-                                          
-                                          <xs:restriction base="env:FenestrationFraming">
-                                             
-                                             
-                                             <xs:enumeration value="MetalFramingWithThermalBreak"/>
-                                             
-                                             
-                                             <xs:enumeration value="MetalFraming"/>
-                                             
-                                             
-                                             <xs:enumeration value="NonMetalFraming"/>
-                                             
-                                          
-                                          </xs:restriction>
-                                          
-                                       
-                                       </xs:simpleType>
-                                       
-                                    
-                                    </xs:element>
-                                    
-                                    
-                                    <xs:element name="C04_UfactorCoefficient1" type="comp:UfactorCoefficient1">
-                                       
-                                       
-                                       <xs:annotation>
-                                          
-                                          
-                                          <xs:documentation source="FieldText">
-                                             C
-                                             <ns1:sub>1</ns1:sub>
-                                              from Table NA6-5
-                                          </xs:documentation>
-                                          
-                                          
-                                          <xs:documentation source="CalculationsAndRules">User input decimal number from Table NA6-5</xs:documentation>
-                                          
-                                       
-                                       </xs:annotation>
-                                       
-                                    
-                                    </xs:element>
-                                    
-                                    
-                                    <xs:element name="C05_UfactorCoefficient2" type="comp:UfactorCoefficient2">
-                                       
-                                       
-                                       <xs:annotation>
-                                          
-                                          
-                                          <xs:documentation source="FieldText">
-                                             C
-                                             <ns1:sub>2</ns1:sub>
-                                              from Table NA6-5
-                                          </xs:documentation>
-                                          
-                                          
-                                          <xs:documentation source="CalculationsAndRules">User input decimal number from Table NA6-5</xs:documentation>
-                                          
-                                       
-                                       </xs:annotation>
-                                       
-                                    
-                                    </xs:element>
-                                    
-                                    
-                                    <xs:element name="C06_UFactorCenterOfGlass" type="com:UFactorCenterOfGlass">
-                                       
-                                       
-                                       <xs:annotation>
-                                          
-                                          
-                                          <xs:documentation source="FieldText">
-                                             Center of Glass U-factor (U
-                                             <ns1:sub>c</ns1:sub>
-                                              )
-                                          </xs:documentation>
-                                          
-                                          
-                                          <xs:documentation source="CalculationsAndRules">User input decimal number</xs:documentation>
-                                          
-                                       
-                                       </xs:annotation>
-                                       
-                                    
-                                    </xs:element>
-                                    
-                                    
-                                    <xs:element name="C07_NA6SourceCOG" type="comp:NA6SourceCOG">
-                                       
-                                       
-                                       <xs:annotation>
-                                          
-                                          
-                                          <xs:documentation source="FieldText">Source</xs:documentation>
-                                          
-                                          
-                                          <xs:documentation source="CalculationsAndRules">User selects from list: ManufacturerSpec, CMAST</xs:documentation>
-                                          
-                                       
-                                       </xs:annotation>
-                                       
-                                    
-                                    </xs:element>
-                                    
-                                    
-                                    <xs:element name="C08_SiteBuiltFenestrationUFactor" type="comp:SiteBuiltFenestrationUFactor">
-                                       
-                                       
-                                       <xs:annotation>
-                                          
-                                          
-                                          <xs:documentation source="FieldText">
-                                             Total Performance U-factor(U
-                                             <ns1:sub>T</ns1:sub>
-                                             )
-                                          </xs:documentation>
-                                          
-                                          
-                                          <xs:documentation source="CalculationsAndRules">Calculated field:  Result = PRODUCT (C05_UfactorCoefficient2, C06_UFactorCenterOfGlass) + C04_UfactorCoefficient1</xs:documentation>
-                                          
-                                       
-                                       </xs:annotation>
-                                       
-                                    
-                                    </xs:element>
-                                    
-                                 
-                                 </xs:sequence>
-                                 
-                              
-                              </xs:complexType>
-                              
-                           
-                           </xs:element>
-                           
-                        
-                        </xs:sequence>
-                        
-                     
-                     </xs:complexType>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element minOccurs="0" name="TableNA6_5">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText">Table NA6-5 - U-factor Coefficiencts from Reference Appendices, Nonresidential Appendix NA6</xs:documentation>
-                        
-                        
-                        <xs:documentation source="CalculationsAndRules">This section is for report layout and storing of table values used in Section C.  It is not for collecing XML data</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                     
-                     <xs:complexType>
-                        
-                        
-                        <xs:sequence>
-                           
-                           
-                           <xs:element minOccurs="0" name="Col00Heading">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText">Product Type</xs:documentation>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element minOccurs="0" name="Col01Heading">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText">Frame Type</xs:documentation>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element minOccurs="0" name="Col02Heading">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText">
-                                    C
-                                    <ns1:sub>1</ns1:sub>
-                                 </xs:documentation>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element minOccurs="0" name="Col03Heading">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText">
-                                    C
-                                    <ns1:sub>2</ns1:sub>
-                                 </xs:documentation>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="SiteBuiltVertical" name="Row01Col00_NA6FenestrationType" type="comp:NA6FenestrationType">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText">Site-built Vertical Fenestration</xs:documentation>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="MetalFraming" name="Row01aCol1_FenestrationFraming" type="env:FenestrationFraming">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText">Metal</xs:documentation>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="0.311" name="Row01aCol2_UfactorCoefficient1" type="comp:UfactorCoefficient1">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText"/>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="0.872" name="Row01aCol3_UfactorCoefficient2" type="comp:UfactorCoefficient2">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText"/>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="MetalFramingWithThermalBreak" name="Row01bCol1_FenestrationFraming" type="env:FenestrationFraming">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText">Metal Thermal Break</xs:documentation>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="0.202" name="Row01bCol2_UfactorCoefficient1" type="comp:UfactorCoefficient1">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText"/>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="0.867" name="Row01bCol3_UfactorCoefficient2" type="comp:UfactorCoefficient2">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText"/>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="NonMetalFraming" name="Row01cCol1_FenestrationFraming" type="env:FenestrationFraming">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText">Nonmetal</xs:documentation>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="0.202" name="Row01cCol2_UfactorCoefficient1" type="comp:UfactorCoefficient1">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText"/>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="0.867" name="Row01cCol3_UfactorCoefficient2" type="comp:UfactorCoefficient2">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText"/>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="SkylightCurb" name="Row02Col00_NA6FenestrationType" type="comp:NA6FenestrationType">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText">Skylights with a Curb</xs:documentation>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="MetalFraming" name="Row02aCol1_FenestrationFraming" type="env:FenestrationFraming">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText">Metal</xs:documentation>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="0.711" name="Row02aCol2_UfactorCoefficient1" type="comp:UfactorCoefficient1">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText"/>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="1.065" name="Row02aCol3_UfactorCoefficient2" type="comp:UfactorCoefficient2">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText"/>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="MetalFramingWithThermalBreak" name="Row02bCol1_FenestrationFraming" type="env:FenestrationFraming">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText">Metal Thermal Break</xs:documentation>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="0.437" name="Row02bCol2_UfactorCoefficient1" type="comp:UfactorCoefficient1">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText"/>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="1.229" name="Row02bCol3_UfactorCoefficient2" type="comp:UfactorCoefficient2">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText"/>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="NonMetalFraming" name="Row02cCol1_FenestrationFraming" type="env:FenestrationFraming">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText">Nonmetal</xs:documentation>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="0.437" name="Row02cCol2_UfactorCoefficient1" type="comp:UfactorCoefficient1">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText"/>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="1.229" name="Row02cCol3_UfactorCoefficient2" type="comp:UfactorCoefficient2">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText"/>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="SkylightNoCurb" name="Row03Col00_NA6FenestrationType" type="comp:NA6FenestrationType">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText">Skylights with no Curb</xs:documentation>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="MetalFraming" name="Row03aCol1_FenestrationFraming" type="env:FenestrationFraming">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText">Metal</xs:documentation>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="0.195" name="Row03aCol2_UfactorCoefficient1" type="comp:UfactorCoefficient1">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText"/>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="0.882" name="Row03aCol3_UfactorCoefficient2" type="comp:UfactorCoefficient2">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText"/>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="MetalFramingWithThermalBreak" name="Row03bCol1_FenestrationFraming" type="env:FenestrationFraming">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText">Metal Thermal Break</xs:documentation>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="0.310" name="Row03bCol2_UfactorCoefficient1" type="comp:UfactorCoefficient1">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText"/>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="0.878" name="Row03bCol3_UfactorCoefficient2" type="comp:UfactorCoefficient2">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText"/>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="NonMetalFraming" name="Row03cCol1_FenestrationFraming" type="env:FenestrationFraming">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText">Nonmetal</xs:documentation>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="0.310" name="Row03cCol2_UfactorCoefficient1" type="comp:UfactorCoefficient1">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText"/>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                           
-                           <xs:element fixed="0.878" name="Row03cCol3_UfactorCoefficient2" type="comp:UfactorCoefficient2">
-                              
-                              
-                              <xs:annotation>
-                                 
-                                 
-                                 <xs:documentation source="FieldText"/>
-                                 
-                              
-                              </xs:annotation>
-                              
-                           
-                           </xs:element>
-                           
-                        
-                        </xs:sequence>
-                        
-                     
-                     </xs:complexType>
-                     
-                  
-                  </xs:element>
-                  
-               
-               </xs:sequence>
-               
-            
-            </xs:complexType>
-            
-         
-         </xs:element>
-         
-         
-         <xs:element minOccurs="0" name="Section_D">
-            
-            
-            <xs:annotation>
-               
-               
-               <xs:documentation source="FieldText">Default Solar Heat Gain Coefficient (SHGC) Using Reference Appendices, Nonresidential Appendix NA6 Equation NA6-2</xs:documentation>
-               
-               
-               <xs:documentation source="CalculationsAndRules">This section is applicable If CF1R parent == CF1R-ADD, CF1R-ALT or CF1R-NCB and at least one fenestration product has Proposed SHGC Source property,  FenestrationCertificationMethod == NA6Equations 
-Else If CF1R parent == CF1R-PRF, and at least one fenestration product has M09aFenestrationCertificationMethod = NA6Equations.</xs:documentation>
-               
-               
-               <xs:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xs:documentation>
-               
-            
-            </xs:annotation>
-            
-            
-            <xs:complexType>
-               
-               
-               <xs:sequence>
-                  
-                  
-                  <xs:element minOccurs="0" name="D_BeginNote1">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText">Begin Note 1</xs:documentation>
-                        
-                        
-                        <xs:documentation source="AdditionalRequirements">
-                           Equation NA6-2: SHGC
-                           <ns1:sub>T</ns1:sub>
-                            = 0.08 + (0.86 x SHGC
-                           <ns1:sub>C</ns1:sub>
-                        </xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element name="TableSHGC">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                     
-                     </xs:annotation>
-                     
-                     
-                     <xs:complexType>
-                        
-                        
-                        <xs:sequence>
-                           
-                           
-                           <xs:element maxOccurs="unbounded" minOccurs="1" name="Row">
-                              
-                              
-                              <xs:complexType>
-                                 
-                                 
-                                 <xs:sequence>
-                                    
-                                    
-                                    <xs:element name="D01_FenestrationName" type="comp:FenestrationName">
-                                       
-                                       
-                                       <xs:annotation>
-                                          
-                                          
-                                          <xs:documentation source="FieldText">Tag/Identification</xs:documentation>
-                                          
-                                          
-                                          <xs:documentation source="CalculationsAndRules">User selects from list provided from B01_FenestrationName values for this section</xs:documentation>
-                                          
-                                       
-                                       </xs:annotation>
-                                       
-                                    
-                                    </xs:element>
-                                    
-                                    
-                                    <xs:element name="D02_SHGC_CenterOfGlass" type="com:SHGC_CenterOfGlass">
-                                       
-                                       
-                                       <xs:annotation>
-                                          
-                                          
-                                          <xs:documentation source="FieldText">
-                                             Center of Glass SHGC (SHGC
-                                             <ns1:sub>C</ns1:sub>
-                                             )
-                                          </xs:documentation>
-                                          
-                                          
-                                          <xs:documentation source="CalculationsAndRules">User entry, nonnegative decimal</xs:documentation>
-                                          
-                                       
-                                       </xs:annotation>
-                                       
-                                    
-                                    </xs:element>
-                                    
-                                    
-                                    <xs:element name="D03_NA6SourceCOG" type="comp:NA6SourceCOG">
-                                       
-                                       
-                                       <xs:annotation>
-                                          
-                                          
-                                          <xs:documentation source="FieldText">Source</xs:documentation>
-                                          
-                                          
-                                          <xs:documentation source="CalculationsAndRules">User selects from list: ManufacturerSpec, CMAST</xs:documentation>
-                                          
-                                       
-                                       </xs:annotation>
-                                       
-                                    
-                                    </xs:element>
-                                    
-                                    
-                                    <xs:element name="D04_SiteBuiltFenestrationSHGC" type="comp:SiteBuiltFenestrationSHGC">
-                                       
-                                       
-                                       <xs:annotation>
-                                          
-                                          
-                                          <xs:documentation source="FieldText">
-                                             Total Performance SHGC (SHGC
-                                             <ns1:sub>T</ns1:sub>
-                                             )
-                                          </xs:documentation>
-                                          
-                                          
-                                          <xs:documentation source="CalculationsAndRules">Calculated field:  Result = PRODUCT (D02_SHGC_CenterOfGlass, 0.86) + 0.08</xs:documentation>
-                                          
-                                       
-                                       </xs:annotation>
-                                       
-                                    
-                                    </xs:element>
-                                    
-                                 
-                                 </xs:sequence>
-                                 
-                              
-                              </xs:complexType>
-                              
-                           
-                           </xs:element>
-                           
-                        
-                        </xs:sequence>
-                        
-                     
-                     </xs:complexType>
-                     
-                  
-                  </xs:element>
-                  
-               
-               </xs:sequence>
-               
-            
-            </xs:complexType>
-            
-         
-         </xs:element>
-         
-      
-      </xs:sequence>
-      
-   
-   </xs:complexType>
-   
-   
-   <xs:element name="cF1RENV05E" type="CF1RENV05E">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>This element contains all of the data and text required to generate the CF1RENV05E compliance report.</xs:documentation>
-         
-      
-      </xs:annotation>
-      
-   
-   </xs:element>
-   
-
-</xs:schema>
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF1RENV05E" version="2025.0.000" xmlns="http://www.lmonte.com/besm/CF1RENV05E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:complexType name="CF1RENV05E">
+      <xsd:annotation>
+         <xsd:documentation>Alternative Default Fenestration Procedure (NA6) Worksheet</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">General Information</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="A01_ResidentialBuildingTotalConditionedFloorArea" type="com:ResidentialBuildingTotalConditionedFloorArea">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Conditioned Floor Area</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Auto-filled from CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A02_ConditionedFloorArea5Percent" type="com:ConditionedFloorArea5Percent">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">5% of the Conditioned Floor Area</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Result = PRODUCT( A01_ResidentialBuildingTotalConditionedFloorArea, .05)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A03_FenestrationNonRatedSiteBuiltTotalAreaAllowed" type="env:FenestrationNonRatedSiteBuiltTotalAreaAllowed">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Total Allowed Non-Rated Site-built Fenestration Area</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Result = Largest (A02_ResidentialBuildingConditionedFloorArea5Percent, 250)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A04_FenestrationNonRatedSiteBuiltTotalAreaProposed" type="env:FenestrationNonRatedSiteBuiltTotalAreaProposed">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Proposed Area of Site-built Fenestration</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: SUM ALL (B02_GlazingArea</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_B" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Fenestration/ Glazing Area</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">If CF1R parent == CF1R-ADD, CF1R-ALT or CF1R-NCB require a row for fenestration products with Proposed U-factor or SHGC Source property,  FenestrationCertificationMethod == NA6Equations 
+Else If CF1R parent == CF1R-PRF, require a row for fenestration products with M08aFenestrationCertificationMethod = NA6Equations Or M09aFenestrationCertificationMethod = NA6Equations</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableFenestration">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="B01_FenestrationName" type="comp:FenestrationName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Tag/Identification</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Auto-filled from CF1R.</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B02_GlazingArea" type="env:GlazingArea">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Area (ft<d:sup>2</d:sup>
+                                          </xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User entry, nonnegative decimal</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_C" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Default U-factor Using Reference Appendices, Nonresidential Appendix NA6, Equation NA6-1</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable If CF1R parent == CF1R-ADD, CF1R-ALT or CF1R-NCB and at least one fenestration product has Proposed U-factor Source property,  FenestrationCertificationMethod == NA6Equations 
+Else If CF1R parent == CF1R-PRF, require a row for fenestration products with M08aFenestrationCertificationMethod = NA6Equations.</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="C_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Equation NA6-1: U<d:sub>T</d:sub> = C<d:sub>1</d:sub> + (C<d:sub>2</d:sub> x U<d:sub>C</d:sub>
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="TableUFactor">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="C01_FenestrationName" type="comp:FenestrationName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Tag/Identification</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list provided from B01_FenestrationName for this section</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C02_NA6FenestrationType" type="comp:NA6FenestrationType">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Product Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list: SiteBuiltVertical, SkylightCurb, SkylightNoCurb</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C03_FenestrationFraming">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Frame Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User picks from list: Metal with thermal break; Metal; NonMetal</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="env:FenestrationFraming">
+                                             <xsd:enumeration value="MetalFramingWithThermalBreak"/>
+                                             <xsd:enumeration value="MetalFraming"/>
+                                             <xsd:enumeration value="NonMetalFraming"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="C04_UfactorCoefficient1" type="comp:UfactorCoefficient1">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">C<d:sub>1</d:sub> from Table NA6-5</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input decimal number from Table NA6-5</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C05_UfactorCoefficient2" type="comp:UfactorCoefficient2">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">C<d:sub>2</d:sub> from Table NA6-5</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input decimal number from Table NA6-5</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C06_UFactorCenterOfGlass" type="com:UFactorCenterOfGlass">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Center of Glass U-factor (U<d:sub>c</d:sub> )</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input decimal number</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C07_NA6SourceCOG" type="comp:NA6SourceCOG">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Source</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list: ManufacturerSpec, CMAST</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C08_SiteBuiltFenestrationUFactor" type="comp:SiteBuiltFenestrationUFactor">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Total Performance U-factor(U<d:sub>T</d:sub>)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field:  Result = PRODUCT (C05_UfactorCoefficient2, C06_UFactorCenterOfGlass) + C04_UfactorCoefficient1</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="TableNA6_5" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Table NA6-5 - U-factor Coefficiencts from Reference Appendices, Nonresidential Appendix NA6</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This section is for report layout and storing of table values used in Section C.  It is not for collecing XML data</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Col00Heading" minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Product Type</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Col01Heading" minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Frame Type</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Col02Heading" minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">C<d:sub>1</d:sub>
+                                 </xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Col03Heading" minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">C<d:sub>2</d:sub>
+                                 </xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row01Col00_NA6FenestrationType" type="comp:NA6FenestrationType" fixed="SiteBuiltVertical">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Site-built Vertical Fenestration</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row01aCol1_FenestrationFraming" type="env:FenestrationFraming" fixed="MetalFraming">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Metal</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row01aCol2_UfactorCoefficient1" type="comp:UfactorCoefficient1" fixed="0.311">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"/>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row01aCol3_UfactorCoefficient2" type="comp:UfactorCoefficient2" fixed="0.872">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"/>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row01bCol1_FenestrationFraming" type="env:FenestrationFraming" fixed="MetalFramingWithThermalBreak">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Metal Thermal Break</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row01bCol2_UfactorCoefficient1" type="comp:UfactorCoefficient1" fixed="0.202">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"/>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row01bCol3_UfactorCoefficient2" type="comp:UfactorCoefficient2" fixed="0.867">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"/>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row01cCol1_FenestrationFraming" type="env:FenestrationFraming" fixed="NonMetalFraming">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Nonmetal</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row01cCol2_UfactorCoefficient1" type="comp:UfactorCoefficient1" fixed="0.202">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"/>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row01cCol3_UfactorCoefficient2" type="comp:UfactorCoefficient2" fixed="0.867">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"/>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row02Col00_NA6FenestrationType" type="comp:NA6FenestrationType" fixed="SkylightCurb">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Skylights with a Curb</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row02aCol1_FenestrationFraming" type="env:FenestrationFraming" fixed="MetalFraming">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Metal</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row02aCol2_UfactorCoefficient1" type="comp:UfactorCoefficient1" fixed="0.711">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"/>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row02aCol3_UfactorCoefficient2" type="comp:UfactorCoefficient2" fixed="1.065">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"/>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row02bCol1_FenestrationFraming" type="env:FenestrationFraming" fixed="MetalFramingWithThermalBreak">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Metal Thermal Break</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row02bCol2_UfactorCoefficient1" type="comp:UfactorCoefficient1" fixed="0.437">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"/>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row02bCol3_UfactorCoefficient2" type="comp:UfactorCoefficient2" fixed="1.229">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"/>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row02cCol1_FenestrationFraming" type="env:FenestrationFraming" fixed="NonMetalFraming">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Nonmetal</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row02cCol2_UfactorCoefficient1" type="comp:UfactorCoefficient1" fixed="0.437">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"/>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row02cCol3_UfactorCoefficient2" type="comp:UfactorCoefficient2" fixed="1.229">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"/>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row03Col00_NA6FenestrationType" type="comp:NA6FenestrationType" fixed="SkylightNoCurb">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Skylights with no Curb</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row03aCol1_FenestrationFraming" type="env:FenestrationFraming" fixed="MetalFraming">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Metal</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row03aCol2_UfactorCoefficient1" type="comp:UfactorCoefficient1" fixed="0.195">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"/>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row03aCol3_UfactorCoefficient2" type="comp:UfactorCoefficient2" fixed="0.882">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"/>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row03bCol1_FenestrationFraming" type="env:FenestrationFraming" fixed="MetalFramingWithThermalBreak">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Metal Thermal Break</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row03bCol2_UfactorCoefficient1" type="comp:UfactorCoefficient1" fixed="0.310">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"/>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row03bCol3_UfactorCoefficient2" type="comp:UfactorCoefficient2" fixed="0.878">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"/>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row03cCol1_FenestrationFraming" type="env:FenestrationFraming" fixed="NonMetalFraming">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Nonmetal</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row03cCol2_UfactorCoefficient1" type="comp:UfactorCoefficient1" fixed="0.310">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"/>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row03cCol3_UfactorCoefficient2" type="comp:UfactorCoefficient2" fixed="0.878">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"/>
+                              </xsd:annotation>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_D" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Default Solar Heat Gain Coefficient (SHGC) Using Reference Appendices, Nonresidential Appendix NA6 Equation NA6-2</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable If CF1R parent == CF1R-ADD, CF1R-ALT or CF1R-NCB and at least one fenestration product has Proposed SHGC Source property,  FenestrationCertificationMethod == NA6Equations 
+Else If CF1R parent == CF1R-PRF, and at least one fenestration product has M09aFenestrationCertificationMethod = NA6Equations.</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="D_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Equation NA6-2: SHGC<d:sub>T</d:sub> = 0.08 + (0.86 x SHGC<d:sub>C</d:sub>
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="TableSHGC">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="D01_FenestrationName" type="comp:FenestrationName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Tag/Identification</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list provided from B01_FenestrationName values for this section</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D02_SHGC_CenterOfGlass" type="com:SHGC_CenterOfGlass">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Center of Glass SHGC (SHGC<d:sub>C</d:sub>)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User entry, nonnegative decimal</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D03_NA6SourceCOG" type="comp:NA6SourceCOG">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Source</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list: ManufacturerSpec, CMAST</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D04_SiteBuiltFenestrationSHGC" type="comp:SiteBuiltFenestrationSHGC">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Total Performance SHGC (SHGC<d:sub>T</d:sub>)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field:  Result = PRODUCT (D02_SHGC_CenterOfGlass, 0.86) + 0.08</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF1RENV05E"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF COMPLIANCE"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Alternative Default Fenestration Procedure (NA6) Worksheet"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderHERSCC"/>
+                     <xsd:element ref="cF1RENV05E"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF1R"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF1RENV05E"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="cF1RENV05E" type="CF1RENV05E">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF1RENV05E compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>

@@ -1,804 +1,275 @@
-<?xml version="1.0" ?>
-<xs:schema xmlns:ns1="http://www.lmonte.com/besm/d" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RELC01E" version="2025.0.000">
-   
-   
-   <xs:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
-   
-   
-   <xs:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
-   
-   
-   <xs:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
-   
-   
-   <xs:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
-   
-   
-   <xs:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
-   
-   
-   <xs:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
-   
-   
-   <xs:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
-   
-   
-   <xs:element name="ComplianceDocumentPackage">
-      
-      
-      <xs:complexType>
-         
-         
-         <xs:sequence>
-            
-            
-            <xs:element minOccurs="0" name="DocID">
-               
-               
-               <xs:complexType>
-                  
-                  
-                  <xs:attribute fixed="CF2RELC01E" name="doc" type="comp:ComplianceDocumentTag"/>
-                  
-                  
-                  <xs:attribute fixed="CERTIFICATE OF INSTALLATION" name="docType" type="comp:ComplianceDocumentType"/>
-                  
-                  
-                  <xs:attribute fixed="Electric Ready Requirements" name="docTitle" type="comp:ComplianceDocumentTitleRes"/>
-                  
-               
-               </xs:complexType>
-               
-            
-            </xs:element>
-            
-            
-            <xs:element name="Payload" type="comp:Payload"/>
-            
-            
-            <xs:element name="DocumentData">
-               
-               
-               <xs:complexType>
-                  
-                  
-                  <xs:sequence>
-                     
-                     
-                     <xs:element name="Header" type="comp:HeaderHERS"/>
-                     
-                     
-                     <xs:element ref="cF2RELC01E"/>
-                     
-                     
-                     <xs:element name="DocAuthor" type="comp:DocumentAuthor"/>
-                     
-                     
-                     <xs:element name="RespPerson" type="comp:ResponsiblePersonCF2R_E"/>
-                     
-                     
-                     <xs:element name="Footer" type="comp:Footer"/>
-                     
-                  
-                  </xs:sequence>
-                  
-               
-               </xs:complexType>
-               
-            
-            </xs:element>
-            
-            
-            <xs:element name="Report" type="xsd:base64Binary"/>
-            
-         
-         </xs:sequence>
-         
-         
-         <xs:attribute fixed="rev 20250101" name="revision" type="xsd:string" use="required"/>
-         
-         
-         <xs:attribute fixed="CF2RELC01E" name="doc" type="comp:ComplianceDocumentTag" use="required"/>
-         
-      
-      </xs:complexType>
-      
-   
-   </xs:element>
-   
-   
-   <xs:complexType name="CF2RELC01E">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>Electric Ready Requirements</xs:documentation>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:sequence>
-         
-         
-         <xs:element maxOccurs="1" minOccurs="1" name="Section_A">
-            
-            
-            <xs:annotation>
-               
-               
-               <xs:documentation source="FieldText">General Information</xs:documentation>
-               
-               
-               <xs:documentation source="MinOccurs">This section is required.</xs:documentation>
-               
-            
-            </xs:annotation>
-            
-            
-            <xs:complexType>
-               
-               
-               <xs:sequence>
-                  
-                  
-                  <xs:element maxOccurs="unbounded" name="A01_ResElectricReadyScope">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText">Project Scope</xs:documentation>
-                        
-                        
-                        <xs:documentation source="CalculationsAndRules">User selects all that apply: ReadyEnergyStorageSystem, ReadyHeatingHP, ReadyElecCooktop, ReadyElecDryer, ReadyElecNA</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                     
-                     <xs:simpleType>
-                        
-                        
-                        <xs:restriction base="comp:ResElectricReadyScope">
-                           
-                           
-                           <xs:enumeration value="ReadyElecCooktop"/>
-                           
-                           
-                           <xs:enumeration value="ReadyElecDryer"/>
-                           
-                           
-                           <xs:enumeration value="ReadyEnergyStorageSystem"/>
-                           
-                           
-                           <xs:enumeration value="ReadyHeatingHP"/>
-                           
-                           
-                           <xs:enumeration value="ReadyElecNA"/>
-                           
-                        
-                        </xs:restriction>
-                        
-                     
-                     </xs:simpleType>
-                     
-                  
-                  </xs:element>
-                  
-               
-               </xs:sequence>
-               
-            
-            </xs:complexType>
-            
-         
-         </xs:element>
-         
-         
-         <xs:element minOccurs="0" name="Section_B">
-            
-            
-            <xs:annotation>
-               
-               
-               <xs:documentation source="FieldText">Battery Energy Storage System (BESS)Ready</xs:documentation>
-               
-               
-               <xs:documentation source="CalculationsAndRules">This section is applicable if A01_ResElectricReadyScope includes ReadyEnergyStorageSystem</xs:documentation>
-               
-               
-               <xs:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xs:documentation>
-               
-            
-            </xs:annotation>
-            
-            
-            <xs:complexType>
-               
-               
-               <xs:sequence>
-                  
-                  
-                  <xs:element minOccurs="0" name="Stor01">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                        
-                        <xs:documentation source="AdditionalRequirements">
-                           BESS Ready interconnection equipment with minimum backed up of 60 amps and a minimum of 4 BESS-supplied branch circuits specified in Section 150.0(s)2. 
-                           <ns1:line1/>
-                            OR
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RELC01E" version="2025.0.000" xmlns="http://www.lmonte.com/besm/CF2RELC01E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:complexType name="CF2RELC01E">
+      <xsd:annotation>
+         <xsd:documentation>Electric Ready Requirements</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">General Information</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="A01_ResElectricReadyScope" maxOccurs="unbounded">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Project Scope</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects all that apply: ReadyEnergyStorageSystem, ReadyHeatingHP, ReadyElecCooktop, ReadyElecDryer, ReadyElecNA</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="comp:ResElectricReadyScope">
+                           <xsd:enumeration value="ReadyElecCooktop"/>
+                           <xsd:enumeration value="ReadyElecDryer"/>
+                           <xsd:enumeration value="ReadyEnergyStorageSystem"/>
+                           <xsd:enumeration value="ReadyHeatingHP"/>
+                           <xsd:enumeration value="ReadyElecNA"/>
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_B" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Battery Energy Storage System (BESS)Ready</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if A01_ResElectricReadyScope includes ReadyEnergyStorageSystem</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="Stor01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">BESS Ready interconnection equipment with minimum backed up of 60 amps and a minimum of 4 BESS-supplied branch circuits specified in Section 150.0(s)2. 
+                           <d:line1/> OR
 
-                           <ns1:line1/>
-                           A dedicated raceway from the main service to a panelboard (subpanel) that supplies the branch circuit in Section 150.0(s)2.  All branch circuits are permitted to be supplied by the main service panel prior to the installation of a BESS. 
-The trade size of the raceway shall be not less than one inch. The panelboard that supplies the branch circuits (subpanel) must be labeled "Subpanel shall include all backed-up load circuits."
-                        </xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element minOccurs="0" name="Stor02">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                        
-                        <xs:documentation source="AdditionalRequirements">A minimum of four branch circuits shall be identified and have their source of supply collocated at a single panelboard suitable to be supplied by the BESS.  
-At least one circuit shall supply the refrigerator, one lighting circuit near the primary egress, and at least one circuit shall supply a sleeping room receptacle outlet.</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element minOccurs="0" name="Stor03">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                        
-                        <xs:documentation source="AdditionalRequirements">The main panelboard shall have a minimum busbar rating of 225 amps.</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element minOccurs="0" name="Stor04">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                        
-                        <xs:documentation source="AdditionalRequirements">Sufficient space shall be reserved to allow future installation of a system isolation equipment/transfer switch within 3 feet of the main panelboard.
-Raceways shall be installed between the panelboard and the system isolation equipment/transfer switch location to allow the connection of backup power source.</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element minOccurs="0" name="Stor05">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                        
-                        <xs:documentation source="AdditionalRequirements">Exception to Section 150.0(s): Buildings which have a BESS installed.</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element minOccurs="0" name="StorEndNote1">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                        
-                        <xs:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-               
-               </xs:sequence>
-               
-            
-            </xs:complexType>
-            
-         
-         </xs:element>
-         
-         
-         <xs:element minOccurs="0" name="Section_C">
-            
-            
-            <xs:annotation>
-               
-               
-               <xs:documentation source="FieldText">Heat Pump Space Heater Ready</xs:documentation>
-               
-               
-               <xs:documentation source="CalculationsAndRules">This section is applicable if A01_ResElectricReadyScope includes ReadyHeatingHP</xs:documentation>
-               
-               
-               <xs:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xs:documentation>
-               
-            
-            </xs:annotation>
-            
-            
-            <xs:complexType>
-               
-               
-               <xs:sequence>
-                  
-                  
-                  <xs:element minOccurs="0" name="Htp01">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                        
-                        <xs:documentation source="AdditionalRequirements">A dedicated 240 volt branch circuit wiring shall be installed within 3 feet from the furnace and accessible to the furnace with no obstructions.</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element minOccurs="0" name="Htp02">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                        
-                        <xs:documentation source="AdditionalRequirements">The branch circuit conductors shall be rated at 30 amps minimum.</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element minOccurs="0" name="Htp03">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                        
-                        <xs:documentation source="AdditionalRequirements">The blank cover shall be identified as "240V ready".</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element minOccurs="0" name="Htp04">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                        
-                        <xs:documentation source="AdditionalRequirements">
-                           All electrical components shall be installed in accordance with the 
-                           <ns1:i>California Electrical Code</ns1:i>
-                        </xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element minOccurs="0" name="Htp05">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                        
-                        <xs:documentation source="AdditionalRequirements">The main electrical service panel shall have a reserved space to allow for the installation of a double pole circuit breaker for a future heat pump space heater installation.  The reserved space shall be permanently marked as "For Future 240V use".</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element minOccurs="0" name="HtpEndNote1">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                        
-                        <xs:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-               
-               </xs:sequence>
-               
-            
-            </xs:complexType>
-            
-         
-         </xs:element>
-         
-         
-         <xs:element minOccurs="0" name="Section_D">
-            
-            
-            <xs:annotation>
-               
-               
-               <xs:documentation source="FieldText">Electric Cooktop Ready</xs:documentation>
-               
-               
-               <xs:documentation source="CalculationsAndRules">This section is applicable if A01_ResElectricReadyScope includes ReadyElecCooktop</xs:documentation>
-               
-               
-               <xs:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xs:documentation>
-               
-            
-            </xs:annotation>
-            
-            
-            <xs:complexType>
-               
-               
-               <xs:sequence>
-                  
-                  
-                  <xs:element minOccurs="0" name="Cook01">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                        
-                        <xs:documentation source="AdditionalRequirements">A dedicated 240 volt branch circuit wiring shall be installed within 3 feet from the cooktop and accessible to the cooktop with no obstructions.</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element minOccurs="0" name="Cook02">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                        
-                        <xs:documentation source="AdditionalRequirements">The branch circuit conductors shall be rated at 50 amps minimum.</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element minOccurs="0" name="Cook03">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                        
-                        <xs:documentation source="AdditionalRequirements">The blank cover shall be identified as "240V ready".</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element minOccurs="0" name="Cook04">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                        
-                        <xs:documentation source="AdditionalRequirements">
-                           All electrical components shall be installed in accordance with the 
-                           <ns1:i>California Electrical Code</ns1:i>
-                        </xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element minOccurs="0" name="Cook05">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                        
-                        <xs:documentation source="AdditionalRequirements">The main electrical service panel shall have a reserved space to allow for the installation of a double pole circuit breaker for a future electric cooktop installation.  The reserved space shall be permanently marked as "For Future 240V use".</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element minOccurs="0" name="CookEndNote1">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                        
-                        <xs:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-               
-               </xs:sequence>
-               
-            
-            </xs:complexType>
-            
-         
-         </xs:element>
-         
-         
-         <xs:element minOccurs="0" name="Section_E">
-            
-            
-            <xs:annotation>
-               
-               
-               <xs:documentation source="FieldText">Electric Clothes Dryer Ready</xs:documentation>
-               
-               
-               <xs:documentation source="CalculationsAndRules">This section is applicable if A01_ResElectricReadyScope includes ReadyElecDryer</xs:documentation>
-               
-               
-               <xs:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xs:documentation>
-               
-            
-            </xs:annotation>
-            
-            
-            <xs:complexType>
-               
-               
-               <xs:sequence>
-                  
-                  
-                  <xs:element minOccurs="0" name="Dry01">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                        
-                        <xs:documentation source="AdditionalRequirements">A dedicated 240 volt branch circuit wiring shall be installed within 3 feet from the clothes dryer location and accessible to the clothes dryer location with no obstructions.</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element minOccurs="0" name="Dry02">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                        
-                        <xs:documentation source="AdditionalRequirements">The branch circuit conductors shall be rated at 30 amps minimum.</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element minOccurs="0" name="Dry03">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                        
-                        <xs:documentation source="AdditionalRequirements">The blank cover shall be identified as "240V ready".</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element minOccurs="0" name="Dry04">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                        
-                        <xs:documentation source="AdditionalRequirements">
-                           All electrical components shall be installed in accordance with the 
-                           <ns1:i>California Electrical Code</ns1:i>
-                        </xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element minOccurs="0" name="Dry05">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                        
-                        <xs:documentation source="AdditionalRequirements">The main electrical service panel shall have a reserved space to allow for the installation of a double pole circuit breaker for a future electric clothes dryer installation.  The reserved space shall be permanently marked as "For Future 240V use".</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element minOccurs="0" name="DryEndNote1">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                        
-                        <xs:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-               
-               </xs:sequence>
-               
-            
-            </xs:complexType>
-            
-         
-         </xs:element>
-         
-      
-      </xs:sequence>
-      
-   
-   </xs:complexType>
-   
-   
-   <xs:element name="cF2RELC01E" type="CF2RELC01E">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>This element contains all of the data and text required to generate the CF2RELC01E compliance report.</xs:documentation>
-         
-      
-      </xs:annotation>
-      
-   
-   </xs:element>
-   
-
-</xs:schema>
+                           <d:line1/>A dedicated raceway from the main service to a panelboard (subpanel) that supplies the branch circuit in Section 150.0(s)2.  All branch circuits are permitted to be supplied by the main service panel prior to the installation of a BESS. 
+The trade size of the raceway shall be not less than one inch. The panelboard that supplies the branch circuits (subpanel) must be labeled "Subpanel shall include all backed-up load circuits."</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Stor02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">A minimum of four branch circuits shall be identified and have their source of supply collocated at a single panelboard suitable to be supplied by the BESS.  
+At least one circuit shall supply the refrigerator, one lighting circuit near the primary egress, and at least one circuit shall supply a sleeping room receptacle outlet.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Stor03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The main panelboard shall have a minimum busbar rating of 225 amps.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Stor04" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">Sufficient space shall be reserved to allow future installation of a system isolation equipment/transfer switch within 3 feet of the main panelboard.
+Raceways shall be installed between the panelboard and the system isolation equipment/transfer switch location to allow the connection of backup power source.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Stor05" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">Exception to Section 150.0(s): Buildings which have a BESS installed.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="StorEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_C" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Heat Pump Space Heater Ready</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if A01_ResElectricReadyScope includes ReadyHeatingHP</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="Htp01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">A dedicated 240 volt branch circuit wiring shall be installed within 3 feet from the furnace and accessible to the furnace with no obstructions.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Htp02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The branch circuit conductors shall be rated at 30 amps minimum.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Htp03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The blank cover shall be identified as "240V ready".</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Htp04" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">All electrical components shall be installed in accordance with the 
+                           <d:i>California Electrical Code</d:i>
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Htp05" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The main electrical service panel shall have a reserved space to allow for the installation of a double pole circuit breaker for a future heat pump space heater installation.  The reserved space shall be permanently marked as "For Future 240V use".</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="HtpEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_D" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Electric Cooktop Ready</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if A01_ResElectricReadyScope includes ReadyElecCooktop</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="Cook01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">A dedicated 240 volt branch circuit wiring shall be installed within 3 feet from the cooktop and accessible to the cooktop with no obstructions.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Cook02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The branch circuit conductors shall be rated at 50 amps minimum.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Cook03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The blank cover shall be identified as "240V ready".</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Cook04" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">All electrical components shall be installed in accordance with the 
+                           <d:i>California Electrical Code</d:i>
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Cook05" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The main electrical service panel shall have a reserved space to allow for the installation of a double pole circuit breaker for a future electric cooktop installation.  The reserved space shall be permanently marked as "For Future 240V use".</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="CookEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_E" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Electric Clothes Dryer Ready</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if A01_ResElectricReadyScope includes ReadyElecDryer</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="Dry01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">A dedicated 240 volt branch circuit wiring shall be installed within 3 feet from the clothes dryer location and accessible to the clothes dryer location with no obstructions.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Dry02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The branch circuit conductors shall be rated at 30 amps minimum.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Dry03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The blank cover shall be identified as "240V ready".</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Dry04" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">All electrical components shall be installed in accordance with the 
+                           <d:i>California Electrical Code</d:i>
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Dry05" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The main electrical service panel shall have a reserved space to allow for the installation of a double pole circuit breaker for a future electric clothes dryer installation.  The reserved space shall be permanently marked as "For Future 240V use".</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="DryEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RELC01E"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Electric Ready Requirements"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderHERS"/>
+                     <xsd:element ref="cF2RELC01E"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_E"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RELC01E"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="cF2RELC01E" type="CF2RELC01E">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF2RELC01E compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>

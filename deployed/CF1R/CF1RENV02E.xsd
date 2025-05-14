@@ -1,660 +1,216 @@
-<?xml version="1.0" ?>
-<xs:schema xmlns:ns1="http://www.lmonte.com/besm/d" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF1RENV02E" version="2025.0.000">
-   
-   
-   <xs:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
-   
-   
-   <xs:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
-   
-   
-   <xs:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
-   
-   
-   <xs:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
-   
-   
-   <xs:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
-   
-   
-   <xs:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
-   
-   
-   <xs:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
-   
-   
-   <xs:element name="ComplianceDocumentPackage">
-      
-      
-      <xs:complexType>
-         
-         
-         <xs:sequence>
-            
-            
-            <xs:element minOccurs="0" name="DocID">
-               
-               
-               <xs:complexType>
-                  
-                  
-                  <xs:attribute fixed="CF1RENV02E" name="doc" type="comp:ComplianceDocumentTag"/>
-                  
-                  
-                  <xs:attribute fixed="CERTIFICATE OF COMPLIANCE" name="docType" type="comp:ComplianceDocumentType"/>
-                  
-                  
-                  <xs:attribute fixed="Area Weighted Average Calculation Worksheet" name="docTitle" type="comp:ComplianceDocumentTitleRes"/>
-                  
-               
-               </xs:complexType>
-               
-            
-            </xs:element>
-            
-            
-            <xs:element name="Payload" type="comp:Payload"/>
-            
-            
-            <xs:element name="DocumentData">
-               
-               
-               <xs:complexType>
-                  
-                  
-                  <xs:sequence>
-                     
-                     
-                     <xs:element name="Header" type="comp:HeaderHERSCC"/>
-                     
-                     
-                     <xs:element ref="cF1RENV02E"/>
-                     
-                     
-                     <xs:element name="DocAuthor" type="comp:DocumentAuthor"/>
-                     
-                     
-                     <xs:element name="RespPerson" type="comp:ResponsiblePersonCF1R"/>
-                     
-                     
-                     <xs:element name="Footer" type="comp:Footer"/>
-                     
-                  
-                  </xs:sequence>
-                  
-               
-               </xs:complexType>
-               
-            
-            </xs:element>
-            
-            
-            <xs:element name="Report" type="xsd:base64Binary"/>
-            
-         
-         </xs:sequence>
-         
-         
-         <xs:attribute fixed="rev 20250101" name="revision" type="xsd:string" use="required"/>
-         
-         
-         <xs:attribute fixed="CF1RENV02E" name="doc" type="comp:ComplianceDocumentTag" use="required"/>
-         
-      
-      </xs:complexType>
-      
-   
-   </xs:element>
-   
-   
-   <xs:complexType name="CF1RENV02E">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>Area Weighted Average Calculation Worksheet</xs:documentation>
-         
-      
-      </xs:annotation>
-      
-      
-      <xs:sequence>
-         
-         
-         <xs:element minOccurs="1" name="Section_A">
-            
-            
-            <xs:annotation>
-               
-               
-               <xs:documentation source="FieldText">Area-Weighted Average - General Information</xs:documentation>
-               
-               
-               <xs:documentation source="MinOccurs">This section is required.</xs:documentation>
-               
-            
-            </xs:annotation>
-            
-            
-            <xs:complexType>
-               
-               
-               <xs:sequence>
-                  
-                  
-                  <xs:element name="A01_ProjectName" type="com:ProjectName">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText">Project Name:</xs:documentation>
-                        
-                        
-                        <xs:documentation source="CalculationsAndRules">Data from CF1R</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element name="A02_DwellingUnitName" type="com:DwellingUnitName">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText">Dwelling Name or Number:</xs:documentation>
-                        
-                        
-                        <xs:documentation source="CalculationsAndRules">Data from CF1R</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element name="A03_AreaWeightedAverageFeature" type="comp:AreaWeightedAverageFeature">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText">Feature Being Area Weighted Averaged</xs:documentation>
-                        
-                        
-                        <xs:documentation source="CalculationsAndRules">User picks from list representing enumerations: ExteriorDoor,  Fenestration, Wall, Roof, Ceiling or Floor</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element name="A04_WeightedAverageProperty" type="comp:WeightedAverageProperty">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText">Property Being Averaged</xs:documentation>
-                        
-                        
-                        <xs:documentation source="CalculationsAndRules">User picks from list:  If A03_AreaWeightedAverageFeature == Fenestration, display all enumerations: Ufactor, SHGC,  UFactorAndSHGC;   Else only display  Ufactor</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-               
-               </xs:sequence>
-               
-            
-            </xs:complexType>
-            
-         
-         </xs:element>
-         
-         
-         <xs:element maxOccurs="1" minOccurs="0" name="Section_B">
-            
-            
-            <xs:annotation>
-               
-               
-               <xs:documentation source="FieldText">U-factor Area-Weighted Average Calculation</xs:documentation>
-               
-               
-               <xs:documentation source="CalculationsAndRules">This section is applicable If A04_WeightedAverageProperty == Ufactor or UFactorAndSHGC.  In the table, fields 01 and 02 have a choice of two possible elements for storing the result - one if averaging fenestration Ufactor and one if averaging Partition (door, wall, ceiling, roof or floor) UFactor .</xs:documentation>
-               
-               
-               <xs:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xs:documentation>
-               
-            
-            </xs:annotation>
-            
-            
-            <xs:complexType>
-               
-               
-               <xs:sequence>
-                  
-                  
-                  <xs:element name="TableUfactor">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                     
-                     </xs:annotation>
-                     
-                     
-                     <xs:complexType>
-                        
-                        
-                        <xs:sequence>
-                           
-                           
-                           <xs:element maxOccurs="unbounded" minOccurs="1" name="Row">
-                              
-                              
-                              <xs:complexType>
-                                 
-                                 
-                                 <xs:sequence>
-                                    
-                                    
-                                    <xs:choice maxOccurs="1">
-                                       
-                                       
-                                       <xs:element name="B01_PartitionName" type="env:PartitionName">
-                                          
-                                          
-                                          <xs:annotation>
-                                             
-                                             
-                                             <xs:documentation source="FieldText">Tag/Identification</xs:documentation>
-                                             
-                                             
-                                             <xs:documentation source="CalculationsAndRules">User input text; If A03_AreaWeightedAverageFeature == Fenestration, store result in WindowSystemName; Else store result in PartitionName</xs:documentation>
-                                             
-                                          
-                                          </xs:annotation>
-                                          
-                                       
-                                       </xs:element>
-                                       
-                                       
-                                       <xs:element name="B01_WindowSystemName" type="env:WindowSystemName">
-                                          
-                                          
-                                          <xs:annotation>
-                                             
-                                             
-                                             <xs:documentation source="FieldText">Tag/Identification</xs:documentation>
-                                             
-                                             
-                                             <xs:documentation source="CalculationsAndRules">User input text; If A03_AreaWeightedAverageFeature == Fenestration, store result in WindowSystemName; Else store result in PartitionName</xs:documentation>
-                                             
-                                          
-                                          </xs:annotation>
-                                          
-                                       
-                                       </xs:element>
-                                       
-                                    
-                                    </xs:choice>
-                                    
-                                    
-                                    <xs:choice maxOccurs="1">
-                                       
-                                       
-                                       <xs:element name="B02_SurfaceArea" type="dtyp:SurfaceArea">
-                                          
-                                          
-                                          <xs:annotation>
-                                             
-                                             
-                                             <xs:documentation source="FieldText">
-                                                Surface Area (ft
-                                                <ns1:sup>2</ns1:sup>
-                                                )
-                                             </xs:documentation>
-                                             
-                                             
-                                             <xs:documentation source="CalculationsAndRules">User input numeric;  If A03_AreaWeightedAverageFeature == Fenestration, store result in RoughOpeningArea; Else store result in SurfaceArea</xs:documentation>
-                                             
-                                          
-                                          </xs:annotation>
-                                          
-                                       
-                                       </xs:element>
-                                       
-                                       
-                                       <xs:element name="B02_RoughOpeningArea" type="env:RoughOpeningArea">
-                                          
-                                          
-                                          <xs:annotation>
-                                             
-                                             
-                                             <xs:documentation source="FieldText">
-                                                Surface Area (ft
-                                                <ns1:sup>2</ns1:sup>
-                                                )
-                                             </xs:documentation>
-                                             
-                                             
-                                             <xs:documentation source="CalculationsAndRules">User input numeric; If A03_AreaWeightedAverageFeature == Fenestration, store result in RoughOpeningArea; Else store result in SurfaceArea</xs:documentation>
-                                             
-                                          
-                                          </xs:annotation>
-                                          
-                                       
-                                       </xs:element>
-                                       
-                                    
-                                    </xs:choice>
-                                    
-                                    
-                                    <xs:element name="B03_UFactor" type="com:UFactor">
-                                       
-                                       
-                                       <xs:annotation>
-                                          
-                                          
-                                          <xs:documentation source="FieldText">U-Factor Value</xs:documentation>
-                                          
-                                          
-                                          <xs:documentation source="CalculationsAndRules">User input decimal value</xs:documentation>
-                                          
-                                       
-                                       </xs:annotation>
-                                       
-                                    
-                                    </xs:element>
-                                    
-                                 
-                                 </xs:sequence>
-                                 
-                              
-                              </xs:complexType>
-                              
-                           
-                           </xs:element>
-                           
-                        
-                        </xs:sequence>
-                        
-                     
-                     </xs:complexType>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element name="B04_AreaWeightedAverageUfactor" type="comp:AreaWeightedAverageUfactor">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText">U-Factor Area-weighted Average:</xs:documentation>
-                        
-                        
-                        <xs:documentation source="CalculationsAndRules">Calculated field: Result = (SUM ALL (PRODUCT ( B02, B03)) / SUM ALL B02</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-               
-               </xs:sequence>
-               
-            
-            </xs:complexType>
-            
-         
-         </xs:element>
-         
-         
-         <xs:element minOccurs="0" name="Section_C">
-            
-            
-            <xs:annotation>
-               
-               
-               <xs:documentation source="FieldText">SHGC Area-Weighted Average Calculation</xs:documentation>
-               
-               
-               <xs:documentation source="CalculationsAndRules">This section is applicable If A04_WeightedAverageProperty == SHGC or UFactorAndSHGC.  In the table,  fields 01 and 02 have a choice of two possible elements for storing the result - one if averaging fenestration SHGC and one if averaging Partition (door, wall, ceiling, roof or floor) SHGC .</xs:documentation>
-               
-               
-               <xs:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xs:documentation>
-               
-            
-            </xs:annotation>
-            
-            
-            <xs:complexType>
-               
-               
-               <xs:sequence>
-                  
-                  
-                  <xs:element name="TableSHGC">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText"/>
-                        
-                     
-                     </xs:annotation>
-                     
-                     
-                     <xs:complexType>
-                        
-                        
-                        <xs:sequence>
-                           
-                           
-                           <xs:element maxOccurs="unbounded" minOccurs="1" name="Row">
-                              
-                              
-                              <xs:complexType>
-                                 
-                                 
-                                 <xs:sequence>
-                                    
-                                    
-                                    <xs:choice maxOccurs="1">
-                                       
-                                       
-                                       <xs:element name="C01_PartitionName" type="env:PartitionName">
-                                          
-                                          
-                                          <xs:annotation>
-                                             
-                                             
-                                             <xs:documentation source="FieldText">Tag/Identification</xs:documentation>
-                                             
-                                             
-                                             <xs:documentation source="CalculationsAndRules">User input text; :If A03_AreaWeightedAverageFeature ==  Fenestration, store result in WindowSystemName; Else store result in PartitionName</xs:documentation>
-                                             
-                                          
-                                          </xs:annotation>
-                                          
-                                       
-                                       </xs:element>
-                                       
-                                       
-                                       <xs:element name="C01_WindowSystemName" type="env:WindowSystemName">
-                                          
-                                          
-                                          <xs:annotation>
-                                             
-                                             
-                                             <xs:documentation source="FieldText">Tag/Identification</xs:documentation>
-                                             
-                                             
-                                             <xs:documentation source="CalculationsAndRules">User input text; If A03_AreaWeightedAverageFeature ==  Fenestration, store result in WindowSystemName; Else store result in PartitionName</xs:documentation>
-                                             
-                                          
-                                          </xs:annotation>
-                                          
-                                       
-                                       </xs:element>
-                                       
-                                    
-                                    </xs:choice>
-                                    
-                                    
-                                    <xs:choice maxOccurs="1">
-                                       
-                                       
-                                       <xs:element name="C02_SurfaceArea" type="dtyp:SurfaceArea">
-                                          
-                                          
-                                          <xs:annotation>
-                                             
-                                             
-                                             <xs:documentation source="FieldText">
-                                                Surface Area (ft
-                                                <ns1:sup>2</ns1:sup>
-                                                )
-                                             </xs:documentation>
-                                             
-                                             
-                                             <xs:documentation source="CalculationsAndRules">User input numeric;  If A03_AreaWeightedAverageFeature ==  Fenestration, store result in RoughOpeningArea; Else store result in SurfaceArea</xs:documentation>
-                                             
-                                          
-                                          </xs:annotation>
-                                          
-                                       
-                                       </xs:element>
-                                       
-                                       
-                                       <xs:element name="C02_RoughOpeningArea" type="env:RoughOpeningArea">
-                                          
-                                          
-                                          <xs:annotation>
-                                             
-                                             
-                                             <xs:documentation source="FieldText">
-                                                Surface Area (ft
-                                                <ns1:sup>2</ns1:sup>
-                                                )
-                                             </xs:documentation>
-                                             
-                                             
-                                             <xs:documentation source="CalculationsAndRules">User input numeric;  If A03_AreaWeightedAverageFeature ==  Fenestration, store result in RoughOpeningArea; Else store result in SurfaceArea</xs:documentation>
-                                             
-                                          
-                                          </xs:annotation>
-                                          
-                                       
-                                       </xs:element>
-                                       
-                                    
-                                    </xs:choice>
-                                    
-                                    
-                                    <xs:element name="C03_SHGC" type="com:SHGC">
-                                       
-                                       
-                                       <xs:annotation>
-                                          
-                                          
-                                          <xs:documentation source="FieldText">SHGC Value</xs:documentation>
-                                          
-                                          
-                                          <xs:documentation source="CalculationsAndRules">User input decimal value;</xs:documentation>
-                                          
-                                       
-                                       </xs:annotation>
-                                       
-                                    
-                                    </xs:element>
-                                    
-                                 
-                                 </xs:sequence>
-                                 
-                              
-                              </xs:complexType>
-                              
-                           
-                           </xs:element>
-                           
-                        
-                        </xs:sequence>
-                        
-                     
-                     </xs:complexType>
-                     
-                  
-                  </xs:element>
-                  
-                  
-                  <xs:element name="C04_AreaWeightedAverageSHGC" type="comp:AreaWeightedAverageSHGC">
-                     
-                     
-                     <xs:annotation>
-                        
-                        
-                        <xs:documentation source="FieldText">SHGC Area-weighted Average:</xs:documentation>
-                        
-                        
-                        <xs:documentation source="CalculationsAndRules">Calculated field: Result = (SUM ALL (PRODUCT ( C02, C03)) / SUM ALL C02</xs:documentation>
-                        
-                     
-                     </xs:annotation>
-                     
-                  
-                  </xs:element>
-                  
-               
-               </xs:sequence>
-               
-            
-            </xs:complexType>
-            
-         
-         </xs:element>
-         
-      
-      </xs:sequence>
-      
-   
-   </xs:complexType>
-   
-   
-   <xs:element name="cF1RENV02E" type="CF1RENV02E">
-      
-      
-      <xs:annotation>
-         
-         
-         <xs:documentation>This element contains all of the data and text required to generate the CF1RENV02E compliance report.</xs:documentation>
-         
-      
-      </xs:annotation>
-      
-   
-   </xs:element>
-   
-
-</xs:schema>
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF1RENV02E" version="2025.0.000" xmlns="http://www.lmonte.com/besm/CF1RENV02E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:complexType name="CF1RENV02E">
+      <xsd:annotation>
+         <xsd:documentation>Area Weighted Average Calculation Worksheet</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="Section_A" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Area-Weighted Average - General Information</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="A01_ProjectName" type="com:ProjectName">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Project Name:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data from CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A02_DwellingUnitName" type="com:DwellingUnitName">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Dwelling Name or Number:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data from CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A03_AreaWeightedAverageFeature" type="comp:AreaWeightedAverageFeature">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Feature Being Area Weighted Averaged</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User picks from list representing enumerations: ExteriorDoor,  Fenestration, Wall, Roof, Ceiling or Floor</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A04_WeightedAverageProperty" type="comp:WeightedAverageProperty">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Property Being Averaged</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User picks from list:  If A03_AreaWeightedAverageFeature == Fenestration, display all enumerations: Ufactor, SHGC,  UFactorAndSHGC;   Else only display  Ufactor</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_B" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">U-factor Area-Weighted Average Calculation</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable If A04_WeightedAverageProperty == Ufactor or UFactorAndSHGC.  In the table, fields 01 and 02 have a choice of two possible elements for storing the result - one if averaging fenestration Ufactor and one if averaging Partition (door, wall, ceiling, roof or floor) UFactor .</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableUfactor">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B01_PartitionName" type="env:PartitionName">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Tag/Identification</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input text; If A03_AreaWeightedAverageFeature == Fenestration, store result in WindowSystemName; Else store result in PartitionName</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B01_WindowSystemName" type="env:WindowSystemName">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Tag/Identification</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input text; If A03_AreaWeightedAverageFeature == Fenestration, store result in WindowSystemName; Else store result in PartitionName</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B02_SurfaceArea" type="dtyp:SurfaceArea">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Surface Area (ft<d:sup>2</d:sup>)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input numeric;  If A03_AreaWeightedAverageFeature == Fenestration, store result in RoughOpeningArea; Else store result in SurfaceArea</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B02_RoughOpeningArea" type="env:RoughOpeningArea">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Surface Area (ft<d:sup>2</d:sup>)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input numeric; If A03_AreaWeightedAverageFeature == Fenestration, store result in RoughOpeningArea; Else store result in SurfaceArea</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="B03_UFactor" type="com:UFactor">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">U-Factor Value</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input decimal value</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="B04_AreaWeightedAverageUfactor" type="comp:AreaWeightedAverageUfactor">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">U-Factor Area-weighted Average:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: Result = (SUM ALL (PRODUCT ( B02, B03)) / SUM ALL B02</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_C" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">SHGC Area-Weighted Average Calculation</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable If A04_WeightedAverageProperty == SHGC or UFactorAndSHGC.  In the table,  fields 01 and 02 have a choice of two possible elements for storing the result - one if averaging fenestration SHGC and one if averaging Partition (door, wall, ceiling, roof or floor) SHGC .</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableSHGC">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="C01_PartitionName" type="env:PartitionName">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Tag/Identification</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input text; :If A03_AreaWeightedAverageFeature ==  Fenestration, store result in WindowSystemName; Else store result in PartitionName</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C01_WindowSystemName" type="env:WindowSystemName">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Tag/Identification</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input text; If A03_AreaWeightedAverageFeature ==  Fenestration, store result in WindowSystemName; Else store result in PartitionName</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="C02_SurfaceArea" type="dtyp:SurfaceArea">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Surface Area (ft<d:sup>2</d:sup>)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input numeric;  If A03_AreaWeightedAverageFeature ==  Fenestration, store result in RoughOpeningArea; Else store result in SurfaceArea</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C02_RoughOpeningArea" type="env:RoughOpeningArea">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Surface Area (ft<d:sup>2</d:sup>)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input numeric;  If A03_AreaWeightedAverageFeature ==  Fenestration, store result in RoughOpeningArea; Else store result in SurfaceArea</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="C03_SHGC" type="com:SHGC">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">SHGC Value</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input decimal value;</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="C04_AreaWeightedAverageSHGC" type="comp:AreaWeightedAverageSHGC">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">SHGC Area-weighted Average:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: Result = (SUM ALL (PRODUCT ( C02, C03)) / SUM ALL C02</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF1RENV02E"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF COMPLIANCE"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Area Weighted Average Calculation Worksheet"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderHERSCC"/>
+                     <xsd:element ref="cF1RENV02E"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF1R"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF1RENV02E"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="cF1RENV02E" type="CF1RENV02E">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF1RENV02E compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>
