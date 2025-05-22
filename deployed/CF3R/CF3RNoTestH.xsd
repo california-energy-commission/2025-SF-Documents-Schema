@@ -22,7 +22,7 @@
                      <xsd:element name="AfterHeaderNote1" minOccurs="0">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Untested Feature Note</xsd:documentation>
-                           <xsd:documentation source="AdditionalRequirements">HERS measure was verified using the methodology defined for the untested features included in a sample group.  This measure passes through its relationship with the actual one tested and passed.  Therefore no data is included on this Certificate of Verification.</xsd:documentation>
+                           <xsd:documentation source="AdditionalRequirements">ECC measure was verified using the methodology defined for the untested features included in a sample group.  This measure passes through its relationship with the actual one tested and passed.  Therefore no data is included on this Certificate of Verification.</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">This form of the CF3R compliance document is used whenever the field Dwelling Test Status in Sample Group  (property, SampleGroupTestStatus) in the Responsible Person's Declaration Statement is equal to NotTested</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
