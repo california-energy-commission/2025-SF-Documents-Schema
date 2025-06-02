@@ -1,18 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RENV04E" version="2025.0.000" xmlns="http://www.lmonte.com/besm/CF2RENV04E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+<xsd:schema xmlns="http://www.lmonte.com/besm/CF2RENV04E" xmlns:d="http://www.lmonte.com/besm/d" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:env="http://www.lmonte.com/besm/env" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:com="http://www.lmonte.com/besm/com" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RENV04E" version="2025.0.000">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element minOccurs="0" name="DocID">
+               <xsd:complexType>
+                  <xsd:attribute fixed="CF2RENV04E" name="doc" type="comp:ComplianceDocumentTag"/>
+                  <xsd:attribute fixed="CERTIFICATE OF INSTALLATION" name="docType" type="comp:ComplianceDocumentType"/>
+                  <xsd:attribute fixed="Roofing-Ventilation-Radiant Barrier" name="docTitle" type="comp:ComplianceDocumentTitleRes"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderHERS"/>
+                     <xsd:element ref="cF2RENV04E"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_E"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute fixed="rev 20250101" name="revision" type="xsd:string" use="required"/>
+         <xsd:attribute fixed="CF2RENV04E" name="doc" type="comp:ComplianceDocumentTag" use="required"/>
+      </xsd:complexType>
+   </xsd:element>
    <xsd:complexType name="CF2RENV04E">
       <xsd:annotation>
          <xsd:documentation>Roofing-Ventilation-Radiant Barrier</xsd:documentation>
       </xsd:annotation>
       <xsd:sequence>
-         <xsd:element name="Section_A" minOccurs="1">
+         <xsd:element minOccurs="1" name="Section_A">
             <xsd:annotation>
                <xsd:documentation source="FieldText">General Information</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
@@ -26,6 +53,7 @@
                         <xsd:appinfo source="displayterm">
                            <dtyp:displayterm value="AtticRoof">Attic</dtyp:displayterm>
                         </xsd:appinfo>
+                        
                      </xsd:annotation>
                      <xsd:simpleType>
                         <xsd:restriction base="env:OpaqueSurfaceType">
@@ -54,6 +82,7 @@
                            <dtyp:displayterm value="false">Unventilated</dtyp:displayterm>
                            <dtyp:displayterm value="true">Ventilated</dtyp:displayterm>
                         </xsd:appinfo>
+                        
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:choice maxOccurs="1">
@@ -70,7 +99,7 @@
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
-                  <xsd:element name="AEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="AEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Note: in order to comply with the 1/300 exception, a Class I or II vapor retarder is required to be installed in climate zone 14 and 16.</xsd:documentation>
@@ -79,7 +108,7 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_B" minOccurs="0" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="0" name="Section_B">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Radiant Barrier</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required if A03_RadiantBarrierToBeInstalled == true</xsd:documentation>
@@ -102,7 +131,7 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_C" minOccurs="0" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="0" name="Section_C">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Schedule of Lower Vents</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required If parent Not== CF1R-ALT And A04_IsAtticVented == true</xsd:documentation>
@@ -110,7 +139,7 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="C_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="C_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The Net Free Area (NFA) of a manufactured product is stated on the packaging or on the manufacturer's specification data sheet.  For non-manufactured products, assume that the net free area is one third of the total aperture area.</xsd:documentation>
@@ -122,7 +151,7 @@
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="C01_AtticVentType">
@@ -166,7 +195,7 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_D" minOccurs="0" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="0" name="Section_D">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Schedule of Upper Vents</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required If parent Not== CF1R-ALT And A04_IsAtticVented == true</xsd:documentation>
@@ -174,7 +203,7 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="D_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="D_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The Net Free Area of a manufactured product is stated on the packaging or on the manufacturer's specification data sheet.  For non-manufactured products, assume that the net free area is one third of the total aperture area.</xsd:documentation>
@@ -186,7 +215,7 @@
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="D01_AtticVentType" type="env:AtticVentType">
@@ -229,7 +258,7 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_E" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_E">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Required Vent Area</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required If parent Not== CF1R-ALT And A04_IsAtticVented == true</xsd:documentation>
@@ -270,7 +299,7 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_F" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_F">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Radiant Barrier - Additional Requirements</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required if A03_RadiantBarrierToBeInstalled == true</xsd:documentation>
@@ -278,38 +307,36 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="F_Before01" minOccurs="0">
+                  <xsd:element minOccurs="0" name="F_Before01">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">
-                           <d:b>Radiant Barrier</d:b>
-                        </xsd:documentation>
+                        <xsd:documentation source="FieldText"><d:b>Radiant Barrier</d:b></xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="F01" minOccurs="0">
+                  <xsd:element minOccurs="0" name="F01">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Installed on all vertical surfaces</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Radiant barrier must be installed on all vertical surfaces in the attic including gable ends.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="F02" minOccurs="0">
+                  <xsd:element minOccurs="0" name="F02">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Radiant barrier emittance</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The emittance of the radiant barrier shall be less than or equal to 0.05 as tested with ASTM C1371, or E408.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="F03" minOccurs="0">
+                  <xsd:element minOccurs="0" name="F03">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">California certified insulation materials</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The product shall meet all requirements for California certified insulation materials (radiant barriers) of the Department of Consumer Affairs, Bureau of Household Goods and Services, as specified by California Referenced Standards Code (California Code of Regulations (CCR)), Title 24, Part 12, Chapter 12-13, Standards for Insulating Material</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="F04" minOccurs="0">
+                  <xsd:element minOccurs="0" name="F04">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Determining total attic area</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">When determining the Total Attic Area, the area over unconditioned spaces such as the garage is included when the attic spaces are connected</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="FEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="FEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible persons signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
@@ -318,7 +345,7 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_G" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_G">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Attic Ventilation - Additional Requirements</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required If parent Not== CF1R-ALT And A04_IsAtticVented == true</xsd:documentation>
@@ -326,47 +353,40 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="G_Subheading" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G_Subheading">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">
-                           <d:b>Lower Vents</d:b>
-                        </xsd:documentation>
+                        <xsd:documentation source="FieldText"><d:b>Lower Vents</d:b></xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G01" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G01">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Lower vent location</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Lower vents are within one foot (1-ft) of the eave.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G01AfterSubheading" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G01AfterSubheading">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">
-                           <d:b>Upper Vents</d:b>
-                        </xsd:documentation>
+                        <xsd:documentation source="FieldText"><d:b>Upper Vents</d:b></xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G02" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G02">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Upper vent location</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Upper vents are within three feet (3-ft) of the ridge.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G02AfterSubheading" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G02AfterSubheading">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">
-                           <d:b>Vent Area</d:b>
-                        </xsd:documentation>
+                        <xsd:documentation source="FieldText"><d:b>Vent Area</d:b></xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G03" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G03">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Upper vents NFA</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The NFA of upper vents must be within required NFA range of upper vents  
-                           <d:line1/> Note: per Exception to R806.2 of the California Building Code (CBC) Title 24, Part2, Vol.2.5, if the net free ventilating area is less than 1:150, then the upper ventilation must be at least 40% and no more than 50%.  Part 2 contains additional requirements that must be met if the area is less than 1:150.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The NFA of upper vents must be within required NFA range of upper vents  <d:line1/> Note: per Exception to R806.2 of the California Building Code (CBC) Title 24, Part2, Vol.2.5, if the net free ventilating area is less than 1:150, then the upper ventilation must be at least 40% and no more than 50%.  Part 2 contains additional requirements that must be met if the area is less than 1:150.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="GEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="GEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible persons signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
@@ -375,7 +395,7 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_H" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_H">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Roofing Products (Cool Roof) Installation Information</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is applicable unless one of the the following is true:  If the parent is prescriptive CF1R-ADD, ALT or NCB And CoolRoofComplianceMethod == ClimateZoneNotApplicable Then this section is not applicable.  Or  If the parent is performance, CF1R-PRF And L08_CoolRoofToBeInstalled == falseThen this section is not applicable.  .</xsd:documentation>
@@ -389,7 +409,7 @@
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="H01_PartitionName" type="env:PartitionName">
@@ -422,11 +442,9 @@
                                           <xsd:documentation source="CalculationsAndRules">User selects Yes for Boolean true, No for Boolean false</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="H05After_HeadingForH06toH09" minOccurs="0">
+                                    <xsd:element minOccurs="0" name="H05After_HeadingForH06toH09">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">
-                                             <d:b>Installed</d:b>
-                                          </xsd:documentation>
+                                          <xsd:documentation source="FieldText"><d:b>Installed</d:b></xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="H06_SolarReflectanceInitial" type="com:SolarReflectanceInitial">
@@ -453,11 +471,9 @@
                                           <xsd:documentation source="CalculationsAndRules">User input value from CRRC rated product directory or calculated using Solar Reflectance Index Calculation Worksheet on CEC website</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="H09After_HeadingForH10toH12" minOccurs="0">
+                                    <xsd:element minOccurs="0" name="H09After_HeadingForH10toH12">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">
-                                             <d:b>Required</d:b>
-                                          </xsd:documentation>
+                                          <xsd:documentation source="FieldText"><d:b>Required</d:b></xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
@@ -511,7 +527,7 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_I" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_I">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Roofing Products (Cool Roof) - Additional Requirements</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is applicable unless one of the the following is true:  If the parent is prescriptive CF1R-ADD, ALT or NCB And CoolRoofComplianceMethod equals ClimateZoneNotApplicable Then this section is not applicable.  Or  If the parent is performance, CF1R-PRF And And L08_CoolRoofToBeInstalled == false Then this section is not applicable.</xsd:documentation>
@@ -519,25 +535,25 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="I01" minOccurs="0">
+                  <xsd:element minOccurs="0" name="I01">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">PV Solar Thermal Exception</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Any roof area covered by building integrated photovoltaic panels and solar thermal panels are exempt from the above Cool Roof requirements</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="I02" minOccurs="0">
+                  <xsd:element minOccurs="0" name="I02">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Field applied liquid coating</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Liquid field applied coatings must comply with installation criteria from section 110.8(i)4</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="I03" minOccurs="0">
+                  <xsd:element minOccurs="0" name="I03">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Mass roof</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Mass roof 25 pounds per square foot (lb/ft<d:sup>2</d:sup>) or greater: Mass roofs are not required to have a cool roof even if the climate zone specifies minimum performance requirements</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="IEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="IEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible persons signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
@@ -548,34 +564,6 @@
          </xsd:element>
       </xsd:sequence>
    </xsd:complexType>
-   <xsd:element name="ComplianceDocumentPackage">
-      <xsd:complexType>
-         <xsd:sequence>
-            <xsd:element name="DocID" minOccurs="0">
-               <xsd:complexType>
-                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RENV04E"/>
-                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
-                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Roofing-Ventilation-Radiant Barrier"/>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Payload" type="comp:Payload"/>
-            <xsd:element name="DocumentData">
-               <xsd:complexType>
-                  <xsd:sequence>
-                     <xsd:element name="Header" type="comp:HeaderHERS"/>
-                     <xsd:element ref="cF2RENV04E"/>
-                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
-                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_E"/>
-                     <xsd:element name="Footer" type="comp:Footer"/>
-                  </xsd:sequence>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Report" type="xsd:base64Binary"/>
-         </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
-         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RENV04E"/>
-      </xsd:complexType>
-   </xsd:element>
    <xsd:element name="cF2RENV04E" type="CF2RENV04E">
       <xsd:annotation>
          <xsd:documentation>This element contains all of the data and text required to generate the CF2RENV04E compliance report.</xsd:documentation>

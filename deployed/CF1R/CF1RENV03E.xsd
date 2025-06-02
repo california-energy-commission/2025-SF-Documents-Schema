@@ -1,18 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF1RENV03E" version="2025.0.000" xmlns="http://www.lmonte.com/besm/CF1RENV03E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+<xsd:schema xmlns="http://www.lmonte.com/besm/CF1RENV03E" xmlns:d="http://www.lmonte.com/besm/d" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:env="http://www.lmonte.com/besm/env" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:com="http://www.lmonte.com/besm/com" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF1RENV03E" version="2025.0.000">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element minOccurs="0" name="DocID">
+               <xsd:complexType>
+                  <xsd:attribute fixed="CF1RENV03E" name="doc" type="comp:ComplianceDocumentTag"/>
+                  <xsd:attribute fixed="CERTIFICATE OF COMPLIANCE" name="docType" type="comp:ComplianceDocumentType"/>
+                  <xsd:attribute fixed="Solar Heat Gain Coefficient (SHGC) Worksheet" name="docTitle" type="comp:ComplianceDocumentTitleRes"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderHERSCC"/>
+                     <xsd:element ref="cF1RENV03E"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF1R"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute fixed="rev 20250101" name="revision" type="xsd:string" use="required"/>
+         <xsd:attribute fixed="CF1RENV03E" name="doc" type="comp:ComplianceDocumentTag" use="required"/>
+      </xsd:complexType>
+   </xsd:element>
    <xsd:complexType name="CF1RENV03E">
       <xsd:annotation>
          <xsd:documentation>Solar Heat Gain Coefficient (SHGC) Worksheet</xsd:documentation>
       </xsd:annotation>
       <xsd:sequence>
-         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="1" name="Section_A">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Product Information</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
@@ -25,7 +52,7 @@
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="A01_FenestrationName" type="comp:FenestrationName">
@@ -107,7 +134,7 @@ Else If A06_ExteriorShadingObjectType == LouveredSunScreen  result = 0.27;  Else
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_B" minOccurs="0" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="0" name="Section_B">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Default Solar Heat Gain Coefficient Calculation Using Table 110.6-B</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is applicable If A05_SHGC_SourceNonNFRC == Table110_6B</xsd:documentation>
@@ -121,7 +148,7 @@ Else If A06_ExteriorShadingObjectType == LouveredSunScreen  result = 0.27;  Else
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="B01_FenestrationName" type="comp:FenestrationName">
@@ -196,7 +223,7 @@ Else If A06_ExteriorShadingObjectType == LouveredSunScreen  result = 0.27;  Else
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_C" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_C">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Non-Rated Site-built Solar Heat Gain Coefficient Calculation Using Equation NA6-2 from Reference Appendices, Nonresidential Appendix NA6.3</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is applicable If A05_SHGC_SourceNonNFRC == NA6_2Calculation</xsd:documentation>
@@ -234,7 +261,7 @@ Else If A06_ExteriorShadingObjectType == LouveredSunScreen  result = 0.27;  Else
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="C05_FenestrationName" type="comp:FenestrationName">
@@ -270,7 +297,7 @@ Else If A06_ExteriorShadingObjectType == LouveredSunScreen  result = 0.27;  Else
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_D" minOccurs="1">
+         <xsd:element minOccurs="1" name="Section_D">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Combined Solar Heat Gain Coefficient Calculation and Shading Device Calculation</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
@@ -283,7 +310,7 @@ Else If A06_ExteriorShadingObjectType == LouveredSunScreen  result = 0.27;  Else
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="D01_FenestrationName" type="comp:FenestrationName">
@@ -294,19 +321,13 @@ Else If A06_ExteriorShadingObjectType == LouveredSunScreen  result = 0.27;  Else
                                     </xsd:element>
                                     <xsd:element name="D02_LargestProposedSHGC" type="comp:LargestProposedSHGC">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">SHGC
-                                             <d:i><d:sub>max =</d:sub>
-                                             </d:i>
-                                          </xsd:documentation>
+                                          <xsd:documentation source="FieldText">SHGC<d:i><d:sub>max =</d:sub></d:i></xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Calculated field  Result = Largest of available values ( A04_SolarHeatGainCoefficientNFRC,  A07_ SolarHeatGainCoefficientExteriorShading, B07_SolarHeatGainCoefficientCEC, C08_ SiteBuiltFenestrationSHGC )</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="D03_SmallestProposedSHGC" type="comp:SmallestProposedSHGC">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">SHGC
-                                             <d:i><d:sub>min =</d:sub>
-                                             </d:i>
-                                          </xsd:documentation>
+                                          <xsd:documentation source="FieldText">SHGC<d:i><d:sub>min =</d:sub></d:i></xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Calculated field  Result = Smallest of available values ( A04_SolarHeatGainCoefficientNFRC,  A07_ SolarHeatGainCoefficientExteriorShading, B07_SolarHeatGainCoefficientCEC, C08_ SiteBuiltFenestrationSHGC )</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -327,34 +348,6 @@ Else If A06_ExteriorShadingObjectType == LouveredSunScreen  result = 0.27;  Else
          </xsd:element>
       </xsd:sequence>
    </xsd:complexType>
-   <xsd:element name="ComplianceDocumentPackage">
-      <xsd:complexType>
-         <xsd:sequence>
-            <xsd:element name="DocID" minOccurs="0">
-               <xsd:complexType>
-                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF1RENV03E"/>
-                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF COMPLIANCE"/>
-                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Solar Heat Gain Coefficient (SHGC) Worksheet"/>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Payload" type="comp:Payload"/>
-            <xsd:element name="DocumentData">
-               <xsd:complexType>
-                  <xsd:sequence>
-                     <xsd:element name="Header" type="comp:HeaderHERSCC"/>
-                     <xsd:element ref="cF1RENV03E"/>
-                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
-                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF1R"/>
-                     <xsd:element name="Footer" type="comp:Footer"/>
-                  </xsd:sequence>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Report" type="xsd:base64Binary"/>
-         </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
-         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF1RENV03E"/>
-      </xsd:complexType>
-   </xsd:element>
    <xsd:element name="cF1RENV03E" type="CF1RENV03E">
       <xsd:annotation>
          <xsd:documentation>This element contains all of the data and text required to generate the CF1RENV03E compliance report.</xsd:documentation>

@@ -1,18 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF3RMCH23H" version="2025.0.000" xmlns="http://www.lmonte.com/besm/CF3RMCH23H" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+<xsd:schema xmlns="http://www.lmonte.com/besm/CF3RMCH23H" xmlns:d="http://www.lmonte.com/besm/d" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:env="http://www.lmonte.com/besm/env" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:com="http://www.lmonte.com/besm/com" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF3RMCH23H" version="2025.0.000">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element minOccurs="0" name="DocID">
+               <xsd:complexType>
+                  <xsd:attribute fixed="CF3RMCH23H" name="doc" type="comp:ComplianceDocumentTag"/>
+                  <xsd:attribute fixed="CERTIFICATE OF VERIFICATION" name="docType" type="comp:ComplianceDocumentType"/>
+                  <xsd:attribute fixed="Space Conditioning System Airflow Rate" name="docTitle" type="comp:ComplianceDocumentTitleRes"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderHERS"/>
+                     <xsd:element ref="cF3RMCH23H"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF3R"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute fixed="rev 20250101" name="revision" type="xsd:string" use="required"/>
+         <xsd:attribute fixed="CF3RMCH23H" name="doc" type="comp:ComplianceDocumentTag" use="required"/>
+      </xsd:complexType>
+   </xsd:element>
    <xsd:complexType name="CF3RMCH23H">
       <xsd:annotation>
-         <xsd:documentation>Space Conditioning System Airflow Rate - MCH23 Forced Air System Airflow Rate Measurement</xsd:documentation>
+         <xsd:documentation>Space Conditioning System Airflow Rate - MCH23 Forced Air System Airflow Rate Measurement </xsd:documentation>
       </xsd:annotation>
       <xsd:sequence>
-         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="1" name="Section_A">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Ducted Cooling System Information</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">In this section MCH-01 refers to the project CF2R-MCH-01</xsd:documentation>
@@ -139,14 +166,14 @@ End Switch  End If</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_B" minOccurs="1" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="1" name="Section_B">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Hole for the placement of a Static Pressure Probe (HSPP), and Permanently Installed Static Pressure Probe (PSPP) in the Supply Plenum.</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="B_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="B_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Procedures for installing HSPP or PSPP are specified in RA3.3.1.1.</xsd:documentation>
@@ -169,14 +196,14 @@ End Switch  End If</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_C" minOccurs="1">
+         <xsd:element minOccurs="1" name="Section_C">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Airflow Rate Measurement Apparatus and Procedure Information</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="C_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="C_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Instrument Specifications are given in RA3.3.1.1, and system airflow rate measurement apparatus information is given in RA3.3.2.</xsd:documentation>
@@ -209,7 +236,7 @@ End Switch  End If</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_D" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_D">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Alternative to Compliance with Minimum System Airflow Requirements for Altered Systems</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">Calculated field: If A04_ImprovementStatus == Alteration AND A11_AirflowRateMeasurementProtocol == AirflowRateProtocolAlternativeCompliance this section is required</xsd:documentation>
@@ -217,7 +244,7 @@ End Switch  End If</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="D_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="D_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The installer shall attempt to correct non-compliant system airflow rates by performing the following remedial actions as specified in RA3.3.3.1.5</xsd:documentation>
@@ -265,20 +292,20 @@ End Switch  End If</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input, For Boolean  true value display text choice: Completed  For Boolean false value display text choice:  Not Completed</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="D08_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="D08_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">If any of the above were not completed list the Action Required and a description of why the action could not be completed:</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input, text, maximum 500 characters</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="D09_DoesForcedAirSystemPassAlternativeComplianceRequirements" type="comp:DoesForcedAirSystemPassAlternativeComplianceRequirements">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: If D01-D07 values all == true then result = true display term System Complies;  Else If D08_SectionCorrectionNotes NotNull and has an explanation result =  true display term System Complies;
+                              <xsd:element name="D09_DoesForcedAirSystemPassAlternativeComplianceRequirements" type="comp:DoesForcedAirSystemPassAlternativeComplianceRequirements">
+                                    <xsd:annotation>
+                                       <xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
+                                       <xsd:documentation source="CalculationsAndRules">Calculated field: If D01-D07 values all == true then result = true display term System Complies;  Else If D08_SectionCorrectionNotes NotNull and has an explanation result =  true display term System Complies;
 Else result = false, display term System Does Not Comply:  one or more applicable remedial actions were not completed as required.  Enter reason(s) for non-compliance in corrections notes field below. End If</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="DEndNote1" minOccurs="0">
+                                    </xsd:annotation>
+                             </xsd:element>
+                  <xsd:element minOccurs="0" name="DEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
@@ -287,7 +314,7 @@ Else result = false, display term System Does Not Comply:  one or more applicabl
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_E1" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_E1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Forced Air System Airflow Rate Measurement</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">If A06 Condenser Speed Type != SingleSpeed Or A07_ResidentialCoolingZoneType != ZoneControlled this section is required.  In this section MCH-01 refers to the project CF2R-MCH-01</xsd:documentation>
@@ -295,14 +322,14 @@ Else result = false, display term System Does Not Comply:  one or more applicabl
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="Ems_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="Ems_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Complete this section with Airflow Rate Measurement data for Newly Installed Non-Zoned Systems or Zoned Multi-Speed Compressor</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If A06 Condenser Speed Type != SingleSpeed And A12_CFVCS_Type == NotCFVCS display this text followed by the FieldText</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Ems_BeginNote2" minOccurs="0">
+                  <xsd:element minOccurs="0" name="Ems_BeginNote2">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 2</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The procedures for System Airflow Rate Verification are specified in Reference Residential Appendix RA3.3.</xsd:documentation>
@@ -349,7 +376,7 @@ End If</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_E2" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_E2">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Forced Air System Airflow Rate Measurement - All Zones Calling</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">If A06 CondenserSpeedType == SingleSpeed And A07_ResidentialCoolingZoneType== ZoneControlled this section is required.  In this section MCH-01 refers to the project CF2R-MCH-01</xsd:documentation>
@@ -357,14 +384,14 @@ End If</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="Esz_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="Esz_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If A06 CondenserSpeedType == SingleSpeed And A07_ResidentialCoolingZoneType== ZoneControlled And A12_CFVCS_Type == NotCFVCS display this text followed by the FieldText</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Complete this section with Airflow Rate Measurement data for Newly Installed Zoned Single-Speed Compressor Systems</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Complete this section with Airflow Rate Measurement data for Newly Installed Zoned Single-Speed Compressor Systems </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Esz_BeginNote2" minOccurs="0">
+                  <xsd:element minOccurs="0" name="Esz_BeginNote2">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 2</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The procedures for System Airflow Rate Verification are specified in Reference Residential Appendix RA3.3.</xsd:documentation>
@@ -411,7 +438,7 @@ End If</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_E3" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_E3">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Forced Air System Airflow Rate Measurement - Best Airflow Rate Attainable</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">If A04_ImprovementStatus == Alteration And A11_AirflowRateMeasurementProtocol == AirflowRateProtocolAlternativeCompliance this section is required.  In this section MCH-01 refers to the project CF2R-MCH-01</xsd:documentation>
@@ -419,14 +446,14 @@ End If</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="Ealt_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="Ealt_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">BeginNote1</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If A04_ImprovementStatus == Alteration And A11_AirflowRateMeasurementProtocol == AirflowRateProtocolAlternativeCompliance display this text followed by the FieldText</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Complete this section with Airflow Rate Measurement data for Alternative to Compliance with Minimum System Airflow Requirements for Altered Systems</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Complete this section with Airflow Rate Measurement data for Alternative to Compliance with Minimum System Airflow Requirements for Altered Systems </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Ealt_BeginNote2" minOccurs="0">
+                  <xsd:element minOccurs="0" name="Ealt_BeginNote2">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The procedures for System Airflow Rate Verification are specified in Reference Residential Appendix RA3.3.</xsd:documentation>
@@ -468,35 +495,33 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Compliance Statement:</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: If D01_AirflowMeasuredRate GTE Ealt03_AirflowRequiredMinimumTarget, result = true display term  System airflow rate complies.  Else result = false 
-display term = The measured Airflow Rate reported on this document is the best airflow rate attainable for compliance utilizing the procedures given in  RA3.3.3.1.5. This system shall not be included in a sample group for ECC verification compliance;</xsd:documentation>
+display term = The measured Airflow Rate reported on this document is the best airflow rate attainable for compliance utilizing the procedures given in  RA3.3.3.1.5. This system shall not be included in a sample group for ECC verification compliance; </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Ealt05_IsEligibleForSampleGroup" type="comp:IsEligibleForSampleGroup" minOccurs="0">
+                  <xsd:element minOccurs="0" name="Ealt05_IsEligibleForSampleGroup" type="comp:IsEligibleForSampleGroup">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">ECC Sample Group Eligibility</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If Ealt05_DoesForcedAirSystemAirflowRateComply ==  true then result = true display term Eligible for ECC sample group;  Else result = false display term Not Eligible for ECC Sample Group for Airflow.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules"> If Ealt05_DoesForcedAirSystemAirflowRateComply ==  true then result = true display term Eligible for ECC sample group;  Else result = false display term Not Eligible for ECC Sample Group for Airflow.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_E4" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_E4">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">
-                  <d:b>Forced Air System Airflow Rate Measurement – Heating Only</d:b>
-               </xsd:documentation>
+               <xsd:documentation source="FieldText"><d:b>Forced Air System Airflow Rate Measurement – Heating Only</d:b></xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">If MCH01's ResidentialCoolingSystemType == NoCooling AND A05 = N/A And A06 Condenser Speed Type != SingleSpeed this sectioni is required.  In this section MCH-01 refers to the project CF2R-MCH-01</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="Eheat_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="Eheat_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Complete this section with Airflow Rate Measurement data for Newly Installed Heating Only Non-Zoned Systems or Zoned Multi-Speed Compressor Measurement Only - NoMinimum Target Requirement</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Eheat_BeginNote2" minOccurs="0">
+                  <xsd:element minOccurs="0" name="Eheat_BeginNote2">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The procedures for System Airflow Rate Verification are specified in Reference Residential Appendix RA3.3.</xsd:documentation>
@@ -511,7 +536,7 @@ display term = The measured Airflow Rate reported on this document is the best a
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_F" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_F">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Forced Air System Airflow Rate Measurement - All Other Zonal Control Modes</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">If A06 CondenserSpeedType == SingleSpeed And A07_ResidentialCoolingZoneType== ZoneControlled this section is required. In this section MCH-01 refers to the project CF2R-MCH-01</xsd:documentation>
@@ -519,11 +544,10 @@ display term = The measured Airflow Rate reported on this document is the best a
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="F_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="F_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">BeginNote1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The procedures for System Airflow Rate Verification are specified in Reference Residential Appendix RA3.3. 
-                           <d:line1/> For compliance with verification in all zonal control modes, it is sufficient to verify airflow rate for operation of each  individual zone when the individual zone is the sole zone calling for conditioning.   
+                        <xsd:documentation source="AdditionalRequirements">The procedures for System Airflow Rate Verification are specified in Reference Residential Appendix RA3.3. <d:line1/> For compliance with verification in all zonal control modes, it is sufficient to verify airflow rate for operation of each  individual zone when the individual zone is the sole zone calling for conditioning.   
 It is not necessary to verify airflow  rate for combinations of 2 or more zones that are less than all zones calling (e.g., 2 out of three zones calling).</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -562,11 +586,11 @@ End If</xsd:documentation>
                   <xsd:element name="TableZones">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="CalculationsAndRules">For each zone add a row and complete these fields</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">For each zone add a row and complete these fields </xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="F04_ThermalZoneName" type="hvac:ThermalZoneName">
@@ -608,7 +632,7 @@ End If</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_G" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_G">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Central Fan Ventilation Cooling System Airflow Rate Measurement</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required If A12_CFVCS_Type != NotCFVCS  In this section MCH-01 refers to the project CF2R-MCH-01</xsd:documentation>
@@ -616,7 +640,7 @@ End If</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="G_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">The procedures for central fan ventilation cooling system airflow rate verification are specified in Reference Residential Appendix RA3.3.4</xsd:documentation>
@@ -644,64 +668,63 @@ result = true display term  System ventilation airflow rate complies. Else resul
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_H" minOccurs="1" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="1" name="Section_H">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Additional Requirements</xsd:documentation>
                <xsd:documentation source="MinOccurs">Ths section is always requird and displayed</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="H01" minOccurs="0">
+                  <xsd:element minOccurs="0" name="H01">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Air Filters Installed properly</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Air filters that meet the applicable requirements of Standards Section 150.0(m)12 or 150.0(m)13 were properly installed in the system during system air flow rate measurement identified on this Certificate of Installation.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="H02" minOccurs="0">
+                  <xsd:element minOccurs="0" name="H02">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Airflow rate measurement apparatus certified</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The airflow rate measurement apparatus used to perform the airflow rate measurement identified on this Certificate of Installation was calibrated in accordance with the apparatus manufacturer's specifications and conforms to the instrumentation specifications given in RA3.3.1.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="H03" minOccurs="0">
+                  <xsd:element minOccurs="0" name="H03">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Bypass Duct</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If A05 Nominal Cooling Capacity != N/A display this field</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">A visual inspection shall confirm that bypass ducts that deliver conditioned supply air directly to the space conditioning system return duct airflow are not used on 
-                           <d:u> newly constructed</d:u> zonally controlled systems unless the Performance Certificate of Compliance indicates an allowance for use of a bypass duct.  When a bypass duct is accounted for on the Performance Certificate of Compliance, the airflow rate shall conform to the specifications listed on this document.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">A visual inspection shall confirm that bypass ducts that deliver conditioned supply air directly to the space conditioning system return duct airflow are not used on <d:u> newly constructed</d:u> zonally controlled systems unless the Performance Certificate of Compliance indicates an allowance for use of a bypass duct.  When a bypass duct is accounted for on the Performance Certificate of Compliance, the airflow rate shall conform to the specifications listed on this document.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="H04" minOccurs="0">
+                    <xsd:element minOccurs="0" name="H04">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">All registers fully open</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">All registers were fully open during the diagnostic test.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="H05" minOccurs="0">
+                  <xsd:element minOccurs="0" name="H05">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">System fan testing speed</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">System fan was set at maximum speed during the diagnostic test.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="H06" minOccurs="0">
+                  <xsd:element minOccurs="0" name="H06">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Fresh Air Duct</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">If fresh air duct is part of the HVAC system it was not closed during the diagnostic test.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="H07" minOccurs="0">
+                  <xsd:element minOccurs="0" name="H07">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Fan Efficacy tested value</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Airflow rate and fan watt draw shall be simultaneous measurements when used to calculate the Fan Efficacy tested value.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="H08" minOccurs="0">
+                  <xsd:element minOccurs="0" name="H08">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Multi-speed compressor</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Multi-speed compressor space cooling systems or variable speed compressor systems with controls that vary fan speed subect to the number of zones, as certified by the installer may verify air flow (cfm/ton) and fan efficacy (Watt/cfm) with system operating at the maximum compressor capacity and system fan speed with all zones calling for conditioning.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="H09" minOccurs="0">
+                  <xsd:element minOccurs="0" name="H09">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Alternative Compliance</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">For altered systems that do not comply with the minimum 300 cfm per ton airflow rate requirement but opt to comply using the remedial actions on this MCH-23 compliance document according to Section RA3.3.3.1.5, the system's thermostat shall conform to the specifications in Reference Joint Appendix JA5 and shall be capable of receiving and responding to Demand Response Signals prior to final approval of the building permit by the enforcing agency (Section 150.2(b)1Fia).</xsd:documentation>
@@ -713,13 +736,13 @@ result = true display term  System ventilation airflow rate complies. Else resul
                         <xsd:documentation source="CalculationsAndRules">For Pass choice display text: Pass - all applicable requirements are met.  For Fail choice display text: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display text: All n/a - This entire table is not applicable</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="H11_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="H11_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required</xsd:documentation>
-                     </xsd:annotation>
+                    </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="HEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="HEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
@@ -728,59 +751,31 @@ result = true display term  System ventilation airflow rate complies. Else resul
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_I" minOccurs="1">
+         <xsd:element minOccurs="1" name="Section_I">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Determination of ECC Verification Compliance</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="I_BeginNote1" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">All applicable sections of this document shall indicate compliance with the specified verification protocol requirements in order for this Certificate of Verification as a whole to be determined to be in compliance.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="I01_DoesCF3R_Pass" type="comp:DoesCF3R_Pass">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="CalculationsAndRules">If  B01_HSPP_PSPP_ComplianceMethod =! HSPP_PSPP_NotInstalled; and C04_IsAirflowMeasurementDeviceCertified == true; and (Ems04_DoesForcedAirSystemAirflowRateComply Or Essz04_DoesForcedAirSystemAirflowRateComply Or Ealt04_DoesForcedAirSystemAirflowRateComply == true) 
+                <xsd:sequence>
+                   <xsd:element minOccurs="0" name="I_BeginNote1">
+                      <xsd:annotation>
+                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                          <xsd:documentation source="AdditionalRequirements">All applicable sections of this document shall indicate compliance with the specified verification protocol requirements in order for this Certificate of Verification as a whole to be determined to be in compliance.</xsd:documentation>
+                      </xsd:annotation>
+                   </xsd:element>
+                   <xsd:element name="I01_DoesCF3R_Pass" type="comp:DoesCF3R_Pass">
+                       <xsd:annotation>
+                          <xsd:documentation source="FieldText"/>
+                          <xsd:documentation source="CalculationsAndRules">If  B01_HSPP_PSPP_ComplianceMethod =! HSPP_PSPP_NotInstalled; and C04_IsAirflowMeasurementDeviceCertified == true; and (Ems04_DoesForcedAirSystemAirflowRateComply Or Essz04_DoesForcedAirSystemAirflowRateComply Or Ealt04_DoesForcedAirSystemAirflowRateComply == true) 
 And If present D09_DoesForcedAirSystemPassAlternativeComplianceRequirements == true And If present F08_DoAllZonesComplyWithRequiredAirflowRate == true; And If present G03_DoesCentralFanVentilationCoolingSystemAirflowComply == true and H10_DoesSystemComplyWithRequirements == Pass or N/A then result = true display term  Complies: All specified verification protocol requirements on this document are met;  Else result = false display term  Does not comply: One or more specified verification protocol requirements on this document are not met.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
+                       </xsd:annotation>
+                   </xsd:element>
+                 </xsd:sequence>
+             </xsd:complexType>
+          </xsd:element>
       </xsd:sequence>
    </xsd:complexType>
-   <xsd:element name="ComplianceDocumentPackage">
-      <xsd:complexType>
-         <xsd:sequence>
-            <xsd:element name="DocID" minOccurs="0">
-               <xsd:complexType>
-                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF3RMCH23H"/>
-                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF VERIFICATION"/>
-                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Space Conditioning System Airflow Rate"/>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Payload" type="comp:Payload"/>
-            <xsd:element name="DocumentData">
-               <xsd:complexType>
-                  <xsd:sequence>
-                     <xsd:element name="Header" type="comp:HeaderHERS"/>
-                     <xsd:element ref="cF3RMCH23H"/>
-                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
-                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF3R"/>
-                     <xsd:element name="Footer" type="comp:Footer"/>
-                  </xsd:sequence>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Report" type="xsd:base64Binary"/>
-         </xsd:sequence>
-         <xsd:attribute name="revision" type="xsd:string" use="required" fixed="rev 20250101"/>
-         <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" use="required" fixed="CF3RMCH23H"/>
-      </xsd:complexType>
-   </xsd:element>
    <xsd:element name="cF3RMCH23H" type="CF3RMCH23H">
       <xsd:annotation>
          <xsd:documentation>This element contains all of the data and text required to generate the CF3RMCH23H compliance report.</xsd:documentation>

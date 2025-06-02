@@ -1,18 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RMCH26H" version="2025.0.000" xmlns="http://www.lmonte.com/besm/CF2RMCH26H" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+<xsd:schema xmlns="http://www.lmonte.com/besm/CF2RMCH26H" xmlns:d="http://www.lmonte.com/besm/d" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:env="http://www.lmonte.com/besm/env" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:com="http://www.lmonte.com/besm/com" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RMCH26H" version="2025.0.000">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element minOccurs="0" name="DocID">
+               <xsd:complexType>
+                  <xsd:attribute fixed="CF2RMCH26H" name="doc" type="comp:ComplianceDocumentTag"/>
+                  <xsd:attribute fixed="CERTIFICATE OF INSTALLATION" name="docType" type="comp:ComplianceDocumentType"/>
+                  <xsd:attribute fixed="Rated Space Conditioning System Equipment Verification" name="docTitle" type="comp:ComplianceDocumentTitleRes"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderHERS"/>
+                     <xsd:element ref="cF2RMCH26H"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_H"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute fixed="rev 20250101" name="revision" type="xsd:string" use="required"/>
+         <xsd:attribute fixed="CF2RMCH26H" name="doc" type="comp:ComplianceDocumentTag" use="required"/>
+      </xsd:complexType>
+   </xsd:element>
    <xsd:complexType name="CF2RMCH26H">
       <xsd:annotation>
          <xsd:documentation>Rated Space Conditioning System Equipment Verification</xsd:documentation>
       </xsd:annotation>
       <xsd:sequence>
-         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="1" name="Section_A">
             <xsd:annotation>
                <xsd:documentation source="FieldText">System Information</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">In this section MCH-01 refers to the parent CF2R-MCH-01 and  parent CC refers to the parent CF1R Certificate of Compliance (CC)</xsd:documentation>
@@ -20,12 +47,10 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="A_BeginNote" minOccurs="0">
+                  <xsd:element minOccurs="0" name="A_BeginNote">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">
-                           <d:i>Procedures for verification of High SEER/SEER2 and EER/EER2 Equipment are described in Reference Appendix RA3.4.  Each HVAC system requiring verification must use a separate form.</d:i>
-                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements"><d:i>Procedures for verification of High SEER/SEER2 and EER/EER2 Equipment are described in Reference Appendix RA3.4.  Each HVAC system requiring verification must use a separate form.</d:i></xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A01_ResidentialSpaceConditioningSystemName" type="hvac:ResidentialSpaceConditioningSystemName">
@@ -204,7 +229,7 @@ End Switch.</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_B" minOccurs="1" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="1" name="Section_B">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Rated Space Conditioning System Equipment Information  from Nameplate of the Installed System</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">In this section MCH-01 refers to the parent CF2R-MCH-01 and  parent CC refers to the parent CF1R Certificate of Compliance (CC)
@@ -214,15 +239,13 @@ If A03_VerificationRequiredSEER == true Or A04_VerificationRequiredEER == true O
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="B_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="B_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">
-                           <d:i>The data on the nameplate of the installed component shall conform to the data for the component as shown in the Directory used to certify product performance in order to demonstrate compliance.</d:i>
-                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements"><d:i>The data on the nameplate of the installed component shall conform to the data for the component as shown in the Directory used to certify product performance in order to demonstrate compliance.</d:i></xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="B_HeaderColumns04To09" minOccurs="0">
+                  <xsd:element minOccurs="0" name="B_HeaderColumns04To09">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Data from nameplate of installed system component</xsd:documentation>
@@ -234,7 +257,7 @@ If A03_VerificationRequiredSEER == true Or A04_VerificationRequiredEER == true O
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="B01_ResidentialSpaceConditioningSystemName" type="hvac:ResidentialSpaceConditioningSystemName">
@@ -362,7 +385,7 @@ If A03_VerificationRequiredSEER == true Or A04_VerificationRequiredEER == true O
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_C" minOccurs="1">
+         <xsd:element minOccurs="1" name="Section_C">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Rated Space Conditioning System Equipment Information from Directory of Certified Product Performance</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">In this section MCH-01 refers to the parent CF2R-MCH-01 and  parent CC refers to the parent CF1R Certificate of Compliance (CC)
@@ -372,15 +395,13 @@ If A03_VerificationRequiredSEER == true Or A04_VerificationRequiredEER == true O
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="C_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="C_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">
-                           <d:i>The data on the nameplate of the installed component shall conform to the data for the component as shown in the Directory used to certify product performance in order to demonstrate compliance.</d:i>
-                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements"><d:i>The data on the nameplate of the installed component shall conform to the data for the component as shown in the Directory used to certify product performance in order to demonstrate compliance.</d:i></xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="C_ColumnHeader2" minOccurs="0">
+                  <xsd:element minOccurs="0" name="C_ColumnHeader2">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Data from the Directory used to certify product performance  for the rated system component</xsd:documentation>
@@ -392,7 +413,7 @@ If A03_VerificationRequiredSEER == true Or A04_VerificationRequiredEER == true O
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="C01_ResidentialSpaceConditioningSystemName" type="hvac:ResidentialSpaceConditioningSystemName">
@@ -520,7 +541,7 @@ If A03_VerificationRequiredSEER == true Or A04_VerificationRequiredEER == true O
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_D" minOccurs="0" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="0" name="Section_D">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Verified Cooling System SEER/SEER2</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This Section is applicable only If  A03_VerificationRequiredSEER == true 
@@ -554,18 +575,16 @@ Else If Mch01 C06_EfficiencyMinimumValueSEER2 IsPresent and assigned to D01_Effi
                         <xsd:documentation source="CalculationsAndRules">Calculated field: If D02_EfficiencyInstalledValueSEER GTE D01_EfficiencyMinimumValueSEER result  = true.   display term System Passes SEER/SEER2 Verification   Else result = false display term System Fails.  Do not proceed with document</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="DEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="DEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">
-                           <d:b>Signature by responsible person on this compliance document certifies that the installed cooling equipment meets or exceeds the required value listed on the parent Certificate of Compliance.</d:b>
-                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements"><d:b>Signature by responsible person on this compliance document certifies that the installed cooling equipment meets or exceeds the required value listed on the parent Certificate of Compliance.</d:b></xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_E" minOccurs="0" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="0" name="Section_E">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Verified Cooling System EER/EER2</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This Section is applicable only If  A04_VerificationRequiredEER == true
@@ -599,18 +618,16 @@ Else If Mch01 C07_EfficiencyMinimumValueEER2 IsPresent and assigned to E01_Effic
                         <xsd:documentation source="CalculationsAndRules">Calculated field: If E02_EfficiencyInstalledValueEER GTE E01_EfficiencyMinimumValueEER result  = true.   display term System Passes EER/EER2 Verification   Else result = false display term System Fails.  Do not proceed with document</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="EEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="EEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">
-                           <d:b>Signature by responsible person on this compliance document certifies that the installed cooling equipment meets or exceeds the required value listed on the parent Certificate of Compliance.</d:b>
-                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements"><d:b>Signature by responsible person on this compliance document certifies that the installed cooling equipment meets or exceeds the required value listed on the parent Certificate of Compliance.</d:b></xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_F" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_F">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Verified Heat Pump Heating Output</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required If A05_VerificationRequiredHeatingOutputHP == true
@@ -665,18 +682,16 @@ In this section MCH-01 refers to the parent CF2R-MCH-01 and  parent CC refers to
                         <xsd:documentation source="CalculationsAndRules">Calculated field: If F02_HeatPumpHeatInstalledCapacity47F GTE F01_HeatPumpHeatCapacity47F And F04_HeatPumpHeatInstalledCapacity17F GTE F03_HeatPumpHeatCapacity17F Or F04_NotApplicableMessage == N/A then result = true display term System Passes Heat Pump Heating Output Performance Compliance Verification; Else result = false display term System Fails; Tell user not to proceed.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="FEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="FEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">
-                           <d:b>Signature by responsible person on this compliance document certifies that the installed heat pump equipment meets or exceeds the required value listed on the parent Certificate of Compliance.</d:b>
-                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements"><d:b>Signature by responsible person on this compliance document certifies that the installed heat pump equipment meets or exceeds the required value listed on the parent Certificate of Compliance.</d:b></xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_G" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_G">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Verified Heat Pump HSPF/HSPF2</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required If A06_VerificationRequiredHSPF_Performance == true
@@ -710,18 +725,16 @@ Else If Mch01 C03_EfficiencyMinimumValueHSPF2 IsPresent and assigned to G01_Effi
                         <xsd:documentation source="CalculationsAndRules">Calculated field: If G02_EfficiencyInstalledValueHSPF  GTE G01_EfficiencyMinimumValueHSPF  result = true display term System Passes HSPF/HSPF2 Verification; Else result = false display term System Fails; Tell user not to proceed.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="GEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="GEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">
-                           <d:b>Signature by responsible person on this compliance document certifies that the installed heat pump equipment meets or exceeds the required value listed on the parent Certificate of Compliance.</d:b>
-                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements"><d:b>Signature by responsible person on this compliance document certifies that the installed heat pump equipment meets or exceeds the required value listed on the parent Certificate of Compliance.</d:b></xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_H" minOccurs="0" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="0" name="Section_H">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Verified Space Conditioning System Air Handler, Furnace Or Fan Coil</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This Section is applicable only If  A09_AirHandlerFurnaceTypeRequired != NoRequiredType.</xsd:documentation>
@@ -729,7 +742,7 @@ Else If Mch01 C03_EfficiencyMinimumValueHSPF2 IsPresent and assigned to G01_Effi
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="H01" minOccurs="0">
+                  <xsd:element minOccurs="0" name="H01">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Installed Air Handler matches AHRI</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">If a specific air handler, furnace or fan coil is required by the directory used to certify product performance, the responsible person certifies by signing this compliance document that the installed air handler/furnace matches the equipment specified by the Directory of Certified Product Performance.</xsd:documentation>
@@ -738,7 +751,7 @@ Else If Mch01 C03_EfficiencyMinimumValueHSPF2 IsPresent and assigned to G01_Effi
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_I" minOccurs="0" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="0" name="Section_I">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Verified Space Conditioning System Time Delay Relay</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This Section is applicable only If  A10_IsTDR_RequiredByAHRI == true.</xsd:documentation>
@@ -746,7 +759,7 @@ Else If Mch01 C03_EfficiencyMinimumValueHSPF2 IsPresent and assigned to G01_Effi
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="I01" minOccurs="0">
+                  <xsd:element minOccurs="0" name="I01">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Installed TDR meets protocols of RA3.4.3.</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">If a Time Delay Relay is specified by the Directory of Certified Product Performance, the responsible person certifies by signing this compliance document that the Time Delay Relay is installed and has been tested to operate correctly according to the protocols of RA3.4.3.</xsd:documentation>
@@ -755,7 +768,7 @@ Else If Mch01 C03_EfficiencyMinimumValueHSPF2 IsPresent and assigned to G01_Effi
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_J" minOccurs="0" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="0" name="Section_J">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Verified Space Conditioning System TXV</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This Section is applicable only If  A11_IsTXV_RequiredByAHRI ==  true.</xsd:documentation>
@@ -763,7 +776,7 @@ Else If Mch01 C03_EfficiencyMinimumValueHSPF2 IsPresent and assigned to G01_Effi
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="J01" minOccurs="0">
+                  <xsd:element minOccurs="0" name="J01">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">TXV is properly installed</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">If a TXV is specified by the Directory of Certified Product Performance, the responsible person certifies by signing this compliance document that the TXV is properly installed and has been visually verified, including proper placement of the sensing bulb.</xsd:documentation>
@@ -774,34 +787,6 @@ Else If Mch01 C03_EfficiencyMinimumValueHSPF2 IsPresent and assigned to G01_Effi
          </xsd:element>
       </xsd:sequence>
    </xsd:complexType>
-   <xsd:element name="ComplianceDocumentPackage">
-      <xsd:complexType>
-         <xsd:sequence>
-            <xsd:element name="DocID" minOccurs="0">
-               <xsd:complexType>
-                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RMCH26H"/>
-                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
-                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Rated Space Conditioning System Equipment Verification"/>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Payload" type="comp:Payload"/>
-            <xsd:element name="DocumentData">
-               <xsd:complexType>
-                  <xsd:sequence>
-                     <xsd:element name="Header" type="comp:HeaderHERS"/>
-                     <xsd:element ref="cF2RMCH26H"/>
-                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
-                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_H"/>
-                     <xsd:element name="Footer" type="comp:Footer"/>
-                  </xsd:sequence>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Report" type="xsd:base64Binary"/>
-         </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
-         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH26H"/>
-      </xsd:complexType>
-   </xsd:element>
    <xsd:element name="cF2RMCH26H" type="CF2RMCH26H">
       <xsd:annotation>
          <xsd:documentation>This element contains all of the data and text required to generate the CF2RMCH26H compliance report.</xsd:documentation>

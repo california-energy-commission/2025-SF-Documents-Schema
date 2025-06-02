@@ -276,7 +276,7 @@
                   </xsd:element>
                   <xsd:element name="Cspm06_InducedEnclosurePressureDifference" type="comp:InducedEnclosurePressureDifference">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Induced Enclosure Pressure Difference (Pa) Goal = 50 +- 3 (Pressurization is positive; Depressurization is negative)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Induced Enclosure Pressure Difference (Pa) Goal = 50 +- 3 or -50 +- 3 (Pressurization is positive; Depressurization is negative)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: result = Cspm05_BuildingPressureMeasuredUnadjusted - Cspm03_BuildingPressureReadingPreTest</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -335,7 +335,7 @@
                   </xsd:element>                  
                   <xsd:element name="Cspa04_InducedEnclosurePressureDifference" type="comp:InducedEnclosurePressureDifference">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Induced Enclosure Pressure Difference from Manometer (Pa) Goal = 50 +- 3 (Pressurization is positive; Depressurization is negative)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Induced Enclosure Pressure Difference from Manometer (Pa) Goal = 50 +- 3 or -50 +- 3 (Pressurization is positive; Depressurization is negative)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input numeric xx.x in InclusiveRange(-75, 75)</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -401,7 +401,7 @@
                   </xsd:element>
                   <xsd:element name="Cmp06_InducedEnclosurePressureDifference" type="comp:InducedEnclosurePressureDifference">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Induced Enclosure Pressure Difference (Pa) Goal = 60 +- 3 (Pressurization is positive; Depressurization is negative)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Induced Enclosure Pressure Difference (Pa) Goal = 60 +- 3 or -60 +- 3 (Pressurization is positive; Depressurization is negative)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: result = Cmp05_BuildingPressureMeasuredUnadjusted - Cmp03_BuildingPressureReadingPreTest</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>

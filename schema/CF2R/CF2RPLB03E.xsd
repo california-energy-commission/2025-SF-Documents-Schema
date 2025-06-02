@@ -125,7 +125,7 @@
                   <xsd:element name="C02" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Cover for outdoor pools or spas</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">At least 1 inches of horizontal or vertical pipe shall be installed between the filter and heater, or dedicated suction and return lines, or built-in or built-up connections to allow for future solar heating equipment are provided.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">At least 18 inches of horizontal or vertical pipe shall be installed between the filter and heater, or dedicated suction and return lines, or built-in or built-up connections to allow for future solar heating equipment are provided.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="C03" minOccurs="0">

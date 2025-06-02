@@ -1,20 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/NRCVMCH27H" version="2025.0.000" xmlns="http://www.lmonte.com/besm/NRCVMCH27H" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+<xsd:schema xmlns="http://www.lmonte.com/besm/NRCVMCH27H" xmlns:d="http://www.lmonte.com/besm/d" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:env="http://www.lmonte.com/besm/env" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:com="http://www.lmonte.com/besm/com" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/NRCVMCH27H" version="2025.0.000">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
    <xsd:element name="ComplianceDocumentPackage">
       <xsd:complexType>
          <xsd:sequence>
-            <xsd:element name="DocID" minOccurs="0">
+            <xsd:element minOccurs="0" name="DocID">
                <xsd:complexType>
-                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="NRCVMCH27H"/>
-                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF VERIFICATION"/>
-                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Indoor Air Quality and Mechanical Ventilation"/>
+                  <xsd:attribute fixed="NRCVMCH27H" name="doc" type="comp:ComplianceDocumentTag"/>
+                  <xsd:attribute fixed="CERTIFICATE OF VERIFICATION" name="docType" type="comp:ComplianceDocumentType"/>
+                  <xsd:attribute fixed="Indoor Air Quality and Mechanical Ventilation" name="docTitle" type="comp:ComplianceDocumentTitleRes"/>
                </xsd:complexType>
             </xsd:element>
             <xsd:element name="Payload" type="comp:Payload"/>
@@ -31,27 +30,26 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
-         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="NRCVMCH27H"/>
+         <xsd:attribute fixed="rev 20250101" name="revision" type="xsd:string" use="required"/>
+         <xsd:attribute fixed="NRCVMCH27H" name="doc" type="comp:ComplianceDocumentTag" use="required"/>
       </xsd:complexType>
    </xsd:element>
    <xsd:complexType name="NRCVMCH27H">
       <xsd:annotation>
-         <xsd:documentation>Indoor Air Quality and Mechanical Ventilation</xsd:documentation>
+         <xsd:documentation>Indoor Air Quality and Mechanical Ventilation </xsd:documentation>
       </xsd:annotation>
       <xsd:sequence>
-         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="1" name="Section_A">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Whole Dwelling Mechanical Ventilation - General Information</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="A_BeforeNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="A_BeforeNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Before Section Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Title 24, Part 6, Section 160.2(b)2 
-                           <d:b> Ventilation and Indoor Air Quality for Attached Dwelling Units</d:b> Ventilation. All dwelling units shall meet the requirements of ANSI/ASHRAE Standard 62.2.-2022 Ventilation and Acceptable Indoor Air Quality in Low-Rise Residential Buildings subject to amendments specified by Title 24, Part 6 Section 160.2(b)2A</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Title 24, Part 6, Section 160.2(b)2 <d:b> Ventilation and Indoor Air Quality for Attached Dwelling Units</d:b> Ventilation. All dwelling units shall meet the requirements of ANSI/ASHRAE Standard 62.2.-2022 Ventilation and Acceptable Indoor Air Quality in Low-Rise Residential Buildings subject to amendments specified by Title 24, Part 6 Section 160.2(b)2A</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A01_DwellingUnitName" type="com:DwellingUnitName">
@@ -60,7 +58,7 @@
                         <xsd:documentation source="CalculationsAndRules">User input text maximum 50 characters</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A02_WholeBuildingOccupancy" type="com:WholeBuildingOccupancy" fixed="HighRiseResidential">
+                  <xsd:element fixed="HighRiseResidential" name="A02_WholeBuildingOccupancy" type="com:WholeBuildingOccupancy">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Building Type</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: Fixed value HighRiseResidential</xsd:documentation>
@@ -75,6 +73,7 @@
                            <dtyp:displayterm value="ExistingAlteration">Alteration</dtyp:displayterm>
                            <dtyp:displayterm value="NewComplete">New</dtyp:displayterm>
                         </xsd:appinfo>
+                        
                      </xsd:annotation>
                      <xsd:simpleType>
                         <xsd:restriction base="comp:ProjectScopeNR">
@@ -118,28 +117,27 @@
                   </xsd:element>
                   <xsd:element name="A08_FaultIndicatorDisplayStatus" type="comp:FaultIndicatorDisplayStatus">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Fault Indicator Display (FID) Status</xsd:documentation>
+                        <xsd:documentation source="FieldText">Fault Indicator Display (FID) Status </xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">auto filled from LMCI; Possible values: FactoryInstalledFID display text: This system has a factory installed FID,   FieldInstalledFID display text: This system has a field installed FID; NoInstalledFID display text: This system does not have a FID device installed.  If installed system doesn't match value from CF2R, it can be overwritten by rater but it will be flagged as a possible fail</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="AEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="AEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements">Note: 
-                           <d:line1/>Non-dwelling units do not meet the definition for a dwelling unit as defined in Section 100.1(b).  Non-dwelling units are not designed to provide independent living facilities and do not provide permanent provisions for living, sleeping, eating, cooking and sanitation.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Note: <d:line1/>Non-dwelling units do not meet the definition for a dwelling unit as defined in Section 100.1(b).  Non-dwelling units are not designed to provide independent living facilities and do not provide permanent provisions for living, sleeping, eating, cooking and sanitation.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_B" minOccurs="1" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="1" name="Section_B">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Ventilation - Total Ventilation Rate</xsd:documentation>
+               <xsd:documentation source="FieldText">Ventilation - Total Ventilation Rate </xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="B_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="B_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">A mechanical supply system, exhaust system or combination thereof shall provide whole-dwelling ventilation with outdoor air each hour at no less than the rate in 160.2(b)2Aiv</xsd:documentation>
@@ -154,14 +152,14 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_C" minOccurs="1" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="1" name="Section_C">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Installed  Ventilation - Total Ventilation Rate</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="C_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="C_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">A mechanical supply system, exhaust system, or combination thereof shall provide whole-dwelling ventilation with outdoor air each hour at no less than the rate in 160.2(b)2Aiv</xsd:documentation>
@@ -173,7 +171,7 @@
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="C01_IAQ_VentilationFanName" type="hvac:IAQ_VentilationFanName">
@@ -221,7 +219,7 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_D" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_D">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Additional Envelope Requirements</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required if A06_VentilationSystemType  == SupplyVent , ExhaustVent, CentralFanIntegrated, SupplyCentralVent Or ExhaustCentralVent</xsd:documentation>
@@ -238,7 +236,7 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_E" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_E">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Additional Central Ventilation System Balancing Requirements</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required if A06_VentilationSystemType  == SupplyCentralVent, ExhaustCentralVent Or BalancedCentralVent</xsd:documentation>
@@ -255,7 +253,7 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_F" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_F">
             <xsd:annotation>
                <xsd:documentation source="FieldText">HRV or ERV Serving Individual Dwelling Unit</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required If A06_VentilationSystemType == BalancedERV Or  BalancedHRV</xsd:documentation>
@@ -263,14 +261,12 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="HErvBeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="HErvBeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements">Heat or Energy Recovery Systems must have a fan efficacy of 
-                           <d:lte/> 1.0 W/cfm in all climate zones (Section 160.2(b)2Biii)
+                        <xsd:documentation source="AdditionalRequirements">Heat or Energy Recovery Systems must have a fan efficacy of <d:lte/> 1.0 W/cfm in all climate zones (Section 160.2(b)2Biii)
 
-Heat or Energy Recovery Systems must prescriptively have a fan efficacy of 
-                           <d:lte/> 0.6 W/cfm and a minimum sensible heat recovery of 67% in climate zones 1, 2, 4, 11-14 and 16 (Section 170.2(c)3Biva)</xsd:documentation>
+Heat or Energy Recovery Systems must prescriptively have a fan efficacy of <d:lte/> 0.6 W/cfm and a minimum sensible heat recovery of 67% in climate zones 1, 2, 4, 11-14 and 16 (Section 170.2(c)3Biva)</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="TableHrvErv">
@@ -279,7 +275,7 @@ Heat or Energy Recovery Systems must prescriptively have a fan efficacy of
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="Herv01_VentilationManufacturer" type="hvac:VentilationManufacturer">
@@ -317,7 +313,7 @@ If complying prescriptively And A09_ClimateZone == 1 Or 2 Or 4 Or InRange(11,14)
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_G" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_G">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Requirements for Balanced and Supply Only Ventialtion Systems (160.0(b)2Axi)</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">The section is required if FaultIndicatorDisplayStatus in section A equals FactoryInstalledFID or FieldInstalledFID.</xsd:documentation>
@@ -325,35 +321,27 @@ If complying prescriptively And A09_ClimateZone == 1 Or 2 Or 4 Or InRange(11,14)
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="G_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Balanced and supply ventilation component accessibility.  Balanced and supply ventilation systems shall meet the following requirements for accessibility:</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G01" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G01">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">IAQ Filter and HRV/ERV</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">IAQ filter and HRV/ERV accessibility. System air filters ad HRV/ERV heat/energy recovery cores shall be located such that they are accessible for service from within occupiable spaces, basements, garages, balconies, mechanical closets or accessible rooftops.
-Filters and heat/energy recovery cores behind access panels, access doors, or grilles located no more than 10 feet above a walking surface inside a space specified above comply with this requirement.  
-                           <d:line1/>
-                           <d:b>Exception to Section 160.2(b)2Axia:</d:b> Systems that require servicing from inside the attic shall have the following:
-
-                           <d:l t="#">
-                              <d:list> A Fault Indicator Display (FID) meeting the requirements of Reference Appendix JA17 and </d:list>
-                              <d:list> An attic access door located in a wall or , where attic access is provided through a ceiling, an attic access hatch that includes an integrated ladder; and </d:list>
-                              <d:list> A walkway from the attic access door to the HRV/ERV. </d:list>
-                           </d:l>
-                        </xsd:documentation>
+Filters and heat/energy recovery cores behind access panels, access doors, or grilles located no more than 10 feet above a walking surface inside a space specified above comply with this requirement.  <d:line1/><d:b>Exception to Section 160.2(b)2Axia:</d:b> Systems that require servicing from inside the attic shall have the following:
+<d:l t="#"><d:list> A Fault Indicator Display (FID) meeting the requirements of Reference Appendix JA17 and </d:list><d:list> An attic access door located in a wall or , where attic access is provided through a ceiling, an attic access hatch that includes an integrated ladder; and </d:list><d:list> A walkway from the attic access door to the HRV/ERV. </d:list></d:l> </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G02" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G02">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">IAQ Accessibility</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">IAQ system component accessibility. Fans, motors, heat exchangers, filters and recovery cores shall meet all applicable requirements of California Mechanical Code 304.0 accessibility of service.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="GEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="GEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
@@ -362,7 +350,7 @@ Filters and heat/energy recovery cores behind access panels, access doors, or gr
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_H" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_H">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Fault Indicator Display Installation Verification</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">The section is required if If FaultIndicatorDisplayStatus in section A equals FactoryInstalledFID or FieldInstalledFID.</xsd:documentation>
@@ -370,7 +358,7 @@ Filters and heat/energy recovery cores behind access panels, access doors, or gr
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="H_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="H_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Procedures for the System Fault Indicator Display Verification are detailed in Appendix JA17.</xsd:documentation>
@@ -415,7 +403,7 @@ Filters and heat/energy recovery cores behind access panels, access doors, or gr
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_I" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_I">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Fault Indicator Display - Additional Requirements</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">The section is required if FaultIndicatorDisplayStatus in section A equals FactoryInstalledFID or FieldInstalledFID.</xsd:documentation>
@@ -423,19 +411,19 @@ Filters and heat/energy recovery cores behind access panels, access doors, or gr
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="I_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="I_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="I01" minOccurs="0">
+                  <xsd:element minOccurs="0" name="I01">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">FID Factory or Field Installed</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Fault indicator display devices shall either be factory installed by the space-conditioning system manufacturer, or field installed according to the space-conditioning system manufacturer requirements and the FID manufacturer specifications.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="I02" minOccurs="0">
+                  <xsd:element minOccurs="0" name="I02">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">FID Manufacturer User Instructions</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The installer shall ensure that a copy of the FID manufacturer's user instructions documentation has been made available to the building owner.</xsd:documentation>
@@ -444,7 +432,7 @@ Filters and heat/energy recovery cores behind access panels, access doors, or gr
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_J" minOccurs="1">
+         <xsd:element minOccurs="1" name="Section_J">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
@@ -472,14 +460,14 @@ End If</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_K" minOccurs="1" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="1" name="Section_K">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Determination of HERS Verification Compliance</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="K_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="K_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">All applicable sections of this document shall indicate compliance with the specified verification protocol requirements in order for this Certificate of Verification as a whole to be determined to be in compliance.</xsd:documentation>

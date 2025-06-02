@@ -1,18 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF1RALT01E" version="2025.0.000" xmlns="http://www.lmonte.com/besm/CF1RALT01E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+<xsd:schema xmlns="http://www.lmonte.com/besm/CF1RALT01E" xmlns:d="http://www.lmonte.com/besm/d" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:env="http://www.lmonte.com/besm/env" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:com="http://www.lmonte.com/besm/com" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF1RALT01E" version="2025.0.000">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element minOccurs="0" name="DocID">
+               <xsd:complexType>
+                  <xsd:attribute fixed="CF1RALT01E" name="doc" type="comp:ComplianceDocumentTag"/>
+                  <xsd:attribute fixed="CERTIFICATE OF COMPLIANCE" name="docType" type="comp:ComplianceDocumentType"/>
+                  <xsd:attribute fixed="Prescriptive Residential Alterations" name="docTitle" type="comp:ComplianceDocumentTitleRes"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderHERSCC"/>
+                     <xsd:element ref="cF1RALT01E"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF1R"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute fixed="rev 20250101" name="revision" type="xsd:string" use="required"/>
+         <xsd:attribute fixed="CF1RALT01E" name="doc" type="comp:ComplianceDocumentTag" use="required"/>
+      </xsd:complexType>
+   </xsd:element>
    <xsd:complexType name="CF1RALT01E">
       <xsd:annotation>
          <xsd:documentation>Prescriptive Residential Alterations</xsd:documentation>
       </xsd:annotation>
       <xsd:sequence>
-         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="1" name="Section_A">
             <xsd:annotation>
                <xsd:documentation source="FieldText">General Information</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
@@ -49,7 +76,7 @@
                         <xsd:documentation source="CalculationsAndRules">User input: String</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A06_DwellingUnitsWithAlterationsCount" type="com:DwellingUnitsWithAlterationsCount" fixed="1">
+                  <xsd:element fixed="1" name="A06_DwellingUnitsWithAlterationsCount" type="com:DwellingUnitsWithAlterationsCount">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Number of Altered Dwelling Units</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Fixed value of 1 which is displayed;</xsd:documentation>
@@ -61,7 +88,7 @@
                         <xsd:documentation source="CalculationsAndRules">User input: Zipcode</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A08_SiteFuelType" type="com:SiteFuelType" fixed="Electricity">
+                  <xsd:element fixed="Electricity" name="A08_SiteFuelType" type="com:SiteFuelType">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Fuel Type</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Fixed value of Electricity; always display Electricity</xsd:documentation>
@@ -79,7 +106,7 @@
                         <xsd:documentation source="CalculationsAndRules">User input: IntegerNonnegative</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A11_ResidentialLowriseBuildingType" type="com:ResidentialLowriseBuildingType" fixed="SingleFamily">
+                  <xsd:element fixed="SingleFamily" name="A11_ResidentialLowriseBuildingType" type="com:ResidentialLowriseBuildingType">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Building Type</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Fixed value of SingleFamily; always display Single Family</xsd:documentation>
@@ -91,7 +118,7 @@
                         <xsd:documentation source="CalculationsAndRules">User input: IntegerNonnegative</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A13_ProjectScopeAlterations" type="comp:ProjectScopeAlterations" minOccurs="1" maxOccurs="unbounded">
+                  <xsd:element maxOccurs="unbounded" minOccurs="1" name="A13_ProjectScopeAlterations" type="comp:ProjectScopeAlterations">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Project Scope</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User can select as many as are applicable from this list.  
@@ -114,10 +141,10 @@ FenestrationGlazingWindowMinimumFt2Replacement display term Replacing Fenestrati
  
 FenestrationGlazingSkylightMinimumFt2Replacement,  display term Replacing Fenestration/Glazing Skylight (Show tables F and H)
 
-ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show Table I).</xsd:documentation>
+ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show Table I). </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="AEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="AEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Note: If Kitchen Range Hood Installation (new or replacement) is selected in A13, ECC verification and a CF2R/3R-MCH-32 is required.</xsd:documentation>
                      </xsd:annotation>
@@ -125,7 +152,7 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show Table I).</xsd
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_B" minOccurs="0" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="0" name="Section_B">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Opaque Surface Details - Framed (Section 150.2(b)1)</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is applicable if A13_ProjectScopeAlterations includes Insulation</xsd:documentation>
@@ -139,7 +166,7 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show Table I).</xsd
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="B01_PartitionName" type="env:PartitionName">
@@ -185,11 +212,9 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show Table I).</xsd
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
-                                    <xsd:element name="B05After_HeadingForB06toB09" minOccurs="0">
+                                    <xsd:element minOccurs="0" name="B05After_HeadingForB06toB09">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">
-                                             <d:b> Proposed</d:b>
-                                          </xsd:documentation>
+                                          <xsd:documentation source="FieldText"><d:b> Proposed</d:b></xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="B06a_InsulationCavityRValue" type="env:InsulationCavityRValue">
@@ -210,11 +235,9 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show Table I).</xsd
                                           <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="B07After_HeadingB08" minOccurs="0">
+                                    <xsd:element minOccurs="0" name="B07After_HeadingB08">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">
-                                             <d:b> Required</d:b>
-                                          </xsd:documentation>
+                                          <xsd:documentation source="FieldText"><d:b> Required</d:b></xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
@@ -231,7 +254,7 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show Table I).</xsd
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="B09_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments" minOccurs="0">
+                                    <xsd:element minOccurs="0" name="B09_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Comments</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input: Text</xsd:documentation>
@@ -243,21 +266,16 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show Table I).</xsd
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="BEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="BEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">
-                           <d:b> Note:</d:b>
-                           <d:l t="*">
-                              <d:list> Where insulation is installed above the roofing membrane, or above the layer used to seal the roof from water penetration, the insulation shall have a maximum water absorption of 0.3 percent by volume when tested according to American Society for Testing and Materials (ASTM) Standard C272.</d:list>
-                           </d:l>
-                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements"><d:b> Note:</d:b><d:l t="*"><d:list> Where insulation is installed above the roofing membrane, or above the layer used to seal the roof from water penetration, the insulation shall have a maximum water absorption of 0.3 percent by volume when tested according to American Society for Testing and Materials (ASTM) Standard C272.</d:list></d:l></xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_C" minOccurs="0" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="0" name="Section_C">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Opaque Surface Details - Non-Framed</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is applicable if if the project has at least one opaque non-framed roof or wall
@@ -272,7 +290,7 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show Table I).</xsd
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="C01_PartitionName" type="env:PartitionName">
@@ -305,11 +323,9 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show Table I).</xsd
                                           <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative;</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="C04After_HeadingForC05toC09" minOccurs="0">
+                                    <xsd:element minOccurs="0" name="C04After_HeadingForC05toC09">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">
-                                             <d:b> Proposed</d:b>
-                                          </xsd:documentation>
+                                          <xsd:documentation source="FieldText"><d:b> Proposed</d:b></xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="C05_InsulationCoreRValue" type="env:InsulationCoreRValue">
@@ -330,11 +346,9 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show Table I).</xsd
                                           <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="C07After_HeadingC08" minOccurs="0">
+                                    <xsd:element minOccurs="0" name="C07After_HeadingC08">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">
-                                             <d:b> Required</d:b>
-                                          </xsd:documentation>
+                                          <xsd:documentation source="FieldText"><d:b> Required</d:b></xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
@@ -351,7 +365,7 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show Table I).</xsd
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="C09_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments" minOccurs="0">
+                                    <xsd:element minOccurs="0" name="C09_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Comments</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input: Text</xsd:documentation>
@@ -366,7 +380,7 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show Table I).</xsd
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_D" minOccurs="0" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="0" name="Section_D">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Opaque Surface Details - Masonry/Mass Walls</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is applicable if the project has at least one opaque mass wall and If A13_ProjectScopeAlterations includes Insulation  .</xsd:documentation>
@@ -380,7 +394,7 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show Table I).</xsd
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="D01_PartitionName" type="env:PartitionName">
@@ -395,11 +409,9 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show Table I).</xsd
                                           <xsd:documentation source="CalculationsAndRules">User selects Boolean value true display term Above Grade or false display term Below Grade.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="D02After_HeadingForD03toD12" minOccurs="0">
+                                    <xsd:element minOccurs="0" name="D02After_HeadingForD03toD12">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">
-                                             <d:b>Proposed</d:b>
-                                          </xsd:documentation>
+                                          <xsd:documentation source="FieldText"><d:b>Proposed</d:b></xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">This multicolumn heading is for D03-D012</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -415,7 +427,7 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show Table I).</xsd
                                           <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative;</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="D04After_SubHeadingForD05ToD06" minOccurs="0">
+                                    <xsd:element minOccurs="0" name="D04After_SubHeadingForD05ToD06">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Exterior Insulation</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">This is the subheading is for D05-06</xsd:documentation>
@@ -435,7 +447,7 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show Table I).</xsd
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="D06After_SubHeadingForD07toD08" minOccurs="0">
+                                    <xsd:element minOccurs="0" name="D06After_SubHeadingForD07toD08">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Interior Insulation</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">This is the subheading is for D07-08</xsd:documentation>
@@ -455,15 +467,13 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show Table I).</xsd
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="D08After_HeadingD09toD12" minOccurs="0">
+                                    <xsd:element minOccurs="0" name="D08After_HeadingD09toD12">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">
-                                             <d:b>Required</d:b>
-                                          </xsd:documentation>
+                                          <xsd:documentation source="FieldText"><d:b>Required</d:b></xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">This multicolumn heading is for D09-D12</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="D08AfterSubHeading_LabelForD09ToD10" minOccurs="0">
+                                    <xsd:element minOccurs="0" name="D08AfterSubHeading_LabelForD09ToD10">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Exterior Insulation</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">This is the subheading is for D09-D10</xsd:documentation>
@@ -483,7 +493,7 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show Table I).</xsd
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="D10After_SubHeadingForD11ToD12" minOccurs="0">
+                                    <xsd:element minOccurs="0" name="D10After_SubHeadingForD11ToD12">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Interior Insulation</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">This is subheading is for D11-D12</xsd:documentation>
@@ -509,17 +519,16 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show Table I).</xsd
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="DEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="DEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">
-                           <d:b>Note:</d:b> When insulation is added to the outside of a mass wall and/or when the inside is furred and insulated, the performance data may be adjusted using Equation 4-4 in the Joint Appendices.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements"><d:b>Note:</d:b> When insulation is added to the outside of a mass wall and/or when the inside is furred and insulated, the performance data may be adjusted using Equation 4-4 in the Joint Appendices.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_E" minOccurs="0" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="0" name="Section_E">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Roof Replacement (Section 150.2(b)1I)</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is applicable if A13_ProjectScopeAlterations includes  RoofAlterationGT50Percent</xsd:documentation>
@@ -533,7 +542,7 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show Table I).</xsd
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="E01_PartitionName" type="env:PartitionName">
@@ -574,8 +583,7 @@ If A09_ClimateZone == 4, Or InRange (8, 15)
 user selects from this list: 
 MassRoof25Lbs display term Mass roof 25 lbs/ft2 or greater; 
 SolarOnRoof display term Roof area with PV panels or solar thermal panels
-R38Insulation display term Roof has U-factor of 
-                                                <d:lte/> 0.025 or R-38 insulation; 
+R38Insulation display term Roof has U-factor of <d:lte/> 0.025 or R-38 insulation; 
 RadiantBarrier display term Roof has a radiant barrier not installed above spaced sheathing meeting 150.1(c)2;   
 RoofDeckInsulationAbove display term R-2 insulation above the roof deck;    
  
@@ -644,11 +652,9 @@ End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="E07After_HeadingForE08toE11" minOccurs="0">
+                                    <xsd:element minOccurs="0" name="E07After_HeadingForE08toE11">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">
-                                             <d:b> Proposed</d:b>
-                                          </xsd:documentation>
+                                          <xsd:documentation source="FieldText"><d:b> Proposed</d:b></xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
@@ -707,11 +713,9 @@ End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="E11After_HeadingForE12toE14" minOccurs="0">
+                                    <xsd:element minOccurs="0" name="E11After_HeadingForE12toE14">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">
-                                             <d:b> Minimum Required</d:b>
-                                          </xsd:documentation>
+                                          <xsd:documentation source="FieldText"><d:b> Minimum Required</d:b></xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
@@ -763,21 +767,16 @@ Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="EEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="EEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">
-                           <d:b> Notes:</d:b>
-                           <d:l t="*">
-                              <d:list>Liquid field applied coatings must comply with installation criteria from section 110.8(i)4</d:list>
-                           </d:l>
-                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements"><d:b> Notes:</d:b><d:l t="*"><d:list>Liquid field applied coatings must comply with installation criteria from section 110.8(i)4</d:list></d:l></xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_F" minOccurs="0" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="0" name="Section_F">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Fenestration/Glazing Allowed Areas and Efficiencies  (Section 150.2(b)1A)</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required is A13_ProjectScopeAlterations includes one or more  of the following: FenestrationGlazingAddition,  FenestrationGlazingReplacement, FenestrationGlazingWindowMinimumFt2Replacement FenestrationGlazingSkylightMinimumFt2Addition,  FenestrationGlazingSkylightMinimumFt2Replacement</xsd:documentation>
@@ -791,21 +790,21 @@ Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
-                                    <xsd:element name="F01_ProjectScopeAlterations" maxOccurs="unbounded">
+                                    <xsd:element maxOccurs="unbounded" name="F01_ProjectScopeAlterations">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Alteration Type</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Values are auto-filled from A13_ ProjectScopeAlteration. Possible values: FenestrationGlazingAddition display term Adding Fenestration/Glazing,  FenestrationGlazingReplacement display term Replacing Fenestration/Glazing, FenestrationGlazingWindowMinimumFt2Replacement display term Replacing Fenestration/Glazing less than or equal to 75 ft2 Windows FenestrationGlazingSkylightMinimumFt2Addition display term Adding Fenestration/Glazing less than or equal to 16 ft2 Skylights,  FenestrationGlazingSkylightMinimumFt2Replacement display term Replacing Fenestration/Glazing</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="comp:ProjectScopeAlterations">
-                                             <xsd:enumeration value="FenestrationGlazingAddition"/>
-                                             <xsd:enumeration value="FenestrationGlazingReplacement"/>
-                                             <xsd:enumeration value="FenestrationGlazingSkylightMinimumFt2Addition"/>
-                                             <xsd:enumeration value="FenestrationGlazingSkylightMinimumFt2Replacement"/>
-                                             <xsd:enumeration value="FenestrationGlazingWindowMinimumFt2Replacement"/>
+			                     <xsd:enumeration value="FenestrationGlazingAddition"/>
+			                     <xsd:enumeration value="FenestrationGlazingReplacement"/>
+			                     <xsd:enumeration value="FenestrationGlazingSkylightMinimumFt2Addition"/>
+			                     <xsd:enumeration value="FenestrationGlazingSkylightMinimumFt2Replacement"/>
+			                     <xsd:enumeration value="FenestrationGlazingWindowMinimumFt2Replacement"/>
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
@@ -878,20 +877,20 @@ Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 
                                        </xsd:element>
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="F06b_SHGC_LimitSkylight" type="com:SHGC_LimitSkylight">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Maximum Allowed SHGC (Skylights)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If A09_ClimateZone == 1,3, 5 Or 16 result = N/A stored in the NotApplicableMessage; Else If F01_ProjectScopeAlteration contains FenestrationGlazingSkylightMinimumFt2Addition Or FenestrationGlazingSkylightMinimumFt2Replacement (which now applies to all skylight replacements. The name is not changing to be backward compatible)  result = 0.30; Else result = 0.23;</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
+                                    <xsd:element name="F06b_SHGC_LimitSkylight" type="com:SHGC_LimitSkylight">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Maximum Allowed SHGC (Skylights)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If A09_ClimateZone == 1,3, 5 Or 16 result = N/A stored in the NotApplicableMessage; Else If F01_ProjectScopeAlteration contains FenestrationGlazingSkylightMinimumFt2Addition Or FenestrationGlazingSkylightMinimumFt2Replacement (which now applies to all skylight replacements. The name is not changing to be backward compatible)  result = 0.30; Else result = 0.23;</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
                                        <xsd:element name="F06b_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Maximum Allowed SHGC (Skylights)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If A09_ClimateZone == 1,3, 5 Or 16 result = N/A stored in the NotApplicableMessage;  Else if  F01_ProjectScopeAlteration contains FenestrationGlazingSkylightMinimumFt2Addition Or FenestrationGlazingSkylightMinimumFt2Replacement  result = 0.30; Else result = 0.23</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If A09_ClimateZone == 1,3, 5 Or 16 result = N/A stored in the NotApplicableMessage;  Else if  F01_ProjectScopeAlteration contains FenestrationGlazingSkylightMinimumFt2Addition Or FenestrationGlazingSkylightMinimumFt2Replacement  result = 0.30; Else result = 0.23 </xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="F07_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments" minOccurs="0">
+                                    <xsd:element minOccurs="0" name="F07_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Comments</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input: Text</xsd:documentation>
@@ -906,7 +905,7 @@ Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_G" minOccurs="0" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="0" name="Section_G">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Fenestration Proposed Areas and Efficiencies - Add (Section 150.2(b)1A)</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required if A13_ProjectScopeAlterations includes one of these values: FenestrationGlazingAddition, FenestrationGlazingSkylightMinimumFt2Addition, FenestrationGlazingWindowMinimumFt2Addition.  Each row in the table is for a unique type of vertical fenestration or  skylight in the project.</xsd:documentation>
@@ -914,7 +913,7 @@ Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="G_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Note: Doors with greater than or equal to 25 percent glazed area are considered glazed doors and are treated as fenestration products.</xsd:documentation>
@@ -926,7 +925,7 @@ Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="G01_FenestrationName" type="comp:FenestrationName">
@@ -1214,7 +1213,7 @@ Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
-                  <xsd:element name="G22_UFactorLimit" type="com:UFactorLimit" fixed="0.30">
+                  <xsd:element fixed="0.30" name="G22_UFactorLimit" type="com:UFactorLimit">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Required Fenestration U-factor (Windows)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: result = F05a_UFactorLimit</xsd:documentation>
@@ -1325,12 +1324,12 @@ Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 
                      </xsd:element>
                   </xsd:choice>
                   <xsd:choice maxOccurs="1">
-                     <xsd:element name="G31_SHGC_LimitSkylight" type="com:SHGC_LimitSkylight">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Required Fenestration SHGC (Skylights)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: result = F06b_SHGC_LimitSkylight</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
+                  <xsd:element name="G31_SHGC_LimitSkylight" type="com:SHGC_LimitSkylight">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Required Fenestration SHGC (Skylights)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: result = F06b_SHGC_LimitSkylight</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                      <xsd:element name="G31_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Required Fenestration SHGC (Skylights)</xsd:documentation>
@@ -1355,7 +1354,7 @@ Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_H" minOccurs="0" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="0" name="Section_H">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Fenestration Proposed Areas and Efficiencies - Replace (Section 150.2(b)1B)</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required if A13_ProjectScopeAlterations includes one of these values: FenestrationGlazingReplacement, FenestrationGlazingWindowMinimumFt2Replacement. FenestrationGlazingSkylightReplacement</xsd:documentation>
@@ -1363,7 +1362,7 @@ Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="H_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="H_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Note: Doors with greater than or equal to 25 percent glazed area are considered glazed doors and are treated as fenestration products.</xsd:documentation>
@@ -1375,7 +1374,7 @@ Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="H01_FenestrationName" type="comp:FenestrationName">
@@ -1598,8 +1597,7 @@ Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 
                   </xsd:element>
                   <xsd:element name="H16_IsNetAddedWestFenestrationLTE_Zero" type="comp:IsNetAddedWestFenestrationLTE_Zero">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Is Net Added Fenestration Area 
-                           <d:lte/> zero for west-facing fenestration?</xsd:documentation>
+                        <xsd:documentation source="FieldText">Is Net Added Fenestration Area <d:lte/> zero for west-facing fenestration?</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: If H15_ NetAddGlazingAreaWest LTE 0 result = true display term Yes, Else result = false display term No.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -1611,8 +1609,7 @@ Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 
                   </xsd:element>
                   <xsd:element name="H18_IsNetAddedAllFenestrationLTE_Zero" type="comp:IsNetAddedAllFenestrationLTE_Zero">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Is Net Added Fenestration Area 
-                           <d:lte/> zero for all orientations?</xsd:documentation>
+                        <xsd:documentation source="FieldText">Is Net Added Fenestration Area <d:lte/> zero for all orientations?</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: If H17_ NetAddGlazingAreaAllOrientations LTE 0 result = true display term Yes, Else result = false display term No.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -1742,10 +1739,10 @@ Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 
                   </xsd:choice>
                   <xsd:choice maxOccurs="1">
                      <xsd:element name="H29_SHGC_LimitSkylight" type="com:SHGC_LimitSkylight">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Required Fenestration SHGC (Skylights)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: result = F06b_SHGC_LimitSkylight</xsd:documentation>
-                        </xsd:annotation>
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Required Fenestration SHGC (Skylights)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: result = F06b_SHGC_LimitSkylight</xsd:documentation>
+                     </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="H29_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
@@ -1771,7 +1768,7 @@ Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_I" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_I">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Opaque Swinging Doors to Exterior (Section 150.1(c)5)</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required if A13__ProjectScopeAlerations includes ExteriorDoorsAlteration</xsd:documentation>
@@ -1785,7 +1782,7 @@ Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="I01_DoorName" type="env:DoorName">
@@ -1824,7 +1821,7 @@ Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 
                                           <xsd:documentation source="CalculationsAndRules">Calculated field: If I03_UFactor GT 0.20 result = true display term Yes; Else result = false display term No.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="I07_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments" minOccurs="0">
+                                    <xsd:element minOccurs="0" name="I07_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Comments</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
@@ -1836,22 +1833,16 @@ Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="IEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="IEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Notes:</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Notes: 
-                           <d:l t="*">
-                              <d:list>Any door wiht 25% or more glass is counted as a fenestration product in Tables F, G and H. </d:list>
-                              <d:list> Do not include fire-rated doors between garage or unconditioned space and conditioned space.</d:list>
-                              <d:list> If using weighted average to achieve required maximum U-factor, attach CF1R-ENV-02-E.</d:list>
-                           </d:l>
-                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Notes: <d:l t="*"> <d:list>Any door wiht 25% or more glass is counted as a fenestration product in Tables F, G and H. </d:list><d:list> Do not include fire-rated doors between garage or unconditioned space and conditioned space.</d:list><d:list> If using weighted average to achieve required maximum U-factor, attach CF1R-ENV-02-E.</d:list></d:l></xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_J" minOccurs="0" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="0" name="Section_J">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Space Conditioning (SC) Systems - Heating/Cooling (Section 150.2(b).</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is applicable if A13_ProjectScopeAlterations includes at least one of the following: HeatingSystemAlterations, CoolingSystemAlterations, or DuctSystemAlterations.  Require one row of data in this table and require one CF1R-ALT-02 and one CF2R-MCH-01b for the dwelling.</xsd:documentation>
@@ -1871,7 +1862,7 @@ Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 
                         <xsd:documentation source="CalculationsAndRules">User input: IntegerNonnegative</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="J03_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments" minOccurs="0">
+                  <xsd:element minOccurs="0" name="J03_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Comments</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input: Text</xsd:documentation>
@@ -1880,7 +1871,7 @@ Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_K" minOccurs="0" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="0" name="Section_K">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Water Heating Systems  (Section 150.2(b)1H)</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is applicable if A13_ProjectScopeAlterations includes WaterHeatingAlteration.</xsd:documentation>
@@ -1888,12 +1879,12 @@ Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="K_BeginNote1" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">List water heaters and boilers for both domestic hot water (DHW) heaters and hydronic space heating.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
+		  <xsd:element minOccurs="0" name="K_BeginNote1">
+			<xsd:annotation>
+				<xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+				<xsd:documentation source="AdditionalRequirements">List water heaters and boilers for both domestic hot water (DHW) heaters and hydronic space heating.</xsd:documentation>
+			</xsd:annotation>
+		  </xsd:element>
                   <xsd:element name="K01_WaterHeaterHasNaturalGas" type="hvac:WaterHeaterHasNaturalGas">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Is natural gas connected to the existing water heater?</xsd:documentation>
@@ -1906,7 +1897,7 @@ Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="K02_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
@@ -1917,8 +1908,7 @@ Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 
                                     </xsd:element>
                                     <xsd:element name="K03_WaterHeatingSystemAlteredOption" type="comp:WaterHeatingSystemAlteredOption">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">System Option (from 
-                                             <d:t24ref h="150.2(b)1Hiii"/>)</xsd:documentation>
+                                          <xsd:documentation source="FieldText">System Option (from <d:t24ref h="150.2(b)1Hiii"/>)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list as follows: 
 If K01_WaterHeaterHasNaturalGas == false
 User selects from list: Option2HP display term 2, Option3Tier3HP display term 3 and Option4Electric display term 4;
@@ -1972,17 +1962,12 @@ Else If K04__WaterHeatingSystemAlteredOption ==Option4Electric result = Electric
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="KEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="KEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Options:
-                           <d:l t="#">
-                              <d:list> A gas or propane water heating system. </d:list>
-                              <d:list> A single heat pump water heater, storage tank shall not be located outdoors and placed on an incompressible, rigid insulated surface with a minimum thermal resistance of R-10.  The water heater shall be installed with a communication interface that meets either the requirements of Section 110.12(a) or has an ANSI/CTA-2045-B communication port </d:list>
-                              <d:list>A single heat pump water heater that meets the requirements of NEEA Advanced Water Heater Specification Tier 3 or higher; or  </d:list>
-                              <d:list>  If no natural gas is connected to the existing water heater location, a consumer electric water heater (Heat Pump Water Heater or Electric Resistance). </d:list>
-                           </d:l>
-                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Options:<d:l t="#"><d:list> A gas or propane water heating system. </d:list> <d:list> A single heat pump water heater, storage tank shall not be located outdoors and placed on an incompressible, rigid insulated surface with a minimum thermal resistance of R-10.  The water heater shall be installed with a communication interface that meets either the requirements of Section 110.12(a) or has an ANSI/CTA-2045-B communication port </d:list> 
+<d:list>A single heat pump water heater that meets the requirements of NEEA Advanced Water Heater Specification Tier 3 or higher; or  </d:list> 
+<d:list>  If no natural gas is connected to the existing water heater location, a consumer electric water heater (Heat Pump Water Heater or Electric Resistance). </d:list></d:l></xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
@@ -1990,34 +1975,6 @@ Else If K04__WaterHeatingSystemAlteredOption ==Option4Electric result = Electric
          </xsd:element>
       </xsd:sequence>
    </xsd:complexType>
-   <xsd:element name="ComplianceDocumentPackage">
-      <xsd:complexType>
-         <xsd:sequence>
-            <xsd:element name="DocID" minOccurs="0">
-               <xsd:complexType>
-                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF1RALT01E"/>
-                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF COMPLIANCE"/>
-                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Prescriptive Residential Alterations"/>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Payload" type="comp:Payload"/>
-            <xsd:element name="DocumentData">
-               <xsd:complexType>
-                  <xsd:sequence>
-                     <xsd:element name="Header" type="comp:HeaderHERSCC"/>
-                     <xsd:element ref="cF1RALT01E"/>
-                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
-                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF1R"/>
-                     <xsd:element name="Footer" type="comp:Footer"/>
-                  </xsd:sequence>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Report" type="xsd:base64Binary"/>
-         </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
-         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF1RALT01E"/>
-      </xsd:complexType>
-   </xsd:element>
    <xsd:element name="cF1RALT01E" type="CF1RALT01E">
       <xsd:annotation>
          <xsd:documentation>This element contains all of the data and text required to generate the CF1RALT01E compliance report.</xsd:documentation>

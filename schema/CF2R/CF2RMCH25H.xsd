@@ -702,7 +702,7 @@ result = true display term SC System complies with Minimum System Airflow Rate V
                   <xsd:element name="H04_ManufacturerStandardLiquidLineLength" type="comp:ManufacturerStandardLiquidLineLength" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Manufacturer Standard Liquid Line Length (ft)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Range for this value is 0 to 200</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Range for this value is 0 to 300</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="H05_ManufacturerStandardLiquidLineDiameter" type="comp:ManufacturerStandardLiquidLineDiameter" >
@@ -720,7 +720,7 @@ result = true display term SC System complies with Minimum System Airflow Rate V
                   <xsd:element name="H07_InstalledLiquidLineLength" type="comp:InstalledLiquidLineLength" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Installed Liquid Line Length (ft)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Range for this value is 0 to 200</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Range for this value is 0 to 300</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="H08_InstalledLiquidLineDiameter" type="comp:InstalledLiquidLineDiameter" >

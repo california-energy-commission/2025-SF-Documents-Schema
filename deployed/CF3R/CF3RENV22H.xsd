@@ -1,18 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF3RENV22H" version="2025.0.000" xmlns="http://www.lmonte.com/besm/CF3RENV22H" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+<xsd:schema xmlns="http://www.lmonte.com/besm/CF3RENV22H" xmlns:d="http://www.lmonte.com/besm/d" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:env="http://www.lmonte.com/besm/env" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:com="http://www.lmonte.com/besm/com" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF3RENV22H" version="2025.0.000">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element minOccurs="0" name="DocID">
+               <xsd:complexType>
+                  <xsd:attribute fixed="CF3RENV22H" name="doc" type="comp:ComplianceDocumentTag"/>
+                  <xsd:attribute fixed="CERTIFICATE OF VERIFICATION" name="docType" type="comp:ComplianceDocumentType"/>
+                  <xsd:attribute fixed="QII - Insulation Installation" name="docTitle" type="comp:ComplianceDocumentTitleRes"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderHERS"/>
+                     <xsd:element ref="cF3RENV22H"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF3R"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute fixed="rev 20250101" name="revision" type="xsd:string" use="required"/>
+         <xsd:attribute fixed="CF3RENV22H" name="doc" type="comp:ComplianceDocumentTag" use="required"/>
+      </xsd:complexType>
+   </xsd:element>
    <xsd:complexType name="CF3RENV22H">
       <xsd:annotation>
          <xsd:documentation>QII - Insulation Installation</xsd:documentation>
       </xsd:annotation>
       <xsd:sequence>
-         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="1" name="Section_A">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Insulation Materials Installed</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
@@ -87,7 +114,7 @@
                         <xsd:documentation source="CalculationsAndRules">For Pass choice display term: Pass - all applicable requirements are met.  For Fail choice display term: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display term: All N/A - This entire table is not applicable</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A07_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="A07_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required.</xsd:documentation>
@@ -96,50 +123,50 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_B" minOccurs="1" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="1" name="Section_B">
             <xsd:annotation>
                <xsd:documentation source="FieldText">All Surfaces</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="B01" minOccurs="0">
+                  <xsd:element minOccurs="0" name="B01">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Air barrier installation and preparation for insulation was done and verified prior to insulation being installed.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="B02" minOccurs="0">
+                  <xsd:element minOccurs="0" name="B02">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">All surfaces between conditioned and unconditioned space are sealed and insulated to meet or exceed the levels specified on the Certificate of Compliance</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="B03" minOccurs="0">
+                  <xsd:element minOccurs="0" name="B03">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">All structural framing areas shall be insulated in a manner that resists thermal bridging through the assembly separating conditioned from unconditioned space.  Structural bracing, tie-downs, and framing of steel, or specialized framing used to meet structural requirements of the California Building Code (CBC) are allowed and must be insulated.  These areas shall be called out on the building plans with diagrams and/ or specified design drawings indicating the R-value of insulation and fastening method to be used.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="B04" minOccurs="0">
+                  <xsd:element minOccurs="0" name="B04">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">All insulation was installed according to the manufacturer's installation instructions.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="B05" minOccurs="0">
+                  <xsd:element minOccurs="0" name="B05">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Labels or specification/ data sheets for each insulation material shall be provided to the ECC rater.  Loose-fill material includes insulation material bag labels or coverage charts.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="B06" minOccurs="0">
+                  <xsd:element minOccurs="0" name="B06">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Loose-fill insulation - the installed depth and density of insulation is verified in at least 6 random locations to ensure that the minimum thickness and installed density meet R-value specified on the Certificate of Compliance, and are consistent with the manufacturer's coverage chart.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="B07" minOccurs="0">
+                  <xsd:element minOccurs="0" name="B07">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">If kraft paper faced insulation is used, paper is installed on the conditioned (warm in winter) side of surface.  Paper must be in contact with air barrier to within 2-inches of the framing (stud, joists, etc.).</xsd:documentation>
@@ -151,13 +178,13 @@
                         <xsd:documentation source="CalculationsAndRules">For Pass choice display term: Pass - all applicable requirements are met.  For Fail choice display term: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display term: All N/A - This entire table is not applicable</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="B09_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="B09_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="BEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="BEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met unless otherwise noted in the Verification Status and the Correction Notes.</xsd:documentation>
@@ -166,38 +193,38 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_C" minOccurs="1" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="1" name="Section_C">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Raised Floor Adjacent to Unconditioned Space</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="C01" minOccurs="0">
+                  <xsd:element minOccurs="0" name="C01">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Insulation is in full contact with the subfloor.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="C02" minOccurs="0">
+                  <xsd:element minOccurs="0" name="C02">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Insulation hangers are spaced at 18 inches or less.  Insulation hangers do not compress insulation.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="C03" minOccurs="0">
+                  <xsd:element minOccurs="0" name="C03">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Netting, or mesh, can be used if the cavity under the floor is filled and in contact with the subfloor.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="C04" minOccurs="0">
+                  <xsd:element minOccurs="0" name="C04">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">When daylit basements are adjacent to crawlspaces, if the basement is conditioned the walls adjacent to the crawlspace are insulated to the R-value listed on the Certificate of Compliance.  This includes framed stem walls, and vertical concrete retaining walls.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="C05" minOccurs="0">
+                  <xsd:element minOccurs="0" name="C05">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">If access to the crawlspace is from the conditioned area the raised floor includes an airtight insulated access hatch.  Where possible locate crawl space access on the exterior.</xsd:documentation>
@@ -209,13 +236,13 @@
                         <xsd:documentation source="CalculationsAndRules">For Pass choice display term: Pass - all applicable requirements are met.  For Fail choice display term: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display term: All N/A - This entire table is not applicable</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="C07_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="C07_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="CEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="CEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met unless otherwise noted in the Verification Status and the Correction Notes.</xsd:documentation>
@@ -224,56 +251,56 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_D" minOccurs="1" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="1" name="Section_D">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Walls Adjacent to Unconditioned Space</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="D01" minOccurs="0">
+                  <xsd:element minOccurs="0" name="D01">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Insulation quality was verified prior to the installation of the interior air barrier (typically gypsum board).</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="D02" minOccurs="0">
+                  <xsd:element minOccurs="0" name="D02">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Loose-fill and batt insulation is in contact with all six sides of wall cavities (top, bottom, back, left, right, front [to be installed later]) with no gaps, voids or compression.  Special Situation: Where framing depth is greater than required insulation thickness (e.g., double walls or framed bump-outs) a secondary air barrier shall be installed and in contact with the insulation, so that the insulation fills the cavity formed by the additional air barrier.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="D03" minOccurs="0">
+                  <xsd:element minOccurs="0" name="D03">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Insulation fits snuggly around obstructions (e.g., electrical boxes, plumbing and wiring) with no gaps, voids or compression.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="D04" minOccurs="0">
+                  <xsd:element minOccurs="0" name="D04">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Structural metal tie-downs and shear panels are insulated between exterior air barrier and metal.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="D05" minOccurs="0">
+                  <xsd:element minOccurs="0" name="D05">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Hard to access wall stud cavities, such as corner channels or wall intersections, are insulated to the proper R-value prior to the installation of exterior sheathing or exterior stucco lathe.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="D06" minOccurs="0">
+                  <xsd:element minOccurs="0" name="D06">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Insulation and interior air barrier are installed behind tub, shower, fireplace enclosures and stairwells to the R-value listed on the Certificate of Compliance when located against exterior walls.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="D07" minOccurs="0">
+                  <xsd:element minOccurs="0" name="D07">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">All single-member window and door headers shall be insulated to a minimum of R-3 for a 2x4 framing, or equivalent width, and a minimum of R-5 for all other assemblies. No header insulation is required for single-member headers that are the same width as the wall, provided that the entire wall has at least R-2 insulation.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="D08" minOccurs="0">
+                  <xsd:element minOccurs="0" name="D08">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">After insulation is installed:  All insulated walls have interior and exterior air barriers, including kneewalls and walls of skylight wells.  Exception: Rim joists.  Interior air barrier (typically gypsum board) is sealed to top plate.</xsd:documentation>
@@ -285,13 +312,13 @@
                         <xsd:documentation source="CalculationsAndRules">For Pass choice display term: Pass - all applicable requirements are met.  For Fail choice display term: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display term: All N/A - This entire table is not applicable</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="D10_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="D10_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="DEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="DEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met unless otherwise noted in the Verification Status and the Correction Notes.</xsd:documentation>
@@ -300,38 +327,38 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_E" minOccurs="1">
+         <xsd:element minOccurs="1" name="Section_E">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Ceiling Adjacent to Unconditioned Space</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="E01" minOccurs="0">
+                  <xsd:element minOccurs="0" name="E01">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Insulation extends to the outside surface of the exterior wall.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="E02" minOccurs="0">
+                  <xsd:element minOccurs="0" name="E02">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Insulation is in direct contact with the ceiling air barrier so there are no gaps, voids or compression.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="E03" minOccurs="0">
+                  <xsd:element minOccurs="0" name="E03">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Chimneys and flues (except zero clearance) have a sheet metal collar at the ceiling level to prevent contact with the insulation.  The collar is at least as tall as the depth of the insulation.  There is a minimum 1-inch clearance between the collar and the chimney/flue for double wall vent, and 6-inches for single wall vent, unless manufacturer's instructions require otherwise.  The collar is sealed to the ceiling with high temperature sealant to prevent air leakage.  The insulation is in contact with the sheet metal collar.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="E04" minOccurs="0">
+                  <xsd:element minOccurs="0" name="E04">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Recessed can lights penetrating the ceiling air barrier are covered with insulation to the depth needed to meet the ceiling R-value specified on the Certificate of Compliance.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="E05" minOccurs="0">
+                  <xsd:element minOccurs="0" name="E05">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">External surfaces of steel studs, steel-framed kneewalls, skylight shafts, and gable ends are covered with insulation.</xsd:documentation>
@@ -343,13 +370,13 @@
                         <xsd:documentation source="CalculationsAndRules">For Pass choice display term: Pass - all applicable requirements are met.  For Fail choice display term: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display term: All N/A - This entire table is not applicable</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="E07_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="E07_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="EEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="EEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met unless otherwise noted in the Verification Status and the Correction Notes.</xsd:documentation>
@@ -358,38 +385,38 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_F" minOccurs="1" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="1" name="Section_F">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Ceiling Insulation in Vented Attics</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="F01" minOccurs="0">
+                  <xsd:element minOccurs="0" name="F01">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Required eave ventilation shall not be obstructed.  The net-free ventilation area of the eave vent is maintained.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="F02" minOccurs="0">
+                  <xsd:element minOccurs="0" name="F02">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Eave vent baffles and dams are installed to prevent air movement under or into the ceiling insulation.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="F03" minOccurs="0">
+                  <xsd:element minOccurs="0" name="F03">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Attic access is insulated to the same R-value required by the Certificate of Compliance for ceiling insulation and the insulation is permanently attached using adhesive or mechanical fasteners.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="F04" minOccurs="0">
+                  <xsd:element minOccurs="0" name="F04">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Attic access must have a dam around the access to at least the same depth as the insulation.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="F05" minOccurs="0">
+                  <xsd:element minOccurs="0" name="F05">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Attic rulers specified to the installed loose-fill material (brand and type) are installed and evenly distributed throughout the attic to verify depth (one ruler for every 250 square feet (ft<d:sup>2</d:sup>)). The rulers are clearly readable and scaled to read inches of insulation and the R-value installed.</xsd:documentation>
@@ -401,13 +428,13 @@
                         <xsd:documentation source="CalculationsAndRules">For Pass choice display term: Pass - all applicable requirements are met.  For Fail choice display term: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display term: All N/A - This entire table is not applicable</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="F07_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="F07_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="FEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="FEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met unless otherwise noted in the Verification Status and the Correction Notes.</xsd:documentation>
@@ -416,26 +443,26 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_G" minOccurs="1" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="1" name="Section_G">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Insulation in unvented Attics</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="G01" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G01">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">The roof sheathing is the air barrier and is sealed to prevent air movement to the outside.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G02" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G02">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Insulation is in full contact with the air barrier (roof sheathing).</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G03" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G03">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">If insulated using air permeable insulation, gable end walls are sealed and insulated the same as exterior walls, including interior air barrier.</xsd:documentation>
@@ -447,13 +474,13 @@
                         <xsd:documentation source="CalculationsAndRules">For Pass choice display term: Pass - all applicable requirements are met.  For Fail choice display term: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display term: All N/A - This entire table is not applicable</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G05_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G05_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="GEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="GEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met unless otherwise noted in the Verification Status and the Correction Notes.</xsd:documentation>
@@ -462,32 +489,32 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_H" minOccurs="1" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="1" name="Section_H">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Insulation in Vented Attics (High Performance Vented Attics)</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="H01" minOccurs="0">
+                  <xsd:element minOccurs="0" name="H01">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Insulation is in full contact with roof sheathing and firmly supported to prevent sagging.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="H02" minOccurs="0">
+                  <xsd:element minOccurs="0" name="H02">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Batt insulation between roof trusses is acceptable with minimal gaps and voids caused by roof truss members.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="H03" minOccurs="0">
+                  <xsd:element minOccurs="0" name="H03">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Insulation is not required on gable end walls.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="H04" minOccurs="0">
+                  <xsd:element minOccurs="0" name="H04">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Required roof deck insulation over any conditioned space, or HVAC ducts, is installed on the entire attic roof deck; even over unconditioned spaces (e.g., garage, covered porch).  Roof deck of attic over unconditioned space without HVAC ducts and separated from other attics by a sealed air barrier do not need to be insulated.</xsd:documentation>
@@ -499,13 +526,13 @@
                         <xsd:documentation source="CalculationsAndRules">For Pass choice display term: Pass - all applicable requirements are met.  For Fail choice display term: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display term: All N/A - This entire table is not applicable</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="H06_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="H06_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="HEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="HEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met unless otherwise noted in the Verification Status and the Correction Notes.</xsd:documentation>
@@ -514,26 +541,26 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_I" minOccurs="1" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="1" name="Section_I">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Special Requirements for Skylight Shafts and Attic Knee Walls</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="I01" minOccurs="0">
+                  <xsd:element minOccurs="0" name="I01">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Insulation must meet all the requirements for walls and insulation is in contact with the air barrier on all six sides unless SPF is used.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="I02" minOccurs="0">
+                  <xsd:element minOccurs="0" name="I02">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Insulation shall be in full contact with the interior wall finish. Batt insulation must be cut to fit around 2x4's that are laid flat.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="I03" minOccurs="0">
+                  <xsd:element minOccurs="0" name="I03">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Skylight shafts and attic knee walls shall be completely enclosed by vertical and horizontal framing, including horizontal plates at the top and bottom of the insulation.</xsd:documentation>
@@ -545,13 +572,13 @@
                         <xsd:documentation source="CalculationsAndRules">For Pass choice display term: Pass - all applicable requirements are met.  For Fail choice display term: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display term: All N/A - This entire table is not applicable</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="I05_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="I05_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="IEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="IEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met unless otherwise noted in the Verification Status and the Correction Notes.</xsd:documentation>
@@ -560,14 +587,14 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_J" minOccurs="1">
+         <xsd:element minOccurs="1" name="Section_J">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Special Requirements for Floors Above Garages</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="J01" minOccurs="0">
+                  <xsd:element minOccurs="0" name="J01">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">If the air barrier is at the perimeter of the garage below the conditioned subfloor, then the insulation may be placed on the garage ceiling.  The perimeter of the subfloor must also be insulated.</xsd:documentation>
@@ -579,13 +606,13 @@
                         <xsd:documentation source="CalculationsAndRules">For Pass choice display term: Pass - all applicable requirements are met.  For Fail choice display term: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display term: All N/A - This entire table is not applicable</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="J03_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="J03_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="JEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="JEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met unless otherwise noted in the Verification Status and the Correction Notes.</xsd:documentation>
@@ -594,14 +621,14 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_K" minOccurs="1">
+         <xsd:element minOccurs="1" name="Section_K">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Special Requirements for Cantilevered Floors</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="K01" minOccurs="0">
+                  <xsd:element minOccurs="0" name="K01">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Sealed blocking shall be installed between joists where the wall rim joist would have been located in the absence of a cantilever.  Insulation shall be placed on both sides of the block.</xsd:documentation>
@@ -613,13 +640,13 @@
                         <xsd:documentation source="CalculationsAndRules">For Pass choice display term: Pass - all applicable requirements are met.  For Fail choice display term: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display term: All N/A - This entire table is not applicable</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="K03_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="K03_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="KEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="KEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met unless otherwise noted in the Verification Status and the Correction Notes.</xsd:documentation>
@@ -628,20 +655,20 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_L" minOccurs="1">
+         <xsd:element minOccurs="1" name="Section_L">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Special Requirements for Attached Porches</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="L01" minOccurs="0">
+                  <xsd:element minOccurs="0" name="L01">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Exterior wall at the intersection of the porch roof is fully insulated above, below and behind the roof line.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="L02" minOccurs="0">
+                  <xsd:element minOccurs="0" name="L02">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Where truss framing is used, airtight blocking is used at the top and bottom of each wall/ roof section and is insulated.</xsd:documentation>
@@ -653,13 +680,13 @@
                         <xsd:documentation source="CalculationsAndRules">For Pass choice display term: Pass - all applicable requirements are met.  For Fail choice display term: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display term: All N/A - This entire table is not applicable</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="L04_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="L04_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="LEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="LEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met unless otherwise noted in the Verification Status and the Correction Notes.</xsd:documentation>
@@ -668,71 +695,65 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_M" minOccurs="1">
+         <xsd:element minOccurs="1" name="Section_M">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Special Requirements for SPF Insulation</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="M01" minOccurs="0">
+                  <xsd:element minOccurs="0" name="M01">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Installed product meets the claimed R-value per inch.  The total R-value may be calculated based on the thickness of insulation multiplied by the "tested R-value per inch" as certified by the Department of Consumer Affairs, Bureau of Household Goods and Services.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="M02" minOccurs="0">
+                  <xsd:element minOccurs="0" name="M02">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Installed thickness meets the required R-value from the Certificate of Compliance.  Verified in at least 6 random places for each surface type: floors, walls and ceilings.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="M03" minOccurs="0">
+                  <xsd:element minOccurs="0" name="M03">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Insulation is spray applied to fully adhere to structural assembly framing, floor and ceiling joists, and other framing surfaces within the construction cavity.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="M04" minOccurs="0">
+                  <xsd:element minOccurs="0" name="M04">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">If multiple layers are applied, each foam lift (e.g., spray application) adheres to the substrate and foam interfaces.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="M05" minOccurs="0">
+                  <xsd:element minOccurs="0" name="M05">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Closed cell SPF: In area where an air barrier is required the foam is at least 2-inches thick.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="M06" minOccurs="0">
+                  <xsd:element minOccurs="0" name="M06">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Open cell SPF: In area where an air barrier is required the foam is at least 5.5-inches thick.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="M07" minOccurs="0">
+                  <xsd:element minOccurs="0" name="M07">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Open cell SPF: Depressions in the foam insulation are not greater than 1/2-inch of the required thickness provided these depressions do not exceed 10% of the surface area being insulated.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="M08" minOccurs="0">
+                  <xsd:element minOccurs="0" name="M08">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Open cell SPF: Insulation completely fills cavities of 2x4 framing.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="M09" minOccurs="0">
+                  <xsd:element minOccurs="0" name="M09">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements">SPF insulation is not applied directly to recessed lighting fixtures unless specifically allowed by manufacturer's instructions.  when not allowed, can lights are: 
-                           <d:l t="A">
-                              <d:list> Covered with a 
-                                 <d:u>minimum of 1.5-inches </d:u> of mineral fiber insulation or </d:list>
-                              <d:list> Enclosed in a manufacturer's approved box fabricated from an approved material, such as 18 gauge sheet metal or 1/2-inch gypsum board. </d:list>
-                           </d:l>
-                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">SPF insulation is not applied directly to recessed lighting fixtures unless specifically allowed by manufacturer's instructions.  when not allowed, can lights are: <d:l t="A"><d:list> Covered with a <d:u>minimum of 1.5-inches </d:u> of mineral fiber insulation or </d:list><d:list> Enclosed in a manufacturer's approved box fabricated from an approved material, such as 18 gauge sheet metal or 1/2-inch gypsum board. </d:list></d:l></xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="M10_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements">
@@ -741,13 +762,13 @@
                         <xsd:documentation source="CalculationsAndRules">For Pass choice display term: Pass - all applicable requirements are met.  For Fail choice display term: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display term: All N/A - This entire table is not applicable</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="M11_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="M11_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="MEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="MEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met unless otherwise noted in the Verification Status and the Correction Notes.</xsd:documentation>
@@ -756,14 +777,14 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_N" minOccurs="1">
+         <xsd:element minOccurs="1" name="Section_N">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Determination of ECC Verification Compliance</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="N_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="N_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">All applicable sections of this document shall indicate compliance with the specified verification protocol requirements in order for this Certificate of Verification as a whole to be determined to be in compliance.</xsd:documentation>
@@ -780,34 +801,6 @@
          </xsd:element>
       </xsd:sequence>
    </xsd:complexType>
-   <xsd:element name="ComplianceDocumentPackage">
-      <xsd:complexType>
-         <xsd:sequence>
-            <xsd:element name="DocID" minOccurs="0">
-               <xsd:complexType>
-                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF3RENV22H"/>
-                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF VERIFICATION"/>
-                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="QII - Insulation Installation"/>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Payload" type="comp:Payload"/>
-            <xsd:element name="DocumentData">
-               <xsd:complexType>
-                  <xsd:sequence>
-                     <xsd:element name="Header" type="comp:HeaderHERS"/>
-                     <xsd:element ref="cF3RENV22H"/>
-                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
-                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF3R"/>
-                     <xsd:element name="Footer" type="comp:Footer"/>
-                  </xsd:sequence>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Report" type="xsd:base64Binary"/>
-         </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
-         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF3RENV22H"/>
-      </xsd:complexType>
-   </xsd:element>
    <xsd:element name="cF3RENV22H" type="CF3RENV22H">
       <xsd:annotation>
          <xsd:documentation>This element contains all of the data and text required to generate the CF3RENV22H compliance report.</xsd:documentation>

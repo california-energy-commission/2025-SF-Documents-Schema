@@ -1,18 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF3REXC20H" version="2025.0.000" xmlns="http://www.lmonte.com/besm/CF3REXC20H" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+<xsd:schema xmlns="http://www.lmonte.com/besm/CF3REXC20H" xmlns:d="http://www.lmonte.com/besm/d" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:env="http://www.lmonte.com/besm/env" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:com="http://www.lmonte.com/besm/com" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF3REXC20H" version="2025.0.000">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element minOccurs="0" name="DocID">
+               <xsd:complexType>
+                  <xsd:attribute fixed="CF3REXC20H" name="doc" type="comp:ComplianceDocumentTag"/>
+                  <xsd:attribute fixed="CERTIFICATE OF VERIFICATION" name="docType" type="comp:ComplianceDocumentType"/>
+                  <xsd:attribute fixed="Existing Conditions For Residential Alterations" name="docTitle" type="comp:ComplianceDocumentTitleRes"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderCF3REXC"/>
+                     <xsd:element ref="cF3REXC20H"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF3REXC"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute fixed="rev 20250101" name="revision" type="xsd:string" use="required"/>
+         <xsd:attribute fixed="CF3REXC20H" name="doc" type="comp:ComplianceDocumentTag" use="required"/>
+      </xsd:complexType>
+   </xsd:element>
    <xsd:complexType name="CF3REXC20H">
       <xsd:annotation>
          <xsd:documentation>Existing Conditions For Residential Alterations</xsd:documentation>
       </xsd:annotation>
       <xsd:sequence>
-         <xsd:element name="Section_A" minOccurs="1">
+         <xsd:element minOccurs="1" name="Section_A">
             <xsd:annotation>
                <xsd:documentation source="FieldText">General Information</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">In this section parent CC refers to the parent CF1R Certificate of Compliance (CC)</xsd:documentation>
@@ -145,7 +172,7 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_B1" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_B1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Building Envelope Leakage</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">If existing data does not appear in CF1R, then display the Section Does Not Apply message</xsd:documentation>
@@ -166,9 +193,9 @@
                      </xsd:annotation>
                      <xsd:simpleType>
                         <xsd:restriction base="comp:AirLeakageTestProcedure">
-                           <xsd:enumeration value="SinglePointTestAutomaticMeter"/>
-                           <xsd:enumeration value="SinglePointTestManualMeter"/>
-                        </xsd:restriction>
+			   <xsd:enumeration value="SinglePointTestAutomaticMeter"/>
+			   <xsd:enumeration value="SinglePointTestManualMeter"/>
+		        </xsd:restriction>
                      </xsd:simpleType>
                   </xsd:element>
                   <xsd:element name="Env03_ManometerMake" type="comp:ManometerMake">
@@ -239,7 +266,7 @@ Else
  result is false display term   Fail - one or more of the existing conditions not present. Enter reason for failure in correction notes field below</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Env14_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="Env14_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
                      </xsd:annotation>
@@ -247,7 +274,7 @@ Else
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_B" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_B">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Opaque Surfaces</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">If existing data does not appear in CF1R, then display the Section Does Not Apply message
@@ -263,7 +290,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="B01_PartitionName" type="env:PartitionName">
@@ -356,7 +383,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                         <xsd:documentation source="CalculationsAndRules">If the value for ExistingConditionVerificationStatus in all rows of this section equals true, then result is true.  Else If any values for ExistingConditionVerificationStatus equal false then result is false.  For Boolean true value, display text: Pass - all existing conditions have been verified.  For Boolean false value, display text:   Fail - one or more of the existing conditions not present. Enter reason for failure in correction notes field below</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="B10_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="B10_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
                      </xsd:annotation>
@@ -364,7 +391,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_C" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_C">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Roofs</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">If existing data does not appear in CF1R, then display the Section Does Not Apply message
@@ -380,7 +407,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="C01_PartitionName" type="env:PartitionName">
@@ -443,7 +470,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                         <xsd:documentation source="CalculationsAndRules">If the value for ExistingConditionVerificationStatus in all rows of this section equals true, then result is true.  Else If any values for ExistingConditionVerificationStatus equal false then result is false.  For Boolean true value, display text: Pass - all existing conditions have been verified.  For Boolean false value, display text:   Fail - one or more of the existing conditions not present. Enter reason for failure in correction notes field below</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="C10_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="C10_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
                      </xsd:annotation>
@@ -451,7 +478,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_D" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_D">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Windows</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">If existing data does not appear in CF1R, then display the Section Does Not Apply message
@@ -466,7 +493,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="D01_FenestrationVerticalName" type="env:FenestrationVerticalName">
@@ -537,7 +564,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                         <xsd:documentation source="CalculationsAndRules">If the value for ExistingConditionVerificationStatus in all rows of this section equals true, then result is true.  Else If any values for ExistingConditionVerificationStatus equal false then result is false.  For Boolean true value, display text: Pass - all existing conditions have been verified.  For Boolean false value, display text:   Fail - one or more of the existing conditions not present. Enter reason for failure in correction notes field below</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="D10_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="D10_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
                      </xsd:annotation>
@@ -545,7 +572,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_E" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_E">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Doors</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">If existing data does not appear in CF1R, then display the Section Does Not Apply message
@@ -560,7 +587,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="E01_DoorName" type="env:DoorName">
@@ -605,7 +632,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                         <xsd:documentation source="CalculationsAndRules">If the value for ExistingConditionVerificationStatus in all rows of this section equals true, then result is true.  Else If any values for ExistingConditionVerificationStatus equal false then result is false.  For Boolean true value, display text: Pass - all existing conditions have been verified.  For Boolean false value, display text:   Fail - one or more of the existing conditions not present. Enter reason for failure in correction notes field below</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="E07_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="E07_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
                      </xsd:annotation>
@@ -613,7 +640,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_F" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_F">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Overhangs and Fins</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">If existing data does not appear in CF1R, then display the Section Does Not Apply message
@@ -628,7 +655,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="F01_FenestrationVerticalName" type="env:FenestrationVerticalName">
@@ -637,7 +664,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                                           <xsd:documentation source="CalculationsAndRules">Data is loaded from registered parent CC</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="F01After" minOccurs="0">
+                                    <xsd:element minOccurs="0" name="F01After">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Header for F02 through F06</xsd:documentation>
                                           <xsd:documentation source="AdditionalRequirements">Overhang</xsd:documentation>
@@ -673,7 +700,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                                           <xsd:documentation source="CalculationsAndRules">Data is loaded from registered parent CC</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="F06After" minOccurs="0">
+                                    <xsd:element minOccurs="0" name="F06After">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Header for F07 through F10</xsd:documentation>
                                           <xsd:documentation source="AdditionalRequirements">Left Fin</xsd:documentation>
@@ -703,7 +730,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                                           <xsd:documentation source="CalculationsAndRules">Data is loaded from registered parent CC</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="F10After" minOccurs="0">
+                                    <xsd:element minOccurs="0" name="F10After">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Header for F11 through F14</xsd:documentation>
                                           <xsd:documentation source="AdditionalRequirements">Right Fin</xsd:documentation>
@@ -751,7 +778,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                         <xsd:documentation source="CalculationsAndRules">If the value for ExistingConditionVerificationStatus in all rows of this section equals true, then result is true.  Else If any values for ExistingConditionVerificationStatus equal false then result is false.  For Boolean true value, display text: Pass - all existing conditions have been verified.  For Boolean false value, display text:   Fail - one or more of the existing conditions not present. Enter reason for failure in correction notes field below</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="F17_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="F17_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
                      </xsd:annotation>
@@ -759,7 +786,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_G" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_G">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Water Heaters</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">If existing data does not appear in CF1R, then display the Section Does Not Apply message
@@ -774,7 +801,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="G01_WaterHeaterName" type="hvac:WaterHeaterName">
@@ -875,7 +902,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                         <xsd:documentation source="CalculationsAndRules">If the value for ExistingConditionVerificationStatus in all rows of this section equals true, then result is true.  Else If any values for ExistingConditionVerificationStatus equal false then result is false.  For Boolean true value, display text: Pass - all existing conditions have been verified.  For Boolean false value, display text:   Fail - one or more of the existing conditions not present. Enter reason for failure in correction notes field below</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G11_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G11_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
                      </xsd:annotation>
@@ -883,7 +910,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_H" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_H">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Water Heating</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">If existing data does not appear in CF1R, then display the Section Does Not Apply message
@@ -898,7 +925,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="H01_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
@@ -951,7 +978,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                         <xsd:documentation source="CalculationsAndRules">If the value for ExistingConditionVerificationStatus in all rows of this section equals true, then result is true.  Else If any values for ExistingConditionVerificationStatus equal false then result is false.  For Boolean true value, display text: Pass - all existing conditions have been verified.  For Boolean false value, display text:   Fail - one or more of the existing conditions not present. Enter reason for failure in correction notes field below</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="H07_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="H07_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
                      </xsd:annotation>
@@ -959,7 +986,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_I" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_I">
             <xsd:annotation>
                <xsd:documentation source="FieldText">HVAC - Heating Systems</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">If existing data does not appear in CF1R, then display the Section Does Not Apply message
@@ -974,7 +1001,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="I01_ResidentialHeatingSystemName" type="hvac:ResidentialHeatingSystemName">
@@ -1021,7 +1048,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                         <xsd:documentation source="CalculationsAndRules">If the value for ExistingConditionVerificationStatus in all rows of this section equals true, then result is true.  Else If any values for ExistingConditionVerificationStatus equal false then result is false.  For Boolean true value, display text: Pass - all existing conditions have been verified.  For Boolean false value, display text:   Fail - one or more of the existing conditions not present. Enter reason for failure in correction notes field below</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="I06_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="I06_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
                      </xsd:annotation>
@@ -1029,7 +1056,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_J" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_J">
             <xsd:annotation>
                <xsd:documentation source="FieldText">HVAC - Cooling Systems</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">If existing data does not appear in CF1R, then display the Section Does Not Apply message
@@ -1044,7 +1071,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="J01_ResidentialCoolingSystemName" type="hvac:ResidentialCoolingSystemName">
@@ -1105,7 +1132,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                         <xsd:documentation source="CalculationsAndRules">If the value for ExistingConditionVerificationStatus in all rows of this section equals true, then result is true.  Else If any values for ExistingConditionVerificationStatus equal false then result is false.  For Boolean true value, display text: Pass - all existing conditions have been verified.  For Boolean false value, display text:   Fail - one or more of the existing conditions not present. Enter reason for failure in correction notes field below</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="J07_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="J07_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
                      </xsd:annotation>
@@ -1113,7 +1140,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_K" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_K">
             <xsd:annotation>
                <xsd:documentation source="FieldText">HVAC Distribution</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">If existing data does not appear in CF1R, then display the Section Does Not Apply message
@@ -1128,7 +1155,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="K01_DistributionHERS_VerificationName" type="comp:DistributionHERS_VerificationName">
@@ -1189,7 +1216,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                         <xsd:documentation source="CalculationsAndRules">If the value for ExistingConditionVerificationStatus in all rows of this section equals true, then result is true.  Else If any values for ExistingConditionVerificationStatus equal false then result is false.  For Boolean true value, display text: Pass - all existing conditions have been verified.  For Boolean false value, display text:   Fail - one or more of the existing conditions not present. Enter reason for failure in correction notes field below</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="K07_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="K07_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
                      </xsd:annotation>
@@ -1197,7 +1224,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_L" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_L">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Indoor Air Quality (IAQ) Fans</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">If existing data does not appear in CF1R, then display the Section Does Not Apply message
@@ -1212,7 +1239,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="Fan01_FanName" type="hvac:FanName">
@@ -1257,7 +1284,7 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                         <xsd:documentation source="CalculationsAndRules">If the value for ExistingConditionVerificationStatus in all rows of this section equals true, then result is true.  Else If any values for ExistingConditionVerificationStatus equal false then result is false.  For Boolean true value, display text: Pass - all existing conditions have been verified.  For Boolean false value, display text:   Fail - one or more of the existing conditions not present. Enter reason for failure in correction notes field below</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Fan07_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="Fan07_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
                      </xsd:annotation>
@@ -1265,14 +1292,14 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_M" minOccurs="1">
+         <xsd:element minOccurs="1" name="Section_M">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Determination of ECC Verification Compliance</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="M_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="M_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">All applicable sections of this document shall indicate compliance with the specified verification protocol requirements in order for this Certificate of Verification as a whole to be determined to be in compliance.</xsd:documentation>
@@ -1289,34 +1316,6 @@ In this section parent CC refers to the parent CF1R Certificate of Compliance (C
          </xsd:element>
       </xsd:sequence>
    </xsd:complexType>
-   <xsd:element name="ComplianceDocumentPackage">
-      <xsd:complexType>
-         <xsd:sequence>
-            <xsd:element name="DocID" minOccurs="0">
-               <xsd:complexType>
-                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF3REXC20H"/>
-                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF VERIFICATION"/>
-                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Existing Conditions For Residential Alterations"/>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Payload" type="comp:Payload"/>
-            <xsd:element name="DocumentData">
-               <xsd:complexType>
-                  <xsd:sequence>
-                     <xsd:element name="Header" type="comp:HeaderCF3REXC"/>
-                     <xsd:element ref="cF3REXC20H"/>
-                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
-                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF3REXC"/>
-                     <xsd:element name="Footer" type="comp:Footer"/>
-                  </xsd:sequence>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Report" type="xsd:base64Binary"/>
-         </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
-         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF3REXC20H"/>
-      </xsd:complexType>
-   </xsd:element>
    <xsd:element name="cF3REXC20H" type="CF3REXC20H">
       <xsd:annotation>
          <xsd:documentation>This element contains all of the data and text required to generate the CF3REXC20H compliance report.</xsd:documentation>

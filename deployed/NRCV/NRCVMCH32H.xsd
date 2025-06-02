@@ -1,20 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/NRCVMCH32H" version="2025.0.000" xmlns="http://www.lmonte.com/besm/NRCVMCH32H" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+<xsd:schema xmlns="http://www.lmonte.com/besm/NRCVMCH32H" xmlns:d="http://www.lmonte.com/besm/d" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:env="http://www.lmonte.com/besm/env" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:com="http://www.lmonte.com/besm/com" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/NRCVMCH32H" version="2025.0.000">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
    <xsd:element name="ComplianceDocumentPackage">
       <xsd:complexType>
          <xsd:sequence>
-            <xsd:element name="DocID" minOccurs="0">
+            <xsd:element minOccurs="0" name="DocID">
                <xsd:complexType>
-                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="NRCVMCH32H"/>
-                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF VERIFICATION"/>
-                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Local Mechanical Exhaust"/>
+                  <xsd:attribute fixed="NRCVMCH32H" name="doc" type="comp:ComplianceDocumentTag"/>
+                  <xsd:attribute fixed="CERTIFICATE OF VERIFICATION" name="docType" type="comp:ComplianceDocumentType"/>
+                  <xsd:attribute fixed="Local Mechanical Exhaust" name="docTitle" type="comp:ComplianceDocumentTitleRes"/>
                </xsd:complexType>
             </xsd:element>
             <xsd:element name="Payload" type="comp:Payload"/>
@@ -31,8 +30,8 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
-         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="NRCVMCH32H"/>
+         <xsd:attribute fixed="rev 20250101" name="revision" type="xsd:string" use="required"/>
+         <xsd:attribute fixed="NRCVMCH32H" name="doc" type="comp:ComplianceDocumentTag" use="required"/>
       </xsd:complexType>
    </xsd:element>
    <xsd:complexType name="NRCVMCH32H">
@@ -40,7 +39,7 @@
          <xsd:documentation>Local Mechanical Exhaust</xsd:documentation>
       </xsd:annotation>
       <xsd:sequence>
-         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="1" name="Section_A">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Local Mechanical Exhaust - General Information</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">In this section parent CC refers to the parent NRCC Certificate of Compliance (CC)</xsd:documentation>
@@ -48,13 +47,10 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="A_BeforeNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="A_BeforeNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Before Section Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Title 24, Part 6, Section 160.2(b)2 
-                           <d:b>Ventilation and Indoor Air Quality for Attached Dwelling Units.</d:b> All dwelling units shall meet the requirements of ANSI/ASHRAE Standard 62.2. Ventilation and Acceptable Indoor Air Quality in Residential Buildings subject to the amendments specified in Section  160.2(b)2A. 
-                           <d:i>Equation and table numbering on this form corresponds to the numbering for that information in the published ANSI/ASHRAE 62.2-2019.</d:i>
-                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Title 24, Part 6, Section 160.2(b)2 <d:b>Ventilation and Indoor Air Quality for Attached Dwelling Units.</d:b> All dwelling units shall meet the requirements of ANSI/ASHRAE Standard 62.2. Ventilation and Acceptable Indoor Air Quality in Residential Buildings subject to the amendments specified in Section  160.2(b)2A. <d:i>Equation and table numbering on this form corresponds to the numbering for that information in the published ANSI/ASHRAE 62.2-2019.</d:i></xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A01_DwellingUnitName" type="com:DwellingUnitName">
@@ -133,6 +129,7 @@ Else result = A03_FloorArea * A04_FloorToCeilingHeight</xsd:documentation>
                            <dtyp:displayterm value="true">Enclosed</dtyp:displayterm>
                            <dtyp:displayterm value="false">Non-Enclosed</dtyp:displayterm>
                         </xsd:appinfo>
+                        
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A07_DwellingUnitConditionedFloorArea" type="com:DwellingUnitConditionedFloorArea">
@@ -150,20 +147,20 @@ Else result = A03_FloorArea * A04_FloorToCeilingHeight</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_B" minOccurs="1" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="1" name="Section_B">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Kitchen Exhaust Systems</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="TableSystems" maxOccurs="1">
+                  <xsd:element maxOccurs="1" name="TableSystems">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="B01_KitchenExhaustSystemName" type="com:KitchenExhaustSystemName">
@@ -181,7 +178,7 @@ Else result = A03_FloorArea * A04_FloorToCeilingHeight</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input text up to 50 characters</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="B03_KitchenExhaustSystemType" type="com:KitchenExhaustSystemType" maxOccurs="1">
+                                    <xsd:element maxOccurs="1" name="B03_KitchenExhaustSystemType" type="com:KitchenExhaustSystemType">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">System Type</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list: VentedRangeHood display term Vented Range Hood, Downdraft display term Downdraft, Other display term Other,</xsd:documentation>
@@ -286,7 +283,7 @@ Else If B08_KitchenExhaustOperation == ContinuousOperation:
 result = N/A stored in NotApplicableMessage display term N/A - See Table C
 End If
 End If</xsd:documentation>
-                                          </xsd:annotation>
+                                          </xsd:annotation>                                          
                                        </xsd:element>
                                     </xsd:choice>
                                     <xsd:element name="B10a_SoundRatingException" type="comp:SoundRatingException">
@@ -384,7 +381,7 @@ End If</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_C" minOccurs="1">
+         <xsd:element minOccurs="1" name="Section_C">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Continuous Kitchen Exhaust</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
@@ -440,7 +437,7 @@ result = N/A stored in NotApplicableMessage; Else result = Sum All where B08_Kit
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_C2" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_C2">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Kitchen Range Hood Capture Efficiency Option</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required If B09a_HoodExhaustComplianceMethod == CaptureEfficiency</xsd:documentation>
@@ -468,8 +465,7 @@ result = N/A stored in NotApplicableMessage; Else result = Sum All where B08_Kit
                   </xsd:element>
                   <xsd:element name="Cap04_MinimumRequiredCaptureEfficiency" type="comp:MinimumRequiredCaptureEfficiency">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Required Minimum Capture Efficiency (
-                           <d:i>Table 160.2-G</d:i>)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Required Minimum Capture Efficiency (<d:i>Table 160.2-G</d:i>)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field
 If A07_DwellingUnitConditionedFloorArea GT 1500 Then
 If A08_FuelType == Electric
@@ -514,14 +510,14 @@ End If</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_D" minOccurs="1">
+         <xsd:element minOccurs="1" name="Section_D">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Determination of HERS Verification Compliance</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="D_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="D_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">All applicable sections of this document shall indicate compliance with the specified verification protocol requirements in order for this Certificate of Verification as a whole to be determined to be in compliance.</xsd:documentation>

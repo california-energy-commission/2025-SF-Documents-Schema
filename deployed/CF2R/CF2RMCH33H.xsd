@@ -1,18 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RMCH33H" version="2025.0.000" xmlns="http://www.lmonte.com/besm/CF2RMCH33H" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+<xsd:schema xmlns="http://www.lmonte.com/besm/CF2RMCH33H" xmlns:d="http://www.lmonte.com/besm/d" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:env="http://www.lmonte.com/besm/env" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:com="http://www.lmonte.com/besm/com" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RMCH33H" version="2025.0.000">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element minOccurs="0" name="DocID">
+               <xsd:complexType>
+                  <xsd:attribute fixed="CF2RMCH33H" name="doc" type="comp:ComplianceDocumentTag"/>
+                  <xsd:attribute fixed="CERTIFICATE OF INSTALLATION" name="docType" type="comp:ComplianceDocumentType"/>
+                  <xsd:attribute fixed="Variable Capacity Heat Pump Compliance Credit" name="docTitle" type="comp:ComplianceDocumentTitleRes"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderHERS"/>
+                     <xsd:element ref="cF2RMCH33H"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_H"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute fixed="rev 20250101" name="revision" type="xsd:string" use="required"/>
+         <xsd:attribute fixed="CF2RMCH33H" name="doc" type="comp:ComplianceDocumentTag" use="required"/>
+      </xsd:complexType>
+   </xsd:element>
    <xsd:complexType name="CF2RMCH33H">
       <xsd:annotation>
          <xsd:documentation>Variable Capacity Heat Pump Compliance Credit</xsd:documentation>
       </xsd:annotation>
       <xsd:sequence>
-         <xsd:element name="Section_A" minOccurs="1">
+         <xsd:element minOccurs="1" name="Section_A">
             <xsd:annotation>
                <xsd:documentation source="FieldText">VCHP System Information</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">In this section parent CC refers to the CF1R Certificate of Compliance (CC) and MCH-01 refers to the CF2R-MCH-01 and MCH-25 refers to the CF2R-MCH-25</xsd:documentation>
@@ -20,7 +47,7 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="A_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="A_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Procedures for verification of VCHP compliance credit eligibility are described in the Energy Code Reference Appendices Section RA3.4.4.3.</xsd:documentation>
@@ -59,7 +86,7 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_B" minOccurs="1">
+         <xsd:element minOccurs="1" name="Section_B">
             <xsd:annotation>
                <xsd:documentation source="FieldText">VCHP Indoor Unit Information</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">In this section parent CC refers to the CF1R Certificate of Compliance (CC) and MCH-01 refers to the CF2R-MCH-01 and MCH-23 refers to the CF2R-MCH-23
@@ -69,7 +96,7 @@ Provide one row of data for each of the indoor units listed on the MCH-01 that a
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="B_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="B_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Ducted indoor units are required to be certified to the Energy Commission as low static systems, and included in the list of certified indoor units published on the Energy Commission website at the following URL:  https://www.energy.ca.gov/rules-and-regulations/building-energy-efficiency/manufacturer-certification-building-equipment.</xsd:documentation>
@@ -81,7 +108,7 @@ Provide one row of data for each of the indoor units listed on the MCH-01 that a
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="B01_IndoorUnitName" type="hvac:IndoorUnitName">
@@ -200,7 +227,7 @@ Provide one row of data for each of the indoor units listed on the MCH-01 that a
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="B09a_SectionComments" type="comp:SectionComments" minOccurs="0">
+                  <xsd:element minOccurs="0" name="B09a_SectionComments" type="comp:SectionComments">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Notes:</xsd:documentation>
                      </xsd:annotation>
@@ -208,7 +235,7 @@ Provide one row of data for each of the indoor units listed on the MCH-01 that a
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_C" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_C">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Verification: Ducted Indoor Units Located Entirely in Directly Conditioned Space - RA3.1.4.3.8</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required If in section B at least one indoor unit has B03 != Ductless; Require one row for each indoor unit in B01 that satisfies this condition</xsd:documentation>
@@ -216,7 +243,7 @@ Provide one row of data for each of the indoor units listed on the MCH-01 that a
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="C_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="C_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Ducted indoor units shall be verified in accordance with the Verified Low Leakage Ducts in Conditioned Space procedure in Section RA3.1.4.3.8</xsd:documentation>
@@ -228,7 +255,7 @@ Provide one row of data for each of the indoor units listed on the MCH-01 that a
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="C01_IndoorUnitName" type="hvac:IndoorUnitName">
@@ -244,6 +271,7 @@ Provide one row of data for each of the indoor units listed on the MCH-01 that a
                                           <xsd:appinfo source="displayterm">
                                              <dtyp:displayterm value="false">Not entirely in conditioned space</dtyp:displayterm>
                                           </xsd:appinfo>
+                                          
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="C03_DuctSystemLeakageActual" type="comp:DuctSystemLeakageActual">
@@ -264,7 +292,7 @@ Provide one row of data for each of the indoor units listed on the MCH-01 that a
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="C04a_SectionComments" type="comp:SectionComments" minOccurs="0">
+                  <xsd:element minOccurs="0" name="C04a_SectionComments" type="comp:SectionComments">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Notes:</xsd:documentation>
                      </xsd:annotation>
@@ -272,7 +300,7 @@ Provide one row of data for each of the indoor units listed on the MCH-01 that a
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_D" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_D">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Verification: Ductless Indoor Units Located Entirely in Directly Conditioned Space - RA3.1.4.1.8</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required If in section B at least one indoor unit has B03 == Ductless; Require one row for each indoor unit in B01 that satisfies this condition</xsd:documentation>
@@ -280,7 +308,7 @@ Provide one row of data for each of the indoor units listed on the MCH-01 that a
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="D_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="D_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">A visual inspection shall confirm that ductless indoor units are located entirely in conditioned space in accordance with the procedures of RA3.1.4.1.8.</xsd:documentation>
@@ -292,7 +320,7 @@ Provide one row of data for each of the indoor units listed on the MCH-01 that a
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="D01_IndoorUnitName" type="hvac:IndoorUnitName">
@@ -333,7 +361,7 @@ Provide one row of data for each of the indoor units listed on the MCH-01 that a
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="D03a_SectionComments" type="comp:SectionComments" minOccurs="0">
+                  <xsd:element minOccurs="0" name="D03a_SectionComments" type="comp:SectionComments">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Notes:</xsd:documentation>
                      </xsd:annotation>
@@ -341,7 +369,7 @@ Provide one row of data for each of the indoor units listed on the MCH-01 that a
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_E" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_E">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Verification: Wall Mounted Thermostats - RA3.4.5</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required If in section B at least one indoor unit has B04_IndoorUnitAreaServed GTE 150; Require one row for each indoor unit in B01 that satisfies this condition</xsd:documentation>
@@ -349,7 +377,7 @@ Provide one row of data for each of the indoor units listed on the MCH-01 that a
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="E_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="E_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Field verification according to the procedure in RA3.4.5 shall confirm that VCHP space conditioning zones that are greater than 150 ft<d:sup>2</d:sup>, are controlled by a permanently installed wall-mounted thermostat.</xsd:documentation>
@@ -361,7 +389,7 @@ Provide one row of data for each of the indoor units listed on the MCH-01 that a
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="E01_IndoorUnitName" type="hvac:IndoorUnitName">
@@ -400,7 +428,7 @@ Provide one row of data for each of the indoor units listed on the MCH-01 that a
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="E05a_SectionComments" type="comp:SectionComments" minOccurs="0">
+                  <xsd:element minOccurs="0" name="E05a_SectionComments" type="comp:SectionComments">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Notes:</xsd:documentation>
                      </xsd:annotation>
@@ -408,7 +436,7 @@ Provide one row of data for each of the indoor units listed on the MCH-01 that a
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_F" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_F">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Verification: Non-Continuous Fan Operation  - RA3.4.6</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required If in section B at least one indoor unit has B08_VerifyFanNonContinuousOperation == true; Require one row for each indoor unit in B01 that satisfies this condition</xsd:documentation>
@@ -416,7 +444,7 @@ Provide one row of data for each of the indoor units listed on the MCH-01 that a
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="F_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="F_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">If the certificate of compliance indicates non-continuous indoor unit fan operation was specified for compliance credit, then the system shall be field verified in accordance with the procedures in RA3.4.6 to confirm that the installed system's indoor unit + outdoor unit combination does not operate the fan continuously when the system thermostat is not calling for conditioning.</xsd:documentation>
@@ -428,7 +456,7 @@ Provide one row of data for each of the indoor units listed on the MCH-01 that a
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="F01_IndoorUnitName" type="hvac:IndoorUnitName">
@@ -467,7 +495,7 @@ Provide one row of data for each of the indoor units listed on the MCH-01 that a
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="F05a_SectionComments" type="comp:SectionComments" minOccurs="0">
+                  <xsd:element minOccurs="0" name="F05a_SectionComments" type="comp:SectionComments">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Notes:</xsd:documentation>
                      </xsd:annotation>
@@ -475,7 +503,7 @@ Provide one row of data for each of the indoor units listed on the MCH-01 that a
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_G" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_G">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Verification: Installed Air Filter Sizing and Pressure Drop - RA3.1.4.7 and RA3.1.4.8</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">In this section MCH01 refers to the CF2R-MCH-01
@@ -485,7 +513,7 @@ The section is required if in section B at least one indoor unit has B03 == Duct
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="G_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Nominal 2-inch or greater depth air filters shall be sized by the system designer to accommodate a maximum allowable clean-filter pressure drop of 0.1 inch W.C. at the air filter's design airflow rate as verified according to the procedures in RA3.1.4.8.  Nominal one-inch minimum depth air filters shall be allowed if the filter face area is sized based on a maximum face velocity of 150 ft per minute at the air filter design airflow rate according to the procedures in RA3.1.4.7.  In order to inform the occupant of the airflow and clean filter pressure drop performance required for replacement of air filters, the installer shall place a sticker in or near the filter grille displaying the air filter design airflow rate and maximum allowed clean filter pressure drop at the design airflow rate as required by Standards Section 150.0(m)12Biv.</xsd:documentation>
@@ -497,7 +525,7 @@ The section is required if in section B at least one indoor unit has B03 == Duct
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="G01_IndoorUnitName" type="hvac:IndoorUnitName">
@@ -607,7 +635,7 @@ End If</xsd:documentation>
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="G12a_SectionComments" type="comp:SectionComments" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G12a_SectionComments" type="comp:SectionComments">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Notes:</xsd:documentation>
                      </xsd:annotation>
@@ -615,7 +643,7 @@ End If</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_H" minOccurs="1">
+         <xsd:element minOccurs="1" name="Section_H">
             <xsd:annotation>
                <xsd:documentation source="FieldText">VCHP System Compliance Statement</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
@@ -639,34 +667,6 @@ End If</xsd:documentation>
          </xsd:element>
       </xsd:sequence>
    </xsd:complexType>
-   <xsd:element name="ComplianceDocumentPackage">
-      <xsd:complexType>
-         <xsd:sequence>
-            <xsd:element name="DocID" minOccurs="0">
-               <xsd:complexType>
-                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RMCH33H"/>
-                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
-                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Variable Capacity Heat Pump Compliance Credit"/>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Payload" type="comp:Payload"/>
-            <xsd:element name="DocumentData">
-               <xsd:complexType>
-                  <xsd:sequence>
-                     <xsd:element name="Header" type="comp:HeaderHERS"/>
-                     <xsd:element ref="cF2RMCH33H"/>
-                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
-                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_H"/>
-                     <xsd:element name="Footer" type="comp:Footer"/>
-                  </xsd:sequence>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Report" type="xsd:base64Binary"/>
-         </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
-         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH33H"/>
-      </xsd:complexType>
-   </xsd:element>
    <xsd:element name="cF2RMCH33H" type="CF2RMCH33H">
       <xsd:annotation>
          <xsd:documentation>This element contains all of the data and text required to generate the CF2RMCH33H compliance report.</xsd:documentation>

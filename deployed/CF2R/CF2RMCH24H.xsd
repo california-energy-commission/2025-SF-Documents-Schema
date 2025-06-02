@@ -1,18 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RMCH24H" version="2025.0.000" xmlns="http://www.lmonte.com/besm/CF2RMCH24H" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+<xsd:schema xmlns="http://www.lmonte.com/besm/CF2RMCH24H" xmlns:d="http://www.lmonte.com/besm/d" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:env="http://www.lmonte.com/besm/env" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:com="http://www.lmonte.com/besm/com" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:altova="http://www.altova.com/xml-schema-extensions" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RMCH24H" version="2025.0.000">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element minOccurs="0" name="DocID">
+               <xsd:complexType>
+                  <xsd:attribute fixed="CF2RMCH24H" name="doc" type="comp:ComplianceDocumentTag"/>
+                  <xsd:attribute fixed="CERTIFICATE OF INSTALLATION" name="docType" type="comp:ComplianceDocumentType"/>
+                  <xsd:attribute fixed="Building Air Leakage Diagnostic Test Worksheet - Building Enclosures and Dwelling Unit Enclosures" name="docTitle" type="comp:ComplianceDocumentTitleRes"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderHERS"/>
+                     <xsd:element ref="cF2RMCH24H"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_H"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute fixed="rev 20250101" name="revision" type="xsd:string" use="required"/>
+         <xsd:attribute fixed="CF2RMCH24H" name="doc" type="comp:ComplianceDocumentTag" use="required"/>
+      </xsd:complexType>
+   </xsd:element>
    <xsd:complexType name="CF2RMCH24H">
       <xsd:annotation>
-         <xsd:documentation>Building Air Leakage Diagnostic Test Worksheet - Building Enclosures and Dwelling Unit Enclosures</xsd:documentation>
+         <xsd:documentation>Building Air Leakage Diagnostic Test Worksheet - Building Enclosures and Dwelling Unit Enclosures </xsd:documentation>
       </xsd:annotation>
       <xsd:sequence>
-         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="1" name="Section_A">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Enclosure Air Leakage - General Information</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
@@ -64,15 +91,13 @@
                   </xsd:choice>
                   <xsd:element name="A05_TestTemperatureIndoor" type="comp:TestTemperatureIndoor">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Indoor Temperature During Test  (
-                           <d:deg/>F)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Indoor Temperature During Test  (<d:deg/>F)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input numeric x.x deg F</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A06_TestTemperatureOutdoor" type="comp:TestTemperatureOutdoor">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Outdoor Temperature During Test  (
-                           <d:deg/>F)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Outdoor Temperature During Test  (<d:deg/>F)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input numeric x.x deg F</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -97,7 +122,7 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_B" minOccurs="1" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="1" name="Section_B">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Diagnostic Equipment Information</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
@@ -116,7 +141,7 @@
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="B02_ManometerMake" type="comp:ManometerMake">
@@ -167,7 +192,7 @@
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="B08_FanMake" type="comp:FanMake">
@@ -203,15 +228,15 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_C1" minOccurs="0" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="0" name="Section_C1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Enclosure Air Leakage Diagnostic Test for Single-Point Test with Manual Meter</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section is not required. display the Section Title and this text " This section does not apply to this project"</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section is not required. display the Section Title and this text " This section does not apply to this project"</xsd:documentation>               
                <xsd:documentation source="CalculationsAndRules">If A01_AirLeakageTestProcedure == SinglePointTestManualMeter  this section is required</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="C_BeginNote1spm" minOccurs="0">
+                  <xsd:element minOccurs="0" name="C_BeginNote1spm">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Complete this section entering data for a Single-Point Test with Manual Meter</xsd:documentation>
@@ -249,7 +274,7 @@
                   </xsd:element>
                   <xsd:element name="Cspm06_InducedEnclosurePressureDifference" type="comp:InducedEnclosurePressureDifference">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Induced Enclosure Pressure Difference (Pa) Goal = 50 +- 3 (Pressurization is positive; Depressurization is negative)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Induced Enclosure Pressure Difference (Pa) Goal = 50 +- 3 or -50 +- 3 (Pressurization is positive; Depressurization is negative)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: result = Cspm05_BuildingPressureMeasuredUnadjusted - Cspm03_BuildingPressureReadingPreTest</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -274,7 +299,7 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_C2" minOccurs="0" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="0" name="Section_C2">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Enclosure Air Leakage Diagnostic Test for Single-Point Test with Automatic Meter</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section is not required. display the Section Title and this text "This section does not apply to this project"</xsd:documentation>
@@ -282,9 +307,9 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="Cspa_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="Cspa_BeginNote1">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="FieldText"/>                        
                         <xsd:documentation source="AdditionalRequirements">Complete this section entering data for a Single-Point Test with Automatic Meter</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -305,10 +330,10 @@
                         <xsd:documentation source="FieldText">Pre-test Baseline Enclosure Pressure (Pa) (may be positive or negative)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input numeric xx.x in InclusiveRange(-40, 40)</xsd:documentation>
                      </xsd:annotation>
-                  </xsd:element>
+                  </xsd:element>                  
                   <xsd:element name="Cspa04_InducedEnclosurePressureDifference" type="comp:InducedEnclosurePressureDifference">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Induced Enclosure Pressure Difference from Manometer (Pa) Goal = 50 +- 3 (Pressurization is positive; Depressurization is negative)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Induced Enclosure Pressure Difference from Manometer (Pa) Goal = 50 +- 3 or -50 +- 3 (Pressurization is positive; Depressurization is negative)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input numeric xx.x in InclusiveRange(-75, 75)</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -327,7 +352,7 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_C3" minOccurs="0" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="0" name="Section_C3">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Enclosure Air Leakage Diagnostic Test for Multi-Point Test</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section is not required. display the Section Title and this text "This section does not apply to this project"</xsd:documentation>
@@ -335,9 +360,10 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="Cmp_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="Cmp_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
+                        
                         <xsd:documentation source="AdditionalRequirements">Complete this section entering data for a Multi-Point Test</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -358,7 +384,7 @@
                         <xsd:documentation source="FieldText">Pre-test Baseline Enclosure Pressure (Pa) (may be positive or negative)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input numeric xx.x in InclusiveRange(-40, 40)</xsd:documentation>
                      </xsd:annotation>
-                  </xsd:element>
+                  </xsd:element>   
                   <xsd:element name="Cmp04_BuildingPressureTargetUnadjusted" type="comp:BuildingPressureTargetUnadjusted">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Unadjusted Enclosure Pressure Target (Pa)</xsd:documentation>
@@ -373,7 +399,7 @@
                   </xsd:element>
                   <xsd:element name="Cmp06_InducedEnclosurePressureDifference" type="comp:InducedEnclosurePressureDifference">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Induced Enclosure Pressure Difference (Pa) Goal = 60 +- 3 (Pressurization is positive; Depressurization is negative)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Induced Enclosure Pressure Difference (Pa) Goal = 60 +- 3 or -60 +- 3 (Pressurization is positive; Depressurization is negative)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: result = Cmp05_BuildingPressureMeasuredUnadjusted - Cmp03_BuildingPressureReadingPreTest</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -403,8 +429,8 @@
                   </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="Section_D1" minOccurs="0" maxOccurs="1">
+            </xsd:element>
+            <xsd:element maxOccurs="1" minOccurs="0" name="Section_D1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Altitude and Temperature Correction for Single-Point Test</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section is not required. display the Section Title and this text "This section does not apply to this project"</xsd:documentation>
@@ -412,11 +438,11 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="Dsp_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="Dsp_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">This section is for Single-Point Test with Manual Meter or Automatic Meter</xsd:documentation>
-                     </xsd:annotation>
+                        </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Calculations">
                      <xsd:annotation>
@@ -503,8 +529,8 @@
                   </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="Section_D2" minOccurs="0" maxOccurs="1">
+            </xsd:element>
+            <xsd:element maxOccurs="1" minOccurs="0" name="Section_D2">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Altitude and Temperature Correction for Multi-Point Test</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section is not required. display the Section Title and this text "This section does not apply to this project"</xsd:documentation>
@@ -512,16 +538,16 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="Dmp_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="Dmp_BeginNote1">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText"/>
+                           <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Performed by blower door software For Multi-Point Test</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="Section_E1" minOccurs="0" maxOccurs="1">
+            </xsd:element>
+            <xsd:element maxOccurs="1" minOccurs="0" name="Section_E1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Accuracy Adjustment for Single Point Test</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section is not required. display the Section Title and this text "This section does not apply to this project"</xsd:documentation>
@@ -529,7 +555,7 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="Esp_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="Esp_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">This section is for Single-Point Test with Manual Meter or Automatic Meter</xsd:documentation>
@@ -543,8 +569,8 @@
                   </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="Section_E2" minOccurs="0" maxOccurs="1">
+            </xsd:element>
+            <xsd:element maxOccurs="1" minOccurs="0" name="Section_E2">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Accuracy Adjustment for Multi-Point Test</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section is not required. display the Section Title and this text "This section does not apply to this project"</xsd:documentation>
@@ -552,7 +578,7 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="Emp_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="Emp_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">This section is for Multi-Point Test Data</xsd:documentation>
@@ -584,8 +610,8 @@
                   </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="Section_F" minOccurs="1" maxOccurs="1">
+            </xsd:element>
+            <xsd:element maxOccurs="1" minOccurs="1" name="Section_F">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Measured Enclosure Air Leakage Rate</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
@@ -597,7 +623,7 @@
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Enclosure Air Leakage Rate is: (ACH50)</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">If B06_IsManometerCalibrationCurrent == false result = false stored in F01_IsManometerCalibrationCurrent display term Manometer Calibration is expired. A manometer with current calibration is required in order to comply with this Enclosure Air Leakage worksheet.    
-Else If A03_IsEnvelopeAirLeakageHERSVerificationRequired == true, Then If A01_AirLeakageTestProcedure != MultiPointTest result =  (Esp01_CFM50Adjusted x 60) /  Dwelling Unit volume from A09_BuildingTotalVolume Else If A01_AirLeakageTestProcedure == MultiPointTest result =  (Emp04_CFM50Adjusted x 60) /  Dwelling Unit volume from A09_BuildingTotalVolume; Result is stored in F01_AirLeakageRateMeasuredACH50 and display text: Enclosure Air Leakage Rate is (result) ACH<d:sub>50</d:sub>;</xsd:documentation>
+Else If A03_IsEnvelopeAirLeakageHERSVerificationRequired == true, Then If A01_AirLeakageTestProcedure != MultiPointTest result =  (Esp01_CFM50Adjusted x 60) /  Dwelling Unit volume from A09_BuildingTotalVolume Else If A01_AirLeakageTestProcedure == MultiPointTest result =  (Emp04_CFM50Adjusted x 60) /  Dwelling Unit volume from A09_BuildingTotalVolume; Result is stored in F01_AirLeakageRateMeasuredACH50 and display text: Enclosure Air Leakage Rate is (result) ACH<d:sub>50</d:sub>; </xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="F01_IsManometerCalibrationCurrent" type="comp:IsManometerCalibrationCurrent">
@@ -605,7 +631,7 @@ Else If A03_IsEnvelopeAirLeakageHERSVerificationRequired == true, Then If A01_Ai
                            <xsd:documentation source="FieldText">Manometer Calibration is expired.</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">If B06_IsManometerCalibrationCurrent == false result = false stored in F01_IsManometerCalibrationCurrent display term Manometer Calibration is expired. A manometer with current calibration is required in order to comply with this Enclosure Air Leakage worksheet</xsd:documentation>
                            <xsd:appinfo source="displayterm">
-                              <dtyp:displayterm value="false">Manometer Calibration is expired. A manometer with current calibration is required in order to comply with this Enclosure Air Leakage worksheet</dtyp:displayterm>
+                              <dtyp:displayterm value="false"> Manometer Calibration is expired. A manometer with current calibration is required in order to comply with this Enclosure Air Leakage worksheet</dtyp:displayterm>
                            </xsd:appinfo>
                         </xsd:annotation>
                      </xsd:element>
@@ -613,32 +639,32 @@ Else If A03_IsEnvelopeAirLeakageHERSVerificationRequired == true, Then If A01_Ai
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_G" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_G">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Additional Requirements For Test Compliance</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section applies to all systems</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="G01" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G01">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">The procedure for preparing the enclosure for testing is detailed in RESNET 380-2019 Section 4.2.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G02" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G02">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">The procedure for installation of the test apparatus, and preparations for measurement shall conform to RESNET 380-2019 Section 4.3.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G03" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G03">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">The procedure for the conduct of the enclosure air leakage test shall conform to the One-Point Airtightness Test specified in RESNET 380-2019 Section 4.4.1</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G04" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G04">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">The procedure for the conduct of the enclosure air leakage test shall conform to the Multi-Point Airtightness Test specified in RESNET 380-2019 Section 4.4.2</xsd:documentation>
@@ -649,34 +675,6 @@ Else If A03_IsEnvelopeAirLeakageHERSVerificationRequired == true, Then If A01_Ai
          </xsd:element>
       </xsd:sequence>
    </xsd:complexType>
-   <xsd:element name="ComplianceDocumentPackage">
-      <xsd:complexType>
-         <xsd:sequence>
-            <xsd:element name="DocID" minOccurs="0">
-               <xsd:complexType>
-                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RMCH24H"/>
-                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
-                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Building Air Leakage Diagnostic Test Worksheet - Building Enclosures and Dwelling Unit Enclosures"/>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Payload" type="comp:Payload"/>
-            <xsd:element name="DocumentData">
-               <xsd:complexType>
-                  <xsd:sequence>
-                     <xsd:element name="Header" type="comp:HeaderHERS"/>
-                     <xsd:element ref="cF2RMCH24H"/>
-                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
-                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_H"/>
-                     <xsd:element name="Footer" type="comp:Footer"/>
-                  </xsd:sequence>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Report" type="xsd:base64Binary"/>
-         </xsd:sequence>
-         <xsd:attribute name="revision" type="xsd:string" use="required" fixed="rev 20250101"/>
-         <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" use="required" fixed="CF2RMCH24H"/>
-      </xsd:complexType>
-   </xsd:element>
    <xsd:element name="cF2RMCH24H" type="CF2RMCH24H">
       <xsd:annotation>
          <xsd:documentation>This element contains all of the data and text required to generate the CF2RMCH24aH compliance report.</xsd:documentation>

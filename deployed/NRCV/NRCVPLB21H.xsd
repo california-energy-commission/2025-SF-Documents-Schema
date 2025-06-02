@@ -1,20 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/NRCVPLB21H" version="2025.0.000" xmlns="http://www.lmonte.com/besm/NRCVPLB21H" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+<xsd:schema xmlns="http://www.lmonte.com/besm/NRCVPLB21H" xmlns:d="http://www.lmonte.com/besm/d" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:env="http://www.lmonte.com/besm/env" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:com="http://www.lmonte.com/besm/com" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/NRCVPLB21H" version="2025.0.000">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
    <xsd:element name="ComplianceDocumentPackage">
       <xsd:complexType>
          <xsd:sequence>
-            <xsd:element name="DocID" minOccurs="0">
+            <xsd:element minOccurs="0" name="DocID">
                <xsd:complexType>
-                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="NRCVPLB21H"/>
-                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF VERIFICATION"/>
-                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="HERS Verified Multifamily Central Hot Water System Distribution"/>
+                  <xsd:attribute fixed="NRCVPLB21H" name="doc" type="comp:ComplianceDocumentTag"/>
+                  <xsd:attribute fixed="CERTIFICATE OF VERIFICATION" name="docType" type="comp:ComplianceDocumentType"/>
+                  <xsd:attribute fixed="HERS Verified Multifamily Central Hot Water System Distribution" name="docTitle" type="comp:ComplianceDocumentTitleRes"/>
                </xsd:complexType>
             </xsd:element>
             <xsd:element name="Payload" type="comp:Payload"/>
@@ -31,8 +30,8 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
-         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="NRCVPLB21H"/>
+         <xsd:attribute fixed="rev 20250101" name="revision" type="xsd:string" use="required"/>
+         <xsd:attribute fixed="NRCVPLB21H" name="doc" type="comp:ComplianceDocumentTag" use="required"/>
       </xsd:complexType>
    </xsd:element>
    <xsd:complexType name="NRCVPLB21H">
@@ -40,7 +39,7 @@
          <xsd:documentation>HERS Verified Multifamily Central Hot Water System Distribution</xsd:documentation>
       </xsd:annotation>
       <xsd:sequence>
-         <xsd:element name="Section_A" minOccurs="1">
+         <xsd:element minOccurs="1" name="Section_A">
             <xsd:annotation>
                <xsd:documentation source="FieldText">General Information</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
@@ -56,7 +55,7 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_B" minOccurs="0" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="0" name="Section_B">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Design HERS Verified Central Water Heating Systems Information (other than CHPWH)</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This  section is required if the NRCC parent  has any non-CHPWH systems, Require one row of data for each non-HPWH system identified on the NRCC</xsd:documentation>
@@ -64,7 +63,7 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="B_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="B_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">This table reports features of he water heating system other than CHPWH system that were specified on the registered NRCC  compliance document for this project.</xsd:documentation>
@@ -76,13 +75,13 @@
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="B01_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Water Heating System ID or Name</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input;</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input; </xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
@@ -102,7 +101,7 @@
                                     <xsd:element name="B03_ResidentialWaterHeaterType" type="hvac:ResidentialWaterHeaterType">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Water-Heater Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Allow user to select from list: (Boiler, Indirect, Consumer Instantaneous, Commercial Instantaneous, Consumer Storage, Commercial Storage, Residential-Duty Commercial Storage, or Residential-Duty Commercial Instantaneous )&amp;gt;&amp;gt;</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules"> Allow user to select from list: (Boiler, Indirect, Consumer Instantaneous, Commercial Instantaneous, Consumer Storage, Commercial Storage, Residential-Duty Commercial Storage, or Residential-Duty Commercial Instantaneous )&gt;&gt;</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="B04_WaterHeaterTotalSystemCount" type="hvac:WaterHeaterTotalSystemCount">
@@ -163,13 +162,13 @@
                                        <xsd:element name="B08_WaterHeaterGasFiredRatedInput" type="hvac:WaterHeaterGasFiredRatedInput">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Rated Input Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If B03_ResidentialWaterHeaterType == HeatPumpWaterHeater then result = N/A stored in NotApplicableMessage; Else User Input for electric fired or gas fired water heater;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If B03_ResidentialWaterHeaterType == HeatPumpWaterHeater then result = N/A stored in NotApplicableMessage; Else User Input for electric fired or gas fired water heater; </xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="B08_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Rated Input Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If B03_ResidentialWaterHeaterType == HeatPumpWaterHeater then result = N/A stored in NotApplicableMessage; Else User Input for electric fired or gas fired water heater;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If B03_ResidentialWaterHeaterType == HeatPumpWaterHeater then result = N/A stored in NotApplicableMessage; Else User Input for electric fired or gas fired water heater; </xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -263,7 +262,7 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_B2" minOccurs="0" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="0" name="Section_B2">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Design HERS Verified CHPWH System Information</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required if the registered NRCC has at least one system that is a CHPWH system.  Require one row of data for each water heater identified on the NRCC</xsd:documentation>
@@ -271,7 +270,7 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="B_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="B_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">This table reports the water heating systems specified on the registered NRCC compliance document for this project.</xsd:documentation>
@@ -283,7 +282,7 @@
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="Hpd01_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
@@ -416,7 +415,7 @@
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="Hpd12_HeatPumpWaterHeaterSimulationGroup" type="hvac:HeatPumpWaterHeaterSimulationGroup" minOccurs="0">
+                                    <xsd:element minOccurs="0" name="Hpd12_HeatPumpWaterHeaterSimulationGroup" type="hvac:HeatPumpWaterHeaterSimulationGroup">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Simulated Equipment Make and Model
@@ -432,7 +431,7 @@ If prescriptive, this field is not required; Else If performance reference value
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_C" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_C">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Installed HERS Verified Central Water Heating Systems Information</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">If Section_B IsPresent this section is required.  Require one row of data for each water heater identified on TableDesignSystem in Section_B</xsd:documentation>
@@ -440,7 +439,7 @@ If prescriptive, this field is not required; Else If performance reference value
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="C_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="C_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">This table reports features of he water heating system other than CHPWH system that were specified on the registered NRCC  compliance document for this project.</xsd:documentation>
@@ -452,7 +451,7 @@ If prescriptive, this field is not required; Else If performance reference value
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="C01_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
@@ -638,7 +637,7 @@ If prescriptive, this field is not required; Else If performance reference value
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_C2" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_C2">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Installed HERS Verified CHPWH System Information</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This secction is required If Section_B2 IsPresent;  Require one row of data for each water heater identified on the Section_B2 TableHpwhd</xsd:documentation>
@@ -646,7 +645,7 @@ If prescriptive, this field is not required; Else If performance reference value
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="Hpi_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="Hpi_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">This table reports the water heating system features that were specified on the registered NRCC compliance document for this project.</xsd:documentation>
@@ -658,7 +657,7 @@ If prescriptive, this field is not required; Else If performance reference value
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="Hpi01_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
@@ -975,15 +974,15 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_D" minOccurs="1">
+         <xsd:element minOccurs="1" name="Section_D">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Design  HERS Verified Central Water Heating Distribution Systems Information</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heating system identified on the NRCC-PRF.  If prescriptive compliance, then display the section does not apply message;</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heating system identified on the NRCC-PRF.  If prescriptive compliance, then display the section does not apply message; </xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="D_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="D_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">This table reports the water heating distribution types specified on the registered NRCC compliance document for this project.</xsd:documentation>
@@ -995,7 +994,7 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="D01_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
@@ -1012,7 +1011,7 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="hvac:ResidentialDHWCentralDistributionType">
                                              <xsd:enumeration value="NoRecirculationMF"/>
-                                             <!--                                             <xsd:enumeration value="RecirculatingDemandControlMF"/>-->
+<!--                                             <xsd:enumeration value="RecirculatingDemandControlMF"/>-->
                                              <xsd:enumeration value="RecirculationMF"/>
                                           </xsd:restriction>
                                        </xsd:simpleType>
@@ -1023,7 +1022,8 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input. 
                                              Allowed values are
                                              *Standard Distribution System
-                                             *HERS-Verified Pipe Insulation</xsd:documentation>
+                                             *HERS-Verified Pipe Insulation 
+                                          </xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="hvac:ResidentialDHWDwellingUnitDistributionType">
@@ -1041,7 +1041,7 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_E" minOccurs="1">
+         <xsd:element minOccurs="1" name="Section_E">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Installed HERS Verified Water Heating Distribution Systems Information</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heating system identified on the NRCC-PRF</xsd:documentation>
@@ -1049,7 +1049,7 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="E_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="E_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">This table reports the water heating distribution types specified on the registered NRCC compliance document for this project.</xsd:documentation>
@@ -1061,7 +1061,7 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="E01_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
@@ -1104,7 +1104,7 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_F" minOccurs="1">
+         <xsd:element minOccurs="1" name="Section_F">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Installed HERS Verified Water Heater Manufacturer Information</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">Require one row of data in this table for each of the Water Heaters identified in Section_C Or Section_C2</xsd:documentation>
@@ -1118,7 +1118,7 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="F01_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
@@ -1148,70 +1148,47 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_G" minOccurs="1">
+         <xsd:element minOccurs="1" name="Section_G">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Mandatory Requirements For All Central Domestic Hot Water Systems</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="G01" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G01">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">On systems that have a total capacity greater than 167,000 Btu/hr, outlets that require higher than service water temperatures as listed in the ASHRAE Handbook have separate remote heaters, heat exchangers, or boosters to supply the outlet with the higher temperature.  (Section 110.3 (c)1)</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G02" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G02">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Systems with circulating pumps or with electrical heat trace systems shall be capable of automatically turning off the system.  (Section 110.3(c)2).</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G03" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G03">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements">Unfired storage tanks are insulated with 
-                           <d:l t="*">
-                              <d:list> External insulation of R-3.5, or </d:list>
-                              <d:list> Internal insulation of R-16, or  </d:list>
-                              <d:list> The heat loss of the tank surface based on an 80
-                                 <d:deg/>F water-air temperature difference shall be less than 6.5 Btu/ft<d:sup>2</d:sup>. (Section 110.3(c)3).</d:list>
-                           </d:l>
-                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Unfired storage tanks are insulated with <d:l t="*"> <d:list> External insulation of R-3.5, or </d:list><d:list> Internal insulation of R-16, or  </d:list><d:list> The heat loss of the tank surface based on an 80<d:deg/>F water-air temperature difference shall be less than 6.5 Btu/ft <d:sup>2</d:sup>. (Section 110.3(c)3).</d:list></d:l></xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G04" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G04">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements">Recirculation loop shall meet the following requirements:  
-                           <d:l t="*">
-                              <d:list>The recirculation pump is mounted on a vertical section of the return line, OR an automatic air release valve is installed on a riser at least 12 inches in length, on the inlet side of the recirculation pump, no more than 4 feet from the pump. (Section 110.3(c)4A). </d:list>
-                              <d:list> A check valve is located between the recirculation pump and the water heater. (Section 110.3(c)4B).</d:list>
-                              <d:list> A hose bibb is installed between the pump and the water heating equipment with an isolation valve between the hose bibb and the water heating equipment.  (Section 110.3(c)4C). </d:list>
-                              <d:list>Isolation valves are installed on both sides of the pump of which the valve required in (Section 110.3(c)4C can be one.  (Section 110.3(c)4D).</d:list>
-                              <d:list> The cold water supply piping and the recirculation loop piping is not connected to the hot water storage tank drain port.  (Section 110.3(c)4E). </d:list>
-                              <d:list> A check valve is installed on the cold water supply line between the hot water system and the next closest tee on the cold water supply.  (Section 110.3(c)4F).   </d:list>
-                           </d:l>
-                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Recirculation loop shall meet the following requirements:  <d:l t="*"><d:list>The recirculation pump is mounted on a vertical section of the return line, OR an automatic air release valve is installed on a riser at least 12 inches in length, on the inlet side of the recirculation pump, no more than 4 feet from the pump. (Section 110.3(c)4A). </d:list> <d:list> A check valve is located between the recirculation pump and the water heater. (Section 110.3(c)4B).</d:list> <d:list> A hose bibb is installed between the pump and the water heating equipment with an isolation valve between the hose bibb and the water heating equipment.  (Section 110.3(c)4C). </d:list> <d:list>Isolation valves are installed on both sides of the pump of which the valve required in (Section 110.3(c)4C can be one.  (Section 110.3(c)4D).</d:list> <d:list> The cold water supply piping and the recirculation loop piping is not connected to the hot water storage tank drain port.  (Section 110.3(c)4E). </d:list><d:list> A check valve is installed on the cold water supply line between the hot water system and the next closest tee on the cold water supply.  (Section 110.3(c)4F).   </d:list></d:l></xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G05" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G05">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Instantaneous water heaters with an input greater than 6.8 kBtu/hr. (2kW) shall have isolation valves at both the cold water supply and the hot water line (110.3(c)6).</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G06" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G06">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements">All sections of the recirculation loop, and the first 5 feet of all branches off the loop are insulated, to the thicknesses required by Table 120.3A.  Other hot water piping shall meet the requirements of 150(j) and the installation requirements in, except for the following: (RA4.4.1).  
-                           <d:l t="*">
-                              <d:list> Piping installed in interior or exterior walls that is surrounded on all sides by at least 1 inch (2.5 cm) of insulation need not be insulated. </d:list>
-                              <d:list> Piping installed in attics with a minimum of 4 inches (10 cm) of attic insulation on top. </d:list>
-                              <d:list> Piping that penetrates framing members shall not be required to have pipe insulation for the distance of the framing penetration.   Metal piping that penetrates metal framing shall use grommets, plugs, wrapping or other insulating material to assure that no contact is made with the metal framing. Insulation shall butt securely against all framing members.   </d:list>
-                              <d:list> Insulation is not required on the cold water line when it is used as the return.  </d:list>
-                           </d:l>
-                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">All sections of the recirculation loop, and the first 5 feet of all branches off the loop are insulated, to the thicknesses required by Table 120.3A.  Other hot water piping shall meet the requirements of 150(j) and the installation requirements in, except for the following: (RA4.4.1).  <d:l t="*"> <d:list> Piping installed in interior or exterior walls that is surrounded on all sides by at least 1 inch (2.5 cm) of insulation need not be insulated. </d:list> <d:list> Piping installed in attics with a minimum of 4 inches (10 cm) of attic insulation on top. </d:list>  <d:list> Piping that penetrates framing members shall not be required to have pipe insulation for the distance of the framing penetration.   Metal piping that penetrates metal framing shall use grommets, plugs, wrapping or other insulating material to assure that no contact is made with the metal framing. Insulation shall butt securely against all framing members.   </d:list> <d:list> Insulation is not required on the cold water line when it is used as the return.  </d:list> </d:l></xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="G07_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements">
@@ -1220,13 +1197,13 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Display choices: Pass,  Fail  or N/A</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G08_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="G08_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If DoesSystemComplyWithRequirements value is Fail, require that the reason is described in this field</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="GEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="GEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met unless otherwise noted in the Verification Status and the Corrections Notes in this table.</xsd:documentation>
@@ -1235,27 +1212,26 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_H" minOccurs="1">
+         <xsd:element minOccurs="1" name="Section_H">
             <xsd:annotation>
                <xsd:documentation source="FieldText">HERS Verified Multiple Recirculation Loops for DHW systems Serving Multiple Dwelling Units Requirements</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="H_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="H_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">All distribution systems listed on this compliance document shall comply with these requirements.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="H01" minOccurs="0">
+                  <xsd:element minOccurs="0" name="H01">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements">All buildings with 8 or more dwelling units have a 
-                           <d:b>minimum</d:b> of 2 recirculation loops.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">All buildings with 8 or more dwelling units have a <d:b>minimum</d:b> of 2 recirculation loops.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="H02" minOccurs="0">
+                  <xsd:element minOccurs="0" name="H02">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Each loop roughly serves the same number of dwellings.</xsd:documentation>
@@ -1267,13 +1243,13 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Display choices: Pass,  Fail  or N/A</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="H04_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element minOccurs="0" name="H04_SectionCorrectionNotes" type="comp:SectionCorrectionNotes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If DoesSystemComplyWithRequirements value is Fail, require that the reason is described in this field</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="HEndNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="HEndNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met unless otherwise noted in the Verification Status and the Corrections Notes in this table.</xsd:documentation>
@@ -1282,14 +1258,14 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_I" minOccurs="1">
+         <xsd:element minOccurs="1" name="Section_I">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Determination of HERS Verification Compliance</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="I_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="I_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">All applicable sections of this document shall indicate compliance with the specified verification protocol requirements in order for this Certificate of Verification as a whole to be determined to be in compliance.</xsd:documentation>

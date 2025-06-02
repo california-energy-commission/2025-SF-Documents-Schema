@@ -1,25 +1,52 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF1RALT02E" version="2025.0.000" xmlns="http://www.lmonte.com/besm/CF1RALT02E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+<xsd:schema xmlns="http://www.lmonte.com/besm/CF1RALT02E" xmlns:d="http://www.lmonte.com/besm/d" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:env="http://www.lmonte.com/besm/env" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:com="http://www.lmonte.com/besm/com" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF1RALT02E" version="2025.0.000">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
-   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element minOccurs="0" name="DocID">
+               <xsd:complexType>
+                  <xsd:attribute fixed="CF1RALT02E" name="doc" type="comp:ComplianceDocumentTag"/>
+                  <xsd:attribute fixed="CERTIFICATE OF COMPLIANCE" name="docType" type="comp:ComplianceDocumentType"/>
+                  <xsd:attribute fixed="Alterations to Space Conditioning Systems (formerly CF-1R-ALT-HVAC)" name="docTitle" type="comp:ComplianceDocumentTitleRes"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderHERSCC"/>
+                     <xsd:element ref="cF1RALT02E"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF1R"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute fixed="rev 20250101" name="revision" type="xsd:string" use="required"/>
+         <xsd:attribute fixed="CF1RALT02E" name="doc" type="comp:ComplianceDocumentTag" use="required"/>
+      </xsd:complexType>
+   </xsd:element>
    <xsd:complexType name="CF1RALT02E">
       <xsd:annotation>
          <xsd:documentation>Alterations to Space Conditioning Systems (formerly CF-1R-ALT-HVAC)</xsd:documentation>
       </xsd:annotation>
       <xsd:sequence>
-         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+         <xsd:element maxOccurs="1" minOccurs="1" name="Section_A">
             <xsd:annotation>
                <xsd:documentation source="FieldText">General Information</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="A_BeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="A_BeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">CF1R-ALT-02 is applicable to multiple space conditioning systems contained within a single dwelling unit.</xsd:documentation>
@@ -42,7 +69,7 @@
                         <xsd:documentation source="CalculationsAndRules">Reference from CF1R-ALT-01, or CF1R-ADD-01 if applicable, else user input</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A04_ResidentialLowriseBuildingType" type="com:ResidentialLowriseBuildingType" fixed="SingleFamily">
+                  <xsd:element fixed="SingleFamily" name="A04_ResidentialLowriseBuildingType" type="com:ResidentialLowriseBuildingType">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Building Type</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Reference from CF1R-ALT-01, or CF1R-ADD-01 if applicable, allowed fixed value of SingleFamily
@@ -88,7 +115,7 @@ display term Single Family</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_B" minOccurs="1">
+         <xsd:element minOccurs="1" name="Section_B">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Space Conditioning (SC) System Information</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">Require one row of data to be entered for each space conditioning system included in the ResidentialDwellingUnitSpaceConditioningCount entered in Section A</xsd:documentation>
@@ -102,7 +129,7 @@ display term Single Family</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="B01_ResidentialSpaceConditioningSystemName" type="hvac:ResidentialSpaceConditioningSystemName">
@@ -174,7 +201,7 @@ display term Single Family</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_C" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_C">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Extension of Existing Duct System, Greater Than 25 Feet (Section150.2(b)1Diib)</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This Section is applicable only if  one or more systems in section B has  ResidentialHvacAlterationType == DuctSystemExistingExtended; Require one row of data to be entered for each of these systems that satisfy this requirement.</xsd:documentation>
@@ -182,20 +209,10 @@ display term Single Family</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="CBeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="CBeginNote1">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">
-                           <d:u>Required Documentation:</d:u>
-                        </xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">
-                           <d:u>Required Documentation: </d:u>
-                           <d:line1/> CF2R-MCH-01-E - Space Conditioning Systems 
-                           <d:line1/> - Duct insulation requirement for the new portions of supply-air and return-air ducts or plenums: R6 (CZ 3, 5-7) and R8 (CZ 1, 2, 4, 8-16) 
-                           <d:line1/> CF2R and CF3R-MCH-20-H Duct Leakage Test 
-                           <d:line1/>  - Leakage rate compliance: less than or equal to 10%,  or less than or equal to  7% leakage to outside, or seal all accessible leaks 
-                           <d:line1/>
-                           <d:u>Exceptions:</d:u>
-                           <d:line1/> Existing duct systems constructed, insulated or sealed with asbestos are exempt from MCH-20 duct leakage testing requirements</xsd:documentation>
+                        <xsd:documentation source="FieldText"><d:u>Required Documentation:</d:u></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements"><d:u>Required Documentation: </d:u><d:line1/> CF2R-MCH-01-E - Space Conditioning Systems <d:line1/> - Duct insulation requirement for the new portions of supply-air and return-air ducts or plenums: R6 (CZ 3, 5-7) and R8 (CZ 1, 2, 4, 8-16) <d:line1/> CF2R and CF3R-MCH-20-H Duct Leakage Test <d:line1/>  - Leakage rate compliance: less than or equal to 10%,  or less than or equal to  7% leakage to outside, or seal all accessible leaks <d:line1/> <d:u>Exceptions:</d:u><d:line1/> Existing duct systems constructed, insulated or sealed with asbestos are exempt from MCH-20 duct leakage testing requirements</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="TableDuct">
@@ -204,7 +221,7 @@ display term Single Family</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="C01_ResidentialSpaceConditioningSystemName" type="hvac:ResidentialSpaceConditioningSystemName">
@@ -238,7 +255,7 @@ End If</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_D" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_D">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Altered Space Conditioning System  (Sections 150.2(b)1E and F)</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This Section is applicable only if  one or more systems in section B has  ResidentialHvacAlterationType == SpaceConditioningSystemAltered; Require one row of data to be entered for each of system that has ResidentialHvacAlterationType == SpaceConditioningSystemAltered</xsd:documentation>
@@ -246,21 +263,10 @@ End If</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="DBeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="DBeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Required Documentation:</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">
-                           <d:u>Required Documentation:</d:u>
-                           <d:line1/> CF2R-MCH-01-E - Space Conditioning Systems 
-                           <d:line1/>  - Duct insulation requirement for the new portions of supply-air and return-air ducts or plenums: R6 (CZ 3, 5-7) and R8 (CZ 1, 2, 4, 8-16)
-                           <d:line1/> CF2R and CF3R-MCH-20-H - Duct Leakage Test required when heating or cooling components are installed in ducted systems, or when more than 25 ft of duct length is replaced
-                           <d:line1/> -Leakage rate compliance: less than or equal to 10% or  less than or equal to 7%  leakage to outside,  or seal all accessible leaks.
-                           <d:line1/> CF2R and CF3R-MCH-25-H Refrigerant Charge verification required when refrigerant containing components are installed or altered (applicable in CZ 2, 8-15). 
-                           <d:line1/> CF2R and CF3R-MCH-23 Airflow Rate greater than or equal to 300 CFM per ton required when MCH-25 is required. 
-                           <d:line1/>
-                           <d:u>Exceptions:</d:u>
-                           <d:line1/>- Duct systems registered with ECC provider as previously sealed are exempt from MCH-20 Duct Leakage Testing requirements.
-                           <d:line1/> -Existing duct systems constructed, insulated or sealed with asbestos are exempt from MCH-20 Duct Leakage Testing requirements.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements"><d:u>Required Documentation:</d:u><d:line1/> CF2R-MCH-01-E - Space Conditioning Systems <d:line1/>  - Duct insulation requirement for the new portions of supply-air and return-air ducts or plenums: R6 (CZ 3, 5-7) and R8 (CZ 1, 2, 4, 8-16)<d:line1/> CF2R and CF3R-MCH-20-H - Duct Leakage Test required when heating or cooling components are installed in ducted systems, or when more than 25 ft of duct length is replaced<d:line1/> -Leakage rate compliance: less than or equal to 10% or  less than or equal to 7%  leakage to outside,  or seal all accessible leaks.<d:line1/> CF2R and CF3R-MCH-25-H Refrigerant Charge verification required when refrigerant containing components are installed or altered (applicable in CZ 2, 8-15). <d:line1/> CF2R and CF3R-MCH-23 Airflow Rate greater than or equal to 300 CFM per ton required when MCH-25 is required. <d:line1/> <d:u>Exceptions:</d:u><d:line1/>- Duct systems registered with ECC provider as previously sealed are exempt from MCH-20 Duct Leakage Testing requirements.<d:line1/> -Existing duct systems constructed, insulated or sealed with asbestos are exempt from MCH-20 Duct Leakage Testing requirements.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="TableConditioningAltered">
@@ -269,7 +275,7 @@ End If</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="D01_ResidentialSpaceConditioningSystemName" type="hvac:ResidentialSpaceConditioningSystemName">
@@ -290,7 +296,7 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list: CentralGasFurnace, CentralSplitHP, CentralPackagedHP, CentralLargePackagedHP, DuctlessSplitHP (display term Ductless mini-split HP), RoomHP, Boiler, Hydronic, CombinedHydronic, HydronicForcedAir, CombinedHydronicForcedAir, HydronicHP,  HydronicHP_ForcedAir, GasPackagedFurnace, GasWallFurnace , GasSpaceHeater, Electric, NonAirSourceHP, WoodHeat, SmallDuctHighVelocityHP, DuctedMultiSplitHP, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctlessVRF_HP,  VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctedAndDuctless, VCHP_IndoorUnitDuctless, DuctedMiniSplitHP, PTHP, SPVHP  and NoHeating.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="D04_ResidentialHvacHeatingComponentType" type="hvac:ResidentialHvacHeatingComponentType" maxOccurs="unbounded">
+                                    <xsd:element maxOccurs="unbounded" name="D04_ResidentialHvacHeatingComponentType" type="hvac:ResidentialHvacHeatingComponentType">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Altered Heating Components</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Choices for ResidentialHvacHeatiingComponentType: AllNewHeatingComponents, Boiler, Compressor, FancoilAHU, GasFurnaceAHU, IndoorCoil, NoHeatingComponentsAltered, OutdoorCondensingUnit, RefrigerantLineset, TXV_EXV</xsd:documentation>
@@ -336,7 +342,7 @@ End If</xsd:documentation>
                                              <xsd:documentation source="FieldText">Minimum Heating Efficiency Value</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Calculated field: If D04_ResidentialHvacHeatiingComponentType ==  NoHeatingComponentsAltered then result = N/A stored in the NotApplicableMessage, Else If D05_EfficiencyType == HSPF default minimum  result =  8.0;</xsd:documentation>
                                           </xsd:annotation>
-                                       </xsd:element>
+                                   </xsd:element>
                                        <xsd:element name="D06_EfficiencyMinimumValueHSPF2" type="hvac:EfficiencyMinimumValueHSPF2">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Heating Minimum Efficiency Value</xsd:documentation>
@@ -358,7 +364,7 @@ End If</xsd:documentation>
 CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackagedHP, CentralSplitAC, CentralSplitHP, DuctedMultiSplitAC, DuctedMultiSplitHP, DuctlessMultiSplitAC, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitAC, DuctedDuctlessMultiSplitHP, DuctlessSplitAC (display term Ductless mini-split AC) , DuctlessSplitHP (display term Ductless mini-split HP), DuctlessVRF_AC, DuctlessVRF_HP, EvaporativeDirect, EvaporativeIndirect, EvaporativeIndirectDirect, EvaporativelyCooledCondenser, GasAbsorptionAC, HydronicHP, HydronicHP_ForcedAir, IceStorageAC, NoCooling, NonAirCooledAC, NonAirSourceHP, RoomAC, RoomHP, SmallDuctHighVelocityHP, SmallDuctHighVelocityAC, VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctedAndDuctless, VCHP_IndoorUnitDuctless. DuctedMiniSplitAC, DuctedMiniSplitHP,  PTAC, PTHP, SPVAC, SPVHP</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="D08_ResidentialHvacCoolingComponentType" type="hvac:ResidentialHvacCoolingComponentType" maxOccurs="unbounded">
+                                    <xsd:element maxOccurs="unbounded" name="D08_ResidentialHvacCoolingComponentType" type="hvac:ResidentialHvacCoolingComponentType">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Altered Cooling Components</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Choices for ResidentialHvacCoolingComponentType: AllNewCoolingComponents,  Compressor, FancoilAHU, IndoorCoil, NoCoolingComponentsAltered, OutdoorCondensingUnit, RefrigerantLineset, TXV_EXV</xsd:documentation>
@@ -389,7 +395,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:choice maxOccurs="1">
+                                    <xsd:choice maxOccurs="1"> 
                                        <xsd:element name="D10_EfficiencyMinimumValueSEER2" type="hvac:EfficiencyMinimumValueSEER2">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value SEER/SEER2</xsd:documentation>
@@ -397,7 +403,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                                 Else user enter value:  xx.x;  default minimum value for EER2/SEER2=13.4;
                                                 Allow user to overwrite default value, but flag non-default values and report in project status notes field;</xsd:documentation>
                                           </xsd:annotation>
-                                       </xsd:element>
+                                       </xsd:element>                                      
                                        <xsd:element name="D10_EfficiencyMinimumValueSEER" type="hvac:EfficiencyMinimumValueSEER">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value SEER/SEER2</xsd:documentation>
@@ -409,7 +415,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                        <xsd:element name="D10_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value SEER/SEER2</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If D08= no cooling component altered, then value =N/A;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If D08= no cooling component altered, then value =N/A; </xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -437,7 +443,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                                 Else User enter value: xx.x; default minimum value for EER and EER/SEER=11.7;
                                                 Allow user to overwrite default value, but flag non-default values and report in project status notes field;</xsd:documentation>
                                           </xsd:annotation>
-                                       </xsd:element>
+                                       </xsd:element>                                       
                                        <xsd:element name="D10b_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value EER/EER2/CEER</xsd:documentation>
@@ -445,7 +451,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="D11_ThermostatType" type="hvac:ThermostatType" fixed="SetbackThermostat">
+                                    <xsd:element fixed="SetbackThermostat" name="D11_ThermostatType" type="hvac:ThermostatType">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Required Thermostat Type</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Result = SetbackThermostat</xsd:documentation>
@@ -499,7 +505,7 @@ Else If  A09_ClimateZone == 3, 5, 6 Or 7  result = R6; Else  If  A09_ClimateZone
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_E" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_E">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Entirely New or Complete Replacement Duct System, with or without Equipment Changeout  (Sections 150.2(b)1Diia and 150.2(b)1E, F)</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This Section is applicable only if one or more systems in section B has ResidentialHvacAlterationType == DuctSystemEntirelyNewReplacement; Require one row of data to be entered for each system with ResidentialHvacAlterationType ==  DuctSystemEntirelyNewReplacement.</xsd:documentation>
@@ -507,22 +513,10 @@ Else If  A09_ClimateZone == 3, 5, 6 Or 7  result = R6; Else  If  A09_ClimateZone
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="EBeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="EBeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Required Documentation:</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">
-                           <d:u>Required Documentation:</d:u>
-                           <d:line1/> CF2R-MCH-01-E - Space Conditioning Systems 
-                           <d:line1/>  - Duct insulation requirement for the new portions of supply-air and return-air ducts or plenums: R6 (CZ 3, 5-7) and R8 (CZ 1, 2, 4, 8-16) 
-                           <d:line1/> CF2R and CF3R-MCH-20-H Duct Leakage Test required 
-                           <d:line1/>  - Leakage rate compliance: less than or equal to 5 percent. 
-                           <d:line1/> CF2R and CF3R-MCH-22 Fan Efficacy 
-                           <d:line1/> CF2R and CF3R-MCH-23 Airflow Rate 
-                           <d:line1/> - Compliance: Fan Efficacy less than or equal to 0.58 W/cfm for non-gas furnaces and System Airflow greater than or equal to 350 cfm per ton.
-                           <d:line1/> - Alternative Compliance: CF2R and CF3R-MCH-28 Return Duct Design verification is an alternative to MCH-22 and MCH-23 verification. 
-                           <d:line1/> CF2R and CF3R-MCH-25-H Refrigerant Charge verification required when refrigerant containing components are installed or altered (applicable in CZ 2, 8-15).
-                           <d:line1/>
-                           <d:u>Note:</d:u> An "entirely new or complete replacement duct system" means at least 75%  of the duct system is new duct material, and up to 25% may consist of reused parts from the dwelling unit's existing duct system (e.g., registers, grilles, boots, air handler, coil, plenums, duct material) if the reused parts are accessible and can be sealed to prevent leakage</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements"><d:u>Required Documentation:</d:u><d:line1/> CF2R-MCH-01-E - Space Conditioning Systems <d:line1/>  - Duct insulation requirement for the new portions of supply-air and return-air ducts or plenums: R6 (CZ 3, 5-7) and R8 (CZ 1, 2, 4, 8-16) <d:line1/> CF2R and CF3R-MCH-20-H Duct Leakage Test required <d:line1/>  - Leakage rate compliance: less than or equal to 5 percent. <d:line1/> CF2R and CF3R-MCH-22 Fan Efficacy <d:line1/> CF2R and CF3R-MCH-23 Airflow Rate <d:line1/> - Compliance: Fan Efficacy less than or equal to 0.58 W/cfm for non-gas furnaces and System Airflow greater than or equal to 350 cfm per ton.<d:line1/> - Alternative Compliance: CF2R and CF3R-MCH-28 Return Duct Design verification is an alternative to MCH-22 and MCH-23 verification. <d:line1/> CF2R and CF3R-MCH-25-H Refrigerant Charge verification required when refrigerant containing components are installed or altered (applicable in CZ 2, 8-15).<d:line1/>  <d:u>Note:</d:u> An "entirely new or complete replacement duct system" means at least 75%  of the duct system is new duct material, and up to 25% may consist of reused parts from the dwelling unit's existing duct system (e.g., registers, grilles, boots, air handler, coil, plenums, duct material) if the reused parts are accessible and can be sealed to prevent leakage</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="TableDuctNew">
@@ -531,7 +525,7 @@ Else If  A09_ClimateZone == 3, 5, 6 Or 7  result = R6; Else  If  A09_ClimateZone
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="E01_ResidentialSpaceConditioningSystemName" type="hvac:ResidentialSpaceConditioningSystemName">
@@ -552,7 +546,7 @@ Else If  A09_ClimateZone == 3, 5, 6 Or 7  result = R6; Else  If  A09_ClimateZone
                                           <xsd:documentation source="CalculationsAndRules">User selects from list: CentralGasFurnace, CentralSplitHP, CentralPackagedHP, CentralLargePackagedHP, DuctlessSplitHP (display term Ductless mini-split HP)  RoomHP, Boiler, Hydronic, CombinedHydronic, HydronicForcedAir, CombinedHydronicForcedAir, HydronicHP,  HydronicHP_ForcedAir, GasPackagedFurnace, GasWallFurnace , GasSpaceHeater, Electric, NoHeating, PTHP, SPVHP, NonAirSourceHP, WoodHeat, SmallDuctHighVelocityHP, DuctedMultiSplitHP, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctlessVRF_HP, DuctedMiniSplitHP,</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="E04_ResidentialHvacHeatingComponentType" type="hvac:ResidentialHvacHeatingComponentType" maxOccurs="unbounded">
+                                    <xsd:element maxOccurs="unbounded" name="E04_ResidentialHvacHeatingComponentType" type="hvac:ResidentialHvacHeatingComponentType">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Altered Heating Component</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Choices same as those listed in D04; User should select all components from list that have been altered in this project.</xsd:documentation>
@@ -603,7 +597,7 @@ End If</xsd:documentation>
                                              <xsd:documentation source="FieldText">Minimum Heating Efficiency Value</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If E04_ResidentialHvacHeatiingComponentType ==  NoHeatingComponentsAltered then result = N/A stored in the NotApplicableMessage, Else If D05_EfficiencyType == HSPF default minimum  result =  8.0; Allow user to overwrite the default minimum value but, flag it as a non-default value and report it in project status notes field.</xsd:documentation>
                                           </xsd:annotation>
-                                       </xsd:element>
+                                   </xsd:element>
                                        <xsd:element name="E06_EfficiencyMinimumValueHSPF2" type="hvac:EfficiencyMinimumValueHSPF2">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Heating Minimum  Efficiency Value</xsd:documentation>
@@ -625,7 +619,7 @@ End If</xsd:documentation>
 CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackagedHP, CentralSplitAC, CentralSplitHP, DuctlessSplitAC (display term Ductless mini-split AC) , DuctlessSplitHP (display term Ductless mini-split HP), EvaporativeDirect, EvaporativeIndirect, EvaporativeIndirectDirect, EvaporativelyCooledCondenser, GasAbsorptionAC, HydronicHP, HydronicHP_ForcedAir, IceStorageAC, NoCooling, RoomAC, RoomHP, PTAC, PTHP, SPVAC, SPVHP, NonAirCooledAC, NonAirSourceHP, SmallDuctHighVelocityHP, SmallDuctHighVelocityAC, DuctlessVRF_AC, DuctlessVRF_HP,  DuctedMultiSplitAC, DuctedMultiSplitHP, DuctlessMultiSplitAC, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitAC, DuctedDuctlessMultiSplitHP, DuctedMiniSplitAC, DuctedMiniSplitHP,</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="E08_ResidentialHvacCoolingComponentType" type="hvac:ResidentialHvacCoolingComponentType" maxOccurs="unbounded">
+                                    <xsd:element maxOccurs="unbounded" name="E08_ResidentialHvacCoolingComponentType" type="hvac:ResidentialHvacCoolingComponentType">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Altered Cooling Component</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Choices same as those listed in D08; User should select all components from list that have been altered in this project.</xsd:documentation>
@@ -656,7 +650,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:choice maxOccurs="1">
+                                    <xsd:choice maxOccurs="1"> 
                                        <xsd:element name="E10_EfficiencyMinimumValueSEER2" type="hvac:EfficiencyMinimumValueSEER2">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value SEER/SEER2</xsd:documentation>
@@ -664,7 +658,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                                 Else user enter SEER2 value:  xx.x;  default minimum value for EER2/SEER2=13.4;
                                                 Allow user to overwrite default value, but flag non-default values and report in project status notes field;</xsd:documentation>
                                           </xsd:annotation>
-                                       </xsd:element>
+                                       </xsd:element>                                      
                                        <xsd:element name="E10_EfficiencyMinimumValueSEER" type="hvac:EfficiencyMinimumValueSEER">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value SEER/SEER2</xsd:documentation>
@@ -703,7 +697,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                              <xsd:documentation source="CalculationsAndRules">If E08 = no cooling component altered, then value = N/A; Else  User enter EER value: xx.x; default minimum value for EER and EER/SEER=11.7;
                                                 Allow user to overwrite default value, but flag non-default values and report in project status notes field;</xsd:documentation>
                                           </xsd:annotation>
-                                       </xsd:element>
+                                       </xsd:element>                                        
                                        <xsd:element name="E10b_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value EER2/CEER</xsd:documentation>
@@ -713,7 +707,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="E11_ThermostatType" type="hvac:ThermostatType" fixed="SetbackThermostat">
+                                    <xsd:element fixed="SetbackThermostat" name="E11_ThermostatType" type="hvac:ThermostatType">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Required Thermostat Type</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Result = SetbackThermostat</xsd:documentation>
@@ -724,12 +718,12 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                           <xsd:documentation source="FieldText">New Duct R-Value</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If  A09_ClimateZone == 3, 5, 6 Or 7 result = R6; Else If  A09_ClimateZone == 1, 2, 4 Or InRange(8, 16)result = R8 End If</xsd:documentation>
                                        </xsd:annotation>
-                                       <xsd:simpleType>
-                                          <xsd:restriction base="hvac:DuctRValueLimit">
-                                             <xsd:enumeration value="R6"/>
-                                             <xsd:enumeration value="R8"/>
-                                          </xsd:restriction>
-                                       </xsd:simpleType>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="hvac:DuctRValueLimit">
+                                                <xsd:enumeration value="R6"/>
+                                                <xsd:enumeration value="R8"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
                                     </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
@@ -740,7 +734,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_F" minOccurs="0">
+         <xsd:element minOccurs="0" name="Section_F">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Entirely New or Complete Replacement Space Conditioning System  (Section 150.2(b)1C)</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This Section is applicable only if one or more systems in section B has ResidentialHvacAlterationType == SpaceConditioningSystemEntirelyNewReplacement;  Require one row of data to be entered for each system with ResidentialHvacAlterationType == SpaceConditioningSystemEntirelyNewReplacement.</xsd:documentation>
@@ -748,24 +742,12 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="FBeginNote1" minOccurs="0">
+                  <xsd:element minOccurs="0" name="FBeginNote1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Required Documentation:</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">
-                           <d:u>Required Documentation:</d:u>
-                           <d:line1/> CF2R-MCH-01-E - Space Conditioning Systems 
-                           <d:line1/>  - Duct insulation requirement for the new portions of supply-air and return-air ducts or plenums: R6 (CZ 3, 5-7) and R8 (CZ 1, 2, 4, 8-16) 
-                           <d:line1/> CF2R and CF3R-MCH-20-H Duct Leakage Test required 
-                           <d:line1/>  - Leakage rate compliance: less than or equal to 5 percent. 
-                           <d:line1/> 
-CF2R and CF3R-MCH-22 Fan Efficacy 
-                           <d:line1/> CF2R and CF3R-MCH-23 Airflow Rate Verification 
-                           <d:line1/> - Compliance: Fan Efficacy less than or equal to 0.58 W/cfm for non-gas furnaces and System Airflow greater than or equal to 350 cfm per ton.
-                           <d:line1/> - Alternative Compliance: CF2R and CF3R-MCH-28 Return Duct Design verification is an alternative to MCH-22 and MCH-23 verification. 
-                           <d:line1/> 
-CF2R and CF3R-MCH-25-H Refrigerant Charge verification required when refrigerant containing components are installed or altered (applicable in CZ 2, 8-15).
-                           <d:line1/>
-                           <d:u>Note:</d:u> An "entirely new or replacement duct system" means at least 75%  of the duct system is new duct material, and up to 25% may consist of reused parts from the dwelling unit's existing duct system (e.g., registers, grilles, boots, air handler, coil, plenums, duct material) if the reused parts are accessible and can be sealed to prevent leakage</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements"><d:u>Required Documentation:</d:u><d:line1/> CF2R-MCH-01-E - Space Conditioning Systems <d:line1/>  - Duct insulation requirement for the new portions of supply-air and return-air ducts or plenums: R6 (CZ 3, 5-7) and R8 (CZ 1, 2, 4, 8-16) <d:line1/> CF2R and CF3R-MCH-20-H Duct Leakage Test required <d:line1/>  - Leakage rate compliance: less than or equal to 5 percent. <d:line1/> 
+CF2R and CF3R-MCH-22 Fan Efficacy <d:line1/> CF2R and CF3R-MCH-23 Airflow Rate Verification <d:line1/> - Compliance: Fan Efficacy less than or equal to 0.58 W/cfm for non-gas furnaces and System Airflow greater than or equal to 350 cfm per ton.<d:line1/> - Alternative Compliance: CF2R and CF3R-MCH-28 Return Duct Design verification is an alternative to MCH-22 and MCH-23 verification. <d:line1/> 
+CF2R and CF3R-MCH-25-H Refrigerant Charge verification required when refrigerant containing components are installed or altered (applicable in CZ 2, 8-15).<d:line1/> <d:u>Note:</d:u> An "entirely new or replacement duct system" means at least 75%  of the duct system is new duct material, and up to 25% may consist of reused parts from the dwelling unit's existing duct system (e.g., registers, grilles, boots, air handler, coil, plenums, duct material) if the reused parts are accessible and can be sealed to prevent leakage</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="TableConditioningNew">
@@ -774,7 +756,7 @@ CF2R and CF3R-MCH-25-H Refrigerant Charge verification required when refrigerant
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:element maxOccurs="unbounded" minOccurs="1" name="Row">
                               <xsd:complexType>
                                  <xsd:sequence>
                                     <xsd:element name="F01_ResidentialSpaceConditioningSystemName" type="hvac:ResidentialSpaceConditioningSystemName">
@@ -850,7 +832,7 @@ Else If F05_EfficiencyType == COP user input numeric.   End If</xsd:documentatio
                                              <xsd:documentation source="CalculationsAndRules">If F04_ResidentialHvacHeatiingComponentType ==  NoHeatingComponentsAltered then result = N/A stored in the NotApplicableMessage, 
 Else If D05_EfficiencyType == HSPF default minimum  result =  8.0; Allow user to overwrite the default minimum value but, flag it as a non-default value and report it in project status notes field.</xsd:documentation>
                                           </xsd:annotation>
-                                       </xsd:element>
+                                   </xsd:element>
                                        <xsd:element name="F06_EfficiencyMinimumValueHSPF2" type="hvac:EfficiencyMinimumValueHSPF2">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Heating Minimum Efficiency Value</xsd:documentation>
@@ -910,7 +892,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:choice maxOccurs="1">
+                                    <xsd:choice maxOccurs="1"> 
                                        <xsd:element name="F10_EfficiencyMinimumValueSEER2" type="hvac:EfficiencyMinimumValueSEER2">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value SEER/SEER2</xsd:documentation>
@@ -918,7 +900,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                                 Else user enter SEER2 value:  xx.x;  default minimum value for EER2/SEER2=13.4;
                                                 Allow user to overwrite default value, but flag non-default values and report in project status notes field;</xsd:documentation>
                                           </xsd:annotation>
-                                       </xsd:element>
+                                       </xsd:element>                                     
                                        <xsd:element name="F10_EfficiencyMinimumValueSEER" type="hvac:EfficiencyMinimumValueSEER">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value SEER/SEER2</xsd:documentation>
@@ -930,7 +912,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                        <xsd:element name="F10_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value SEER/SEER2</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F08= no cooling component altered, then value =N/A;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If F08= no cooling component altered, then value =N/A; </xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -950,7 +932,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                                 Else user enter CEER value: xx.x; default minimum value for CEER=8.7;
                                                 Allow user to overwrite default value, but flag non-default values and report in project status notes field;</xsd:documentation>
                                           </xsd:annotation>
-                                       </xsd:element>
+                                       </xsd:element> 
                                        <xsd:element name="F10b_EfficiencyMinimumValueEER" type="hvac:EfficiencyMinimumValueEER">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value EER/EER2/CEER</xsd:documentation>
@@ -958,15 +940,15 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                                 User enter EER1 value: xx.x; default minimum value for EER and EER/SEER=11.7;
                                                 Allow user to overwrite default value, but flag non-default values and report in project status notes field;</xsd:documentation>
                                           </xsd:annotation>
-                                       </xsd:element>
+                                       </xsd:element>                                       
                                        <xsd:element name="F10b_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value EER/EER2/CEER</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F08 = no cooling component altered, then value = N/A;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If F08 = no cooling component altered, then value = N/A; </xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="F11_ThermostatType" type="hvac:ThermostatType" fixed="SetbackThermostat">
+                                    <xsd:element fixed="SetbackThermostat" name="F11_ThermostatType" type="hvac:ThermostatType">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Required Thermostat Type</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Result = SetbackThermostat</xsd:documentation>
@@ -1003,34 +985,6 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
          </xsd:element>
       </xsd:sequence>
    </xsd:complexType>
-   <xsd:element name="ComplianceDocumentPackage">
-      <xsd:complexType>
-         <xsd:sequence>
-            <xsd:element name="DocID" minOccurs="0">
-               <xsd:complexType>
-                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF1RALT02E"/>
-                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF COMPLIANCE"/>
-                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Alterations to Space Conditioning Systems (formerly CF-1R-ALT-HVAC)"/>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Payload" type="comp:Payload"/>
-            <xsd:element name="DocumentData">
-               <xsd:complexType>
-                  <xsd:sequence>
-                     <xsd:element name="Header" type="comp:HeaderHERSCC"/>
-                     <xsd:element ref="cF1RALT02E"/>
-                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
-                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF1R"/>
-                     <xsd:element name="Footer" type="comp:Footer"/>
-                  </xsd:sequence>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Report" type="xsd:base64Binary"/>
-         </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
-         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF1RALT02E"/>
-      </xsd:complexType>
-   </xsd:element>
    <xsd:element name="cF1RALT02E" type="CF1RALT02E">
       <xsd:annotation>
          <xsd:documentation>This element contains all of the data and text required to generate the CF1RALT02E compliance report.</xsd:documentation>

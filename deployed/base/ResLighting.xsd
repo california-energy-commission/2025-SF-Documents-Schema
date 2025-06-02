@@ -1,57 +1,62 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/lit" version="2025.0.000" xmlns:com="http://www.lmonte.com/besm/com" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:com="http://www.lmonte.com/besm/com" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/lit" version="2025.0.000">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="DataTypes.xsd"/>
    <xsd:simpleType name="AllLuminairePowerInArea">
       <xsd:annotation>
-         <xsd:documentation>Units: W</xsd:documentation>
+         <xsd:documentation>  Units: W</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Power of All  Luminaires Installed in Area</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="AlteredLightingConditionedFloorArea">
       <xsd:annotation>
-         <xsd:documentation>Units: ft2</xsd:documentation>
+         <xsd:documentation>  Units: ft2</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Altered Lighting Conditioned Floor Area</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="AlteredLightingUnconditionedFloorArea">
       <xsd:annotation>
-         <xsd:documentation>Units: ft2</xsd:documentation>
+         <xsd:documentation>  Units: ft2</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Altered Lighting Unconditioned Floor Area</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="BankingKioskCount">
       <xsd:annotation>
-         <xsd:documentation>Units: none</xsd:documentation>
+         <xsd:documentation>  Units: none</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Number of ATM's</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:IntegerNonnegative"/>
+      <xsd:restriction base="dtyp:IntegerNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="BoardLightingLength">
       <xsd:annotation>
-         <xsd:documentation>Units: ft</xsd:documentation>
+         <xsd:documentation>  Units: ft</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>White/ Chalk Board Lighting Length</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="DisplayCaseArea">
       <xsd:annotation>
          <xsd:documentation>Area of very valuable display case used in determining tailored method lighting allowance  Units: ft2</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="IlluminationMethod">
       <xsd:annotation>
@@ -69,13 +74,15 @@
       <xsd:annotation>
          <xsd:documentation>Unique identification name for an InteriorLightingSystem instance</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:ObjectNamePermissive"/>
+      <xsd:restriction base="dtyp:ObjectNamePermissive">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="InteriorLightingSystemPower">
       <xsd:annotation>
-         <xsd:documentation>Units: W</xsd:documentation>
+         <xsd:documentation>  Units: W</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="InterlockedLightingSystems">
       <xsd:annotation>
@@ -87,7 +94,8 @@
             <dtyp:displayterm value="false">No</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="xsd:boolean"/>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="IsLightingControlSystemOrEMCS_Present">
       <xsd:annotation>
@@ -96,7 +104,8 @@
             <dtyp:displayterm value="false">No</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="xsd:boolean"/>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="IsLuminaireTrackLighting">
       <xsd:annotation>
@@ -108,55 +117,64 @@
             <dtyp:displayterm value="false">No</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="xsd:boolean"/>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="KitchenLuminaireHighEfficacySameTypeTotalPower">
       <xsd:annotation>
-         <xsd:documentation>Units: W</xsd:documentation>
+         <xsd:documentation>  Units: W</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="KitchenLuminaireLowEfficacySameTypeTotalPower">
       <xsd:annotation>
-         <xsd:documentation>Units: W</xsd:documentation>
+         <xsd:documentation>  Units: W</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="KitchenLuminairesHighEfficacyAllTypesTotalPower">
       <xsd:annotation>
-         <xsd:documentation>Units: W</xsd:documentation>
+         <xsd:documentation>  Units: W</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="KitchenLuminairesLowEfficacyAdditionalPowerAllowance">
       <xsd:annotation>
-         <xsd:documentation>Units: W</xsd:documentation>
+         <xsd:documentation>  Units: W</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="KitchenLuminairesLowEfficacyAllTypesTotalPower">
       <xsd:annotation>
-         <xsd:documentation>Units: W</xsd:documentation>
+         <xsd:documentation>  Units: W</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="KitchenLuminairesTotalLowEfficacyPowerAllowed">
       <xsd:annotation>
-         <xsd:documentation>Units: W</xsd:documentation>
+         <xsd:documentation>  Units: W</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="LightedSignArea">
       <xsd:annotation>
-         <xsd:documentation>Units: ft2</xsd:documentation>
+         <xsd:documentation>  Units: ft2</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="LightedSignDescription">
       <xsd:annotation>
          <xsd:documentation>Description of a Sign that is illuminated</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="xsd:token"/>
+      <xsd:restriction base="xsd:token">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="LightedSignLocation">
       <xsd:annotation>
@@ -179,7 +197,8 @@
       <xsd:annotation>
          <xsd:documentation>Unique identification name for a Sign that is illuminated</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="xsd:token"/>
+      <xsd:restriction base="xsd:token">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="LightingControlDevice">
       <xsd:annotation>
@@ -218,7 +237,8 @@
             <dtyp:displayterm>Lighting Control Scheme</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:EnumerationConstant"/>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="LightingPAF">
       <xsd:annotation>
@@ -227,16 +247,18 @@
             <dtyp:displayterm>Power Adjustment Factor</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="LightingPowerReductionPercent">
       <xsd:annotation>
-         <xsd:documentation>Units: none</xsd:documentation>
+         <xsd:documentation>  Units: none</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Percent Lighting Power Reduction for Space</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="LuminaireCategory">
       <xsd:annotation>
@@ -264,49 +286,66 @@
       <xsd:annotation>
          <xsd:documentation>Number of luminaries of a specific type  Units: none</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:IntegerNonnegative"/>
+      <xsd:restriction base="dtyp:IntegerNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="LuminaireDescription">
       <xsd:annotation>
          <xsd:documentation>Description of the luminaire</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="xsd:string"/>
+      <xsd:restriction base="xsd:string">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="LuminaireMountingHeight">
       <xsd:annotation>
          <xsd:documentation>Distance from the finished floor to the bottom of the luminaire  Units: ft</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="LuminaireName">
       <xsd:annotation>
          <xsd:documentation>Unique identification name for a Luminaire instance.</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:StringMin1Char"/>
+      <xsd:restriction base="dtyp:StringMin1Char">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="LuminairePower">
       <xsd:annotation>
-         <xsd:documentation>Units: W</xsd:documentation>
+         <xsd:documentation>  Units: W</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="LuminairePowerByType">
       <xsd:annotation>
-         <xsd:documentation>Units: W</xsd:documentation>
+         <xsd:documentation>  Units: W</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Installed Luminaire Power By Type</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="LuminairePowerInArea">
       <xsd:annotation>
-         <xsd:documentation>Units: W</xsd:documentation>
+         <xsd:documentation>  Units: W</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Installed Luminaire Power in Area</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="LuminairesTotalLF">
+      <xsd:annotation>
+         <xsd:documentation>  Units: ft</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Luminaires Total Linear Feet</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="LuminaireUse">
       <xsd:annotation>
@@ -324,30 +363,23 @@
    </xsd:simpleType>
    <xsd:simpleType name="LuminaireWattsPerLF">
       <xsd:annotation>
-         <xsd:documentation>Units: W per ft</xsd:documentation>
+         <xsd:documentation>  Units: W per ft</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Watts per LF</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="LuminairesTotalLF">
-      <xsd:annotation>
-         <xsd:documentation>Units: ft</xsd:documentation>
-         <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>Luminaires Total Linear Feet</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="MirrorsCount">
       <xsd:annotation>
-         <xsd:documentation>Units: none</xsd:documentation>
+         <xsd:documentation>  Units: none</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Number of lighted mirrors in fitting room</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:IntegerNonnegative"/>
+      <xsd:restriction base="dtyp:IntegerNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="MountingHeightFactor">
       <xsd:annotation>
@@ -356,25 +388,28 @@
             <dtyp:displayterm>MountingHeightFactor</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="NewLightingConditionedFloorArea">
       <xsd:annotation>
-         <xsd:documentation>Units: ft2</xsd:documentation>
+         <xsd:documentation>  Units: ft2</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>New Lighting Conditioned Floor Area</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="NewLightingUnconditionedFloorArea">
       <xsd:annotation>
-         <xsd:documentation>Units: ft2</xsd:documentation>
+         <xsd:documentation>  Units: ft2</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>New Lighting Unconditioned Floor Area</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="SpaceIlluminationLevel">
       <xsd:annotation>
@@ -413,30 +448,35 @@
    </xsd:simpleType>
    <xsd:simpleType name="TrackLengthPowerCalculated">
       <xsd:annotation>
-         <xsd:documentation>Units: W</xsd:documentation>
+         <xsd:documentation>  Units: W</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Track Lighting Length Watts Calculated</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="TrackLightingBranchCircuitPower">
       <xsd:annotation>
-         <xsd:documentation>Units: W</xsd:documentation>
+         <xsd:documentation>  Units: W</xsd:documentation>
          <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>Branch Circuit VA Rating (as Watts)</dtyp:displayterm>
+            <dtyp:displayterm>Branch Circuit VA Rating (as Watts)
+</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="TrackLightingCurrentLimiterPower">
       <xsd:annotation>
-         <xsd:documentation>Units: W</xsd:documentation>
+         <xsd:documentation>  Units: W</xsd:documentation>
          <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>VA of Current Limiter (as Watts)</dtyp:displayterm>
+            <dtyp:displayterm>VA of Current Limiter (as Watts)
+</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="TrackLightingDescription">
       <xsd:annotation>
@@ -444,16 +484,18 @@
             <dtyp:displayterm>Track Lighting Description</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="xsd:token"/>
+      <xsd:restriction base="xsd:token">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="TrackLightingLength">
       <xsd:annotation>
-         <xsd:documentation>Units: ft</xsd:documentation>
+         <xsd:documentation>  Units: ft</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Track Lighting Lenght</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="TrackLightingName">
       <xsd:annotation>
@@ -461,37 +503,42 @@
             <dtyp:displayterm>Track Lighting ID</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="xsd:token"/>
+      <xsd:restriction base="xsd:token">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="TrackLightingPowerSourceRatedWattage">
       <xsd:annotation>
-         <xsd:documentation>Units: W</xsd:documentation>
+         <xsd:documentation>  Units: W</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Maximum rated input wattage per manufacturer</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="TrackLightingWattsCalculated">
       <xsd:annotation>
-         <xsd:documentation>Units: W</xsd:documentation>
+         <xsd:documentation>  Units: W</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Track lighting watts calculated for luminaire</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="TrackOvercurrentPanelsTotalPower">
       <xsd:annotation>
-         <xsd:documentation>Units: W</xsd:documentation>
+         <xsd:documentation>  Units: W</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Sum of VA ratings for all Overcurrent Panels</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="VeryValuableDisplayDescription">
-      <xsd:restriction base="xsd:token"/>
+      <xsd:restriction base="xsd:token">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="WallDisplayLength">
       <xsd:annotation>
@@ -500,15 +547,17 @@
             <dtyp:displayterm>Wall Display Length</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="WattsPerLinearFootDefault">
       <xsd:annotation>
-         <xsd:documentation>Units: W per ft</xsd:documentation>
+         <xsd:documentation>  Units: W per ft</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Track Lighting Default Watts/LF</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
    </xsd:simpleType>
 </xsd:schema>
