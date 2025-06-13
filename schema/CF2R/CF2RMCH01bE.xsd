@@ -554,7 +554,7 @@ Else If C09_EfficiencyType == SEER  Or EERSEER Reference SEER value from parent 
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value SEER/SEER2</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If C09_NotApplicableMessage IsPresent
 result  is NotApplicable stored in NotApplicableMessage
-Else If C09_EfficiencyType == SEER2   Or EER2SEER2 Reference SEER2 value from parent CC as default andallow user to override the default to enter SEER2 value: xx.x;   default minimum value for SEER2=14.3;  allow user to overwrite default value, but flag non-default values and report in project status notes field a revised parent CC may be required</xsd:documentation>
+Else If C09_EfficiencyType == SEER2   Or EER2SEER2 Reference SEER2 value from parent CC as default andallow user to override the default to enter SEER2 value: xx.x;   default minimum value for SEER2=13.4;  allow user to overwrite default value, but flag non-default values and report in project status notes field a revised parent CC may be required</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="C10_NotApplicableMessage" type="comp:NotApplicableMessage" >
