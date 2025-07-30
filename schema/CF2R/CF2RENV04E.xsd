@@ -103,7 +103,7 @@
                      <xsd:element name="A05_AtticVentilationComplianceMethod" type="comp:AtticVentilationComplianceMethod" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Minimum Ventilation Method of Compliance</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A04_IsAtticVentered == false result = N/A stored in NotApplicableMessage; Else user selects 1/150 for 1Per150 or 1/300 for 1Per300</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A04_IsAtticVented == false result = N/A stored in NotApplicableMessage; Else user selects 1/150 for 1Per150 or 1/300 for 1Per300</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="A05_NotApplicableMessage" type="comp:NotApplicableMessage" >

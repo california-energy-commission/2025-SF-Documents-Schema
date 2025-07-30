@@ -356,6 +356,12 @@ End If</xsd:documentation>
                             <xsd:documentation source="CalculationsAndRules">If prescriptive, this field is not required; Else If performance reference values from XML   This field IS NOT part of the printed report and is not displayed to the user.  It is used for equivalency lookup</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
+                        <xsd:element name="A2hp10_JA13CompliantHPWH" type="comp:JA13CompliantHPWH">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">JA13 Compliant</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">Reference values from CF1R-PRF Else user selects from list Yes (true) and No (false) </xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:element>
                       </xsd:sequence>
                     </xsd:complexType>
                   </xsd:element>
@@ -1222,6 +1228,12 @@ Else If M03_WaterHeatingSystemOption == OptionTier3SingleHWH (display term "2") 
                             </xsd:annotation>
                           </xsd:element>
                         </xsd:choice>
+                        <xsd:element name="B2hp09_JA13CompliantHPWH" type="comp:JA13CompliantHPWH">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">JA13 Compliant</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">Reference values from CF1R-PRF Else user selects from list Yes (true) and No (false) </xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:element>
                       </xsd:sequence>
                     </xsd:complexType>
                   </xsd:element>
@@ -1995,6 +2007,29 @@ End If</xsd:documentation>
               </xsd:annotation>
             </xsd:element>
             <xsd:element name="LEndNote1" minOccurs="0">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Section_M" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation source="FieldText">Qualification Requirements for Heat Pump Water Heater Demand Management Systems (Appendix JA13)</xsd:documentation>
+          <xsd:documentation source="CalculationsAndRules">This section is applicable if A2hp10_JA13CompliantHPWH == true</xsd:documentation>
+          <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="M01" minOccurs="0">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText"/>
+                <xsd:documentation source="AdditionalRequirements">A thermostatic mixing valve conforming to ASSE 1017 shall be installed on the hot water supply line following all manufacturer installation instructions or the water heater shall conform to UL 60730-1, ASSE 1082, or ASSE 1084.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="MEndNote1" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                 <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>

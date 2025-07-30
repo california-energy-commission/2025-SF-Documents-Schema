@@ -11876,6 +11876,15 @@
     <xsd:restriction base="xsd:boolean">
       </xsd:restriction>
   </xsd:simpleType>
+  <xsd:simpleType name="JA13CompliantHPWH">
+    <xsd:annotation>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+        <dtyp:displayterm value="false">No</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:boolean"/>
+  </xsd:simpleType>
   <xsd:simpleType name="JAName">
     <xsd:annotation>
       <xsd:documentation>The reference in the Joint Appendices for an applied rule, usually a lookup value from a table.</xsd:documentation>
@@ -15355,6 +15364,7 @@
         <dtyp:displayterm value="AdditionGT700LTE1000ADU">ADU Addition <d:gt/> 700 ft<d:sup>2</d:sup> to <d:lte/> 1,000 ft<d:sup>2</d:sup></dtyp:displayterm>
         <dtyp:displayterm value="AdditionLTE300">Addition <d:lte/> 300 ft<d:sup>2</d:sup></dtyp:displayterm>
         <dtyp:displayterm value="AdditionLTE300ADU">ADU Addition <d:lte/> 300 ft<d:sup>2</d:sup></dtyp:displayterm>
+        <dtyp:displayterm value="AdditionLTE500JADU">JADU Addition <d:lte/> 500 ft<d:sup>2</d:sup></dtyp:displayterm>
         <dtyp:displayterm value="CoolingSystemAddition">Space cooling system</dtyp:displayterm>
         <dtyp:displayterm value="DuctSystemAddition">Space conditioning duct system</dtyp:displayterm>
         <dtyp:displayterm value="FenestrationAddition">Fenestration</dtyp:displayterm>
@@ -15373,6 +15383,7 @@
       <xsd:enumeration value="AdditionGT700LTE1000ADU"/>
       <xsd:enumeration value="AdditionLTE300"/>
       <xsd:enumeration value="AdditionLTE300ADU"/>
+      <xsd:enumeration value="AdditionLTE500JADU"/>
       <xsd:enumeration value="CoolingSystemAddition"/>
       <xsd:enumeration value="DuctSystemAddition"/>
       <xsd:enumeration value="FenestrationAddition"/>

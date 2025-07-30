@@ -568,7 +568,7 @@
                           <xsd:element name="D07_InsulationThickness" type="env:InsulationThickness">
                             <xsd:annotation>
                               <xsd:documentation source="FieldText">Insulation Depth (inches)</xsd:documentation>
-                              <xsd:documentation source="CalculationsAndRules">If D07_NotApplicableMessage ==N/A then result is N/A stored in the NotApplicableMessage, Else User input number</xsd:documentation>
+                              <xsd:documentation source="CalculationsAndRules">If D06_NotApplicableMessage ==N/A then result is N/A stored in the NotApplicableMessage, Else User input number</xsd:documentation>
                               <xsd:appinfo source="PrevName">
                                 <dtyp:prevSchema version="2019.1.006" changed="cell number">D08_InsulationThickness</dtyp:prevSchema>
                               </xsd:appinfo>
@@ -577,7 +577,7 @@
                           <xsd:element name="D07_NotApplicableMessage" type="comp:NotApplicableMessage">
                             <xsd:annotation>
                               <xsd:documentation source="FieldText">Insulation Depth (inches)</xsd:documentation>
-                              <xsd:documentation source="CalculationsAndRules">If D07_NotApplicableMessage ==N/A then result is N/A stored in the NotApplicableMessage, Else User input number</xsd:documentation>
+                              <xsd:documentation source="CalculationsAndRules">If D06_NotApplicableMessage ==N/A then result is N/A stored in the NotApplicableMessage, Else User input number</xsd:documentation>
                               <xsd:appinfo source="PrevName">
                                 <dtyp:prevSchema version="2019.1.006" changed="cell number">D08_NotApplicableMessage</dtyp:prevSchema>
                               </xsd:appinfo>

@@ -82,7 +82,7 @@
                   <xsd:element name="A03a_EfficiencyType" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Efficiency Metric</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User selects from list</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Autofilled from parent Mch01.  If value is EER2 or EER2/SEER2 RESULT = EER2/SEER2 Else Iff value is EER or EER/SEER result = EER/SEER</xsd:documentation>
                      </xsd:annotation>
                      <xsd:simpleType>
                         <xsd:restriction base="hvac:EfficiencyType">
