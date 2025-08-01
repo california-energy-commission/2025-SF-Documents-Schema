@@ -1231,7 +1231,7 @@ Else If M03_WaterHeatingSystemOption == OptionTier3SingleHWH (display term "2") 
                         <xsd:element name="B2hp09_JA13CompliantHPWH" type="comp:JA13CompliantHPWH">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">JA13 Compliant</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">Reference values from CF1R-PRF Else user selects from list Yes (true) and No (false) </xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">Reference value from A2hp10_JA13CompliantHPWH </xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
                       </xsd:sequence>
