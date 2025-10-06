@@ -348,7 +348,7 @@ and MAH_InstalledAlternativeLocation display text:  MAH cannot be installed cons
          <xsd:element name="Section_E" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Minimum System Airflow Rate Verification</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is not required If in the parent MCH-01 all installed distribution types are Ductless And all cooling systems are either PTAC or PTHP, otherwise this section is required. All references to the MCH-01 in this section refer to the parent CF2R-MCH-01 and all other references are to other CF2R  compliance documents.  
+               <xsd:documentation source="CalculationsAndRules">This section is not required If in the parent MCH-01 all installed distribution types are Ductless OR all cooling systems are either PTAC or PTHP, otherwise this section is required. All references to the MCH-01 in this section refer to the parent CF2R-MCH-01 and all other references are to other CF2R  compliance documents.  
 Require 1 row of data for each indoor unit listed in the "ECC Verification Requirements for Duct Systems" table in the parent MCH-01 </xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>

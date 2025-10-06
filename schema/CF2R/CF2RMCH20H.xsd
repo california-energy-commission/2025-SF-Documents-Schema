@@ -94,9 +94,9 @@ If performance path, if parent CC's  Y02_ResidentialHeatingSystemType == VCHP_In
 Else calculated result depending on parent CC data
 End If
 
-If result == true, display text  Low Leakage Ducts in Conditioned Space (LLDCS) method Mch20b should be used</xsd:documentation>
+If result == true, display text Section B2 Low Leakage Ducts in Conditioned Space (LLDCS) should be used.</xsd:documentation>
                         <xsd:appinfo source="displayterm">
-                           <dtyp:displayterm value="true">Low Leakage Ducts in Conditioned Space (LLDCS) method Mch20b should be used</dtyp:displayterm>
+                           <dtyp:displayterm value="true">Section B2 Low Leakage Ducts in Conditioned Space (LLDCS) should be used.</dtyp:displayterm>
                         </xsd:appinfo>
                         
                      </xsd:annotation>
@@ -110,9 +110,9 @@ If performance path, if parent CC's   Y02_ResidentialHeatingSystemType == VCHP_I
 Else calculated result depending on parent CC data
 End If
 
-If result == true, display text Low Leakage Air Handling Unit (LLAHU) method Mch20c should be used</xsd:documentation>
+If result == true, display text Section B3 Duct Leakage Diagnostic Test for Low Leakage Air-Handling Unit (LLAHU) should be used</xsd:documentation>
                         <xsd:appinfo source="displayterm">
-                           <dtyp:displayterm value="true">Low Leakage Air Handling Unit (LLAHU) method Mch20c should be used</dtyp:displayterm>
+                           <dtyp:displayterm value="true">Section B3 Duct Leakage Diagnostic Test for Low Leakage Air-Handling Unit (LLAHU) should be used.</dtyp:displayterm>
                         </xsd:appinfo>
                         
                      </xsd:annotation>

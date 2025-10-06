@@ -498,6 +498,9 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Compliance Statement:</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: If D01_AirflowMeasuredRate GTE Ealt03_AirflowRequiredMinimumTarget, result = true display term  System airflow rate complies.  Else result = false 
 display term = The measured Airflow Rate reported on this document is the best airflow rate attainable for compliance utilizing the procedures given in  RA3.3.3.1.5. This system shall not be included in a sample group for ECC verification compliance; </xsd:documentation>
+			<xsd:appinfo source="displayterm">
+			   <dtyp:displayterm value="false">The measured Airflow Rate reported on this document is the best airflow rate attainable for compliance utilizing the procedures given in  RA3.3.3.1.5. This system shall not be included in a sample group for ECC verification compliance </dtyp:displayterm>
+			</xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Ealt05_IsEligibleForSampleGroup" type="comp:IsEligibleForSampleGroup" minOccurs="0">
@@ -511,7 +514,7 @@ display term = The measured Airflow Rate reported on this document is the best a
          </xsd:element>
          <xsd:element name="Section_E4" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">[d:b]Forced Air System Airflow Rate Measurement – Heating Only[/d:b]</xsd:documentation>
+               <xsd:documentation source="FieldText">Forced Air System Airflow Rate Measurement – Heating Only</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">If MCH01's ResidentialCoolingSystemType == NoCooling AND A05 = N/A And A06 Condenser Speed Type != SingleSpeed this sectioni is required.  In this section MCH-01 refers to the project CF2R-MCH-01</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
