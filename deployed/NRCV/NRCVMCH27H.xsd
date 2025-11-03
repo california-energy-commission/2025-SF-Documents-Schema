@@ -461,7 +461,7 @@ End If</xsd:documentation>
       </xsd:element>
       <xsd:element name="Section_K" minOccurs="1" maxOccurs="1">
         <xsd:annotation>
-          <xsd:documentation source="FieldText">Determination of HERS Verification Compliance</xsd:documentation>
+          <xsd:documentation source="FieldText">Determination of ECC Verification Compliance</xsd:documentation>
           <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
         </xsd:annotation>
         <xsd:complexType>

@@ -27,7 +27,7 @@
                <xsd:complexType>
                   <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="NRCVPLB21H"/>
                   <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF VERIFICATION"/>
-                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="HERS Verified Multifamily Central Hot Water System Distribution"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Verified Multifamily Central Hot Water System Distribution"/>
                </xsd:complexType>
             </xsd:element>
             <xsd:element name="Payload" type="comp:Payload"/>
@@ -50,7 +50,7 @@
    </xsd:element>
    <xsd:complexType name="NRCVPLB21H">
       <xsd:annotation>
-         <xsd:documentation>HERS Verified Multifamily Central Hot Water System Distribution</xsd:documentation>
+         <xsd:documentation>Verified Multifamily Central Hot Water System Distribution</xsd:documentation>
       </xsd:annotation>
       <xsd:sequence>
          <xsd:element name="Section_A" minOccurs="1">
@@ -71,7 +71,7 @@
          </xsd:element>
          <xsd:element name="Section_B" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Design HERS Verified Central Water Heating Systems Information (other than CHPWH)</xsd:documentation>
+               <xsd:documentation source="FieldText">Design Verified Central Water Heating Systems Information (other than CHPWH)</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This  section is required if the NRCC parent  has any non-CHPWH systems, Require one row of data for each non-HPWH system identified on the NRCC</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
@@ -278,7 +278,7 @@
          </xsd:element>
          <xsd:element name="Section_B2" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Design HERS Verified CHPWH System Information</xsd:documentation>
+               <xsd:documentation source="FieldText">Design Verified CHPWH System Information</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required if the registered NRCC has at least one system that is a CHPWH system.  Require one row of data for each water heater identified on the NRCC</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
@@ -447,7 +447,7 @@ If prescriptive, this field is not required; Else If performance reference value
          </xsd:element>
          <xsd:element name="Section_C" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Installed HERS Verified Central Water Heating Systems Information</xsd:documentation>
+               <xsd:documentation source="FieldText">Installed Verified Central Water Heating Systems Information</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">If Section_B IsPresent this section is required.  Require one row of data for each water heater identified on TableDesignSystem in Section_B</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
@@ -456,7 +456,7 @@ If prescriptive, this field is not required; Else If performance reference value
                   <xsd:element name="C_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">This table reports features of he water heating system other than CHPWH system that were specified on the registered NRCC  compliance document for this project.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">This table reports features of the water heating system other than CHPWH systems that were specified on the registered NRCC compliance document for this project.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="TableInstalledSystem" >
@@ -653,7 +653,7 @@ If prescriptive, this field is not required; Else If performance reference value
          </xsd:element>
          <xsd:element name="Section_C2" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Installed HERS Verified CHPWH System Information</xsd:documentation>
+               <xsd:documentation source="FieldText">Installed Verified CHPWH System Information</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This secction is required If Section_B2 IsPresent;  Require one row of data for each water heater identified on the Section_B2 TableHpwhd</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
@@ -990,8 +990,8 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
          </xsd:element>
          <xsd:element name="Section_D" minOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Design  HERS Verified Central Water Heating Distribution Systems Information</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heating system identified on the NRCC-PRF.  If prescriptive compliance, then display the section does not apply message; </xsd:documentation>
+               <xsd:documentation source="FieldText">Design Verified Central Water Heating Distribution Systems Information</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heating system identified on the LMCC-PRF or prescriptive CC. </xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -999,7 +999,7 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
                   <xsd:element name="D_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">This table reports the water heating distribution types specified on the registered NRCC compliance document for this project.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">This table reports the water heating distribution types specified on the registered parent compliance document for this project.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="TableDesignDistribution" >
@@ -1036,7 +1036,7 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input. 
                                              Allowed values are
                                              *Standard Distribution System
-                                             *HERS-Verified Pipe Insulation 
+                                             *Verified Pipe Insulation 
                                           </xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
@@ -1045,6 +1045,24 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
                                              <xsd:enumeration value="StandardDistributionInsulatedPipesHERS"/>
                                           </xsd:restriction>
                                        </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="D04_DoesCalPlumbCodeAppendixMApply" type="comp:DoesCalPlumbCodeAppendixMApply" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">California Plumbing Code Appendix M</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If performance compliance reference value from LMCC-PRF where allowed values are true display term Yes, and false display term No; Else if prescriptive compliance result = true display term Yes</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D05_WaterHeatingMasterMixValveType" type="hvac:WaterHeatingMasterMixValveType" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Master Mixing Valve</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If performance compliance reference value from LMCC-PRF where allowed values are Digital display term Digital, Mechanical display term Mechanical, NoMasterMixValve display term None Else if prescriptive compliance result = DigitalMechanical display term Digital or Mechanical </xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D06_VerifyCentralHotWaterDistInsulation" type="comp:VerifyCentralHotWaterDistInsulation" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Insulation Verification </xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If performance compliance reference value from LMCC-PRF where allowed values are true display term Yes, and false display term No; Else if prescriptive compliance result = true display term Yes </xsd:documentation>
+                                       </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
@@ -1057,8 +1075,8 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
          </xsd:element>
          <xsd:element name="Section_E" minOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Installed HERS Verified Water Heating Distribution Systems Information</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heating system identified on the NRCC-PRF</xsd:documentation>
+               <xsd:documentation source="FieldText">Installed Verified Water Heating Distribution Systems Information</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heating system identified on the LMCC-PRF</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -1109,6 +1127,24 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
+                                    <xsd:element name="E04_DoesCalPlumbCodeAppendixMApply" type="comp:DoesCalPlumbCodeAppendixMApply" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">California Plumbing Code Appendix M</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from D04</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="E05_WaterHeatingMasterMixValveType" type="hvac:WaterHeatingMasterMixValveType" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Master Mixing Valve</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from D05</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="E06_VerifyCentralHotWaterDistInsulation" type="comp:VerifyCentralHotWaterDistInsulation" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Insulation Verification</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from D06</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
@@ -1120,7 +1156,7 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
          </xsd:element>
          <xsd:element name="Section_F" minOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Installed HERS Verified Water Heater Manufacturer Information</xsd:documentation>
+               <xsd:documentation source="FieldText">Installed Verified Water Heater Manufacturer Information</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">Require one row of data in this table for each of the Water Heaters identified in Section_C Or Section_C2</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
@@ -1184,13 +1220,13 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
                   <xsd:element name="G03" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Unfired storage tanks are insulated with [d:l t="*"] [d:list] External insulation of R-3.5, or [/d:list][d:list] Internal insulation of R-16, or  [/d:list][d:list] The heat loss of the tank surface based on an 80[d:deg/]F water-air temperature difference shall be less than 6.5 Btu/ft [d:sup]2[/d:sup]. (Section 110.3(c)3).[/d:list][/d:l]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Unfired storage tanks are insulated with [d:l t="*"] [d:list] External insulation of R-3.5, or [/d:list][d:list] Internal insulation of R-16, or  [/d:list][d:list] The heat loss of the tank surface based on an 80[d:deg/]F water-air temperature difference shall be less than 6.5 Btu/ft [d:sup]2[/d:sup]. (Section 110.3(c)4).[/d:list][/d:l]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="G04" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Recirculation loop shall meet the following requirements:  [d:l t="*"][d:list]The recirculation pump is mounted on a vertical section of the return line, OR an automatic air release valve is installed on a riser at least 12 inches in length, on the inlet side of the recirculation pump, no more than 4 feet from the pump. (Section 110.3(c)4A). [/d:list] [d:list] A check valve is located between the recirculation pump and the water heater. (Section 110.3(c)4B).[/d:list] [d:list] A hose bibb is installed between the pump and the water heating equipment with an isolation valve between the hose bibb and the water heating equipment.  (Section 110.3(c)4C). [/d:list] [d:list]Isolation valves are installed on both sides of the pump of which the valve required in (Section 110.3(c)4C can be one.  (Section 110.3(c)4D).[/d:list] [d:list] The cold water supply piping and the recirculation loop piping is not connected to the hot water storage tank drain port.  (Section 110.3(c)4E). [/d:list][d:list] A check valve is installed on the cold water supply line between the hot water system and the next closest tee on the cold water supply.  (Section 110.3(c)4F).   [/d:list][/d:l]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Recirculation loop shall meet the following requirements:  [d:l t="*"][d:list]The recirculation pump is mounted on a vertical section of the return line, OR an automatic air release valve is installed on a riser at least 12 inches in length, on the inlet side of the recirculation pump, no more than 4 feet from the pump. (Section 110.3(c)4A). [/d:list] [d:list]A check valve or similar device shall be located between the recirculation pump and the water heating equipment to prevent water from flowing backwards through the recirculation loop. (Section 110.3(c)4B). [/d:list] [d:list] A hose bibb is installed between the pump and the water heating equipment with an isolation valve between the hose bibb and the water heating equipment.  (Section 110.3(c)4C). [/d:list] [d:list]Isolation valves are installed on both sides of the pump of which the valve required in (Section 110.3(c)4C can be one.  (Section 110.3(c)4D).[/d:list] [d:list] The cold water supply piping and the recirculation loop piping is not connected to the hot water storage tank drain port.  (Section 110.3(c)4E). [/d:list][d:list] A check valve is installed on the cold water supply line between the hot water system and the next closest tee on the cold water supply.  (Section 110.3(c)4F).   [/d:list][/d:l]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="G05" minOccurs="0">
@@ -1202,16 +1238,38 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
                   <xsd:element name="G06" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">All sections of the recirculation loop, and the first 5 feet of all branches off the loop are insulated, to the thicknesses required by Table 120.3A.  Other hot water piping shall meet the requirements of 150(j) and the installation requirements in, except for the following: (RA4.4.1).  [d:l t="*"] [d:list] Piping installed in interior or exterior walls that is surrounded on all sides by at least 1 inch (2.5 cm) of insulation need not be insulated. [/d:list] [d:list] Piping installed in attics with a minimum of 4 inches (10 cm) of attic insulation on top. [/d:list]  [d:list] Piping that penetrates framing members shall not be required to have pipe insulation for the distance of the framing penetration.   Metal piping that penetrates metal framing shall use grommets, plugs, wrapping or other insulating material to assure that no contact is made with the metal framing. Insulation shall butt securely against all framing members.   [/d:list] [d:list] Insulation is not required on the cold water line when it is used as the return.  [/d:list] [/d:l]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Domestic hot water piping insulation requirements (Section 150(J)): [d:l t="*"][d:list]All domestic hot water piping shall be insulated as specified in Section 609.12 of the California Plumbing Code.  Insulation buried below grade must be installed in a waterproof and non-crushable casing or sleeve.
+[/d:list][d:list] Pipe insulation shall fit tightly and all elbows and tees shall be fully insulated. [/d:list][d:list] Piping that penetrates framing members shall not be required to have pipe insulation for the distance of the framing penetration. 
+[/d:list][d:list] Piping that penetrates metal framing shall use grommets, plugs, wrapping or other insulating material to assure that no contact is made with the metal framing. Insulation shall butt securely against all framing members.   
+[/d:list][d:list] Piping surrounded with a minimum of 1 inch of wall insulation, 2 inches of crawlspace insulation, or 4 inches of attic insulation shall not be required to have pipe insulation. 
+[/d:list][d:list] Insulation is not required on the cold water line when it is used as the return[/d:list]  [/d:l]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G07_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements" >
+                  <xsd:element name="G07" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]Domestic hot water piping insulation requirements[/d:b]: See the Exceptions to Section 160.4(e): [d:line1/]All piping for multifamily domestic hot water systems shall be insulated and meet the applicable requirements below: [d:line1/] d:tab1/] [d:b]1. General Requirements[/d:b]:[d:l t="a"][d:list]The first 8 feet of inlet cold water piping from the storage tanks, including piping between a storage tank and a heat trap shall be insulated. 
+[/d:list][d:list] Insulation on the piping and domestic hot water system appurtenances shall be continuous. [/d:list][d:list] Pipe supports, hangers, and pipe clamps shall be attached on the outside of rigid pipe insulation to prevent thermal bridges. 
+[/d:list][d:list] All pipe insulation seams shall be sealed. [/d:list] [d:list] Insulation for pipe elbows shall be mitered, preformed, or site fabricated with PVC covers.  [/d:list] [d:list] Insulation for tees shall be notched, preformed, or site fabricated with PVC covers.[/d:list] [d:list] Extended stem isolation valves shall be installed.
+[/d:list][d:list]All plumbing appurtenances on hot water piping from a heating source to heating plant, at the heating plant, and distribution supply and return piping shall be insulated to meet the following requirements: 
+[d:line1/][d:tab1/]i. Where the outer diameter of the appurtenance is less than the outer diameter of the insulated pipe that it is attached to, the appurtenance shall be insulated flush with the insulation surrounding the pipe. 
+[d:line1/][d:tab1/]ii. Where the outer diameter of the appurtenance is greater than the outer diameter of the insulated pipe that it is attached to, the appurtenance shall be insulated with a minimum thickness of 1 inch. 
+[d:line1/][d:tab1/]iii. The insulation shall be removable and re-installable to ensure maintenance or replacement services can be completed.[d:line1/][d:tab1/]iv. Valves shall be fully functional without impediment from the insulation. [/d:list][/d:l]
+[d:line1/][d:tab1/] [d:b]2. Insulation Thickness[/d:b]: All piping for multifamily domestic hot water systems shall meet the insulation thickness requirements specified in Table 160.4-A [d:l t="a"][d:list]For insulation conductivity in the range shown in Table 160.4-A for the applicable fluid temperature range, the insulation shall have the applicable minimum thickness or R-value shown in Table 160.4-A.
+[/d:list][d:list] If the insulation conductivity falls outside the range provided in Table 160.4-A applicable fluid temperature range, the insulation shall meet a minimum R-value as indicated in Table 160.4-A. Or, it can have a thickness determined using Equation 160.4-A.
+[/d:list] [d:list]Insulation conductivity shall be determined in accordance with ASTM C335 at the mean temperature listed in Table 160.4-A, and shall be rounded to the nearest 1/100 Btu-inch per hour per square foot per [d:deg/]F.[/d:list][/d:l]
+[d:line1/] [d:tab1/] [d:b]3. Insulation Protection[/d:b]: Pipe Insulation shall be protected from damage due to sunlight, moisture, equipment maintenance and wind. Protection shall, at minimum, include the following: 
+[d:l t="a"][d:list] Pipe and appurtenance insulation exposed to weather shall be protected by a cover suitable for outdoor service. The cover shall be water retardant and provide shielding from solar radiation that can cause degradation of the material. Appurtenance insulation covers shall be removable and able to be reinstalled. Adhesive tape shall not be used to provide this protection. 
+[/d:list][d:list] Pipe insulation covering chilled water piping and refrigerant suction piping located outside the conditioned space shall include, or be protected by, a Class I or Class II vapor retarder. All penetrations and joints shall be sealed. [/d:list][d:list] Pipe insulation buried below grade must be installed in a waterproof and noncrushable casing or sleeve. [/d:list][/d:l] </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G08_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Display choices: Pass,  Fail  or N/A</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G08_SectionCorrectionNotes" type="comp:SectionCorrectionNotes"  minOccurs="0">
+                  <xsd:element name="G09_SectionCorrectionNotes" type="comp:SectionCorrectionNotes"  minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If DoesSystemComplyWithRequirements value is Fail, require that the reason is described in this field</xsd:documentation>
@@ -1226,44 +1284,88 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_H" minOccurs="1">
+         <xsd:element name="Section_H" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">HERS Verified Multiple Recirculation Loops for DHW systems Serving Multiple Dwelling Units Requirements</xsd:documentation>
-               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
-            </xsd:annotation>
+               <xsd:documentation source="FieldText">California Plumbing Code Appendix M</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">If at least one row in Section D has D04_DoesCalPlumbCodeAppendixMApply == true this section is required. </xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+           </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="H_BeginNote1" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">All distribution systems listed on this compliance document shall comply with these requirements.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
                   <xsd:element name="H01" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">All buildings with 8 or more dwelling units have a [d:b]minimum[/d:b] of 2 recirculation loops.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">All distribution piping shall be sized according to the methodology specified in the California Plumbing Code Appendix M.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="H02" minOccurs="0">
+                  <xsd:element name="HEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Each loop roughly serves the same number of dwellings.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="H03_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements" >
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_I" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Verified Multiple Dwelling Units Master Mixing Valves Installation Requirements</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">If at least one row in Section D has D05_WaterHeatingMasterMixValveType != NoMasterMixValve this section is required Else this section is not required. </xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+           </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="IBeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i]For central systems with hot water piping serving multiple dwelling units, the master mixing valves (MMV) shall meet the following minimum specification, installation, and startup requirements specified in RA4.4.19:[/d:i]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="I01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]Plumbing Plans:[/d:b] [d:line1/]The plumbing plans shall include the following MMV specification at a minimum: [d:l t="a"][d:list] Manufacturer's installation and commissioning instructions and plumbing drawings.
+[/d:list][d:list] MMV conforms to the American Society of Sanitation Engineers (ASSE) 1017-2009 standard, Performance Requirements for Temperature Actuated Mixing Valves for Hot Water Distribution Systems.[/d:list][d:list] Water mixing parameters and associated values: 
+[d:line1/][d:tab1/]1. Input parameters [d:line1/][d:tab2/] A. Recirculation pump flow rate [d:line1/][d:tab2/] B. Mixing valve outlet water temperature [d:line1/][d:tab2/] C. Recirculation return water temperature [d:line1/][d:tab2/] D. Mixing valve hot inlet water temperature 
+[d:line1/][d:tab1/]2. Calculated parameters [d:line1/][d:tab2/] A. Percentage of water flow returning to cold side of MMV [d:line1/][d:tab2/] B. Percentage of water flow returning to hot side of MMV [d:line1/][d:tab1/] 3. Manufacturer's operating parameter [d:line1/][d:tab2/]Maximum water mixing ratio [/d:list][/d:l]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="I02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]Installation:[/d:b] [d:line1/]Installation of MMV shall meet manufacturer's instruction and the following requirements at a minimum: [d:l t="a"][d:list]The MMV shall be installed on the central heating plant hot water supply outlet header leading to the recirculation loop. 
+[/d:list][d:list]Check valves installed on the recirculation return line and cold-water line to inlet cold connection of MMV and on recirculation return piping leading back to storage tank or water heater. 
+[/d:list][d:list]Isolation valves installed on the inlet cold water, inlet recirculation return, inlet hot and outlet connections to MMV and on recirculation return piping connection to storage tank or water heater.  
+[/d:list][d:list] Balancing valve installed on the recirculation return piping to the water heater for MMVs that cannot 100 percent close the hot inlet port during operation.[/d:list][d:list]Thermometers installed on the outlet of the MMV and on the recirculation return line next the water pump. [/d:list][/d:l]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="I03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]Startup[/d:b] [d:line1/][d:tab1/]a. Startup testing of MMV during recirculation only operation. [d:l t="#"][d:list]Close all hot fixtures in the domestic water system. 
+[/d:list][d:list]Ensure that the water heater is operational and idling with storage tank plumbed to the mixing valve and meeting the hot inlet temperature specified in the plumbing plans. 
+[/d:list][d:list]Start the recirculation pump and set mixed outlet temperature or setpoint temperature on the MMV. Start the circulation pump at the specified water flow rate and adjust as needed to meet recirculation return temperature specified in the plumbing plans.
+[/d:list][d:list]Let distribution system warm up and stabilize for 30 minutes and adjust mixing parameters as needed to realign with values in plumbing plans.[/d:list][d:list]Let the recirculation pump operate for three hours without any water draws to ensure there is no temperature creep. 
+[/d:list][d:list]If during or after the three-hour period the MMV outlet and return temperature stays elevated by greater than 2[d:deg/]F and doesn’t return back to the specified temperature, then make necessary adjustments to the MMV. If temperature creep persists with mechanical MMV, adjust the balancing valve as necessary on the recirculation return line leading back to the water heater to ensure average MMV outlet temperature meets the specified temperature.
+[/d:list][d:list]If adjustments are made to MMV or balancing valve in Step 6, then repeat Step 5. [/d:list][/d:l] [d:line1/][d:tab1/]b. Startup testing of MMV for a combination of recirculation and hot water draws. [d:l t="#"][d:list]Once the MMV is operational in a closed loop, make a water draw for 10 minutes using one of the following options: 
+[d:line1/][d:tab2/]A. With a shower operating at full flow at every: three dwelling units in a building with 15 or fewer dwelling units, five dwelling units in a building with 16 to 30 dwelling units, eight dwelling units in a building with 31 to 60 dwelling units, ten dwelling units in a building than 60 to 200 dwelling units, twenty dwelling units in a building with more than 200 dwelling units. 
+[d:line1/][d:tab2/]B. The hot water valve on a hose bib, mop sink, or other fixture on the branch line or location on the hot water distribution line is opened to a draw volume of 1 gpm for every: three dwelling units in a building with 15 or fewer dwelling units, five dwelling units in a building with 16 to 30 dwelling units, eight dwelling units in a building with 31 to 60 dwelling units, ten dwelling units in a building than 60 to 200 dwelling units, twenty dwelling units in a building with more than 200 dwelling units. 
+[/d:list][d:list]Monitor recirculation return temperature on the thermometer during the 10-minute draw period and ensure design return water temperature is maintained at the specified temperature documented in the plumbing plans. [/d:list][d:list]If the recirculation return temperature falls more than 5[d:deg/]F below the specified temperature during the draw period, then adjust MMV setup to ensure compliance.[/d:list][/d:l]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="I04_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Display choices: Pass,  Fail  or N/A</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="H04_SectionCorrectionNotes" type="comp:SectionCorrectionNotes"  minOccurs="0">
+                  <xsd:element name="I05_SectionCorrectionNotes" type="comp:SectionCorrectionNotes"  minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If DoesSystemComplyWithRequirements value is Fail, require that the reason is described in this field</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="HEndNote1" minOccurs="0">
+                  <xsd:element name="IEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met unless otherwise noted in the Verification Status and the Corrections Notes in this table.</xsd:documentation>
@@ -1272,24 +1374,53 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_I" minOccurs="1">
+         <xsd:element name="Section_J" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Determination of HERS Verification Compliance</xsd:documentation>
+               <xsd:documentation source="FieldText"> Verified Pipe Insulation for Central System</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">If at least one row in Section D has D06_VerifyCentralHotWaterDistInsulation == true this section is required. </xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+           </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="J01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The heating plant and recirculation system piping insulation installation quality shall be field verified by a ECC-rater. The ECC-rater shall inspect the heating plant and horizontal supply header and return piping in accordance with mandatory requirements in Title 24 Part 6 section 160.4. 
+The rater shall use a sampling approach that one in seven DHW recirculation pipe risers and associated branches be inspected to verify the pipe insulation meet with the following requirements:
+[d:l t="a"][d:list]All piping for multifamily domestic hot water systems shall be insulated to the thickness specified in Table 160.4-A, including the first 8 feet of inlet cold water piping to the heating plant. Insulation on the piping and appurtenances shall be continuous.
+[/d:list][d:list]All appurtenances at the heating plant, from a heating source to storage tank(s), or in between storage tanks and storage water heaters, and recirculation supply and return loop shall meet the following: 
+[d:line1/][d:tab2/]1. Insulation to be flush with pipe insulation or have minimum of one inch if appurtenance is bulkier. [d:line1/][d:tab2/]2. Removable and re-installable for maintenance or replacement.[d:line1/][d:tab2/]3. Pipe supports, hangers, and clamps shall be attached on the outside of rigid pipe insulation. 
+[/d:list][d:list]All pipe insulation seams shall be sealed along the length of the pipe and between adjacent sections of insulation material.[/d:list][d:list]Insulation for pipe elbows shall be mitered, and insulation for tees shall be notched. Alternatively, tees and elbows may be pre-formed, or site fabricated with PVC covers.
+[/d:list][d:list]Isolation valves shall be fully functional. Extended stem isolation valves shall be installed on hot water piping or where pipe insulation is required[/d:list][/d:l] </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="JEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_K" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Determination of ECC Verification Compliance</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="I_BeginNote1" minOccurs="0">
+                  <xsd:element name="K_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">All applicable sections of this document shall indicate compliance with the specified verification protocol requirements in order for this Certificate of Verification as a whole to be determined to be in compliance.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="I01_DoesNRCV_Pass" type="comp:DoesNRCV_Pass" >
+                  <xsd:element name="K01_DoesNRCV_Pass" type="comp:DoesNRCV_Pass" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If C13_DoesCentralWaterHeatingSystemComply == true Or Hpi12_DoesCentralWaterHeatingSystemComply == true 
-And G07_DoesSystemComplyWithRequirements != Fail And H03_DoesSystemComplyWithRequirements != Fail then result =  true  display term Complies: All specified verification protocol requirements on this document are met; Else result = false display term: Does not comply: One or more specified verification protocol requirements on this document are not met.</xsd:documentation>
+And G08_DoesSystemComplyWithRequirements != Fail And I04_DoesSystemComplyWithRequirements != Fail then result =  true  display term Complies: All specified verification protocol requirements on this document are met; Else result = false display term: Does not comply: One or more specified verification protocol requirements on this document are not met.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>

@@ -15922,6 +15922,22 @@
     <xsd:restriction base="dtyp:DecimalNonnegative">
       </xsd:restriction>
   </xsd:simpleType>
+  <xsd:simpleType name="WaterHeatingMasterMixValveType">
+    <xsd:annotation>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="Digital">Digital</dtyp:displayterm>
+        <dtyp:displayterm value="DigitalMechanical">Digital or Mechanical</dtyp:displayterm>
+        <dtyp:displayterm value="Mechanical">Mechanical</dtyp:displayterm>
+        <dtyp:displayterm value="NoMasterMixValve">None</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="Digital"/>
+      <xsd:enumeration value="DigitalMechanical"/>
+      <xsd:enumeration value="Mechanical"/>
+      <xsd:enumeration value="NoMasterMixValve"/>
+    </xsd:restriction>
+  </xsd:simpleType>
   <xsd:simpleType name="WaterHeatingSolarFraction">
     <xsd:annotation>
       <xsd:documentation>This  fraction represents the solar water heating contribution in residential projects that require solar water heating.  Units: none</xsd:documentation>
