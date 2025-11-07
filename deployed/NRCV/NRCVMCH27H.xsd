@@ -263,9 +263,13 @@
             <xsd:element name="HErvBeginNote1" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation source="FieldText"/>
-                <xsd:documentation source="AdditionalRequirements">Heat or Energy Recovery Systems must have a fan efficacy of <d:lte/> 1.0 W/cfm in all climate zones (Section 160.2(b)2Biii)
-
-Heat or Energy Recovery Systems must prescriptively have a fan efficacy of <d:lte/> 0.6 W/cfm and a minimum sensible heat recovery of 67% in climate zones 1, 2, 4, 11-14 and 16 (Section 170.2(c)3Biva)</xsd:documentation>
+                <xsd:documentation source="AdditionalRequirements">
+                  <d:l t="*">
+                    <d:list>Heat or Energy Recovery Systems must have a fan efficacy of <d:lte/> 1.0 W/cfm in all climate zones (Section 160.2(b)2Biii)
+</d:list>
+                    <d:list>Heat or Energy Recovery Systems must prescriptively have a fan efficacy of <d:lte/> 0.6 W/cfm and a minimum sensible heat recovery of 67% in climate zones 1, 2, 4, 11-14 and 16 (Section 170.2(c)3Biva)</d:list>
+                  </d:l>
+                </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
             <xsd:element name="TableHrvErv">
