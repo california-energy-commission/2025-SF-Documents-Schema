@@ -27,7 +27,7 @@
                <xsd:complexType>
                   <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF3RPLB22H"/>
                   <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF VERIFICATION"/>
-                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="HERS Verified Single Dwelling Unit Hot Water System Distribution"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Verified Single Dwelling Unit Hot Water System Distribution"/>
                </xsd:complexType>
             </xsd:element>
             <xsd:element name="Payload" type="comp:Payload"/>
@@ -164,9 +164,9 @@
                                     <xsd:element name="A09_ResidentialDHWDwellingUnitDistributionType" type="hvac:ResidentialDHWDwellingUnitDistributionType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Dwelling Unit DHW System Distribution Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If performance parent CC, Then If A09_IsDHW_Central == false  allowed values are: StandardDistribution display term: Standard Distribution System; PointOfUse display term: Point Of Use, StandardDistributionCentralParallelPiping display term: Central Parallel Piping;  RecirculationNonDemand display term:  Recirculation System Non-Demand Control; 
+                                          <xsd:documentation source="CalculationsAndRules">If performance parent CC, Then If A11_IsDHW_Central == false  allowed values are: StandardDistribution display term: Standard Distribution System; PointOfUse display term: Point Of Use, StandardDistributionCentralParallelPiping display term: Central Parallel Piping;  RecirculationNonDemand display term:  Recirculation System Non-Demand Control; 
 DemandRecirculationManualControl display term: Demand Recirculation Manual Control;  DemandRecirculationSensorControls display term: Demand Recirculation Sensor Control; StandardDistributionInsulatedPipesHERS display term  Verified Pipe Insulation for Central Systems, StandardDistributionCentralParallelPipingHERS display term  Verified Central Parallel Piping, DemandRecirculationManualControlHERS display term  Verified Demand Recirculation Manual Control, DemandRecirculationSensorControlsHERS display term Verified Demand Recirculation Sensor Controls; 
-Else  If A09_IsDHW_Central == true allowed values are: StandardDistribution. Display term: Standard Distribution System, StandardDistributionInsulatedPipesHERS display term  Verified Pipe Insulation for Central Systems;  
+Else  If A11_IsDHW_Central == true allowed values are: StandardDistribution. Display term: Standard Distribution System, StandardDistributionInsulatedPipesHERS display term  Verified Pipe Insulation for Central Systems;  
 End If
 
 Else If prescriptive parent CC  allowed values are: StandardDistribution display term: Standard Distribution System; DemandRecirculationManualControl display term: Demand Recirculation Manual Control;  DemandRecirculation display term Demand Recirculation;  
