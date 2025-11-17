@@ -1744,12 +1744,20 @@ and diagnostic testing then a CF1R-ADD-01 and a CF1R-ALT-02 shall be completed a
                             </xsd:restriction>
                           </xsd:simpleType>
                         </xsd:element>
-                        <xsd:element name="L03_WaterHeaterTotalSystemCount" type="hvac:WaterHeaterTotalSystemCount">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"># of Water Heaters/Compressors in System</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">User input integer</xsd:documentation>
-                          </xsd:annotation>
-                        </xsd:element>
+                        <xsd:choice maxOccurs="1">
+                          <xsd:element name="L03_StorageCapacity" type="hvac:StorageCapacity" minOccurs="1">
+                            <xsd:annotation>
+                              <xsd:documentation source="FieldText">Tank Volume</xsd:documentation>
+                              <xsd:documentation source="CalculationsAndRules">User input; If water heater has no tank result = N/A stored in NotApplicableMessage</xsd:documentation>
+                            </xsd:annotation>
+                          </xsd:element>
+                          <xsd:element name="L03_NotApplicableMessage" type="comp:NotApplicableMessage" minOccurs="1">
+                            <xsd:annotation>
+                              <xsd:documentation source="FieldText">Tank Volume</xsd:documentation>
+                              <xsd:documentation source="CalculationsAndRules">If water heater has no tank result = N/A stored in NotApplicableMessage</xsd:documentation>
+                            </xsd:annotation>
+                          </xsd:element>
+                        </xsd:choice>
                         <xsd:element name="L04_ResidentialWaterHeaterType">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Water Heater Type</xsd:documentation>
@@ -1796,18 +1804,6 @@ Else If L02_WaterHeatingSystemOption  == OptionElectPointOfUse result = Electric
                             </xsd:annotation>
                           </xsd:element>
                         </xsd:choice>
-                        <xsd:element name="L07_ResidentialDHWDwellingUnitDistributionType">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText">Distribution Type</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If L03_WaterHeatingSystemOption  == OptionElectPointOfUse result = PointOfUse Else result = StandardDistribution</xsd:documentation>
-                          </xsd:annotation>
-                          <xsd:simpleType>
-                            <xsd:restriction base="hvac:ResidentialDHWDwellingUnitDistributionType">
-                              <xsd:enumeration value="PointOfUse"/>
-                              <xsd:enumeration value="StandardDistribution"/>
-                            </xsd:restriction>
-                          </xsd:simpleType>
-                        </xsd:element>
                       </xsd:sequence>
                     </xsd:complexType>
                   </xsd:element>

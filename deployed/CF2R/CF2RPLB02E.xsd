@@ -97,7 +97,7 @@ This  section is required if the parent CC has any non-HPWH non-HERS systems, Re
                         <xsd:element name="A05_WaterHeaterTotalSystemCount" type="hvac:WaterHeaterTotalSystemCount">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText"># of Like (or Identical) Water Heaters in System</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">Reference values from parent CC</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">Reference values from parent CC if available Else user input</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
                         <xsd:element name="A06_WaterHeaterFuelSource">
@@ -158,18 +158,13 @@ PointOfUse display term: Point Of Use,
 StandardDistributionCentralParallelPiping display term: Parallel Piping; 
  RecirculationNonDemand display term:  Recirculation System Non-Demand Control; 
 DemandRecirculationManualControl display term: Demand Recirculation Manual Control; 
- DemandRecirculationSensorControls display term: Demand Recirculation Sensor Control;  
- 
+ DemandRecirculationSensorControls display term: Demand Recirculation Sensor Control;
 Else If parent CC == prescriptive Then
-If parent CC is ALT
-result = NotApplicable stored in NotApplicableMessage
- 
-Else allowed values are: 
+If parent CC is ALT  result = NotApplicable stored in NotApplicableMessage 
+Else If available, load allowed values from prescriptive parent CC Else allow user to select from allowed values: 
 StandardDistribution display term: Standard Distribution System; 
 DemandRecirculationManualControl display term: Demand Recirculation Manual Control, 
-DemandRecirculation display term Demand Recirculation;
-End if
-End If</xsd:documentation>
+DemandRecirculation display term Demand Recirculation;  End if  End If</xsd:documentation>
                             </xsd:annotation>
                           </xsd:element>
                           <xsd:element name="A09_NotApplicableMessage" type="comp:NotApplicableMessage">
@@ -256,7 +251,7 @@ This  section is required if the parent CC  has any HPWH systems, Require one ro
                         <xsd:element name="A2hp04_WaterHeaterTotalSystemCount" type="hvac:WaterHeaterTotalSystemCount">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText"># of Like (or Identical) Water Heaters in System</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">Reference values from parent CC</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">Reference values from parent CC if available Else user input</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
                         <xsd:element name="A2hp05_TankLocation" type="hvac:TankLocation">
@@ -298,23 +293,19 @@ This  section is required if the parent CC  has any HPWH systems, Require one ro
                             <xsd:annotation>
                               <xsd:documentation source="FieldText">Dwelling Unit DHW System Distribution Type</xsd:documentation>
                               <xsd:documentation source="CalculationsAndRules">Reference parent CC as follows: 
-If  performance parent CC, values are: 
+If performance parent CC, values are: 
 StandardDistribution display term: Standard Distribution System; 
 PointOfUse display term: Point Of Use,
 StandardDistributionCentralParallelPiping display term: Central Parallel Piping;
 RecirculationNonDemand display term:  Recirculation System Non-Demand Control; 
 DemandRecirculationManualControl display term: Demand Recirculation Manual Control;  
 DemandRecirculationSensorControls display term: Demand Recirculation Sensor Control;  
- 
-Else If prescriptive parent CC then
-If parent CC is prescriptive ALT
-result = NotApplicable stored in NotApplicableMessage
-Else allowed values are: 
+Else If parent CC == prescriptive Then
+If parent CC is ALT  result = NotApplicable stored in NotApplicableMessage 
+Else If available, load allowed values from prescriptive parent CC Else allow user to select from allowed values: 
 StandardDistribution display term: Standard Distribution System; 
-DemandRecirculationManualControl display term: Demand Recirculation Manual Control; 
-DemandRecirculation display term Demand Recirculation;
-End If
-End If</xsd:documentation>
+DemandRecirculationManualControl display term: Demand Recirculation Manual Control, 
+DemandRecirculation display term Demand Recirculation;  End if  End If</xsd:documentation>
                             </xsd:annotation>
                           </xsd:element>
                           <xsd:element name="A2hp07_NotApplicableMessage" type="comp:NotApplicableMessage">

@@ -1976,12 +1976,20 @@ Else If K04__WaterHeatingSystemAlteredOption ==Option4Electric result = Electric
                             </xsd:restriction>
                           </xsd:simpleType>
                         </xsd:element>
-                        <xsd:element name="K06_WaterHeaterTotalSystemCount" type="hvac:WaterHeaterTotalSystemCount">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"># of Water Heaters in System</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">User input integer</xsd:documentation>
-                          </xsd:annotation>
-                        </xsd:element>
+                        <xsd:choice maxOccurs="1">
+                          <xsd:element name="K06_StorageCapacity" type="hvac:StorageCapacity" minOccurs="1">
+                            <xsd:annotation>
+                              <xsd:documentation source="FieldText">Tank Volume</xsd:documentation>
+                              <xsd:documentation source="CalculationsAndRules">User input; If water heater has no tank e.g. K04 == InstantaneousConsumer, result = N/A stored in NotApplicableMessage</xsd:documentation>
+                            </xsd:annotation>
+                          </xsd:element>
+                          <xsd:element name="K06_NotApplicableMessage" type="comp:NotApplicableMessage" minOccurs="1">
+                            <xsd:annotation>
+                              <xsd:documentation source="FieldText">Tank Volume</xsd:documentation>
+                              <xsd:documentation source="CalculationsAndRules">If water heater has no tank e.g. K04 == InstantaneousConsumer, result = N/A stored in NotApplicableMessage</xsd:documentation>
+                            </xsd:annotation>
+                          </xsd:element>
+                        </xsd:choice>
                       </xsd:sequence>
                     </xsd:complexType>
                   </xsd:element>
