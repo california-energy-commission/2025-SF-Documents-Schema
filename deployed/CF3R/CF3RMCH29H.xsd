@@ -321,7 +321,7 @@
       </xsd:element>
       <xsd:element name="Section_E" minOccurs="0">
         <xsd:annotation>
-          <xsd:documentation source="FieldText">Duct System Details</xsd:documentation>
+          <xsd:documentation source="FieldText">Duct System Design Details</xsd:documentation>
           <xsd:documentation source="CalculationsAndRules">This section is required if A04_DuctSurfaceAreaReductionRValueCreditTaken  == true Or A05_DuctsBuriedComplianceCreditTaken  == true  Or A06_DuctsDeeplyBuriedComplianceCreditTaken  == true;  
 
 All references to the parent CC refer to the parent CF1R-PRF-01-E

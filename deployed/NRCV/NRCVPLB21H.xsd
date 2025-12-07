@@ -66,7 +66,7 @@
             <xsd:element name="B_BeginNote1" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                <xsd:documentation source="AdditionalRequirements">This table reports features of he water heating system other than CHPWH system that were specified on the registered NRCC  compliance document for this project.</xsd:documentation>
+                <xsd:documentation source="AdditionalRequirements">This table reports features of he water heating system other than CHPWH system that were specified on the registered NRCC compliance document for this project.</xsd:documentation>
               </xsd:annotation>
             </xsd:element>
             <xsd:element name="TableDesignSystem">
@@ -977,7 +977,7 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
       <xsd:element name="Section_D" minOccurs="1">
         <xsd:annotation>
           <xsd:documentation source="FieldText">Design Verified Central Water Heating Distribution Systems Information</xsd:documentation>
-          <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heating system identified on the LMCC-PRF or prescriptive CC. </xsd:documentation>
+          <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heating system identified on the NRCC-PRF or prescriptive CC. </xsd:documentation>
           <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
         </xsd:annotation>
         <xsd:complexType>
@@ -985,7 +985,7 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
             <xsd:element name="D_BeginNote1" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                <xsd:documentation source="AdditionalRequirements">This table reports the water heating distribution types specified on the registered parent compliance document for this project.</xsd:documentation>
+                <xsd:documentation source="AdditionalRequirements">This table reports the water heating distribution types specified on the registered NRCC compliance document for this project.</xsd:documentation>
               </xsd:annotation>
             </xsd:element>
             <xsd:element name="TableDesignDistribution">
@@ -1000,13 +1000,13 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
                         <xsd:element name="D01_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Water Heating System ID or Name</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">Reference values from from B01 or B2.01.  (See rule in header)</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">Reference values from from NRCC.  (See rule in header)</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
                         <xsd:element name="D02_ResidentialDHWCentralDistributionType">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Central DHW System Distribution Type</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">Allowed values:  RecirculationMF display term Multi-family: Recirculation,  NoRecirculation  display term Multi-family: No Recirculation;</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">Reference values from from NRCC Allowed values:  RecirculationMF display term Multi-family: Recirculation,  NoRecirculation  display term Multi-family: No Recirculation;</xsd:documentation>
                           </xsd:annotation>
                           <xsd:simpleType>
                             <xsd:restriction base="hvac:ResidentialDHWCentralDistributionType">
@@ -1019,15 +1019,12 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
                         <xsd:element name="D03_ResidentialDHWDwellingUnitDistributionType">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Dwelling Unit DHW System Distribution Type</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">User input. 
-                                             Allowed values are
-                                             *Standard Distribution System
-                                             *Verified Pipe Insulation 
-                                          </xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">Reference values from from NRCC  Allowed values are Standard Distribution System, Verified Central Pipe Insulation Elsei If prescriptive CC, result = StandardDistribution </xsd:documentation>
                           </xsd:annotation>
                           <xsd:simpleType>
                             <xsd:restriction base="hvac:ResidentialDHWDwellingUnitDistributionType">
                               <xsd:enumeration value="StandardDistribution"/>
+                              <xsd:enumeration value="StandardDistributionCentralParallelPipingHERS"/>
                               <xsd:enumeration value="StandardDistributionInsulatedPipesHERS"/>
                             </xsd:restriction>
                           </xsd:simpleType>
@@ -1035,19 +1032,19 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
                         <xsd:element name="D04_DoesCalPlumbCodeAppendixMApply" type="comp:DoesCalPlumbCodeAppendixMApply">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">California Plumbing Code Appendix M</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If performance compliance reference value from LMCC-PRF where allowed values are true display term Yes, and false display term No; Else if prescriptive compliance result = true display term Yes</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">If performance compliance reference value from NRCC-PRF where allowed values are true display term Yes, and false display term No; Else if prescriptive compliance result = true display term Yes</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
                         <xsd:element name="D05_WaterHeatingMasterMixValveType" type="hvac:WaterHeatingMasterMixValveType">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Master Mixing Valve</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If performance compliance reference value from LMCC-PRF where allowed values are Digital display term Digital, Mechanical display term Mechanical, NoMasterMixValve display term None Else if prescriptive compliance result = DigitalMechanical display term Digital or Mechanical </xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">If performance compliance reference value from NRCC-PRF where allowed values are Digital display term Digital, Mechanical display term Mechanical, NoMasterMixValve display term None Else if prescriptive compliance result = DigitalMechanical display term Digital or Mechanical </xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
                         <xsd:element name="D06_VerifyCentralHotWaterDistInsulation" type="comp:VerifyCentralHotWaterDistInsulation">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Insulation Verification </xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If performance compliance reference value from LMCC-PRF where allowed values are true display term Yes, and false display term No; Else if prescriptive compliance result = true display term Yes </xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">If performance compliance reference value from NRCC-PRF where allowed values are true display term Yes, and false display term No; Else if prescriptive compliance result = true display term Yes </xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
                       </xsd:sequence>
@@ -1062,7 +1059,7 @@ Else result = false dsiplay term System does not comply</xsd:documentation>
       <xsd:element name="Section_E" minOccurs="1">
         <xsd:annotation>
           <xsd:documentation source="FieldText">Installed Verified Water Heating Distribution Systems Information</xsd:documentation>
-          <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heating system identified on the LMCC-PRF</xsd:documentation>
+          <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heating system identified on the NRCC-PRF</xsd:documentation>
           <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
         </xsd:annotation>
         <xsd:complexType>

@@ -13,7 +13,7 @@
           <xsd:complexType>
             <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RMCH30H"/>
             <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
-            <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Central Fan Ventilation Cooling Systems (VCS)"/>
+            <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Central Fan Ventilation Cooling Systems (CFVCS)"/>
           </xsd:complexType>
         </xsd:element>
         <xsd:element name="Payload" type="comp:Payload"/>

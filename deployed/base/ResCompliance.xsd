@@ -3447,7 +3447,7 @@
         <dtyp:displayterm value="Battery Storage Systems">Battery Storage Systems</dtyp:displayterm>
         <dtyp:displayterm value="Building Air Leakage Diagnostic Test - Building Enclosures and Dwelling Unit Enclosures">Building Air Leakage Diagnostic Test - Building Enclosures and Dwelling Unit Enclosures</dtyp:displayterm>
         <dtyp:displayterm value="Building Air Leakage Diagnostic Test Worksheet - Building Enclosures and Dwelling Unit Enclosures">Building Air Leakage Diagnostic Test Worksheet - Building Enclosures and Dwelling Unit Enclosures</dtyp:displayterm>
-        <dtyp:displayterm value="Central Fan Ventilation Cooling Systems (VCS)">Central Fan Ventilation Cooling Systems (VCS)</dtyp:displayterm>
+        <dtyp:displayterm value="Central Fan Ventilation Cooling Systems (CFVCS)">Central Fan Ventilation Cooling Systems (CFVCS)</dtyp:displayterm>
         <dtyp:displayterm value="Domestic Water Heating System">Domestic Water Heating System</dtyp:displayterm>
         <dtyp:displayterm value="Duct Leakage Diagnostic Test">Duct Leakage Diagnostic Test</dtyp:displayterm>
         <dtyp:displayterm value="Duct Location">Duct Location</dtyp:displayterm>
@@ -3501,7 +3501,7 @@
         <dtyp:displayterm value="Refrigerant Charge Verification">Refrigerant Charge Verification</dtyp:displayterm>
         <dtyp:displayterm value="Residential Alterations">Residential Alterations</dtyp:displayterm>
         <dtyp:displayterm value="Residential Performance Compliance Method">Residential Performance Compliance Method</dtyp:displayterm>
-        <dtyp:displayterm value="Return Duct Design and Air Filter Device Sizing According to Tables 150 B or C">Return Duct Design and Air Filter Device Sizing According to Tables 150 B or C</dtyp:displayterm>
+        <dtyp:displayterm value="Return Duct Design and Air Filter Device Sizing According to Tables 150-B or C">Return Duct Design and Air Filter Device Sizing According to Tables 150-B or C</dtyp:displayterm>
         <dtyp:displayterm value="Return Duct Design and Air Filter Device Sizing According to Tables 160.3-A or B">Return Duct Design and Air Filter Device Sizing According to Tables 160.3-A or B</dtyp:displayterm>
         <dtyp:displayterm value="Roofing-Ventilation-Radiant Barrier">Roofing-Ventilation-Radiant Barrier</dtyp:displayterm>
         <dtyp:displayterm value="Sign Lighting">Sign Lighting</dtyp:displayterm>
@@ -3528,7 +3528,7 @@
       <xsd:enumeration value="Battery Storage Systems"/>
       <xsd:enumeration value="Building Air Leakage Diagnostic Test - Building Enclosures and Dwelling Unit Enclosures"/>
       <xsd:enumeration value="Building Air Leakage Diagnostic Test Worksheet - Building Enclosures and Dwelling Unit Enclosures"/>
-      <xsd:enumeration value="Central Fan Ventilation Cooling Systems (VCS)"/>
+      <xsd:enumeration value="Central Fan Ventilation Cooling Systems (CFVCS)"/>
       <xsd:enumeration value="Domestic Water Heating System"/>
       <xsd:enumeration value="Duct Leakage Diagnostic Test"/>
       <xsd:enumeration value="Duct Location"/>
@@ -3582,7 +3582,7 @@
       <xsd:enumeration value="Refrigerant Charge Verification"/>
       <xsd:enumeration value="Residential Alterations"/>
       <xsd:enumeration value="Residential Performance Compliance Method"/>
-      <xsd:enumeration value="Return Duct Design and Air Filter Device Sizing According to Tables 150 B or C"/>
+      <xsd:enumeration value="Return Duct Design and Air Filter Device Sizing According to Tables 150-B or C"/>
       <xsd:enumeration value="Return Duct Design and Air Filter Device Sizing According to Tables 160.3-A or B"/>
       <xsd:enumeration value="Roofing-Ventilation-Radiant Barrier"/>
       <xsd:enumeration value="Sign Lighting"/>

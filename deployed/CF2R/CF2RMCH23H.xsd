@@ -514,7 +514,7 @@ display term = The measured Airflow Rate reported on this document is the best a
             <xsd:element name="Eheat_BeginNote1" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation source="FieldText"/>
-                <xsd:documentation source="AdditionalRequirements">Complete this section with Airflow Rate Measurement data for Newly Installed Heating Only Non-Zoned Systems or Zoned Multi-Speed Compressor Measurement Only - NoMinimum Target Requirement</xsd:documentation>
+                <xsd:documentation source="AdditionalRequirements">Complete this section with Airflow Rate Measurement data for Newly Installed Heating Only Non-Zoned Systems or Zoned Multi-Speed Compressor Measurement Only - No Minimum Target Requirement</xsd:documentation>
               </xsd:annotation>
             </xsd:element>
             <xsd:element name="Eheat_BeginNote2" minOccurs="0">

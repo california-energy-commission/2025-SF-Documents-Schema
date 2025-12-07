@@ -13,7 +13,7 @@
           <xsd:complexType>
             <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF3RMCH28H"/>
             <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF VERIFICATION"/>
-            <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Return Duct Design and Air Filter Device Sizing According to Tables 150 B or C"/>
+            <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Return Duct Design and Air Filter Device Sizing According to Tables 150-B or C"/>
           </xsd:complexType>
         </xsd:element>
         <xsd:element name="Payload" type="comp:Payload"/>

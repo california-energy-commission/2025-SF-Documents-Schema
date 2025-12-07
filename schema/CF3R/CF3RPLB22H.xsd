@@ -1600,7 +1600,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Display choices: Pass,  Fail  or N/A</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="F06_SectionCorrectionNotes" type="comp:SectionCorrectionNotes"  minOccurs="0">
+                  <xsd:element name="F07_SectionCorrectionNotes" type="comp:SectionCorrectionNotes"  minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If DoesSystemComplyWithRequirements == Fail, require that the reason is described in this field</xsd:documentation>

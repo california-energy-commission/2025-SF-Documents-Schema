@@ -300,13 +300,25 @@ End Switch  End If</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input, text, maximum 500 characters</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                              <xsd:element name="D09_DoesForcedAirSystemPassAlternativeComplianceRequirements" type="comp:DoesForcedAirSystemPassAlternativeComplianceRequirements" >
-                                    <xsd:annotation>
-                                       <xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
-                                       <xsd:documentation source="CalculationsAndRules">Calculated field: If D01-D07 values all == true then result = true display term System Complies;  Else If D08_SectionCorrectionNotes NotNull and has an explanation result =  true display term System Complies;
+                  <xsd:element name="D09_DoesForcedAirSystemPassAlternativeComplianceRequirements" type="comp:DoesForcedAirSystemPassAlternativeComplianceRequirements" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If D01-D07 values all == true then result = true display term System Complies;  Else If D08_SectionCorrectionNotes NotNull and has an explanation result =  true display term System Complies;
 Else result = false, display term System Does Not Comply:  one or more applicable remedial actions were not completed as required.  Enter reason(s) for non-compliance in corrections notes field below. End If</xsd:documentation>
-                                    </xsd:annotation>
-                             </xsd:element>
+                      </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D10_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Correction Notes </xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If D09_DoesForcedAirSystemPassAlternativeComplianceRequirements == false, user must input text in this field as condition of registration failure</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D11_SectionComments" type="comp:SectionComments" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Optional Notes </xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input text (optional)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                   <xsd:element name="DEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
@@ -523,7 +535,7 @@ display term = The measured Airflow Rate reported on this document is the best a
                   <xsd:element name="Eheat_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements">Complete this section with Airflow Rate Measurement data for Newly Installed Heating Only Non-Zoned Systems or Zoned Multi-Speed Compressor Measurement Only - NoMinimum Target Requirement</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Complete this section with Airflow Rate Measurement data for Newly Installed Heating Only Non-Zoned Systems or Zoned Multi-Speed Compressor Measurement Only - No Minimum Target Requirement</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Eheat_BeginNote2" minOccurs="0">
@@ -696,7 +708,7 @@ result = true display term  System ventilation airflow rate complies. Else resul
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Bypass Duct</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If A05 Nominal Cooling Capacity != N/A display this field</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">A visual inspection shall confirm that bypass ducts that deliver conditioned supply air directly to the space conditioning system return duct airflow are not used on [d:u] newly constructed[/d:u] zonally controlled systems unless the Performance Certificate of Compliance indicates an allowance for use of a bypass duct.  When a bypass duct is accounted for on the Performance Certificate of Compliance, the airflow rate shall conform to the specifications listed on this document.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">A visual inspection shall confirm that bypass ducts that deliver conditioned supply air directly to the space conditioning system return duct airflow are not used on newly constructed zonally controlled systems unless the Performance Certificate of Compliance indicates an allowance for use of a bypass duct.  When a bypass duct is accounted for on the Performance Certificate of Compliance, the airflow rate shall conform to the specifications listed on this document.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                     <xsd:element name="H04" minOccurs="0">

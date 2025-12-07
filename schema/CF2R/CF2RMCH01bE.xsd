@@ -1830,7 +1830,7 @@ Display Yes if result ==  true and No if result == false.</xsd:documentation>
          </xsd:element>
          <xsd:element name="Section_K" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText"> Field Verification Requirements For Space Conditioning Equipment</xsd:documentation>
+               <xsd:documentation source="FieldText"> ECC Verification Requirements For Space Conditioning Equipment</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">Require one row of data for each SC System listed in C01_ResidentialSpaceConditioningSystemName</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>

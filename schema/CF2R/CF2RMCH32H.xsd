@@ -183,7 +183,7 @@ End If</xsd:documentation>
                   </xsd:element>
                   <xsd:element name="B_Table150E" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Table 150.0_E  Demand-Controlled Local Ventialtion Exhaust Aiflow Rates and Capture Efficiency</xsd:documentation>
+                        <xsd:documentation source="FieldText">Table 150.0-E  Demand-Controlled Local Ventialtion Exhaust Aiflow Rates and Capture Efficiency</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Insert in report Table 150.0-E from 2025 T24 Standards as shown in the layout doc</xsd:documentation>
                         <xsd:appinfo source="filenameterm">
                            <dtyp:filenameterm>2019Mch32Table5.html</dtyp:filenameterm>
@@ -192,7 +192,7 @@ End If</xsd:documentation>
                   </xsd:element>
                   <xsd:element name="B_Table150F" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Table 150.0_F  Continuous Local Ventialtion Exhaust Aiflow Rates</xsd:documentation>
+                        <xsd:documentation source="FieldText">Table 150.0-F  Continuous Local Ventialtion Exhaust Aiflow Rates</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Insert in report Table 150.0-F from 2025 T24 Standards as shown in the layout doc</xsd:documentation>
                         <xsd:appinfo source="filenameterm">
                            <dtyp:filenameterm>2019Mch32Table5.html</dtyp:filenameterm>
@@ -201,7 +201,7 @@ End If</xsd:documentation>
                   </xsd:element>
                   <xsd:element name="B_Table150G" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Table 150.0_G  Kitchen Range Hood Aiflow Rates (cfm) and ASTM E3087 Capture Efficiency(CE) Ratings According to Dwelling Unit Floor Area and Kitchen Range Fuel Type</xsd:documentation>
+                        <xsd:documentation source="FieldText">Table 150.0-G  Kitchen Range Hood Aiflow Rates (cfm) and ASTM E3087 Capture Efficiency(CE) Ratings According to Dwelling Unit Floor Area and Kitchen Range Fuel Type</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Insert in report Table 150.0-G from 2022 T25 Standards as shown in the layout doc</xsd:documentation>
                         <xsd:appinfo source="filenameterm">
                            <dtyp:filenameterm>2019Mch32Table5.html</dtyp:filenameterm>
@@ -210,7 +210,7 @@ End If</xsd:documentation>
                   </xsd:element>
                   <xsd:element name="B_Table150H" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Table 150.0_H  Prescriptive Ventilation System Duct Sizing</xsd:documentation>
+                        <xsd:documentation source="FieldText">Table 150.0-H  Prescriptive Ventilation System Duct Sizing</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Insert in report Table 150.0-H from 2025 T24 Standards as shown in the layout doc</xsd:documentation>
                         <xsd:appinfo source="filenameterm">
                            <dtyp:filenameterm>2019Mch32Table5.html</dtyp:filenameterm>
