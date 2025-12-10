@@ -13,7 +13,7 @@
           <xsd:complexType>
             <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF1RALT02E"/>
             <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF COMPLIANCE"/>
-            <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Alterations to Space Conditioning Systems (formerly CF-1R-ALT-HVAC)"/>
+            <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Alterations to Space Conditioning Systems"/>
           </xsd:complexType>
         </xsd:element>
         <xsd:element name="Payload" type="comp:Payload"/>

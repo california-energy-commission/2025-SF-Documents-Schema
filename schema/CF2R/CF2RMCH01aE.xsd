@@ -200,6 +200,13 @@ Else If ComplianceMethod != Performance  then user inputs integer value.
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
+                  <xsd:element name="AEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Notes: [d:l t="#"][d:list]The outdoor design temperatures for heating shall be [d:gte/] 99.0% Heating Dry Bulb or the Heating Winter Median of Extremes values [/d:list]
+[d:list]The outdoor design temperatures for cooling shall be [d:lte/] 1.0% Cooling Dry Bulb and Mean Coincident Wet Bulb values. [/d:list][/d:l]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                   <xsd:element name="A12After" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Variant MCH-01a</xsd:documentation>
@@ -212,13 +219,6 @@ End If
 Else If A05_ComplianceMethod == PrescriptiveAlterations, Or  PrescriptiveAddiitions, then display doc variation MCH-01b;  
 Else If A05_ComplianceMethod  == PrescriptiveNewConstruction  then display doc variation MCH-01c  
 End If</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="AEndNote1" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Notes: [d:l t="#"][d:list]The outdoor design temperatures for heating shall be less than or equal to 99.0% Heating Dry Bulb or the Heating Winter Median of Extremes values [/d:list]
-[d:list]The outdoor design temperatures for cooling shall be less than or equal to 1.0% Cooling Dry Bulb and Mean Coincident Wet Bulb values. [/d:list][/d:l]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>

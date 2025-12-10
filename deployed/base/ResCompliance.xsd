@@ -3441,7 +3441,7 @@
     <xsd:annotation>
       <xsd:appinfo source="displayterm">
         <dtyp:displayterm value="Alteration To An HVAC System">Alteration To An HVAC System</dtyp:displayterm>
-        <dtyp:displayterm value="Alterations to Space Conditioning Systems (formerly CF-1R-ALT-HVAC)">Alterations to Space Conditioning Systems (formerly CF-1R-ALT-HVAC)</dtyp:displayterm>
+        <dtyp:displayterm value="Alterations to Space Conditioning Systems">Alterations to Space Conditioning Systems</dtyp:displayterm>
         <dtyp:displayterm value="Alternative Default Fenestration Procedure (NA6) Worksheet">Alternative Default Fenestration Procedure (NA6) Worksheet</dtyp:displayterm>
         <dtyp:displayterm value="Area Weighted Average Calculation Worksheet">Area Weighted Average Calculation Worksheet</dtyp:displayterm>
         <dtyp:displayterm value="Battery Storage Systems">Battery Storage Systems</dtyp:displayterm>
@@ -3522,7 +3522,7 @@
     </xsd:annotation>
     <xsd:restriction base="dtyp:EnumerationConstantPermissive">
       <xsd:enumeration value="Alteration To An HVAC System"/>
-      <xsd:enumeration value="Alterations to Space Conditioning Systems (formerly CF-1R-ALT-HVAC)"/>
+      <xsd:enumeration value="Alterations to Space Conditioning Systems"/>
       <xsd:enumeration value="Alternative Default Fenestration Procedure (NA6) Worksheet"/>
       <xsd:enumeration value="Area Weighted Average Calculation Worksheet"/>
       <xsd:enumeration value="Battery Storage Systems"/>

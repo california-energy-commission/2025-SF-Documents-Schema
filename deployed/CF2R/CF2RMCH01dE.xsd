@@ -49,12 +49,6 @@
         </xsd:annotation>
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="ABeginNote1" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                <xsd:documentation source="AdditionalRequirements">Notes: <d:l t="#"><d:list>The outdoor design temperatures for heating shall be <d:gte/> to 99.0% Heating Dry Bulb or the Heating Winter Median of Extremes values </d:list><d:list>The outdoor design temperatures for cooling shall be <d:lte/> 1.0% Cooling Dry Bulb and Mean Coincident Wet Bulb values. </d:list></d:l></xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
             <xsd:element name="A01_DwellingUnitName" type="com:DwellingUnitName">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Dwelling Unit Name</xsd:documentation>
@@ -182,6 +176,12 @@ End If</xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">Calculated field: integer xx;  If A05_ComplianceMethod == Performance Then use as default the value referenced from the parent CC Or allow user to override  default and input a new value, constrained to be GTE to default value from parent CC, flag non-default values and report of change in the project status notes field.  
 Else If ComplianceMethod != Performance  then user inputs integer value.
 End If</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="AEndNote1" minOccurs="0">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                <xsd:documentation source="AdditionalRequirements">Notes: <d:l t="#"><d:list>The outdoor design temperatures for heating shall be <d:gte/> to 99.0% Heating Dry Bulb or the Heating Winter Median of Extremes values </d:list><d:list>The outdoor design temperatures for cooling shall be <d:lte/> 1.0% Cooling Dry Bulb and Mean Coincident Wet Bulb values. </d:list></d:l></xsd:documentation>
               </xsd:annotation>
             </xsd:element>
             <xsd:element name="A12After" minOccurs="0">
