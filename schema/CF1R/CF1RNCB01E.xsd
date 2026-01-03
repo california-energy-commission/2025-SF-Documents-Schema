@@ -1967,15 +1967,6 @@ Else If M02_WaterHeatingSystemOption == OptionSolarWH result = SolarElectBackup 
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="M07_ResidentialDHWDwellingUnitDistributionType" type="hvac:ResidentialDHWDwellingUnitDistributionType" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Distribution Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If A09_ClimateZone == 1 If M02_WaterHeatingSystemOption  == OptionSingleHWH result = CompactHotWaterDistributionSystemBasic End If
-Else If  A09_ClimateZone == 16 If M02_WaterHeatingSystemOption  == OptionSingleHWH result = CompactDistributionDrainHeatRecoveryHERS Else M02_WaterHeatingSystemOption  == OptionTier3SingleHWH result = DrainWaterHeatRecoveryHERS End If
-Else If A10_ BuildingTotalConditionedFloorArea LTE 500 If M02_WaterHeatingSystemOption  == OptionElectPointOfUse result = PointOfUse End If
-Else User selects from StandardDistribution Or DemandRecirculationManualControl End If</xsd:documentation>         
-					</xsd:annotation>                                 
-                                    </xsd:element>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="M08_WaterHeatingSolarFraction" type="hvac:WaterHeatingSolarFraction" >
                                           <xsd:annotation>

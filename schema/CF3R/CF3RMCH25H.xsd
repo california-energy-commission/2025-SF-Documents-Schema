@@ -883,8 +883,10 @@ result = true display term SC System complies with Minimum System Airflow Rate V
                   <xsd:element name="J01_DoesCF3R_Pass" type="comp:DoesCF3R_Pass" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If C03 IsDigitalRefrigerantGaugeCalibrationCurrent == true And C04 IsDigitalThermocoupleCalibrationCurrent == true And D01 MeasurementAccessHoleMethod != MAH_NotInstalledFailsToComply,  And E04_DoesSystemComplyWithAirflowRateVerification == true And If Present Fsh11_IsRefrigerantChargeSuperheatCompliant == true, Or Fsc09_IsRefrigerantChargeSubcoolingCompliant == true
- And If Present G07_IsMeteringDeviceVerificationCompliant == true And If Present H13_IsRefrigerantChargeWeighInCompliant == true And I08_DoesSystemComplyWithRequirements == Pass,  then result is true.  For Boolean true value display text This System Complies with all requirements.    Else result is false.  For Boolean false value display text;  This   System Does Not Comply.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If C03 IsDigitalRefrigerantGaugeCalibrationCurrent == true And C04 IsDigitalThermocoupleCalibrationCurrent == true And D01 MeasurementAccessHoleMethod != MAH_NotInstalledFailsToComply,  
+And (E04_DoesSystemComplyWithAirflowRateVerification == true Or Not Present), And ((If Present And Fsh11_IsRefrigerantChargeSuperheatCompliant == true) Or (If Present And Fsc09_IsRefrigerantChargeSubcoolingCompliant == true))
+ And (G07_IsMeteringDeviceVerificationCompliant == true Or Not Present) And ( H13_IsRefrigerantChargeWeighInCompliant == true Or Not Present) And I08_DoesSystemComplyWithRequirements == Pass,  then result is true; Else result is false;  
+For Boolean true value display text: This System Complies with all requirements. For Boolean false value display text: This System Does Not Comply.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
