@@ -1843,7 +1843,10 @@ Display Yes if result ==  true and No if result == false.</xsd:documentation>
                         <xsd:element name="K03_RefrigerantChargeVerificationRequired" type="comp:RefrigerantChargeVerificationRequired">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">MCH-25 <d:line3/>Refrigerant Charge</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">Calculated Field: If C03_ResidentialHeatingSystemType Or C07_ResidentialCoolingSystemType  ==  NonAirSourceHP Or NonAirCooledAC result = false Else  determine the  result for this field by the user responses in B04, B05 , B06, B07, B08, B09 and use of Logic Table for Determining Alteration Type and ECC Verification Requirements. Constrain user  input for B04-B09 to allow only available combinations of responses given in the Logic Table.  If "RC" appears in the ECC column And  If  A02_ClimateZone == 2 Or InclusiveRange(8,15) then result = true;  Else result = false. Display Yes and No to represent Boolean values true and false.</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">Calculated Field: If C03_ResidentialHeatingSystemType And C07_ResidentialCoolingSystemType  ==  NonAirSourceHP Or NonAirCooledAC result = false; 
+Else If B05_IncludesComponentWithRefrigerant == true If C03_ResidentialHeatingSystemType Or C07_ResidentialCoolingSystemType != NonAirSourceHP And C03_ResidentialHeatingSystemType Or C07_ResidentialCoolingSystemType == CentralLargePackagedHP, CentralPackagedHP, CentralSplitHP, 
+DuctedDuctlessMultiSplitHP, DuctedMiniSplitHP, DuctedMultiSplitHP, HeatPumpDHWCombo, HydronicHP, HydronicHP_ForcedAir, PTHP, RoomHP, SmallDuctHighVelocityHP, VCHP, VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctedAndDuctless, VCHP_IndoorUnitDuctless or VCHP2  result = true;
+Else If A02_ClimateZone == 2, 8, 9, 10, 11, 12, 13, 14, 15 then result = true; Else result = false.</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
                       </xsd:sequence>

@@ -176,19 +176,26 @@ End If</xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">If A15 equals WeighIn or WeighInObservation then result is Installer, Else user picks from list Choice FieldVerifier display text: ECC Rater;  choice Installer display text: HVAC system installer</xsd:documentation>
               </xsd:annotation>
             </xsd:element>
-            <xsd:element name="A17_RefrigerantChargeVerificationMessage" type="comp:RefrigerantChargeVerificationMessage">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText">ECC Verification Compliance Requirement Status</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">If any of the following conditions are true: 
-RefrigerantChargeVerifier equals FieldVerifier,  UseMinimumAirflowApprovedVerificationProcedure equals false, UseRefrigerantChargeApprovedVerificationProcedure equals false or RefrigerantChargeVerificationMethod equals WeighIn Or WeighInObservation, 
+            <xsd:choice maxOccurs="1">
+              <xsd:element name="A17_RefrigerantChargeVerificationMessage" type="comp:RefrigerantChargeVerificationMessage">
+                <xsd:annotation>
+                  <xsd:documentation source="FieldText">ECC Verification Compliance Requirement Status</xsd:documentation>
+                  <xsd:documentation source="CalculationsAndRules">If A10_ImprovementStatus equals Alteration Or Replacement Then result is N/A stored in the NotApplicableMessage Else If any of the following conditions in Section A are true: RefrigerantChargeVerifier equals FieldVerifier,  UseMinimumAirflowApprovedVerificationProcedure equals false, 
+UseRefrigerantChargeApprovedVerificationProcedure equals false or RefrigerantChargeVerificationMethod equals WeighIn Or WeighInObservation, Then
 result = DoesNotQualifyForGroupSampling display term  System does not qualify for Group Sampling; 
-   
 Else If RefrigerantChargeVerificationMethod equals NewFactoryCharge, 
 result = VerificationNotRequired display term ECC Verification of refrigerant charge not required;  
 Else result = QualifiesForGroupSampling display term System qualifies for Group Sampling
 End If</xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element name="A17_NotApplicableMessage" type="comp:NotApplicableMessage">
+                <xsd:annotation>
+                  <xsd:documentation source="FieldText">ECC Verification Compliance Requirement Status</xsd:documentation>
+                  <xsd:documentation source="CalculationsAndRules">If A10_ImprovementStatus equals Alteration Or Replacement Then result is N/A stored in the NotApplicableMessage</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+            </xsd:choice>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>

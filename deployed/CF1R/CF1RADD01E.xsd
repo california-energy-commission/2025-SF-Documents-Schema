@@ -956,7 +956,7 @@ AdditionLTE300ADU display term ADU Addition <d:lte/> 300 ft<d:sup>2</d:sup>,Addi
             <xsd:element name="H01_ProjectScopeAdditions">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Addition Type ft<d:sup>2</d:sup></xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">Value auto-filled from A13_ProjectScopeAddition   with one of these values: AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700,  AdditionGT700LTE1000, AdditionLTE300ADU, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU,  AdditionGT700LTE1000ADU,</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">Value auto-filled from A13_ProjectScopeAddition   with one of these values: AdditionLTE300, AdditionGT300LTE400, AdditionLTE500JADU, AdditionGT400LTE700,  AdditionGT700LTE1000, AdditionLTE300ADU, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU,  AdditionGT700LTE1000ADU,</xsd:documentation>
               </xsd:annotation>
               <xsd:simpleType>
                 <xsd:restriction base="comp:ProjectScopeAdditions">
@@ -968,6 +968,8 @@ AdditionLTE300ADU display term ADU Addition <d:lte/> 300 ft<d:sup>2</d:sup>,Addi
                   <xsd:enumeration value="AdditionGT700LTE1000ADU"/>
                   <xsd:enumeration value="AdditionLTE300"/>
                   <xsd:enumeration value="AdditionLTE300ADU"/>
+                  <xsd:enumeration value="AdditionLTE300ADU"/>
+                  <xsd:enumeration value="AdditionLTE500JADU"/>
                 </xsd:restriction>
               </xsd:simpleType>
             </xsd:element>
@@ -1011,13 +1013,13 @@ AdditionLTE300ADU display term ADU Addition <d:lte/> 300 ft<d:sup>2</d:sup>,Addi
               <xsd:element name="H04_GlazingAreaLimitWestPercentageBased" type="env:GlazingAreaLimitWestPercentageBased">
                 <xsd:annotation>
                   <xsd:documentation source="FieldText">Maximum Calculated based on Allowed %</xsd:documentation>
-                  <xsd:documentation source="CalculationsAndRules">Calculated field: If A09_ClimateZone == 1,   3, 5 Or 16 result = N/A stored in the NotApplicableMessage;  Else If H01_ProjectScopeAddition ==  AdditionLTE300 Or AdditionGT300LTE400 Or AdditionGT400LTE700, result = N/A stored in the NotApplicableMessage;   Else If  H01_ProjectScopeAddition ==   AdditionGT700LTE1000 result = PRODUCT(A10_AdditionTotalConditionedFloorArea,  0.05).</xsd:documentation>
+                  <xsd:documentation source="CalculationsAndRules">Calculated field: If A09_ClimateZone == 1,   3, 5 Or 16 result = N/A stored in the NotApplicableMessage;  Else If H01_ProjectScopeAddition ==  AdditionLTE300 Or AdditionGT300LTE400, AdditionGT400LTE700 or AdditionLTE500JADU result = N/A stored in the NotApplicableMessage;   Else If  H01_ProjectScopeAddition ==   AdditionGT700LTE1000 result = PRODUCT(A10_AdditionTotalConditionedFloorArea,  0.05).</xsd:documentation>
                 </xsd:annotation>
               </xsd:element>
               <xsd:element name="H04_NotApplicableMessage" type="comp:NotApplicableMessage">
                 <xsd:annotation>
                   <xsd:documentation source="FieldText">Maximum Calculated based on Allowed %</xsd:documentation>
-                  <xsd:documentation source="CalculationsAndRules">Calculated field: If A09_ClimateZone == 1,   3, 5 Or 16 result = N/A stored in the NotApplicableMessage;  Else If H01_ProjectScopeAddition ==  AdditionLTE300 Or AdditionGT300LTE400 Or AdditionGT400LTE700, result = N/A stored in the NotApplicableMessage;   Else If  H01_ProjectScopeAddition ==   AdditionGT700LTE1000 result = PRODUCT(A10_AdditionTotalConditionedFloorArea,  0.05).</xsd:documentation>
+                  <xsd:documentation source="CalculationsAndRules">Calculated field: If A09_ClimateZone == 1,   3, 5 Or 16 result = N/A stored in the NotApplicableMessage;  Else If H01_ProjectScopeAddition ==  AdditionLTE300 Or AdditionGT300LTE400, AdditionGT400LTE700 or AdditionLTE500JADU result = N/A stored in the NotApplicableMessage;   Else If  H01_ProjectScopeAddition ==   AdditionGT700LTE1000 result = PRODUCT(A10_AdditionTotalConditionedFloorArea,  0.05).</xsd:documentation>
                 </xsd:annotation>
               </xsd:element>
             </xsd:choice>
@@ -1025,13 +1027,13 @@ AdditionLTE300ADU display term ADU Addition <d:lte/> 300 ft<d:sup>2</d:sup>,Addi
               <xsd:element name="H05_GlazingAreaAdditionLimitWest" type="env:GlazingAreaAdditionLimitWest">
                 <xsd:annotation>
                   <xsd:documentation source="FieldText">Maximum Calculated Allowed ft<d:sup>2</d:sup></xsd:documentation>
-                  <xsd:documentation source="CalculationsAndRules">Calculated field: If A09_ClimateZone == 1,   3, 5 Or 16 result = N/A stored in the NotApplicableMessage;  Else If H01_ProjectScopeAddition ==  AdditionLTE300 Or AdditionGT300LTE400 Or AdditionGT400LTE700  result = 60 ft2;  ElseIf  H01 equals  AdditionGT700LTE1000 result =  70 ft2</xsd:documentation>
+                  <xsd:documentation source="CalculationsAndRules">Calculated field: If A09_ClimateZone == 1,   3, 5 Or 16 result = N/A stored in the NotApplicableMessage;  Else If H01_ProjectScopeAddition ==  AdditionLTE300 Or AdditionGT300LTE400, AdditionGT400LTE700 or AdditionLTE500JADU result = 60 ft2;  ElseIf  H01 equals  AdditionGT700LTE1000 result =  70 ft2</xsd:documentation>
                 </xsd:annotation>
               </xsd:element>
               <xsd:element name="H05_NotApplicableMessage" type="comp:NotApplicableMessage">
                 <xsd:annotation>
                   <xsd:documentation source="FieldText">Maximum Calculated Allowed ft<d:sup>2</d:sup></xsd:documentation>
-                  <xsd:documentation source="CalculationsAndRules">Calculated field: If A09_ClimateZone == 1,   3, 5 Or 16 result = N/A stored in the NotApplicableMessage;  Else If H01_ProjectScopeAddition ==  AdditionLTE300 Or AdditionGT300LTE400 Or AdditionGT400LTE700  result = 60 ft2;  ElseIf  H01 equals  AdditionGT700LTE1000 result =  70 ft2</xsd:documentation>
+                  <xsd:documentation source="CalculationsAndRules">Calculated field: If A09_ClimateZone == 1,   3, 5 Or 16 result = N/A stored in the NotApplicableMessage;  Else If H01_ProjectScopeAddition ==  AdditionLTE300 Or AdditionGT300LTE400, AdditionGT400LTE700 or AdditionLTE500JADU result = 60 ft2;  ElseIf  H01 equals  AdditionGT700LTE1000 result =  70 ft2</xsd:documentation>
                 </xsd:annotation>
               </xsd:element>
             </xsd:choice>

@@ -1996,13 +1996,13 @@ Else If M02_WaterHeatingSystemOption == OptionSolarWH result = SolarElectBackup 
                           </xsd:element>
                         </xsd:choice>
                         <xsd:choice maxOccurs="1">
-                          <xsd:element name="M08_WaterHeatingSolarFraction" type="hvac:WaterHeatingSolarFraction">
+                          <xsd:element name="M07_WaterHeatingSolarFraction" type="hvac:WaterHeatingSolarFraction">
                             <xsd:annotation>
                               <xsd:documentation source="FieldText">Minimum Solar Savings Fraction</xsd:documentation>
                               <xsd:documentation source="CalculationsAndRules">If M02_WaterHeatingSystemOption ==   OptionSolarWH result = 0.70 Else result = N/A stored in NotApplicableMessage. End If</xsd:documentation>
                             </xsd:annotation>
                           </xsd:element>
-                          <xsd:element name="M08_NotApplicableMessage" type="comp:NotApplicableMessage">
+                          <xsd:element name="M07_NotApplicableMessage" type="comp:NotApplicableMessage">
                             <xsd:annotation>
                               <xsd:documentation source="FieldText">Minimum Solar Savings Fraction</xsd:documentation>
                               <xsd:documentation source="CalculationsAndRules">If M02_WaterHeatingSystemOption ==   OptionSolarWH result = 0.70 Else result = N/A stored in NotApplicableMessage. End If</xsd:documentation>

@@ -102,10 +102,10 @@
                         <xsd:documentation source="CalculationsAndRules">User input: Zipcode</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A08_SiteFuelType" type="com:SiteFuelType" fixed="Electricity" >
+                  <xsd:element name="A08_SiteFuelType" type="com:SiteFuelType">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Fuel Type</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Fixed value of Electricity; always display Electricity</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from list: Electricity, Natural Gas and Propane</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A09_ClimateZone" type="com:ClimateZone" >
@@ -922,7 +922,7 @@ Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 
          <xsd:element name="Section_G" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Fenestration Proposed Areas and Efficiencies - Add (Section 150.2(b)1A)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required if A13_ProjectScopeAlterations includes one of these values: FenestrationGlazingAddition, FenestrationGlazingSkylightMinimumFt2Addition, FenestrationGlazingWindowMinimumFt2Addition.  Each row in the table is for a unique type of vertical fenestration or  skylight in the project.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if A13_ProjectScopeAlterations includes one of these values: FenestrationGlazingAddition, FenestrationGlazingSkylightMinimumFt2Addition.  Each row in the table is for a unique type of vertical fenestration or  skylight in the project.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -1227,10 +1227,10 @@ Else E03_IsRoofPitchGreaterThan2Run12Rise == false And A09_ClimateZone == 13 Or 
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
-                  <xsd:element name="G22_UFactorLimit" type="com:UFactorLimit"  fixed="0.30">
+                  <xsd:element name="G22_UFactorLimit" type="com:UFactorLimit">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Required Fenestration U-factor (Windows)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: result = F05a_UFactorLimit</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If A09_ClimateZone == 1, 2, 3, 4, 5, 11, 12, 13, 14 or 16 result = 0.27 Else If A09_ClimateZone == 6, 7, 8, 9, 10, or 15 result = 0.30 </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:choice maxOccurs="1">

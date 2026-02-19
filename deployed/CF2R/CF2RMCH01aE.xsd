@@ -2132,7 +2132,7 @@ This section is required If Section_F has data Or If Section H has data.  Requir
                         <xsd:element name="N03_RefrigerantChargeVerificationRequired" type="comp:RefrigerantChargeVerificationRequired">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">MCH-25 <d:line3/>Refrigerant Charge</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">Calculated Field: If the parent CC-PRF flags the requirement for ECC verification of Refrigerant Charge; then result = true; Else If B04_ResidentialCoolingSystemType != D05_ResidentialCoolingSystemType And A02_ClimateZone == 2 Or InclusiveRange(8,15) then result = true;  Else result = false. Display Yes and No to represent Boolean values true and false.</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">Calculated Field: If the parent CC-PRF flags the requirement for ECC verification of Refrigerant Charge result = true; Else result = false. Display Yes and No to represent Boolean values true and false.</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
                         <xsd:element name="N04_SEER_EER_VerificationRequired" type="comp:SEER_EER_VerificationRequired">
