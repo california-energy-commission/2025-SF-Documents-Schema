@@ -102,10 +102,10 @@
                         <xsd:documentation source="CalculationsAndRules">User input: Zipcode</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A08_SiteFuelType" type="com:SiteFuelType" fixed="Electricity" >
+                  <xsd:element name="A08_SiteFuelType" type="com:SiteFuelType" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Fuel Type</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Fixed value of Electricity; always display Electricity</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from list: Electricity, Natural Gas, Propane </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A09_ClimateZone" type="com:ClimateZone" >
@@ -931,7 +931,6 @@ AdditionLTE300ADU display term ADU Addition [d:lte/] 300 ft[d:sup]2[/d:sup],Addi
                            <xsd:enumeration value="AdditionGT700LTE1000"/>
                            <xsd:enumeration value="AdditionGT700LTE1000ADU"/>
                            <xsd:enumeration value="AdditionLTE300"/>
-                           <xsd:enumeration value="AdditionLTE300ADU"/>
                            <xsd:enumeration value="AdditionLTE300ADU"/>
                            <xsd:enumeration value="AdditionLTE500JADU"/>
                         </xsd:restriction>
