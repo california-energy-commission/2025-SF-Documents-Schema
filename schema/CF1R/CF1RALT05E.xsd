@@ -112,10 +112,10 @@ If more than one person has responsibility for installation of the items on this
                         <xsd:documentation source="CalculationsAndRules">User input: Zipcode</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A08_SiteFuelType" type="com:SiteFuelType" fixed="Electricity" >
+                  <xsd:element name="A08_SiteFuelType" type="com:SiteFuelType">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Fuel Type</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Fixed value of Electricity; always display Electricity</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from list: Electricity, Natural Gas and Propane</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A09_ClimateZone" type="com:ClimateZone" >
@@ -180,7 +180,6 @@ ExteriorDoorsAlteration, display term Opaque Exterior Doors (Show table H1). </x
          		   <xsd:enumeration value="FenestrationGlazingReplacement"/>
       			   <xsd:enumeration value="FenestrationGlazingSkylightMinimumFt2Addition"/>
                            <xsd:enumeration value="FenestrationGlazingSkylightMinimumFt2Replacement"/>
-                           <xsd:enumeration value="FenestrationGlazingWindowMinimumFt2Addition"/>
                            <xsd:enumeration value="FenestrationGlazingWindowMinimumFt2Replacement"/>
                            <xsd:enumeration value="HeatingSystemAlteration"/>
                            <xsd:enumeration value="InsulationAlteration"/>

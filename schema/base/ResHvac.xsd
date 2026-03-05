@@ -1142,6 +1142,48 @@
          <xsd:enumeration value="BradfordWhiteRE2H80T10_1NCTT_CON"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="BradfordWhiteAeroThermRE2HP50SimulationGroup">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Simulated Model Group BradfordWhiteAeroThermRE2HP50
+            </dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="BradfordWhiteRE2HP50_1NCTT">RE2HP50**-1NCTT (50 gal)</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="BradfordWhiteRE2HP50_1NCTT"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="BradfordWhiteAeroThermRE2HP65SimulationGroup">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Simulated Model Group BradfordWhiteAeroThermRE2HP65
+            </dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="BradfordWhiteRE2HP65_1NCTT">RE2HP65**-1NCTT (65 gal)</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="BradfordWhiteRE2HP65_1NCTT"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="BradfordWhiteAeroThermRE2HP80SimulationGroup">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Simulated Model Group BradfordWhiteAeroThermRE2HP80
+            </dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="BradfordWhiteRE2HP80_1NCTT">RE2HP80**-1NCTT (80 gal)</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="BradfordWhiteRE2HP80_1NCTT"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="Brand">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
@@ -1675,6 +1717,8 @@
             <dtyp:displayterm value="Generic40kW">Generic 40kW</dtyp:displayterm>
             <dtyp:displayterm value="Generic45kW">Generic 45kW</dtyp:displayterm>
             <dtyp:displayterm value="Generic5kW">Generic 5kW</dtyp:displayterm>
+            <dtyp:displayterm value="IceAir_ccHPWH275">ccHPWH275 (MP 70kW cap @ 40F)</dtyp:displayterm>
+            <dtyp:displayterm value="IceAir_ccHPWH550">ccHPWH550 (MP 140kW cap @ 40F)</dtyp:displayterm>
             <dtyp:displayterm value="LochinvarAHP025">AHP025-*******-***N****</dtyp:displayterm>
             <dtyp:displayterm value="LochinvarAHP060">AHP060-*******-***N****</dtyp:displayterm>
             <dtyp:displayterm value="LochinvarAHP060C">AHP060-*******-***C****</dtyp:displayterm>
@@ -1786,6 +1830,8 @@
          <xsd:enumeration value="Generic40kW"/>
          <xsd:enumeration value="Generic45kW"/>
          <xsd:enumeration value="Generic5kW"/>
+         <xsd:enumeration value="IceAir_ccHPWH275"/>
+         <xsd:enumeration value="IceAir_ccHPWH550"/>
          <xsd:enumeration value="LochinvarAHP025"/>
          <xsd:enumeration value="LochinvarAHP060"/>
          <xsd:enumeration value="LochinvarAHP060C"/>
@@ -5080,6 +5126,7 @@
             <dtyp:displayterm value="GE">GE</dtyp:displayterm>
             <dtyp:displayterm value="Generic">Generic</dtyp:displayterm>
             <dtyp:displayterm value="HarvestThermal">Harvest Thermal</dtyp:displayterm>
+            <dtyp:displayterm value="IceAir">Ice Air</dtyp:displayterm>
             <dtyp:displayterm value="Kenmore">Kenmore</dtyp:displayterm>
             <dtyp:displayterm value="LG">LG</dtyp:displayterm>
             <dtyp:displayterm value="Lochinvar">Lochinvar</dtyp:displayterm>
@@ -5109,6 +5156,7 @@
          <xsd:enumeration value="GE"/>
          <xsd:enumeration value="Generic"/>
          <xsd:enumeration value="HarvestThermal"/>
+         <xsd:enumeration value="IceAir"/>
          <xsd:enumeration value="Kenmore"/>
          <xsd:enumeration value="LG"/>
          <xsd:enumeration value="Lochinvar"/>
@@ -5288,6 +5336,9 @@
             <dtyp:displayterm value="BradfordWhiteRE2H80">RE2H80R10B-1NCWT  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="BradfordWhiteRE2H80T_Rheem2020Prem80">RE2H80T*-***** (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="BradfordWhiteRE2H80T61NCWT">RE2H80T6-1NCWT (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="BradfordWhiteRE2HP50_1NCTT">RE2HP50**-1NCTT  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="BradfordWhiteRE2HP65_1NCTT">RE2HP65**-1NCTT  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="BradfordWhiteRE2HP80_1NCTT">RE2HP80**-1NCTT  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="ColmacCxA10">Cx A10</dtyp:displayterm>
             <dtyp:displayterm value="ColmacCxA15">Cx A15</dtyp:displayterm>
             <dtyp:displayterm value="ColmacCxA20">Cx A20</dtyp:displayterm>
@@ -5354,6 +5405,8 @@
             <dtyp:displayterm value="HarvestThermal_PD2ASB10119">PD2A-SB-10-119  (119 gal)</dtyp:displayterm>
             <dtyp:displayterm value="HarvestThermal_PD2B10119">PD2B-10-119  (119 gal)</dtyp:displayterm>
             <dtyp:displayterm value="HarvestThermal_PD2Bi119">PD2B-i-119  (119 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="IceAir_ccHPWH275">ccHPWH275 (MP 70kW cap @ 40F)</dtyp:displayterm>
+            <dtyp:displayterm value="IceAir_ccHPWH550">ccHPWH550 (MP 140kW cap @ 40F)</dtyp:displayterm>
             <dtyp:displayterm value="Kenmore153_32116">153.32116  (60 gal)</dtyp:displayterm>
             <dtyp:displayterm value="Kenmore153_32118">153.32118  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="Kenmore153_5925">153.5925  (50 gal)</dtyp:displayterm>
@@ -5711,6 +5764,18 @@
             <dtyp:displayterm value="SANCO2GS4_SAN43SSAQA">GS4-45HPC &amp; SAN-43SSAQA  (43 gal)</dtyp:displayterm>
             <dtyp:displayterm value="SANCO2GS4_SAN83SSAQA">GS4-45HPC &amp; SAN-83SSAQA  (83 gal)</dtyp:displayterm>
             <dtyp:displayterm value="SANCO2GS4_SAN119GLBK">GS4-45HPC &amp; SAN-119GLBK  (119 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="SANCO2GS5_45HPC_ECO43SSAQB">GS5-45HPC + ECO-43SSAQB (43 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="SANCO2GS5_45HPC_ECO83SSAQB">GS5-45HPC + ECO-83SSAQB (83 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="SANCO2GS5_45HPC_ECO119GLBB">GS5-45HPC + ECO-119GLBB (119 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="SANCO2GS5_45HPCD_ECO43SSAQB">GS5-45HPC-D + ECO-43SSAQB (43 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="SANCO2GS5_45HPCD_ECO83SSAQB">GS5-45HPC-D + ECO-83SSAQB (83 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="SANCO2GS5_45HPCD_ECO119GLBB">GS5-45HPC-D + ECO-119GLBB (119 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="SANCO2GS5_45HPC_ECO43SSAQBRDR">GS5-45HPC + ECO-43SSAQB (43 gal) + ECO-RDR</dtyp:displayterm>
+            <dtyp:displayterm value="SANCO2GS5_45HPC_ECO83SSAQBRDR">GS5-45HPC + ECO-83SSAQB (83 gal) + ECO-RDR</dtyp:displayterm>
+            <dtyp:displayterm value="SANCO2GS5_45HPC_ECO119GLBBRDR">GS5-45HPC + ECO-119GLBB (119 gal) + ECO-RDR</dtyp:displayterm>
+            <dtyp:displayterm value="SANCO2GS5_45HPCD_ECO43SSAQBRDR">GS5-45HPC-D + ECO-43SSAQB (43 gal) + ECO-RDR</dtyp:displayterm>
+            <dtyp:displayterm value="SANCO2GS5_45HPCD_ECO83SSAQBRDR">GS5-45HPC-D + ECO-83SSAQB (83 gal) + ECO-RDR</dtyp:displayterm>
+            <dtyp:displayterm value="SANCO2GS5_45HPCD_ECO119GLBBRDR">GS5-45HPC-D + ECO-119GLBB (119 gal) + ECO-RDR</dtyp:displayterm>
             <dtyp:displayterm value="SandenGS3_GAUS160QTA">GS3-45HPA-US &amp; GAUS-160QTA  (43 gal)</dtyp:displayterm>
             <dtyp:displayterm value="SandenGS3_GAUS315EQTD">GS3-45HPA-US &amp; GAUS-315EQTD  (83 gal)</dtyp:displayterm>
             <dtyp:displayterm value="SandenGS3_SAN43SSAQA">GS3-45HPA-US &amp; SAN-43SSAQA  (43 gal)</dtyp:displayterm>
@@ -5888,6 +5953,9 @@
          <xsd:enumeration value="BradfordWhiteRE2H80"/>
          <xsd:enumeration value="BradfordWhiteRE2H80T_Rheem2020Prem80"/>
          <xsd:enumeration value="BradfordWhiteRE2H80T61NCWT"/>
+         <xsd:enumeration value="BradfordWhiteRE2HP50_1NCTT"/>
+         <xsd:enumeration value="BradfordWhiteRE2HP65_1NCTT"/>
+         <xsd:enumeration value="BradfordWhiteRE2HP80_1NCTT"/>
          <xsd:enumeration value="ColmacCxA10"/>
          <xsd:enumeration value="ColmacCxA15"/>
          <xsd:enumeration value="ColmacCxA20"/>
@@ -5954,6 +6022,8 @@
          <xsd:enumeration value="HarvestThermal_PD2ASB10119"/>
          <xsd:enumeration value="HarvestThermal_PD2B10119"/>
          <xsd:enumeration value="HarvestThermal_PD2Bi119"/>
+         <xsd:enumeration value="IceAir_ccHPWH275"/>    
+         <xsd:enumeration value="IceAir_ccHPWH550"/>   
          <xsd:enumeration value="Kenmore153_32116"/>
          <xsd:enumeration value="Kenmore153_32118"/>
          <xsd:enumeration value="Kenmore153_5925"/>
@@ -6308,6 +6378,18 @@
          <xsd:enumeration value="SANCO2GS4_SAN43SSAQA"/>
          <xsd:enumeration value="SANCO2GS4_SAN83SSAQA"/>
          <xsd:enumeration value="SANCO2GS4_SAN119GLBK"/>
+         <xsd:enumeration value="SANCO2GS5_45HPC_ECO43SSAQB"/>
+         <xsd:enumeration value="SANCO2GS5_45HPC_ECO83SSAQB"/>
+         <xsd:enumeration value="SANCO2GS5_45HPC_ECO119GLBB"/>
+         <xsd:enumeration value="SANCO2GS5_45HPCD_ECO43SSAQB"/>
+         <xsd:enumeration value="SANCO2GS5_45HPCD_ECO83SSAQB"/>
+         <xsd:enumeration value="SANCO2GS5_45HPCD_ECO119GLBB"/>
+         <xsd:enumeration value="SANCO2GS5_45HPC_ECO43SSAQBRDR"/>
+         <xsd:enumeration value="SANCO2GS5_45HPC_ECO83SSAQBRDR"/>
+         <xsd:enumeration value="SANCO2GS5_45HPC_ECO119GLBBRDR"/>
+         <xsd:enumeration value="SANCO2GS5_45HPCD_ECO43SSAQBRDR"/>
+         <xsd:enumeration value="SANCO2GS5_45HPCD_ECO83SSAQBRDR"/>
+         <xsd:enumeration value="SANCO2GS5_45HPCD_ECO119GLBBRDR"/>
          <xsd:enumeration value="SandenGS3_GAUS160QTA"/>
          <xsd:enumeration value="SandenGS3_GAUS315EQTD"/>
          <xsd:enumeration value="SandenGS3_SAN43SSAQA"/>
@@ -6480,6 +6562,9 @@
             <dtyp:displayterm value="BradfordWhiteRE2H80">RE2H80R10B-1NCWT  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="BradfordWhiteRE2H80T_Rheem2020Prem80">RE2H80T*-***** (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="BradfordWhiteRE2H80T61NCWT">RE2H80T6-1NCWT (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="BradfordWhiteRE2HP50_1NCTT">RE2HP50**-1NCTT  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="BradfordWhiteRE2HP65_1NCTT">RE2HP65**-1NCTT  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="BradfordWhiteRE2HP80_1NCTT">RE2HP80**-1NCTT  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="DirectEnergyECEH40">ECE H40 T2 RH310BM (40 gal)</dtyp:displayterm>
             <dtyp:displayterm value="DirectEnergyECEH50">ECE H50 T2 RH310BM (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="DirectEnergyECEH65">ECE H65 T2 RH310BM (65 gal)</dtyp:displayterm>
@@ -6874,6 +6959,18 @@
             <dtyp:displayterm value="SANCO2GS4_SAN43SSAQA">GS4-45HPC &amp; SAN-43SSAQA  (43 gal)</dtyp:displayterm>
             <dtyp:displayterm value="SANCO2GS4_SAN83SSAQA">GS4-45HPC &amp; SAN-83SSAQA  (83 gal)</dtyp:displayterm>
             <dtyp:displayterm value="SANCO2GS4_SAN119GLBK">GS4-45HPC &amp; SAN-119GLBK  (119 gal)</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPC_ECO43SSAQB">GS5-45HPC + ECO-43SSAQB (43 gal)</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPC_ECO83SSAQB">GS5-45HPC + ECO-83SSAQB (83 gal)</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPC_ECO119GLBB">GS5-45HPC + ECO-119GLBB (119 gal)</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPCD_ECO43SSAQB">GS5-45HPC-D + ECO-43SSAQB (43 gal)</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPCD_ECO83SSAQB">GS5-45HPC-D + ECO-83SSAQB (83 gal)</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPCD_ECO119GLBB">GS5-45HPC-D + ECO-119GLBB (119 gal)</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPC_ECO43SSAQBRDR">GS5-45HPC + ECO-43SSAQB (43 gal) + ECO-RDR</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPC_ECO83SSAQBRDR">GS5-45HPC + ECO-83SSAQB (83 gal) + ECO-RDR</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPC_ECO119GLBBRDR">GS5-45HPC + ECO-119GLBB (119 gal) + ECO-RDR</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPCD_ECO43SSAQBRDR">GS5-45HPC-D + ECO-43SSAQB (43 gal) + ECO-RDR</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPCD_ECO83SSAQBRDR">GS5-45HPC-D + ECO-83SSAQB (83 gal) + ECO-RDR</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPCD_ECO119GLBBRDR">GS5-45HPC-D + ECO-119GLBB (119 gal) + ECO-RDR</dtyp:displayterm>
             <dtyp:displayterm value="SandenGS3_GAUS160QTA">GS3-45HPA-US &amp; GAUS-160QTA  (43 gal)</dtyp:displayterm>
             <dtyp:displayterm value="SandenGS3_GAUS315EQTD">GS3-45HPA-US &amp; GAUS-315EQTD  (83 gal)</dtyp:displayterm>
             <dtyp:displayterm value="SandenGS3_SAN43SSAQA">GS3-45HPA-US &amp; SAN-43SSAQA  (43 gal)</dtyp:displayterm>
@@ -7026,6 +7123,9 @@
          <xsd:enumeration value="BradfordWhiteRE2H80"/>
          <xsd:enumeration value="BradfordWhiteRE2H80T_Rheem2020Prem80"/>
          <xsd:enumeration value="BradfordWhiteRE2H80T61NCWT"/>
+         <xsd:enumeration value="BradfordWhiteRE2HP50_1NCTT"/>
+         <xsd:enumeration value="BradfordWhiteRE2HP65_1NCTT"/>
+         <xsd:enumeration value="BradfordWhiteRE2HP80_1NCTT"/>
          <xsd:enumeration value="DirectEnergyECEH40"/>
          <xsd:enumeration value="DirectEnergyECEH50"/>
          <xsd:enumeration value="DirectEnergyECEH65"/>
@@ -7417,6 +7517,18 @@
          <xsd:enumeration value="SANCO2GS4_SAN43SSAQA"/>
          <xsd:enumeration value="SANCO2GS4_SAN83SSAQA"/>
          <xsd:enumeration value="SANCO2GS4_SAN119GLBK"/>
+	 <xsd:enumeration value="SANCO2GS5_45HPC_ECO43SSAQB"/>
+	 <xsd:enumeration value="SANCO2GS5_45HPC_ECO83SSAQB"/>
+	 <xsd:enumeration value="SANCO2GS5_45HPC_ECO119GLBB"/>
+	 <xsd:enumeration value="SANCO2GS5_45HPCD_ECO43SSAQB"/>
+	 <xsd:enumeration value="SANCO2GS5_45HPCD_ECO83SSAQB"/>
+	 <xsd:enumeration value="SANCO2GS5_45HPCD_ECO119GLBB"/>
+	 <xsd:enumeration value="SANCO2GS5_45HPC_ECO43SSAQBRDR"/>
+	 <xsd:enumeration value="SANCO2GS5_45HPC_ECO83SSAQBRDR"/>
+	 <xsd:enumeration value="SANCO2GS5_45HPC_ECO119GLBBRDR"/>
+	 <xsd:enumeration value="SANCO2GS5_45HPCD_ECO43SSAQBRDR"/>
+	 <xsd:enumeration value="SANCO2GS5_45HPCD_ECO83SSAQBRDR"/>
+	 <xsd:enumeration value="SANCO2GS5_45HPCD_ECO119GLBBRDR"/>
          <xsd:enumeration value="SandenGS3_GAUS160QTA"/>
          <xsd:enumeration value="SandenGS3_GAUS315EQTD"/>
          <xsd:enumeration value="SandenGS3_SAN43SSAQA"/>
@@ -7510,6 +7622,9 @@
             <dtyp:displayterm value="BradfordWhiteAeroThermRE2H65">Bradford White AeroTherm RE2H 65 (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="BradfordWhiteAeroThermRE2H80">Bradford White AeroTherm RE2H 80 (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="BWC202065">BWC 2020 65</dtyp:displayterm>
+            <dtyp:displayterm value="BradfordWhiteAeroThermRE2HP50">Bradford White AeroTherm RE2HP 50 (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="BradfordWhiteAeroThermRE2HP65">Bradford White AeroTherm RE2HP 65 (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="BradfordWhiteAeroThermRE2HP80">Bradford White AeroTherm RE2HP 80 (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="ColmacCxA10_SP">Colmac Cx A10-SP</dtyp:displayterm>
             <dtyp:displayterm value="ColmacCxA15_SP">Colmac Cx A15-SP</dtyp:displayterm>
             <dtyp:displayterm value="ColmacCxA20_SP">Colmac Cx A20-SP</dtyp:displayterm>
@@ -7525,6 +7640,8 @@
             <dtyp:displayterm value="Generic40kW">Generic 40kW</dtyp:displayterm>
             <dtyp:displayterm value="Generic45kW">Generic 45kW</dtyp:displayterm>
             <dtyp:displayterm value="Generic5kW">Generic 5kW</dtyp:displayterm>
+            <dtyp:displayterm value="IceAir_ccHPWH275D_MP">IceAir ccHPWH275D_MP</dtyp:displayterm> 
+            <dtyp:displayterm value="IceAir_ccHPWH550D_MP">IceAir ccHPWH550D_MP</dtyp:displayterm> 
             <dtyp:displayterm value="LG_APHWC50">LG APHWC 50</dtyp:displayterm>
             <dtyp:displayterm value="LG_APHWC80">LG APHWC 80</dtyp:displayterm>
             <dtyp:displayterm value="Generic5kW">Generic 5kW</dtyp:displayterm>
@@ -7560,9 +7677,9 @@
             <dtyp:displayterm value="RheemPlugInShared50">Rheem PlugIn Shared-50</dtyp:displayterm>
             <dtyp:displayterm value="RheemPlugInShared65">Rheem PlugIn Shared-65</dtyp:displayterm>
             <dtyp:displayterm value="RheemPlugInShared80">Rheem PlugIn Shared-80</dtyp:displayterm>
-            <dtyp:displayterm value="SANCO240">SANCO2 40</dtyp:displayterm>
-            <dtyp:displayterm value="SANCO280">SANCO2 80</dtyp:displayterm>
-            <dtyp:displayterm value="SANCO2120">SANCO2 120</dtyp:displayterm>
+            <dtyp:displayterm value="SANCO240">SANCO2 43</dtyp:displayterm>
+            <dtyp:displayterm value="SANCO280">SANCO2 83</dtyp:displayterm>
+            <dtyp:displayterm value="SANCO2120">SANCO2 119</dtyp:displayterm>
             <dtyp:displayterm value="Sanden40">Sanden 40</dtyp:displayterm>
             <dtyp:displayterm value="Sanden80">Sanden 80</dtyp:displayterm>
             <dtyp:displayterm value="SandenGS3">Sanden GS 3</dtyp:displayterm>
@@ -7594,6 +7711,9 @@
          <xsd:enumeration value="BradfordWhiteAeroThermRE2H50"/>
          <xsd:enumeration value="BradfordWhiteAeroThermRE2H65"/>
          <xsd:enumeration value="BradfordWhiteAeroThermRE2H80"/>
+         <xsd:enumeration value="BradfordWhiteAeroThermRE2HP50"/>
+         <xsd:enumeration value="BradfordWhiteAeroThermRE2HP65"/>
+         <xsd:enumeration value="BradfordWhiteAeroThermRE2HP80"/>
          <xsd:enumeration value="BWC202065"/>
          <xsd:enumeration value="ColmacCxA10_SP"/>
          <xsd:enumeration value="ColmacCxA15_SP"/>
@@ -7610,6 +7730,8 @@
          <xsd:enumeration value="Generic40kW"/>
          <xsd:enumeration value="Generic45kW"/>
          <xsd:enumeration value="Generic5kW"/>
+         <xsd:enumeration value="IceAir_ccHPWH275D_MP"/> 
+         <xsd:enumeration value="IceAir_ccHPWH550D_MP"/>  
          <xsd:enumeration value="LG_APHWC50"/>
          <xsd:enumeration value="LG_APHWC80"/>
          <xsd:enumeration value="NyleC125A_CWP_SP"/>
@@ -7875,6 +7997,12 @@
             <dtyp:displayterm value="SANCO2GS4_SAN43SSAQA">GS4-45HPC &amp; SAN-43SSAQA  (43 gal)</dtyp:displayterm>
             <dtyp:displayterm value="SANCO2GS4_SAN83SSAQA">GS4-45HPC &amp; SAN-83SSAQA  (83 gal)</dtyp:displayterm>
             <dtyp:displayterm value="SANCO2GS4_SAN119GLBK">GS4-45HPC &amp; SAN-119GLBK  (119 gal)</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPC_ECO43SSAQBRDR">GS5-45HPC + ECO-43SSAQB (43 gal) + ECO-RDR</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPC_ECO83SSAQBRDR">GS5-45HPC + ECO-83SSAQB (83 gal) + ECO-RDR</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPC_ECO119GLBBRDR">GS5-45HPC + ECO-119GLBB (119 gal) + ECO-RDR</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPCD_ECO43SSAQBRDR">GS5-45HPC-D + ECO-43SSAQB (43 gal) + ECO-RDR</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPCD_ECO83SSAQBRDR">GS5-45HPC-D + ECO-83SSAQB (83 gal) + ECO-RDR</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPCD_ECO119GLBBRDR">GS5-45HPC-D + ECO-119GLBB (119 gal) + ECO-RDR</dtyp:displayterm>
             <dtyp:displayterm value="SandenGS3_GAUS160QTA">GS3-45HPA-US &amp; GAUS-160QTA  (43 gal)</dtyp:displayterm>
             <dtyp:displayterm value="SandenGS3_GAUS315EQTD">GS3-45HPA-US &amp; GAUS-315EQTD  (83 gal)</dtyp:displayterm>
             <dtyp:displayterm value="SandenGS3_SAN43SSAQA">GS3-45HPA-US &amp; SAN-43SSAQA  (43 gal)</dtyp:displayterm>
@@ -8123,6 +8251,12 @@
          <xsd:enumeration value="SANCO2GS4_SAN43SSAQA"/>
          <xsd:enumeration value="SANCO2GS4_SAN83SSAQA"/>
          <xsd:enumeration value="SANCO2GS4_SAN119GLBK"/>
+	 <xsd:enumeration value="SANCO2GS5_45HPC_ECO43SSAQBRDR"/>
+	 <xsd:enumeration value="SANCO2GS5_45HPC_ECO83SSAQBRDR"/>
+	 <xsd:enumeration value="SANCO2GS5_45HPC_ECO119GLBBRDR"/>
+	 <xsd:enumeration value="SANCO2GS5_45HPCD_ECO43SSAQBRDR"/>
+	 <xsd:enumeration value="SANCO2GS5_45HPCD_ECO83SSAQBRDR"/>
+	 <xsd:enumeration value="SANCO2GS5_45HPCD_ECO119GLBBRDR"/>
          <xsd:enumeration value="SandenGS3_GAUS160QTA"/>
          <xsd:enumeration value="SandenGS3_GAUS315EQTD"/>
          <xsd:enumeration value="SandenGS3_SAN43SSAQA"/>
@@ -8174,6 +8308,9 @@
             <dtyp:displayterm value="BradfordWhiteRE2H50S_Rheem2020Prem50">RE2H50S*-***** (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="BradfordWhiteRE2H65T_Rheem2020Prem65">RE2H65T*-***** (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="BradfordWhiteRE2H80T_Rheem2020Prem80">RE2H80T*-***** (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="BradfordWhiteRE2HP50_1NCTT">RE2HP50**-1NCTT  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="BradfordWhiteRE2HP65_1NCTT">RE2HP65**-1NCTT  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="BradfordWhiteRE2HP80_1NCTT">RE2HP80**-1NCTT  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="DirectEnergyECEPH4015">ECEPH40 T2 RH375-15 (40 gal)</dtyp:displayterm>
             <dtyp:displayterm value="DirectEnergyECEPH4030">ECEPH40 T2 RH375-30 (40 gal)</dtyp:displayterm>
             <dtyp:displayterm value="DirectEnergyECEPH40SO">ECEPH40 T2 RH375-SO (40 gal)</dtyp:displayterm>
@@ -8290,6 +8427,9 @@
          <xsd:enumeration value="BradfordWhiteRE2H50S_Rheem2020Prem50"/>
          <xsd:enumeration value="BradfordWhiteRE2H65T_Rheem2020Prem65"/>
          <xsd:enumeration value="BradfordWhiteRE2H80T_Rheem2020Prem80"/>
+         <xsd:enumeration value="BradfordWhiteRE2HP50_1NCTT"/>
+         <xsd:enumeration value="BradfordWhiteRE2HP65_1NCTT"/>
+         <xsd:enumeration value="BradfordWhiteRE2HP80_1NCTT"/>
          <xsd:enumeration value="DirectEnergyECEPH4015"/>
          <xsd:enumeration value="DirectEnergyECEPH4030"/>
          <xsd:enumeration value="DirectEnergyECEPH40SO"/>
@@ -8747,6 +8887,34 @@
          <xsd:enumeration value="Balanced"/>
          <xsd:enumeration value="BalancedERV"/>
          <xsd:enumeration value="BalancedHRV"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="IceAir_ccHPWH275D_MP">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Simulated Model Group IceAir_ccHPWH275D_MP
+            </dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="IceAir_ccHPWH275">ccHPWH275 (MP 70kW cap @ 40F)</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="IceAir_ccHPWH275"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="IceAir_ccHPWH550D_MP">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Simulated Model Group IceAir_ccHPWH550D_MP
+            </dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="IceAir_ccHPWH550">ccHPWH550 (MP 140kW cap @ 40F)</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="IceAir_ccHPWH550"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ImprovementStatus">
@@ -13579,7 +13747,7 @@
    <xsd:simpleType name="SANCO240SimulationGroup">
       <xsd:annotation>
          <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>Simulated Model Group SANCO2 40
+            <dtyp:displayterm>Simulated Model Group SANCO2 43
 </dtyp:displayterm>
          </xsd:appinfo>
          <xsd:appinfo source="displayterm">
@@ -13590,6 +13758,10 @@
             <dtyp:displayterm value="SANCO2GS3_GAUS160QTA">GS3-45HPA-US &amp; GAUS-160QTA  (43 gal)</dtyp:displayterm>
             <dtyp:displayterm value="SANCO2GS3_SAN43SSAQA">GS3-45HPA-US &amp; SAN-43SSAQA  (43 gal)</dtyp:displayterm>
             <dtyp:displayterm value="SANCO2GS4_SAN43SSAQA">GS3-45HPC &amp; SAN-43SSAQA  (43 gal)</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPC_ECO43SSAQB">GS5-45HPC + ECO-43SSAQB (43 gal)</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPCD_ECO43SSAQB">GS5-45HPC-D + ECO-43SSAQB (43 gal)</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPC_ECO43SSAQBRDR">GS5-45HPC + ECO-43SSAQB (43 gal) + ECO-RDR</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPCD_ECO43SSAQBRDR">GS5-45HPC-D + ECO-43SSAQB (43 gal) + ECO-RDR</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -13600,12 +13772,16 @@
          <xsd:enumeration value="SANCO2GS3_GAUS160QTA"/>
          <xsd:enumeration value="SANCO2GS3_SAN43SSAQA"/>
          <xsd:enumeration value="SANCO2GS4_SAN43SSAQA"/>
+         <xsd:enumeration value="SANCO2GS5_45HPC_ECO43SSAQB"/>
+         <xsd:enumeration value="SANCO2GS5_45HPCD_ECO43SSAQB"/>
+         <xsd:enumeration value="SANCO2GS5_45HPC_ECO43SSAQBRDR"/>
+         <xsd:enumeration value="SANCO2GS5_45HPCD_ECO43SSAQBRDR"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="SANCO280SimulationGroup">
       <xsd:annotation>
          <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>Simulated Model Group SANCO2 80
+            <dtyp:displayterm>Simulated Model Group SANCO2 83
 </dtyp:displayterm>
          </xsd:appinfo>
          <xsd:appinfo source="displayterm">
@@ -13618,6 +13794,10 @@
             <dtyp:displayterm value="SANCO2GUS_GAUS315EQDT">GUS-45HPA-US &amp; GAUS-1315EQDT  (83 gal)</dtyp:displayterm>
             <dtyp:displayterm value="SANCO2GUS_SAN83SSAQA">GUS-45HPA-US &amp; SAN-83SSAQA  (83 gal)</dtyp:displayterm>
             <dtyp:displayterm value="SANCO2GS4_SAN83SSAQA">GS3-45HPC &amp; SAN-83SSAQA  (83 gal)</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPC_ECO83SSAQB">GS5-45HPC + ECO-83SSAQB (83 gal)</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPCD_ECO83SSAQB">GS5-45HPC-D + ECO-83SSAQB (83 gal)</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPC_ECO83SSAQBRDR">GS5-45HPC + ECO-83SSAQB (83 gal) + ECO-RDR</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPCD_ECO83SSAQBRDR">GS5-45HPC-D + ECO-83SSAQB (83 gal) + ECO-RDR</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -13630,12 +13810,16 @@
          <xsd:enumeration value="SANCO2GUS_GAUS315EQDT"/>
          <xsd:enumeration value="SANCO2GUS_SAN83SSAQA"/>
          <xsd:enumeration value="SANCO2GS4_SAN83SSAQA"/>
+         <xsd:enumeration value="SANCO2GS5_45HPC_ECO83SSAQB"/>
+         <xsd:enumeration value="SANCO2GS5_45HPCD_ECO83SSAQB"/>
+         <xsd:enumeration value="SANCO2GS5_45HPC_ECO83SSAQBRDR"/>
+         <xsd:enumeration value="SANCO2GS5_45HPCD_ECO83SSAQBRDR"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="SANCO2120SimulationGroup">
       <xsd:annotation>
          <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>Simulated Model Group SANCO2 40
+            <dtyp:displayterm>Simulated Model Group SANCO2 119
 </dtyp:displayterm>
          </xsd:appinfo>
          <xsd:appinfo source="displayterm">
@@ -13644,6 +13828,11 @@
             <dtyp:displayterm value="HarvestThermal_PD2B10119">PD2B-10-119  (119 gal)</dtyp:displayterm>
             <dtyp:displayterm value="HarvestThermal_PD2Bi119">PD2B-i-119  (119 gal)</dtyp:displayterm>
             <dtyp:displayterm value="SANCO2GS4_SAN119GLBK">GS-45HPC &amp; SAN-119GLBK  (119 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="SANCO2GS4_SAN119GLBK">GS-45HPC &amp; SAN-119GLBK  (119 gal)</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPC_ECO119GLBB">GS5-45HPC + ECO-119GLBB (119 gal)</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPCD_ECO119GLBB">GS5-45HPC-D + ECO-119GLBB (119 gal)</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPC_ECO119GLBBRDR">GS5-45HPC + ECO-119GLBB (119 gal) + ECO-RDR</dtyp:displayterm>
+	    <dtyp:displayterm value="SANCO2GS5_45HPCD_ECO119GLBBRDR">GS5-45HPC-D + ECO-119GLBB (119 gal) + ECO-RDR</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -13652,6 +13841,10 @@
          <xsd:enumeration value="HarvestThermal_PD2B10119"/>
          <xsd:enumeration value="HarvestThermal_PD2Bi119"/>
          <xsd:enumeration value="SANCO2GS4_SAN119GLBK"/>
+         <xsd:enumeration value="SANCO2GS5_45HPC_ECO119GLBB"/>
+         <xsd:enumeration value="SANCO2GS5_45HPCD_ECO119GLBB"/>
+         <xsd:enumeration value="SANCO2GS5_45HPC_ECO119GLBBRDR"/>
+         <xsd:enumeration value="SANCO2GS5_45HPCD_ECO119GLBBRDR"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="Sanden40SimulationGroup">

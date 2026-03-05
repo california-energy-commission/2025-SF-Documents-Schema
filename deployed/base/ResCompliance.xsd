@@ -15414,7 +15414,6 @@ Reference Appendix RA3.5 and  field verification must be conducted by an ECC Rat
         <dtyp:displayterm value="FenestrationGlazingReplacement">Replacing Fenestration/Glazing</dtyp:displayterm>
         <dtyp:displayterm value="FenestrationGlazingSkylightMinimumFt2Addition">Adding Fenestration/Glazing less than or equal to 16 ft2 Skylights</dtyp:displayterm>
         <dtyp:displayterm value="FenestrationGlazingSkylightMinimumFt2Replacement">Replacing Fenestration/Glazing Skylights</dtyp:displayterm>
-        <dtyp:displayterm value="FenestrationGlazingWindowMinimumFt2Addition">Adding Fenestration/Glazing less than or equal to 75 ft2  Windows</dtyp:displayterm>
         <dtyp:displayterm value="FenestrationGlazingWindowMinimumFt2Replacement">Replacing Fenestration/Glazing less than or equal to 75 ft2  Windows</dtyp:displayterm>
         <dtyp:displayterm value="HeatingSystemAlteration">Space heating system</dtyp:displayterm>
         <dtyp:displayterm value="InsulationAlteration">Insulation</dtyp:displayterm>
@@ -15432,7 +15431,6 @@ Reference Appendix RA3.5 and  field verification must be conducted by an ECC Rat
       <xsd:enumeration value="FenestrationGlazingReplacement"/>
       <xsd:enumeration value="FenestrationGlazingSkylightMinimumFt2Addition"/>
       <xsd:enumeration value="FenestrationGlazingSkylightMinimumFt2Replacement"/>
-      <xsd:enumeration value="FenestrationGlazingWindowMinimumFt2Addition"/>
       <xsd:enumeration value="FenestrationGlazingWindowMinimumFt2Replacement"/>
       <xsd:enumeration value="HeatingSystemAlteration"/>
       <xsd:enumeration value="InsulationAlteration"/>

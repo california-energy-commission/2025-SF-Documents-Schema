@@ -169,12 +169,20 @@ NewFactoryCharge display text: New package unit factory charge;</xsd:documentati
                 <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from MCH-25.Possible values include  FieldVerifier display text: ECC Rater;  Installer display text: HVAC system installer</xsd:documentation>
               </xsd:annotation>
             </xsd:element>
-            <xsd:element name="A17_RefrigerantChargeVerificationMessage" type="comp:RefrigerantChargeVerificationMessage">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText">ECC Verification Compliance Requirement Status</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from MCH-25. Possible entries  System does not qualify for Group Sampling;   or  System qualifies for Group Sampling</xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
+            <xsd:choice maxOccurs="1">
+              <xsd:element name="A17_RefrigerantChargeVerificationMessage" type="comp:RefrigerantChargeVerificationMessage">
+                <xsd:annotation>
+                  <xsd:documentation source="FieldText">ECC Verification Compliance Requirement Status</xsd:documentation>
+                  <xsd:documentation source="CalculationsAndRules">auto filled from MCH-25. Possible entries  System does not qualify for Group Sampling; or System qualifies for Group Sampling Or N/A stored in the NotApplicableMessage</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element name="A17_NotApplicableMessage" type="comp:NotApplicableMessage">
+                <xsd:annotation>
+                  <xsd:documentation source="FieldText">ECC Verification Compliance Requirement Status</xsd:documentation>
+                  <xsd:documentation source="CalculationsAndRules">auto filled from MCH-25. Possible entries  System does not qualify for Group Sampling; or System qualifies for Group Sampling Or N/A stored in the NotApplicableMessage</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+            </xsd:choice>
             <xsd:element name="A18_RefrigerantChargeVerificationMethodECC" type="comp:RefrigerantChargeVerificationMethodECC">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Refrigerant Charge Verification Method Used by ECC Rater.</xsd:documentation>

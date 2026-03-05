@@ -692,6 +692,30 @@ If A2hp09_HeatPumpWaterHeaterSimulationGroup ==  BradfordWhiteAeroThermRE2H80 li
 End If</xsd:documentation>
                                                             </xsd:annotation>
                                                          </xsd:element>
+                                                         <xsd:element name="B2hp03_BradfordWhiteAeroThermRE2HP50SimulationGroup" type="hvac:BradfordWhiteAeroThermRE2HP50SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A2hp03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment as follows: 
+If A2hp09_HeatPumpWaterHeaterSimulationGroup ==  BradfordWhiteAeroThermRE2HP50 list = BradfordWhiteAeroThermRE2HP50SimulationGroup values;
+End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B2hp03_BradfordWhiteAeroThermRE2HP65SimulationGroup" type="hvac:BradfordWhiteAeroThermRE2HP65SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A2hp03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment as follows: 
+If A2hp09_HeatPumpWaterHeaterSimulationGroup ==  BradfordWhiteAeroThermRE2HP65 list = BradfordWhiteAeroThermRE2HP65SimulationGroup values;
+End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B2hp03_BradfordWhiteAeroThermRE2HP80SimulationGroup" type="hvac:BradfordWhiteAeroThermRE2HP80SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A2hp03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment as follows: 
+If A2hp09_HeatPumpWaterHeaterSimulationGroup ==  BradfordWhiteAeroThermRE2HP80 list = BradfordWhiteAeroThermRE2HP80SimulationGroup values;
+End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
                                                          <xsd:element name="B2hp03_BWC202065SimulationGroup" type="hvac:BWC202065SimulationGroup" >
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
@@ -1021,7 +1045,7 @@ End If</xsd:documentation>
                                                    <xsd:documentation source="FieldText"></xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">If prescriptive, For parent CF1R-NCB If M03_WaterHeatingSystemOption == OptionSingleHWH (display term "1") And # of bedrooms LTE 1 let user pick from list of HPWH in B2hp03_HeatPumpWaterHeaterModel End If; 
 Else If M03_WaterHeatingSystemOption == OptionSingleHWH (display term "1") And # of bedrooms GT 1 user can select  a heat pump water heater from  the entire list of Tier 3 heat pump water heaters in B2hp03_HeatPumpWaterHeatersTier3NEEA OR from any simulation group of  Tier 3 water heaters End If; 
-Else If M03_WaterHeatingSystemOption == OptionTier3SingleHWH (display term "2") user can select a Tier 3 or higher heat pump water heater from  the entire list of Tier 3 heat pump water heaters in B2hp03_HeatPumpWaterHeatersTier3NEEA OR from any simulation group of  Tier 3 or higher water heaters End If </xsd:documentation>
+Else If M03_WaterHeatingSystemOption == OptionTier3SingleHWH (display term "2") user can select a Tier 3 or higher heat pump water heater from  the entire list of Tier 3 heat pump water heaters in B2hp03_HeatPumpWaterHeatersTier3NEEA or Tier 4 heat pump water heaters in B2hp03_HeatPumpWaterHeatersTier4NEEA,  OR from any simulation group of Tier 3 or higher water heaters End If </xsd:documentation>
                                                 </xsd:annotation>
                                                 <xsd:complexType>
                                                    <xsd:sequence>
@@ -1036,6 +1060,12 @@ Else If M03_WaterHeatingSystemOption == OptionTier3SingleHWH (display term "2") 
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If prescriptive for Tier 3  HPWH user can select  from all Tier 3 heat pump water heaters in this list</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B2hp03_HeatPumpWaterHeatersTier4NEEA" type="hvac:HeatPumpWaterHeatersTier4NEEA" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive for Tier 4  HPWH user can select  from all Tier 3 heat pump water heaters in this list</xsd:documentation>
                                                             </xsd:annotation>
                                                          </xsd:element>
                                                          <xsd:element name="B2hp03_AOSmithHPTS50SimulationGroup" type="hvac:AOSmithHPTS50SimulationGroup" >
@@ -1072,6 +1102,27 @@ Else If M03_WaterHeatingSystemOption == OptionTier3SingleHWH (display term "2") 
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If prescriptive for Tier 3 or higher HPWH user can select  a heat pump water heater from this Tier 3 group:  AOSmithHPTU80SimulationGroup</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B2hp03_BradfordWhiteAeroThermRE2HP50SimulationGroup" type="hvac:BradfordWhiteAeroThermRE2HP50SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 or 4 group: BradfordWhiteAeroThermRE2HP50SimulationGroup values;
+End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B2hp03_BradfordWhiteAeroThermRE2HP65SimulationGroup" type="hvac:BradfordWhiteAeroThermRE2HP65SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 or 4 group: BradfordWhiteAeroThermRE2HP65SimulationGroup values;
+End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B2hp03_BradfordWhiteAeroThermRE2HP80SimulationGroup" type="hvac:BradfordWhiteAeroThermRE2HP80SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 or 4 group: BradfordWhiteAeroThermRE2HP80SimulationGroup values;
+End If</xsd:documentation>
                                                             </xsd:annotation>
                                                          </xsd:element>
                                                          <xsd:element name="B2hp03_Sanden40SimulationGroup" type="hvac:Sanden40SimulationGroup" >
