@@ -2127,6 +2127,90 @@
     <xsd:restriction base="dtyp:ObjectNamePermissive">
       </xsd:restriction>
   </xsd:simpleType>
+  <xsd:simpleType name="ColmacCxA10_MP">
+    <xsd:annotation>
+      <xsd:appinfo source="displaytermType">
+        <dtyp:displayterm>Simulated Model Group Colmac Cx A10_MP
+</dtyp:displayterm>
+      </xsd:appinfo>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="ColmacCxA10MP">Colmac CxA-10 (MP, 21kW cap @ 40F)</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="ColmacCxA10MP"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ColmacCxA15_MP">
+    <xsd:annotation>
+      <xsd:appinfo source="displaytermType">
+        <dtyp:displayterm>Simulated Model Group Colmac Cx A15_MP
+</dtyp:displayterm>
+      </xsd:appinfo>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="ColmacCxA15MP">Colmac CxA-15 (MP, 21kW cap @ 40F)</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="ColmacCxA15MP"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ColmacCxA20_MP">
+    <xsd:annotation>
+      <xsd:appinfo source="displaytermType">
+        <dtyp:displayterm>Simulated Model Group Colmac Cx A20_MP
+</dtyp:displayterm>
+      </xsd:appinfo>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="ColmacCxA20MP">Colmac CxA-20 (MP, 21kW cap @ 40F)</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="ColmacCxA20MP"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ColmacCxA25_MP">
+    <xsd:annotation>
+      <xsd:appinfo source="displaytermType">
+        <dtyp:displayterm>Simulated Model Group Colmac Cx A25_MP
+</dtyp:displayterm>
+      </xsd:appinfo>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="ColmacCxA25MP">Colmac CxA-25 (MP, 21kW cap @ 40F)</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="ColmacCxA25MP"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ColmacCxA30_MP">
+    <xsd:annotation>
+      <xsd:appinfo source="displaytermType">
+        <dtyp:displayterm>Simulated Model Group Colmac Cx A30_MP
+</dtyp:displayterm>
+      </xsd:appinfo>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="ColmacCxA30MP">Colmac CxA-30 (MP, 21kW cap @ 40F)</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="ColmacCxA30MP"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ColmacCxV5_MP">
+    <xsd:annotation>
+      <xsd:appinfo source="displaytermType">
+        <dtyp:displayterm>Simulated Model Group Colmac Cx V5_MP
+</dtyp:displayterm>
+      </xsd:appinfo>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="ColmacCxV5MP">Colmac CxV-5 (MP, 14kW cap @ 40F)</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="ColmacCxV5MP"/>
+    </xsd:restriction>
+  </xsd:simpleType>
   <xsd:simpleType name="CombustionEfficiency">
     <xsd:annotation>
       <xsd:documentation>The measure of how much energy is extracted from the fuel and is the ratio of heat transferred to the combustion air divided by the heat input of the fuel.  Units: none</xsd:documentation>
@@ -5337,6 +5421,12 @@
         <dtyp:displayterm value="ColmacCxA25">Cx A25</dtyp:displayterm>
         <dtyp:displayterm value="ColmacCxA30">Cx A30</dtyp:displayterm>
         <dtyp:displayterm value="ColmacCxV5">CxV-5</dtyp:displayterm>
+        <dtyp:displayterm value="ColmacCxA10MP">Colmac CxA-10 (MP, 21kW cap @ 40F)</dtyp:displayterm>
+        <dtyp:displayterm value="ColmacCxA15MP">Colmac CxA-15 (MP, 29kW cap @ 40F)</dtyp:displayterm>
+        <dtyp:displayterm value="ColmacCxA20MP">Colmac CxA-20 (MP, 41kW cap @ 40F)</dtyp:displayterm>
+        <dtyp:displayterm value="ColmacCxA25MP">Colmac CxA-25 (MP, 50kW cap @ 40F)</dtyp:displayterm>
+        <dtyp:displayterm value="ColmacCxA30MP">Colmac CxA-30 (MP, 58kW cap @ 40F)</dtyp:displayterm>
+        <dtyp:displayterm value="ColmacCxV5MP">Colmac CxV-5 (MP, 14kW cap @ 40F)</dtyp:displayterm>
         <dtyp:displayterm value="DirectEnergyECEH40">ECE H40 T2 RH310BM (40 gal)</dtyp:displayterm>
         <dtyp:displayterm value="DirectEnergyECEH50">ECE H50 T2 RH310BM (50 gal)</dtyp:displayterm>
         <dtyp:displayterm value="DirectEnergyECEH65">ECE H65 T2 RH310BM (65 gal)</dtyp:displayterm>
@@ -5437,11 +5527,23 @@
         <dtyp:displayterm value="LochinvarHPSA080KD2xx">HPSA080KD 2**  (80 gal, JA13)</dtyp:displayterm>
         <dtyp:displayterm value="NyleC125A">C125A</dtyp:displayterm>
         <dtyp:displayterm value="NyleC125A_C">C125A-C</dtyp:displayterm>
+        <dtyp:displayterm value="NyleC125A_CMP">Nyle C125A -C (MP, 26kw cap @ 40F)</dtyp:displayterm>
+        <dtyp:displayterm value="NyleC125AMP">Nyle C125A  (MP, 26kw cap @ 40F)</dtyp:displayterm>
         <dtyp:displayterm value="NyleC185A">C185A</dtyp:displayterm>
         <dtyp:displayterm value="NyleC185A_C">C185A-C</dtyp:displayterm>
+        <dtyp:displayterm value="NyleC185A_CMP">Nyle C185A-C  (MP, 41kw cap @ 40F)</dtyp:displayterm>
+        <dtyp:displayterm value="NyleC185AMP">Nyle C185A  (MP, 41kw cap @ 40F)</dtyp:displayterm>
         <dtyp:displayterm value="NyleC250A">C250A</dtyp:displayterm>
         <dtyp:displayterm value="NyleC250A_C">C250A-C</dtyp:displayterm>
+        <dtyp:displayterm value="NyleC250A_CMP">Nyle C250A-C  (MP, 46kw cap @ 40F)</dtyp:displayterm>
+        <dtyp:displayterm value="NyleC250AMP">Nyle C250A  (MP, 46kw cap @ 40F)</dtyp:displayterm>
         <dtyp:displayterm value="NyleC25A">C25A</dtyp:displayterm>
+        <dtyp:displayterm value="NyleC60A">C60A</dtyp:displayterm>
+        <dtyp:displayterm value="NyleC60A_C">C60A-C</dtyp:displayterm>
+        <dtyp:displayterm value="NyleC60A_CMP">Nyle C60A-C  (MP, 11kw cap @ 40F)</dtyp:displayterm>
+        <dtyp:displayterm value="NyleC60AMP">Nyle C60A  (MP, 11kw cap @ 40F)</dtyp:displayterm>
+        <dtyp:displayterm value="NyleC90A_CMP">Nyle C90A-C  (MP, 20kw cap @ 40F)</dtyp:displayterm>
+        <dtyp:displayterm value="NyleC90AMP">Nyle C90A  (MP, 20kw cap @ 40F)</dtyp:displayterm>
         <dtyp:displayterm value="Reliance10_40_DHPTA2xx">10-40-DHPTA 2**  (40 gal)</dtyp:displayterm>
         <dtyp:displayterm value="Reliance10_50_DHPHTCTA130">10-50-DHPHTCTA 130  (50 gal)</dtyp:displayterm>
         <dtyp:displayterm value="Reliance10_50_DHPTA2xx">10-50-DHPTA 2**  (50 gal)</dtyp:displayterm>
@@ -5533,6 +5635,10 @@
         <dtyp:displayterm value="RheemECEPH80T2RH40030">ECEPH80 T2 RH400-30  (80 gal)</dtyp:displayterm>
         <dtyp:displayterm value="RheemECEPH80T2RH400SO">ECEPH80 T2 RH400-SO  (80 gal)</dtyp:displayterm>
         <dtyp:displayterm value="RheemHB50RH">HB50RH  (50 gal)</dtyp:displayterm>
+        <dtyp:displayterm value="RheemHPHD60HNUMP">HPHD-60HNU (horz MP)</dtyp:displayterm>
+        <dtyp:displayterm value="RheemHPHD60VNUMP">HPHD-60VNU (vertical MP)</dtyp:displayterm>
+        <dtyp:displayterm value="RheemHPHD135HNUMP">HPHD-135HNU (horz MP)</dtyp:displayterm>
+        <dtyp:displayterm value="RheemHPHD135VNUMP">HPHD-135VNU (vertical MP)</dtyp:displayterm>
         <dtyp:displayterm value="RheemHPLD401RH">Rheem HPLD40-1RH</dtyp:displayterm>
         <dtyp:displayterm value="RheemHPLD50">HPLD50  (50 gal)</dtyp:displayterm>
         <dtyp:displayterm value="RheemHPLD501RH">Rheem HPLD50-1RH</dtyp:displayterm>
@@ -5949,11 +6055,17 @@
       <xsd:enumeration value="BradfordWhiteRE2HP65_1NCTT"/>
       <xsd:enumeration value="BradfordWhiteRE2HP80_1NCTT"/>
       <xsd:enumeration value="ColmacCxA10"/>
+      <xsd:enumeration value="ColmacCxA10MP"/>
       <xsd:enumeration value="ColmacCxA15"/>
+      <xsd:enumeration value="ColmacCxA15MP"/>
       <xsd:enumeration value="ColmacCxA20"/>
+      <xsd:enumeration value="ColmacCxA20MP"/>
       <xsd:enumeration value="ColmacCxA25"/>
+      <xsd:enumeration value="ColmacCxA25MP"/>
       <xsd:enumeration value="ColmacCxA30"/>
+      <xsd:enumeration value="ColmacCxA30MP"/>
       <xsd:enumeration value="ColmacCxV5"/>
+      <xsd:enumeration value="ColmacCxV5MP"/>
       <xsd:enumeration value="DirectEnergyECEH40"/>
       <xsd:enumeration value="DirectEnergyECEH50"/>
       <xsd:enumeration value="DirectEnergyECEH65"/>
@@ -6054,11 +6166,25 @@
       <xsd:enumeration value="LochinvarHPSA080KD2xx"/>
       <xsd:enumeration value="NyleC125A"/>
       <xsd:enumeration value="NyleC125A_C"/>
+      <xsd:enumeration value="NyleC125A_CMP"/>
+      <xsd:enumeration value="NyleC125AMP"/>
       <xsd:enumeration value="NyleC185A"/>
       <xsd:enumeration value="NyleC185A_C"/>
+      <xsd:enumeration value="NyleC185A_CMP"/>
+      <xsd:enumeration value="NyleC185AMP"/>
       <xsd:enumeration value="NyleC250A"/>
       <xsd:enumeration value="NyleC250A_C"/>
+      <xsd:enumeration value="NyleC250A_CMP"/>
+      <xsd:enumeration value="NyleC250AMP"/>
       <xsd:enumeration value="NyleC25A"/>
+      <xsd:enumeration value="NyleC60A"/>
+      <xsd:enumeration value="NyleC60A_C"/>
+      <xsd:enumeration value="NyleC60A_CMP"/>
+      <xsd:enumeration value="NyleC60AMP"/>
+      <xsd:enumeration value="NyleC90A"/>
+      <xsd:enumeration value="NyleC90A_C"/>
+      <xsd:enumeration value="NyleC90A_CMP"/>
+      <xsd:enumeration value="NyleC90AMP"/>
       <xsd:enumeration value="Reliance10_40_DHPTA2xx"/>
       <xsd:enumeration value="Reliance10_50_DHPTA2xx"/>
       <xsd:enumeration value="Reliance10_50_DHPHTCTA130"/>
@@ -6150,6 +6276,10 @@
       <xsd:enumeration value="RheemECEPH80T2RH40030"/>
       <xsd:enumeration value="RheemECEPH80T2RH400SO"/>
       <xsd:enumeration value="RheemHB50RH"/>
+      <xsd:enumeration value="RheemHPHD60HNUMP"/>
+      <xsd:enumeration value="RheemHPHD60VNUMP"/>
+      <xsd:enumeration value="RheemHPHD135HNUMP"/>
+      <xsd:enumeration value="RheemHPHD135VNUMP"/>
       <xsd:enumeration value="RheemHPLD401RH"/>
       <xsd:enumeration value="RheemHPLD50"/>
       <xsd:enumeration value="RheemHPLD501RH"/>
@@ -7617,6 +7747,12 @@
         <dtyp:displayterm value="BradfordWhiteAeroThermRE2HP50">Bradford White AeroTherm RE2HP 50 (50 gal)</dtyp:displayterm>
         <dtyp:displayterm value="BradfordWhiteAeroThermRE2HP65">Bradford White AeroTherm RE2HP 65 (65 gal)</dtyp:displayterm>
         <dtyp:displayterm value="BradfordWhiteAeroThermRE2HP80">Bradford White AeroTherm RE2HP 80 (80 gal)</dtyp:displayterm>
+        <dtyp:displayterm value="ColmacCxA10_MP">Colmac Cx A10-MP</dtyp:displayterm>
+        <dtyp:displayterm value="ColmacCxA15_MP">Colmac Cx A15-MP</dtyp:displayterm>
+        <dtyp:displayterm value="ColmacCxA20_MP">Colmac Cx A20-MP</dtyp:displayterm>
+        <dtyp:displayterm value="ColmacCxA25_MP">Colmac Cx A25-MP</dtyp:displayterm>
+        <dtyp:displayterm value="ColmacCxA30_MP">Colmac Cx A30-MP</dtyp:displayterm>
+        <dtyp:displayterm value="ColmacCxV5_MP">Colmac Cx V5-MP</dtyp:displayterm>
         <dtyp:displayterm value="ColmacCxA10_SP">Colmac Cx A10-SP</dtyp:displayterm>
         <dtyp:displayterm value="ColmacCxA15_SP">Colmac Cx A15-SP</dtyp:displayterm>
         <dtyp:displayterm value="ColmacCxA20_SP">Colmac Cx A20-SP</dtyp:displayterm>
@@ -7648,6 +7784,16 @@
         <dtyp:displayterm value="NyleC60A_SP">Nyle C60A-SP</dtyp:displayterm>
         <dtyp:displayterm value="NyleC90A_CWP_SP">Nyle C90A-CWP-SP</dtyp:displayterm>
         <dtyp:displayterm value="NyleC90A_SP">Nyle C90A-SP</dtyp:displayterm>
+        <dtyp:displayterm value="NyleC125A_CWP_MP">Nyle C125A-CWP-MP</dtyp:displayterm>
+        <dtyp:displayterm value="NyleC125A_MP">Nyle C125A-MP</dtyp:displayterm>
+        <dtyp:displayterm value="NyleC185A_CWP_MP">Nyle C185A-CWP-MP</dtyp:displayterm>
+        <dtyp:displayterm value="NyleC185A_MP">Nyle C185A-MP</dtyp:displayterm>
+        <dtyp:displayterm value="NyleC250A_CWP_MP">Nyle C250A-CWP-MP</dtyp:displayterm>
+        <dtyp:displayterm value="NyleC250A_MP">Nyle C250A-MP</dtyp:displayterm>
+        <dtyp:displayterm value="NyleC60A_CWP_MP">Nyle C60A-CWP-MP</dtyp:displayterm>
+        <dtyp:displayterm value="NyleC60A_MP">Nyle C60A-MP</dtyp:displayterm>
+        <dtyp:displayterm value="NyleC90A_CWP_MP">Nyle C90A-CWP-MP</dtyp:displayterm>
+        <dtyp:displayterm value="NyleC90A_MP">Nyle C90A-MP</dtyp:displayterm>
         <dtyp:displayterm value="Rheem2020Build40">Rheem 2020 Build 40</dtyp:displayterm>
         <dtyp:displayterm value="Rheem2020Build50">Rheem 2020 Build 50</dtyp:displayterm>
         <dtyp:displayterm value="Rheem2020Build65">Rheem 2020 Build 65</dtyp:displayterm>
@@ -7663,6 +7809,10 @@
         <dtyp:displayterm value="RheemHBDR4550">Rheem HBDR-45-50</dtyp:displayterm>
         <dtyp:displayterm value="RheemHBDR4565">Rheem HBDR-45-65</dtyp:displayterm>
         <dtyp:displayterm value="RheemHBDR4580">Rheem HBDR-45-80</dtyp:displayterm>
+        <dtyp:displayterm value="RheemHPHD60HNU_MP">Rheem HPHD-60HNU (horiz MP)</dtyp:displayterm>
+        <dtyp:displayterm value="RheemHPHD60VNU_MP">Rheem HPHD-60VNU (vertical MP)</dtyp:displayterm>
+        <dtyp:displayterm value="RheemHPHD135HNU_MP">Rheem HPHD-135HNU (horiz MP)</dtyp:displayterm>
+        <dtyp:displayterm value="RheemHPHD135VNU_MP">Rheem HPHD-135VNU (vertical MP)</dtyp:displayterm>
         <dtyp:displayterm value="RheemPlugInDedicated40">Rheem Dedicated-40</dtyp:displayterm>
         <dtyp:displayterm value="RheemPlugInDedicated50">Rheem Dedicated-50</dtyp:displayterm>
         <dtyp:displayterm value="RheemPlugInShared40">Rheem PlugIn Shared-40</dtyp:displayterm>
@@ -7707,6 +7857,12 @@
       <xsd:enumeration value="BradfordWhiteAeroThermRE2HP65"/>
       <xsd:enumeration value="BradfordWhiteAeroThermRE2HP80"/>
       <xsd:enumeration value="BWC202065"/>
+      <xsd:enumeration value="ColmacCxA10_MP"/>
+      <xsd:enumeration value="ColmacCxA15_MP"/>
+      <xsd:enumeration value="ColmacCxA20_MP"/>
+      <xsd:enumeration value="ColmacCxA25_MP"/>
+      <xsd:enumeration value="ColmacCxA30_MP"/>
+      <xsd:enumeration value="ColmacCxV5_MP"/>
       <xsd:enumeration value="ColmacCxA10_SP"/>
       <xsd:enumeration value="ColmacCxA15_SP"/>
       <xsd:enumeration value="ColmacCxA20_SP"/>
@@ -7737,6 +7893,16 @@
       <xsd:enumeration value="NyleC60A_SP"/>
       <xsd:enumeration value="NyleC90A_CWP_SP"/>
       <xsd:enumeration value="NyleC90A_SP"/>
+      <xsd:enumeration value="NyleC125A_CWP_MP"/>
+      <xsd:enumeration value="NyleC125A_MP"/>
+      <xsd:enumeration value="NyleC185A_CWP_MP"/>
+      <xsd:enumeration value="NyleC185A_MP"/>
+      <xsd:enumeration value="NyleC250A_CWP_MP"/>
+      <xsd:enumeration value="NyleC250A_MP"/>
+      <xsd:enumeration value="NyleC60A_CWP_MP"/>
+      <xsd:enumeration value="NyleC60A_MP"/>
+      <xsd:enumeration value="NyleC90A_CWP_MP"/>
+      <xsd:enumeration value="NyleC90A_MP"/>
       <xsd:enumeration value="Rheem2020Build40"/>
       <xsd:enumeration value="Rheem2020Build50"/>
       <xsd:enumeration value="Rheem2020Build65"/>
@@ -7752,6 +7918,10 @@
       <xsd:enumeration value="RheemHBDR4550"/>
       <xsd:enumeration value="RheemHBDR4565"/>
       <xsd:enumeration value="RheemHBDR4580"/>
+      <xsd:enumeration value="RheemHPHD60HNU_MP"/>
+      <xsd:enumeration value="RheemHPHD60VNU_MP"/>
+      <xsd:enumeration value="RheemHPHD135HNU_MP"/>
+      <xsd:enumeration value="RheemHPHD135VNU_MP"/>
       <xsd:enumeration value="RheemPlugInDedicated40"/>
       <xsd:enumeration value="RheemPlugInDedicated50"/>
       <xsd:enumeration value="RheemPlugInShared40"/>
@@ -11217,6 +11387,146 @@
       <xsd:enumeration value="StateSHPA90"/>
     </xsd:restriction>
   </xsd:simpleType>
+  <xsd:simpleType name="NyleC60A_CWP_MP">
+    <xsd:annotation>
+      <xsd:appinfo source="CBECCresXML">
+        <dtyp:CBECCresXMLterm>hvac</dtyp:CBECCresXMLterm>
+        <dtyp:termConditions>{{CONDITIONS}}</dtyp:termConditions>
+      </xsd:appinfo>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="NyleC60A_CMP">Nyle C60A-C  (MP, 11kw cap @ 40F)</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="NyleC60A_CMP"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="NyleC60A_MP">
+    <xsd:annotation>
+      <xsd:appinfo source="CBECCresXML">
+        <dtyp:CBECCresXMLterm>hvac</dtyp:CBECCresXMLterm>
+        <dtyp:termConditions>{{CONDITIONS}}</dtyp:termConditions>
+      </xsd:appinfo>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="NyleC60AMP">Nyle C60A  (MP, 11kw cap @ 40F)</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="NyleC60AMP"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="NyleC90A_CWP_MP">
+    <xsd:annotation>
+      <xsd:appinfo source="CBECCresXML">
+        <dtyp:CBECCresXMLterm>hvac</dtyp:CBECCresXMLterm>
+        <dtyp:termConditions>{{CONDITIONS}}</dtyp:termConditions>
+      </xsd:appinfo>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="NyleC90A_CMP">Nyle C90A-C  (MP, 11kw cap @ 40F)</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="NyleC90A_CMP"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="NyleC90A_MP">
+    <xsd:annotation>
+      <xsd:appinfo source="CBECCresXML">
+        <dtyp:CBECCresXMLterm>hvac</dtyp:CBECCresXMLterm>
+        <dtyp:termConditions>{{CONDITIONS}}</dtyp:termConditions>
+      </xsd:appinfo>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="NyleC90AMP">Nyle C90A  (MP, 11kw cap @ 40F)</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="NyleC90AMP"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="NyleC125A_CWP_MP">
+    <xsd:annotation>
+      <xsd:appinfo source="CBECCresXML">
+        <dtyp:CBECCresXMLterm>hvac</dtyp:CBECCresXMLterm>
+        <dtyp:termConditions>{{CONDITIONS}}</dtyp:termConditions>
+      </xsd:appinfo>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="NyleC125A_CMP">Nyle C125A-C  (MP, 11kw cap @ 40F)</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="NyleC125A_CMP"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="NyleC125A_MP">
+    <xsd:annotation>
+      <xsd:appinfo source="CBECCresXML">
+        <dtyp:CBECCresXMLterm>hvac</dtyp:CBECCresXMLterm>
+        <dtyp:termConditions>{{CONDITIONS}}</dtyp:termConditions>
+      </xsd:appinfo>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="NyleC125AMP">Nyle C125A  (MP, 11kw cap @ 40F)</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="NyleC125AMP"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="NyleC185A_CWP_MP">
+    <xsd:annotation>
+      <xsd:appinfo source="CBECCresXML">
+        <dtyp:CBECCresXMLterm>hvac</dtyp:CBECCresXMLterm>
+        <dtyp:termConditions>{{CONDITIONS}}</dtyp:termConditions>
+      </xsd:appinfo>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="NyleC185A_CMP">Nyle C185A-C  (MP, 11kw cap @ 40F)</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="NyleC185A_CMP"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="NyleC185A_MP">
+    <xsd:annotation>
+      <xsd:appinfo source="CBECCresXML">
+        <dtyp:CBECCresXMLterm>hvac</dtyp:CBECCresXMLterm>
+        <dtyp:termConditions>{{CONDITIONS}}</dtyp:termConditions>
+      </xsd:appinfo>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="NyleC185AMP">Nyle C185A  (MP, 11kw cap @ 40F)</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="NyleC185AMP"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="NyleC250A_CWP_MP">
+    <xsd:annotation>
+      <xsd:appinfo source="CBECCresXML">
+        <dtyp:CBECCresXMLterm>hvac</dtyp:CBECCresXMLterm>
+        <dtyp:termConditions>{{CONDITIONS}}</dtyp:termConditions>
+      </xsd:appinfo>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="NyleC250A_CMP">Nyle C250A-C  (MP, 11kw cap @ 40F)</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="NyleC250A_CMP"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="NyleC250A_MP">
+    <xsd:annotation>
+      <xsd:appinfo source="CBECCresXML">
+        <dtyp:CBECCresXMLterm>hvac</dtyp:CBECCresXMLterm>
+        <dtyp:termConditions>{{CONDITIONS}}</dtyp:termConditions>
+      </xsd:appinfo>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="NyleC250AMP">Nyle C250A  (MP, 11kw cap @ 40F)</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="NyleC250AMP"/>
+    </xsd:restriction>
+  </xsd:simpleType>
   <xsd:simpleType name="OperableWindowsHaveInterlock">
     <xsd:annotation>
       <xsd:appinfo source="displayterm">
@@ -13555,6 +13865,62 @@
       <xsd:enumeration value="Richmond10E80HP4D"/>
       <xsd:enumeration value="RuudPROUH80RU350D"/>
       <xsd:enumeration value="RuudPROUH80RU350DCB"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RheemHPHD60HNU_MP">
+    <xsd:annotation>
+      <xsd:appinfo source="displaytermType">
+        <dtyp:displayterm>Simulated Model Group Rheem HPHD-60 horizontal MP
+            </dtyp:displayterm>
+      </xsd:appinfo>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="RheemHPHD60HNUMP">HPHD-60HNU (horz MP)</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="RheemHPHD60HNUMP"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RheemHPHD60VNU_MP">
+    <xsd:annotation>
+      <xsd:appinfo source="displaytermType">
+        <dtyp:displayterm>Simulated Model Group Rheem HPHD-60 vertical MP
+            </dtyp:displayterm>
+      </xsd:appinfo>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="RheemHPHD60VNUMP">HPHD-60VNU (vertical MP)</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="RheemHPHD60VNUMP"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RheemHPHD135HNU_MP">
+    <xsd:annotation>
+      <xsd:appinfo source="displaytermType">
+        <dtyp:displayterm>Simulated Model Group Rheem HPHD-135 horizontal MP
+            </dtyp:displayterm>
+      </xsd:appinfo>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="RheemHPHD135HNUMP">HPHD-135HNU (horz MP)</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="RheemHPHD135HNUMP"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RheemHPHD135VNU_MP">
+    <xsd:annotation>
+      <xsd:appinfo source="displaytermType">
+        <dtyp:displayterm>Simulated Model Group Rheem HPHD-135 vertical MP
+            </dtyp:displayterm>
+      </xsd:appinfo>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="RheemHPHD135VNUMP">HPHD-135VNU (vertical MP)</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="RheemHPHD135VNUMP"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="RheemPlugInShared40SimulationGroup">

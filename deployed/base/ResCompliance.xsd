@@ -4819,7 +4819,6 @@
   <xsd:simpleType name="CoolRoofException">
     <xsd:annotation>
       <xsd:appinfo source="displayterm">
-        <dtyp:displayterm value="AirSpaceOneInch">Air space of 1.0 inch (25 mm) is provided between the top of the roof deck to the bottom of the roofing product</dtyp:displayterm>
         <dtyp:displayterm value="DuctSection150_1c9Requirements">Existing ducts in the attic are insulated and sealed according to Section 150.1(c)9</dtyp:displayterm>
         <dtyp:displayterm value="MassRoof25Lbs">Mass roof 25 lbs/ft2 or greater</dtyp:displayterm>
         <dtyp:displayterm value="NoDuctsInAttic">Buildings that have no ducts in the attic</dtyp:displayterm>
@@ -4828,12 +4827,10 @@
         <dtyp:displayterm value="RadiantBarrier">Buildings with a radiant barrier in the attic meeting the requirements of Section 150.1(c)2</dtyp:displayterm>
         <dtyp:displayterm value="RoofDeckInsulationAbove">R-2 or greater insulation above the roof deck</dtyp:displayterm>
         <dtyp:displayterm value="RoofDeckInsulationLowSlope">Roof deck insulation</dtyp:displayterm>
-        <dtyp:displayterm value="RoofingProductException">The installed roofing product has a profile ratio of rise to width of 1 to 5 for 50 percent or greater of the width of the roofing product</dtyp:displayterm>
         <dtyp:displayterm value="SolarOnRoof">Roof area with PV panels or solar thermal panels</dtyp:displayterm>
       </xsd:appinfo>
     </xsd:annotation>
     <xsd:restriction base="dtyp:EnumerationConstant">
-      <xsd:enumeration value="AirSpaceOneInch"/>
       <xsd:enumeration value="DuctSection150_1c9Requirements"/>
       <xsd:enumeration value="MassRoof25Lbs"/>
       <xsd:enumeration value="NoDuctsInAttic"/>
@@ -4842,7 +4839,6 @@
       <xsd:enumeration value="RadiantBarrier"/>
       <xsd:enumeration value="RoofDeckInsulationAbove"/>
       <xsd:enumeration value="RoofDeckInsulationLowSlope"/>
-      <xsd:enumeration value="RoofingProductException"/>
       <xsd:enumeration value="SolarOnRoof"/>
     </xsd:restriction>
   </xsd:simpleType>
@@ -11896,6 +11892,18 @@ Reference Appendix RA3.5 and  field verification must be conducted by an ECC Rat
     </xsd:annotation>
     <xsd:restriction base="xsd:boolean"/>
   </xsd:simpleType>
+  <xsd:simpleType name="JADURanges">
+    <xsd:annotation>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="AdditionLTE400JADU">JADU Addition <d:lte/> 400 ft<d:sup>2</d:sup></dtyp:displayterm>
+        <dtyp:displayterm value="AdditionGT400LTE500JADU">JADU Addition <d:gt/> 400 ft<d:sup>2</d:sup> to <d:lte/> 500 ft<d:sup>2</d:sup></dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="AdditionLTE400JADU"/>
+      <xsd:enumeration value="AdditionGT400LTE500JADU"/>
+    </xsd:restriction>
+  </xsd:simpleType>
   <xsd:simpleType name="JAName">
     <xsd:annotation>
       <xsd:documentation>The reference in the Joint Appendices for an applied rule, usually a lookup value from a table.</xsd:documentation>
@@ -17289,30 +17297,6 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
   <xsd:simpleType name="RoofProductModel">
     <xsd:restriction base="xsd:token">
       </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="RoofReplacementGT50PercentExceptions">
-    <xsd:annotation>
-      <xsd:appinfo source="displayterm">
-        <dtyp:displayterm value="AirSpaceOneInch">Air space of 1.0 inch (25 mm) is provided between the top of the roof deck to the bottom of the roofing product</dtyp:displayterm>
-        <dtyp:displayterm value="DuctSection150_1c9Requirements">Existing ducts in the attic are insulated and sealed according to Section 150.1(c)9</dtyp:displayterm>
-        <dtyp:displayterm value="NoDuctsInAttic">Buildings that have no ducts in the attic</dtyp:displayterm>
-        <dtyp:displayterm value="NoRoofExceptions">No Exceptions</dtyp:displayterm>
-        <dtyp:displayterm value="R38Insulation">Buildings with at least R-38 ceiling insulation</dtyp:displayterm>
-        <dtyp:displayterm value="RadiantBarrier">Buildings with a radiant barrier in the attic meeting the requirements of Section 150.1(c)2</dtyp:displayterm>
-        <dtyp:displayterm value="RoofDeckInsulationAbove">R-2 or greater insulation above the roof deck</dtyp:displayterm>
-        <dtyp:displayterm value="RoofingProductException">The installed roofing product has a profile ratio of rise to width of 1 to 5 for 50 percent or greater of the width of the roofing product</dtyp:displayterm>
-      </xsd:appinfo>
-    </xsd:annotation>
-    <xsd:restriction base="dtyp:EnumerationConstant">
-      <xsd:enumeration value="AirSpaceOneInch"/>
-      <xsd:enumeration value="DuctSection150_1c9Requirements"/>
-      <xsd:enumeration value="NoDuctsInAttic"/>
-      <xsd:enumeration value="NoRoofExceptions"/>
-      <xsd:enumeration value="R38Insulation"/>
-      <xsd:enumeration value="RadiantBarrier"/>
-      <xsd:enumeration value="RoofDeckInsulationAbove"/>
-      <xsd:enumeration value="RoofingProductException"/>
-    </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="RoofTooSmallSRA">
     <xsd:annotation>

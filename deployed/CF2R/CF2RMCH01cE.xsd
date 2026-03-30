@@ -1942,7 +1942,7 @@ Display Yes and No to represent Boolean result values true and false.</xsd:docum
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">MCH25  <d:line4/>Refrigerant Charge</xsd:documentation>
                             <xsd:documentation source="CalculationsAndRules">Calculated field:  If C04_ResidentialHeatingSystemType And C05_ResidentialCoolingSystemType  ==  NonAirSourceHP Or NonAirCooledAC result = false; 
-Else If C04_ResidentialHeatingSystemType Or C05_ResidentialCoolingSystemType == CentralLargePackagedHP, CentralPackagedHP, CentralSplitHP, DuctedDuctlessMultiSplitHP, DuctedMiniSplitHP, DuctedMultiSplitHP, HeatPumpDHWCombo, 
+Else If C04_ResidentialHeatingSystemType Or C05_ResidentialCoolingSystemType == CentralLargePackagedHP, CentralPackagedHP, CentralSplitHP, DuctlessVRF_HP, DuctlessSplitHP, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctedMiniSplitHP, DuctedMultiSplitHP, HeatPumpDHWCombo, 
 HydronicHP, HydronicHP_ForcedAir, PTHP, RoomHP, SmallDuctHighVelocityHP, VCHP, VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctedAndDuctless, VCHP_IndoorUnitDuctless or VCHP2  result = true;
 Else If A02_ClimateZone == 2, 8, 9, 10, 11, 12, 13, 14, 15 then result = true; Else result = false.  Display Yes and No to represent Boolean result values true and false.</xsd:documentation>
                           </xsd:annotation>

@@ -100,7 +100,8 @@
                   <xsd:element name="A07_DuctSystemLeakageComplianceCategory" type="comp:DuctSystemLeakageComplianceCategory" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Duct System Compliance Category</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Data from MCH-20</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If CF2R-MCH-20 A07 == New result = New; Else If CF2R-MCH-20 A07 == AlterationUsingSmokeTest result = AlterationUsingSmokeTest; Else If CF2R-MCH-20 A07 == ReplacementUsingSmokeTest result = ReplacementUsingSmokeTest; 
+Else If CF2R-MCH-20 A07 value == Alteration result = Alteration Unless target leakage cannot be met due to the equipment not being new or inaccessible leaks, then user may select AlterationUsingSmokeTest; Else If CF2R-MCH-20 A07 == Replacement Then result = Replacement Unless target leakage cannot be met due to the equipment not being new, and then user may select ReplacementUsingSmokeTest;</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A08_AreDuctsInGarage" type="comp:AreDuctsInGarage" >
@@ -776,7 +777,8 @@ End If</xsd:documentation>
                   <xsd:element name="Bsmt13_CompliantSection" type="comp:CompliantSection"  minOccurs="1">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Notes:</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If the CF2RMCH20 Bsmt02/03/04/05 == CF3RMCH20 Bsmt 02/03/04/05 result = true with no display term  
+                        <xsd:documentation source="CalculationsAndRules">If the CF2RMCH20 A07 == ReplacementUsingSmokeTest Or AlterationUsingSmokeTest Then If CF2RMCH20 Bsmt02/03/04/05 == CF3RMCH20 Bsmt02/03/04/05 result = true with no display term  
+Else result = false display term The installed cooling capacity, heating capacity or CFA served does not match the Installation Certificate  Else If CF2RMCH20 A07 == Replacement Or Alteration Then If CF2RMCH20 Balt02/03/04/05 == CF3RMCH20 Bsmt02/03/04/05 result = true with no display term  
 Else result = false display term The installed cooling capacity, heating capacity or CFA served does not match the Installation Certificate</xsd:documentation>
 			<xsd:appinfo source="displayterm">
 				<dtyp:displayterm value="true"></dtyp:displayterm>

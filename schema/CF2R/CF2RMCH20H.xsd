@@ -120,7 +120,8 @@ If result == true, display text Section B3 Duct Leakage Diagnostic Test for Low 
                   <xsd:element name="A07_DuctSystemLeakageComplianceCategory" type="comp:DuctSystemLeakageComplianceCategory" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Duct System Compliance Category</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If parent  MCH-01is MCH-01b and its B08 or B09 == true, user selects from list: New display term New, Replacement display term Replacement, Else user selects from list:  Alteration display term Alteration, AlterationUsingSmokeTest display term Alteration using smoke test, New display term New, Replacement display term Replacement, ReplacementUsingSmokeTest display term Replacement using smoke test</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">For MCH-01b parent If B09 Entirely new SC == true, result = New (no user choice); Else If B09 == false Then If its B08 Entirely new Duct System == true result = Replacement (no user choice); 
+Else (B08 == false and B09 == false) user selects from Alteration, Alteration using smoke test or Replacement using smoke test</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A08_AreDuctsInGarage" type="comp:AreDuctsInGarage" >
