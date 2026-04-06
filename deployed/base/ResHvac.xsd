@@ -6399,6 +6399,9 @@
       <xsd:enumeration value="Richmond10E40HP515"/>
       <xsd:enumeration value="Richmond10E40HP530"/>
       <xsd:enumeration value="Richmond10E40HP5S30"/>
+      <xsd:enumeration value="Richmond10E40HP5U15"/>
+      <xsd:enumeration value="Richmond10E40HP5U30"/>
+      <xsd:enumeration value="Richmond10E40HP5US30"/>
       <xsd:enumeration value="Richmond10E50HP120"/>
       <xsd:enumeration value="Richmond10E50HP120M"/>
       <xsd:enumeration value="Richmond10E50HP120MS"/>
@@ -7538,6 +7541,9 @@
       <xsd:enumeration value="Richmond10E40HP515"/>
       <xsd:enumeration value="Richmond10E40HP530"/>
       <xsd:enumeration value="Richmond10E40HP5S30"/>
+      <xsd:enumeration value="Richmond10E40HP5U15"/>
+      <xsd:enumeration value="Richmond10E40HP5U30"/>
+      <xsd:enumeration value="Richmond10E40HP5US30"/>
       <xsd:enumeration value="Richmond10E50HP120"/>
       <xsd:enumeration value="Richmond10E50HP120M"/>
       <xsd:enumeration value="Richmond10E50HP120MS"/>

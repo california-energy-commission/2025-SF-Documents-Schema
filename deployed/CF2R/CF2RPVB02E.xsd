@@ -162,8 +162,9 @@
               <xsd:annotation>
                 <xsd:documentation source="FieldText"/>
                 <xsd:documentation source="AdditionalRequirements">
-                  <d:b>The responsible builder/installer certifies that the battery energy storage system installer has installed the 2025 JA12 compliant battery energy storage system. The list of JA12 compliant battery energy storage systems are available at:
-<d:line1/> https://solarequipment.energy.ca.gov/Home/EnergyStorage for Integrated BESS  and <d:line1/>https://solarequipment.energy.ca.gov/Home/BatteryList for Field-Assembled BESS </d:b>
+                  <d:b>The responsible builder/installer certifies that the battery energy storage system installer has installed the 2025 JA12 compliant battery energy storage system. 
+In addition, each installer is required to complete all procedures and steps necessary to program the 72-hour automatic reset in strict accordance with the procedures set forth in the manufacturer's approved documentation. 
+The list of JA12 compliant battery energy storage systems are available at: <d:line1/> https://solarequipment.energy.ca.gov/Home/EnergyStorage for Integrated BESS  and <d:line1/>https://solarequipment.energy.ca.gov/Home/BatteryList for Field-Assembled BESS </d:b>
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
