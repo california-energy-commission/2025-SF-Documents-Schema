@@ -406,7 +406,7 @@ End if</xsd:documentation>
                   <xsd:element name="C02_AirLeakageRateMeasuredCFM50" type="comp:AirLeakageRateMeasuredCFM50" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Enclosure Leakage Rate (Q[d:sub]50[/d:sub])</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: If B04_ACH50_Method == DefaultACH50  result = PRODUCT (B02_BuildingTotalConditionedVolume, 2) /60 (CFM); Else If B04_ACH50_Method == MeasuredACH50, If CF3RMch24 D03_ACH50Adjusted GT 2.0, result = PRODUCT (B02_BuildingTotalConditionedVolume, 2) / 60 (CFM); Else If CF3RMch24 D03_ACH50Adjusted LTE 2.0, result = PRODUCT (B02_BuildingTotalConditionedVolume, Mch24 D03_ACH50Adjusted) /60 (CFM);</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If B04_ACH50_Method == DefaultACH50  result = PRODUCT (B02_BuildingTotalConditionedVolume, 2) /60 (CFM); Else If B04_ACH50_Method == MeasuredACH50, If CF3RMch24 D03_ACH50Adjusted GT 2.0, result = PRODUCT (B02_BuildingTotalConditionedVolume, 2) / 60 (CFM); Else If CF3RMch24 F01_AirLeakageRateMeasuredACH50 LTE 2.0, result = PRODUCT (B02_BuildingTotalConditionedVolume, Mch24 F01_AirLeakageRateMeasuredACH50) /60 (CFM);</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="C03_IAQ_InfiltrationVentilation" type="hvac:IAQ_InfiltrationVentilation" >
