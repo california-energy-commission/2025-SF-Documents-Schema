@@ -62,10 +62,10 @@
                   <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                     <xsd:complexType>
                       <xsd:sequence>
-                        <xsd:element name="A01_ResidentialDwellingUnitName" type="com:ResidentialDwellingUnitName">
+                        <xsd:element name="A01_ResidentialDwellingUnitName" type="com:ResidentialDwellingUnitName" fixed="Single Family">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Dwelling Unit Name</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">Reference value from CF1R; If single family, enter string: Single Family</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">Fixed value of "Single Family"</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
                         <xsd:element name="A02_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
@@ -216,10 +216,10 @@ End If</xsd:documentation>
                   <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                     <xsd:complexType>
                       <xsd:sequence>
-                        <xsd:element name="Hpd01_ResidentialDwellingUnitName" type="com:ResidentialDwellingUnitName">
+                        <xsd:element name="Hpd01_ResidentialDwellingUnitName" type="com:ResidentialDwellingUnitName" fixed="Single Family">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Dwelling Unit Name</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">Reference value from CF1R; If single family, enter string: Single Family</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">Fixed value of "Single Family"</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
                         <xsd:element name="Hpd02_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
@@ -228,12 +228,20 @@ End If</xsd:documentation>
                             <xsd:documentation source="CalculationsAndRules">Reference values from parent CC.</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
-                        <xsd:element name="Hpd03_HeatPumpWaterHeaterModel" type="hvac:HeatPumpWaterHeaterModel">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText">Modeled Equipment Make and Model</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If  prescriptive parent CC result = Tier3NEEA; Else reference value from performance parent CC</xsd:documentation>
-                          </xsd:annotation>
-                        </xsd:element>
+                        <xsd:choice>
+                          <xsd:element name="Hpd03_HeatPumpWaterHeaterModel" type="hvac:HeatPumpWaterHeaterModel">
+                            <xsd:annotation>
+                              <xsd:documentation source="FieldText">Modeled Equipment Make and Model</xsd:documentation>
+                              <xsd:documentation source="CalculationsAndRules">If parent CC == prescriptive result = Tier3NEEA; Else use this choice to store HPWH model value from performance parent CC</xsd:documentation>
+                            </xsd:annotation>
+                          </xsd:element>
+                          <xsd:element name="Hpd03_ResidentialWaterHeaterType" type="hvac:ResidentialWaterHeaterType" fixed="StandardDesignHP50">
+                            <xsd:annotation>
+                              <xsd:documentation source="FieldText">Modeled Equipment Make and Model</xsd:documentation>
+                              <xsd:documentation source="CalculationsAndRules">Use this choice for non-NEEA HPWH StandardDesignHP50 from performance parent CC</xsd:documentation>
+                            </xsd:annotation>
+                          </xsd:element>
+                        </xsd:choice>
                         <xsd:element name="Hpd04_WaterHeaterTotalSystemCount" type="hvac:WaterHeaterTotalSystemCount">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText"># of Like (or Identical) Water Heaters in System</xsd:documentation>

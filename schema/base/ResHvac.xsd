@@ -13008,6 +13008,8 @@
             <dtyp:displayterm value="InstantaneousSmall">Small Instantaneous</dtyp:displayterm>
             <dtyp:displayterm value="NEEA_Tier3HP">NEEA Tier 3 heat pump water heater</dtyp:displayterm>
             <dtyp:displayterm value="SolarElectBackup">Solar water heating system with backup electric</dtyp:displayterm>
+
+            <dtyp:displayterm value="StandardDesignHP50">Standard Design HP 50</dtyp:displayterm>
             <dtyp:displayterm value="StorageCommercial">Commercial Storage</dtyp:displayterm>
             <dtyp:displayterm value="StorageConsumer">Consumer Storage</dtyp:displayterm>
             <dtyp:displayterm value="StorageLarge">Large Storage</dtyp:displayterm>
@@ -13028,6 +13030,7 @@
          <xsd:enumeration value="InstantaneousSmall"/>
          <xsd:enumeration value="NEEA_Tier3HP"/>
          <xsd:enumeration value="SolarElectBackup"/>
+         <xsd:enumeration value="StandardDesignHP50"/>
          <xsd:enumeration value="StorageCommercial"/>
          <xsd:enumeration value="StorageConsumer"/>
          <xsd:enumeration value="StorageLarge"/>
