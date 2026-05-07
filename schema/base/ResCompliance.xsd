@@ -477,6 +477,20 @@
          <xsd:enumeration value="NoRequiredType"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="AirLeakageRateCompliance">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="ManometerFail">Manometer Calibration is expired. A manometer with current calibration is required in order to comply</dtyp:displayterm>
+            <dtyp:displayterm value="AirLeakRatePass">Passes Enclosure Air Leakage Test</dtyp:displayterm>
+            <dtyp:displayterm value="AirLeakRateFail">Fails Enclosure Air Leakage Test</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="ManometerFail"/>
+         <xsd:enumeration value="AirLeakRatePass"/>
+         <xsd:enumeration value="AirLeakRateFail"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="AirLeakageRateMeasuredACH50">
       <xsd:annotation>
          <xsd:documentation>  Units: ACH</xsd:documentation>

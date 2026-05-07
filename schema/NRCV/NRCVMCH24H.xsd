@@ -81,8 +81,8 @@
                   </xsd:element>
                   <xsd:element name="A03_CompartmentilizationLeakageVerificationRequiredHERS" type="comp:CompartmentilizationLeakageVerificationRequiredHERS" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Is ECC verification of dwelling compartmentalization leakage [d:lte/] 0.3 CFM[d:sub]50[/d:sub]/ft[d:sup]2[/d:sup] of enclosure area required by NRCV-MCH-27?</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: If project MCH27 requires HERS verification of compartmentalization leakage, result = true display term Required Else result = false display term N/A</xsd:documentation>
+                        <xsd:documentation source="FieldText">ECC verification of dwelling compartmentalization leakage [d:lte/] 0.3 CFM[d:sub]50[/d:sub]/ft[d:sup]2[/d:sup] of enclosure area</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: Result = true display term Required</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A04_TestTemperatureIndoor" type="comp:TestTemperatureIndoor" >
@@ -109,90 +109,42 @@
                         <xsd:documentation source="CalculationsAndRules">User input integer xxxxx</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:choice maxOccurs="1">
                      <xsd:element name="A08_FloorArea" type="com:FloorArea" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Total dwelling unit floor area (ft[d:sup]2[/d:sup])</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A03_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else   user input numeric xxxxx.x</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input numeric xxxxx.x</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
-                     <xsd:element name="A08_NotApplicableMessage" type="comp:NotApplicableMessage" >
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Total dwelling unit floor area (ft[d:sup]2[/d:sup])</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A03_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else   user input numeric xxxxx.x</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:choice maxOccurs="1">
                      <xsd:element name="A09_CeilingArea" type="env:CeilingArea" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Total dwelling unit ceiling area (ft[d:sup]2[/d:sup])</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A03_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else   user input numeric xxxxx.x</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input numeric xxxxx.x</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
-                     <xsd:element name="A09_NotApplicableMessage" type="comp:NotApplicableMessage" >
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Total dwelling unit ceiling area (ft[d:sup]2[/d:sup])</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A03_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else   user input numeric xxxxx.x</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:choice maxOccurs="1">
                      <xsd:element name="A10_ExteriorWallArea" type="env:ExteriorWallArea" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Total dwelling unit exterior wall  area (ft[d:sup]2[/d:sup])</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A03_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else   user input numeric xxxxx.x</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input numeric xxxxx.x</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
-                     <xsd:element name="A10_NotApplicableMessage" type="comp:NotApplicableMessage" >
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Total dwelling unit exterior wall area (ft[d:sup]2[/d:sup])</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A03_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else   user input numeric xxxxx.x</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:choice maxOccurs="1">
                      <xsd:element name="A11_DwellingUnitsSharedWallArea" type="com:DwellingUnitsSharedWallArea" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Total dwelling unit wall area shared with other dwelling units (ft[d:sup]2[/d:sup])</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A03_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else   user input numeric xxxxx.x</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input numeric xxxxx.x</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
-                     <xsd:element name="A11_NotApplicableMessage" type="comp:NotApplicableMessage" >
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Total dwelling unit wall area shared with other dwelling units (ft[d:sup]2[/d:sup])</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A03_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else   user input numeric xxxxx.x</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:choice maxOccurs="1">
                      <xsd:element name="A12_DwellingUnitEnclosureArea" type="com:DwellingUnitEnclosureArea" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Total dwelling unit enclosure area (ft[d:sup]2[/d:sup])</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A03_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage result = SUM (A06_FloorArea, A07_CeilingArea, A08_ExteriorWallArea, A09_DwellingUnitsSharedWallArea ).</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: Result = SUM (A08_FloorArea, A09_CeilingArea, A10_ExteriorWallArea, A11_DwellingUnitsSharedWallArea ).</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
-                     <xsd:element name="A12_NotApplicableMessage" type="comp:NotApplicableMessage" >
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Total dwelling unit enclosure area (ft[d:sup]2[/d:sup])</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A03_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else result = SUM (A06_FloorArea, A07_CeilingArea, A08_ExteriorWallArea, A09_DwellingUnitsSharedWallArea ).</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:choice maxOccurs="1">
                      <xsd:element name="A13_CompartmentalizationLeakageTargetCFM50" type="comp:CompartmentalizationLeakageTargetCFM50" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Target dwelling unit compartmentalization leakage (CFM50)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A03_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else result = PRODUCT (A12_DwellingUnitEnclosureArea, 0.3)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: Result = PRODUCT (A12_DwellingUnitEnclosureArea, 0.3)</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
-                     <xsd:element name="A13_NotApplicableMessage" type="comp:NotApplicableMessage" >
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Target dwelling unit compartmentalization leakage (CFM50)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A03_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else result = PRODUCT (A12_DwellingUnitEnclosureArea, 0.3)</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
@@ -667,76 +619,124 @@
                     </xsd:sequence>
                 </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_F" minOccurs="1" maxOccurs="1">
+         <xsd:element name="Section_F" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Measured Enclosure Air Leakage Rate</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="F01_AirLeakageRateMeasuredCFM50" type="comp:AirLeakageRateMeasuredCFM50" >
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Enclosure Air Leakage Rate is:  (CFM50)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If B06_IsManometerCalibrationCurrent == false result = false stored in F01_IsManometerCalibrationCurrent display term Manometer Calibration is expired. A manometer with current calibration is required in order to comply with this Enclosure Air Leakage worksheet    
-Else If  A03_CompartmentilizationLeakageVerificationRequiredHERS == true Then If A01_AirLeakageTestProcedure != MultiPointTest result =  Esp01_CFM50Adjusted stored in F01_AirLeakageRateMeasuredCFM50 Else If A01_AirLeakageTestProcedure == MultiPointTest result =  Emp04_CFM50Adjusted stored in F01_AirLeakageRateMeasuredCFM50</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="F01_IsManometerCalibrationCurrent" type="comp:IsManometerCalibrationCurrent" >
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Manometer Calibration is expired.</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If B06_IsManometerCalibrationCurrent == false result = false stored in F01_IsManometerCalibrationCurrent display term Manometer Calibration is expired. A manometer with current calibration is required in order to comply with this Enclosure Air Leakage worksheet</xsd:documentation>
-                           <xsd:appinfo source="displayterm">
-                              <dtyp:displayterm value="false"> Manometer Calibration is expired. A manometer with current calibration is required in order to comply with this Enclosure Air Leakage worksheet</dtyp:displayterm>
-                           </xsd:appinfo>                           
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
+                  <xsd:element name="F01_AirLeakageRateMeasuredCFM50" type="comp:AirLeakageRateMeasuredCFM50" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Enclosure Air Leakage Rate is:  (CFM50)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If  A03_CompartmentilizationLeakageVerificationRequiredHERS == true Then If A01_AirLeakageTestProcedure != MultiPointTest result =  Esp01_CFM50Adjusted  
+Else If A01_AirLeakageTestProcedure == MultiPointTest result =  Emp04_CFM50Adjusted</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-	 <xsd:choice maxOccurs="1">
-         <xsd:element name="Section_G" minOccurs="0">
+         <xsd:element name="Section_G" minOccurs="1">
+            <xsd:annotation>
+		<xsd:documentation source="FieldText">Measured Enclosure Air Leakage Rate Compliance Statement</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+           </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="G01_AirLeakageRateCompliance" type="comp:AirLeakageRateCompliance" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Enclosure Air Leakage Rate is:  (CFM50)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If B06_IsManometerCalibrationCurrent == false result = ManometerFail display term Manometer Calibration is expired. A manometer with current calibration is required in order to comply 
+Else If F01_AirLeakageRateMeasuredCFM50 is less than or equal to the Building Air Leakage Rate Target in A13, then result = AirLeakRatePass display text: " Passes Enclosure Air Leakage Test"; else result = AirLeakRateFail display text: “Fails Enclosure Air Leakage Test”</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_H" minOccurs="1">
             <xsd:annotation>
 		<xsd:documentation source="FieldText">Additional Requirements For Test Compliance</xsd:documentation>
 		<xsd:documentation source="CalculationsAndRules">This section applies to all systems</xsd:documentation>
            </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="G01" minOccurs="0">
+                  <xsd:element name="H01" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The procedure for preparing the enclosure for testing is detailed in RESNET 380-2019 Section 4.2.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G02" minOccurs="0">
+                  <xsd:element name="H02" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">When multifamily attached dwelling units must comply with the maximum dwelling unit enclosure air leakage specified in Standards Section 160.2(b)2Aivb2, the test shall be conducted with the dwelling unit as if it were exposed to the outdoor air on all sides, top and bottom by opening doors and windows of adjacent dwelling units as specified by NA7.18.2.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G03" minOccurs="0">
+                  <xsd:element name="H03" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The test procedure for installation of the test apparatus, and preparations for measurement shall conform to RESNET 380-2019 Section 4.3</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G04" minOccurs="0">
+                  <xsd:element name="H04" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The procedure for the conduct of the enclosure air leakage test shall conform to the One-Point Airtightness Test specified in RESNET 380-2019 Section 4.4.1</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="G05" minOccurs="0">
+                  <xsd:element name="H05" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The procedure for the conduct of the enclosure air leakage test shall conform to the Multi-Point Airtightness Test specified in RESNET 380-2019 Section 4.4.2</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
+		   <xsd:element name="H06_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements">
+		      <xsd:annotation>
+			<xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
+			<xsd:documentation source="CalculationsAndRules">For Pass choice display text: Pass - all applicable requirements are met.  For Fail choice display text: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display text: All n/a - This entire table is not applicable</xsd:documentation>
+		      </xsd:annotation>
+		   </xsd:element>
+		   <xsd:element name="H07_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+			<xsd:annotation>
+			<xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
+			<xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required</xsd:documentation>
+			</xsd:annotation>
+		   </xsd:element>
+		   <xsd:element name="HEndNote1" minOccurs="0">
+			<xsd:annotation>
+			<xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+			<xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met unless otherwise noted in the Verification Status and the Correction Notes in this table.</xsd:documentation>
+			</xsd:annotation>
+		   </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-	</xsd:choice>
+         <xsd:element name="Section_I" minOccurs="1">
+            <xsd:annotation>
+		<xsd:documentation source="FieldText">Determination of ECC Verification Compliance</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+           </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+		   <xsd:element name="IBeginNote1" minOccurs="0">
+			<xsd:annotation>
+			<xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+			<xsd:documentation source="AdditionalRequirements">All applicable sections of this document shall indicate compliance with the specified verification protocol requirements in order for this Certificate of Verification as a whole to be determined to be in compliance.</xsd:documentation>
+			</xsd:annotation>
+		   </xsd:element>
+		   <xsd:element name="I01_DoesNRCV_Pass" type="comp:DoesNRCV_Pass">
+			<xsd:annotation>
+			<xsd:documentation source="FieldText"/>
+			<xsd:documentation source="CalculationsAndRules">if B06 = Manometer Calibration is valid; C1.07/C2.05 = Induced pressure within range for single point test; and G01 for Single-Point or Multi-Point = Passes Enclosure Air Leakage Test; and H06 = Pass or All n/a; then 
+result = true display term Complies: All specified verification protocol requirements on this document are met.  
+Else result = false display term: Does not comply: One or more specified verification protocol requirements on this document are not met.
+End If</xsd:documentation>
+			</xsd:annotation>
+		   </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
       </xsd:sequence>
    </xsd:complexType>
    <xsd:element name="nRCVMCH24H" type="NRCVMCH24H">
