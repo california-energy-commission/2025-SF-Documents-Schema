@@ -5559,12 +5559,14 @@ of exposed exterior glazing at the jamb of a window to the outward edge of a fin
       <xsd:annotation>
          <xsd:documentation>This property is for values in the CF1R-PRF from CBECC-Res reported in the CF2R-ENV-03</xsd:documentation>
          <xsd:appinfo source="displayterm">
+	    <dtyp:displayterm value="DualPanelHollowWall">Dual Panel Hollow Wall</dtyp:displayterm>
             <dtyp:displayterm value="SIPS_Walls">SIPS  Walls</dtyp:displayterm>
             <dtyp:displayterm value="SteelFramedWalls">Steel Framed Walls</dtyp:displayterm>
             <dtyp:displayterm value="WoodFramedWalls">Wood Framed Walls</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
+	 <xsd:enumeration value="DualPanelHollowWall"/>
          <xsd:enumeration value="SIPS_Walls"/>
          <xsd:enumeration value="SteelFramedWalls"/>
          <xsd:enumeration value="WoodFramedWalls"/>
