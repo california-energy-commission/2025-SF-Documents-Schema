@@ -121,12 +121,20 @@ End If</xsd:documentation>
                 </xsd:restriction>
               </xsd:simpleType>
             </xsd:element>
-            <xsd:element name="A06_HvacLoadCalculationMethod" type="comp:HvacLoadCalculationMethod">
+            <xsd:element name="A06_HvacLoadCalculationMethod">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Method Used to Calculate HVAC Loads (See Section 150.0(h))</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">User input; Choices to display: ASHRAE Handbook;  SMACNA Residential Comfort System Installation Standards Manual, ACCA Manual J, Not applicable - equipment change out, like-for-like, 
+                <xsd:documentation source="CalculationsAndRules">User input; Choices to display: ASHRAE Handbook;  SMACNA Residential Comfort System Installation Standards Manual, ACCA Manual J,  
 and Exception 1 to Section 150.0(h)1: Block loads for system sizing for additions.</xsd:documentation>
               </xsd:annotation>
+              <xsd:simpleType>
+                <xsd:restriction base="comp:HvacLoadCalculationMethod">
+                  <xsd:enumeration value="ACCA_ManualJ"/>
+                  <xsd:enumeration value="ASHRAE_Handbook"/>
+                  <xsd:enumeration value="Except1AddBlockLoad"/>
+                  <xsd:enumeration value="SMACNA_ResidentialComfortSystemManual"/>
+                </xsd:restriction>
+              </xsd:simpleType>
             </xsd:element>
             <xsd:element name="A07_HvacOutdoorDesignCondSource" type="comp:HvacOutdoorDesignCondSource" maxOccurs="unbounded">
               <xsd:annotation>
@@ -146,34 +154,18 @@ and Exception 1 to Section 150.0(h)1: Block loads for system sizing for addition
                 <xsd:documentation source="CalculationsAndRules">User enters temperature in degrees F</xsd:documentation>
               </xsd:annotation>
             </xsd:element>
-            <xsd:choice maxOccurs="1">
-              <xsd:element name="A10_DesignSensibleCoolingLoad" type="hvac:DesignSensibleCoolingLoad">
-                <xsd:annotation>
-                  <xsd:documentation source="FieldText">Calculated Dwelling Unit Sensible Cooling Load (Btu/h)</xsd:documentation>
-                  <xsd:documentation source="CalculationsAndRules">If   A06_HvacLoadCalculationMethod == NotApplicableEquipmentChangeout Then result = N/A stored in the  NotAppplicableMessage;  Else User entry integer xxxxx</xsd:documentation>
-                </xsd:annotation>
-              </xsd:element>
-              <xsd:element name="A10_NotApplicableMessage" type="comp:NotApplicableMessage">
-                <xsd:annotation>
-                  <xsd:documentation source="FieldText">Calculated Dwelling Unit Sensible Cooling Load (Btu/h)</xsd:documentation>
-                  <xsd:documentation source="CalculationsAndRules">If   A06_HvacLoadCalculationMethod == NotApplicableEquipmentChangeout Then result = N/A stored in the  NotAppplicableMessage; Else User entry integer xxxxx</xsd:documentation>
-                </xsd:annotation>
-              </xsd:element>
-            </xsd:choice>
-            <xsd:choice maxOccurs="1">
-              <xsd:element name="A11_DwellingUnitDesignHeatingLoad" type="hvac:DwellingUnitDesignHeatingLoad">
-                <xsd:annotation>
-                  <xsd:documentation source="FieldText">Calculated Dwelling Unit Heating Load (Btu/h)</xsd:documentation>
-                  <xsd:documentation source="CalculationsAndRules">If   A06_HvacLoadCalculationMethod == NotApplicableEquipmentChangeout Then result = N/A stored in the  NotAppplicableMessage; Else User entry integer xxxxx</xsd:documentation>
-                </xsd:annotation>
-              </xsd:element>
-              <xsd:element name="A11_NotApplicableMessage" type="comp:NotApplicableMessage">
-                <xsd:annotation>
-                  <xsd:documentation source="FieldText">Calculated Dwelling Unit Heating Load (Btu/h)</xsd:documentation>
-                  <xsd:documentation source="CalculationsAndRules">If   A06_HvacLoadCalculationMethod == NotApplicableEquipmentChangeout Then result = N/A stored in the  NotAppplicableMessage; Else User entry integer xxxxx</xsd:documentation>
-                </xsd:annotation>
-              </xsd:element>
-            </xsd:choice>
+            <xsd:element name="A10_DesignSensibleCoolingLoad" type="hvac:DesignSensibleCoolingLoad">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">Calculated Dwelling Unit Sensible Cooling Load (Btu/h)</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">User entry integer xxxxx</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="A11_DwellingUnitDesignHeatingLoad" type="hvac:DwellingUnitDesignHeatingLoad">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">Calculated Dwelling Unit Heating Load (Btu/h)</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">User entry integer xxxxx</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
             <xsd:element name="A12_BedroomCount" type="com:BedroomCount">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Dwelling Unit Number of Bedrooms</xsd:documentation>

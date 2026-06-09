@@ -124,24 +124,48 @@ End If</xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">User input;  Choices to display: ASHRAE Handbook;  SMACNA Residential Comfort System Installation Standards Manual, ACCA Manual J, Not applicable - equipment change out, like-for-like; and Exception 1 to Section 150.0(h)1: Block loads for system sizing for additions.</xsd:documentation>
               </xsd:annotation>
             </xsd:element>
-            <xsd:element name="A07_HvacOutdoorDesignCondSource" type="comp:HvacOutdoorDesignCondSource" maxOccurs="unbounded">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText">Outdoor Design Condition Source (See Section 150.0((h)2</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">User select all that apply; Reference Joint Appendix JA2; ASHRAE Handbook; ACCA Manual J </xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="A08_DesignCoolingOutdoorTemp" type="hvac:DesignCoolingOutdoorTemp">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText">Cooling Outdoor Design Temperature Selected (<d:deg/>F)</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">User enters temperature in degrees F</xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="A09_DesignHeatingOutdoorTemp" type="hvac:DesignHeatingOutdoorTemp">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText">Heating Outdoor Design Temperature Selected (<d:deg/>F)</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">User enters temperature in degrees F</xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
+            <xsd:choice maxOccurs="1">
+              <xsd:element name="A07_HvacOutdoorDesignCondSource" type="comp:HvacOutdoorDesignCondSource" maxOccurs="unbounded">
+                <xsd:annotation>
+                  <xsd:documentation source="FieldText">Outdoor Design Condition Source (See Section 150.0((h)2</xsd:documentation>
+                  <xsd:documentation source="CalculationsAndRules">If A06_HvacLoadCalculationMethod == NotApplicableEquipmentChangeout  Or Except1AddBlockLoad Then result = NotApplicable stored in the  NotAppplicableMessage Else User select all that apply; Reference Joint Appendix JA2; ASHRAE Handbook; ACCA Manual J </xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element name="A07_NotApplicableMessage" type="comp:NotApplicableMessage">
+                <xsd:annotation>
+                  <xsd:documentation source="FieldText">Calculated Dwelling Unit Sensible Cooling Load (Btu/h)</xsd:documentation>
+                  <xsd:documentation source="CalculationsAndRules">If A06_HvacLoadCalculationMethod == NotApplicableEquipmentChangeout  Or Except1AddBlockLoad Then result = NotApplicable stored in the  NotAppplicableMessage Else UUser select all that apply; Reference Joint Appendix JA2; ASHRAE Handbook; ACCA Manual J</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+            </xsd:choice>
+            <xsd:choice maxOccurs="1">
+              <xsd:element name="A08_DesignCoolingOutdoorTemp" type="hvac:DesignCoolingOutdoorTemp">
+                <xsd:annotation>
+                  <xsd:documentation source="FieldText">Cooling Outdoor Design Temperature Selected (<d:deg/>F)</xsd:documentation>
+                  <xsd:documentation source="CalculationsAndRules">If A07 == NotApplicable result = NotApplicable stored in the NotAppplicableMessage Else User enters temperature in degrees F</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element name="A08_NotApplicableMessage" type="comp:NotApplicableMessage">
+                <xsd:annotation>
+                  <xsd:documentation source="FieldText">Calculated Dwelling Unit Sensible Cooling Load (Btu/h)</xsd:documentation>
+                  <xsd:documentation source="CalculationsAndRules">If A07 == NotApplicable result = NotApplicable stored in the NotAppplicableMessage Else User entry temperature in degrees F</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+            </xsd:choice>
+            <xsd:choice maxOccurs="1">
+              <xsd:element name="A09_DesignHeatingOutdoorTemp" type="hvac:DesignHeatingOutdoorTemp">
+                <xsd:annotation>
+                  <xsd:documentation source="FieldText">Heating Outdoor Design Temperature Selected (<d:deg/>F)</xsd:documentation>
+                  <xsd:documentation source="CalculationsAndRules">If A07 == NotApplicable result = NotApplicable stored in the  NotAppplicableMessage Else User enters temperature in degrees F</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element name="A09_NotApplicableMessage" type="comp:NotApplicableMessage">
+                <xsd:annotation>
+                  <xsd:documentation source="FieldText">Calculated Dwelling Unit Sensible Cooling Load (Btu/h)</xsd:documentation>
+                  <xsd:documentation source="CalculationsAndRules">If A07 == NotApplicable result = NotApplicable stored in the  NotAppplicableMessage Else User temperature in degrees F</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+            </xsd:choice>
             <xsd:choice maxOccurs="1">
               <xsd:element name="A10_DesignSensibleCoolingLoad" type="hvac:DesignSensibleCoolingLoad">
                 <xsd:annotation>
