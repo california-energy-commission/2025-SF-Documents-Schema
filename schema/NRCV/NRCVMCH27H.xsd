@@ -111,25 +111,47 @@
                         <xsd:documentation source="CalculationsAndRules">User input integer</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A06_VentilationSystemType">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Ventilation System Type</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User picks one from list of following values: Balanced display term Balanced, BalancedCentralVent display term Central Ventilation System - Balanced, BalancedERV display term Balanced ERV, BalancedHRV display term Balanced HRV, 
+		  <xsd:choice maxOccurs="1">
+                     <xsd:element name="A06_VentilationSystemType">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Ventilation System Type</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Use this choice If A03_ProjectScopeNR == ExistingAddition Or ExistingAlteration;  User picks one from list of following values: Balanced display term Balanced, BalancedCentralVent display term Central Ventilation System - Balanced, BalancedERV display term Balanced ERV, BalancedHRV display term Balanced HRV, 
+CentralFanIntegrated display term Central Fan Integrated (CFI), ExhaustCentralVent display term Central Ventilation System - Exhaust, SupplyCentralVent display term Central Ventilation System - Supply, ExhaustVent display term Exhaust, SupplyVent display term Supply</xsd:documentation>
+                        </xsd:annotation>
+                        <xsd:simpleType>
+                           <xsd:restriction base="hvac:VentilationSystemType">
+                              <xsd:enumeration value="Balanced"/>
+                              <xsd:enumeration value="BalancedERV"/>
+                              <xsd:enumeration value="BalancedHRV"/>
+                              <xsd:enumeration value="BalancedCentralVent"/>
+                              <xsd:enumeration value="CentralFanIntegrated"/>
+                              <xsd:enumeration value="SupplyCentralVent"/>
+                              <xsd:enumeration value="ExhaustCentralVent"/>
+                              <xsd:enumeration value="ExhaustVent"/>
+                              <xsd:enumeration value="SupplyVent"/>
+                           </xsd:restriction>
+                        </xsd:simpleType>
+                     </xsd:element>
+                     <xsd:element name="A06new_VentilationSystemType">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Ventilation System Type</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Use this choice If A03_ProjectScopeNR == NewComplete;  User picks one from list of following values: Balanced display term Balanced, BalancedCentralVent display term Central Ventilation System - Balanced, BalancedERV display term Balanced ERV, BalancedHRV display term Balanced HRV, 
 CentralFanIntegrated display term Central Fan Integrated (CFI), ExhaustCentralVent display term Central Ventilation System - Exhaust, SupplyCentralVent display term Central Ventilation System - Supply, SupplyVent display term Supply</xsd:documentation>
-                     </xsd:annotation>
-                     <xsd:simpleType>
-                        <xsd:restriction base="hvac:VentilationSystemType">
-                           <xsd:enumeration value="Balanced"/>
-                           <xsd:enumeration value="BalancedERV"/>
-                           <xsd:enumeration value="BalancedHRV"/>
-                           <xsd:enumeration value="BalancedCentralVent"/>
-                           <xsd:enumeration value="CentralFanIntegrated"/>
-                           <xsd:enumeration value="SupplyCentralVent"/>
-                           <xsd:enumeration value="ExhaustCentralVent"/>
-                           <xsd:enumeration value="SupplyVent"/>
-                        </xsd:restriction>
-                     </xsd:simpleType>
-                  </xsd:element>
+                        </xsd:annotation>
+                        <xsd:simpleType>
+                           <xsd:restriction base="hvac:VentilationSystemType">
+                              <xsd:enumeration value="Balanced"/>
+                              <xsd:enumeration value="BalancedERV"/>
+                              <xsd:enumeration value="BalancedHRV"/>
+                              <xsd:enumeration value="BalancedCentralVent"/>
+                              <xsd:enumeration value="CentralFanIntegrated"/>
+                              <xsd:enumeration value="SupplyCentralVent"/>
+                              <xsd:enumeration value="ExhaustCentralVent"/>
+                              <xsd:enumeration value="SupplyVent"/>
+                           </xsd:restriction>
+                        </xsd:simpleType>
+                     </xsd:element>
+		  </xsd:choice>
                   <xsd:element name="A07_VentilationOperationSchedule" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Ventilation Operation Schedule</xsd:documentation>
