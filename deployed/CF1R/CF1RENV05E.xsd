@@ -124,7 +124,7 @@ Else If CF1R parent == CF1R-PRF, require a row for fenestration products with M0
             <xsd:element name="C_BeginNote1" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                <xsd:documentation source="AdditionalRequirements">Equation NA6-1: U<d:sub>T</d:sub> = C<d:sub>1</d:sub> + (C<d:sub>2</d:sub> x U<d:sub>C</d:sub></xsd:documentation>
+                <xsd:documentation source="AdditionalRequirements">Equation NA6-1: U<d:sub>T</d:sub> = C<d:sub>1</d:sub> + (C<d:sub>2</d:sub> x U<d:sub>C</d:sub>)</xsd:documentation>
               </xsd:annotation>
             </xsd:element>
             <xsd:element name="TableUFactor">
@@ -163,14 +163,14 @@ Else If CF1R parent == CF1R-PRF, require a row for fenestration products with M0
                         </xsd:element>
                         <xsd:element name="C04_UfactorCoefficient1" type="comp:UfactorCoefficient1">
                           <xsd:annotation>
-                            <xsd:documentation source="FieldText">C<d:sub>1</d:sub> from Table NA6-5</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">User input decimal number from Table NA6-5</xsd:documentation>
+                            <xsd:documentation source="FieldText">C<d:sub>1</d:sub> from Table NA6-6</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">User input decimal number from Table NA6-6</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
                         <xsd:element name="C05_UfactorCoefficient2" type="comp:UfactorCoefficient2">
                           <xsd:annotation>
-                            <xsd:documentation source="FieldText">C<d:sub>2</d:sub> from Table NA6-5</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">User input decimal number from Table NA6-5</xsd:documentation>
+                            <xsd:documentation source="FieldText">C<d:sub>2</d:sub> from Table NA6-6</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">User input decimal number from Table NA6-6</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
                         <xsd:element name="C06_UFactorCenterOfGlass" type="com:UFactorCenterOfGlass">
@@ -197,9 +197,9 @@ Else If CF1R parent == CF1R-PRF, require a row for fenestration products with M0
                 </xsd:sequence>
               </xsd:complexType>
             </xsd:element>
-            <xsd:element name="TableNA6_5" minOccurs="0">
+            <xsd:element name="TableNA6_6" minOccurs="0">
               <xsd:annotation>
-                <xsd:documentation source="FieldText">Table NA6-5 - U-factor Coefficiencts from Reference Appendices, Nonresidential Appendix NA6</xsd:documentation>
+                <xsd:documentation source="FieldText">Table NA6-6 - U-factor Coefficients from Reference Appendices, Nonresidential Appendix NA6</xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">This section is for report layout and storing of table values used in Section C.  It is not for collecing XML data</xsd:documentation>
               </xsd:annotation>
               <xsd:complexType>

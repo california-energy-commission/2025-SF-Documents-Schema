@@ -5881,6 +5881,7 @@
         <dtyp:displayterm value="SandenGS345HPAUS">GS3-45HPA-US</dtyp:displayterm>
         <dtyp:displayterm value="SandenGUS_GAUS315EQTD">GUS-45HPA-US &amp;amp; GAUS-1315EQTD  (83 gal)</dtyp:displayterm>
         <dtyp:displayterm value="SandenGUS_SAN83SSAQA">GUS-45HPA-US &amp;amp; SAN-83SSAQA  (83 gal)</dtyp:displayterm>
+        <dtyp:displayterm value="StandardDesignHP50">Standard Design HP 50</dtyp:displayterm>
         <dtyp:displayterm value="StateEP680DHPT">EP6 80 DHPT 102  (80 gal)</dtyp:displayterm>
         <dtyp:displayterm value="StateEPX60DHPT">EPX 60 DHPT  (60 gal)</dtyp:displayterm>
         <dtyp:displayterm value="StateEPX80DHPT">EPX 80 DHPT  (80 gal)</dtyp:displayterm>
@@ -6522,6 +6523,7 @@
       <xsd:enumeration value="SandenGS345HPAUS"/>
       <xsd:enumeration value="SandenGUS_GAUS315EQTD"/>
       <xsd:enumeration value="SandenGUS_SAN83SSAQA"/>
+      <xsd:enumeration value="StandardDesignHP50"/>
       <xsd:enumeration value="StateEP680DHPT"/>
       <xsd:enumeration value="StateEPX60DHPT"/>
       <xsd:enumeration value="StateEPX80DHPT"/>
@@ -7831,6 +7833,7 @@
         <dtyp:displayterm value="Sanden40">Sanden 40</dtyp:displayterm>
         <dtyp:displayterm value="Sanden80">Sanden 80</dtyp:displayterm>
         <dtyp:displayterm value="SandenGS3">Sanden GS 3</dtyp:displayterm>
+        <dtyp:displayterm value="StandardDesignHP50">Standard Design HP 50</dtyp:displayterm>
         <dtyp:displayterm value="Stiebel220E">Stiebel 220E</dtyp:displayterm>
         <dtyp:displayterm value="Tier3Generic40">NEEA Tier 3 Generic 40</dtyp:displayterm>
         <dtyp:displayterm value="Tier3Generic50">NEEA Tier 3 Generic 50</dtyp:displayterm>
@@ -7940,6 +7943,7 @@
       <xsd:enumeration value="Sanden40"/>
       <xsd:enumeration value="Sanden80"/>
       <xsd:enumeration value="SandenGS3"/>
+      <xsd:enumeration value="StandardDesignHP50"/>
       <xsd:enumeration value="Stiebel220E"/>
       <xsd:enumeration value="Tier3Generic40"/>
       <xsd:enumeration value="Tier3Generic50"/>
@@ -14660,6 +14664,19 @@
     <xsd:restriction base="dtyp:EnumerationConstant">
       <xsd:enumeration value="SPVAC"/>
       <xsd:enumeration value="SPVHP"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="StandardDesignHP50SimulationGroup">
+    <xsd:annotation>
+      <xsd:appinfo source="displaytermType">
+        <dtyp:displayterm>Simulated Model Group Standard Design HP50 </dtyp:displayterm>
+      </xsd:appinfo>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="StandardDesignHP50">Standard Design HP 50</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="StandardDesignHP50"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="StandbyLoss">
