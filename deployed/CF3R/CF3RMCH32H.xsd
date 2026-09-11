@@ -150,6 +150,18 @@ End If</xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">User selects from list: electric, gas</xsd:documentation>
               </xsd:annotation>
             </xsd:element>
+            <xsd:element name="A09_ExhaustSystemInstalledTypes" type="comp:ExhaustSystemInstalledTypes">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">Confirmation of installed exhaust system types</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">User selects from list: VentedRangeHood display term One or more vented range hood, and NoVentedRangeHood display term No vented range hoods </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="A10_ExhaustSystemVerificationMessage" type="comp:ExhaustSystemVerificationMessage">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">Exhaust Systems Verification Status</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">Calculated field:  If A09_ExhaustSystemInstalledTypes == VentedRangeHood, result = VerificationRequired; Else If A09_ExhaustSystemInstalledTypes == NoVentedRangeHood, result = VerificationNotRequired  </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -214,7 +226,7 @@ End If</xsd:documentation>
                         <xsd:element name="B08_KitchenExhaustOperation" type="com:KitchenExhaustOperation">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Operation Schedule</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">User selects from list: ContinuousOperation display term Continuous, DemandControl display term Demand Control</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">If A06_EnclosedSpace == true User selects from list: ContinuousOperation display term Continuous, and DemandControl display term Demand Control; Else If A06_EnclosedSpace == false result = DemandControl display term Demand Control</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
                         <xsd:choice maxOccurs="1">
@@ -223,7 +235,7 @@ End If</xsd:documentation>
                               <xsd:documentation source="FieldText">Method of Compliance</xsd:documentation>
                               <xsd:documentation source="CalculationsAndRules">If B08_KitchenExhaustOperation == ContinuousOperation
 result = N/A stored in NotApplicableMessage
-Else user selects from list: Airflow, CaptureEfficiency
+Else If B03_KitchenExhaustSystemType == VentedRangeHood user selects from list: Airflow, CaptureEfficiency Else result = Airflow
 End If</xsd:documentation>
                             </xsd:annotation>
                           </xsd:element>
@@ -232,7 +244,7 @@ End If</xsd:documentation>
                               <xsd:documentation source="FieldText">Method of Compliance</xsd:documentation>
                               <xsd:documentation source="CalculationsAndRules">If B08_KitchenExhaustOperation == ContinuousOperation
 result = N/A stored in NotApplicableMessage
-Else user selects from list: Airflow, CaptureEfficiency
+Else If B03_KitchenExhaustSystemType == VentedRangeHood user selects from list: Airflow, CaptureEfficiency Else result = Airflow
 End If</xsd:documentation>
                             </xsd:annotation>
                           </xsd:element>
@@ -325,8 +337,8 @@ End If</xsd:documentation>
                             <xsd:annotation>
                               <xsd:documentation source="FieldText">Compliance Statement for Airflow</xsd:documentation>
                               <xsd:documentation source="CalculationsAndRules">Calculated field: 
-If B09a_HoodExhaustComplianceMethod == CaptureEfficiency
-result = N/A stored in NotApplicableMessage display term N/A
+If B09a_HoodExhaustComplianceMethod == CaptureEfficiency result = N/A stored in NotApplicableMessage display term N/A
+Else If A10 == VerificationNotRequired result = N/A stored in NotApplicableMessage display term N/A
 Else If B09a_HoodExhaustComplianceMethod == Airflow
 If B08_KitchenExhaustOperation == DemandControl 
 If B05_SystemRatedAirflowHVI GTE B09_MinimumAirflowRateRequired   
@@ -344,8 +356,8 @@ End If</xsd:documentation>
                             <xsd:annotation>
                               <xsd:documentation source="FieldText">Compliance Statement for Airflow</xsd:documentation>
                               <xsd:documentation source="CalculationsAndRules">Calculated field: 
-If B09a_HoodExhaustComplianceMethod == CaptureEfficiency
-result = N/A stored in NotApplicableMessage display term N/A
+If B09a_HoodExhaustComplianceMethod == CaptureEfficiency result = N/A stored in NotApplicableMessage display term N/A
+Else If A10 == VerificationNotRequired result = N/A stored in NotApplicableMessage display term N/A
 Else If B09a_HoodExhaustComplianceMethod == Airflow
 If B08_KitchenExhaustOperation == DemandControl 
 If B05_SystemRatedAirflowHVI GTE B09_MinimumAirflowRateRequired   
@@ -360,17 +372,32 @@ End If</xsd:documentation>
                             </xsd:annotation>
                           </xsd:element>
                         </xsd:choice>
-                        <xsd:element name="B12_DoesKitchenExhaustSoundComply" type="comp:DoesKitchenExhaustSoundComply">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText">Compliance Statement for Sound</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">Calculated field: 
-If B06_SystemSoundRatingHVI  LTE B10_KitchenExhaustSoundRating Or If B10_NotApplicableMessage == N/A
+                        <xsd:choice maxOccurs="1">
+                          <xsd:element name="B12_DoesKitchenExhaustSoundComply" type="comp:DoesKitchenExhaustSoundComply">
+                            <xsd:annotation>
+                              <xsd:documentation source="FieldText">Compliance Statement for Sound</xsd:documentation>
+                              <xsd:documentation source="CalculationsAndRules">Calculated field: 
+If A10 == VerificationNotRequired result = N/A stored in NotApplicableMessage display term N/A
+Else If B06_SystemSoundRatingHVI  LTE B10_KitchenExhaustSoundRating Or If B10_NotApplicableMessage == N/A
 result = true display term Complies
 Else 
 result = false display term Does Not Comply
 End If</xsd:documentation>
-                          </xsd:annotation>
-                        </xsd:element>
+                            </xsd:annotation>
+                          </xsd:element>
+                          <xsd:element name="B12_NotApplicableMessage" type="comp:NotApplicableMessage">
+                            <xsd:annotation>
+                              <xsd:documentation source="FieldText">Compliance Statement for Sound</xsd:documentation>
+                              <xsd:documentation source="CalculationsAndRules">Calculated field: 
+If A10 == VerificationNotRequired result = N/A stored in NotApplicableMessage display term N/A
+Else If B06_SystemSoundRatingHVI  LTE B10_KitchenExhaustSoundRating Or If B10_NotApplicableMessage == N/A
+result = true display term Complies
+Else 
+result = false display term Does Not Comply
+End If</xsd:documentation>
+                            </xsd:annotation>
+                          </xsd:element>
+                        </xsd:choice>
                       </xsd:sequence>
                     </xsd:complexType>
                   </xsd:element>
@@ -521,9 +548,8 @@ End If</xsd:documentation>
             <xsd:element name="E01_DoesCF3R_Pass" type="comp:DoesCF3R_Pass">
               <xsd:annotation>
                 <xsd:documentation source="FieldText"/>
-                <xsd:documentation source="CalculationsAndRules">If B11_DoesKitchenExhaustSystemComply == true for all rows And B12_DoesKitchenExhaustSoundComply == true for all rows And 
-C03_DoesKitchenExhaustSystemComply == true Or Cap05_DoesKitchenExhaustSystemComply == true 
-result = true display term Complies: All specified verification protocol requirements on this document are met.   
+                <xsd:documentation source="CalculationsAndRules">If B12_DoesKitchenExhaustSoundComply == true for all rows And (B11_DoesKitchenExhaustSystemComply == true Or C03_DoesKitchenExhaustSystemComply == true Or Cap05_DoesKitchenExhaustSystemComply == true)
+Then If A10_ExhaustSystemVerificationMessage == VerificationRequired result = true display term Complies: All specified verification protocol requirements on this document are met.   
 Else result = false display term Does not comply: One or more specified verification protocol requirements on this document are not met.
 End If</xsd:documentation>
               </xsd:annotation>

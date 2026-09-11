@@ -301,7 +301,7 @@ Else If parent document == MCH-01b Or Mch01c   If MCH01b- C06 or Mch01c - B05 Re
         <xsd:annotation>
           <xsd:documentation source="FieldText">All Zonal Control Modes</xsd:documentation>
           <xsd:documentation source="AdditionalRequirements">The procedures for System Fan Efficacy Verification are specified in Reference Residential Appendix RA3.3.Note: For compliance with verification in all zonal control modes, it is sufficient to verify fan efficacy for operation of each individual zone when the individual zone is the sole zone calling for conditioning.  It is not necessary to verify fan efficacy for combinations of 2 or more zones that are less than all zones calling (e.g., 2 out of three zones calling).</xsd:documentation>
-          <xsd:documentation source="CalculationsAndRules">If A07_ResidentialCoolingZoneType  == ZoneControlled this section is required</xsd:documentation>
+          <xsd:documentation source="CalculationsAndRules">If A06_CondenserSpeedType == SingleSpeed AND A07_ResidentialCoolingZoneType  == ZoneControlled this section is required</xsd:documentation>
         </xsd:annotation>
         <xsd:complexType>
           <xsd:sequence>

@@ -8708,6 +8708,30 @@ Reference Appendix RA3.5 and  field verification must be conducted by an ECC Rat
     <xsd:restriction base="xsd:boolean">
       </xsd:restriction>
   </xsd:simpleType>
+  <xsd:simpleType name="ExhaustSystemInstalledTypes">
+    <xsd:annotation>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="NoVentedRangeHood">No vented range hoods</dtyp:displayterm>
+        <dtyp:displayterm value="VentedRangeHood">One or more vented range hood</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstantPermissive">
+      <xsd:enumeration value="NoVentedRangeHood"/>
+      <xsd:enumeration value="VentedRangeHood"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ExhaustSystemVerificationMessage">
+    <xsd:annotation>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="VerificationNotRequired">Not Required - No range hoods installed</dtyp:displayterm>
+        <dtyp:displayterm value="VerificationRequired">Required - One or more vented range hood installed</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstantPermissive">
+      <xsd:enumeration value="VerificationNotRequired"/>
+      <xsd:enumeration value="VerificationRequired"/>
+    </xsd:restriction>
+  </xsd:simpleType>
   <xsd:simpleType name="ExistingConditionsTotalAllowance">
     <xsd:annotation>
       <xsd:documentation>  Units: W</xsd:documentation>
