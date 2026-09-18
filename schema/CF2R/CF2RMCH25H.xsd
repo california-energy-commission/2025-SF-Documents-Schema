@@ -168,8 +168,8 @@ End If</xsd:documentation>
                   </xsd:element>
                   <xsd:element name="A13_UseRefrigerantChargeApprovedVerificationProcedure" type="comp:UseRefrigerantChargeApprovedVerificationProcedure" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Is the system of a type that approved refrigerant charge verification procedures can be used to verify compliance with the refrigerant charge verification requirements when temperatures are [d:gte/]  55[d:deg/]F (RA3.2.2, or RA1)?</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">For Boolean true value, display:  Yes, one of the Refrigerant charge verification procedures from RA3.2.2 or RA1 is applicable to this system and can be used to verify compliance.  For Boolean false value, display: No, none of the refrigerant charge verification procedures in RA3.2.2, or RA1 are applicable to the system therefore compliance shall use ECC Rater observation of the installer weigh-in charging procedure</xsd:documentation>
+                        <xsd:documentation source="FieldText">Is the system of a type that approved refrigerant charge verification procedures can be used to verify compliance with the refrigerant charge verification requirements when temperatures are [d:gte/]  55[d:deg/]F (RA3.2.2)?</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">For Boolean true value, display:  Yes, one of the Refrigerant charge verification procedures from RA3.2.2 is applicable to this system and can be used to verify compliance.  For Boolean false value, display: No, none of the refrigerant charge verification procedures in RA3.2.2 are applicable to the system therefore compliance shall use ECC Rater observation of the installer weigh-in charging procedure</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A14_RefrigerantChargeVerificationDate" type="comp:RefrigerantChargeVerificationDate" >

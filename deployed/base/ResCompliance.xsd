@@ -20126,8 +20126,8 @@ Time Dependent Valuation (TDV) Gas Propane energy is calculated by multiplying t
   <xsd:simpleType name="UseRefrigerantChargeApprovedVerificationProcedure">
     <xsd:annotation>
       <xsd:appinfo source="displayterm">
-        <dtyp:displayterm value="true">Yes, one of the Refrigerant charge verification procedures from RA3.2.2 or RA1 is applicable to this system and can be used to verify compliance</dtyp:displayterm>
-        <dtyp:displayterm value="false">No, none of the refrigerant charge verification procedures in RA3.2.2, or RA1 are applicable to the system therefore compliance shall use ECC Rater observation of the installer's weigh-in charging procedure</dtyp:displayterm>
+        <dtyp:displayterm value="true">Yes, one of the Refrigerant charge verification procedures from RA3.2.2 is applicable to this system and can be used to verify compliance</dtyp:displayterm>
+        <dtyp:displayterm value="false">No, none of the refrigerant charge verification procedures in RA3.2.2 are applicable to the system therefore compliance shall use ECC Rater observation of the installer's weigh-in charging procedure</dtyp:displayterm>
       </xsd:appinfo>
     </xsd:annotation>
     <xsd:restriction base="xsd:boolean">
