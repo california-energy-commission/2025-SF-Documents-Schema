@@ -2138,62 +2138,83 @@ Else If A02_ClimateZone == 2, 8, 9, 10, 11, 12, 13, 14, 15 then result = true; E
                   </xsd:element>
                   <xsd:element name="M01_DefrostDelayTimerTestApplies" type="comp:DefrostDelayTimerTestApplies" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Test Applicability. Select the statement describing test applicability for this project:</xsd:documentation>
+                        <xsd:documentation source="FieldText">Test Applicability. Select the statement describing test applicability for this project:[d:line1/]d:tab1/] 1. The test applies because the heat pump utilizes an installer adjustable Defrost Delay Timer Setting to control defrost and there are no exceptions
+d:line1/]d:tab1/] 2.  The test does not apply because the heat pump does not utilize an installer-adjustable Defrost Delay Timer Setting to control defrost. [d:line1/]d:tab1/] 3. The test does not apply because Exception 1. Dwelling units in Climate Zones 6 and 7 applies.
+[d:line1/]d:tab1/] 4. The test does not apply because Exception 2. Dwelling units with a conditioned floor area of 500 square feet or less in Climate Zones 3, 5 through 10, and 15 applies </xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User selects from TestApplies display term 1. Test applies and no exceptions, NoAdjustDefrostDelayTimer display term 2 Test does not apply because no adjustable Defrost Delay Timer Setting, 
-Exception1TestNA display term 3 Test does not apply because of Exception 1 Dwelling units in Climate Zones 6 and 7, Exception2TestNA display term  Test does not apply because of Exception 2 Dwelling units with conditioned floor area of 500 square feet or less in Climate Zones 3, 5 through 10 and 15</xsd:documentation>
+Exception1TestNA display term 3 Test does not apply because of Exception 1 Dwelling units in Climate Zones 6 and 7, Exception2TestNA display term  Test does not apply because of Exception 2 Dwelling units with conditioned floor area of 500 square feet or less in Climate Zones 3, 5 through 10 and 15. If there is no heat pump result = NoHeatPumpTestNA </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="M01a_DefrostDelayTimerTestMessage" type="comp:DefrostDelayTimerTestMessage" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This field is required and displayed If M01_DefrostDelayTimerTestApplies != TestApplies If M01_DefrostDelayTimerTestApplies == NoAdjustDefrostDelayTimer result = NoTimerMessage; Else If M01_DefrostDelayTimerTestApplies == Exception1TestNA result = Exception1Message; Else If M01_DefrostDelayTimerTestApplies == Exception2TestNA result = Exception2Message;</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="DefrostDelayTimerTestData" minOccurs="0" maxOccurs="1">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Test of Defrost Delay Timer Setting (Section 150.0(h)6)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This subsection is required and displayed If M01_DefrostDelayTimerTestApplies == TestApplies</xsd:documentation>
-                        <xsd:documentation source="MinOccurs">If this subsection is not required, nothing is displayed.</xsd:documentation>
-                     </xsd:annotation>
-                     <xsd:complexType>
-                        <xsd:sequence>
+			<xsd:choice maxOccurs="1">
                            <xsd:element name="M02_DefrostDelayTimerControls" type="comp:DefrostDelayTimerControls">
                               <xsd:annotation>
-                                 <xsd:documentation source="FieldText">Record Configuration of Controls.  Specify the mechanism for setting the Defrost Delay Timer Setting</xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">(for example, the name of the defrost delay timer in the thermostat setup, or the location and number of the specific dip switch, jumper, or dial that adjusts the Defrost Delay timer)</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                                 <xsd:documentation source="FieldText">Record Configuration of Controls.  Specify the mechanism for setting the Defrost Delay Timer Setting (for example, the name of the defrost delay timer in the thermostat setup, or the location and number of the specific dip switch, jumper, or dial that adjusts the Defrost Delay timer)</xsd:documentation>  
+                                 <xsd:documentation source="CalculationsAndRules">If M01_DefrostDelayTimerTestApplies == TestApplies User input text; Else result = NotApplicable stored in NotApplicableMessage</xsd:documentation>
                              </xsd:annotation>
                           </xsd:element>
+			  <xsd:element name="M02_NotApplicableMessage" type="comp:NotApplicableMessage">
+				<xsd:annotation>
+				   <xsd:documentation source="FieldText">Record Configuration of Controls.  Specify the mechanism for setting the Defrost Delay Timer Setting (for example, the name of the defrost delay timer in the thermostat setup, or the location and number of the specific dip switch, jumper, or dial that adjusts the Defrost Delay timer)</xsd:documentation>
+				   <xsd:documentation source="CalculationsAndRules">If M01_DefrostDelayTimerTestApplies != TestApplies result = NotApplicable stored in NotApplicablemessage; </xsd:documentation>
+				</xsd:annotation>
+			  </xsd:element>
+			</xsd:choice>
+			<xsd:choice maxOccurs="1">
                            <xsd:element name="M03_DefrostDelayTimerMaxMinutes" type="comp:DefrostDelayTimerMaxMinutes">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Record heat pump's Maximum Available Defrost Delay Timer Setting (minutes)</xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements"></xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">User input IntegerNonnegative</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If M01_DefrostDelayTimerTestApplies == TestApplies User input IntegerNonnegative; Else result = NotApplicable stored in NotApplicableMessage</xsd:documentation>
                              </xsd:annotation>
                           </xsd:element>
+			  <xsd:element name="M03_NotApplicableMessage" type="comp:NotApplicableMessage">
+				<xsd:annotation>
+				   <xsd:documentation source="FieldText">Record heat pump's Maximum Available Defrost Delay Timer Setting (minutes)</xsd:documentation>
+				   <xsd:documentation source="CalculationsAndRules">If M01_DefrostDelayTimerTestApplies != TestApplies result = NotApplicable stored in NotApplicablemessage; </xsd:documentation>
+				</xsd:annotation>
+			  </xsd:element>
+			</xsd:choice>
+			<xsd:choice maxOccurs="1">
                            <xsd:element name="M04_DefrostDelayTimerSetting" type="comp:DefrostDelayTimerSetting">
                               <xsd:annotation>
-                                 <xsd:documentation source="FieldText">Record where you set the Defrost Delay Timer Setting</xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">(for example, the numeric timer setting, dip switch position, jumper configuration, or dial setting)</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                                 <xsd:documentation source="FieldText">Record where you set the Defrost Delay Timer Setting (for example, the numeric timer setting, dip switch position, jumper configuration, or dial setting)</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If M01_DefrostDelayTimerTestApplies == TestApplies User input text; Else result = NotApplicable stored in NotApplicableMessage</xsd:documentation>
                              </xsd:annotation>
                           </xsd:element>
+			  <xsd:element name="M04_NotApplicableMessage" type="comp:NotApplicableMessage">
+				<xsd:annotation>
+				   <xsd:documentation source="FieldText">Record where you set the Defrost Delay Timer Setting (for example, the numeric timer setting, dip switch position, jumper configuration, or dial setting)</xsd:documentation>
+				   <xsd:documentation source="CalculationsAndRules">If M01_DefrostDelayTimerTestApplies != TestApplies result = NotApplicable stored in NotApplicablemessage; </xsd:documentation>
+				</xsd:annotation>
+			  </xsd:element>
+			</xsd:choice>
+			<xsd:choice maxOccurs="1">
                            <xsd:element name="M05_DefrostDelayTimerMinutes" type="comp:DefrostDelayTimerMinutes">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Record where you set the Defrost Delay Timer Setting in minutes</xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements"></xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">User input IntegerNonnegative</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If M01_DefrostDelayTimerTestApplies == TestApplies User input IntegerNonnegative; Else result = NotApplicable stored in NotApplicableMessage</xsd:documentation>
                              </xsd:annotation>
                           </xsd:element>
+			  <xsd:element name="M05_NotApplicableMessage" type="comp:NotApplicableMessage">
+				<xsd:annotation>
+				   <xsd:documentation source="FieldText">Record where you set the Defrost Delay Timer Setting in minutes</xsd:documentation>
+				   <xsd:documentation source="CalculationsAndRules">If M01_DefrostDelayTimerTestApplies != TestApplies result = NotApplicable stored in NotApplicablemessage; </xsd:documentation>
+				</xsd:annotation>
+			  </xsd:element>
+			</xsd:choice>
+			<xsd:choice maxOccurs="1">
                            <xsd:element name="M06_DefrostDelayTimerCompliance" type="comp:DefrostDelayTimerCompliance">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Confirming Configuration of Controls.  If possible, the Defrost Delay Timer Setting must be 90 minutes or greater.  Confirm the Defrost Delay Timer Setting is at least 90 minutes</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">User selects from Yes (Boolean true) or No - Do Not Proceed (Boolean false)</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If M01_DefrostDelayTimerTestApplies == TestApplies User selects from Yes (Boolean true) or No - Do Not Proceed (Boolean false) Else result = NotApplicable stored in NotApplicablemessage</xsd:documentation>
                              </xsd:annotation>
                           </xsd:element>
-                       </xsd:sequence>
-                    </xsd:complexType>
-                  </xsd:element>
+			  <xsd:element name="M06_NotApplicableMessage" type="comp:NotApplicableMessage">
+				<xsd:annotation>
+				   <xsd:documentation source="FieldText">Confirming Configuration of Controls.  If possible, the Defrost Delay Timer Setting must be 90 minutes or greater.  Confirm the Defrost Delay Timer Setting is at least 90 minutes</xsd:documentation>
+				   <xsd:documentation source="CalculationsAndRules">If M01_DefrostDelayTimerTestApplies != TestApplies result = NotApplicable stored in NotApplicablemessage; </xsd:documentation>
+				</xsd:annotation>
+			  </xsd:element>
+			</xsd:choice>
                </xsd:sequence>        
             </xsd:complexType>
          </xsd:element>
@@ -2213,36 +2234,24 @@ Exception1TestNA display term 3 Test does not apply because of Exception 1 Dwell
                   </xsd:element>
                   <xsd:element name="N01_SupplementHeatLockoutTestApplies" type="comp:SupplementHeatLockoutTestApplies" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Test Applicability. Select the statement describing test applicability for this project:</xsd:documentation>
+                        <xsd:documentation source="FieldText">Test Applicability. Select the statement describing test applicability for this project:[d:line1/]d:tab1/] 1. The test applies because the heating system is a heat pump with supplementary heating and there are no exceptions.
+d:line1/]d:tab1/] 2.  The test does not apply because the heating system does not include a heat pump with auxiliary heating. [d:line1/]d:tab1/] 3. The test does not apply because Exception 1. Heat pump being installed in a single family dwelling unit in Climate Zones 7 and 15.
+[d:line1/]d:tab1/] 4. The test does not apply because Exception 2. Heat pump being installed in a single family dwelling unit with a conditioned floor area of 500 square feet or less</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User selects from TestApplies display term 1. The test applies because the heating system is a heat pump with supplementary heating and there are no exceptions, NoSupplementHeat 2. Test does not apply because heating system does not include heat pump with auxiliary heating, 
 Exception1TestNA display term 3 Test does not apply because of Exception 1 Heat pump being installed in a single family dwelling unit in Climate Zones 7 or 15, Exception2TestNA display term  Test does not apply because of Exception 2 Heat pump being installed in a single family dwelling unit with conditioned floor area of 500 square feet or less.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="N01a_SupplementHeatLockoutTestMessage" type="comp:SupplementHeatLockoutTestMessage" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This field is required and displayed If N01_SupplementHeatLockoutTestApplies != TestApplies If N01_SupplementHeatLockoutTestApplies == NoSupplementHeat result = NoSupplementHeatMessage; Else If N01_SupplementHeatLockoutTestApplies == Exception1TestNA result = Exception1Message; Else If N01_SupplementHeatLockoutTestApplies == Exception2TestNA result = Exception2Message;</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="SupplementalHeatingLockout" minOccurs="0" maxOccurs="1">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Test of Supplementary Heating Lockout</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This subsection is required and displayed If N01_SupplementHeatLockoutTestApplies == TestApplies</xsd:documentation>
-                        <xsd:documentation source="MinOccurs">If this subsection is not required, nothing is displayed.</xsd:documentation>
-                     </xsd:annotation>
-                     <xsd:complexType>
-                        <xsd:sequence>
 			   <xsd:choice maxOccurs="1">
                               <xsd:element name="N02_ElectricResistanceHeatingCapacity" type="hvac:ElectricResistanceHeatingCapacity">
                                    <xsd:annotation>
                                       <xsd:documentation source="FieldText">If supplementary heating is electric resistance, what is its rated capacity (kW)? </xsd:documentation>
-                                      <xsd:documentation source="CalculationsAndRules">User input DecimalNonnegative; Units kW</xsd:documentation>
+                                      <xsd:documentation source="CalculationsAndRules">User input DecimalNonnegative; Units kW Else N/A</xsd:documentation>
                                   </xsd:annotation>
                                </xsd:element>
                                <xsd:element name="N02_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                   <xsd:annotation>
                                      <xsd:documentation source="FieldText">If supplementary heating is electric resistance, what is its rated capacity (kW)?</xsd:documentation>
-                                     <xsd:documentation source="CalculationsAndRules">If supplementary heating is not electric resistance heating result = NotApplicable stored in NotApplicablemessage; </xsd:documentation>
+                                     <xsd:documentation source="CalculationsAndRules">If supplementary heating is not electric resistance heating Or If N01_SupplementHeatLockoutTestApplies != TestApplies result = NotApplicable stored in NotApplicablemessage; </xsd:documentation>
                                  </xsd:annotation>
                               </xsd:element>
                            </xsd:choice>
@@ -2250,40 +2259,60 @@ Exception1TestNA display term 3 Test does not apply because of Exception 1 Heat 
                               <xsd:element name="N03_HeatingSupplementalCapacity" type="hvac:HeatingSupplementalCapacity">
                                  <xsd:annotation>
                                     <xsd:documentation source="FieldText">If supplementary heating is gas, what is its rated input capacity (kBtu/hr)?</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">User input Integer; Units kBtu/hr</xsd:documentation>
+                                    <xsd:documentation source="CalculationsAndRules">User input Integer; Units kBtu/hr Else N/A</xsd:documentation>
                                 </xsd:annotation>
                               </xsd:element>
                                <xsd:element name="N03_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                   <xsd:annotation>
                                      <xsd:documentation source="FieldText">If supplementary heating is gas, what is its rated input capacity (kBtu/hr)?</xsd:documentation>
-                                     <xsd:documentation source="CalculationsAndRules">If supplementary heating is not gas heating result = NotApplicable stored in NotApplicablemessage; </xsd:documentation>
+                                     <xsd:documentation source="CalculationsAndRules">If supplementary heating is not gas heating Or If N01_SupplementHeatLockoutTestApplies != TestApplies result = NotApplicable stored in NotApplicablemessage; </xsd:documentation>
                                  </xsd:annotation>
                               </xsd:element>
                            </xsd:choice>
+                           <xsd:choice maxOccurs="1">
                            <xsd:element name="N04_SupplementHeatLockoutControls" type="comp:SupplementHeatLockoutControls">
                               <xsd:annotation>
-                                 <xsd:documentation source="FieldText">Record Configuration of Controls.  Specify the mechanism for locking out supplementary heating</xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">(for example, the name of the supplementary heating lockout setting in the thermostat setup, or the location and number of the specific dip switch, jumper, or dial that adjusts the lockout temperature)
+                                 <xsd:documentation source="FieldText">Confirming Configuration of Controls.  Specify the mechanism for locking out supplementary heating (for example, the name of the supplementary heating lockout setting in the thermostat setup, or the location and number of the specific dip switch, jumper, or dial that adjusts the lockout temperature)
 If there is not mechanism to lockout supplementary heating above a temperature no greater than 35[d:deg/]F, this test fails.</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If N01_SupplementHeatLockoutTestApplies == TestApplies User input text Else result = NotApplicable stored in NotApplicablemessage </xsd:documentation>
                              </xsd:annotation>
                           </xsd:element>
+                               <xsd:element name="N04_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                  <xsd:annotation>
+                                     <xsd:documentation source="FieldText">Confirming Configuration of Controls.  Specify the mechanism for locking out supplementary heating (for example, the name of the supplementary heating lockout setting in the thermostat setup, or the location and number of the specific dip switch, jumper, or dial that adjusts the lockout temperature)
+If there is not mechanism to lockout supplementary heating above a temperature no greater than 35[d:deg/]F, this test fails.</xsd:documentation>
+                                     <xsd:documentation source="CalculationsAndRules">If N01_SupplementHeatLockoutTestApplies != TestApplies result = NotApplicable stored in NotApplicablemessage </xsd:documentation>
+                                 </xsd:annotation>
+                              </xsd:element>
+                           </xsd:choice>
+                           <xsd:choice maxOccurs="1">
                            <xsd:element name="N05_SupplementHeatLockoutSetting" type="comp:SupplementHeatLockoutSetting">
                               <xsd:annotation>
-                                 <xsd:documentation source="FieldText">Record supplementary heating lockout setting</xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">(for example, the numeric thermostat lock-out setpoint, dip switch position, jumper configuration, or dial setting)</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                                 <xsd:documentation source="FieldText">Record supplementary heating lockout setting (for example, the numeric thermostat lock-out setpoint, dip switch position, jumper configuration, or dial setting)</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If N01_SupplementHeatLockoutTestApplies == TestApplies User input text Else result = NotApplicable stored in NotApplicablemessage</xsd:documentation>
                              </xsd:annotation>
                           </xsd:element>
+                               <xsd:element name="N05_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                  <xsd:annotation>
+                                     <xsd:documentation source="FieldText">Record supplementary heating lockout setting (for example, the numeric thermostat lock-out setpoint, dip switch position, jumper configuration, or dial setting)</xsd:documentation>
+                                     <xsd:documentation source="CalculationsAndRules">If N01_SupplementHeatLockoutTestApplies != TestApplies result = NotApplicable stored in NotApplicablemessage </xsd:documentation>
+                                 </xsd:annotation>
+                              </xsd:element>
+                           </xsd:choice>
+                           <xsd:choice maxOccurs="1">
                            <xsd:element name="N06_SupplementHeatLockoutTemp" type="comp:SupplementHeatLockoutTemp">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">At what Outdoor Air Temperature (OAT) are the controls configured to begin locking out supplementary heating?  If this number is above 35[d:deg/]F this test fails</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">User enters temperature xx.x; Units: degrees F.  If result GT 35, Do Not Proceed</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If N01_SupplementHeatLockoutTestApplies == TestApplies User enters temperature xx.x; Units: degrees F. And If result GT 35, Do Not Proceed; Else If N01_SupplementHeatLockoutTestApplies != TestApplies result = NotApplicable stored in NotApplicablemessage </xsd:documentation>
                              </xsd:annotation>
                           </xsd:element>
-                       </xsd:sequence>
-                    </xsd:complexType>
-                  </xsd:element>
+                               <xsd:element name="N06_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                  <xsd:annotation>
+                                     <xsd:documentation source="FieldText">At what Outdoor Air Temperature (OAT) are the controls configured to begin locking out supplementary heating?  If this number is above 35[d:deg/]F this test fails</xsd:documentation>
+                                     <xsd:documentation source="CalculationsAndRules">If N01_SupplementHeatLockoutTestApplies != TestApplies result = NotApplicable stored in NotApplicablemessage </xsd:documentation>
+                                 </xsd:annotation>
+                              </xsd:element>
+                           </xsd:choice>
                </xsd:sequence>        
             </xsd:complexType>
          </xsd:element>
