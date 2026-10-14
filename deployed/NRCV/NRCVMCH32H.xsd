@@ -59,10 +59,10 @@
                 <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
               </xsd:annotation>
             </xsd:element>
-            <xsd:element name="A02_ResidentialBuildingTypeMechExhaust" type="com:ResidentialBuildingTypeMechExhaust">
+            <xsd:element name="A02_ResidentialBuildingTypeMechExhaust" type="com:ResidentialBuildingTypeMechExhaust" fixed="MultiFamily">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Building Type</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">User  selects from list: MultiFamily display term Multifamily, SingleFamilyAttached display term Single family attached, SingleFamilyDetached display term Single family detached</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">Fied value = MultiFamily display term Multifamily</xsd:documentation>
               </xsd:annotation>
             </xsd:element>
             <xsd:choice maxOccurs="1">
@@ -134,7 +134,7 @@ Else result = A03_FloorArea * A04_FloorToCeilingHeight</xsd:documentation>
             <xsd:element name="A07_DwellingUnitConditionedFloorArea" type="com:DwellingUnitConditionedFloorArea">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Dwelling Unit Total Floor Area</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">Calculated field: data loaded from parent CC  DwellingUnitConditionedFloorArea or user input</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
               </xsd:annotation>
             </xsd:element>
             <xsd:element name="A08_FuelType" type="com:FuelType">
@@ -143,13 +143,26 @@ Else result = A03_FloorArea * A04_FloorToCeilingHeight</xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">User selects from list: electric, gas</xsd:documentation>
               </xsd:annotation>
             </xsd:element>
+            <xsd:element name="A09_ExhaustSystemInstalledTypes" type="comp:ExhaustSystemInstalledTypes">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">Confirmation of installed exhaust system types</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">User selects from list: VentedRangeHood display term One or more vented range hood, and NoVentedRangeHood display term No vented range hoods </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="A10_ExhaustSystemVerificationMessage" type="comp:ExhaustSystemVerificationMessage">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">Exhaust Systems Verification Status</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">Calculated field:  If A09_ExhaustSystemInstalledTypes == VentedRangeHood, result = VerificationRequired; Else If A09_ExhaustSystemInstalledTypes == NoVentedRangeHood, result = VerificationNotRequired  </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:element name="Section_B" minOccurs="1" maxOccurs="1">
+      <xsd:element name="Section_B" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:documentation source="FieldText">Kitchen Exhaust Systems</xsd:documentation>
-          <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+          <xsd:documentation source="CalculationsAndRules">This section is required If A10_ExhaustSystemVerificationMessage == VerificationRequired</xsd:documentation>
+          <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
         </xsd:annotation>
         <xsd:complexType>
           <xsd:sequence>
@@ -219,7 +232,7 @@ Else result = A03_FloorArea * A04_FloorToCeilingHeight</xsd:documentation>
                               <xsd:documentation source="FieldText">Method of Compliance</xsd:documentation>
                               <xsd:documentation source="CalculationsAndRules">If B08_KitchenExhaustOperation == ContinuousOperation
 result = N/A stored in NotApplicableMessage
-Else user selects from list: Airflow, CaptureEfficiency
+Else If B03_KitchenExhaustSystemType == VentedRangeHood user selects from list: Airflow, CaptureEfficiency Else result = Airflow
 End If</xsd:documentation>
                             </xsd:annotation>
                           </xsd:element>
@@ -228,7 +241,7 @@ End If</xsd:documentation>
                               <xsd:documentation source="FieldText">Method of Compliance</xsd:documentation>
                               <xsd:documentation source="CalculationsAndRules">If B08_KitchenExhaustOperation == ContinuousOperation
 result = N/A stored in NotApplicableMessage
-Else user selects from list: Airflow, CaptureEfficiency
+Else If B03_KitchenExhaustSystemType == VentedRangeHood user selects from list: Airflow, CaptureEfficiency Else result = Airflow
 End If</xsd:documentation>
                             </xsd:annotation>
                           </xsd:element>
@@ -380,10 +393,11 @@ End If</xsd:documentation>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:element name="Section_C" minOccurs="1">
+      <xsd:element name="Section_C" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation source="FieldText">Continuous Kitchen Exhaust</xsd:documentation>
-          <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+          <xsd:documentation source="CalculationsAndRules">This section is required If A10_ExhaustSystemVerificationMessage == VerificationRequired</xsd:documentation>
+          <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
         </xsd:annotation>
         <xsd:complexType>
           <xsd:sequence>
@@ -436,7 +450,7 @@ result = N/A stored in NotApplicableMessage; Else result = Sum All where B08_Kit
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:element name="Section_C2" minOccurs="0">
+      <xsd:element name="Section_D" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation source="FieldText">Kitchen Range Hood Capture Efficiency Option</xsd:documentation>
           <xsd:documentation source="CalculationsAndRules">This section is required If B09a_HoodExhaustComplianceMethod == CaptureEfficiency</xsd:documentation>
@@ -509,20 +523,21 @@ End If</xsd:documentation>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:element name="Section_D" minOccurs="1">
+      <xsd:element name="Section_E" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation source="FieldText">Determination of ECC Verification Compliance</xsd:documentation>
-          <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+          <xsd:documentation source="CalculationsAndRules">This section is required If A10_ExhaustSystemVerificationMessage == VerificationRequired</xsd:documentation>
+          <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
         </xsd:annotation>
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="D_BeginNote1" minOccurs="0">
+            <xsd:element name="E_BeginNote1" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                 <xsd:documentation source="AdditionalRequirements">All applicable sections of this document shall indicate compliance with the specified verification protocol requirements in order for this Certificate of Verification as a whole to be determined to be in compliance.</xsd:documentation>
               </xsd:annotation>
             </xsd:element>
-            <xsd:element name="D01_DoesNRCV_Pass" type="comp:DoesNRCV_Pass">
+            <xsd:element name="E01_DoesNRCV_Pass" type="comp:DoesNRCV_Pass">
               <xsd:annotation>
                 <xsd:documentation source="FieldText"/>
                 <xsd:documentation source="CalculationsAndRules">If B11_DoesKitchenExhaustSystemComply == true Or Or B11_NotApplicableMessage == N/A 
