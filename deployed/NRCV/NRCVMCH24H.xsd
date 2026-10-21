@@ -48,7 +48,7 @@
           <xsd:sequence>
             <xsd:element name="A01_CompartmentilizationLeakageVerificationRequiredHERS" type="comp:CompartmentilizationLeakageVerificationRequiredHERS">
               <xsd:annotation>
-                <xsd:documentation source="FieldText">ECC verification of dwelling compartmentalization leakage <d:lte/> 0.3 CFM<d:sub>50</d:sub>/ft<d:sup>2</d:sup> of enclosure area required by the Certificate of Compliance?</xsd:documentation>
+                <xsd:documentation source="FieldText">Is ECC verification of dwelling compartmentalization leakage <d:lte/> 0.3 CFM<d:sub>50</d:sub>/ft<d:sup>2</d:sup> of enclosure area required by the Certificate of Compliance?</xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">User selects true display term Yes or false display term No - See Exception to 180.1(a)2 or Exception to 180.2(b)5</xsd:documentation>
                 <xsd:appinfo source="displayterm">
                   <dtyp:displayterm value="true">Yes</dtyp:displayterm>
@@ -56,19 +56,27 @@
                 </xsd:appinfo>
               </xsd:annotation>
             </xsd:element>
-            <xsd:element name="A02_AirLeakageTestProcedure">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText">Test Procedure Used</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">User selects from list:  SinglePointTestManualMeter, display term Single-Point Test with Manual Meter    SinglePointTestAutomaticMeter,  display term Single-Point Test with Automatic Meter and MultiPointTest display term Multi-Point Test</xsd:documentation>
-              </xsd:annotation>
-              <xsd:simpleType>
-                <xsd:restriction base="comp:AirLeakageTestProcedure">
-                  <xsd:enumeration value="MultiPointTest"/>
-                  <xsd:enumeration value="SinglePointTestAutomaticMeter"/>
-                  <xsd:enumeration value="SinglePointTestManualMeter"/>
-                </xsd:restriction>
-              </xsd:simpleType>
-            </xsd:element>
+            <xsd:choice maxOccurs="1">
+              <xsd:element name="A02_AirLeakageTestProcedure">
+                <xsd:annotation>
+                  <xsd:documentation source="FieldText">Test Procedure Used</xsd:documentation>
+                  <xsd:documentation source="CalculationsAndRules">If A01_CompartmentilizationLeakageVerificationRequiredHERS == true, User selects from list:  SinglePointTestManualMeter, display term Single-Point Test with Manual Meter    SinglePointTestAutomaticMeter,  display term Single-Point Test with Automatic Meter and MultiPointTest display term Multi-Point Test; Else result = N/A stored in NotApplicableMessage</xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                  <xsd:restriction base="comp:AirLeakageTestProcedure">
+                    <xsd:enumeration value="MultiPointTest"/>
+                    <xsd:enumeration value="SinglePointTestAutomaticMeter"/>
+                    <xsd:enumeration value="SinglePointTestManualMeter"/>
+                  </xsd:restriction>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element name="A02_NotApplicableMessage" type="comp:NotApplicableMessage">
+                <xsd:annotation>
+                  <xsd:documentation source="FieldText">Test Procedure Used</xsd:documentation>
+                  <xsd:documentation source="CalculationsAndRules">Calculated field:  If A01_CompartmentilizationLeakageVerificationRequiredHERS == false result = N/A stored in NotApplicableMessage</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+            </xsd:choice>
             <xsd:choice maxOccurs="1">
               <xsd:element name="A03_TestDate" type="comp:TestDate">
                 <xsd:annotation>
@@ -226,10 +234,11 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:element name="Section_B" minOccurs="1" maxOccurs="1">
+      <xsd:element name="Section_B" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:documentation source="FieldText">Diagnostic Equipment Information</xsd:documentation>
-          <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+          <xsd:documentation source="MinOccurs">If this section is not required. display the Section Title and this text " This section does not apply to this project</xsd:documentation>
+          <xsd:documentation source="CalculationsAndRules">If A01_CompartmentilizationLeakageVerificationRequiredHERS == true  this section is required</xsd:documentation>
         </xsd:annotation>
         <xsd:complexType>
           <xsd:sequence>
