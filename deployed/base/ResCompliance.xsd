@@ -15465,7 +15465,7 @@ Reference Appendix RA3.5 and  field verification must be conducted by an ECC Rat
         <dtyp:displayterm value="FenestrationGlazingWindowMinimumFt2Replacement">Replacing Fenestration/Glazing less than or equal to 75 ft2  Windows</dtyp:displayterm>
         <dtyp:displayterm value="HeatingSystemAlteration">Space heating system</dtyp:displayterm>
         <dtyp:displayterm value="InsulationAlteration">Insulation</dtyp:displayterm>
-        <dtyp:displayterm value="KitchenHoodNewReplace">Kitchen Range Hood Installation (new or replacement)</dtyp:displayterm>
+        <dtyp:displayterm value="KitchenHoodNewReplace">Kitchen Exhaust</dtyp:displayterm>
         <dtyp:displayterm value="KitchenRemodelAlteration">Kitchen Remodel</dtyp:displayterm>
         <dtyp:displayterm value="RoofAlterationGT50Percent">Roof replacement greater than 50 %</dtyp:displayterm>
         <dtyp:displayterm value="WaterHeatingAlteration">Water heating</dtyp:displayterm>

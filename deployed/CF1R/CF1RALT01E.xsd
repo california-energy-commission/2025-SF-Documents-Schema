@@ -124,7 +124,7 @@
                 <xsd:documentation source="CalculationsAndRules">User can select as many as are applicable from this list.  
 InsulationAlteration display term Insulation (show Tables B, C, D);  
 RoofAlterationGT50Percent display term Roof Replacement greater than 50 percent (Show Table E and B);  
-KitchenHoodNewReplace display term Kitchen Range Hood Installation (new or replacement); Previous version of schema uses KitchenRemodelAlteration, also available  
+KitchenHoodNewReplace display term Kitchen Exhaust; Previous version of schema uses KitchenRemodelAlteration, also available  
 HeatingSystemAlteration display term:  Space Heating System (display Table I)  
 CoolingSystemAlteration display term Space Cooling System (display Table I)  
 DuctSystemAlteration display term Space Conditioning Duct System (display Table I)  
