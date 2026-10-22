@@ -15428,7 +15428,7 @@ Reference Appendix RA3.5 and  field verification must be conducted by an ECC Rat
         <dtyp:displayterm value="DuctSystemAddition">Space conditioning duct system</dtyp:displayterm>
         <dtyp:displayterm value="FenestrationAddition">Fenestration</dtyp:displayterm>
         <dtyp:displayterm value="HeatingSystemAddition">Space heating system</dtyp:displayterm>
-        <dtyp:displayterm value="KitchenRemodelAddition">Kitchen Remodel</dtyp:displayterm>
+        <dtyp:displayterm value="KitchenRemodelAddition">Kitchen Exhaust</dtyp:displayterm>
         <dtyp:displayterm value="ExteriorDoorsAddition">Opaque Exterior Doors</dtyp:displayterm>
         <dtyp:displayterm value="WaterHeatingAddition">Water heating</dtyp:displayterm>
       </xsd:appinfo>
