@@ -100,8 +100,7 @@
                   <xsd:element name="A07_DuctSystemLeakageComplianceCategory" type="comp:DuctSystemLeakageComplianceCategory" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Duct System Compliance Category</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If CF2R-MCH-20 A07 == New result = New; Else If CF2R-MCH-20 A07 == AlterationUsingSmokeTest result = AlterationUsingSmokeTest; Else If CF2R-MCH-20 A07 == ReplacementUsingSmokeTest result = ReplacementUsingSmokeTest; 
-Else If CF2R-MCH-20 A07 value == Alteration result = Alteration Unless target leakage cannot be met due to the equipment not being new or inaccessible leaks, then user may select AlterationUsingSmokeTest; Else If CF2R-MCH-20 A07 == Replacement Then result = Replacement Unless target leakage cannot be met due to the equipment not being new, and then user may select ReplacementUsingSmokeTest;</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If CF2R-MCH-20 A07 == New result = New; Else user selects from list: Alteration, AlterationUsingSmokeTest, Replacement, ReplacementUsingSmokeTest;</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A08_AreDuctsInGarage" type="comp:AreDuctsInGarage" >
