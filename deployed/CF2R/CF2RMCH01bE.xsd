@@ -1985,8 +1985,8 @@ Else If A02_ClimateZone == 2, 8, 9, 10, 11, 12, 13, 14, 15 then result = true; E
               <xsd:annotation>
                 <xsd:documentation source="FieldText">System Selection Requirements</xsd:documentation>
                 <xsd:documentation source="AdditionalRequirements"><d:b>System Selection:</d:b> See Section 150.0(h)5 <d:line1/> A. Equipment sizing and selection shall meet the cooling and heating loads of Section 150.0(h) 1 and 2
-<d:line1/>B. Systems shall be sized based on ACCA Manual S-2023 in accordance with these requirements: <d:line1/><d:tab1/> i. <d:b>Cooling Capacity:</d:b> There is no limit on the minimum capacity. <d:line1/><d:tab1/> i. <d:b>urnaces:</d:b> Heating capacity shall be sized based on ACCA Manual S-2023, Table N2.5
-<d:line1/><d:tab1/> i. <d:b>Heat Pump Heating Capacity:</d:b> <d:line1/><d:tab2/> a. Minimum: Heating systems are required to have a heating capacity meeting the minimum requirements of the CBC not including any supplemental heating. <d:line1/><d:tab2/> b. Maximum: There is no limit on the maximum heating capacity.</xsd:documentation>
+<d:line1/>B. Systems shall be sized based on ACCA Manual S-2023 in accordance with these requirements: <d:line1/><d:tab1/> i. <d:b>Cooling Capacity:</d:b> There is no limit on the minimum capacity. <d:line1/><d:tab1/> ii. <d:b>Furnaces:</d:b> Heating capacity shall be sized based on ACCA Manual S-2023, Table N2.5
+<d:line1/><d:tab1/> iii. <d:b>Heat Pump Heating Capacity:</d:b> <d:line1/><d:tab2/> a. Minimum: Heating systems are required to have a heating capacity meeting the minimum requirements of the CBC not including any supplemental heating. <d:line1/><d:tab2/> b. Maximum: There is no limit on the maximum heating capacity.</xsd:documentation>
               </xsd:annotation>
             </xsd:element>
             <xsd:element name="L12" minOccurs="0">
