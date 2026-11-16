@@ -100,7 +100,7 @@
               <xsd:element name="A06_VentilationSystemType">
                 <xsd:annotation>
                   <xsd:documentation source="FieldText">Ventilation System Type</xsd:documentation>
-                  <xsd:documentation source="CalculationsAndRules">Use this choice If A03_ProjectScopeNR == ExistingAddition Or ExistingAlteration;  User picks one from list of following values: Balanced display term Balanced, BalancedCentralVent display term Central Ventilation System - Balanced, BalancedERV display term Balanced ERV, BalancedHRV display term Balanced HRV, 
+                  <xsd:documentation source="CalculationsAndRules">Use this choice If A03_ProjectScopeNR == ExistingAlteration Or ExistingAddition,  User picks one from list of following values: Balanced display term Balanced, BalancedCentralVent display term Central Ventilation System - Balanced, BalancedERV display term Balanced ERV, BalancedHRV display term Balanced HRV, 
 CentralFanIntegrated display term Central Fan Integrated (CFI), ExhaustCentralVent display term Central Ventilation System - Exhaust, SupplyCentralVent display term Central Ventilation System - Supply, ExhaustVent display term Exhaust, SupplyVent display term Supply</xsd:documentation>
                 </xsd:annotation>
                 <xsd:simpleType>
@@ -120,8 +120,8 @@ CentralFanIntegrated display term Central Fan Integrated (CFI), ExhaustCentralVe
               <xsd:element name="A06new_VentilationSystemType">
                 <xsd:annotation>
                   <xsd:documentation source="FieldText">Ventilation System Type</xsd:documentation>
-                  <xsd:documentation source="CalculationsAndRules">Use this choice If A03_ProjectScopeNR == NewComplete;  User picks one from list of following values: Balanced display term Balanced, BalancedCentralVent display term Central Ventilation System - Balanced, BalancedERV display term Balanced ERV, BalancedHRV display term Balanced HRV, 
-CentralFanIntegrated display term Central Fan Integrated (CFI), ExhaustCentralVent display term Central Ventilation System - Exhaust, SupplyCentralVent display term Central Ventilation System - Supply, SupplyVent display term Supply</xsd:documentation>
+                  <xsd:documentation source="CalculationsAndRules">Use this choice If A03_ProjectScopeNR == NewComplete,  User picks one from list of following values: Balanced display term Balanced, BalancedCentralVent display term Central Ventilation System - Balanced, BalancedERV display term Balanced ERV, BalancedHRV display term Balanced HRV, 
+CentralFanIntegrated display term Central Fan Integrated (CFI), SupplyCentralVent display term Central Ventilation System - Supply, SupplyVent display term Supply</xsd:documentation>
                 </xsd:annotation>
                 <xsd:simpleType>
                   <xsd:restriction base="hvac:VentilationSystemType">
@@ -131,7 +131,6 @@ CentralFanIntegrated display term Central Fan Integrated (CFI), ExhaustCentralVe
                     <xsd:enumeration value="BalancedCentralVent"/>
                     <xsd:enumeration value="CentralFanIntegrated"/>
                     <xsd:enumeration value="SupplyCentralVent"/>
-                    <xsd:enumeration value="ExhaustCentralVent"/>
                     <xsd:enumeration value="SupplyVent"/>
                   </xsd:restriction>
                 </xsd:simpleType>
@@ -175,7 +174,7 @@ CentralFanIntegrated display term Central Fan Integrated (CFI), ExhaustCentralVe
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
                 <xsd:documentation source="AdditionalRequirements">A mechanical ventilation system shall provide whole-dwelling ventilation with outdoor air each hour at no less than the rate in 160.2(b)2Aiv.  
-Each dwelling unit in the building must have the same system type, whether supply or balanced.  Exhaust systems are prohibited.</xsd:documentation>
+Each dwelling unit in the building must have the same system type, whether supply or balanced.  Exhaust systems are only allowed when replacing an exhaust system, or when the proect scope is Addition or Alteration.</xsd:documentation>
               </xsd:annotation>
             </xsd:element>
             <xsd:element name="B01_MinimumAirflowRateRequired" type="comp:MinimumAirflowRateRequired">
