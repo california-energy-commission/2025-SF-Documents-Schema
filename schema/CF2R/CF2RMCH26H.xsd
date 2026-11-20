@@ -104,7 +104,11 @@
                         <xsd:documentation source="FieldText">Status:  EER/EER2 Performance Compliance Credit Check</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Switch (parent MCH01 variant) 
 case MCH-01a: 
-If A03a_EfficiencyType == EERSEER  Then 
+If MCH-01a If N01_ResidentialSpaceConditioningSystemName is one of the HP systems listed in H01
+OR (MCH-01a B03_ResidentialHeatingSystemType Or B04_ResidentialCoolingSystemType) == one of the following split/mini-split AC sstems: 
+DuctedMultiSplitAC, DuctedMiniSplitAC, DuctlessMultiSplitAC, DuctlessSplitAC, DuctlessVRF_AC Then result = true;
+
+Else If A03a_EfficiencyType == EERSEER  Then 
 (D05, C07, F04, F10 in these conditions are from the MCH01a)
 If D05_ ResidentialCoolingSystemType  == CentralPackagedAC And
 C07_EfficiencyMinimumValueEER  GT 11.0 And 
@@ -138,7 +142,11 @@ result = false
 End If
  
 case MCH-01d: 
-If A03a_EfficiencyType == EERSEER  Then
+If MCH-01d If P01_ResidentialSpaceConditioningSystemName is one of the HP systems listed in I01
+OR (MCH-01d B03_ResidentialHeatingSystemType Or B04_ResidentialCoolingSystemType) == one of the following split/mini-split AC sstems: 
+DuctedMultiSplitAC, DuctedMiniSplitAC, DuctlessMultiSplitAC, DuctlessSplitAC, DuctlessVRF_AC Then result = true;
+  
+Else If A03a_EfficiencyType == EERSEER  Then
 (D05, C07, G04, G10 in these conditions are from the MCH01d)
 If D05_ ResidentialCoolingSystemType  == CentralPackagedAC And 
 C07_EfficiencyMinimumValueEER IsPresent And GT 11.0 And  
